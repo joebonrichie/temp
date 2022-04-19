@@ -1,0 +1,41 @@
+include ../Makefile.inc
+
+ifeq ($(CPLUSPLUS), true)
+  other_languages: use_of_import$(EXE) cpp_main$(EXE)
+else
+  other_languages: use_of_import$(EXE)
+endif
+
+imported_function.o: imported_function.c
+	 gcc -c -o imported_function.o imported_function.c
+
+use_of_import$(EXE): use_of_import.adb imported_function.o
+	gnatmake use_of_import -largs imported_function.o
+ifeq ($(RUN),true)
+	$(CDir)use_of_import$(EXE)
+endif
+
+ex7.o: ex7.cc
+	g++ -c -o ex7.o ex7.cc
+
+%.o: %.c
+	gcc -c -o $@ $<
+
+cpp_main.o: cpp_main.cc
+	g++ -c -o cpp_main.o cpp_main.cc
+
+cpp_main$(EXE): simple_cpp_interface.adb cpp_main.o ex7.o $(OBJ_ADD) bin/$(WRAPPER)$(EXE)
+	gnatmake -c simple_cpp_interface
+	gnatbind -n simple_cpp_interface
+	gnatlink simple_cpp_interface -o cpp_main --LINK=bin/$(WRAPPER) ex7.o cpp_main.o ${OBJ_ADD}
+ifeq ($(RUN),true)
+	$(CDir)cpp_main$(EXE)
+endif
+
+bin/$(WRAPPER)$(EXE):
+	gnatmake $(WRAPPER) -o bin/$(WRAPPER)$(EXE)
+
+clean:
+	$(RM) *.o *.ali b~* *.a cpp_main$(EXE) cpp_main.gcc3 use_of_import
+
+.PHONY: clean

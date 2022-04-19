@@ -1,0 +1,1576 @@
+V "GNAT Lib v2021"
+A -O2
+A -gnatA
+A -gnatn
+A -gnatwa
+A -gnatwC
+A -gnatwJ
+A -mtune=generic
+A -march=x86-64
+P SS ZX
+
+RN
+RV NO_ACCESS_SUBPROGRAMS
+RV NO_ALLOCATORS
+RV NO_CALENDAR
+RV NO_DELAY
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_DISPATCH
+RV NO_DISPATCHING_CALLS
+RV NO_EXCEPTION_HANDLERS
+RV NO_EXCEPTION_PROPAGATION
+RV NO_EXCEPTIONS
+RV NO_FINALIZATION
+RV NO_IO
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_LOCAL_ALLOCATORS
+RV NO_NESTED_FINALIZATION
+RV NO_RECURSION
+RV NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_UNCHECKED_ACCESS
+RV NO_UNCHECKED_DEALLOCATION
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_ATTRIBUTES
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLICIT_LOOPS
+RV NO_ELABORATION_CODE
+RV NO_OBSOLESCENT_FEATURES
+
+U gnatcoll.email%b	gnatcoll-email.adb	904ad3ae OO PK IU
+W ada%s			ada.ads			ada.ali
+W ada.calendar%s	a-calend.adb		a-calend.ali
+W ada.characters%s	a-charac.ads		a-charac.ali
+W ada.characters.handling%s  a-chahan.adb	a-chahan.ali
+W ada.containers%s	a-contai.ads		a-contai.ali
+Z ada.exceptions%s	a-except.adb		a-except.ali
+W ada.strings%s		a-string.ads		a-string.ali
+W ada.strings.fixed%s	a-strfix.adb		a-strfix.ali
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+W ada.unchecked_deallocation%s
+W gnat%s		gnat.ads		gnat.ali
+W gnat.strings%s	g-string.ads		g-string.ali
+W gnatcoll%s		gnatcoll.ads		gnatcoll.ali
+W gnatcoll.email%s	gnatcoll-email.adb	gnatcoll-email.ali
+W gnatcoll.email.utils%s  gnatcoll-email-utils.adb  gnatcoll-email-utils.ali
+W gnatcoll.utils%s	gnatcoll-utils.adb	gnatcoll-utils.ali
+W gnatcoll.vfs%s	gnatcoll-vfs.adb	gnatcoll-vfs.ali
+Z system%s		system.ads		system.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+Z system.soft_links%s	s-soflin.adb		s-soflin.ali
+Z system.standard_library%s  s-stalib.adb	s-stalib.ali
+Z system.storage_elements%s  s-stoele.adb	s-stoele.ali
+Z system.storage_pools%s  s-stopoo.adb		s-stopoo.ali
+Z system.storage_pools.subpools%s  s-stposu.adb	s-stposu.ali
+
+U gnatcoll.email%s	gnatcoll-email.ads	703ace75 BN EE OO PF PK IU
+W ada%s			ada.ads			ada.ali
+W ada.calendar%s	a-calend.adb		a-calend.ali
+W ada.containers%s	a-contai.ads		a-contai.ali
+W ada.containers.doubly_linked_lists%s
+Z ada.containers.helpers%s  a-conhel.adb	a-conhel.ali
+Z ada.exceptions%s	a-except.adb		a-except.ali
+W ada.finalization%s	a-finali.ads		a-finali.ali
+Z ada.iterator_interfaces%s
+Z ada.streams%s		a-stream.adb		a-stream.ali
+W ada.strings%s		a-string.ads		a-string.ali
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+W ada.strings.unbounded%s  a-strunb.adb		a-strunb.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
+Z ada.unchecked_deallocation%s
+W gnatcoll%s		gnatcoll.ads		gnatcoll.ali
+W gnatcoll.vfs%s	gnatcoll-vfs.adb	gnatcoll-vfs.ali
+Z system%s		system.ads		system.ali
+Z system.exception_table%s  s-exctab.adb	s-exctab.ali
+Z system.finalization_masters%s  s-finmas.adb	s-finmas.ali
+Z system.pool_global%s	s-pooglo.adb		s-pooglo.ali
+Z system.put_images%s	s-putima.adb		s-putima.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+Z system.soft_links%s	s-soflin.adb		s-soflin.ali
+Z system.standard_library%s  s-stalib.adb	s-stalib.ali
+Z system.storage_elements%s  s-stoele.adb	s-stoele.ali
+Z system.storage_pools%s  s-stopoo.adb		s-stopoo.ali
+Z system.storage_pools.subpools%s  s-stposu.adb	s-stposu.ali
+Z system.stream_attributes%s  s-stratt.adb	s-stratt.ali
+Z system.strings.stream_ops%s  s-ststop.adb	s-ststop.ali
+
+D ada.ads		20210520051131 76789da1 ada%s
+D a-calend.ads		20210520051128 474d9720 ada.calendar%s
+D a-calfor.ads		20210520051128 0f4707d1 ada.calendar.formatting%s
+D a-catizo.ads		20210520051128 eaa56756 ada.calendar.time_zones%s
+D a-charac.ads		20210520051128 2d3ec45b ada.characters%s
+D a-chahan.ads		20210520051128 0ce1b450 ada.characters.handling%s
+D a-chahan.adb		20210520051128 9621beac ada.characters.handling%b
+D a-chlat1.ads		20210520051128 66457d31 ada.characters.latin_1%s
+D a-contai.ads		20210520051128 61e5e089 ada.containers%s
+D a-cdlili.ads		20210520051128 ad05d077 ada.containers.doubly_linked_lists%s
+D a-cdlili.adb		20210520051128 e29ee816 ada.containers.doubly_linked_lists%b
+D a-cohata.ads		20210520051128 bc432d0e ada.containers.hash_tables%s
+D a-chtgke.ads		20210520051128 20177f7b ada.containers.hash_tables.generic_keys%s
+D a-chtgop.ads		20210520051128 11c5978a ada.containers.hash_tables.generic_operations%s
+D a-cohase.ads		20210520051128 99ffee14 ada.containers.hashed_sets%s
+D a-cohase.adb		20210520051128 05519028 ada.containers.hashed_sets%b
+D a-conhel.ads		20210520051128 20298884 ada.containers.helpers%s
+D a-conhel.adb		20210520051128 fe7a6827 ada.containers.helpers%b
+D a-coprnu.ads		20210520051128 0cdf1864 ada.containers.prime_numbers%s
+D a-except.ads		20210520051128 946f3014 ada.exceptions%s
+D a-finali.ads		20210520051128 bf4f806b ada.finalization%s
+D a-ioexce.ads		20210520051128 e4a01f64 ada.io_exceptions%s
+D a-iteint.ads		20210520051128 49a8bee2 ada.iterator_interfaces%s
+D a-numeri.ads		20210520051129 84bea7a3 ada.numerics%s
+D a-nudira.ads		20210520051129 5984dff3 ada.numerics.discrete_random%s
+D a-stream.ads		20210520051129 119b8fb3 ada.streams%s
+D a-string.ads		20210520051129 90ac6797 ada.strings%s
+D a-strfix.ads		20210520051129 aeacf44c ada.strings.fixed%s
+D a-strhas.ads		20210520051129 c71c2a52 ada.strings.hash%s
+D a-shcain.ads		20210520051129 08af52df ada.strings.hash_case_insensitive%s
+D a-strmap.ads		20210520051129 5a88892a ada.strings.maps%s
+D a-stmaco.ads		20210520051129 1c0e5368 ada.strings.maps.constants%s
+D a-strsea.ads		20210520051129 b9bc90ba ada.strings.search%s
+D a-sttebu.ads		20210520051129 18209c64 ada.strings.text_buffers%s
+D a-strunb.ads		20210520051129 03325227 ada.strings.unbounded%s
+D a-strunb.adb		20210520051129 3b950306 ada.strings.unbounded%b
+D a-stunau.ads		20210520051129 76c9a2c5 ada.strings.unbounded.aux%s
+D a-stuten.ads		20210520051129 808c40ad ada.strings.utf_encoding%s
+D a-tags.ads		20210520051130 9eaa38c6 ada.tags%s
+D a-textio.ads		20210520051130 aef4d56d ada.text_io%s
+D a-unccon.ads		20210520051130 0e9b276f ada.unchecked_conversion%s
+D a-uncdea.ads		20210520051130 c3a8ac65 ada.unchecked_deallocation%s
+D gnat.ads		20210520051132 b5988c27 gnat%s
+D g-calend.ads		20210520051131 cad86fa7 gnat.calendar%s
+D g-decstr.ads		20210520051131 cb0aa373 gnat.decode_string%s
+D g-expect.ads		20210520051131 e4246c0f gnat.expect%s
+D g-heasor.ads		20210520051131 fb287677 gnat.heap_sort%s
+D g-os_lib.ads		20210520051131 0db74523 gnat.os_lib%s
+D g-regpat.ads		20210520051131 b85d88ef gnat.regpat%s
+D g-string.ads		20210520051131 c6abc540 gnat.strings%s
+D gnatcoll.ads		20210519051041 6a5da479 gnatcoll%s
+D gnatcoll-atomic.ads	20210519051041 a760a918 gnatcoll.atomic%s
+D gnatcoll-atomic.adb	20210519051041 d76879ba gnatcoll.atomic%b
+D gnatcoll-coders.ads	20210519051041 a663f6e5 gnatcoll.coders%s
+D gnatcoll-coders-base64.ads  20210519051041 295cb4be gnatcoll.coders.base64%s
+D gnatcoll-email.ads	20210519051041 52ae8de1 gnatcoll.email%s
+D gnatcoll-email.adb	20210519051041 d7ef0d30 gnatcoll.email%b
+D gnatcoll-email-utils.ads  20210519051041 76732bc8 gnatcoll.email.utils%s
+D gnatcoll-email-utils.adb  20210519051041 d0dd49a9 gnatcoll.email.utils%b
+D gnatcoll-io.ads	20210519051041 40b00e79 gnatcoll.io%s
+D gnatcoll-io-native.ads  20210519051041 60c7703b gnatcoll.io.native%s
+D gnatcoll-io-remote.ads  20210519051041 dbadffe6 gnatcoll.io.remote%s
+D gnatcoll-path.ads	20210519051041 44783065 gnatcoll.path%s
+D gnatcoll-refcount.ads	20210519051041 b4dda25c gnatcoll.refcount%s
+D gnatcoll-remote.ads	20210519051041 0702f81b gnatcoll.remote%s
+D gnatcoll-remote-db.ads  20210519051041 359f4135 gnatcoll.remote.db%s
+D gnatcoll-storage_pools.ads  20210519051041 f82e283b gnatcoll.storage_pools%s
+D gnatcoll-storage_pools-headers.ads  20210519051041 968b2c2e gnatcoll.storage_pools.headers%s
+D gnatcoll-strings.ads	20210519051041 014a3fb6 gnatcoll.strings%s
+D gnatcoll-strings.ads	20210519051041 014a3fb6 gnatcoll.strings%s
+D gnatcoll-strings_impl.ads  20210519051041 660cba3c gnatcoll.strings_impl%s
+D gnatcoll-strings_impl.adb  20210519051041 4bac4314 gnatcoll.strings_impl%b
+D gnatcoll-utils.ads	20210519051041 529681bc gnatcoll.utils%s
+D gnatcoll-vfs.ads	20210519051041 1efc72f6 gnatcoll.vfs%s
+D gnatcoll-vfs.adb	20210519051041 0d1af567 gnatcoll.vfs%b
+D gnatcoll-vfs_types.ads  20210519051041 14be4a8d gnatcoll.vfs_types%s
+D interfac.ads		20210520051132 edec285f interfaces%s
+D i-c.ads		20210520051132 d9beded9 interfaces.c%s
+D i-cstrin.ads		20210520051132 341d0ddf interfaces.c.strings%s
+D i-cstrea.ads		20210520051132 e53d8b8e interfaces.c_streams%s
+D system.ads		20210520051135 a2da961d system%s
+D s-atocou.ads		20210520051132 b45c2d8d system.atomic_counters%s
+D s-atocou.adb		20210520051132 b65612c0 system.atomic_counters%b
+D s-carun8.ads		20210520051132 a903718d system.compare_array_unsigned_8%s
+D s-crtl.ads		20210520051132 0ebbdb71 system.crtl%s
+D s-exctab.ads		20210520051132 54135002 system.exception_table%s
+D s-exctab.adb		20210520051132 c756f391 system.exception_table%b
+D s-ficobl.ads		20210520051132 078245e4 system.file_control_block%s
+D s-finmas.ads		20210520051132 1ab4dba8 system.finalization_masters%s
+D s-finroo.ads		20210520051132 4ff27390 system.finalization_root%s
+D s-imagei.ads		20210520051133 0d3f86a7 system.image_i%s
+D s-imgint.ads		20210520051133 bdb6f5ec system.img_int%s
+D s-memory.ads		20210520051133 597d6634 system.memory%s
+D s-os_lib.ads		20210520051133 93b69309 system.os_lib%s
+D s-parame.ads		20210520051134 4752c4cb system.parameters%s
+D s-pooglo.ads		20210520051134 ede33ef8 system.pool_global%s
+D s-putima.ads		20210520051134 4e095881 system.put_images%s
+D s-rannum.ads		20210520051134 c3978523 system.random_numbers%s
+D s-regpat.ads		20210520051134 825a9b7f system.regpat%s
+D s-secsta.ads		20210520051134 9b3ab94b system.secondary_stack%s
+D s-soflin.ads		20210520051134 a7318a92 system.soft_links%s
+D s-stache.ads		20210520051134 a37c21ec system.stack_checking%s
+D s-stalib.ads		20210520051134 472fbca8 system.standard_library%s
+D s-stalib.adb		20210520051134 977290bf system.standard_library%b
+D s-stoele.ads		20210520051134 2dc34a04 system.storage_elements%s
+D s-stoele.adb		20210520051134 ed88f8fb system.storage_elements%b
+D s-stopoo.ads		20210520051134 e9fa2dd8 system.storage_pools%s
+D s-stposu.ads		20210520051134 e251976f system.storage_pools.subpools%s
+D s-stratt.ads		20210520051134 7bdda3fa system.stream_attributes%s
+D s-stratt.adb		20210520051134 fc996108 system.stream_attributes%b
+D s-statxd.ads		20210520051134 b54789f6 system.stream_attributes.xdr%s
+D s-strhas.ads		20210520051134 269cd894 system.string_hash%s
+D s-strhas.adb		20210520051134 2e038444 system.string_hash%b
+D s-string.ads		20210520051134 8fe54fb7 system.strings%s
+D s-ststop.ads		20210520051134 5fbf1b38 system.strings.stream_ops%s
+D s-traent.ads		20210520051134 26a8d361 system.traceback_entries%s
+D s-unstyp.ads		20210520051134 2b077493 system.unsigned_types%s
+D s-vaenu8.ads		20210520051134 b7b91426 system.val_enum_8%s
+D s-valint.ads		20210520051134 e7fcadb7 system.val_int%s
+D s-valuns.ads		20210520051134 dac7b45d system.val_uns%s
+D s-valuei.ads		20210520051134 978dd0a6 system.value_i%s
+D s-valuen.ads		20210520051134 72b74993 system.value_n%s
+D s-valueu.ads		20210520051134 7b8fccf5 system.value_u%s
+D s-wchcon.ads		20210520051135 1b7d22d2 system.wch_con%s
+D unchconv.ads		20210520051135 ca2f9e18 unchecked_conversion%s
+G a e
+G c Z s s [charset_stringDI gnatcoll__email 40 9 none]
+G c Z s s [charset_stringDA gnatcoll__email 40 9 none]
+G c Z s s [charset_stringDF gnatcoll__email 40 9 none]
+G c Z s s [charset_stringIP gnatcoll__email 40 9 none]
+G c Z s s [empty gnatcoll__email__charset_string_list 70 13 51_4]
+G c Z s s [has_element gnatcoll__email__charset_string_list 75 13 51_4]
+G c Z s s [Oeq gnatcoll__email__charset_string_list 80 13 51_4]
+G c Z s s [length gnatcoll__email__charset_string_list 82 13 51_4]
+G c Z s s [is_empty gnatcoll__email__charset_string_list 84 13 51_4]
+G c Z s s [clear gnatcoll__email__charset_string_list 86 14 51_4]
+G c Z s s [element gnatcoll__email__charset_string_list 88 13 51_4]
+G c Z s s [replace_element gnatcoll__email__charset_string_list 90 14 51_4]
+G c Z s s [query_element gnatcoll__email__charset_string_list 95 14 51_4]
+G c Z s s [update_element gnatcoll__email__charset_string_list 99 14 51_4]
+G c Z s s [constant_reference gnatcoll__email__charset_string_list 114 13 51_4]
+G c Z s s [reference gnatcoll__email__charset_string_list 119 13 51_4]
+G c Z s s [assign gnatcoll__email__charset_string_list 124 14 51_4]
+G c Z s s [copy gnatcoll__email__charset_string_list 126 13 51_4]
+G c Z s s [move gnatcoll__email__charset_string_list 128 14 51_4]
+G c Z s s [insert gnatcoll__email__charset_string_list 132 14 51_4]
+G c Z s s [insert gnatcoll__email__charset_string_list 138 14 51_4]
+G c Z s s [insert gnatcoll__email__charset_string_list 145 14 51_4]
+G c Z s s [prepend gnatcoll__email__charset_string_list 151 14 51_4]
+G c Z s s [append gnatcoll__email__charset_string_list 156 14 51_4]
+G c Z s s [append gnatcoll__email__charset_string_list 161 14 51_4]
+G c Z s s [delete gnatcoll__email__charset_string_list 165 14 51_4]
+G c Z s s [delete_first gnatcoll__email__charset_string_list 170 14 51_4]
+G c Z s s [delete_last gnatcoll__email__charset_string_list 174 14 51_4]
+G c Z s s [reverse_elements gnatcoll__email__charset_string_list 178 14 51_4]
+G c Z s s [iterate gnatcoll__email__charset_string_list 180 13 51_4]
+G c Z s s [iterate gnatcoll__email__charset_string_list 183 13 51_4]
+G c Z s s [swap gnatcoll__email__charset_string_list 186 14 51_4]
+G c Z s s [swap_links gnatcoll__email__charset_string_list 190 14 51_4]
+G c Z s s [splice gnatcoll__email__charset_string_list 194 14 51_4]
+G c Z s s [splice gnatcoll__email__charset_string_list 199 14 51_4]
+G c Z s s [splice gnatcoll__email__charset_string_list 205 14 51_4]
+G c Z s s [first gnatcoll__email__charset_string_list 210 13 51_4]
+G c Z s s [first_element gnatcoll__email__charset_string_list 212 13 51_4]
+G c Z s s [last gnatcoll__email__charset_string_list 214 13 51_4]
+G c Z s s [last_element gnatcoll__email__charset_string_list 216 13 51_4]
+G c Z s s [next gnatcoll__email__charset_string_list 218 13 51_4]
+G c Z s s [next gnatcoll__email__charset_string_list 220 14 51_4]
+G c Z s s [previous gnatcoll__email__charset_string_list 222 13 51_4]
+G c Z s s [previous gnatcoll__email__charset_string_list 224 14 51_4]
+G c Z s s [find gnatcoll__email__charset_string_list 226 13 51_4]
+G c Z s s [reverse_find gnatcoll__email__charset_string_list 231 13 51_4]
+G c Z s s [contains gnatcoll__email__charset_string_list 236 13 51_4]
+G c Z s s [iterate gnatcoll__email__charset_string_list 240 14 51_4]
+G c Z s s [reverse_iterate gnatcoll__email__charset_string_list 244 14 51_4]
+G c Z s s [adjust gnatcoll__email__charset_string_list__implementation 90 28 266_4_51_4]
+G c Z s s [finalize gnatcoll__email__charset_string_list__implementation 93 28 266_4_51_4]
+G c Z s s [zero_counts gnatcoll__email__charset_string_list__implementation 96 17 266_4_51_4]
+G c Z s s [busy gnatcoll__email__charset_string_list__implementation 100 17 266_4_51_4]
+G c Z s s [unbusy gnatcoll__email__charset_string_list__implementation 104 17 266_4_51_4]
+G c Z s s [lock gnatcoll__email__charset_string_list__implementation 108 17 266_4_51_4]
+G c Z s s [unlock gnatcoll__email__charset_string_list__implementation 112 17 266_4_51_4]
+G c Z s s [tc_check gnatcoll__email__charset_string_list__implementation 116 17 266_4_51_4]
+G c Z s s [te_check gnatcoll__email__charset_string_list__implementation 120 17 266_4_51_4]
+G c Z s s [initialize gnatcoll__email__charset_string_list__implementation 139 28 266_4_51_4]
+G c Z s s [finalize gnatcoll__email__charset_string_list__implementation 140 28 266_4_51_4]
+G c Z s s [initialize gnatcoll__email__charset_string_list__implementation 145 28 266_4_51_4]
+G c Z s s [finalize gnatcoll__email__charset_string_list__implementation 146 28 266_4_51_4]
+G c Z s s [reference_control_typeDA gnatcoll__email__charset_string_list__implementation 84 12 266_4_51_4]
+G c Z s s [reference_control_typeDF gnatcoll__email__charset_string_list__implementation 84 12 266_4_51_4]
+G c Z s s [reference_control_typeIP gnatcoll__email__charset_string_list__implementation 84 12 266_4_51_4]
+G c Z s s [with_busyDF gnatcoll__email__charset_string_list__implementation 136 12 266_4_51_4]
+G c Z s s [with_busyIP gnatcoll__email__charset_string_list__implementation 136 12 266_4_51_4]
+G c Z s s [with_lockDF gnatcoll__email__charset_string_list__implementation 142 12 266_4_51_4]
+G c Z s s [with_lockIP gnatcoll__email__charset_string_list__implementation 142 12 266_4_51_4]
+G c Z s s [put_image gnatcoll__email__charset_string_list 290 14 51_4]
+G c Z s s [adjust gnatcoll__email__charset_string_list 293 25 51_4]
+G c Z s s [read gnatcoll__email__charset_string_list 297 14 51_4]
+G c Z s s [write gnatcoll__email__charset_string_list 303 14 51_4]
+G c Z s s [read gnatcoll__email__charset_string_list 318 14 51_4]
+G c Z s s [write gnatcoll__email__charset_string_list 324 14 51_4]
+G c Z s s [write gnatcoll__email__charset_string_list 343 14 51_4]
+G c Z s s [read gnatcoll__email__charset_string_list 349 14 51_4]
+G c Z s s [write gnatcoll__email__charset_string_list 365 14 51_4]
+G c Z s s [read gnatcoll__email__charset_string_list 371 14 51_4]
+G c Z s s [pseudo_reference gnatcoll__email__charset_string_list 382 13 51_4]
+G c Z s s [get_element_access gnatcoll__email__charset_string_list 392 13 51_4]
+G c Z s s [listDA gnatcoll__email__charset_string_list 282 9 51_4]
+G c Z s s [listDF gnatcoll__email__charset_string_list 282 9 51_4]
+G c Z s s [listIP gnatcoll__email__charset_string_list 282 9 51_4]
+G c Z s s [cursorIP gnatcoll__email__charset_string_list 312 9 51_4]
+G c Z s s [constant_reference_typeDI gnatcoll__email__charset_string_list 333 9 51_4]
+G c Z s s [constant_reference_typeDA gnatcoll__email__charset_string_list 333 9 51_4]
+G c Z s s [constant_reference_typeDF gnatcoll__email__charset_string_list 333 9 51_4]
+G c Z s s [constant_reference_typeIP gnatcoll__email__charset_string_list 333 9 51_4]
+G c Z s s [reference_typeDI gnatcoll__email__charset_string_list 355 9 51_4]
+G c Z s s [reference_typeDA gnatcoll__email__charset_string_list 355 9 51_4]
+G c Z s s [reference_typeDF gnatcoll__email__charset_string_list 355 9 51_4]
+G c Z s s [reference_typeIP gnatcoll__email__charset_string_list 355 9 51_4]
+G c Z s s [finalize gnatcoll__email__charset_string_list 409 25 51_4]
+G c Z s s [first gnatcoll__email__charset_string_list 411 24 51_4]
+G c Z s s [last gnatcoll__email__charset_string_list 412 24 51_4]
+G c Z s s [next gnatcoll__email__charset_string_list 414 24 51_4]
+G c Z s s [previous gnatcoll__email__charset_string_list 418 24 51_4]
+G c Z s s [node_typeDI gnatcoll__email__charset_string_list 272 9 51_4]
+G c Z s s [node_typeDF gnatcoll__email__charset_string_list 272 9 51_4]
+G c Z s s [node_typeIP gnatcoll__email__charset_string_list 272 9 51_4]
+G c Z s s [iteratorDF gnatcoll__email__charset_string_list 401 9 51_4]
+G c Z s s [iteratorIP gnatcoll__email__charset_string_list 401 9 51_4]
+G c Z s s [free gnatcoll__email__charset_string_list 47 14 51_4]
+G c Z s s [insert_internal gnatcoll__email__charset_string_list 49 14 51_4]
+G c Z s s [splice_internal gnatcoll__email__charset_string_list 54 14 51_4]
+G c Z s s [splice_internal gnatcoll__email__charset_string_list 59 14 51_4]
+G c Z s s [vet gnatcoll__email__charset_string_list 65 13 51_4]
+G c Z s b [Oeq gnatcoll__email 84 13 none]
+G c Z s b [create gnatcoll__email 122 13 none]
+G c Z s b [create gnatcoll__email 126 13 none]
+G c Z s b [append gnatcoll__email 143 14 none]
+G c Z s b [append gnatcoll__email 147 14 none]
+G c Z s b [set_param gnatcoll__email 152 14 none]
+G c Z s b [get_param gnatcoll__email 161 13 none]
+G c Z s b [delete_param gnatcoll__email 169 14 none]
+G c Z s b [get_name gnatcoll__email 173 13 none]
+G c Z s b [get_value gnatcoll__email 176 13 none]
+G c Z s b [to_string gnatcoll__email 179 14 none]
+G c Z s b [to_string gnatcoll__email 184 13 none]
+G c Z s b [to_time gnatcoll__email 195 13 none]
+G c Z s b [new_message gnatcoll__email 209 13 none]
+G c Z s b [clone_message gnatcoll__email 221 13 none]
+G c Z s b [reply_to gnatcoll__email 228 13 none]
+G c Z s b [set_default_headers gnatcoll__email 249 14 none]
+G c Z s b [set_from_header gnatcoll__email 261 14 none]
+G c Z s b [to_string gnatcoll__email 282 14 none]
+G c Z s b [set_envelope_from gnatcoll__email 308 14 none]
+G c Z s b [set_envelope_from gnatcoll__email 309 14 none]
+G c Z s b [get_envelope_from gnatcoll__email 313 13 none]
+G c Z s b [date_from_envelope gnatcoll__email 316 13 none]
+G c Z s b [sender_from_envelope gnatcoll__email 320 13 none]
+G c Z s b [add_header gnatcoll__email 324 14 none]
+G c Z s b [delete_headers gnatcoll__email 329 14 none]
+G c Z s b [delete_header gnatcoll__email 330 14 none]
+G c Z s b [replace_header gnatcoll__email 334 14 none]
+G c Z s b [get_header gnatcoll__email 342 13 none]
+G c Z s b [get_type gnatcoll__email 347 13 none]
+G c Z s b [get_content_type gnatcoll__email 353 13 none]
+G c Z s b [get_message_id gnatcoll__email 361 13 none]
+G c Z s b [get_date gnatcoll__email 367 13 none]
+G c Z s b [size gnatcoll__email 371 13 none]
+G c Z s b [get_encoding_type gnatcoll__email 388 13 none]
+G c Z s b [get_headers gnatcoll__email 395 13 none]
+G c Z s b [next gnatcoll__email 407 14 none]
+G c Z s b [next gnatcoll__email 411 13 none]
+G c Z s b [is_multipart gnatcoll__email 434 13 none]
+G c Z s b [set_text_payload gnatcoll__email 444 14 none]
+G c Z s b [set_text_payload gnatcoll__email 467 14 none]
+G c Z s b [get_single_part_payload gnatcoll__email 476 14 none]
+G c Z s b [get_payload gnatcoll__email 491 13 none]
+G c Z s b [next gnatcoll__email 506 14 none]
+G c Z s b [delete_payload gnatcoll__email 510 14 none]
+G c Z s b [convert_to_multipart gnatcoll__email 514 14 none]
+G c Z s b [convert_to_multipart gnatcoll__email 520 14 none]
+G c Z s b [convert_to_single_part gnatcoll__email 531 14 none]
+G c Z s b [set_preamble gnatcoll__email 542 14 none]
+G c Z s b [set_epilogue gnatcoll__email 551 14 none]
+G c Z s b [add_payload gnatcoll__email 557 14 none]
+G c Z s b [attach_msg gnatcoll__email 567 14 none]
+G c Z s b [attach gnatcoll__email 576 14 none]
+G c Z s b [get_boundary gnatcoll__email 590 13 none]
+G c Z s b [set_boundary gnatcoll__email 594 14 none]
+G c Z s b [adjust gnatcoll__email 625 14 none]
+G c Z s b [finalize gnatcoll__email 626 14 none]
+G c Z s s [headerDA gnatcoll__email 621 9 none]
+G c Z s s [headerDF gnatcoll__email 621 9 none]
+G c Z s s [headerIP gnatcoll__email 621 9 none]
+G c Z s s [empty gnatcoll__email__header_list 70 13 630_4]
+G c Z s s [has_element gnatcoll__email__header_list 75 13 630_4]
+G c Z s s [Oeq gnatcoll__email__header_list 80 13 630_4]
+G c Z s s [length gnatcoll__email__header_list 82 13 630_4]
+G c Z s s [is_empty gnatcoll__email__header_list 84 13 630_4]
+G c Z s s [clear gnatcoll__email__header_list 86 14 630_4]
+G c Z s s [element gnatcoll__email__header_list 88 13 630_4]
+G c Z s s [replace_element gnatcoll__email__header_list 90 14 630_4]
+G c Z s s [query_element gnatcoll__email__header_list 95 14 630_4]
+G c Z s s [update_element gnatcoll__email__header_list 99 14 630_4]
+G c Z s s [constant_reference gnatcoll__email__header_list 114 13 630_4]
+G c Z s s [reference gnatcoll__email__header_list 119 13 630_4]
+G c Z s s [assign gnatcoll__email__header_list 124 14 630_4]
+G c Z s s [copy gnatcoll__email__header_list 126 13 630_4]
+G c Z s s [move gnatcoll__email__header_list 128 14 630_4]
+G c Z s s [insert gnatcoll__email__header_list 132 14 630_4]
+G c Z s s [insert gnatcoll__email__header_list 138 14 630_4]
+G c Z s s [insert gnatcoll__email__header_list 145 14 630_4]
+G c Z s s [prepend gnatcoll__email__header_list 151 14 630_4]
+G c Z s s [append gnatcoll__email__header_list 156 14 630_4]
+G c Z s s [append gnatcoll__email__header_list 161 14 630_4]
+G c Z s s [delete gnatcoll__email__header_list 165 14 630_4]
+G c Z s s [delete_first gnatcoll__email__header_list 170 14 630_4]
+G c Z s s [delete_last gnatcoll__email__header_list 174 14 630_4]
+G c Z s s [reverse_elements gnatcoll__email__header_list 178 14 630_4]
+G c Z s s [iterate gnatcoll__email__header_list 180 13 630_4]
+G c Z s s [iterate gnatcoll__email__header_list 183 13 630_4]
+G c Z s s [swap gnatcoll__email__header_list 186 14 630_4]
+G c Z s s [swap_links gnatcoll__email__header_list 190 14 630_4]
+G c Z s s [splice gnatcoll__email__header_list 194 14 630_4]
+G c Z s s [splice gnatcoll__email__header_list 199 14 630_4]
+G c Z s s [splice gnatcoll__email__header_list 205 14 630_4]
+G c Z s s [first gnatcoll__email__header_list 210 13 630_4]
+G c Z s s [first_element gnatcoll__email__header_list 212 13 630_4]
+G c Z s s [last gnatcoll__email__header_list 214 13 630_4]
+G c Z s s [last_element gnatcoll__email__header_list 216 13 630_4]
+G c Z s s [next gnatcoll__email__header_list 218 13 630_4]
+G c Z s s [next gnatcoll__email__header_list 220 14 630_4]
+G c Z s s [previous gnatcoll__email__header_list 222 13 630_4]
+G c Z s s [previous gnatcoll__email__header_list 224 14 630_4]
+G c Z s s [find gnatcoll__email__header_list 226 13 630_4]
+G c Z s s [reverse_find gnatcoll__email__header_list 231 13 630_4]
+G c Z s s [contains gnatcoll__email__header_list 236 13 630_4]
+G c Z s s [iterate gnatcoll__email__header_list 240 14 630_4]
+G c Z s s [reverse_iterate gnatcoll__email__header_list 244 14 630_4]
+G c Z s s [adjust gnatcoll__email__header_list__implementation 90 28 266_4_630_4]
+G c Z s s [finalize gnatcoll__email__header_list__implementation 93 28 266_4_630_4]
+G c Z s s [zero_counts gnatcoll__email__header_list__implementation 96 17 266_4_630_4]
+G c Z s s [busy gnatcoll__email__header_list__implementation 100 17 266_4_630_4]
+G c Z s s [unbusy gnatcoll__email__header_list__implementation 104 17 266_4_630_4]
+G c Z s s [lock gnatcoll__email__header_list__implementation 108 17 266_4_630_4]
+G c Z s s [unlock gnatcoll__email__header_list__implementation 112 17 266_4_630_4]
+G c Z s s [tc_check gnatcoll__email__header_list__implementation 116 17 266_4_630_4]
+G c Z s s [te_check gnatcoll__email__header_list__implementation 120 17 266_4_630_4]
+G c Z s s [initialize gnatcoll__email__header_list__implementation 139 28 266_4_630_4]
+G c Z s s [finalize gnatcoll__email__header_list__implementation 140 28 266_4_630_4]
+G c Z s s [initialize gnatcoll__email__header_list__implementation 145 28 266_4_630_4]
+G c Z s s [finalize gnatcoll__email__header_list__implementation 146 28 266_4_630_4]
+G c Z s s [reference_control_typeDA gnatcoll__email__header_list__implementation 84 12 266_4_630_4]
+G c Z s s [reference_control_typeDF gnatcoll__email__header_list__implementation 84 12 266_4_630_4]
+G c Z s s [reference_control_typeIP gnatcoll__email__header_list__implementation 84 12 266_4_630_4]
+G c Z s s [with_busyDF gnatcoll__email__header_list__implementation 136 12 266_4_630_4]
+G c Z s s [with_busyIP gnatcoll__email__header_list__implementation 136 12 266_4_630_4]
+G c Z s s [with_lockDF gnatcoll__email__header_list__implementation 142 12 266_4_630_4]
+G c Z s s [with_lockIP gnatcoll__email__header_list__implementation 142 12 266_4_630_4]
+G c Z s s [put_image gnatcoll__email__header_list 290 14 630_4]
+G c Z s s [adjust gnatcoll__email__header_list 293 25 630_4]
+G c Z s s [read gnatcoll__email__header_list 297 14 630_4]
+G c Z s s [write gnatcoll__email__header_list 303 14 630_4]
+G c Z s s [read gnatcoll__email__header_list 318 14 630_4]
+G c Z s s [write gnatcoll__email__header_list 324 14 630_4]
+G c Z s s [write gnatcoll__email__header_list 343 14 630_4]
+G c Z s s [read gnatcoll__email__header_list 349 14 630_4]
+G c Z s s [write gnatcoll__email__header_list 365 14 630_4]
+G c Z s s [read gnatcoll__email__header_list 371 14 630_4]
+G c Z s s [pseudo_reference gnatcoll__email__header_list 382 13 630_4]
+G c Z s s [get_element_access gnatcoll__email__header_list 392 13 630_4]
+G c Z s s [listDA gnatcoll__email__header_list 282 9 630_4]
+G c Z s s [listDF gnatcoll__email__header_list 282 9 630_4]
+G c Z s s [listIP gnatcoll__email__header_list 282 9 630_4]
+G c Z s s [cursorIP gnatcoll__email__header_list 312 9 630_4]
+G c Z s s [constant_reference_typeDI gnatcoll__email__header_list 333 9 630_4]
+G c Z s s [constant_reference_typeDA gnatcoll__email__header_list 333 9 630_4]
+G c Z s s [constant_reference_typeDF gnatcoll__email__header_list 333 9 630_4]
+G c Z s s [constant_reference_typeIP gnatcoll__email__header_list 333 9 630_4]
+G c Z s s [reference_typeDI gnatcoll__email__header_list 355 9 630_4]
+G c Z s s [reference_typeDA gnatcoll__email__header_list 355 9 630_4]
+G c Z s s [reference_typeDF gnatcoll__email__header_list 355 9 630_4]
+G c Z s s [reference_typeIP gnatcoll__email__header_list 355 9 630_4]
+G c Z s s [finalize gnatcoll__email__header_list 409 25 630_4]
+G c Z s s [first gnatcoll__email__header_list 411 24 630_4]
+G c Z s s [last gnatcoll__email__header_list 412 24 630_4]
+G c Z s s [next gnatcoll__email__header_list 414 24 630_4]
+G c Z s s [previous gnatcoll__email__header_list 418 24 630_4]
+G c Z s s [node_typeDI gnatcoll__email__header_list 272 9 630_4]
+G c Z s s [node_typeDF gnatcoll__email__header_list 272 9 630_4]
+G c Z s s [node_typeIP gnatcoll__email__header_list 272 9 630_4]
+G c Z s s [iteratorDF gnatcoll__email__header_list 401 9 630_4]
+G c Z s s [iteratorIP gnatcoll__email__header_list 401 9 630_4]
+G c Z s s [free gnatcoll__email__header_list 47 14 630_4]
+G c Z s s [insert_internal gnatcoll__email__header_list 49 14 630_4]
+G c Z s s [splice_internal gnatcoll__email__header_list 54 14 630_4]
+G c Z s s [splice_internal gnatcoll__email__header_list 59 14 630_4]
+G c Z s s [vet gnatcoll__email__header_list 65 13 630_4]
+G c Z s b [adjust gnatcoll__email 646 14 none]
+G c Z s b [finalize gnatcoll__email 647 14 none]
+G c Z s s [messageDA gnatcoll__email 639 9 none]
+G c Z s s [messageDF gnatcoll__email 639 9 none]
+G c Z s s [messageIP gnatcoll__email 639 9 none]
+G c Z s s [empty gnatcoll__email__message_list 70 13 649_4]
+G c Z s s [has_element gnatcoll__email__message_list 75 13 649_4]
+G c Z s s [Oeq gnatcoll__email__message_list 80 13 649_4]
+G c Z s s [length gnatcoll__email__message_list 82 13 649_4]
+G c Z s s [is_empty gnatcoll__email__message_list 84 13 649_4]
+G c Z s s [clear gnatcoll__email__message_list 86 14 649_4]
+G c Z s s [element gnatcoll__email__message_list 88 13 649_4]
+G c Z s s [replace_element gnatcoll__email__message_list 90 14 649_4]
+G c Z s s [query_element gnatcoll__email__message_list 95 14 649_4]
+G c Z s s [update_element gnatcoll__email__message_list 99 14 649_4]
+G c Z s s [constant_reference gnatcoll__email__message_list 114 13 649_4]
+G c Z s s [reference gnatcoll__email__message_list 119 13 649_4]
+G c Z s s [assign gnatcoll__email__message_list 124 14 649_4]
+G c Z s s [copy gnatcoll__email__message_list 126 13 649_4]
+G c Z s s [move gnatcoll__email__message_list 128 14 649_4]
+G c Z s s [insert gnatcoll__email__message_list 132 14 649_4]
+G c Z s s [insert gnatcoll__email__message_list 138 14 649_4]
+G c Z s s [insert gnatcoll__email__message_list 145 14 649_4]
+G c Z s s [prepend gnatcoll__email__message_list 151 14 649_4]
+G c Z s s [append gnatcoll__email__message_list 156 14 649_4]
+G c Z s s [append gnatcoll__email__message_list 161 14 649_4]
+G c Z s s [delete gnatcoll__email__message_list 165 14 649_4]
+G c Z s s [delete_first gnatcoll__email__message_list 170 14 649_4]
+G c Z s s [delete_last gnatcoll__email__message_list 174 14 649_4]
+G c Z s s [reverse_elements gnatcoll__email__message_list 178 14 649_4]
+G c Z s s [iterate gnatcoll__email__message_list 180 13 649_4]
+G c Z s s [iterate gnatcoll__email__message_list 183 13 649_4]
+G c Z s s [swap gnatcoll__email__message_list 186 14 649_4]
+G c Z s s [swap_links gnatcoll__email__message_list 190 14 649_4]
+G c Z s s [splice gnatcoll__email__message_list 194 14 649_4]
+G c Z s s [splice gnatcoll__email__message_list 199 14 649_4]
+G c Z s s [splice gnatcoll__email__message_list 205 14 649_4]
+G c Z s s [first gnatcoll__email__message_list 210 13 649_4]
+G c Z s s [first_element gnatcoll__email__message_list 212 13 649_4]
+G c Z s s [last gnatcoll__email__message_list 214 13 649_4]
+G c Z s s [last_element gnatcoll__email__message_list 216 13 649_4]
+G c Z s s [next gnatcoll__email__message_list 218 13 649_4]
+G c Z s s [next gnatcoll__email__message_list 220 14 649_4]
+G c Z s s [previous gnatcoll__email__message_list 222 13 649_4]
+G c Z s s [previous gnatcoll__email__message_list 224 14 649_4]
+G c Z s s [find gnatcoll__email__message_list 226 13 649_4]
+G c Z s s [reverse_find gnatcoll__email__message_list 231 13 649_4]
+G c Z s s [contains gnatcoll__email__message_list 236 13 649_4]
+G c Z s s [iterate gnatcoll__email__message_list 240 14 649_4]
+G c Z s s [reverse_iterate gnatcoll__email__message_list 244 14 649_4]
+G c Z s s [adjust gnatcoll__email__message_list__implementation 90 28 266_4_649_4]
+G c Z s s [finalize gnatcoll__email__message_list__implementation 93 28 266_4_649_4]
+G c Z s s [zero_counts gnatcoll__email__message_list__implementation 96 17 266_4_649_4]
+G c Z s s [busy gnatcoll__email__message_list__implementation 100 17 266_4_649_4]
+G c Z s s [unbusy gnatcoll__email__message_list__implementation 104 17 266_4_649_4]
+G c Z s s [lock gnatcoll__email__message_list__implementation 108 17 266_4_649_4]
+G c Z s s [unlock gnatcoll__email__message_list__implementation 112 17 266_4_649_4]
+G c Z s s [tc_check gnatcoll__email__message_list__implementation 116 17 266_4_649_4]
+G c Z s s [te_check gnatcoll__email__message_list__implementation 120 17 266_4_649_4]
+G c Z s s [initialize gnatcoll__email__message_list__implementation 139 28 266_4_649_4]
+G c Z s s [finalize gnatcoll__email__message_list__implementation 140 28 266_4_649_4]
+G c Z s s [initialize gnatcoll__email__message_list__implementation 145 28 266_4_649_4]
+G c Z s s [finalize gnatcoll__email__message_list__implementation 146 28 266_4_649_4]
+G c Z s s [reference_control_typeDA gnatcoll__email__message_list__implementation 84 12 266_4_649_4]
+G c Z s s [reference_control_typeDF gnatcoll__email__message_list__implementation 84 12 266_4_649_4]
+G c Z s s [reference_control_typeIP gnatcoll__email__message_list__implementation 84 12 266_4_649_4]
+G c Z s s [with_busyDF gnatcoll__email__message_list__implementation 136 12 266_4_649_4]
+G c Z s s [with_busyIP gnatcoll__email__message_list__implementation 136 12 266_4_649_4]
+G c Z s s [with_lockDF gnatcoll__email__message_list__implementation 142 12 266_4_649_4]
+G c Z s s [with_lockIP gnatcoll__email__message_list__implementation 142 12 266_4_649_4]
+G c Z s s [put_image gnatcoll__email__message_list 290 14 649_4]
+G c Z s s [adjust gnatcoll__email__message_list 293 25 649_4]
+G c Z s s [read gnatcoll__email__message_list 297 14 649_4]
+G c Z s s [write gnatcoll__email__message_list 303 14 649_4]
+G c Z s s [read gnatcoll__email__message_list 318 14 649_4]
+G c Z s s [write gnatcoll__email__message_list 324 14 649_4]
+G c Z s s [write gnatcoll__email__message_list 343 14 649_4]
+G c Z s s [read gnatcoll__email__message_list 349 14 649_4]
+G c Z s s [write gnatcoll__email__message_list 365 14 649_4]
+G c Z s s [read gnatcoll__email__message_list 371 14 649_4]
+G c Z s s [pseudo_reference gnatcoll__email__message_list 382 13 649_4]
+G c Z s s [get_element_access gnatcoll__email__message_list 392 13 649_4]
+G c Z s s [listDA gnatcoll__email__message_list 282 9 649_4]
+G c Z s s [listDF gnatcoll__email__message_list 282 9 649_4]
+G c Z s s [listIP gnatcoll__email__message_list 282 9 649_4]
+G c Z s s [cursorIP gnatcoll__email__message_list 312 9 649_4]
+G c Z s s [constant_reference_typeDI gnatcoll__email__message_list 333 9 649_4]
+G c Z s s [constant_reference_typeDA gnatcoll__email__message_list 333 9 649_4]
+G c Z s s [constant_reference_typeDF gnatcoll__email__message_list 333 9 649_4]
+G c Z s s [constant_reference_typeIP gnatcoll__email__message_list 333 9 649_4]
+G c Z s s [reference_typeDI gnatcoll__email__message_list 355 9 649_4]
+G c Z s s [reference_typeDA gnatcoll__email__message_list 355 9 649_4]
+G c Z s s [reference_typeDF gnatcoll__email__message_list 355 9 649_4]
+G c Z s s [reference_typeIP gnatcoll__email__message_list 355 9 649_4]
+G c Z s s [finalize gnatcoll__email__message_list 409 25 649_4]
+G c Z s s [first gnatcoll__email__message_list 411 24 649_4]
+G c Z s s [last gnatcoll__email__message_list 412 24 649_4]
+G c Z s s [next gnatcoll__email__message_list 414 24 649_4]
+G c Z s s [previous gnatcoll__email__message_list 418 24 649_4]
+G c Z s s [node_typeDI gnatcoll__email__message_list 272 9 649_4]
+G c Z s s [node_typeDF gnatcoll__email__message_list 272 9 649_4]
+G c Z s s [node_typeIP gnatcoll__email__message_list 272 9 649_4]
+G c Z s s [iteratorDF gnatcoll__email__message_list 401 9 649_4]
+G c Z s s [iteratorIP gnatcoll__email__message_list 401 9 649_4]
+G c Z s s [free gnatcoll__email__message_list 47 14 649_4]
+G c Z s s [insert_internal gnatcoll__email__message_list 49 14 649_4]
+G c Z s s [splice_internal gnatcoll__email__message_list 54 14 649_4]
+G c Z s s [splice_internal gnatcoll__email__message_list 59 14 649_4]
+G c Z s s [vet gnatcoll__email__message_list 65 13 649_4]
+G c Z s s [message_payloadDI gnatcoll__email 656 9 none]
+G c Z s s [message_payloadDA gnatcoll__email 656 9 none]
+G c Z s s [message_payloadDF gnatcoll__email 656 9 none]
+G c Z s s [message_payloadIP gnatcoll__email 656 9 none]
+G c Z s s [email_addressDI gnatcoll__email 78 9 none]
+G c Z s s [email_addressDA gnatcoll__email 78 9 none]
+G c Z s s [email_addressDF gnatcoll__email 78 9 none]
+G c Z s s [email_addressIP gnatcoll__email 78 9 none]
+G c Z s s [payload_iteratorDI gnatcoll__email 651 9 none]
+G c Z s s [payload_iteratorDA gnatcoll__email 651 9 none]
+G c Z s s [payload_iteratorDF gnatcoll__email 651 9 none]
+G c Z s s [payload_iteratorIP gnatcoll__email 651 9 none]
+G c Z s b [next_occurrence gnatcoll__email 682 13 none]
+G c Z s b [is_whitespace gnatcoll__email 690 13 none]
+G c Z s b [skip_whitespaces gnatcoll__email 694 14 none]
+G c Z s s [header_iteratorDI gnatcoll__email 632 9 none]
+G c Z s s [header_iteratorDA gnatcoll__email 632 9 none]
+G c Z s s [header_iteratorDF gnatcoll__email 632 9 none]
+G c Z s s [header_iteratorIP gnatcoll__email 632 9 none]
+G c Z s s [header_recordDI gnatcoll__email 615 9 none]
+G c Z s s [header_recordDA gnatcoll__email 615 9 none]
+G c Z s s [header_recordDF gnatcoll__email 615 9 none]
+G c Z s s [header_recordIP gnatcoll__email 615 9 none]
+G c Z s s [message_recordDI gnatcoll__email 671 9 none]
+G c Z s s [message_recordDA gnatcoll__email 671 9 none]
+G c Z s s [message_recordDF gnatcoll__email 671 9 none]
+G c Z s s [message_recordIP gnatcoll__email 671 9 none]
+G c Z b b [identify_header gnatcoll__email 41 13 none]
+G c Z b b [to_string gnatcoll__email 44 14 none]
+G c Z b b [to_string gnatcoll__email 53 14 none]
+G c Z b b [get_param_index gnatcoll__email 61 14 none]
+G c Z b b [replace_header_internal gnatcoll__email 71 14 none]
+G c Z b b [check_boundary gnatcoll__email 77 13 none]
+G c Z b b [has_line_starting_with gnatcoll__email 81 13 none]
+G c Z b b [clone_header gnatcoll__email 85 13 none]
+G c Z b b [clone_headers gnatcoll__email 88 13 none]
+G c Z b b [debug_message gnatcoll__email 2240 14 none]
+G r c none [create gnatcoll__email 122 13 none] [decode_header gnatcoll__email__utils 245 14 none]
+G r c none [append gnatcoll__email 143 14 none] [decode_header gnatcoll__email__utils 245 14 none]
+G r c none [get_param gnatcoll__email 161 13 none] [image gnatcoll__utils 56 13 none]
+G r c none [to_string gnatcoll__email 179 14 none] [to_string gnatcoll__email__utils 273 14 none]
+G r c none [to_string gnatcoll__email 184 13 none] [to_string gnatcoll__email__utils 273 14 none]
+G r c none [to_time gnatcoll__email 195 13 none] [flatten gnatcoll__email__utils 264 14 none]
+G r c none [to_time gnatcoll__email 195 13 none] [to_time gnatcoll__email__utils 48 13 none]
+G r c none [new_message gnatcoll__email 209 13 none] [get_main_type gnatcoll__email__utils 175 13 none]
+G r c none [new_message gnatcoll__email 209 13 none] [decode_header gnatcoll__email__utils 245 14 none]
+G r c none [reply_to gnatcoll__email 228 13 none] [get_main_type gnatcoll__email__utils 175 13 none]
+G r c none [reply_to gnatcoll__email 228 13 none] [decode_header gnatcoll__email__utils 245 14 none]
+G r c none [reply_to gnatcoll__email 228 13 none] [format_date gnatcoll__email__utils 54 13 none]
+G r c none [reply_to gnatcoll__email 228 13 none] [format_address gnatcoll__email__utils 147 13 none]
+G r c none [reply_to gnatcoll__email 228 13 none] [flatten gnatcoll__email__utils 264 14 none]
+G r c none [reply_to gnatcoll__email 228 13 none] [parse_address gnatcoll__email__utils 101 13 none]
+G r c none [reply_to gnatcoll__email 228 13 none] [base64_decode gnatcoll__email__utils 229 14 none]
+G r c none [reply_to gnatcoll__email 228 13 none] [quoted_printable_decode gnatcoll__email__utils 198 14 none]
+G r c none [set_default_headers gnatcoll__email 249 14 none] [format_date gnatcoll__email__utils 54 13 none]
+G r c none [set_default_headers gnatcoll__email 249 14 none] [decode_header gnatcoll__email__utils 245 14 none]
+G r c none [set_default_headers gnatcoll__email 249 14 none] [format_address gnatcoll__email__utils 147 13 none]
+G r c none [set_from_header gnatcoll__email 261 14 none] [format_address gnatcoll__email__utils 147 13 none]
+G r c none [to_string gnatcoll__email 282 14 none] [flatten gnatcoll__email__utils 264 14 none]
+G r c none [to_string gnatcoll__email 282 14 none] [get_main_type gnatcoll__email__utils 175 13 none]
+G r c none [to_string gnatcoll__email 282 14 none] [decode_header gnatcoll__email__utils 245 14 none]
+G r c none [to_string gnatcoll__email 282 14 none] [image gnatcoll__utils 56 13 none]
+G r c none [to_string gnatcoll__email 282 14 none] [to_string gnatcoll__email__utils 273 14 none]
+G r c none [to_string gnatcoll__email 282 14 none] [base64_decode gnatcoll__email__utils 229 14 none]
+G r c none [to_string gnatcoll__email 282 14 none] [quoted_printable_decode gnatcoll__email__utils 198 14 none]
+G r c none [set_envelope_from gnatcoll__email 309 14 none] [format_date gnatcoll__email__utils 54 13 none]
+G r c none [date_from_envelope gnatcoll__email 316 13 none] [to_time gnatcoll__email__utils 48 13 none]
+G r c none [get_type gnatcoll__email 347 13 none] [flatten gnatcoll__email__utils 264 14 none]
+G r c none [get_content_type gnatcoll__email 353 13 none] [flatten gnatcoll__email__utils 264 14 none]
+G r c none [get_message_id gnatcoll__email 361 13 none] [to_string gnatcoll__email__utils 273 14 none]
+G r c none [get_date gnatcoll__email 367 13 none] [flatten gnatcoll__email__utils 264 14 none]
+G r c none [get_date gnatcoll__email 367 13 none] [to_time gnatcoll__email__utils 48 13 none]
+G r c none [size gnatcoll__email 371 13 none] [flatten gnatcoll__email__utils 264 14 none]
+G r c none [get_encoding_type gnatcoll__email 388 13 none] [flatten gnatcoll__email__utils 264 14 none]
+G r c none [set_text_payload gnatcoll__email 444 14 none] [decode_header gnatcoll__email__utils 245 14 none]
+G r c none [set_text_payload gnatcoll__email 444 14 none] [get_main_type gnatcoll__email__utils 175 13 none]
+G r c none [set_text_payload gnatcoll__email 467 14 none] [decode_header gnatcoll__email__utils 245 14 none]
+G r c none [set_text_payload gnatcoll__email 467 14 none] [get_main_type gnatcoll__email__utils 175 13 none]
+G r c none [get_single_part_payload gnatcoll__email 476 14 none] [flatten gnatcoll__email__utils 264 14 none]
+G r c none [get_single_part_payload gnatcoll__email 476 14 none] [base64_decode gnatcoll__email__utils 229 14 none]
+G r c none [get_single_part_payload gnatcoll__email 476 14 none] [quoted_printable_decode gnatcoll__email__utils 198 14 none]
+G r c none [convert_to_multipart gnatcoll__email 514 14 none] [flatten gnatcoll__email__utils 264 14 none]
+G r c none [convert_to_multipart gnatcoll__email 514 14 none] [get_main_type gnatcoll__email__utils 175 13 none]
+G r c none [convert_to_multipart gnatcoll__email 514 14 none] [decode_header gnatcoll__email__utils 245 14 none]
+G r c none [convert_to_multipart gnatcoll__email 520 14 none] [flatten gnatcoll__email__utils 264 14 none]
+G r c none [convert_to_multipart gnatcoll__email 520 14 none] [get_main_type gnatcoll__email__utils 175 13 none]
+G r c none [convert_to_multipart gnatcoll__email 520 14 none] [decode_header gnatcoll__email__utils 245 14 none]
+G r c none [convert_to_single_part gnatcoll__email 531 14 none] [decode_header gnatcoll__email__utils 245 14 none]
+G r c none [set_preamble gnatcoll__email 542 14 none] [flatten gnatcoll__email__utils 264 14 none]
+G r c none [set_preamble gnatcoll__email 542 14 none] [get_main_type gnatcoll__email__utils 175 13 none]
+G r c none [set_preamble gnatcoll__email 542 14 none] [decode_header gnatcoll__email__utils 245 14 none]
+G r c none [set_epilogue gnatcoll__email 551 14 none] [flatten gnatcoll__email__utils 264 14 none]
+G r c none [set_epilogue gnatcoll__email 551 14 none] [get_main_type gnatcoll__email__utils 175 13 none]
+G r c none [set_epilogue gnatcoll__email 551 14 none] [decode_header gnatcoll__email__utils 245 14 none]
+G r c none [add_payload gnatcoll__email 557 14 none] [flatten gnatcoll__email__utils 264 14 none]
+G r c none [add_payload gnatcoll__email 557 14 none] [get_main_type gnatcoll__email__utils 175 13 none]
+G r c none [add_payload gnatcoll__email 557 14 none] [decode_header gnatcoll__email__utils 245 14 none]
+G r c none [attach_msg gnatcoll__email 567 14 none] [get_main_type gnatcoll__email__utils 175 13 none]
+G r c none [attach_msg gnatcoll__email 567 14 none] [decode_header gnatcoll__email__utils 245 14 none]
+G r c none [attach_msg gnatcoll__email 567 14 none] [flatten gnatcoll__email__utils 264 14 none]
+G r c none [attach_msg gnatcoll__email 567 14 none] [image gnatcoll__utils 56 13 none]
+G r c none [attach_msg gnatcoll__email 567 14 none] [to_string gnatcoll__email__utils 273 14 none]
+G r c none [attach_msg gnatcoll__email 567 14 none] [base64_decode gnatcoll__email__utils 229 14 none]
+G r c none [attach_msg gnatcoll__email 567 14 none] [quoted_printable_decode gnatcoll__email__utils 198 14 none]
+G r c none [attach gnatcoll__email 576 14 none] [get_main_type gnatcoll__email__utils 175 13 none]
+G r c none [attach gnatcoll__email 576 14 none] [decode_header gnatcoll__email__utils 245 14 none]
+G r c none [attach gnatcoll__email 576 14 none] [flatten gnatcoll__email__utils 264 14 none]
+G r c none [attach gnatcoll__email 576 14 none] [Oeq gnatcoll__vfs 334 24 none]
+G r c none [attach gnatcoll__email 576 14 none] [base_name gnatcoll__vfs 214 13 none]
+G r c none [attach gnatcoll__email 576 14 none] [Oadd gnatcoll__vfs 73 13 none]
+G r c none [attach gnatcoll__email 576 14 none] [read_file gnatcoll__vfs 448 13 none]
+G r c none [attach gnatcoll__email 576 14 none] [base64_encode gnatcoll__email__utils 210 14 none]
+G r c none [attach gnatcoll__email 576 14 none] [quoted_printable_encode gnatcoll__email__utils 187 14 none]
+G r c none [get_boundary gnatcoll__email 590 13 none] [image gnatcoll__utils 56 13 none]
+G r c none [set_boundary gnatcoll__email 594 14 none] [flatten gnatcoll__email__utils 264 14 none]
+G r c none [set_boundary gnatcoll__email 594 14 none] [get_main_type gnatcoll__email__utils 175 13 none]
+G r c none [set_boundary gnatcoll__email 594 14 none] [decode_header gnatcoll__email__utils 245 14 none]
+G r c none [set_boundary gnatcoll__email 594 14 none] [image gnatcoll__utils 56 13 none]
+G r c none [to_string gnatcoll__email 44 14 none] [flatten gnatcoll__email__utils 264 14 none]
+G r c none [to_string gnatcoll__email 44 14 none] [get_main_type gnatcoll__email__utils 175 13 none]
+G r c none [to_string gnatcoll__email 44 14 none] [decode_header gnatcoll__email__utils 245 14 none]
+G r c none [to_string gnatcoll__email 44 14 none] [image gnatcoll__utils 56 13 none]
+G r c none [to_string gnatcoll__email 44 14 none] [to_string gnatcoll__email__utils 273 14 none]
+G r c none [to_string gnatcoll__email 53 14 none] [to_string gnatcoll__email__utils 273 14 none]
+G r c none [check_boundary gnatcoll__email 77 13 none] [flatten gnatcoll__email__utils 264 14 none]
+G r c none [debug_message gnatcoll__email 2240 14 none] [flatten gnatcoll__email__utils 264 14 none]
+G r c none [debug_message gnatcoll__email 2240 14 none] [get_main_type gnatcoll__email__utils 175 13 none]
+G r c none [debug_message gnatcoll__email 2240 14 none] [decode_header gnatcoll__email__utils 245 14 none]
+G r c none [debug_message gnatcoll__email 2240 14 none] [image gnatcoll__utils 56 13 none]
+G r c none [debug_message gnatcoll__email 2240 14 none] [to_string gnatcoll__email__utils 273 14 none]
+G r c none [debug_message gnatcoll__email 2240 14 none] [base64_decode gnatcoll__email__utils 229 14 none]
+G r c none [debug_message gnatcoll__email 2240 14 none] [quoted_printable_decode gnatcoll__email__utils 198 14 none]
+X 1 ada.ads
+16K9*Ada 20e8 56|27r6 28r6 29r6 30r6 30r33 51r39 196r32 237r24 237r45 254r24
+. 254r45 312r21 316r61 367r45 621r23 630r31 639r24 649r32 680r7 700r7 57|26r6
+. 26r37 27r6 27r37 28r6 28r37 29r6 29r37 30r6 30r23 32r6 190r15 213r34 244r19
+. 267r24 267r45 404r24 404r45 455r39 484r20 505r35 570r15 1064r47 1365r51
+. 1508r11 2037r17 2186r39 2202r11 2230r45
+X 2 a-calend.ads
+36K13*Calendar 413e17 56|27w10 196r36 237r28 237r49 254r28 254r49 312r25
+. 316r65 367r49 57|26w10 26r41 267r28 267r49 404r28 404r49 484r24 505r39
+. 1064r51 2230r49
+42I9*Time<226I9> 56|196r45 237r37 254r37 312r34 316r74 367r58 57|267r37 404r37
+. 484r33 505r48 1064r60 2230r58
+56V13*Clock{42I9} 56|237s58 254s58 57|267s58 404s58
+226I9 Time_Rep<long_long_integer>
+X 5 a-charac.ads
+16K13*Characters 18e19 57|27r10 27r41
+X 6 a-chahan.ads
+36K24*Handling 160e28 57|27w21 27r52
+67V13*To_Lower{character} 71|283i21
+68V13*To_Upper{character} 57|660s34 71|285i21
+71V13*To_Lower{string} 57|106s14 107s14 136s35 573s57 946s36 1092s33 1115s34
+. 1199s61 1364s44 1529s17 1874s25 1875s52 2038s37
+X 9 a-contai.ads
+16K13*Containers 28e19 56|28r10 51r43 630r35 649r36 57|28w10 28r41
+19M9*Hash_Type
+22I9*Count_Type<integer>
+X 10 a-cdlili.ads
+47k24*Doubly_Linked_Lists 422e39 56|28w21 51r54 630r46 649r47
+54R9*List<21|43R9> 56|128r35[51] 149r37[51] 176r69[51] 617r45[51] 659r37[649]
+. 674r35[630] 57|54r42[56|630] 88r46[56|630] 88r71[56|630] 226r46[56|630]
+. 226r71[56|630] 227r26[56|630] 431r31[56|51] 556r31[56|51] 567r35[56|51]
+. 587r31[56|51] 601r60[56|51] 630r49[56|51] 852r42[56|630] 1405r69[56|51]
+. 1597r36[56|649]
+65R9*Cursor 56|633r28[630] 652r29[649] 57|64r44[56|51] 228r28[56|630] 603r31[56|51]
+. 777r33[56|649] 858r25[56|630] 890r28[56|649] 1091r26[56|630] 1113r27[56|630]
+. 1114r27[56|630] 1135r26[56|630] 1163r30[56|630] 1164r30[56|630] 1198r23[56|630]
+. 1838r44[56|51] 1903r31[56|51] 1934r31[56|51] 1993r31[56|51]
+68r4*Empty_List{54R9[56|649]} 56|668r26[649] 57|194r42[56|630] 1408r37[56|51]
+. 1646r53[56|630]
+73r4*No_Element{65R9[56|630]} 57|230r35[56|630] 593r53[56|51] 1202r30[56|630]
+. 1453r41[56|649]
+75V13*Has_Element{boolean} 57|605s13[56|51] 861s13[56|630] 897s16[56|649]
+. 1097s16[56|630] 1117s13[56|630] 1137s13[56|630] 1167s13[56|630] 1208s16[56|630]
+. 1225s10[56|630] 1231s19[56|630] 1464s10[56|649] 1850s13[56|51] 1910s10[56|51]
+. 1957s13[56|51] 1973s33[56|51] 1999s10[56|51]
+82V13*Length{9|22I9} 57|783s36[56|649] 1545s13[56|649] 1551s16[56|649]
+88V13*Element{56|91R9} 57|231s38[56|630] 606s36[56|51] 793s51[56|649] 820s39[56|649]
+. 862s43[56|630] 863s26[56|630] 864s27[56|630] 866s27[56|630] 899s39[56|649]
+. 900s37[56|649] 901s39[56|649] 1098s16[56|630] 1099s23[56|630] 1121s20[56|630]
+. 1138s13[56|630] 1170s13[56|630] 1209s21[56|630] 1226s15[56|630] 1232s24[56|630]
+. 1465s18[56|649] 1552s23[56|649] 1852s54[56|51] 1915s33[56|51] 1918s19[56|51]
+. 1919s40[56|51] 1920s26[56|51] 1942s19[56|51] 2004s33[56|51] 2006s19[56|51]
+. 2007s40[56|51] 2008s26[56|51]
+90U14*Replace_Element 57|1172s16[56|630] 1911s10[56|51] 2000s10[56|51]
+151U14*Prepend 57|1186s13[56|630] 1294s26[56|649] 1679s10[56|649]
+161U14*Append 57|231s10[56|630] 606s10[56|51] 1083s7[56|630] 1184s25[56|630]
+. 1296s26[56|649] 1650s22[56|649] 1681s10[56|649] 1828s7[56|649] 1922s10[56|51]
+165U14*Delete 57|1123s13[56|630] 1139s13[56|630] 1175s16[56|630] 1482s7[56|649]
+194U14*Splice 57|593s7[56|51]
+210V13*First{65R9[56|630]} 57|228s38[56|630] 603s41[56|51] 789s24[56|649]
+. 814s24[56|649] 858s35[56|630] 895s15[56|649] 1095s18[56|630] 1113s37[56|630]
+. 1135s36[56|630] 1163s40[56|630] 1205s12[56|630] 1450s28[56|649] 1552s32[56|649]
+. 1844s12[56|51] 1903s41[56|51] 1953s15[56|51] 1993s41[56|51]
+218V13*Next{65R9[56|630]} 57|1118s19[56|630] 1168s19[56|630]
+220U14*Next 57|232s10[56|630] 607s10[56|51] 797s22[56|649] 830s22[56|649]
+. 875s10[56|630] 905s13[56|649] 1102s13[56|630] 1143s10[56|630] 1211s13[56|630]
+. 1228s10[56|630] 1234s16[56|630] 1466s10[56|649] 1892s10[56|51]
+X 15 a-cohase.ads
+59R9*Set<21|43R9>
+X 17 a-conhel.ads
+84R12 Reference_Control_Type<21|43R9>
+X 21 a-finali.ads
+40K13*Finalization 68e21 56|29w10 621r27 639r28 680r11 700r11 57|190r19 213r38
+. 244r23 570r19
+43H9*Controlled<90|40R9> 59e72 56|621r40 639r41 680r24 700r24 57|190r32 213r51
+. 244r36 570r32
+X 23 a-iteint.ads
+24h9 Forward_Iterator
+32h9 Reversible_Iterator<24R9[10|77]>
+X 27 a-string.ads
+16K13*Strings 35e16 56|30r10 30r37 57|29r10 29r41 1365r55 1508r15 2037r21
+. 2202r15
+33n37*Both{33E9} 57|1365r63 1518r63 2038r69 2208r63
+X 28 a-strfix.ads
+43K21*Fixed 1398e22 57|29w18 29r49
+1097V13*Trim{string} 57|1365s19 1518s37 2038s47 2208s15
+X 35 a-strunb.ads
+83K21*Unbounded 765e26 56|30w18 30r45
+88R9*Unbounded_String<21|43R9> 744e15 56|41r18 42r18 79r19 80r19 183r30 291r34
+. 446r21 478r21 616r25 634r16 660r24 661r24 663r24 673r23 57|49r36 58r37
+. 82r14 273r20 276r20 619r30 631r20 760r16 775r36 856r37 859r13 928r34 930r25
+. 931r25 933r25 1065r14 1199r20 1261r21 1345r21 1350r22 1510r16 1601r23 1697r20
+. 1732r14 1966r26 2032r12 2056r14 2130r19 2249r13
+91r4*Null_Unbounded_String{88R9} 56|666r55 668r38 669r7 703r7 703r30 706r7
+. 706r30 57|193r30 347r25 364r25 367r25 368r30 623r20 715r23 810r42 836r42
+. 869r23 961r17 1548r29 1664r26
+93V13*Length{natural} 57|628s51 745s19 893s41 894s28 909s41 1010s37 1230s13
+. 1643s23 1919s32 2007s32
+104V13*To_Unbounded_String{88R9} 57|433s31 434s31 474s37 487s37 573s36 698s29
+. 700s29 702s29 710s29 1199s40 1332s25 1421s40 1431s40 1924s26 1925s26 2139s23
+. 2143s26 2147s23
+117V13*To_String{string} 57|106s24 107s24 299s39 373s42 497s14 507s34 531s34
+. 592s45 629s30 675s32 763s14 982s31 986s41 1013s25 1019s46 1073s26 1365s25
+. 1379s31 1382s19 1398s14 1518s43 1796s53 1805s53 1852s43 1980s23 2038s53
+. 2058s34 2156s40 2166s41 2261s17
+121U14*Set_Unbounded_String 57|1795s16 1804s16 1810s16 1816s16 1822s16
+128U14*Append 57|811s22 837s22 843s13 870s16 964s10 1056s10
+136U14*Append 57|369s16 382s19 731s16 737s19 817s25 833s19 1038s19 1039s19
+. 1053s13 1975s19 2151s13 2158s13
+144U14*Append 57|871s16 878s7 965s10
+152V14*"&"{88R9} 57|1312s50 1917s16 2005s16
+160V14*"&"{88R9} 57|1916s16
+168V14*"&"{88R9} 57|746s37 748s38
+184V14*"&"{88R9} 57|837s50
+192V13*Element{character} 57|699s22 745s47
+208V13*Slice{string} 57|1942s12
+217V13*Unbounded_Slice{88R9} 57|1915s16 1917s18 2004s16 2005s18
+239V14*"="{boolean} 57|367s22 368s27 810s39 836s39 869s20 1170s42 1209s47
+. 1232s60
+245V14*"="{boolean} 57|1098s45 1121s49 2140s23
+333V13*Index{natural} 57|2148s13
+512U14*Replace_Slice 57|1012s13
+X 40 a-textio.ads
+58K13*Text_IO 725e16 57|30w10 30r27
+506U14*Put_Line 57|2261s7
+X 42 a-uncdea.ads
+20u15*Unchecked_Deallocation 57|32w10 455r43 2186r43
+X 43 gnat.ads
+34K9*GNAT 57e9 57|36r6 36r37 1728r20
+X 50 g-string.ads
+38K14*Strings=38:37 57|36w11 36r42 1728r25
+X 51 gnatcoll.ads
+24K9*GNATCOLL 27e13 56|32r6 34r9 578r30 580r30 580r59 708r5 57|33r6 33r37
+. 34r6 34r37 35r6 35r37 38r14 2264r5
+X 54 gnatcoll-coders.ads
+32h9*Coder_Interface
+X 56 gnatcoll-email.ads
+34K18*Email 51|24k9 56|615E9 708l14 708e19 57|33r15 33r46 38b23 2264l14 2264t19
+40R9*Charset_String 43e14 44r35 52r7 702r35
+41r7*Contents{35|88R9} 57|1852r66 1914m14 1915r45 1918r31 1919r52 1924m14
+. 1942r31 2003m14 2004r45 2006r31 2007r52
+42r7*Charset{35|88R9} 57|1920m14 1920r38 1925m14 2008m14 2008r38
+44r4*Null_Charset_String{40R9} 702c4
+51K12*Charset_String_List[10|47] 128r15 149r17 176r49 617r25 57|39r21 64r24
+. 431r11 556r11 567r15 587r11 593r33 601r40 603r11 630r29 1405r49 1408r17
+. 1838r24 1903r11 1934r11 1993r11
+56a4*Charset_US_ASCII{string} 125r27 146r27 211r29 238r34 255r34 449r32 472r32
+. 582r50 57|179r29 268r34 405r34 554r27 585r27 1264r32 1274r41 1327r32 1723r40
+. 1925r47
+57a4*Charset_ISO_8859_1{string}
+58a4*Charset_ISO_8859_2{string}
+59a4*Charset_ISO_8859_3{string}
+60a4*Charset_ISO_8859_4{string}
+61a4*Charset_ISO_8859_9{string}
+62a4*Charset_ISO_8859_10{string}
+63a4*Charset_ISO_8859_13{string}
+64a4*Charset_ISO_8859_14{string}
+65a4*Charset_ISO_8859_15{string}
+66a4*Charset_Windows_1252{string}
+70a4*Charset_UTF_8{string}
+71a4*Charset_Shift_JIS{string}
+72a4*Charset_EUC{string}
+78R9*Email_Address 81e14 82r28 84r33 235r46 705r28 57|104r44 265r46
+79r7*Real_Name{35|88R9} 57|433m18
+80r7*Address{35|88R9} 57|106r41 107r41 299r63 434m18
+82r4*Null_Address{78R9} 705c4
+84V14*"="{boolean} 15|50i19 56|84>18 84>25 57|104b25 108l9 108t11
+84r18 Addr1{78R9} 57|104b29 106r35
+84r25 Addr2{78R9} 57|104b36 107r35
+91R9*Header<21|43R9> 21|46P14 56|92r27 122p13 125r52 126p13 128r48 144r24
+. 148r24 153r18 161r28 169r39 173r27 176r28 180r26 185r26 196r11 269r47 324r58
+. 330r55 334r55 342p13 342r68 347p13 347r27 407p14 407r59 411p13 412r46 621c9
+. 623e14 625P14 625r35 626P14 626r35 630r67 699r27 57|62r20 72r32 85r33 85r48
+. 212r33 212r48 213r23 271r20 427r16 554r52 567r48 583r24 601r18 616r26 756r26
+. 935r35 943r35 1064r26 1081r58 1083r37 1090r68 1134r54 1151r55 1161r32 1172r61
+. 1184r55 1186r44 1223r46 1248r59 1268r15 1269r15 1348r22 1396r27 1405r28
+. 1507r27 1611r23 1836r20 1901r18 1933r28 1992r39 2017r28 2031r21 2132r19
+. 2174r46 2185r46 2204r30 2231r20
+92r4*Null_Header{91R9} 699c4 57|282r15 296r15 326r15 333r19 337r22 1105r14
+. 1251r15 1269r25 1283r22 1302r24 1512r14 1567r18 1613r18 2019r22 2034r15
+. 2162r22 2206r17 2233r15
+94N4*Default_Max_Header_Line_Length 181r38 186r38 285r42 286r42 57|617r38
+. 757r38 922r42 923r42 2254r10 2255r10
+97a4*Content_Description{string} 57|1701r33 1748r36
+98a4*Content_Disposition{string} 57|1288r39 1308r34 1708r43 1757r25 1764r25
+. 1774r25 1781r25
+99a4*Content_Transfer_Encoding{string} 57|946r46 1004r21 1273r27 1303r37
+. 1356r32 1566r39 1570r47 1649r29 1653r37 1794r36 1803r27 1809r39 1815r39
+. 1821r39 2031r48
+100a4*Content_Type{string} 57|1268r33 1490r57 1549r42 1559r57 1564r57 1648r29
+. 1656r42 1740r19 1743r49 2017r55 2135r37 2163r31
+101a4*MIME_Version{string} 57|1657r42
+102a4*Message_ID{string} 57|642r21
+103a4*CC{string} 57|645r21
+108a4*Text_Plain{string} 210r29 447r32 470r32 57|178r29 900r52 1262r32 1325r32
+. 1499r17 1549r56
+109a4*Text_Html{string}
+110a4*Application_Octet_Stream{string} 579r50 57|1720r40
+111a4*Application_Json{string}
+112a4*Message_RFC822{string} 57|1496r17 1696r48 1707r38
+113a4*Multipart_Mixed{string} 57|1588r54 2163r45
+114a4*Multipart_Alternative{string}
+115a4*Multipart_Signed{string}
+116a4*Multipart_Digest{string}
+117a4*Image_Jpeg{string}
+118a4*Image_Gif{string}
+119a4*Text_Xvcard{string}
+122V13*Create{91R9} 123>7 124>7 125>7 57|201s13 283s16 289s17 294s13 305s16
+. 327s16 331s16 410s9 412s9 551b13 563l8 563t14 1004s13 1268s25 1273s19 1288s31
+. 1549s34 1656s34 1657s34 1701s25 1708s35 1739s16 1743s41 1748s28 1756s22
+. 1763s22 1773s22 1780s22 1794s28 1803s19 1809s31 1815s31 1821s31 2163s23
+123a7 Name{string} 57|552b7 561r45 562r22
+124a7 Value{string} 57|553b7 558r22
+125a7 Charset{string} 57|554b7 559r28
+126V13*Create{91R9} 127>7 128>7 57|429s17 562s14 565b13 576l8 576t14
+127a7 Name{string} 57|566b7 573r67
+128r7 Value{10|54R9[51]} 57|567b7 574r36
+143U14*Append 144=7 145>7 146>7 57|313s19 582b14 594l8 594t14
+144c7 H<91R9> 57|583b7 592r56 593r15
+145a7 Value{string} 57|584b7 589r22
+146a7 Charset{string} 57|585b7 590r28
+147U14*Append 148=7 149>7 57|284s10 297s10 315s16 328s10 334s13 338s16 341s10
+. 600b14 609l8 609t14
+148c7 H<91R9> 57|601b7 606r18
+149r7 Value{10|54R9[51]} 57|601b32 603r48
+152U14*Set_Param 153=7 153>32 153>53 57|1272s10 1900b14 1927l8 1927t17 2166s7
+153c7 H<91R9> 57|1901b7 1903r48 1908r10 1912r13 1923r13
+153a32 Param_Name{string} 57|1901b32 1905r39 1908r13
+153a53 Param_Value{string} 57|1901b53 1905r60
+161V13*Get_Param{string} 161>24 161>42 57|1933b13 1986l8 1986t17 2023s14
+161c24 H<91R9> 57|1933b24 1952r10 1953r22 1955r13 1970r22
+161a42 Param_Name{string} 57|1933b42 1955r16 1970r25
+169U14*Delete_Param 169=28 169>53 57|1992b14 2010l8 2010t20
+169c28 H<91R9> 57|1992b28 1993r48 1997r10 2001r13
+169a53 Param_Name{string} 57|1992b53 1997r13
+173V13*Get_Name{string} 173>23 57|863s16 946s21 1396b13 1399l8 1399t16
+173c23 H<91R9> 57|1396b23 1398r25
+176V13*Get_Value{10|54R9[51]} 176>24 57|284s22 297s22 328s22 334s25 338s28
+. 341s22 630s57 1405b13 1412l8 1412t17
+176c24 H<91R9> 57|1405b24 1407r10 1410r17
+179U14*To_String 180>7 181>7 182>7 183<7 57|615b14 753l8 753t17 762s7 864s16
+. 866s16 1003s10
+180c7 H<91R9> 57|616b7 622r10 628r59 629r41 630r68
+181i7 Max_Line_Len{positive} 57|617b7 628r32 706r57 741r25
+182b7 Show_Header_Name{boolean} 57|618b7 638r13 696r16 706r23 744r16
+183r7 Result{35|88R9} 57|619b7 623m10 698m19 700m19 702m19 708m19 710m19
+. 715m13 731m24 737m27 745r27 745r56 746m19 746r39 748m19 748r40 864r62 866r61
+. 1005r13
+184V13*To_String{string} 185>7 186>7 187>7 57|755b13 764l8 764t17 2208s21
+185c7 H<91R9> 57|756b7 762r18
+186i7 Max_Line_Len{positive} 57|757b7 762r21
+187b7 Show_Header_Name{boolean} 57|758b7 762r35 2208r35
+195V13*To_Time{2|42I9} 196>7 57|1064b13 1075l8 1075t15 2234s17
+196c7 H<91R9> 57|1064b22 1069r10 1072r19
+206R9*Message<21|43R9> 21|46P14 56|207r28 209p13 211r54 221p13 221r34 221r50
+. 228p13 229r24 238r59 250r31 262r31 274r20 283r30 308r46 310r22 313r38 316r39
+. 320r41 324r39 329r36 330r36 334r36 342r31 353r37 361p13 361r35 367p13 367r29
+. 371p13 372r29 388r38 396r13 434r33 445r21 468r21 477r17 491r32 506p14 506r63
+. 511r20 514r42 521r19 532r22 542r41 551r41 557p14 557r40 558r37 568r28 569r21
+. 577r37 590r33 595r13 639c9 641e14 646P14 646r37 647P14 647r37 649r68 653r16
+. 679r28 57|48r29 72r13 78r13 179r54 182r13 241r34 241r50 242r17 259r24 268r59
+. 270r20 275r20 400r31 422r31 443r46 454r48 472r46 482r27 495r38 505r13 530r41
+. 774r29 778r20 886r29 920r30 1081r39 1090r31 1112r36 1134r35 1151r36 1161r13
+. 1196r13 1260r21 1267r15 1323r21 1344r17 1418r41 1428r42 1438r33 1447r32
+. 1454r28 1462r63 1480r20 1489r37 1538r22 1541r16 1581r42 1593r19 1600r23
+. 1645r39 1672r40 1673r37 1691r28 1692r21 1695r29 1718r37 1727r20 2016r33
+. 2030r38 2083r13 2086r15 2129r34 2201r35 2230r29 2240r35 2248r35
+207r4*Null_Message{206R9} 679c4 57|352r36 1451r28 1467r25 1469r22 1471r18
+. 2100r30
+209V13*New_Message{206R9} 210>7 211>7 57|177b13 206l8 206t19 270s31 1280s18
+. 1696s22 1727s31
+210a7 MIME_Type{string} 57|178b7 184r25 198r10 202r21 1280r31 1696r35 1727r44
+211a7 Charset{string} 57|179b7 202r50
+221V13*Clone_Message{206R9} 221>28 57|241b13 252l8 252t21 1645s24
+221r28 Msg{206R9} 57|241b28 247r49 248r58 249r43 250r45
+228V13*Reply_To{206R9} 229>7 230>7 231>7 232>7 233>7 234^7 237>7 238>7 57|258b13
+. 393l8 393t16
+229c7 Msg<206R9> 57|259b7 280r24 293r24 308r43 324r24 332r28 336r31 346r27
+. 348r39 360r49 361r38
+230a7 From_Email{string} 57|260b7 278r33 291r31
+231a7 From_Real_Name{string} 57|261b7 291r43
+232b7 Quote{boolean} 57|262b7 345r10
+233b7 Reply_All{boolean} 57|263b7 304r10
+234p7 Reply_Filter(boolean) 57|264b7 309r16 309r44
+235r34 Recipient{78R9}
+237i7 Local_Date{2|42I9} 57|267b7 278r45 289r46
+238a7 Charset{string} 57|268b7 291r59
+249U14*Set_Default_Headers 250=7 251>7 252>7 253>7 254>7 255>7 57|399b14
+. 415l8 415t27
+250c7 Msg<206R9> 57|400b7 408m26 409r32 411r32 414m24
+251a7 From_Email{string} 57|401b7 408r31 414r29
+252a7 Subject{string} 57|402b7 410r28
+253a7 From_Real_Name{string} 57|403b7 414r41
+254i7 Local_Date{2|42I9} 57|404b7 408r43 412r38
+255a7 Charset{string} 57|405b7 410r37 414r57
+261U14*Set_From_Header 262=7 263>7 264>7 265>7 57|291s7 414s7 421b14 437l8
+. 437t23
+262c7 Msg<206R9> 57|422b7 436r32
+263a7 From_Email{string} 57|423b7 434r52
+264a7 From_Real_Name{string} 57|424b7 433r52
+265a7 Charset{string} 57|425b7 435r26
+269P9*Header_Filter(boolean) 269>43 288r30 57|57r30 855r30 925r30
+269c43 H<91R9>
+273P9*Payload_Filter(boolean) 274>7 287r30 57|47r29 773r29 924r30
+274c7 Attachment<206R9>
+282U14*To_String 283>7 284>7 285>7 286>7 287>7 288>7 289>7 290>7 291<7 57|919b14
+. 1058l8 1058t17 1704s7 2251s7
+283c7 Msg<206R9> 57|920b7 964r26 972r10 973r28 978r41 998r10
+284b7 Envelope{boolean} 57|921b7 963r10
+285i7 Header_Max_Line_Len{positive} 57|922b7 972r32 998r32
+286i7 Subject_Max_Line_Len{positive} 57|923b7 999r10
+287p7 Content_Filter{273P9} 57|924b7 974r28
+288p7 Filter{269P9} 57|925b7 950r16 951r20
+289b7 Decode{boolean} 57|926b7 945r13 977r10 1002r10
+290b7 Quote_From{boolean} 57|927b7 1017r10
+291r7 Result{35|88R9} 57|928b7 961m7 964m18 965m18 1000m23 1010r45 1012m28
+. 1038m27 1039m27 1053m21 1056m18 1704r26
+308U14*Set_Envelope_From 308=33 308>61 57|472b14 475l8 475t25
+308c33 Msg<206R9> 57|472b33 474r7
+308a61 From{string} 57|472b61 474r58
+309U14*Set_Envelope_From 310=7 311>7 312>7 57|278s7 408s7 481b14 489l8 489t25
+310c7 Msg<206R9> 57|482b7 487r7
+311a7 Email{string} 57|483b7 488r20
+312i7 Local_Date{2|42I9} 57|484b7 488r47
+313V13*Get_Envelope_From{string} 313>32 57|495b13 498l8 498t25
+313c32 Msg<206R9> 57|495b32 497r25
+316V13*Date_From_Envelope{2|42I9} 316>33 57|504b13 524l8 524t26 2236s17
+316c33 Msg<206R9> 57|505b7 507r45
+320V13*Sender_From_Envelope{string} 320>35 57|530b13 545l8 545t28
+320c35 Msg<206R9> 57|530b35 531r45
+324U14*Add_Header 324=26 324>54 57|302s7 320s13 329s10 342s10 1081b14 1084l8
+. 1084t18 1288s13 1793s16 1801s16 1808s16 1814s16 1820s16
+324c26 Msg<206R9> 57|1081b26 1083r15
+324c54 H<91R9> 57|1081b54 1083r45
+329U14*Delete_Headers 329>30 329>51 57|1112b14 1128l8 1128t22 1303s16 1308s13
+. 1653s16
+329c30 Msg<206R9> 57|1112b30 1113r44 1123r21
+329a51 Name{string} 57|1112b51 1115r44 1120r13
+330U14*Delete_Header 330>30 330>51 57|1134b14 1145l8 1145t21 1615s13
+330c30 Msg<206R9> 57|1134b29 1135r43 1139r21
+330c51 H<91R9> 57|1134b50 1138r39
+334U14*Replace_Header 334>30 334>51 57|199s10 1151b14 1154l8 1154t22 1282s10
+. 1284s13 1301s13 1305s16 1549s13 1559s16 1564s16 1569s19 1614s13 1656s13
+. 1657s13 1700s10 1708s7 1737s13 1743s13 1747s13 1754s19 1761s19 1771s19
+. 1778s19 2167s7
+334c30 Msg<206R9> 57|1151b30 1153r32
+334c51 H<91R9> 57|1151b51 1153r37
+342V13*Get_Header{91R9} 342>25 342>46 57|280s12 293s12 324s12 332s16 336s19
+. 1090b13 1106l8 1106t18 1356s15 1490s40 1559s37 1564s37 1566s19 1570s27
+. 1611s33 2017s38 2031s31 2135s20 2204s40 2231s30
+342c25 Msg<206R9> 57|1090b25 1094r10 1095r25
+342a46 Name{string} 57|1090b46 1092r43
+347V13*Get_Type{string} 347>23 57|1490s30 1507b13 1531l8 1531t16
+347r23 H{91R9} 57|1507b23 1512r10 1516r16
+353V13*Get_Content_Type{string} 353>31 57|354s34 360s31 900s19 1489b13 1501l8
+. 1501t24 1582s46 1599s9 1623s28
+353c31 Msg<206R9> 57|1489b31 1490r52 1495r13
+361V13*Get_Message_Id{string} 361>29 57|2201b13 2224l8 2224t22
+361r29 Msg{206R9} 57|2201b29 2204r52
+367V13*Get_Date{2|42I9} 367>23 57|2230b13 2238l8 2238t16
+367r23 Msg{206R9} 57|2230b23 2231r42 2236r37
+371V13*Size{long_integer} 372>7 373>7 57|885b13 899s33 901s33 913l8 913t12
+372r7 Msg{206R9} 57|886b7 892r24 893r49 894r36 895r22 909r49
+373b7 Include_Attachments{boolean} 57|887b7 898r16
+381E9*Encoding_Type 386e23 388r60 584r30 57|93r37 932r25 1349r22 1725r30
+. 2030r60
+382n7*Encoding_7bit{381E9} 57|94r7 1002r38 1359r25 1372r31 1807r18 2048r14
+383n7*Encoding_8bit{381E9} 57|95r7 983r28 987r28 1813r18
+384n7*Encoding_Binary{381E9} 57|96r7 1819r18
+385n7*Encoding_QP{381E9} 57|97r7 985r18 1370r31 1380r18 1798r18 2103r21
+386n7*Encoding_Base64{381E9} 584r50 57|98r7 981r18 1368r31 1378r18 1725r50
+. 1790r18 2103r35
+388V13*Get_Encoding_Type{381E9} 388>32 57|978s22 2030b13 2049l8 2049t25 2102s18
+388c32 Msg<206R9> 57|2030b32 2031r43
+393R9*Header_Iterator 396r56 407r34 412r21 632c9 635e14 57|1196r56 1223r21
+. 1248r34
+395V13*Get_Headers{393R9} 396>7 396>28 57|1195b13 1216l8 1216t19
+396c7 Msg<206R9> 57|1196b7 1201r10 1205r19
+396a28 Name{string} 57|1196b28 1199r71 1207r10
+407U14*Next 407=20 407<51 57|1248b14 1253l8 1253t12
+407r20 Iter{393R9} 57|1248b20 1250m20 1250r20
+407r51 H{91R9} 57|1248b51 1250m26 1250r26 1251m10
+411V13*Next{boolean} 412=7 412<38 57|1222b13 1242l8 1242t12 1250s14
+412r7 Iter{393R9} 57|1223b7 1225r23 1226r24 1228m16 1228r16 1230r21 1231r32
+. 1232r33 1232r63 1234m22 1234r22
+412r38 H{91R9} 57|1223b38 1226m10
+434V13*Is_Multipart{boolean} 434>27 57|346s13 892s10 1438b13 1441l8 1441t20
+. 1553s16 2089s10
+434c27 Msg<206R9> 57|1438b27 1440r14
+438X4*Multipart_Error 57|1353r16
+444U14*Set_Text_Payload 445>7 446>7 447>7 448>7 449>7 450>7 57|386s16 1259b14
+. 1320l8 1320t24 1330s7 1705s7
+445c7 Msg<206R9> 57|1260b7 1279r10 1294r35 1296r34 1301r29 1303r32 1305r32
+. 1308r29 1312r13 1312r52 1317r13 1331r10
+446r7 Payload{35|88R9} 57|1261b7 1291r40 1312r42 1317r42 1332r10
+447a7 MIME_Type{string} 57|1262b7 1268r47 1300r13 1333r10 1707r25
+448a7 Disposition{string} 57|1263b7 1287r13 1288r60 1334r10
+449a7 Charset{string} 57|1264b7 1271r10 1272r38 1274r31 1335r10 1706r25
+450b7 Prepend{boolean} 57|1265b7 1293r13 1300r37 1311r13 1336r10
+467U14*Set_Text_Payload 468>7 469>7 470>7 471>7 472>7 473>7 57|1322b14 1337l8
+. 1337t24
+468c7 Msg<206R9> 57|1323b7 1331r25
+469a7 Payload{string} 57|1324b7 1332r46
+470a7 MIME_Type{string} 57|1325b7 1333r25
+471a7 Disposition{string} 57|1326b7 1334r25
+472a7 Charset{string} 57|1327b7 1335r25
+473b7 Prepend{boolean} 57|1328b7 1336r25
+476U14*Get_Single_Part_Payload 477>7 478<7 479>7 57|355s19 361s13 1343b14
+. 1390l8 1390t31
+477c7 Msg<206R9> 57|1344b7 1352r10 1356r27 1379r42 1382r30 1384r27 1388r21
+478r7 Payload{35|88R9} 57|1345b7 1379m70 1382m58 1384m16 1388m10
+479b7 Decode{boolean} 57|355r63 361r53 1346b7 1355r13
+490R9*Payload_Iterator 491r54 506r34 511r49 651c9 654e14 57|274r20 1447r54
+. 1462r34 1480r49 2085r15
+491V13*Get_Payload{490R9} 491>26 57|348s26 1447b13 1456l8 1456t19 2097s18
+491c26 Msg<206R9> 57|1447b26 1449r10 1450r35 1454r37
+506U14*Next 506=20 506<52 57|351s16 1462b14 1473l8 1473t12 2099s13
+506r20 Iter{490R9} 57|1462b20 1464r23 1465r27 1466m16 1466r16 1467r13 1468r18
+. 1469m10
+506r52 Item{206R9} 57|351r33 1462b52 1465m10 1468m10 1471m10 2099r25
+510U14*Delete_Payload 511=7 511=35 57|1479b14 1483l8 1483t22
+511c7 Msg<206R9> 57|1480b7 1482r15
+511r35 Iter{490R9} 57|1480b35 1482m43 1482r43
+514U14*Convert_To_Multipart 514>36 57|1420s7 1430s7 1581b14 1590l8 1590t28
+. 1676s7 1734s10 2134s7
+514c36 Msg<206R9> 57|1581b36 1582r64 1586r14 1587r32
+520U14*Convert_To_Multipart 521>7 522>7 523>7 57|1587s10 1592b14 1666l8 1666t28
+521c7 Msg<206R9> 57|1593b7 1599r27 1611r45 1615r28 1622r14 1623r46 1634r25
+. 1642r16 1643r31 1645r48 1653r32 1656r29 1657r29 1660r10
+522a7 MIME_Type{string} 57|1594b7 1599r35 1656r56
+523b7 Force{boolean} 57|1595b7 1599r53
+531U14*Convert_To_Single_Part 532=7 533>7 57|1537b14 1575l8 1575t30
+532c7 Msg<206R9> 57|1538b7 1544r10 1545r21 1546r13 1549r29 1551r24 1552r39
+. 1554r16 1559r32 1561r16 1564r32 1570r22
+533b7 Purge{boolean} 57|1539b7 1545r61
+542U14*Set_Preamble 542=28 542>56 57|1428b14 1432l8 1432t20
+542c28 Msg<206R9> 57|1428b28 1430r29 1431r7
+542a56 Preamble{string} 57|1428b57 1431r61
+551U14*Set_Epilogue 551=28 551>56 57|1418b14 1422l8 1422t20
+551c28 Msg<206R9> 57|1418b28 1420r29 1421r7
+551a56 Epilogue{string} 57|1418b56 1421r61
+557U14*Add_Payload 557=27 558>27 559>27 57|1672b14 1684l8 1684t19 1710s7
+557c27 Msg<206R9> 57|1672b27 1676r29 1679r19 1681r18
+558r27 Payload{206R9} 57|1673b27 1677r7 1679r47 1681r46
+559b27 First{boolean} 57|1674b27 1678r10
+567U14*Attach_Msg 568=7 569>7 570>7 57|1690b14 1711l8 1711t18
+568c7 Msg<206R9> 57|1691b7 1710m20
+569c7 Attach<206R9> 57|1692b7 1704r18
+570a7 Description{string} 57|1693b7 1699r10 1701r54
+574E9*Disposition_Type 574e73 583r30 57|1724r30
+574n30*Disposition_Attachment{574E9} 583r50 57|1724r50 1752r18
+574n54*Disposition_Inline{574E9} 57|1769r18
+576U14*Attach 577=7 578>7 579>7 580>7 581>7 582>7 583>7 584>7 57|1717b14
+. 1829l8 1829t14
+577c7 Msg<206R9> 57|1718b7 1734r32 1828r15
+578r7 Path{74|97R9} 57|1719b7 1759r40 1776r40 1787r28
+579a7 MIME_Type{string} 57|1720b7 1736r28 1741r19 1743r63
+580r7 Recommended_Filename{74|97R9} 57|1721b7 1753r19 1766r40 1770r19 1783r40
+581a7 Description{string} 57|1722b7 1746r13 1748r57
+582a7 Charset{string} 57|1723b7 1741r48 1792r39 1800r39
+583e7 Disposition{574E9} 57|1724b7 1751r15
+584e7 Encoding{381E9} 57|1725b7 1789r15
+590V13*Get_Boundary{string} 590>27 57|808s49 2016b13 2024l8 2024t20 2139s44
+590c27 Msg<206R9> 57|2016b27 2017r50
+594U14*Set_Boundary 595>7 595>28 57|804s19 2129b14 2168l8 2168t20
+595c7 Msg<206R9> 57|2129b28 2134r29 2135r32 2139r58 2156r35 2167r23
+595a28 Boundary{string} 57|2129b49 2137r10 2147r44
+615R9 Header_Record 619e14 620r33 57|214r31 572r23 2187r10
+616r7*Name{35|88R9} 57|216m29 216r50 573m26 592r67 628r70 629r52 1098r40
+. 1121r44 1170r37 1170r55 1209r42 1232r55 1398r36
+617r7*Value{10|54R9[51]} 57|217m29 217r51 298r30 574m26 593m26 606m29 1072r30
+. 1362r33 1410r28 1516r27 1844r30 1903r59 1912m24 1923m24 1953r33 1993r59
+. 2001m24 2035r30
+618i7*Ref_Count{natural} 57|218m29 2177m21 2177r45 2190m21 2190r45 2191r24
+620P9 Header_Access(615R9) 622r18 57|2187r25
+622p7*Contents{620P9} 57|214m15 216r12 216r41 217r42 298r21 571m17 592r58
+. 593r17 606r20 622r12 628r61 629r43 1069r12 1072r21 1098r31 1121r35 1138r28
+. 1138r41 1170r28 1170r46 1209r33 1232r46 1358r15 1362r24 1398r27 1407r12
+. 1410r19 1516r18 1844r21 1903r50 1912r15 1923r15 1952r12 1953r24 1993r50
+. 2001r15 2035r21 2176r12 2177r12 2177r36 2189r12 2190r12 2190r36 2191r15
+. 2192m31
+625U14 Adjust<21|47p14> 625=24 57|2174b25 2179l8 2179t14
+625r24 H{91R9} 57|2174b35 2176r10 2177r10 2177r34
+626U14 Finalize<21|48p14> 626=24 57|2185b25 2195l8 2195t16
+626r24 H{91R9} 57|2185b35 2189r10 2190r10 2190r34 2191r13 2192m29 2192r29
+630K12 Header_List[10|47] 633r16 674r23 57|39r8 54r30 88r34 88r59 194r30
+. 226r34 226r59 227r14 228r16 230r23 852r30 858r13 1091r14 1113r15 1114r15
+. 1135r14 1163r18 1164r18 1184r13 1198r11 1202r18 1646r41
+633r7*Cursor{10|65R9[630]} 57|1225r28 1226r29 1228m21 1231r37 1232r38 1234m27
+634r7*Name{35|88R9} 57|1230r26 1232r68
+637R9 Message_Record 638r34 671c9 677e14 57|191r31 245r31 456r10
+638P9 Message_Access(637R9) 640r18 57|456r26 457r18
+640p7*Contents{638P9} 680m40 57|191m15 245m15 246r15 247r53 248r62 249r47
+. 250r49 445r14 446r14 446r40 457r40 459m11 474r11 487r11 497r29 507r49 531r49
+. 821r47 825r47 893r53 894r40 895r26 909r53 964r30 972r14 998r14 1083r19
+. 1094r14 1095r29 1113r48 1123r25 1135r47 1139r25 1163r51 1172r37 1175r28
+. 1184r37 1186r26 1201r14 1205r23 1279r14 1291r15 1294r39 1296r38 1312r17
+. 1312r56 1317r17 1352r14 1379r46 1382r34 1384r31 1388r25 1421r11 1431r11
+. 1440r18 1449r14 1450r39 1482r19 1495r17 1544r14 1545r25 1546r17 1551r28
+. 1552r43 1554r20 1556r39 1557r39 1558r39 1561r20 1563r39 1586r18 1622r18
+. 1634r29 1642r20 1643r35 1646r21 1660r14 1677r15 1679r23 1681r22 1796r30
+. 1805r30 1811r30 1817r30 1823r30 1828r19 2090r41 2092r19 2117r41
+646U14 Adjust<21|47p14> 646=24 57|443b25 448l8 448t14
+646r24 Msg{206R9} 57|443b33 445r10 446r10 446r36
+647U14 Finalize<21|48p14> 647=24 57|454b25 466l8 466t16
+647r24 Msg{206R9} 57|454b35 457r36 459m7
+649K12 Message_List[10|47] 652r16 659r24 668r13 57|39r42 777r20 890r15 1294r13
+. 1296r13 1453r28 1597r23
+652r7*Cursor{10|65R9[649]} 57|1450m18 1453m18 1464r28 1465r32 1466m21 1482m48
+653r7*Msg{206R9} 57|1451m18 1454m18 1467r18 1468r23 1469m15
+656R9 Message_Payload 656d26 665e14 666r28 667r38 675r23 57|45r29 181r13
+. 771r29
+656b26*Multipart{boolean} 657r12 57|780r20 1279r31 1352r31 1440r35 1449r31
+. 1544r31 1547m16 1555m19 1562m19 1586r35 1622r35 1642r37 1661m13
+659r13*Parts{10|54R9[649]} 57|783r52 789r39 814r39 895r43 1294m56 1296m55
+. 1450r56 1482m36 1545r42 1551r45 1552r60 1556m19 1556r56 1662m13 1679m40
+. 1681m39 1828m36
+660r13*Preamble{35|88R9} 57|810r30 811r49 893r70 1431m28 1557m19 1557r56
+. 1663m13 2090r58
+661r13*Epilogue{35|88R9} 57|836r30 837r60 894r57 1421m28 1558m19 1558r56
+. 1664m13 2092r36
+663r13*Text{35|88R9} 57|843r40 909r70 1291m32 1312m34 1312r73 1317m34 1379r63
+. 1382r51 1384r48 1388r42 1548m16 1563m19 1563r56 1634r46 1643r52 1796m47
+. 1805m47 1811m47 1817m47 1823m47 2117r58
+666r4 Null_Payload{656R9} 57|187r17
+667r4 Null_Multipart_Payload{656R9} 57|185r17
+672i7*Ref_Count{natural} 57|192m13 246m32 446m23 446r49 461m19 461r41 462r22
+673r7*Envelope_From{35|88R9} 57|193m13 247m32 247r62 474m20 487m20 497r38
+. 507r58 531r58 964r39
+674r7*Headers{10|54R9[630]} 57|194m13 248m32 248r71 821r56 998r23 1083m28
+. 1095r38 1113r57 1123m34 1135r56 1139m34 1163r60 1172m46 1175m37 1184m46
+. 1186m35 1205r32 1646m30
+675r7*Payload{656R9} 57|196m13 249m32 249r56 825r56 893r62 894r49 895r35
+. 909r62 972r23 1279r23 1291m24 1294m48 1296m47 1312m26 1312r65 1317m26 1352r23
+. 1379r55 1382r43 1384r40 1388r34 1421m20 1431m20 1440r27 1449r23 1450r48
+. 1482m28 1544r23 1545r34 1546m26 1551r37 1552r52 1554m29 1556r48 1557r48
+. 1558r48 1561m29 1563r48 1586r27 1622r27 1634r38 1642r29 1643r44 1660m23
+. 1679m32 1681m31 1796m39 1805m39 1811m39 1817m39 1823m39 1828m28 2090r50
+. 2092r28 2117r50
+676b7*Is_Nested{boolean} 57|195m13 250m32 250r58 1495r26 1677m24
+682V13 Next_Occurrence{integer} 683>8 684>8 685>8 57|114b13 129l8 129t23
+. 381s22 1860s25 1868s27 1871s34 2065s17 2216s16 2221s30
+683a8 S{string} 57|115b8 121r20 122r34 124r16 128r14
+684e8 Char{character} 57|116b7 124r28
+685b8 Skip_Quotes{boolean} 57|117b7 122r13 1861r50 1869r57 1872r58
+690V13 Is_Whitespace{boolean} 690>28 691r19 57|155b13 158l8 158t21 167s19
+. 518s22 539s22 1524s21
+690e28 Char{character} 57|155b28 157r14 157r28
+694U14 Skip_Whitespaces 694>32 694=44 695r19 57|164b14 171l8 171t24 515s7
+. 535s7 1866s19
+694a32 S{string} 57|164b32 166r22 167r34 167r53
+694i44 Index{integer} 57|164b44 166r13 167r37 167r56 169m10 169r19
+X 57 gnatcoll-email.adb
+41V13 Identify_Header{58|33E12} 41>30 135b13 149l8 149t23 561s28 592s28 636s37
+41a30 Name{string} 135b30 136r45
+44U14 To_String 45>7 46>7 47>7 48>7 49=7 770b14 825s25 845l8 845t17 971s7
+45r7 Payload{56|656R9} 771b7 780r12 783r44 789r31 810r22 811r41 814r31 836r22
+. 837r52 843r32
+46i7 Header_Max_Line_Len{positive} 772b7 822r36 823r36 826r36
+47p7 Content_Filter{56|273P9} 773b7 788r19 793r35 974r10
+48c7 Msg<56|206R9> 774b7 804r33 808r63 827r36 973r10
+49r7 Append_To{35|88R9} 775b7 811m30 817m33 824m49 824r49 828r36 828m49 834m22
+. 837m30 843m21 975r10
+53U14 To_String 54>7 55>7 56>7 57>7 58=7 821s25 851b14 879l8 879t17 997s7
+54r7 Headers{10|54R9[56|630]} 852b7 858r42
+55i7 Header_Max_Line_Len{positive} 853b7 866r40
+56i7 Subject_Max_Line_Len{positive} 854b7 864r40
+57p7 Filter{56|269P9} 855b7 862r13 862r35
+58r7 Append_To{35|88R9} 824r36 856b7 870m24 871m24 878m15 1000r10
+61U14 Get_Param_Index 62>7 63>7 64<7 65<7 66<7 67<7 68<7 1835b14 1894l8 1894t23
+. 1907s7 1954s10 1969s19 1996s7
+62c7 H<56|91R9> 1836b7 1844r19
+63a7 Param_Name{string} 1837b7 1875r62
+64r7 C{10|65R9[56|51]} 1838b7 1844m7 1850r26 1852r63 1892m16
+65i7 Semicolon{integer} 1839b7 1845m7 1864m19
+66i7 Name_Start{integer} 1840b7 1846m7 1877m25
+67i7 Name_End{integer} 1841b7 1847m7 1878m25
+68i7 Value_End{integer} 1842b7 1848m7 1879m25
+71U14 Replace_Header_Internal 72>7 72>28 72>46 285s10 288s7 409s7 411s7 436s7
+. 1153s7 1160b14 1189l8 1189t31
+72c7 Msg<56|206R9> 1161b7 1163r47 1172r33 1175r24 1184r33 1186r22
+72c28 H<56|91R9> 1161b28 1170r44 1172r69 1184r63 1186r52
+72b46 Append{boolean} 285r46 289r60 410r47 412r52 436r45 1153r40 1161b46
+. 1183r13
+77V13 Check_Boundary{boolean} 78>7 78>28 2082b13 2110s26 2123l8 2123t22 2156s19
+78c7 Msg<56|206R9> 2083b7 2089r24 2090r37 2092r15 2097r31 2117r37
+78a28 Boundary{string} 2083b28 2087r41 2110r48
+81V13 Has_Line_Starting_With{boolean} 82>7 82>32 2055b13 2076l8 2076t30 2090s13
+. 2091s20 2117s13
+82r7 Text{35|88R9} 2056b7 2058r45
+82a32 Starts_With{string} 2056b32 2066r21 2067r44 2068r14
+85V13 Clone_Header{56|91R9} 85>27 212b13 220l8 220t20 231s24
+85r27 Ref{56|91R9} 212b27 216r37 217r38
+88V13 Clone_Headers{10|54R9[56|630]} 88>28 226b13 235l8 235t21 248s43
+88r28 Ref{10|54R9[56|630]} 226b28 228r45
+91P9 Constant_String_Access(string) 93r55
+93a4 Encoding_Names(91P9) 1004r48 2040r22 2041r24
+119b7 In_Quotes{boolean} 123m13 123r30 124r46
+121i11 Index{integer} 122r37 124r19 125r20
+136a7 L_Name{string} 139r10 140r20 141r20 142r20 143r20
+181r7 Pay{56|656R9} 185m10 185r10 187m10 187r10 196r30
+182r7 Msg{56|206R9} 190m7 200r14 205r14
+213r7 Copy{56|91R9} 216r7 219r14
+227r7 Copy{10|54R9[56|630]} 231m18 231r18 234r14
+228r7 Cursor{10|65R9[56|630]} 230r13 231r47 232m16 232r16
+242r7 New_Msg{56|206R9} 244m7 246r7 251r14
+265r34 Recipient{56|78R9}
+270r7 Reply{56|206R9} 278m26 278r26 285r35 289r10 291m24 291r24 302m19 302r19
+. 320m25 320r25 329m22 329r22 342m22 342r22 386r34 392r14
+271r7 H{56|91R9} 280m7 282r10 284r33 293m7 296r10 297r33 298r19 324m7 326r10
+. 328r33 341r33
+271r10 H2{56|91R9} 283m10 284m18 284r18 285r42 294m7 297m18 297r18 302r26
+. 305m10 313m27 313r27 315m24 315r24 320r32 327m10 328m18 328r18 329r29 331m10
+. 334m21 334r21 338m24 338r24 341m18 341r18 342r29
+271r14 H3{56|91R9} 332m10 333r13 334r36 336m13 337r16 338r39
+272b7 Is_First{boolean} 307m10 310r19 311m19 319r17
+273r7 To_Quote{35|88R9} 347m13 355m53 361m43 364m13 367r13 373r53
+274r7 Part_Iter{56|490R9} 348m13 348r13 351m22 351r22
+275r7 Payload{56|206R9} 351m41 352r26 354r52 355r44
+276r7 Who_Quoted{35|88R9} 298m47 299m10 299r50 368r16 369m24 369r24 382m27
+. 382r27 386r41
+308r14 Recipient{56|78R9} 309r58 315r44
+373a16 StrA{string} 376r25 378r31 380r22 381r39 381r54 382r46
+374i16 Start{integer} 376m16 378r22 381r45 382r52 383m19
+374i23 Eol{integer} 379m19 382r61 383r28
+427r7 From_H{56|91R9} 429m7 436r37
+455U17 Unchecked_Free[42|20] 463s13
+457p7 Contents{56|638P9} 460r10 461r10 461r32 462r13 463m29 463r29
+507a7 Str{string} 508r26 510r10 515r25 517r22 518r37 523r23 523r37
+508i7 Index{natural} 514m7 514r16 515m30 515r30 517r13 518r42 520m10 520r19
+. 523r28
+531a7 Str{string} 532r26 535r25 538r21 539r37 544r14
+532i7 Index{natural} 535m30 535r30 536r15 544r19
+533i7 Stop{natural} 536m7 538r13 539r42 541m10 541r18 544r28
+556r7 V{10|54R9[56|51]} 560m28 562r28
+587r7 L{10|54R9[56|51]} 591m28 593m65 593r65
+603r7 C{10|65R9[56|51]} 605r26 606r45 607m16 607r16
+628i10 Max{positive} 696r50 723r47 741m16
+629a10 N{string} 636r54 641r16 642r16 644r19 645r16 648r19 649r28 649r31
+. 649r42 651r19 651r22 651r33 652r27 654r27 658r30 660r22 660r44 664r22 698r50
+. 700r50 702r50 746r29 748r29
+630r10 Value{10|54R9[56|51]} 636r21
+631r10 Encoded{35|88R9} 636m28 675r43 699r31 708r29
+633b10 Uppercase_Next{boolean} 657m16 659r22 661m22 665m22
+634i10 Next{natural} 652m19 654m19 658r22 660r25 660r47 664r25 667m19 667r27
+675a13 Str{string} 686r22 687r19 690r19 690r39 694r21 700r60 702r61 710r50
+. 716r23 726r51 731r32
+676i13 Last{natural} 694m13 696r42 697r19 700r70 702r71 706r49 710r60 718r28
+. 723r56 726r38 736r28
+677i13 Index{integer} 716m13 718r19 723r39 731r37 740m16
+677i20 Index2{integer} 723m16 725m19 725r29 726r29 726r56 731r46 736r19 740r25
+679i13 Offset{integer} 688m19 688r29 689r22 690r28 694r32 707r19
+686i17 J{integer} 687r24 690r24 690r44
+760r7 Result{35|88R9} 762m53 763r25
+777r7 C{10|65R9[56|649]} 789m19 793r60 797m28 797r28 814m19 820r48 830m28
+. 830r28
+778r7 Attachment{56|206R9} 820m25 821r36 825r36 827r49
+783a16 Parts(boolean) 785r43 792r28 793m22 794r25 815r28 816r25
+785i16 Payload_Count{natural} 790m19 795m25 795r42 803r19
+792i23 P<integer> 793r29 794r32
+808a19 Boundary{string} 818r45 834r51
+815i23 P<integer> 816r32
+858r7 H{10|65R9[56|630]} 861r26 862r52 863r35 864r36 866r36 875m16 875r16
+859r7 Tmp{35|88R9} 864m72 864r72 866m71 866r71 869r16 870r35
+889i7 Total{long_integer} 893m10 893r19 899m16 899r25 901m16 901r25 909m10
+. 909r19 912r14
+890r7 C{10|65R9[56|649]} 895m10 897r29 899r48 900r46 901r48 905m19 905r19
+930r7 Encoded_Payload{35|88R9} 975m28 975r28 982r42 986r52 990r27 994r21
+931r7 Payload{35|88R9} 982m60 986m70 990m16 994m10 1019r57 1056r26
+932e7 Encoding{56|381E9} 978m10 980r15 983m16 987m16 1002r26 1004r64
+933r7 Encoding_Str{35|88R9} 1005m23 1005r23 1013r36
+935V16 Retain_Header{boolean} 935>31 943b16 956l11 956t24 999r32
+935c31 H<56|91R9> 943b31 946r31 951r28
+1010i13 L{natural} 1013r15 1013r18
+1019a13 Payload_Str{string} 1020r38 1021r38 1023r23 1027r26 1028r27 1035r28
+. 1036r27 1038r35 1046r26 1047r27 1053r29 1053r55
+1020i13 J{integer} 1023r19 1027r22 1028r40 1030m19 1030r24 1035r19 1036r40
+. 1036r45 1038r61 1040r32 1041m19 1041r24 1046r22 1047r40 1049m19 1049r24
+1021i13 Copy_From{natural} 1038r48 1040m19 1053r42
+1065r7 Tmp{35|88R9} 1072m47 1073r37
+1091r7 Iter{10|65R9[56|630]} 1095m10 1097r29 1098r25 1099r32 1102m19 1102r19
+1092a7 N{string} 1098r47
+1113r7 Iter{10|65R9[56|630]} 1117r26 1118r25 1121r29 1123m43 1123r43 1126m10
+1114r7 Iter2{10|65R9[56|630]} 1118m10 1126r18
+1115a7 N{string} 1121r51
+1135r7 Iter{10|65R9[56|630]} 1137r26 1138r22 1139m43 1139r43 1143m16 1143r16
+1163r7 Iter{10|65R9[56|630]} 1167r26 1168r25 1170r22 1172r55 1175m46 1175r46
+. 1179m10
+1164r7 Iter2{10|65R9[56|630]} 1168m10 1179r18
+1165b7 Is_First{boolean} 1171r16 1173m16 1182r10
+1198r7 C{10|65R9[56|630]} 1205m7 1208r29 1209r30 1211m19 1211r19 1215r15
+1199r7 N{35|88R9} 1202r42 1209r50 1215r18
+1267r7 Msg2{56|206R9} 1280m10 1282r26 1284r29 1288m25 1288r25 1291r10 1294r63
+. 1296r62
+1268r7 H_CT{56|91R9} 1272m21 1272r21 1282r32 1301r34
+1269r7 H_CTE{56|91R9} 1273m10 1283r13 1284r35 1302r16 1305r37
+1348r7 H{56|91R9} 1356m10 1358r13 1362r22
+1349e7 Encoding{56|381E9} 1359m13 1368m19 1370m19 1372m19 1377r15
+1350r7 Encoding_Str{35|88R9} 1362m50 1365r36
+1364a16 Encode{string} 1367r19 1369r22
+1490a7 T{string} 1492r10 1493r17
+1510r7 H_Ustr{35|88R9} 1516m44 1518r54
+1518a10 H_Str{string} 1521r16 1522r22 1524r36 1524r56 1529r27 1529r34
+1519i10 SC{integer} 1521m10 1522r16 1524r43 1524r63 1526m13 1526r19 1529r49
+1541r7 Attach{56|206R9} 1552m13 1553r30 1556r32 1557r32 1558r32 1559r49 1563r32
+. 1564r49 1566r31 1570r39
+1582a7 MIME_Type{string} 1584r24 1588r39
+1583b7 Is_Multipart_Type{boolean} 1588r16
+1597r7 Parts{10|54R9[56|649]} 1650m16 1650r16 1662r26
+1598b7 Create_Nested{boolean} 1622r53 1624r25
+1600r7 Part{56|206R9} 1614r29 1645m16 1646r16 1650r30
+1601r7 Preamble{35|88R9} 1634m13 1663r26
+1603U17 Move_Header 1603>30 1610b17 1617l11 1617t22 1648s16 1649s16
+1603a30 Header_Name{string} 1610b30 1611r50
+1611r10 H{56|91R9} 1613r13 1614r35 1615r33
+1695r7 Attachment{56|206R9} 1701r13 1705r25 1708r23 1710r25
+1697r7 Tmp{35|88R9} 1704m36 1704r36 1705r37
+1727r7 Attachment{56|206R9} 1738r16 1743r29 1748r16 1755r22 1762r22 1772r22
+. 1779r22 1793m28 1793r28 1796r19 1802m19 1802r19 1805r19 1809m19 1809r19
+. 1811r19 1815m19 1815r19 1817r19 1821m19 1821r19 1823r19 1828r43
+1728p7 Str{114|45P9} 1787m10 1792r19 1800r19 1811r53 1817r53 1823r53 1827m13
+. 1827r13
+1732r10 F{35|88R9} 1792m73 1796r64 1800m73 1805r64
+1852a13 Str{string} 1853r35 1857r28 1861r20 1861r34 1863r28 1866r37 1869r23
+. 1869r41 1870r29 1872r25 1872r42 1875r25
+1853i13 Index{natural} 1857r19 1860m16 1861r25 1863r19 1864r32 1865m19 1865r28
+. 1866m42 1866r42 1869r28 1875r30 1877r39 1883m22 1886m22
+1854i13 Stop{natural} 1868m19 1870r22 1872r30 1875r39 1878r39 1886r31
+1855i13 Val_Stop{natural} 1871m22 1879r39 1883r31
+1903r7 C{10|65R9[56|51]} 1908m25 1910r23 1913r13 1915r42 1918r28 1919r49
+. 1920r35
+1904i7 Semicolon{integer} 1908m28 1915r58
+1904i18 Name_Start{integer} 1908m39
+1904i30 Name_End{integer} 1908m51
+1904i40 Val_End{integer} 1908m61 1919r19
+1905a7 Str=1905:72{string} 1916r18 1924r47
+1934r7 C{10|65R9[56|51]} 1942r28 1953m10 1955m28 1957r26 1971m22 1973r46
+1935i7 Semicolon{integer} 1955m31 1971m25
+1935i18 Name_Start{integer} 1955m42 1971m36
+1935i30 Name_End{integer} 1942r41 1955m54 1971m48
+1935i40 Val_End{integer} 1942r55 1955m64 1972m22
+1937V16 Get_Val{string} 1940b16 1949l11 1949t18 1958s20 1975s32
+1941a10 Str{string} 1944r13 1944r18 1945r20 1945r25 1945r42 1947r20
+1965i16 Current{natural} 1970r51 1977m19 1977r30
+1966r16 Val{35|88R9} 1975m27 1975r27 1980r34
+1993r7 C{10|65R9[56|51]} 1997m25 1999r23 2002r13 2004r42 2006r28 2007r49
+. 2008r35
+1994i7 Semicolon{integer} 1997m28 2004r58
+1994i18 Name_Start{integer} 1997m39
+1994i30 Name_End{integer} 1997m51
+1994i40 Val_End{integer} 1997m61 2007r19
+2017r7 Content_T{56|91R9} 2019r10 2023r25
+2031r7 H{56|91R9} 2034r10 2035r19
+2032r7 HU{35|88R9} 2035m47 2038r64
+2038a13 HS{string} 2041r19
+2040e17 J{56|381E9} 2041r40 2042r26
+2058a7 StrA{string} 2062r16 2064r22 2065r34 2065r49 2066r47 2067r21
+2059i7 Index{natural} 2062m7 2064r13 2065r40 2066r13 2067r27 2067r36 2073m10
+2060i7 Eol{natural} 2065m10 2073r19
+2085r7 Iter{56|490R9} 2097m10 2097r10 2099m19 2099r19
+2086r7 Msg2{56|206R9} 2099m33 2100r23 2102r37 2110r42
+2087a7 Bound=2087:39{string} 2090r68 2092r46 2117r64
+2130r7 Candidate{35|88R9} 2139m10 2140r13 2143m13 2147m10 2148r20 2151m21
+. 2151r21 2156r51 2158m21 2158r21 2166r52
+2131b7 Valid{boolean} 2155r17 2156m10 2157r17
+2132r7 Content_T{56|91R9} 2135m7 2162r10 2163m10 2166m18 2166r18 2167r28
+2186U17 Unchecked_Free[42|20] 2192s13
+2204r7 H{56|91R9} 2206r13 2208r32
+2205a7 MsgId_Str{string} 2216r33 2217r18 2218r17 2220r17 2222r33 2222r53
+2209i7 Index{integer} 2216m7 2217r10 2220r28 2222r44
+2231r7 H{56|91R9} 2233r10 2234r26
+2240U14 Debug_Message 2240>29 2241r24 2248b14 2262l8 2262t21
+2240r29 Msg{56|206R9} 2248b29 2252r10
+2249r7 Res{35|88R9} 2260m10 2261r28
+X 58 gnatcoll-email-utils.ads
+30K24*Utils 57|33w21 33r52 58|280e25
+32n20*Addr_Header{32E9} 57|145r17
+32n33*Other_Header{32E9} 57|147r17
+32n47*Text{32E9} 57|1792r57 1800r57
+33E12*Any_Header{32E9} 57|41r52 135r52
+43n39*Time_Envelope{43E9} 57|523r58
+48V13*To_Time{2|42I9} 57|523s14 1073s17
+50e7 Format{43E9} 57|523r48
+54V13*Format_Date{string} 57|289s33 412s25 488s34
+57b7 From_Line{boolean} 57|488r59
+101V13*Parse_Address{56|78R9} 57|299s24
+128V13*Get_Recipients{15|59R9[91]} 57|308s27
+147V13*Format_Address{10|54R9[56|51]} 57|315s28 431s37
+148r7 Email{56|78R9} 57|432r15
+149a7 Charset{string} 57|435r15
+175V13*Get_Main_Type{string} 57|184s10 354s19 360s16 1584s9 1623s13 1736s13
+187U14*Quoted_Printable_Encode 57|1799s16
+189a7 Charset{string} 57|1800r28
+191e7 Where{32E9} 57|1800r48
+192r7 Result{35|88R9} 57|1800r63
+198U14*Quoted_Printable_Decode 57|986s16 1381s16
+210U14*Base64_Encode 57|1791s16
+212a7 Charset{string} 57|1792r28
+214e7 Where{32E9} 57|1792r48
+215r7 Result{35|88R9} 57|1792r63
+229U14*Base64_Decode 57|982s16 1379s16
+245U14*Decode_Header 57|558s7 589s7
+247a7 Default_Charset{string} 57|559r9 590r9
+248r7 Result{10|54R9[56|51]} 57|560r9 591r9
+249e7 Where{33E12} 57|561r9 592r9
+264U14*Flatten 57|298s10 1072s10 1362s13 1516s7 2035s10
+266r7 Result{35|88R9} 57|298r37 1072r37 1362r40 1516r34 2035r37
+273U14*To_String 57|636s10
+X 72 gnatcoll-strings_impl.adb
+1495V19 H[112|60]{9|19M9} 113|44b13[70|31]
+1511V19 H[112|60]{9|19M9} 113|44b13[70|31]
+X 73 gnatcoll-utils.ads
+36K18*Utils 57|34w15 34r46 73|323e19
+56V13*Image{string} 57|1970s44
+58i7 Min_Width{integer} 57|1970r60
+283i4*No_Time=283:54{2|42I9} 57|511r17 1070r17
+X 74 gnatcoll-vfs.ads
+62K18*VFS 56|32w15 578r39 580r39 580r68 57|35w15 35r46 74|673e17
+68A9*Filesystem_String<string>(character)<integer>
+73V14*"+"{string} 57|1759s28 1766s28 1776s28 1783s28
+97R9*Virtual_File<21|43R9> 56|578r43 580r43 57|1719r30 1721r30 74|627e14
+98r4*No_File{97R9} 56|580r72 57|1721r46 1753r42 1770r42
+214V13*Base_Name{68A9} 57|1759s29 1766s29 1776s29 1783s29
+334V25*"="{boolean} 57|1753s40 1770s40
+448V13*Read_File{114|45P9} 57|1787s17
+X 81 system.ads
+67M9*Address
+X 93 s-memory.ads
+53V13*Alloc{81|67M9} 103i<c,__gnat_malloc>22
+68U14*Free 104i<c,__gnat_free>22
+76V13*Realloc{81|67M9} 105i<c,__gnat_realloc>22
+X 104 s-stalib.adb
+89U14 Break_Start 90i<c,__gnat_break_start>22
+X 114 s-string.ads
+45P9*String_Access(string) 57|1728r33
+49U14*Free[42|20] 57|1827s7
+

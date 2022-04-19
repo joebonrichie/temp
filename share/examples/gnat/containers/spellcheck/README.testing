@@ -1,0 +1,43 @@
+		       G N A T   E X A M P L E S
+		       =========================
+
+
+In order to compile the examples, make sure that the 'gprbuild' command is
+in your path. 
+
+Invocation
+----------
+
+In order to build the two executables provided in this example, you need to
+use the "spellcheck.gpr" project file. On the command-line, do a:
+
+  $ gprbuild -Pspellcheck
+
+In GPS, click on "Build", then "Make" and then "spellcheck".
+
+Features tested
+---------------
+
+Sets
+
+Description of example
+----------------------
+
+This is a simple benchmark program, to test the operation of the set.  (It uses
+the hashed set, but the ordered would work just as well.)
+
+The main program (see spellcheck.adb) first loads a dictionary, using a loop to
+read each word (there's one word per line), and inserting it into the set.  The
+set element type is String, so the indefinite set (Indefinite_Hashed_Set) is
+used.  The stardard library has a hash function for String (Ada.Strings.Hash).
+
+Note that before inserting words, we use Reserve_Capacity (for hashed
+containers only) to preallocate the hash table buckets array, to eliminate
+table expansion and hence avoid rehashing during insertion.  It's not strictly
+necessary, but it speeds up the load time a little.  (And besides, this is
+supposed to be a benchmark, so a little cheating can't hurt...)
+
+The program then reads words from standard input, using the membership test for
+sets (the operation named Contains) to determine whether the word is in the
+set.  In this example, the input and dictionary files only differ by a single
+word, and that's what is printed as output.

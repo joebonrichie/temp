@@ -1,0 +1,73 @@
+V "GNAT Lib v2021"
+A -O2
+A -gnatA
+A -fPIC
+A -gnatwu
+A -gnatwa
+A -gnaty
+A -gnatQ
+A -gnatn
+A -mtune=generic
+A -march=x86-64
+P ZX
+
+RN
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U unicode.ccs.iso_8859_1%b  unicode-ccs-iso_8859_1.adb  2cc3eaf2 NE OO PK
+W ada%s			ada.ads			ada.ali
+W ada.exceptions%s	a-except.adb		a-except.ali
+Z system.img_uns%s	s-imguns.ads		s-imguns.ali
+Z system.unsigned_types%s  s-unstyp.ads		s-unstyp.ali
+W unicode.ccs%s		unicode-ccs.adb		unicode-ccs.ali
+
+U unicode.ccs.iso_8859_1%s  unicode-ccs-iso_8859_1.ads  8e38bcbd EE NE OO PK
+W unicode.ccs%s		unicode-ccs.adb		unicode-ccs.ali
+
+D ada.ads		20210520051131 76789da1 ada%s
+D a-except.ads		20210520051128 946f3014 ada.exceptions%s
+D a-unccon.ads		20210520051130 0e9b276f ada.unchecked_conversion%s
+D system.ads		20210520051135 a2da961d system%s
+D s-exctab.ads		20210520051132 54135002 system.exception_table%s
+D s-imageu.ads		20210520051133 525c30c6 system.image_u%s
+D s-imageu.adb		20210520051133 2d0619dc system.image_u%b
+D s-imguns.ads		20210520051133 0e4da2ac system.img_uns%s
+D s-parame.ads		20210520051134 4752c4cb system.parameters%s
+D s-stalib.ads		20210520051134 472fbca8 system.standard_library%s
+D s-traent.ads		20210520051134 26a8d361 system.traceback_entries%s
+D s-unstyp.ads		20210520051134 2b077493 system.unsigned_types%s
+D unicode.ads		20210519052322 a421878d unicode%s
+D unicode-ccs.ads	20210519052322 184e29de unicode.ccs%s
+D unicode-ccs-iso_8859_1.ads  20210519052322 96769563 unicode.ccs.iso_8859_1%s
+D unicode-ccs-iso_8859_1.adb  20210519052322 2eda4f85 unicode.ccs.iso_8859_1%b
+G a e
+G c Z s b [to_unicode unicode__ccs__iso_8859_1 36 13 none]
+G c Z s b [to_iso_8859_1 unicode__ccs__iso_8859_1 37 13 none]
+X 1 ada.ads
+16K9*Ada 20e8 16|24r6 24r26
+X 2 a-except.ads
+44K13*Exceptions 289e19 16|24w10 24r30
+80U14*Raise_Exception 16|35s10
+X 13 unicode.ads
+111K9*Unicode 157e12 15|31r9 42r5 16|26r14 51r5
+114M9*Unicode_Char 15|36r35 36r56 37r35 37r56 16|32r32 32r53 37r23 48r35
+. 48r56
+X 14 unicode-ccs.ads
+31K17*CCS 13|111k9 14|72e16 15|31r17 42r13 16|26r22 51r13
+44P9*Conversion_Function(13|114M9)
+47R9*Character_Set 50e14 15|39r40
+48p7*To_Unicode{44P9} 15|40m7
+49p7*To_CS{44P9} 15|41m7
+63X4*Invalid_Code 16|36r13
+X 15 unicode-ccs-iso_8859_1.ads
+31K21*Iso_8859_1 14|31k17 15|42l17 42e27 16|26b26 51l17 51t27
+33a4*Name1{string}
+34a4*Name2{string}
+36V13*To_Unicode{13|114M9} 36>28 40r21 16|32b13 42l8 42t18 49r15
+36m28 Char{13|114M9} 16|32b25 34r10 37r43 40r17
+37V13*To_Iso_8859_1{13|114M9} 37>28 41r21 16|48b13
+37m28 Char{13|114M9} 16|48b28
+39r4*Iso_8859_1_Character_Set{14|47R9}
+

@@ -1,0 +1,227 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>17. Projects: manipulating gpr files &#8212; GNATColl 2021 documentation</title>
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="18. Refcount: Reference counting" href="refcount.html" />
+    <link rel="prev" title="16. Geometry: primitive geometric operations" href="geometry.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="refcount.html" title="18. Refcount: Reference counting"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="geometry.html" title="16. Geometry: primitive geometric operations"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">GNATColl 2021 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">17. </span><strong>Projects</strong>: manipulating gpr files</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="projects-manipulating-gpr-files">
+<span id="projects"></span><h1><span class="section-number">17. </span><strong>Projects</strong>: manipulating gpr files<a class="headerlink" href="#projects-manipulating-gpr-files" title="Permalink to this headline">¶</a></h1>
+<p>The package <cite>GNATCOLL.Projects</cite> provides an extensive interface to parse,
+manipulate and edit project files (<code class="file docutils literal notranslate"><span class="pre">.gpr</span></code> files).</p>
+<p>Although the interface is best used using the Ada 2012 notation, it is fully
+compatible with Ada 95.</p>
+<p>Here is a quick example on how to use the interface, although the spec file
+itself contains much more detailed information on all the subprograms related
+to the manipulation of project files:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kn">with</span> <span class="nn">GNATCOLL.Projects</span><span class="p">;</span> <span class="kn">use</span> <span class="nn">GNATCOLL.Projects</span><span class="p">;</span>
+<span class="kn">with</span> <span class="nn">GNATCOLL.VFS</span><span class="p">;</span>      <span class="kn">use</span> <span class="nn">GNATCOLL.VFS</span><span class="p">;</span>
+
+<span class="kd">procedure</span> <span class="nf">Test_Project</span> <span class="kr">is</span>
+   <span class="n">Tree</span>  <span class="p">:</span> <span class="n">Project_Tree</span><span class="p">;</span>
+   <span class="n">Files</span> <span class="p">:</span> <span class="n">File_Array_Access</span><span class="p">;</span>
+<span class="kr">begin</span>
+   <span class="n">Tree</span><span class="p">.</span><span class="n">Load</span> <span class="p">(</span><span class="n">GNATCOLL</span><span class="p">.</span><span class="n">VFS</span><span class="p">.</span><span class="n">Create</span> <span class="p">(</span><span class="o">+</span><span class="s">&quot;path_to_project.gpr&quot;</span><span class="p">));</span>
+
+   <span class="c1">--  List the source files for project and all imported projects</span>
+
+   <span class="n">Files</span> <span class="p">:=</span> <span class="n">Tree</span><span class="p">.</span><span class="n">Root_Project</span><span class="p">.</span><span class="n">Source_Files</span> <span class="p">(</span><span class="n">Recursive</span> <span class="p">=&gt;</span> <span class="kc">True</span><span class="p">);</span>
+   <span class="kr">for</span> <span class="n">F</span> <span class="ow">in</span> <span class="n">Files</span><span class="p">&#39;</span><span class="na">Range</span> <span class="kr">loop</span>
+      <span class="n">Put_Line</span> <span class="p">(</span><span class="s">&quot;File is: &quot;</span> <span class="o">&amp;</span> <span class="n">Files</span> <span class="p">(</span><span class="n">F</span><span class="p">).</span><span class="n">Display_Full_Name</span><span class="p">);</span>
+   <span class="kr">end</span> <span class="kr">loop</span><span class="p">;</span>
+
+   <span class="n">Tree</span><span class="p">.</span><span class="n">Unload</span><span class="p">;</span>
+<span class="kr">end</span> <span class="nf">Test_Project</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="section" id="defining-a-project-with-user-defined-packages-and-reading-them">
+<h2><span class="section-number">17.1. </span>Defining a project with user-defined packages and reading them<a class="headerlink" href="#defining-a-project-with-user-defined-packages-and-reading-them" title="Permalink to this headline">¶</a></h2>
+<p>If you want to use <cite>GNATCOLL.Projects</cite> with a GPR file that contains specific
+packages and attributes, you must procede in several steps. The following
+example will show you how to do it:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kn">with</span> <span class="nn">Ada.Text_IO</span><span class="p">;</span> <span class="kn">use</span> <span class="nn">Ada.Text_IO</span><span class="p">;</span>
+
+<span class="kn">with</span> <span class="nn">GNAT.Strings</span><span class="p">;</span>
+
+<span class="kn">with</span> <span class="nn">GNATCOLL.Projects</span><span class="p">;</span> <span class="kn">use</span> <span class="nn">GNATCOLL.Projects</span><span class="p">;</span>
+<span class="kn">with</span> <span class="nn">GNATCOLL.VFS</span><span class="p">;</span>      <span class="kn">use</span> <span class="nn">GNATCOLL.VFS</span><span class="p">;</span>
+
+<span class="kd">procedure</span> <span class="nf">Test_Project</span> <span class="kr">is</span>
+   <span class="n">Tree</span>         <span class="p">:</span> <span class="n">Project_Tree</span><span class="p">;</span>
+   <span class="no">Project_File</span> <span class="p">:</span> <span class="kr">constant</span> <span class="n">Virtual_File</span> <span class="p">:=</span>
+      <span class="n">GNATCOLL</span><span class="p">.</span><span class="n">VFS</span><span class="p">.</span><span class="n">Create</span> <span class="p">(</span><span class="o">+</span><span class="s">&quot;path_to_project.gpr&quot;</span><span class="p">);</span>
+<span class="kr">begin</span>
+   <span class="c1">--  1</span>
+   <span class="kr">if</span> <span class="n">Register_New_Attribute</span>
+        <span class="p">(</span><span class="s">&quot;String&quot;</span><span class="p">,</span> <span class="s">&quot;Package_Name&quot;</span><span class="p">)</span> <span class="o">/=</span> <span class="s">&quot;&quot;</span>
+      <span class="ow">or else</span> <span class="n">Register_New_Attribute</span>
+        <span class="p">(</span><span class="s">&quot;List&quot;</span><span class="p">,</span> <span class="s">&quot;Package_Name&quot;</span><span class="p">,</span> <span class="n">Is_List</span> <span class="p">=&gt;</span> <span class="kc">True</span><span class="p">)</span> <span class="o">/=</span> <span class="s">&quot;&quot;</span>
+      <span class="ow">or else</span> <span class="n">Register_New_Attribute</span>
+        <span class="p">(</span><span class="s">&quot;Indexed&quot;</span><span class="p">,</span> <span class="s">&quot;Package_Name&quot;</span><span class="p">,</span> <span class="n">Indexed</span> <span class="p">=&gt;</span> <span class="kc">True</span><span class="p">)</span> <span class="o">/=</span> <span class="s">&quot;&quot;</span>
+   <span class="kr">then</span>
+      <span class="kr">raise</span> <span class="n">Program_Error</span><span class="p">;</span>
+   <span class="kr">end</span> <span class="kr">if</span><span class="p">;</span>
+
+   <span class="c1">--  2</span>
+   <span class="n">Tree</span><span class="p">.</span><span class="n">Load</span> <span class="p">(</span><span class="n">Root_Project_Path</span> <span class="p">=&gt;</span> <span class="n">Project_File</span><span class="p">,</span>
+              <span class="kd">Package</span><span class="nc">s_To_Check</span> <span class="p">=&gt;</span> <span class="nc">All_Packs</span><span class="p">);</span>
+
+   <span class="kr">declare</span>
+      <span class="no">Root</span> <span class="p">:</span> <span class="kr">constant</span> <span class="n">Project_Type</span> <span class="p">:=</span> <span class="n">Tree</span><span class="p">.</span><span class="n">Root_Project</span><span class="p">;</span>
+
+      <span class="c1">--  3</span>
+      <span class="no">String_Attribute</span> <span class="p">:</span> <span class="kr">constant</span> <span class="n">Attribute_Pkg_String</span> <span class="p">:=</span>
+         <span class="n">Build</span> <span class="p">(</span><span class="s">&quot;Package_Name&quot;</span><span class="p">,</span> <span class="s">&quot;String&quot;</span><span class="p">);</span>
+      <span class="no">String_Value</span> <span class="p">:</span> <span class="kr">constant</span> <span class="kt">String</span> <span class="p">:=</span>
+         <span class="n">Root</span><span class="p">.</span><span class="n">Attribute_Value</span> <span class="p">(</span><span class="n">String_Attribute</span><span class="p">);</span>
+
+      <span class="no">Indexed_Attribute</span> <span class="p">:</span> <span class="kr">constant</span> <span class="n">Attribute_Pkg_String</span> <span class="p">:=</span>
+         <span class="n">Build</span> <span class="p">(</span><span class="s">&quot;Package_Name&quot;</span><span class="p">,</span> <span class="s">&quot;Indexed&quot;</span><span class="p">);</span>
+      <span class="no">Indexed_Value</span> <span class="p">:</span> <span class="kr">constant</span> <span class="kt">String</span> <span class="p">:=</span>
+         <span class="n">Root</span><span class="p">.</span><span class="n">Attribute_Value</span>
+           <span class="p">(</span><span class="n">Indexed_Attribute</span><span class="p">,</span> <span class="n">Index</span> <span class="p">=&gt;</span> <span class="s">&quot;Index&quot;</span><span class="p">);</span>
+
+      <span class="no">List_Attribute</span> <span class="p">:</span> <span class="kr">constant</span> <span class="n">Attribute_Pkg_List</span> <span class="p">:=</span>
+         <span class="n">Build</span> <span class="p">(</span><span class="s">&quot;Package_Name&quot;</span><span class="p">,</span> <span class="s">&quot;List&quot;</span><span class="p">);</span>
+      <span class="no">List_Value</span> <span class="p">:</span> <span class="kr">constant</span> <span class="n">GNAT</span><span class="p">.</span><span class="n">Strings</span><span class="p">.</span><span class="n">String_List_Access</span> <span class="p">:=</span>
+         <span class="n">Root</span><span class="p">.</span><span class="n">Attribute_Value</span> <span class="p">(</span><span class="n">List_Attribute</span><span class="p">);</span>
+   <span class="kr">begin</span>
+      <span class="c1">--  4</span>
+      <span class="n">Put_Line</span> <span class="p">(</span><span class="s">&quot;Package_Name.String: &quot;</span> <span class="o">&amp;</span> <span class="n">String_Value</span><span class="p">);</span>
+      <span class="n">Put_Line</span> <span class="p">(</span><span class="s">&quot;Package_Name.Indexed (&quot;&quot;Index&quot;&quot;): &quot;</span>
+                <span class="o">&amp;</span> <span class="n">Indexed_Value</span><span class="p">);</span>
+      <span class="n">Put_Line</span> <span class="p">(</span><span class="s">&quot;Package_Name.List:&quot;</span><span class="p">);</span>
+      <span class="kr">for</span> <span class="n">Val</span> <span class="kr">of</span> <span class="n">List_Value</span><span class="p">.</span><span class="kr">all</span> <span class="kr">loop</span>
+         <span class="n">Put_Line</span> <span class="p">(</span><span class="s">&quot;  Value: &quot;</span> <span class="o">&amp;</span> <span class="n">Val</span><span class="p">.</span><span class="kr">all</span><span class="p">);</span>
+      <span class="kr">end</span> <span class="kr">loop</span><span class="p">;</span>
+   <span class="kr">end</span><span class="p">;</span>
+<span class="kr">end</span> <span class="nf">Test_Project</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>And the corresponding project file:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="n">project</span> <span class="n">Path_To_Project</span> <span class="kr">is</span>
+   <span class="kd">package</span> <span class="nc">Package_Name</span> <span class="kr">is</span>
+      <span class="kr">for</span> <span class="kt">String</span> <span class="kn">use</span> <span class="s">&quot;some string&quot;</span>
+      <span class="kr">for</span> <span class="n">Indexed</span> <span class="p">(</span><span class="s">&quot;Index&quot;</span><span class="p">)</span> <span class="kn">use</span> <span class="s">&quot;other string&quot;</span><span class="p">;</span>
+      <span class="kr">for</span> <span class="n">List</span> <span class="kn">use</span> <span class="p">(</span><span class="s">&quot;first item&quot;</span><span class="p">,</span> <span class="s">&quot;second item&quot;</span><span class="p">);</span>
+   <span class="kr">end</span> <span class="nf">Package_Name</span><span class="p">;</span>
+<span class="kr">end</span> <span class="nf">Path_To_Project</span><span class="p">;</span>
+</pre></div>
+</div>
+<dl class="simple">
+<dt>Step 1: We register all the attributes that we want for a given package.</dt><dd><p>If the package does not already exists it is created.</p>
+</dd>
+<dt>Step 2: We load the project into the projects hierarchy. We tell <code class="docutils literal notranslate"><span class="pre">Tree.Load</span></code></dt><dd><p>to check all packages otherwise it will not load any packages.</p>
+</dd>
+<dt>Step 3: We read attributes from the project. An attribute can be an</dt><dd><p><code class="docutils literal notranslate"><span class="pre">Attribute_Pkg_String</span></code> (representing a plain string) or an
+<code class="docutils literal notranslate"><span class="pre">Attribute_Pkg_List</span></code> (representing a list of strings).</p>
+</dd>
+<dt>Step 4: We can do something with those values. Here we print the plain string</dt><dd><p>and the content of the list.</p>
+</dd>
+</dl>
+<p>This program should output:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Package_Name.String: some string
+Package_Name.Indexed (&quot;Index&quot;): hello world
+Package_Name.List:
+  Value: hello
+  Value: world
+</pre></div>
+</div>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/adacore_transparent.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">17. <strong>Projects</strong>: manipulating gpr files</a><ul>
+<li><a class="reference internal" href="#defining-a-project-with-user-defined-packages-and-reading-them">17.1. Defining a project with user-defined packages and reading them</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="geometry.html"
+                        title="previous chapter"><span class="section-number">16. </span><strong>Geometry</strong>: primitive geometric operations</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="refcount.html"
+                        title="next chapter"><span class="section-number">18. </span><strong>Refcount</strong>: Reference counting</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="refcount.html" title="18. Refcount: Reference counting"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="geometry.html" title="16. Geometry: primitive geometric operations"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">GNATColl 2021 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">17. </span><strong>Projects</strong>: manipulating gpr files</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2007-2021, AdaCore.
+    </div>
+  </body>
+</html>

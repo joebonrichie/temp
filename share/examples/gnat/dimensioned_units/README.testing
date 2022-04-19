@@ -1,0 +1,103 @@
+		       G N A T   E X A M P L E S
+		       =========================
+
+
+In order to compile the examples, make sure that the 'gprbuild' command is
+in your path. 
+
+Invocation
+----------
+
+In order to build the executable provided in this example, you need to use the
+"dimensioned_units.gpr" project file. On the command-line, do the following:
+
+  $ gprbuild -P dimensioned_units
+
+Alternatively, in GPS, click on "Build", and then "Make", and the example main
+program will be built.
+
+Features illustrated
+--------------------
+
+* This example illustrates a simple use of the GNAT dimensionality checking
+  system. Free fall is a common physics problem, it refers to the motion of
+  objects influenced only by gravity. The gravitational accelaration g is the
+  accelaration of an object due to gravity. On Earth, g = 9.81 m/s^2. This
+  example evaluates the distance travelled in 10 seconds of free fall by an
+  object on Earth. The main program provided is free_fall.adb.
+
+* The GNAT compiler now supports dimensionality checking. The user can specify
+  physical units for objects, and the compiler will verify that uses of these
+  objects are compatible with their dimensions, in a fashion that is familiar
+  to engineering practice. The dimensions of algebraic expressions (including
+  powers with static exponents) are computed from their consistuents.
+
+  This feature depends on Ada 2012 aspect specifications, and is available from
+  version 7.0.1 of GNAT onwards. The GNAT-specific aspect Dimension_System
+  allows the user to define a system of units; the aspect Dimension then allows
+  the user to declare dimensioned quantities within a given system.
+
+  The major advantage of this model is that it does not require the declaration
+  of multiple operators for all possible combinations of types: it is only
+  necessary to use the proper subtypes in object declarations.
+
+  The simplest way to impose dimensionality checking on a computation is to
+  make use of the package System.Dim.Mks, which is part of the GNAT library.
+  This package defines a floating-point type MKS_Type, for which a sequence of
+  dimension names are specified, together with their conventional
+  abbreviations. The following should be read together with the full
+  specification of the package, in file s-dimmks.ads.
+
+  type Mks_Type is new Long_Long_Float
+    with
+     Dimension_System => (
+       (Unit_Name => Meter,    Unit_Symbol => 'm',   Dim_Symbol => 'L'),
+       (Unit_Name => Kilogram, Unit_Symbol => "kg",  Dim_Symbol => 'M'),
+       (Unit_Name => Second,   Unit_Symbol => 's',   Dim_Symbol => 'T'),
+       (Unit_Name => Ampere,   Unit_Symbol => 'A',   Dim_Symbol => 'I'),
+       (Unit_Name => Kelvin,   Unit_Symbol => 'K',   Dim_Symbol => "Θ"),
+       (Unit_Name => Mole,     Unit_Symbol => "mol", Dim_Symbol => 'N'),
+       (Unit_Name => Candela,  Unit_Symbol => "cd",  Dim_Symbol => 'J'));
+
+  The package then defines a series of subtypes that correspond to these
+  conventional units. For example:
+
+  subtype Length is Mks_Type
+    with
+     Dimension => (Symbol => 'm',
+       Meter  => 1,
+       others => 0);
+
+  and similarly for Mass, Time, Electric_Current, Thermodynamic_Temperature,
+  Amount_Of_Substance, and Luminous_Intensity (the standard set of units of the
+  SI system).
+
+  The package also defines conventional names for values of each unit, for
+  example:
+
+  m   : constant Length           := 1.0;
+  kg  : constant Mass             := 1.0;
+  s   : constant Time             := 1.0;
+  A   : constant Electric_Current := 1.0;
+
+  as well as useful multiples of these units:
+
+  cm  : constant Length := 1.0E-02;
+  g   : constant Mass   := 1.0E-03;
+  min : constant Time   := 60.0;
+  day : constant TIme   := 60.0 * 24.0 * min;
+  ...
+
+  The user can then define a derived unit by providing the aspect that
+  specifies its dimensions within the MKS system, as well as the string to
+  be used for output of a value of that unit:
+
+  subtype Acceleration is Mks_Type
+    with Dimension => ("m/sec^2", Meter => 1, Second => -2, others => 0);
+
+* The topic of dimensionality support in Ada has a long history, as the 
+  references below will show.  For a more recent discussion, in the context of 
+  Ada 2005, see "http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AIs/AI-00324.TXT".
+  Also of considerable interest is discussion available here:
+  "http://www.christ-usch-grein.homepage.t-online.de/Ada/Universe.html" and
+  "http://www.christ-usch-grein.homepage.t-online.de/Ada/Dimension.html".

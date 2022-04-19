@@ -1,0 +1,2493 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>4. GPRbuild Companion Tools &#8212; GPR Tools User&#39;s Guide 2021 documentation</title>
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="GNU Free Documentation License" href="../share/gnu_free_documentation_license.html" />
+    <link rel="prev" title="3. Building with GPRbuild" href="building_with_gprbuild.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../share/gnu_free_documentation_license.html" title="GNU Free Documentation License"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="building_with_gprbuild.html" title="3. Building with GPRbuild"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../gprbuild_ug.html">GPR Tools User&#39;s Guide 2021 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">4. </span>GPRbuild Companion Tools</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="gprbuild-companion-tools">
+<span id="id1"></span><h1><span class="section-number">4. </span>GPRbuild Companion Tools<a class="headerlink" href="#gprbuild-companion-tools" title="Permalink to this headline">¶</a></h1>
+<p>This chapter describes the various tools that can be used in conjunction with GPRbuild.</p>
+<div class="section" id="configuring-with-gprconfig">
+<span id="id2"></span><h2><span class="section-number">4.1. </span>Configuring with GPRconfig<a class="headerlink" href="#configuring-with-gprconfig" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="configuration">
+<span id="id3"></span><h3><span class="section-number">4.1.1. </span>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h3>
+<p>GPRbuild requires one configuration file describing the languages and
+toolchains to be used, and project files describing the
+characteristics of the user project. Typically the configuration
+file can be created automatically by <cite>GPRbuild</cite> based on the languages
+defined in your projects and the compilers on your path. In more
+involved situations — such as cross compilation, or
+environments with several compilers for the same language —
+you may need to control more precisely the generation of
+the desired configuration of toolsets. A tool, GPRconfig, described in
+<a class="reference internal" href="#configuring-with-gprconfig"><span class="std std-ref">Configuring with GPRconfig</span></a>), offers this capability. In this
+chapter most of the examples can use autoconfiguration.</p>
+<p>GPRbuild will start its build process by trying to locate a configuration
+file. The following tests are performed in the specified order, and the
+first that matches provides the configuration file to use.</p>
+<ul>
+<li><p>If a file has a base names that matches <cite>&lt;target&gt;-&lt;rts&gt;.cgpr</cite>,
+<cite>&lt;target.cgpr</cite>, <cite>&lt;rts&gt;.cgpr</cite> or <cite>default.cgpr</cite> is found in
+the default configuration files directory, this file is used. The target
+and rts parameters are specified via the <cite>–target</cite> and <cite>–RTS</cite>
+switches of <cite>gprbuild</cite>. The default directory is <code class="file docutils literal notranslate"><span class="pre">share/gpr</span></code>
+in the installation directory of <cite>gprbuild</cite></p></li>
+<li><p>If not found, the environment variable <cite>GPR_CONFIG</cite> is tested
+to check whether it contains the name of a valid configuration file. This
+can either be an absolute path name or a base name that will be searched
+in the same default directory as above.</p></li>
+<li><p>If still not found and you used the <cite>–autoconf</cite> switch, then
+a new configuration file is automatically generated based on the specified
+target and on the list of languages specified in your projects.</p>
+<p>GPRbuild assumes that there are known compilers on your path for each of
+the necessary languages. It is preferable and often necessary to manually
+generate your own configuration file when:</p>
+<ul class="simple">
+<li><p>using cross compilers (in which case you need to use gprconfig’s
+<code class="samp docutils literal notranslate"><span class="pre">--target=</span></code>) option,</p></li>
+<li><p>using a specific Ada runtime (e.g. <code class="samp docutils literal notranslate"><span class="pre">--RTS=sjlj</span></code>),</p></li>
+<li><p>working with compilers not in the path or not first in the path, or</p></li>
+<li><p>autoconfiguration does not give the expected results.</p></li>
+</ul>
+</li>
+</ul>
+<p>GPRconfig provides several ways of generating configuration files. By
+default, a simple interactive mode lists all the known compilers for all
+known languages. You can then select a compiler for each of the languages;
+once a compiler has been selected, only compatible compilers for other
+languages are proposed. Here are a few examples of GPRconfig
+invocation:</p>
+<ul>
+<li><p>The following command triggers interactive mode. The configuration will be
+generated in GPRbuild’s default location, <cite>./default.cgpr)</cite>, unless
+<code class="samp docutils literal notranslate"><span class="pre">-o</span></code> is used.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gprconfig</span>
+</pre></div>
+</div>
+</li>
+<li><p>The first command below also triggers interactive mode, but the resulting
+configuration
+file has the name and path selected by the user. The second command shows
+how GPRbuild can make use of this specific configuration file instead of
+the default one.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gprconfig</span> <span class="o">-</span><span class="n">o</span> <span class="n">path</span><span class="o">/</span><span class="n">my_config</span><span class="o">.</span><span class="n">cgpr</span>
+<span class="n">gprbuild</span> <span class="o">--</span><span class="n">config</span><span class="o">=</span><span class="n">path</span><span class="o">/</span><span class="n">my_config</span><span class="o">.</span><span class="n">cgpr</span>
+</pre></div>
+</div>
+</li>
+<li><p>The following command again triggers interactive mode, and only the
+relevant cross compilers for target ppc-elf will be proposed.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gprconfig</span> <span class="o">--</span><span class="n">target</span><span class="o">=</span><span class="n">ppc</span><span class="o">-</span><span class="n">elf</span>
+</pre></div>
+</div>
+</li>
+<li><p>The next command triggers batch mode and generates at the default location
+a configuration file using the first native Ada and C compilers on
+the path.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gprconfig</span> <span class="o">--</span><span class="n">config</span><span class="o">=</span><span class="n">Ada</span> <span class="o">--</span><span class="n">config</span><span class="o">=</span><span class="n">C</span> <span class="o">--</span><span class="n">batch</span>
+</pre></div>
+</div>
+</li>
+<li><p>The next command, a combination of the previous examples, creates in
+batch mode a configuration file named <code class="file docutils literal notranslate"><span class="pre">x.cgpr</span></code> for cross-compiling
+Ada with a run-time called <cite>hi</cite> and using C for the LEON
+processor.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gprconfig</span> <span class="o">--</span><span class="n">target</span><span class="o">=</span><span class="n">leon</span><span class="o">-</span><span class="n">elf</span> <span class="o">--</span><span class="n">config</span><span class="o">=</span><span class="n">Ada</span><span class="p">,,</span><span class="n">hi</span> <span class="o">--</span><span class="n">config</span><span class="o">=</span><span class="n">C</span> <span class="o">--</span><span class="n">batch</span> <span class="o">-</span><span class="n">o</span> <span class="n">x</span><span class="o">.</span><span class="n">cgpr</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="using-gprconfig">
+<span id="id4"></span><h3><span class="section-number">4.1.2. </span>Using GPRconfig<a class="headerlink" href="#using-gprconfig" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="description">
+<h4><span class="section-number">4.1.2.1. </span>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h4>
+<p>The GPRconfig tool helps you generate the configuration
+files for GPRbuild. It automatically detects the available compilers
+on your system and, after you have selected the one needed for your
+application, it generates the proper configuration file.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In general, you will not launch GPRconfig
+explicitly. Instead, it is used implicitly by GPRbuild through the use
+of <cite>–config</cite> and <cite>–autoconf</cite> switches.</p>
+</div>
+</div>
+<div class="section" id="command-line-arguments">
+<h4><span class="section-number">4.1.2.2. </span>Command line arguments<a class="headerlink" href="#command-line-arguments" title="Permalink to this headline">¶</a></h4>
+<p>GPRconfig supports the following command line switches:</p>
+<p id="index-0"><code class="samp docutils literal notranslate"><span class="pre">--target=</span><em><span class="pre">platform</span></em></code></p>
+<blockquote>
+<div><p>This switch indicates the target computer on which your application will
+be run. It is mostly useful for cross configurations. Examples include
+<code class="samp docutils literal notranslate"><span class="pre">ppc-elf</span></code>, <code class="samp docutils literal notranslate"><span class="pre">ppc-vx6-windows</span></code>. It can also be used in native
+configurations and is useful when the same machine can run different kind
+of compilers such as mingw32 and cygwin on Windows or x86-32 and x86-64
+on GNU Linux. Since different compilers will often return a different
+name for those targets, GPRconfig has an extensive knowledge of which
+targets are compatible, and will for example accept <code class="samp docutils literal notranslate"><span class="pre">x86-linux</span></code> as
+an alias for <code class="samp docutils literal notranslate"><span class="pre">i686-pc-linux-gnu</span></code>.
+The default target is the machine on which GPRconfig is run.</p>
+<p>If you enter the special target <code class="samp docutils literal notranslate"><span class="pre">all</span></code>, then all compilers found on the
+<span class="target" id="index-1"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PATH</span></code> will be displayed.</p>
+</div></blockquote>
+<p id="index-2"><code class="samp docutils literal notranslate"><span class="pre">--show-targets</span></code></p>
+<blockquote>
+<div><p>As mentioned above, GPRconfig knows which targets are compatible. You
+can use this switch to find the list of targets that are compatible
+with <cite>–target</cite>.</p>
+</div></blockquote>
+<p id="index-3"><code class="samp docutils literal notranslate"><span class="pre">--config=</span><em><span class="pre">language</span></em><span class="pre">[,</span><em><span class="pre">version</span></em><span class="pre">[,</span><em><span class="pre">runtime</span></em><span class="pre">[,</span><em><span class="pre">path</span></em><span class="pre">[,</span><em><span class="pre">name</span></em><span class="pre">]]]]</span></code></p>
+<blockquote>
+<div><p>The intent of this switch is to preselect one or more compilers directly
+from the command line. This switch takes several optional arguments, which
+you can omit simply by passing the empty string. When omitted, the arguments
+will be computed automatically by GPRconfig.</p>
+<p>In general, only <em>language</em> needs to be specified, and the first
+compiler on the <span class="target" id="index-4"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PATH</span></code> that can compile this language will be selected.
+As an example, for a multi-language application programmed in C and Ada,
+the command line would be:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--</span><span class="n">config</span><span class="o">=</span><span class="n">Ada</span> <span class="o">--</span><span class="n">config</span><span class="o">=</span><span class="n">C</span>
+</pre></div>
+</div>
+<p><em>path</em> is the directory that contains the compiler executable, for
+instance <code class="file docutils literal notranslate"><span class="pre">/usr/bin</span></code> (and not the installation prefix <code class="file docutils literal notranslate"><span class="pre">/usr</span></code>).</p>
+<p><em>name</em> should be one of the compiler names defined in the GPRconfig
+knowledge base. The list of supported names includes <code class="samp docutils literal notranslate"><span class="pre">GNAT</span></code>,
+<code class="samp docutils literal notranslate"><span class="pre">GCC</span></code>,…. This name is
+generally not needed, but can be used to distinguish among several compilers
+that could match the other arguments of <code class="samp docutils literal notranslate"><span class="pre">--config</span></code>.</p>
+<p>Another possible more frequent use of <em>name</em> is to specify the base
+name of an executable. For instance, if you prefer to use a diab C compiler
+(executable is called <code class="file docutils literal notranslate"><span class="pre">dcc</span></code>) instead of <code class="file docutils literal notranslate"><span class="pre">gcc</span></code>, even if the latter
+appears first in the path, you could specify <code class="file docutils literal notranslate"><span class="pre">dcc</span></code> as the name parameter.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gprconfig</span> <span class="o">--</span><span class="n">config</span> <span class="n">Ada</span><span class="p">,,,</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span>       <span class="c1"># automatic parameters</span>
+<span class="n">gprconfig</span> <span class="o">--</span><span class="n">config</span> <span class="n">C</span><span class="p">,,,</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="p">,</span><span class="n">GCC</span>     <span class="c1"># automatic version</span>
+<span class="n">gprconfig</span> <span class="o">--</span><span class="n">config</span> <span class="n">C</span><span class="p">,,,</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="p">,</span><span class="n">gcc</span>     <span class="c1"># same as above, with exec name</span>
+</pre></div>
+</div>
+<p>This switch is also the only possibility to include in your project some
+languages that are not associated with a compiler. This is sometimes useful
+especially when you are using environments like GPS that support project files.
+For instance, if you select “Project file” as a language, the files matching
+the <code class="file docutils literal notranslate"><span class="pre">.gpr</span></code> extension will be shown in the editor, although they of course
+play no role for gprbuild itself.</p>
+</div></blockquote>
+<p id="index-5"><code class="samp docutils literal notranslate"><span class="pre">--batch</span></code></p>
+<blockquote>
+<div><p>If this switch is specified, GPRconfig automatically selects the first
+compiler matching each of the <cite>–config</cite> switches, and generates the
+configuration file immediately. It will not display an interactive menu.</p>
+</div></blockquote>
+<p id="index-6"><code class="samp docutils literal notranslate"><span class="pre">-o</span> <em><span class="pre">file</span></em></code></p>
+<blockquote>
+<div><p>This specifies the name of the configuration file that will be generated.
+If this switch is not specified, a default file is generated in the
+installation directory of GPRbuild (assuming you have write access to
+that directory), so that it is automatically picked up by GPRbuild later
+on. If you select a different output file, you will need to specify it
+to GPRbuild.</p>
+</div></blockquote>
+<dl class="simple" id="index-7">
+<dt><code class="samp docutils literal notranslate"><span class="pre">--db</span> <em><span class="pre">directory</span></em></code>, <code class="samp docutils literal notranslate"><span class="pre">--db-</span></code></dt><dd><p>Indicates another directory that should be parsed for GPRconfig’s knowledge
+base. Most of the time this is only useful if you are creating your own
+XML description files locally. Additional directories are always processed
+after the default knowledge base. The second version of the switch prevents
+GPRconfig from reading its default knowledge base.</p>
+</dd>
+</dl>
+<dl class="simple" id="index-8">
+<dt><code class="samp docutils literal notranslate"><span class="pre">-h</span></code></dt><dd><p>Generates a brief help message listing all GPRconfig switches and the
+default value for their arguments. This includes the location of the
+knowledge base, the default target, etc.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="interactive-use">
+<h4><span class="section-number">4.1.2.3. </span>Interactive use<a class="headerlink" href="#interactive-use" title="Permalink to this headline">¶</a></h4>
+<p>When you launch GPRconfig, it first searches for all compilers it
+can find on your <span class="target" id="index-9"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PATH</span></code>, that match the target specified by
+<code class="samp docutils literal notranslate"><span class="pre">--target</span></code>. It is recommended, although not
+required, that you place the compilers that you expect to use for your
+application in your <span class="target" id="index-10"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PATH</span></code> before you launch <em>gprconfig</em>,
+since that simplifies the setup.</p>
+<p>GPRconfig then displays the list of all the compilers
+it has found, along with the language they can compile, the run-time
+they use (when applicable),…. It then waits for you to select
+one of the compilers.  This list is sorted by language, then by order
+in the <span class="target" id="index-11"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PATH</span></code> environment variable (so that compilers that you
+are more likely to use appear first), then by run-time names and
+finally by version of the compiler.  Thus the first
+compiler for any language is most likely the one you want to use.</p>
+<p>You make a selection by entering the letter that appears on the line for
+each compiler (be aware that this letter is case sensitive). If the compiler was
+already selected, it is deselected.</p>
+<p>A filtered list of compilers is then displayed:
+only compilers that target the same platform as the selected
+compiler are now shown. GPRconfig then checks whether it is
+possible to link sources compiled with the selected compiler and each of
+the remaining compilers; when linking is not possible, the compiler is not
+displayed. Likewise, all compilers for the same language are hidden, so that
+you can only select one compiler per language.</p>
+<p>As an example, if you need to compile your application with several C compilers,
+you should create another language, for instance called C2, for that purpose.
+That will give you the flexibility to indicate in the project files which
+compiler should be used for which sources.</p>
+<p>The goal of this filtering is to make it more obvious whether you have
+a good chance of being able to link. There is however no guarantee that
+GPRconfig will know for certain how to link any combination of the
+remaining compilers.</p>
+<p>You can select as many compilers as are needed by your application. Once you
+have finished selecting the compilers, select <kbd class="kbd docutils literal notranslate">s</kbd>, and GPRconfig will
+generate the configuration file.</p>
+</div>
+</div>
+<div class="section" id="the-gprconfig-knowledge-base">
+<span id="id5"></span><h3><span class="section-number">4.1.3. </span>The GPRconfig knowledge base<a class="headerlink" href="#the-gprconfig-knowledge-base" title="Permalink to this headline">¶</a></h3>
+<p>GPRconfig itself has no hard-coded knowledge of compilers. Thus there
+is no need to recompile a new version of GPRconfig when a new compiler
+is distributed.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The role and format of the knowledge base are irrelevant for most users
+of GPRconfig, and are only needed when you need to add support for new
+compilers. You can skip this section if you only want to learn how to use
+GPRconfig.</p>
+</div>
+<p>All knowledge of compilers is embedded in a set of XML files called the
+<em>knowledge base</em>.
+Users can easily contribute to this general knowledge base, and have
+GPRconfig immediately take advantage of any new data.</p>
+<p>The knowledge base contains various kinds of information:</p>
+<ul>
+<li><p>Compiler description</p>
+<p>When it is run interactively, GPRconfig searches the user’s
+<span class="target" id="index-12"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PATH</span></code> for known compilers, and tries to deduce their
+configuration (version, supported languages, supported targets, run-times,
+…). From the knowledge base GPRconfig knows how to extract the
+relevant information about a compiler.</p>
+<p>This step is optional, since a user can also enter all the information
+manually. However, it is recommended that the knowledge base explicitly
+list its known compilers, to make configuration easier for end users.</p>
+</li>
+<li><p>Specific compilation switches</p>
+<p>When a compiler is used, depending on its version, target, run-time,…,
+some specific command line switches might have to be supplied. The
+knowledge base is a good place to store such information.</p>
+<p>For instance, with the GNAT compiler, using the soft-float runtime should
+force <em>gprbuild</em> to use the <code class="samp docutils literal notranslate"><span class="pre">-msoft-float</span></code> compilation switch.</p>
+</li>
+<li><p>Linker options</p>
+<p>Linking a multi-language application often has some subtleties,
+and typically requires specific linker switches.
+These switches depend on the list of languages, the list
+of compilers,….</p>
+</li>
+<li><p>Unsupported compiler mix</p>
+<p>It is sometimes not possible to link together code compiled with two
+particular compilers. The knowledge base should store this information,
+so that end users are informed immediately when attempting to
+use such a compiler combination.</p>
+</li>
+</ul>
+<p>The end of this section will describe in more detail the format of this
+knowledge base, so that you can add your own information
+and have GPRconfig advantage of it.</p>
+<div class="section" id="general-file-format">
+<span id="id6"></span><h4><span class="section-number">4.1.3.1. </span>General file format<a class="headerlink" href="#general-file-format" title="Permalink to this headline">¶</a></h4>
+<p>The knowledge base is implemented as a set of XML files. None of these
+files has a special name, nor a special role. Instead, the user can
+freely create new files, and put them in the knowledge base directory,
+to contribute new knowledge.</p>
+<p>The location of the knowledge base is <code class="file docutils literal notranslate"><span class="pre">$prefix/share/gprconfig</span></code>,
+where <code class="file docutils literal notranslate"><span class="pre">$prefix</span></code> is the directory in which GPRconfig was
+installed. Any file with extension <code class="file docutils literal notranslate"><span class="pre">.xml</span></code> in this directory will
+be parsed automatically by GPRconfig at startup after sorting
+them alphabetically.</p>
+<p>All files must have the following format:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;?xml version=&quot;1.0&quot; ?&gt;
+&lt;gprconfig&gt;
+   ...
+&lt;/gprconfig&gt;
+</pre></div>
+</div>
+<p>The root tag must be <cite>&lt;gprconfig&gt;</cite>.</p>
+<p>The remaining sections in this chapter will list the valid XML tags that
+can be used to replace the ‘…’ code above. These tags can either all be
+placed in a single XML file, or split across several files.</p>
+</div>
+<div class="section" id="compiler-description">
+<span id="id7"></span><h4><span class="section-number">4.1.3.2. </span>Compiler description<a class="headerlink" href="#compiler-description" title="Permalink to this headline">¶</a></h4>
+<p>One of the XML tags that can be specified as a child of <cite>&lt;gprconfig&gt;</cite> is
+<cite>&lt;compiler_description&gt;</cite>. This node and its children describe one of
+the compilers known to GPRconfig. The tool uses them when it
+initially looks for all compilers known on the user’s <span class="target" id="index-13"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PATH</span></code>
+environment variable.</p>
+<p>This is optional information, but simplifies the use of GPRconfig,
+since the user is then able to omit some parameters from the <code class="samp docutils literal notranslate"><span class="pre">--config</span></code>
+command line argument, and have them automatically computed.</p>
+<p>The <cite>&lt;compiler_description&gt;</cite> node doesn’t accept any XML
+attribute.  However, it accepts a number of child tags that explain
+how to query the various attributes of the compiler.  The child tags
+are evaluated (if necessary) in the same order as they are documented below.</p>
+<dl>
+<dt><em>&lt;name&gt;</em></dt><dd><p>This tag contains a simple string, which is the name of the compiler.
+This name must be unique across all the configuration files, and is used to
+identify that <cite>compiler_description</cite> node.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">compiler_description</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">name</span><span class="o">&gt;</span><span class="n">GNAT</span><span class="o">&lt;/</span><span class="n">name</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">compiler_description</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</dd>
+<dt><em>&lt;executable&gt;</em></dt><dd><p>This tag contains a string, which is the name of an executable
+to search for on the PATH. Examples are <code class="samp docutils literal notranslate"><span class="pre">gnatls</span></code>, <code class="samp docutils literal notranslate"><span class="pre">gcc</span></code>,…</p>
+<p>In some cases, the tools have a common suffix, but a prefix that might depend
+on the target. For instance, GNAT uses <code class="samp docutils literal notranslate"><span class="pre">gnatmake</span></code> for native platforms,
+but <code class="samp docutils literal notranslate"><span class="pre">powerpc-wrs-vxworks-gnatmake</span></code> for cross-compilers to VxWorks.
+Most of the compiler description is the same, however.
+For such cases, the value of the <cite>executable</cite> node is considered as
+beginning a regular expression. The tag also accepts an optional
+attribute <cite>prefix</cite>,
+which is an integer indicating the parenthesis group that contains the prefix.
+In the following example, you obtain the version of the GNAT compiler by running
+either <em>gnatls</em> or <em>powerpc-wrs-vxworks-gnatls</em>, depending on
+the name of the executable that was found.</p>
+<p>The regular expression needs to match the whole name of the file, i.e. it
+contains an implicit ‘^’ at the start, and an implicit ‘$’ at the end.
+Therefore if you specify <code class="samp docutils literal notranslate"><span class="pre">.*gnatmake</span></code> as the regexp, it will not match
+<code class="samp docutils literal notranslate"><span class="pre">gnatmake-debug</span></code>.</p>
+<p>A special case is when this node is empty (but it must be specified!). In
+such a case, you must also specify the language (see &lt;language&gt; below) as a
+simple string. It is then assumed that the specified language does not
+require a compiler. In the configurations file (<a class="reference internal" href="#configurations"><span class="std std-ref">Configurations</span></a>),
+you can test whether that language was specified on the command line by
+using a filter such as</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">compilers</span><span class="o">&gt;</span>
+ <span class="o">&lt;</span><span class="n">compiler</span> <span class="n">language</span><span class="o">=</span><span class="s2">&quot;name&quot;</span><span class="o">/&gt;</span>
+<span class="o">&lt;/</span><span class="n">compilers</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;executable prefix=&quot;1&quot;&gt;(powerpc-wrs-vxworks-)?gnatmake&lt;/executable&gt;
+&lt;version&gt;&lt;external&gt;${PREFIX}gnatls -v&lt;/external&gt;&lt;/version&gt;
+</pre></div>
+</div>
+<p>GPRconfig searches in all directories listed on the PATH for such
+an executable. When one is found, the rest of the <cite>&lt;compiler_description&gt;</cite>
+children are checked to know whether the compiler is valid. The directory
+in which the executable was found becomes the ‘current directory’ for
+the remaining XML children.</p>
+</dd>
+<dt><em>&lt;target&gt;</em></dt><dd><p>This node indicates how to query the target architecture for the compiler.
+See <a class="reference internal" href="#gprconfig-external-values"><span class="std std-ref">GPRconfig external values</span></a> for valid children.</p>
+<p>If this isn’t specified, the compiler will always be considered as matching
+on the current target.</p>
+</dd>
+<dt><em>&lt;version&gt;</em></dt><dd><p>This tag contains any of the nodes defined in <a class="reference internal" href="#gprconfig-external-values"><span class="std std-ref">GPRconfig external values</span></a> below.
+It shows how to query the version number of the compiler. If the version
+cannot be found, the executable will not be listed in the list of compilers.</p>
+</dd>
+<dt><em>&lt;variable name=”varname”&gt;</em></dt><dd><p>This node will define a user variable which may be later referenced.  The
+variables are evaluated just after the version but before the languages
+and the runtimes nodes.  See <a class="reference internal" href="#gprconfig-external-values"><span class="std std-ref">GPRconfig external values</span></a>
+below for valid children of
+this node.  If the evaluation of this variable is empty then the compiler
+is considered as invalid.</p>
+</dd>
+<dt><em>&lt;languages&gt;</em></dt><dd><p>This node indicates how to query the list of languages. See
+<a class="reference internal" href="#gprconfig-external-values"><span class="std std-ref">GPRconfig external values</span></a>
+below for valid children of this node.</p>
+<p>The value returned by the system will be split into words. As a result, if
+the returned value is ‘ada,c,c++’, there are three languages supported by the
+compiler (and three entries are added to the menu when using GPRconfig
+interactively).</p>
+<p>If the value is a simple string, the words must be comma-separated, so that
+you can specify languages whose names include spaces. However, if the actual
+value is computed from the result of a command, the words can also be
+space-separated, to be compatible with more tools.</p>
+</dd>
+<dt><em>&lt;runtimes&gt;</em></dt><dd><p>This node indicates how to query the list of supported runtimes for the
+compiler. See <a class="reference internal" href="#gprconfig-external-values"><span class="std std-ref">GPRconfig external values</span></a>
+below for valid children. The returned value
+is split into words as for <cite>&lt;languages&gt;</cite>.</p>
+<p>This node accepts one attribute, <cite>“default”</cite>, which contains a list
+of comma-separated names of runtimes. It is used to sort the runtimes when
+listing which compilers were found on the PATH.</p>
+<p>As a special case, gprconfig will merge two runtimes if the XML nodes
+refer to the same directories after normalization and resolution of
+links. As such, on Unix systems, the “adalib” link to “rts-native/adalib”
+(or similar) will be ignored and only the “native” runtime will be
+displayed.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="gprconfig-external-values">
+<span id="id8"></span><h4><span class="section-number">4.1.3.3. </span>GPRconfig external values<a class="headerlink" href="#gprconfig-external-values" title="Permalink to this headline">¶</a></h4>
+<p>A number of the XML nodes described above can contain one or more children,
+and specify how to query a value from an executable. Here is the list of
+valid contents for these nodes. The <cite>&lt;directory&gt;</cite> and <cite>&lt;external&gt;</cite>
+children can be repeated multiple times, and the <cite>&lt;filter&gt;</cite> and
+<cite>&lt;must_match&gt;</cite> nodes will be applied to each of these. The final
+value of the external value is the concatenation of the computation for each
+of the <cite>&lt;directory&gt;</cite> and <cite>&lt;external&gt;</cite> nodes.</p>
+<ul id="index-14">
+<li><p>A simple string</p>
+<p>A simple string given in the node indicates a constant. For
+instance, the list of supported languages might be defined as:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">compiler_description</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">name</span><span class="o">&gt;</span><span class="n">GNAT</span><span class="o">&lt;/</span><span class="n">name</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">executable</span><span class="o">&gt;</span><span class="n">gnatmake</span><span class="o">&lt;/</span><span class="n">executable</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">languages</span><span class="o">&gt;</span><span class="n">Ada</span><span class="o">&lt;/</span><span class="n">languages</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">compiler_description</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>for the GNAT compiler, since this is an Ada-only compiler.</p>
+<p>Variables can be referenced in simple strings.</p>
+</li>
+<li><p><cite>&lt;getenv name=”variable” /&gt;</cite></p>
+<p>If the contents of the node is a <cite>&lt;getenv&gt;</cite> child, the value of
+the environment variable <cite>variable</cite> is returned. If the variable is
+not defined, this is an error and the compiler is ignored.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">compiler_description</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">name</span><span class="o">&gt;</span><span class="n">GCC</span><span class="o">-</span><span class="n">WRS</span><span class="o">&lt;/</span><span class="n">name</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">executable</span> <span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;1&quot;</span><span class="o">&gt;</span><span class="n">cc</span><span class="p">(</span><span class="n">arm</span><span class="o">|</span><span class="n">pentium</span><span class="p">)</span><span class="o">&lt;/</span><span class="n">executable</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">getenv</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;WIND_BASE&quot;</span> <span class="o">/&gt;</span>
+<span class="o">&lt;/</span><span class="n">version</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">compile_description</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</li>
+<li><p><cite>&lt;external&gt;command&lt;/external&gt;</cite></p>
+<p>If the contents of the node is an <cite>&lt;external&gt;</cite> child, this indicates
+that a command should be run on the system.
+When the command is run, the current directory (i.e., the one that contains
+the executable found through the <cite>&lt;executable&gt;</cite> node), is placed first
+on the <span class="target" id="index-15"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PATH</span></code>. The output of the command is returned and may be later
+filtered. The command is not executed through a shell; therefore you cannot
+use output redirection, pipes, or other advanced features.</p>
+<p>For instance, extracting the target processor from <em>gcc</em> can be done
+with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">external</span><span class="o">&gt;</span><span class="n">gcc</span> <span class="o">-</span><span class="n">dumpmachine</span><span class="o">&lt;/</span><span class="n">external</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">version</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>Since the <span class="target" id="index-16"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PATH</span></code> has been modified, we know that the <em>gcc</em> command
+that is executed is the one from the same directory as the <cite>&lt;external&gt;</cite>
+node.</p>
+<p>Variables are substituted in <cite>command</cite>.</p>
+</li>
+<li><p><cite>&lt;grep regexp=”regexp” group=”0” /&gt;</cite></p>
+<p>This node must come after the previously described ones. It is used to
+further filter the output. The previous output is matched against the regular
+expression <cite>regexp</cite> and the parenthesis group specified by
+<cite>group</cite> is returned. By default, group is 0, which indicates the
+whole output of the command.</p>
+<p>For instance, extracting the version number from <em>gcc</em> can be done
+with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">external</span><span class="o">&gt;</span><span class="n">gcc</span> <span class="o">-</span><span class="n">v</span><span class="o">&lt;/</span><span class="n">external</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">grep</span> <span class="n">regexp</span><span class="o">=</span><span class="s2">&quot;^gcc version (\S+)&quot;</span> <span class="n">group</span><span class="o">=</span><span class="s2">&quot;1&quot;</span> <span class="o">/&gt;</span>
+<span class="o">&lt;/</span><span class="n">version</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</li>
+<li><p><cite>&lt;directory group=”0” contents=””&gt;regexp&lt;/directory&gt;</cite></p>
+<p>If the contents of the node is a <cite>&lt;directory</cite>&gt; child, this
+indicates that GPRconfig should find all the files matching the
+regular expression. Regexp is a path relative to the directory that contains
+the <cite>&lt;executable&gt;</cite> file, and should use Unix directory separators
+(i.e. ‘/’), since the actual directory will be converted into this format
+before the match, for system independence of the knowledge base.</p>
+<p>The group attribute indicates which parenthesis group should be returned.
+It defaults to 0 which indicates the whole matched path. If this attribute is
+a string rather than an integer, then it is the value returned.</p>
+<p><cite>regexp</cite> can be any valid regular expression. This will only match
+a directory or file name, not a subdirectory. Remember to quote special
+characters, including ‘.’, if you do not mean to use a regexp.</p>
+<p>The optional attribute <cite>contents</cite> can be used to indicate that the
+contents of the file should be read. The first line that matches the regular
+expression given by <cite>contents</cite> will be used as a file path instead of
+the file matched by <cite>regexp</cite>. This is in general used on platforms that
+do not have symbolic links, and a file is used instead of a symbolic link.
+In general, this will work better than <cite>group</cite> specifies a string rather
+than a parenthesis group, since the latter will match the path matched by
+<cite>regexp</cite>, not the one read in the file.</p>
+<p>For instance, finding the list of supported runtimes for the GNAT compiler
+is done with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;runtimes&gt;
+&lt;directory group=&quot;1&quot;&gt;
+\.\./lib/gcc/${TARGET/.*/rts-(.*)/adainclude
+&lt;/directory&gt;
+&lt;directory group=&quot;default&quot;&gt;
+\.\./lib/gcc/${TARGET}/.*/adainclude
+&lt;/directory&gt;
+&lt;/runtimes&gt;}
+</pre></div>
+</div>
+<p>Note the second node, which matches the default run-time, and displays it as
+such.</p>
+</li>
+<li><p><cite>&lt;filter&gt;value1,value2,…&lt;/filter&gt;</cite></p>
+<p>This node must come after one of the previously described ones. It is used to
+further filter the output. The previous output is split into words (it is
+considered as a comma-separated or space-separated list of words), and only
+those words in <code class="samp docutils literal notranslate"><span class="pre">value1</span></code>, <code class="samp docutils literal notranslate"><span class="pre">value2</span></code>,… are kept.</p>
+<p>For instance, the <em>gcc</em> compiler will return a variety of supported
+languages, including ‘ada’. If we do not want to use it as an Ada
+compiler we can specify:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">languages</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">external</span> <span class="n">regexp</span><span class="o">=</span><span class="s2">&quot;languages=(\S+)&quot;</span> <span class="n">group</span><span class="o">=</span><span class="s2">&quot;1&quot;</span><span class="o">&gt;</span><span class="n">gcc</span> <span class="o">-</span><span class="n">v</span><span class="o">&lt;/</span><span class="n">external</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nb">filter</span><span class="o">&gt;</span><span class="n">c</span><span class="p">,</span><span class="n">c</span><span class="o">++</span><span class="p">,</span><span class="n">fortran</span><span class="o">&lt;/</span><span class="nb">filter</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">languages</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</li>
+<li><p><cite>&lt;must_match&gt;regexp&lt;/must_match&gt;</cite></p>
+<p>If this node is present, then the filtered output is compared with the
+specified regular expression. If no match is found, then the executable
+is not stored in the list of known compilers.</p>
+<p>For instance, if you want to have a <cite>&lt;compiler_description&gt;</cite> tag
+specific to an older version of GCC, you could write:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">external</span> <span class="n">regexp</span><span class="o">=</span><span class="s2">&quot;gcc version (\S+)&quot;</span>
+<span class="n">group</span><span class="o">=</span><span class="s2">&quot;1&quot;</span><span class="o">&gt;</span><span class="n">gcc</span> <span class="o">-</span><span class="n">v</span> <span class="o">&lt;/</span><span class="n">external</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">must_match</span><span class="o">&gt;</span><span class="mf">2.8</span><span class="o">.</span><span class="mi">1</span><span class="o">&lt;/</span><span class="n">must_match</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">version</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>Other versions of gcc will not match this <cite>&lt;compiler_description&gt;</cite>
+node.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="gprconfig-variable-substitution">
+<span id="id9"></span><h4><span class="section-number">4.1.3.4. </span>GPRconfig variable substitution<a class="headerlink" href="#gprconfig-variable-substitution" title="Permalink to this headline">¶</a></h4>
+<p>The various compiler attributes defined above are made available as
+variables in the rest of the XML files. Each of these variables can be used
+in the value of the various nodes (for instance in <cite>&lt;directory&gt;</cite>),
+and in the configurations (<a class="reference internal" href="#configuration"><span class="std std-ref">Configuration</span></a>).</p>
+<p>A variable is referenced by <cite>${name}</cite> where <cite>name</cite> is either
+a user variable or a predefined variable.  An alternate reference is
+<cite>$name</cite> where <cite>name</cite> is a sequence of alpha numeric characters or
+underscores.  Finally <cite>$$</cite> is replaced by a simple <cite>$</cite>.</p>
+<p>User variables are defined by <cite>&lt;variable&gt;</cite> nodes and may override
+predefined variables.  To avoid a possible override use lower case names.</p>
+<p>The variables are used in two contexts: either in a
+<cite>&lt;compiler_description&gt;</cite> node, in which case the variable refers to
+the compiler we are describing, or within a <cite>&lt;configuration&gt;</cite> node.
+In the latter case, and since there might be several compilers selected,
+you need to further specify the variable by adding in parenthesis the
+language of the compiler you are interested in.</p>
+<p>For instance, the following is invalid:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;configuration&gt;
+&lt;compilers&gt;
+&lt;compiler name=&quot;GNAT&quot; /&gt;
+&lt;/compilers&gt;
+&lt;targets negate=&quot;true&quot;&gt;
+&lt;target name=&quot;^powerpc-elf$&quot;/&gt;
+&lt;/targets&gt;
+&lt;config&gt;
+package Compiler is
+  for Driver (&quot;Ada&quot;) use &quot;${PATH}gcc&quot;;   --  Invalid !
+end Compiler;
+&lt;/config&gt;
+&lt;/configuration&gt;
+</pre></div>
+</div>
+<p>The trouble with the above is that if you are using multiple languages
+like C and Ada, both compilers will match the “negate” part, and therefore
+there is an ambiguity for the value of <cite>${PATH}</cite>. To prevent such
+issues, you need to use the following syntax instead when inside a
+<cite>&lt;configuration&gt;</cite> node:</p>
+<div class="highlight-gpr notranslate"><div class="highlight"><pre><span></span><span class="kr">for</span><span class="p"> </span><span class="n">Driver</span> <span class="o">(</span><span class="s">&quot;Ada&quot;</span><span class="o">)</span> <span class="kr">use</span><span class="p"> </span><span class="s">&quot;${PATH(ada)}gcc&quot;</span><span class="p">;</span>   <span class="c">--  Correct</span>
+</pre></div>
+</div>
+<p>Predefined variables are always in upper case.  Here is the list of
+predefined variables</p>
+<ul>
+<li><dl class="simple">
+<dt><em>EXEC</em></dt><dd><p>is the name of the executable that was found through <cite>&lt;executable&gt;</cite>. It
+only contains the basename, not the directory information.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><em>HOST</em></dt><dd><p>is replaced by the architecture of the host on which GPRconfig is
+running. This name is hard-coded in GPRconfig itself, and is generated
+by <em>configure</em> when GPRconfig was built.</p>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><em>TARGET</em></dt><dd><p>is replaced by the target architecture of the compiler, as returned by the
+<cite>&lt;target&gt;</cite> node. This is of course not available when computing the
+target itself.</p>
+<p>This variable takes the language of the compiler as an optional index when
+in a <cite>&lt;configuration&gt;</cite> block: if the language is specified, the target
+returned by that specific compiler is used; otherwise, the normalized target
+common to all the selected compilers will be returned (target normalization
+is also described in the knowledge base’s XML files).</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><em>VERSION</em></dt><dd><p>is replaced by the version of the compiler. This is not available when
+computing the target or, of course, the version itself.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><em>PREFIX</em></dt><dd><p>is replaced by the prefix to the executable name, as defined by the
+<cite>&lt;executable&gt;</cite> node.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><em>PATH</em></dt><dd><p>is the current directory, i.e. the one containing the executable found through
+<cite>&lt;executable&gt;</cite>. It always ends with a directory separator.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><em>LANGUAGE</em></dt><dd><p>is the language supported by the compiler, always folded to lower-case</p>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><em>RUNTIME</em>, <em>RUNTIME_DIR</em></dt><dd><p>This string will always be substituted by the empty string when the
+value of the external value is computed. These are special strings
+used when substituting text in configuration chunks.</p>
+<p><cite>RUNTIME_DIR</cite> always end with a directory separator.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><em>GPRCONFIG_PREFIX</em></dt><dd><p>is the directory in which GPRconfig was installed (e.g
+<code class="file docutils literal notranslate"><span class="pre">&quot;/usr/local/&quot;</span></code> if the executable is <code class="file docutils literal notranslate"><span class="pre">&quot;/usr/local/bin/gprconfig&quot;</span></code>.
+This directory always ends with a directory separator.
+This variable never takes a language in parameter, even within a
+<cite>&lt;configuration&gt;</cite> node.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p>If a variable is not defined, an error message is issued and the variable
+is substituted by an empty string.</p>
+</div>
+<div class="section" id="configurations">
+<span id="id10"></span><h4><span class="section-number">4.1.3.5. </span>Configurations<a class="headerlink" href="#configurations" title="Permalink to this headline">¶</a></h4>
+<p>The second type of information stored in the knowledge base are the chunks
+of <em>gprbuild</em> configuration files.</p>
+<p>Each of these chunks is also placed in an XML node that provides optional
+filters. If all the filters match, then the chunk will be merged with other
+similar chunks and placed in the final configuration file that is generated
+by GPRconfig.</p>
+<p>For instance, it is possible to indicate that a chunk should only be
+included if the GNAT compiler with the soft-float runtime is used. Such
+a chunk can for instance be used to ensure that Ada sources are always
+compiled with the <cite>-msoft-float</cite> command line switch.</p>
+<p>GPRconfig does not perform sophisticated merging of chunks. It simply
+groups packages together. For example, if the two chunks are:</p>
+<div class="highlight-gpr notranslate"><div class="highlight"><pre><span></span><span class="n">chunk1</span><span class="o">:</span>
+   <span class="k">package </span><span class="nf">Language_Processing</span> <span class="kr">is</span><span class="p"></span>
+     <span class="kr">for</span><span class="p"> </span><span class="n">Attr1</span> <span class="kr">use</span><span class="p"> </span><span class="o">(</span><span class="s">&quot;foo&quot;</span><span class="o">)</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Language_Processing</span><span class="p">;</span>
+<span class="n">chunk2</span><span class="o">:</span>
+   <span class="k">package </span><span class="nf">Language_Processing</span> <span class="kr">is</span><span class="p"></span>
+     <span class="kr">for</span><span class="p"> </span><span class="n">Attr1</span> <span class="kr">use</span><span class="p"> </span><span class="o">(</span><span class="s">&quot;bar&quot;</span><span class="o">)</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Language_Processing</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Then the final configuration file will look like:</p>
+<div class="highlight-gpr notranslate"><div class="highlight"><pre><span></span><span class="k">package </span><span class="nf">Language_Processing</span> <span class="kr">is</span><span class="p"></span>
+  <span class="kr">for</span><span class="p"> </span><span class="n">Attr1</span> <span class="kr">use</span><span class="p"> </span><span class="o">(</span><span class="s">&quot;foo&quot;</span><span class="o">)</span><span class="p">;</span>
+  <span class="kr">for</span><span class="p"> </span><span class="n">Attr1</span> <span class="kr">use</span><span class="p"> </span><span class="o">(</span><span class="s">&quot;bar&quot;</span><span class="o">)</span><span class="p">;</span>
+<span class="k">end </span><span class="nf">Language_Processing</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>As a result, to avoid conflicts, it is recommended that the chunks be
+written so that they easily collaborate together. For instance,
+to obtain something equivalent to</p>
+<div class="highlight-gpr notranslate"><div class="highlight"><pre><span></span><span class="k">package </span><span class="nf">Language_Processing</span> <span class="kr">is</span><span class="p"></span>
+  <span class="kr">for</span><span class="p"> </span><span class="n">Attr1</span> <span class="kr">use</span><span class="p"> </span><span class="o">(</span><span class="s">&quot;foo&quot;</span><span class="p">,</span> <span class="s">&quot;bar&quot;</span><span class="o">)</span><span class="p">;</span>
+<span class="k">end </span><span class="nf">Language_Processing</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>the two chunks above should be written as:</p>
+<div class="highlight-gpr notranslate"><div class="highlight"><pre><span></span><span class="n">chunk1</span><span class="o">:</span>
+  <span class="k">package </span><span class="nf">Language_Processing</span> <span class="kr">is</span><span class="p"></span>
+    <span class="kr">for</span><span class="p"> </span><span class="n">Attr1</span> <span class="kr">use</span><span class="p"> </span><span class="n">Language_Processing</span><span class="o">&#39;</span><span class="n">Attr1</span> <span class="o">&amp;</span> <span class="o">(</span><span class="s">&quot;foo&quot;</span><span class="o">)</span><span class="p">;</span>
+  <span class="k">end </span><span class="nf">Language_Processing</span><span class="p">;</span>
+<span class="n">chunk2</span><span class="o">:</span>
+  <span class="k">package </span><span class="nf">Language_Processing</span> <span class="kr">is</span><span class="p"></span>
+    <span class="kr">for</span><span class="p"> </span><span class="n">Attr1</span> <span class="kr">use</span><span class="p"> </span><span class="n">Language_Processing</span><span class="o">&#39;</span><span class="n">Attr1</span> <span class="o">&amp;</span> <span class="o">(</span><span class="s">&quot;bar&quot;</span><span class="o">)</span><span class="p">;</span>
+<span class="k">end </span><span class="nf">Language_Processing</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The chunks are described in a <cite>&lt;configuration&gt;</cite> XML node. The most
+important child of such a node is <cite>&lt;config&gt;</cite>, which contains the
+chunk itself. For instance, you would write:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">configuration</span><span class="o">&gt;</span>
+  <span class="o">...</span>  <span class="nb">list</span> <span class="n">of</span> <span class="n">filters</span><span class="p">,</span> <span class="n">see</span> <span class="n">below</span>
+  <span class="o">&lt;</span><span class="n">config</span><span class="o">&gt;</span>
+  <span class="n">package</span> <span class="n">Language_Processing</span> <span class="ow">is</span>
+     <span class="k">for</span> <span class="n">Attr1</span> <span class="n">use</span> <span class="n">Language_Processing</span><span class="s1">&#39;Attr1 &amp; (&quot;foo&quot;);</span>
+  <span class="n">end</span> <span class="n">Language_Processing</span><span class="p">;</span>
+  <span class="o">&lt;/</span><span class="n">config</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">configuration</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>If <cite>&lt;config&gt;</cite> is an empty node (i.e., <code class="samp docutils literal notranslate"><span class="pre">&lt;config/&gt;</span></code> or
+<code class="samp docutils literal notranslate"><span class="pre">&lt;config&gt;&lt;/config&gt;</span></code> was used), then the combination of selected
+compilers will be reported as invalid, in the sense that code
+compiled with these compilers cannot be linked together. As a result,
+GPRconfig will not create the configuration file.</p>
+<p>The special variables (<a class="reference internal" href="#gprconfig-variable-substitution"><span class="std std-ref">GPRconfig variable substitution</span></a>) are also
+substituted in the chunk. That allows you to compute some attributes of the
+compiler (its path, the runtime,…), and use them when generating the
+chunks.</p>
+<p>The filters themselves are of course defined through XML tags, and can
+be any of:</p>
+<dl>
+<dt><em>&lt;compilers negate=”false”&gt;</em></dt><dd><p>This filter contains a list of <cite>&lt;compiler&gt;</cite> children. The
+<cite>&lt;compilers&gt;</cite> filter matches if any of its children match.
+However, you can have several <cite>&lt;compilers&gt;</cite> filters, in which
+case they must all match. This can be used to include linker switches
+chunks. For instance, the following code would be used to describe
+the linker switches to use when GNAT 5.05 or 5.04 is used in addition to
+g++ 3.4.1:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">configuration</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">compilers</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">compiler</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;GNAT&quot;</span> <span class="n">version</span><span class="o">=</span><span class="s2">&quot;5.04&quot;</span> <span class="o">/&gt;</span>
+    <span class="o">&lt;</span><span class="n">compiler</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;GNAT&quot;</span> <span class="n">version</span><span class="o">=</span><span class="s2">&quot;5.05&quot;</span> <span class="o">/&gt;</span>
+  <span class="o">&lt;/</span><span class="n">compilers</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">compilers</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">compiler</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;G++&quot;</span> <span class="n">version</span><span class="o">=</span><span class="s2">&quot;3.4.1&quot;</span> <span class="o">/&gt;</span>
+  <span class="o">&lt;/</span><span class="n">compilers</span><span class="o">&gt;</span>
+  <span class="o">...</span>
+<span class="o">&lt;/</span><span class="n">configuration</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>If the attribute <cite>negate</cite> is <code class="samp docutils literal notranslate"><span class="pre">true</span></code>, then the meaning of this
+filter is inverted, and it will match if none of its children matches.</p>
+<p>The format of the <cite>&lt;compiler&gt;</cite> is the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">compiler</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;name&quot;</span> <span class="n">version</span><span class="o">=</span><span class="s2">&quot;...&quot;</span>
+<span class="n">runtime</span><span class="o">=</span><span class="s2">&quot;...&quot;</span> <span class="n">language</span><span class="o">=</span><span class="s2">&quot;...&quot;</span> <span class="o">/&gt;</span>
+</pre></div>
+</div>
+<p>The language attribute, when specified, matches
+the corresponding attribute used in the <cite>&lt;compiler_description&gt;</cite>
+children. All other attributes are regular expressions, which are matched
+against the corresponding selected compilers. Runtime attribute is matched
+against the base name of corresponding compiler runtime if it is given
+as a full path. When an attribute is not specified, it will always match.
+Matching is done in a case-insensitive manner.</p>
+<p>For instance, to check a GNAT compiler in the 5.x family, use:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">compiler</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;GNAT&quot;</span> <span class="n">version</span><span class="o">=</span><span class="s2">&quot;5.\d+&quot;</span> <span class="o">/&gt;</span>
+</pre></div>
+</div>
+</dd>
+<dt><em>&lt;hosts negate=”false”&gt;</em></dt><dd><p>This filter contains a list of <cite>&lt;host&gt;</cite> children. It matches when
+any of its children matches. You can specify only one <cite>&lt;hosts&gt;</cite>
+node.
+The format of <cite>&lt;host&gt;</cite> is a node with one mandatory attribute
+<cite>name</cite>, which is a regexp matched against the architecture on
+which GPRconfig is running, and one optional attribute <cite>except</cite>, which
+is also a regexp, but a negative one. If both <cite>name</cite> and <cite>except</cite> match
+the architecture, corresponding <cite>&lt;configuration&gt;</cite> node is ignored.
+The name of the architecture was
+computed by <cite>configure</cite> when GPRconfig was built. Note that
+the regexp might match a substring of the host name, so you might want
+to surround it with “^” and “$” so that it only matches the whole host
+name (for instance, “elf” would match “powerpc-elf”, but “^elf$” would
+not).</p>
+<p>If the <cite>negate</cite> attribute is <code class="samp docutils literal notranslate"><span class="pre">true</span></code>, then the meaning of this
+filter is inverted, and it will match when none of its children matches.</p>
+<p>For instance, to activate a chunk only if the compiler is running on an
+Intel Linux machine, use:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">hosts</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">host</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;i.86-.*-linux(-gnu)?&quot;</span> <span class="o">/&gt;</span>
+<span class="o">&lt;/</span><span class="n">hosts</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</dd>
+<dt><em>&lt;targets negate=”false”&gt;</em></dt><dd><p>This filter contains a list of <cite>&lt;target&gt;</cite> children. It behaves
+exactly like <cite>&lt;hosts&gt;</cite>, but matches against the architecture
+targeted by the selected compilers. For instance, to activate a chunk
+only when the code is targeted for linux, use:</p>
+<p>If the <cite>negate</cite> attribute is <code class="samp docutils literal notranslate"><span class="pre">true</span></code>, then the meaning of this filter
+is inverted, and it will match when none of its children matches.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">targets</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">target</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;i.86-.*-linux(-gnu)?&quot;</span> <span class="o">/&gt;</span>
+<span class="o">&lt;/</span><span class="n">targets</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="section" id="configuration-file-reference">
+<span id="id11"></span><h2><span class="section-number">4.2. </span>Configuration File Reference<a class="headerlink" href="#configuration-file-reference" title="Permalink to this headline">¶</a></h2>
+<p>A text file using the project file syntax. It defines languages and
+their characteristics as well as toolchains for those languages and their
+characteristics.</p>
+<p>GPRbuild needs to have a configuration file to know the different
+characteristics of the toolchains that can be used to compile sources and
+build libraries and executables.</p>
+<p>A configuration file is a special kind of project file: it uses the same
+syntax as a standard project file. Attributes in the configuration file
+define the configuration. Some of these attributes have a special meaning
+in the configuration.</p>
+<p>The default name of the configuration file, when not specified to
+GPRbuild by switches <code class="samp docutils literal notranslate"><span class="pre">--config=</span></code> or <code class="samp docutils literal notranslate"><span class="pre">--autoconf=</span></code> is
+<code class="file docutils literal notranslate"><span class="pre">default.cgpr</span></code>. Although the name of the configuration file can
+be any valid file name, it is recommended that its suffix be
+<code class="file docutils literal notranslate"><span class="pre">.cgpr</span></code> (for Configuration GNAT Project), so that it cannot be
+confused with a standard project file which has the suffix
+<code class="file docutils literal notranslate"><span class="pre">.gpr</span></code>.</p>
+<p>When <code class="file docutils literal notranslate"><span class="pre">default.cgpr</span></code> cannot be found in the configuration project path,
+GPRbuild invokes GPRconfig to create a configuration file.</p>
+<p>In the following description of the attributes, when an attribute is an
+indexed attribute and its index is a language name, for example
+<cite>Spec_Suffix (&lt;language&gt;)</cite>, then the name of the language is case insensitive.
+For example, both <cite>C</cite> and <cite>c</cite> are allowed.</p>
+<p>Any attribute may appear in a configuration project file. All attributes in
+a configuration project file are inherited by each user project file in the
+project tree. However, usually only the attributes listed below make sense
+in the configuration project file.</p>
+<div class="section" id="project-level-configuration-attributes">
+<span id="id12"></span><h3><span class="section-number">4.2.1. </span>Project Level Configuration Attributes<a class="headerlink" href="#project-level-configuration-attributes" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="general-attributes">
+<span id="id13"></span><h4><span class="section-number">4.2.1.1. </span>General Attributes<a class="headerlink" href="#general-attributes" title="Permalink to this headline">¶</a></h4>
+<ul>
+<li><p>Default_Language</p>
+<p>Specifies the name of the language of the immediate sources of a project when
+attribute <cite>Languages</cite> is not declared in the project. If attribute
+<cite>Default_Language</cite> is not declared in the configuration file, then each user
+project file in the project tree must have an attribute <cite>Languages</cite> declared,
+unless it extends another project. Example:</p>
+<div class="highlight-gpr notranslate"><div class="highlight"><pre><span></span><span class="kr">for</span><span class="p"> </span><span class="n">Default_Language</span> <span class="kr">use</span><span class="p"> </span><span class="s">&quot;ada&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Run_Path_Option</p>
+<p>Specifies a ‘run path option’; i.e., an option to use when linking an
+executable or a shared library to indicate the path (Rpath) where to look
+for other libraries. The value of this attribute is a string list.
+When linking an executable or a shared library, the search path is
+concatenated with the last string in the list, which may be an empty string.</p>
+<p>Example:</p>
+<div class="highlight-gpr notranslate"><div class="highlight"><pre><span></span><span class="kr">for</span><span class="p"> </span><span class="n">Run_Path_Option</span>  <span class="kr">use</span><span class="p"> </span><span class="o">(</span><span class="s">&quot;-Wl,-rpath,&quot;</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Run_Path_Origin</p>
+<p>Specifies the string to be used in an Rpath to indicate the directory
+of the executable, allowing then to have Rpaths specified as relative paths.</p>
+<p>Example:</p>
+<div class="highlight-gpr notranslate"><div class="highlight"><pre><span></span><span class="kr">for</span><span class="p"> </span><span class="n">Run_Path_Origin</span> <span class="kr">use</span><span class="p"> </span><span class="s">&quot;$ORIGIN&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Toolchain_Version (&lt;language&gt;)</p>
+<p>Specifies a version for a toolchain, as a single string. This toolchain
+version is passed to the library builder. Example:</p>
+<div class="highlight-gpr notranslate"><div class="highlight"><pre><span></span><span class="kr">for</span><span class="p"> </span><span class="n">Toolchain_Version</span> <span class="o">(</span><span class="s">&quot;Ada&quot;</span><span class="o">)</span> <span class="kr">use</span><span class="p"> </span><span class="s">&quot;GNAT 6.1&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>This attribute is used by GPRbind to decide on the names of the shared GNAT
+runtime libraries.</p>
+</li>
+<li><p>Toolchain_Description (&lt;language&gt;)</p>
+<p>Specifies as a single string a description of a toolchain. This attribute is
+not directly used by GPRbuild or its auxiliary tools (GPRbind and GPRlib) but
+may be used by other tools, for example GPS. Example:</p>
+<div class="highlight-gpr notranslate"><div class="highlight"><pre><span></span><span class="kr">for</span><span class="p"> </span><span class="n">Toolchain_Description</span> <span class="o">(</span><span class="s">&quot;C&quot;</span><span class="o">)</span> <span class="kr">use</span><span class="p"> </span><span class="s">&quot;gcc version 4.1.3 20070425&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="general-library-related-attributes">
+<span id="id14"></span><h4><span class="section-number">4.2.1.2. </span>General Library Related Attributes<a class="headerlink" href="#general-library-related-attributes" title="Permalink to this headline">¶</a></h4>
+<ul>
+<li><p>Library_Support</p>
+<p>Specifies the level of support for library project. If this attribute is not
+specified, then library projects are not supported. The only potential values
+for this attribute are <cite>none</cite>, <cite>static_only</cite> and <cite>full</cite>. Example:</p>
+<div class="highlight-gpr notranslate"><div class="highlight"><pre><span></span><span class="kr">for</span><span class="p"> </span><span class="n">Library_Support</span> <span class="kr">use</span><span class="p"> </span><span class="s">&quot;full&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Library_Builder</p>
+<p>Specifies the name of the executable for the library builder. Example:</p>
+<div class="highlight-gpr notranslate"><div class="highlight"><pre><span></span><span class="kr">for</span><span class="p"> </span><span class="n">Library_Builder</span> <span class="kr">use</span><span class="p"> </span><span class="s">&quot;/.../gprlib&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="archive-related-attributes">
+<span id="id15"></span><h4><span class="section-number">4.2.1.3. </span>Archive Related Attributes<a class="headerlink" href="#archive-related-attributes" title="Permalink to this headline">¶</a></h4>
+<ul>
+<li><p>Archive_Builder</p>
+<p>Specifies the name of the executable of the archive builder with the minimum
+options, if any. Example:</p>
+<div class="highlight-gpr notranslate"><div class="highlight"><pre><span></span><span class="kr">for</span><span class="p"> </span><span class="n">Archive_Builder</span> <span class="kr">use</span><span class="p"> </span><span class="o">(</span><span class="s">&quot;ar&quot;</span><span class="p">,</span> <span class="s">&quot;cr&quot;</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Archive_Indexer</p>
+<p>Specifies the name of the executable of the archive indexer with the minimum
+options, if any. If this attribute is not specified, then there is no
+archive indexer. Example:</p>
+<div class="highlight-gpr notranslate"><div class="highlight"><pre><span></span><span class="kr">for</span><span class="p"> </span><span class="n">Archive_Indexer</span> <span class="kr">use</span><span class="p"> </span><span class="o">(</span><span class="s">&quot;ranlib&quot;</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Archive_Suffix</p>
+<p>Specifies the suffix of the archives. If this attribute is not specified, then
+the suffix of the archives is defaulted to <code class="file docutils literal notranslate"><span class="pre">.a</span></code>. Example:</p>
+<div class="highlight-gpr notranslate"><div class="highlight"><pre><span></span><span class="kr">for</span><span class="p"> </span><span class="n">Archive_Suffix</span> <span class="kr">use</span><span class="p"> </span><span class="s">&quot;.olb&quot;</span><span class="p">;</span> <span class="c">--  for VMS</span>
+</pre></div>
+</div>
+</li>
+<li><p>Library_Partial_Linker</p>
+<p>Specifies the name of the executable of the partial linker with the options
+to be used, if any. If this attribute is not specified, then there is no
+partial linking. Example:</p>
+<div class="highlight-gpr notranslate"><div class="highlight"><pre><span></span><span class="kr">for</span><span class="p"> </span><span class="n">Library_Partial_Linker</span> <span class="kr">use</span><span class="p"> </span><span class="o">(</span><span class="s">&quot;gcc&quot;</span><span class="p">,</span> <span class="s">&quot;-nostdlib&quot;</span><span class="p">,</span> <span class="s">&quot;-Wl,-r&quot;</span><span class="p">,</span> <span class="s">&quot;-o&quot;</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="shared-library-related-attributes">
+<span id="id16"></span><h4><span class="section-number">4.2.1.4. </span>Shared Library Related Attributes<a class="headerlink" href="#shared-library-related-attributes" title="Permalink to this headline">¶</a></h4>
+<ul>
+<li><p>Shared_Library_Prefix</p>
+<p>Specifies the prefix of the file names of shared libraries. When this attribute
+is not specified, the prefix is <cite>lib</cite>. Example:</p>
+<div class="highlight-gpr notranslate"><div class="highlight"><pre><span></span><span class="kr">for</span><span class="p"> </span><span class="n">Shared_Library_Prefix</span> <span class="kr">use</span><span class="p"> </span><span class="s">&quot;&quot;</span><span class="p">;</span> <span class="c">--  for Windows, if needed</span>
+</pre></div>
+</div>
+</li>
+<li><p>Shared_Library_Suffix</p>
+<p>Specifies the suffix of the file names of shared libraries. When this attribute
+is not specified, the suffix is <code class="file docutils literal notranslate"><span class="pre">.so</span></code>. Example:</p>
+<div class="highlight-gpr notranslate"><div class="highlight"><pre><span></span><span class="kr">for</span><span class="p"> </span><span class="n">Shared_Library_Suffix</span> <span class="kr">use</span><span class="p"> </span><span class="s">&quot;.dll&quot;</span><span class="p">;</span> <span class="c">--  for Windows</span>
+</pre></div>
+</div>
+</li>
+<li><p>Symbolic_Link_Supported</p>
+<p>Specifies if symbolic links are supported by the platforms. The possible values
+of this attribute are <cite>“false”</cite> (the default) and <cite>“true”</cite>. When this attribute is
+not specified, symbolic links are not supported.</p>
+<div class="highlight-gpr notranslate"><div class="highlight"><pre><span></span><span class="kr">for</span><span class="p"> </span><span class="n">Symbolic_Link_Supported</span> <span class="kr">use</span><span class="p"> </span><span class="s">&quot;true&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Library_Major_Minor_ID_Supported</p>
+<p>Specifies if major and minor IDs are supported for shared libraries.
+The possible values of this attribute are <cite>“false”</cite> (the default) and <cite>“true”</cite>.
+When this attribute is not specified, major and minor IDs are not supported.</p>
+<div class="highlight-gpr notranslate"><div class="highlight"><pre><span></span><span class="kr">for</span><span class="p"> </span><span class="n">Library_Major_Minor_ID_Supported</span> <span class="kr">use</span><span class="p"> </span><span class="s">&quot;True&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Library_Auto_Init_Supported</p>
+<p>Specifies if library auto initialization is supported. The possible values of
+this attribute are <cite>“false”</cite> (the default) and <cite>“true”</cite>. When this attribute is not
+specified, library auto initialization is not supported.</p>
+<div class="highlight-gpr notranslate"><div class="highlight"><pre><span></span><span class="kr">for</span><span class="p"> </span><span class="n">Library_Auto_Init_Supported</span> <span class="kr">use</span><span class="p"> </span><span class="s">&quot;true&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Shared_Library_Minimum_Switches</p>
+<p>Specifies the minimum options to be used when building a shared
+library. These options are put in the appropriate section in the
+library exchange file when the library builder is invoked. Example:</p>
+<div class="highlight-gpr notranslate"><div class="highlight"><pre><span></span><span class="kr">for</span><span class="p"> </span><span class="n">Shared_Library_Minimum_Switches</span> <span class="kr">use</span><span class="p"> </span> <span class="o">(</span><span class="s">&quot;-shared&quot;</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Library_Version_Switches</p>
+<p>Specifies the option or options to be used when a library version is used.
+These options are put in the appropriate section in the library exchange file
+when the library builder is invoked. Example:</p>
+<div class="highlight-gpr notranslate"><div class="highlight"><pre><span></span><span class="kr">for</span><span class="p"> </span><span class="n">Library_Version_Switches</span> <span class="kr">use</span><span class="p"> </span><span class="o">(</span><span class="s">&quot;-Wl,-soname,&quot;</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Runtime_Library_Dir (&lt;language&gt;)</p>
+<p>Specifies the directory for the runtime libraries for the language.
+Example:</p>
+<div class="highlight-gpr notranslate"><div class="highlight"><pre><span></span><span class="kr">for</span><span class="p"> </span><span class="n">Runtime_Library_Dir</span> <span class="o">(</span><span class="s">&quot;Ada&quot;</span><span class="o">)</span> <span class="kr">use</span><span class="p"> </span><span class="s">&quot;/path/to/adalib&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>This attribute is used by GPRlib to link shared libraries with Ada code.</p>
+</li>
+<li><p>Object_Lister</p>
+<p>Specifies the name of the executable of the object lister with the
+minimum options, if any. This tool is used to list symbols out of
+object code to create a list of the symbols to export. Example:</p>
+<div class="highlight-gpr notranslate"><div class="highlight"><pre><span></span><span class="kr">for</span><span class="p"> </span><span class="n">Object_Lister</span> <span class="kr">use</span><span class="p"> </span><span class="o">(</span><span class="s">&quot;nm&quot;</span><span class="p">,</span> <span class="s">&quot;-g&quot;</span><span class="p">,</span> <span class="s">&quot;--demangle&quot;</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Object_Lister_Matcher</p>
+<p>A regular expression pattern for matching symbols out of the output
+of Object_Lister tool. Example:</p>
+<div class="highlight-gpr notranslate"><div class="highlight"><pre><span></span><span class="kr">for</span><span class="p"> </span><span class="n">Object_Lister_Matcher</span> <span class="kr">use</span><span class="p"> </span><span class="s">&quot; T (.*)&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Export_File_Format</p>
+<p>The export file format to generate, this is either DEF (Windows),
+Flat or GNU. Example:</p>
+<div class="highlight-gpr notranslate"><div class="highlight"><pre><span></span><span class="kr">for</span><span class="p"> </span><span class="n">Export_File_Format</span> <span class="kr">use</span><span class="p"> </span><span class="s">&quot;GNU&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Export_File_Switch</p>
+<p>The required switch to pass the export file to the linker. Example:</p>
+<div class="highlight-gpr notranslate"><div class="highlight"><pre><span></span><span class="kr">for</span><span class="p"> </span><span class="n">Export_File_Switch</span> <span class="kr">use</span><span class="p"> </span><span class="s">&quot;-Wl,--version-script=&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="package-naming">
+<span id="id17"></span><h3><span class="section-number">4.2.2. </span>Package Naming<a class="headerlink" href="#package-naming" title="Permalink to this headline">¶</a></h3>
+<p>Attributes in package <cite>Naming</cite> of a configuration file specify defaults. These
+attributes may be used in user project files to replace these defaults.</p>
+<p>The following attributes usually appear in package <cite>Naming</cite> of a configuration
+file:</p>
+<ul>
+<li><p>Spec_Suffix (&lt;language&gt;)</p>
+<p>Specifies the default suffix for a ‘spec’ or header file. Examples:</p>
+<div class="highlight-gpr notranslate"><div class="highlight"><pre><span></span><span class="kr">for</span><span class="p"> </span><span class="n">Spec_Suffix</span> <span class="o">(</span><span class="s">&quot;Ada&quot;</span><span class="o">)</span> <span class="kr">use</span><span class="p"> </span><span class="s">&quot;.ads&quot;</span><span class="p">;</span>
+<span class="kr">for</span><span class="p"> </span><span class="n">Spec_Suffix</span> <span class="o">(</span><span class="s">&quot;C&quot;</span><span class="o">)</span>   <span class="kr">use</span><span class="p"> </span><span class="s">&quot;.h&quot;</span><span class="p">;</span>
+<span class="kr">for</span><span class="p"> </span><span class="n">Spec_Suffix</span> <span class="o">(</span><span class="s">&quot;C++&quot;</span><span class="o">)</span> <span class="kr">use</span><span class="p"> </span><span class="s">&quot;.hh&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Body_Suffix (&lt;language&gt;)</p>
+<p>Specifies the default suffix for a ‘body’ or a source file. Examples:</p>
+<div class="highlight-gpr notranslate"><div class="highlight"><pre><span></span><span class="kr">for</span><span class="p"> </span><span class="n">Body_Suffix</span> <span class="o">(</span><span class="s">&quot;Ada&quot;</span><span class="o">)</span> <span class="kr">use</span><span class="p"> </span><span class="s">&quot;.adb&quot;</span><span class="p">;</span>
+<span class="kr">for</span><span class="p"> </span><span class="n">Body_Suffix</span> <span class="o">(</span><span class="s">&quot;C&quot;</span><span class="o">)</span>   <span class="kr">use</span><span class="p"> </span><span class="s">&quot;.c&quot;</span><span class="p">;</span>
+<span class="kr">for</span><span class="p"> </span><span class="n">Body_Suffix</span> <span class="o">(</span><span class="s">&quot;C++&quot;</span><span class="o">)</span> <span class="kr">use</span><span class="p"> </span><span class="s">&quot;.cpp&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Separate_Suffix</p>
+<p>Specifies the suffix for a subunit source file (separate) in Ada. If attribute
+<cite>Separate_Suffix</cite> is not specified, then the default suffix of subunit source
+files is the same as the default suffix for body source files. Example:</p>
+<div class="highlight-gpr notranslate"><div class="highlight"><pre><span></span><span class="kr">for</span><span class="p"> </span><span class="n">Separate_Suffix</span> <span class="kr">use</span><span class="p"> </span><span class="s">&quot;.sep&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Casing</p>
+<p>Specifies the casing of spec and body files in a unit based language
+(such as Ada) to know how to map a unit name to its file name. The values for
+this attribute may only be <cite>“lowercase”</cite>, <cite>“UPPERCASE”</cite> and <cite>“Mixedcase”</cite>.
+The default, when attribute <cite>Casing</cite> is not specified is lower case.
+This attribute rarely needs to be specified, since on
+platforms where file names are not case sensitive (such as Windows or VMS)
+the default (lower case) will suffice.</p>
+</li>
+<li><p>Dot_Replacement</p>
+<p>Specifies the string to replace a dot (‘.’) in unit names of a unit based
+language (such as Ada) to obtain its file name. If there is any unit based
+language in the configuration, attribute <cite>Dot_Replacement</cite> must be declared.
+Example:</p>
+<div class="highlight-gpr notranslate"><div class="highlight"><pre><span></span><span class="kr">for</span><span class="p"> </span><span class="n">Dot_Replacement</span> <span class="kr">use</span><span class="p"> </span><span class="s">&quot;-&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="package-builder">
+<span id="id18"></span><h3><span class="section-number">4.2.3. </span>Package Builder<a class="headerlink" href="#package-builder" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p>Executable_Suffix</p>
+<p>Specifies the default executable suffix. If no attribute <cite>Executable_Suffix</cite> is
+declared, then the default executable suffix for the host platform is used.
+Example:</p>
+<div class="highlight-gpr notranslate"><div class="highlight"><pre><span></span><span class="kr">for</span><span class="p"> </span><span class="n">Executable_Suffix</span> <span class="kr">use</span><span class="p"> </span><span class="s">&quot;.exe&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="package-compiler">
+<span id="id19"></span><h3><span class="section-number">4.2.4. </span>Package Compiler<a class="headerlink" href="#package-compiler" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="general-compilation-attributes">
+<span id="id20"></span><h4><span class="section-number">4.2.4.1. </span>General Compilation Attributes<a class="headerlink" href="#general-compilation-attributes" title="Permalink to this headline">¶</a></h4>
+<ul>
+<li><p>Driver (&lt;language&gt;)</p>
+<p>Specifies the name of the executable for the compiler of a language. The single
+string value of this attribute may be an absolute path or a relative path. If
+relative, then the execution path is searched. Specifying the empty string for
+this attribute indicates that there is no compiler for the language.</p>
+<p>Examples:</p>
+<div class="highlight-gpr notranslate"><div class="highlight"><pre><span></span><span class="kr">for</span><span class="p"> </span><span class="n">Driver</span> <span class="o">(</span><span class="s">&quot;C++&quot;</span><span class="o">)</span> <span class="kr">use</span><span class="p"> </span><span class="s">&quot;g++&quot;</span><span class="p">;</span>
+<span class="kr">for</span><span class="p"> </span><span class="n">Driver</span> <span class="o">(</span><span class="s">&quot;Ada&quot;</span><span class="o">)</span> <span class="kr">use</span><span class="p"> </span><span class="s">&quot;/.../bin/gcc&quot;</span><span class="p">;</span>
+<span class="kr">for</span><span class="p"> </span><span class="n">Driver</span> <span class="o">(</span><span class="s">&quot;Project file&quot;</span><span class="o">)</span> <span class="kr">use</span><span class="p"> </span><span class="s">&quot;&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Required_Switches (&lt;language&gt;)</p>
+<p>Specifies the minimum options that must be used when invoking the compiler
+of a language. Examples:</p>
+<div class="highlight-gpr notranslate"><div class="highlight"><pre><span></span><span class="kr">for</span><span class="p"> </span><span class="n">Required_Switches</span> <span class="o">(</span><span class="s">&quot;C&quot;</span><span class="o">)</span>   <span class="kr">use</span><span class="p"> </span><span class="o">(</span><span class="s">&quot;-c&quot;</span><span class="p">,</span> <span class="s">&quot;-x&quot;</span><span class="p">,</span> <span class="s">&quot;c&quot;</span><span class="o">)</span><span class="p">;</span>
+<span class="kr">for</span><span class="p"> </span><span class="n">Required_Switches</span> <span class="o">(</span><span class="s">&quot;Ada&quot;</span><span class="o">)</span> <span class="kr">use</span><span class="p"> </span><span class="o">(</span><span class="s">&quot;-c&quot;</span><span class="p">,</span> <span class="s">&quot;-x&quot;</span><span class="p">,</span> <span class="s">&quot;ada&quot;</span><span class="p">,</span> <span class="s">&quot;-gnatA&quot;</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+<li><p>PIC_Option (&lt;language&gt;)</p>
+<p>Specifies the option or options that must be used when compiling a source of
+a language to be put in a shared library. Example:</p>
+<div class="highlight-gpr notranslate"><div class="highlight"><pre><span></span><span class="kr">for</span><span class="p"> </span><span class="n">PIC_Option</span> <span class="o">(</span><span class="s">&quot;C&quot;</span><span class="o">)</span> <span class="kr">use</span><span class="p"> </span><span class="o">(</span><span class="s">&quot;-fPIC&quot;</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="mapping-file-related-attributes">
+<span id="id21"></span><h4><span class="section-number">4.2.4.2. </span>Mapping File Related Attributes<a class="headerlink" href="#mapping-file-related-attributes" title="Permalink to this headline">¶</a></h4>
+<ul>
+<li><p>Mapping_File_Switches (&lt;language&gt;)</p>
+<p>Specifies the switch or switches to be used to specify a mapping file to the
+compiler. When attribute <cite>Mapping_File_Switches</cite> is not declared, then no
+mapping file is specified to the compiler. The value of this attribute is a
+string list. The path name of the mapping file is concatenated with the last
+string in the string list, which may be empty. Example:</p>
+<div class="highlight-gpr notranslate"><div class="highlight"><pre><span></span><span class="kr">for</span><span class="p"> </span><span class="n">Mapping_File_Switches</span> <span class="o">(</span><span class="s">&quot;Ada&quot;</span><span class="o">)</span> <span class="kr">use</span><span class="p"> </span><span class="o">(</span><span class="s">&quot;-gnatem=&quot;</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Mapping_Spec_Suffix (&lt;language&gt;)</p>
+<p>Specifies, for unit based languages that support mapping files, the suffix in
+the mapping file that needs to be added to the unit name for specs. Example:</p>
+<div class="highlight-gpr notranslate"><div class="highlight"><pre><span></span><span class="kr">for</span><span class="p"> </span><span class="n">Mapping_Spec_Suffix</span> <span class="o">(</span><span class="s">&quot;Ada&quot;</span><span class="o">)</span> <span class="kr">use</span><span class="p"> </span><span class="s">&quot;%s&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Mapping_Body_Suffix (&lt;language&gt;)</p>
+<p>Specifies, for unit based languages that support mapping files, the suffix in
+the mapping file that needs to be added to the unit name for bodies. Example:</p>
+<div class="highlight-gpr notranslate"><div class="highlight"><pre><span></span><span class="kr">for</span><span class="p"> </span><span class="n">Mapping_Spec_Suffix</span> <span class="o">(</span><span class="s">&quot;Ada&quot;</span><span class="o">)</span> <span class="kr">use</span><span class="p"> </span><span class="s">&quot;%b&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="config-file-related-attributes">
+<span id="id22"></span><h4><span class="section-number">4.2.4.3. </span>Config File Related Attributes<a class="headerlink" href="#config-file-related-attributes" title="Permalink to this headline">¶</a></h4>
+<p>In the value of config file attributes defined below, there are some
+placeholders that GPRbuild will replace. These placeholders are:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Placeholder</p></td>
+<td><p>Interpretation</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="samp docutils literal notranslate"><span class="pre">%u</span></code></p></td>
+<td><p>unit name</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="samp docutils literal notranslate"><span class="pre">%f</span></code></p></td>
+<td><p>source file name</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="samp docutils literal notranslate"><span class="pre">%s</span></code></p></td>
+<td><p>spec suffix</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="samp docutils literal notranslate"><span class="pre">%b</span></code></p></td>
+<td><p>body suffix</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="samp docutils literal notranslate"><span class="pre">%c</span></code></p></td>
+<td><p>casing</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="samp docutils literal notranslate"><span class="pre">%d</span></code></p></td>
+<td><p>dot replacement string</p></td>
+</tr>
+</tbody>
+</table>
+<p>Attributes:</p>
+<ul>
+<li><p>Config_File_Switches (&lt;language&gt;)</p>
+<p>Specifies the switch or switches to be used to specify a configuration file to
+the compiler. When attribute <cite>Config_File_Switches</cite> is not declared, then no
+config file is specified to the compiler. The value of this attribute is a
+string list. The path name of the config file is concatenated with the last
+string in the string list, which may be empty. Example:</p>
+<div class="highlight-gpr notranslate"><div class="highlight"><pre><span></span><span class="kr">for</span><span class="p"> </span><span class="n">Config_File_Switches</span> <span class="o">(</span><span class="s">&quot;Ada&quot;</span><span class="o">)</span> <span class="kr">use</span><span class="p"> </span><span class="o">(</span><span class="s">&quot;-gnatec=&quot;</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Config_Body_File_Name (&lt;language&gt;)</p>
+<p>Specifies the line to be put in a config file to indicate the file name of a
+body. Example:</p>
+<div class="highlight-gpr notranslate"><div class="highlight"><pre><span></span><span class="kr">for</span><span class="p"> </span><span class="n">Config_Body_File_Name</span> <span class="o">(</span><span class="s">&quot;Ada&quot;</span><span class="o">)</span> <span class="kr">use</span><span class="p"></span>
+    <span class="s">&quot;pragma Source_File_Name_Project (%u, Body_File_Name =&gt; &quot;&quot;%f&quot;&quot;);&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Config_Spec_File_Name (&lt;language&gt;)</p>
+<p>Specifies the line to be put in a config file to indicate the file name of a
+spec. Example:</p>
+<div class="highlight-gpr notranslate"><div class="highlight"><pre><span></span><span class="kr">for</span><span class="p"> </span><span class="n">Config_Spec_File_Name</span> <span class="o">(</span><span class="s">&quot;Ada&quot;</span><span class="o">)</span> <span class="kr">use</span><span class="p"></span>
+    <span class="s">&quot;pragma Source_File_Name_Project (%u, Spec_File_Name =&gt; &quot;&quot;%f&quot;&quot;);&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Config_Body_File_Name_Pattern (&lt;language&gt;)</p>
+<p>Specifies the line to be put in a config file to indicate a body file name
+pattern. Example:</p>
+<div class="highlight-gpr notranslate"><div class="highlight"><pre><span></span><span class="kr">for</span><span class="p"> </span><span class="n">Config_Body_File_Name_Pattern</span> <span class="o">(</span><span class="s">&quot;Ada&quot;</span><span class="o">)</span> <span class="kr">use</span><span class="p"></span>
+    <span class="s">&quot;pragma Source_File_Name_Project &quot;</span> <span class="o">&amp;</span>
+    <span class="s">&quot;  (Body_File_Name  =&gt; &quot;&quot;*%b&quot;&quot;,&quot;</span> <span class="o">&amp;</span>
+    <span class="s">&quot;   Casing          =&gt; %c,&quot;</span> <span class="o">&amp;</span>
+    <span class="s">&quot;   Dot_Replacement =&gt; &quot;&quot;%d&quot;&quot;);&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Config_Spec_File_Name_Pattern (&lt;language&gt;)</p>
+<p>Specifies the line to be put in a config file to indicate a spec file name
+pattern. Example:</p>
+<div class="highlight-gpr notranslate"><div class="highlight"><pre><span></span><span class="kr">for</span><span class="p"> </span><span class="n">Config_Spec_File_Name_Pattern</span> <span class="o">(</span><span class="s">&quot;Ada&quot;</span><span class="o">)</span> <span class="kr">use</span><span class="p"></span>
+    <span class="s">&quot;pragma Source_File_Name_Project &quot;</span> <span class="o">&amp;</span>
+    <span class="s">&quot;  (Spec_File_Name  =&gt; &quot;&quot;*%s&quot;&quot;,&quot;</span> <span class="o">&amp;</span>
+    <span class="s">&quot;   Casing          =&gt; %c,&quot;</span> <span class="o">&amp;</span>
+    <span class="s">&quot;   Dot_Replacement =&gt; &quot;&quot;%d&quot;&quot;);&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Config_File_Unique (&lt;language&gt;)</p>
+<p>Specifies, for languages that support config files, if several config files
+may be indicated to the compiler, or not. This attribute may have only two
+values: <cite>“true”</cite> or <cite>“false”</cite> (case insensitive). The default, when this attribute
+is not specified, is <cite>“false”</cite>. When the value <cite>“true”</cite> is specified for this
+attribute, GPRbuild will concatenate the config files, if there are more than
+one. Example:</p>
+<div class="highlight-gpr notranslate"><div class="highlight"><pre><span></span><span class="kr">for</span><span class="p"> </span><span class="n">Config_File_Unique</span> <span class="o">(</span><span class="s">&quot;Ada&quot;</span><span class="o">)</span> <span class="kr">use</span><span class="p"> </span><span class="s">&quot;True&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="dependency-related-attributes">
+<span id="id23"></span><h4><span class="section-number">4.2.4.4. </span>Dependency Related Attributes<a class="headerlink" href="#dependency-related-attributes" title="Permalink to this headline">¶</a></h4>
+<p>There are two dependency-related attributes: <cite>Dependency_Switches</cite> and
+<cite>Dependency_Driver</cite>. If neither of these two attributes are specified for
+a language other than Ada, then the source needs to be (re)compiled if
+the object file does not exist or the source file is more recent than
+the object file or the switch file.</p>
+<ul>
+<li><p>Dependency_Switches (&lt;language&gt;)</p>
+<p>For languages other than Ada, attribute <cite>Dependency_Switches</cite> specifies
+the option or options to add to the compiler invocation so that it creates
+the dependency file at the same time. The value of attribute <cite>Dependency_Option</cite>
+is a string list. The name of the dependency file is added to the last string
+in the list, which may be empty. Example:</p>
+<div class="highlight-gpr notranslate"><div class="highlight"><pre><span></span><span class="kr">for</span><span class="p"> </span><span class="n">Dependency_Switches</span> <span class="o">(</span><span class="s">&quot;C&quot;</span><span class="o">)</span> <span class="kr">use</span><span class="p"> </span><span class="o">(</span><span class="s">&quot;-Wp,-MD,&quot;</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>With these <cite>Dependency_Switches</cite>, when compiling <code class="file docutils literal notranslate"><span class="pre">file.c</span></code> the compiler will be
+invoked with the option <code class="samp docutils literal notranslate"><span class="pre">-Wp,-MD,file.d</span></code>.</p>
+</li>
+<li><p>Dependency_Driver (&lt;language&gt;)</p>
+<p>Specifies the command and options to create a dependency file for a source.
+The full path name of the source is appended to the last string of the string
+list value. Example:</p>
+<div class="highlight-gpr notranslate"><div class="highlight"><pre><span></span><span class="kr">for</span><span class="p"> </span><span class="n">Dependency_Driver</span> <span class="o">(</span><span class="s">&quot;C&quot;</span><span class="o">)</span> <span class="kr">use</span><span class="p"> </span><span class="o">(</span><span class="s">&quot;gcc&quot;</span><span class="p">,</span> <span class="s">&quot;-E&quot;</span><span class="p">,</span> <span class="s">&quot;-Wp,-M&quot;</span><span class="p">,</span> <span class="s">&quot;&quot;</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Usually, attributes <cite>Dependency_Switches</cite> and <cite>Dependency_Driver</cite> are not both
+specified.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="search-path-related-attributes">
+<span id="id24"></span><h4><span class="section-number">4.2.4.5. </span>Search Path Related Attributes<a class="headerlink" href="#search-path-related-attributes" title="Permalink to this headline">¶</a></h4>
+<ul>
+<li><p>Include_Switches (&lt;language&gt;)</p>
+<p>Specifies the option or options to use when invoking the compiler to indicate
+that a directory is part of the source search path. The value of this
+attribute is a string list. The full path name of the directory is concatenated
+with the last string in the string list, which may be empty. Example:</p>
+<div class="highlight-gpr notranslate"><div class="highlight"><pre><span></span><span class="kr">for</span><span class="p"> </span><span class="n">Include_Switches</span> <span class="o">(</span><span class="s">&quot;C&quot;</span><span class="o">)</span> <span class="kr">use</span><span class="p"> </span><span class="o">(</span><span class="s">&quot;-I&quot;</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Attribute <cite>Include_Switches</cite> is ignored if either one of the attributes
+<cite>Include_Path</cite> or <cite>Include_Path_File</cite> are specified.</p>
+</li>
+<li><p>Include_Path (&lt;language&gt;)</p>
+<p>Specifies the name of an environment variable that is used by the compiler to
+get the source search path. The value of the environment variable is the source
+search path to be used by the compiler. Example:</p>
+<div class="highlight-gpr notranslate"><div class="highlight"><pre><span></span><span class="kr">for</span><span class="p"> </span><span class="n">Include_Path</span> <span class="o">(</span><span class="s">&quot;C&quot;</span><span class="o">)</span>   <span class="kr">use</span><span class="p"> </span><span class="s">&quot;CPATH&quot;</span><span class="p">;</span>
+<span class="kr">for</span><span class="p"> </span><span class="n">Include_Path</span> <span class="o">(</span><span class="s">&quot;Ada&quot;</span><span class="o">)</span> <span class="kr">use</span><span class="p"> </span><span class="s">&quot;ADA_INCLUDE_PATH&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Attribute <cite>Include_Path</cite> is ignored if attribute <cite>Include_Path_File</cite> is declared
+for the language.</p>
+</li>
+<li><p>Include_Path_File (&lt;language&gt;)</p>
+<p>Specifies the name of an environment variable that is used by the compiler to
+get the source search path. The value of the environment variable is the path
+name of a text file that contains the path names of the directories of the
+source search path. Example:</p>
+<div class="highlight-gpr notranslate"><div class="highlight"><pre><span></span><span class="kr">for</span><span class="p"> </span><span class="n">Include_Path_File</span> <span class="o">(</span><span class="s">&quot;Ada&quot;</span><span class="o">)</span> <span class="kr">use</span><span class="p"> </span><span class="s">&quot;ADA_PRJ_INCLUDE_FILE&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="package-binder">
+<span id="id25"></span><h3><span class="section-number">4.2.5. </span>Package Binder<a class="headerlink" href="#package-binder" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p>Driver (&lt;language&gt;)</p>
+<p>Specifies the name of the executable of the binder driver. When this attribute
+is not specified, there is no binder for the language. Example:</p>
+<div class="highlight-gpr notranslate"><div class="highlight"><pre><span></span><span class="kr">for</span><span class="p"> </span><span class="n">Driver</span> <span class="o">(</span><span class="s">&quot;Ada&quot;</span><span class="o">)</span> <span class="kr">use</span><span class="p"> </span><span class="s">&quot;/.../gprbind&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Required_Switches (&lt;language&gt;)</p>
+<p>Specifies the minimum options to be used when invoking the binder driver.
+These options are put in the appropriate section in the binder exchange file,
+one option per line. Example:</p>
+<div class="highlight-gpr notranslate"><div class="highlight"><pre><span></span><span class="kr">for</span><span class="p"> </span><span class="n">Required_Switches</span> <span class="o">(</span><span class="s">&quot;Ada&quot;</span><span class="o">)</span> <span class="kr">use</span><span class="p"> </span><span class="o">(</span><span class="s">&quot;--prefix=&lt;prefix&gt;&quot;</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Prefix (&lt;language&gt;)</p>
+<p>Specifies the prefix to be used in the name of the binder exchange file.
+Example:</p>
+<div class="highlight-gpr notranslate"><div class="highlight"><pre><span></span><span class="kr">for</span><span class="p"> </span><span class="n">Prefix</span> <span class="o">(</span><span class="s">&quot;C++&quot;</span><span class="o">)</span> <span class="kr">use</span><span class="p"> </span><span class="o">(</span><span class="s">&quot;c__&quot;</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Objects_Path (&lt;language&gt;)</p>
+<p>Specifies the name of an environment variable that is used by the compiler to
+get the object search path. The value of the environment variable is the object
+search path to be used by the compiler. Example:</p>
+<div class="highlight-gpr notranslate"><div class="highlight"><pre><span></span><span class="kr">for</span><span class="p"> </span><span class="n">Objects_Path</span> <span class="o">(</span><span class="s">&quot;Ada&quot;</span><span class="o">)</span> <span class="kr">use</span><span class="p"> </span><span class="s">&quot;ADA_OBJECTS_PATH&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Objects_Path_File (&lt;language&gt;)</p>
+<p>Specifies the name of an environment variable that is used by the compiler to
+get the object search path. The value of the environment variable is the path
+name of a text file that contains the path names of the directories of the
+object search path. Example:</p>
+<div class="highlight-gpr notranslate"><div class="highlight"><pre><span></span><span class="kr">for</span><span class="p"> </span><span class="n">Objects_Path_File</span> <span class="o">(</span><span class="s">&quot;Ada&quot;</span><span class="o">)</span> <span class="kr">use</span><span class="p"> </span><span class="s">&quot;ADA_PRJ_OBJECTS_FILE&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="package-linker">
+<span id="id26"></span><h3><span class="section-number">4.2.6. </span>Package Linker<a class="headerlink" href="#package-linker" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p>Driver</p>
+<p>Specifies the name of the executable of the linker. Example:</p>
+<div class="highlight-gpr notranslate"><div class="highlight"><pre><span></span><span class="kr">for</span><span class="p"> </span><span class="n">Driver</span> <span class="kr">use</span><span class="p"> </span><span class="s">&quot;g++&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Required_Switches</p>
+<p>Specifies the minimum options to be used when invoking the linker. Those
+options are happened at the end of the link command so that potentially
+conflicting user options take precedence.</p>
+</li>
+<li><p>Map_File_Option</p>
+<p>Specifies the option to be used when the linker is asked to produce
+a map file.</p>
+<div class="highlight-gpr notranslate"><div class="highlight"><pre><span></span><span class="kr">for</span><span class="p"> </span><span class="n">Map_File_Option</span> <span class="kr">use</span><span class="p"> </span><span class="s">&quot;-Wl,-Map,&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Max_Command_Line_Length</p>
+<p>Specifies the maximum length of the command line to invoke the linker.
+If this maximum length is reached, a response file will be used to shorten
+the length of the command line. This is only taken into account when
+attribute Response_File_Format is specified.</p>
+<div class="highlight-gpr notranslate"><div class="highlight"><pre><span></span><span class="kr">for</span><span class="p"> </span><span class="n">Max_Command_Line_Length</span> <span class="kr">use</span><span class="p"> </span><span class="s">&quot;8000&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Response_File_Format</p>
+<p>Specifies the format of the response file to be generated when the maximum
+length of the command line to invoke the linker is reached. This is only
+taken into account when attribute Max_Command_Line_Length is specified.</p>
+<p>The allowed case-insensitive values are:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>“GNU”</dt><dd><p>Used when the underlying linker is gnu ld.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>“Object_List”</dt><dd><p>Used when the response file is a list of object files, one per line.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>“GCC_GNU”</dt><dd><p>Used with recent version of gcc when the underlined linker is gnu ld.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>“GCC_Object_List”</dt><dd><p>Used with recent version of gcc when the underlying linker is not gnu ld.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<div class="highlight-gpr notranslate"><div class="highlight"><pre><span></span><span class="kr">for</span><span class="p"> </span><span class="n">Response_File_Format</span> <span class="kr">use</span><span class="p"> </span><span class="s">&quot;GCC_GNU&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Response_File_Switches</p>
+<p>Specifies the option(s) that must precede the response file name when
+when invoking the linker. This is only taken into account when both
+attributes Max_Command_Line_Length and Response_File_Format are specified.</p>
+<div class="highlight-gpr notranslate"><div class="highlight"><pre><span></span><span class="kr">for</span><span class="p"> </span><span class="n">Response_File_Switches</span>  <span class="kr">use</span><span class="p"> </span><span class="o">(</span><span class="s">&quot;-Wl,-f,&quot;</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="cleaning-up-with-gprclean">
+<span id="id27"></span><h2><span class="section-number">4.3. </span>Cleaning up with GPRclean<a class="headerlink" href="#cleaning-up-with-gprclean" title="Permalink to this headline">¶</a></h2>
+<p>The GPRclean tool removes the files created by GPRbuild.
+At a minimum, to invoke GPRclean you must specify a main project file
+in a command such as <cite>gprclean proj.gpr</cite> or <cite>gprclean -P proj.gpr</cite>.</p>
+<p>Examples of invocation of GPRclean:</p>
+<div class="highlight-gpr notranslate"><div class="highlight"><pre><span></span><span class="n">gprclean</span> <span class="o">-</span><span class="n">r</span> <span class="n">prj1.gpr</span>
+<span class="n">gprclean</span> <span class="o">-</span><span class="n">c</span> <span class="o">-</span><span class="n">P</span> <span class="n">prj2.gpr</span>
+</pre></div>
+</div>
+<div class="section" id="switches-for-gprclean">
+<span id="id28"></span><h3><span class="section-number">4.3.1. </span>Switches for GPRclean<a class="headerlink" href="#switches-for-gprclean" title="Permalink to this headline">¶</a></h3>
+<p>The switches for GPRclean are:</p>
+<ul>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">--no-project</span></code></p>
+<p>This switch cannot be used if a project file is specified on the command
+line.</p>
+<p>When this switch is specified, it indicates to gprclean that the project
+files in the current directory should not be considered and that the default
+project file in &lt;prefix&gt;/share/gpr is to be used.</p>
+<p>It is usually used with one or several mains specified on the command line.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">--distributed</span></code></p>
+<p>Also clean-up the sources on build slaves,
+see <a class="reference internal" href="building_with_gprbuild.html#distributed-compilation"><span class="std std-ref">Distributed compilation</span></a>.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">--slave-env=</span><em><span class="pre">name</span></em></code></p>
+<p>Use <cite>name</cite> as the slave’s environment directory instead of the default one.
+This options is only used in distributed mode.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">--config=</span><em><span class="pre">config</span> <span class="pre">project</span> <span class="pre">file</span> <span class="pre">name</span></em></code></p>
+<p>Specify the configuration project file name.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">--autoconf=</span><em><span class="pre">config</span> <span class="pre">project</span> <span class="pre">file</span> <span class="pre">name</span></em></code></p>
+<p>This specifies a configuration project file name that already exists or will
+be created automatically. Option <code class="samp docutils literal notranslate"><span class="pre">--autoconf=</span></code>
+cannot be specified more than once. If the configuration project file
+specified with <code class="samp docutils literal notranslate"><span class="pre">--autoconf=</span></code> exists, then it is used. Otherwise,
+GPRconfig is invoked to create it automatically.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">--target=</span><em><span class="pre">targetname</span></em></code></p>
+<p>Specify a target for cross platforms.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">--db</span> <em><span class="pre">dir</span></em></code></p>
+<p>Parse <cite>dir</cite> as an additional knowledge base.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">--db-</span></code></p>
+<p>Do not parse the standard knowledge base.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">--RTS=</span><em><span class="pre">runtime</span></em></code></p>
+<p>Use runtime <cite>runtime</cite> for language Ada.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">--RTS:</span><em><span class="pre">lang</span></em><span class="pre">=</span><em><span class="pre">runtime</span></em></code></p>
+<p>Use runtime <cite>runtime</cite> for language <cite>lang</cite>.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">--subdirs=</span><em><span class="pre">dir</span></em></code></p>
+<p>This indicates that the object, library and executable directories specified
+in the project file will be suffixed with {subdir}. If needed, those
+subdirectories are created except for externally built projects: in this case
+if the subdirectories already exist they are used, otherwise the base
+directories are used.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">--src-subdirs=</span><em><span class="pre">subdir</span></em></code></p>
+<p>This adds the given subdirectory (relative to each object directory of the
+project tree) to the list of source directories of the project, one directory
+per object directory. GPRclean will remove the project source files found
+in these subdirectories. This option may be combined with <code class="samp docutils literal notranslate"><span class="pre">--subdirs</span></code>.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">--relocate-build-tree[=</span><em><span class="pre">dir</span></em><span class="pre">]</span></code></p>
+<p>With this option it is possible to achieve out-of-tree build. That
+is, real object, library or exec directories are relocated to the
+current working directory or dir if specified.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">--root-dir=</span><em><span class="pre">dir</span></em></code></p>
+<p>This option is to be used with –relocate-build-tree above and
+cannot be specified alone. This option specifies the root directory
+for artifacts for proper relocation. The default value is the main
+project directory. This may not be suitable for relocation if for
+example some artifact directories are in parent directory of the
+main project. The specified directory must be a parent of all
+artifact directories.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">--unchecked-shared-lib-imports</span></code></p>
+<p>Shared library projects may import any project.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">-aP</span><em><span class="pre">dir</span></em></code></p>
+<p>Add directory <cite>dir</cite> to the project search path.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">-c</span></code></p>
+<p>Only delete compiler-generated files. Do not delete
+executables and libraries.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">-eL</span></code></p>
+<p>Follow symbolic links when processing project files.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">-f</span></code></p>
+<p>Force deletions of unwritable files.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">-F</span></code></p>
+<p>Display full project path name in brief error messages.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">-h</span></code></p>
+<p>Display the usage.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">-n</span></code></p>
+<p>Do not delete files, only list files that would be deleted.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">-P</span><em><span class="pre">proj</span></em></code></p>
+<p>Use Project File <cite>proj</cite>.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">-q</span></code></p>
+<p>Be quiet/terse. There is no output, except to report problems.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">-r</span></code></p>
+<p>Recursive. Clean all projects referenced by the main
+project directly or indirectly. Without this switch, GPRclean only
+cleans the main project.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">-v</span></code></p>
+<p>Verbose mode.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">-vP</span><em><span class="pre">x</span></em></code></p>
+<p>Specify verbosity when parsing Project Files.
+<cite>x</cite> = 0 (default), 1 or 2.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">-Xnm=</span><em><span class="pre">val</span></em></code></p>
+<p>Specify an external reference for Project Files.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="installing-with-gprinstall">
+<span id="id29"></span><h2><span class="section-number">4.4. </span>Installing with GPRinstall<a class="headerlink" href="#installing-with-gprinstall" title="Permalink to this headline">¶</a></h2>
+<p>The GPRinstall tool installs projects. With GPRinstall it is not
+needed to create complex <cite>makefiles</cite> to install the components. This
+also removes the need for OS specific commands (like <cite>cp</cite>,
+<cite>mkdir</cite> on UNIXs) and so makes the installation process easier on
+all supported platforms.</p>
+<p>After building a project it is often necessary to install the project to
+make it accessible to other projects. GPRinstall installs only what is
+necessary and nothing more. That is, for a library project the library
+itself is installed with the corresponding ALI files for Ada
+sources, but the object code is not installed as it not needed. Also if
+the Ada specs are installed the bodies are not, because they are not needed
+in most cases. The cases where the bodies are required (if the spec has inline
+routines or is a generic) are properly detected by GPRinstall.</p>
+<p>Furthermore, we can note that GPRinstall handles the preprocessed
+sources. So it installs the correct variant of the source after resolving
+the preprocessing directives.</p>
+<p>The parts of a project that can be installed are:</p>
+<ul class="simple">
+<li><p>sources of a project</p></li>
+<li><p>a static or shared library built from a library project</p></li>
+<li><p>objects built from a standard project</p></li>
+<li><p>executables built from a standard project</p></li>
+</ul>
+<p>Moreover, GPRinstall will create, when needed, a project to use the installed
+sources, objects or library. By default, this project file is installed in the
+GPRbuild’s default path location so that it can be “with”ed easily without
+further configuration. The installation process keeps record of every file
+installed for easy and safe removal.</p>
+<p>GPRinstall supports all kinds of project:</p>
+<ul>
+<li><p>standard projects</p>
+<p>The object files, executable and source files are considered for installation.</p>
+</li>
+<li><p>library and aggregate library projects</p>
+<p>The library itself and the source files are considered for installation.</p>
+</li>
+<li><p>aggregate projects</p>
+<p>All aggregated projects are considered for installation.</p>
+</li>
+</ul>
+<p>Projects that won’t be installed are:</p>
+<ul>
+<li><p>Project explicitly disabled for installation</p>
+<p>A project with the Active attribute set to False in the project’s
+Install package.</p>
+</li>
+<li><p>Projects with no sources</p>
+<p>Both abstract projects and standard projects without any sources</p>
+</li>
+</ul>
+<p>At a minimum, to invoke GPRinstall you must specify a main project file in a
+command such as <code class="docutils literal notranslate"><span class="pre">gprinstall</span> <span class="pre">proj.gpr</span></code> or <code class="docutils literal notranslate"><span class="pre">gprinstall</span> <span class="pre">-P</span> <span class="pre">proj.gpr</span></code> (in
+installing mode) or the install name (in uninstalling mode)
+<code class="docutils literal notranslate"><span class="pre">gprinstall</span> <span class="pre">--uninstall</span> <span class="pre">proj</span></code>.</p>
+<p>Examples of invocation of GPRinstall:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gprinstall</span> <span class="n">prj1</span><span class="o">.</span><span class="n">gpr</span>
+<span class="n">gprinstall</span> <span class="o">-</span><span class="n">r</span> <span class="o">--</span><span class="n">prefix</span><span class="o">=/</span><span class="n">my</span><span class="o">/</span><span class="n">root</span><span class="o">/</span><span class="n">install</span> <span class="o">-</span><span class="n">P</span> <span class="n">prj2</span><span class="o">.</span><span class="n">gpr</span>
+</pre></div>
+</div>
+<p>GPRinstall will record the installation under the <em>install name</em> which is by
+default the name of the project without the extension. That is above the
+project install names are <code class="docutils literal notranslate"><span class="pre">prj1</span></code> and <code class="docutils literal notranslate"><span class="pre">prj2</span></code>.</p>
+<p>The installation name can be specified with the option <code class="docutils literal notranslate"><span class="pre">--install-name</span></code>. This
+makes it possible to record the installation of multiple projects under the
+same name. This is handy if an application comes with a library and a set of
+tools built with multiple projects. In this case we may want to record the
+installation under the same name. The install name is also used as a suffix to
+group include and library directories.</p>
+<p>Examples of installation under the same name:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gprinstall</span> <span class="o">--</span><span class="n">install</span><span class="o">-</span><span class="n">name</span><span class="o">=</span><span class="n">myapp</span> <span class="n">lib</span><span class="o">.</span><span class="n">gpr</span>
+<span class="n">gprinstall</span> <span class="o">--</span><span class="n">install</span><span class="o">-</span><span class="n">name</span><span class="o">=</span><span class="n">myapp</span> <span class="o">--</span><span class="n">mode</span><span class="o">=</span><span class="n">usage</span> <span class="n">tools</span><span class="o">/</span><span class="n">tools</span><span class="o">.</span><span class="n">gpr</span>
+</pre></div>
+</div>
+<p>Note the <code class="docutils literal notranslate"><span class="pre">--mode=usage</span></code> option above. This tells GPRinstall to only install
+the executable built as part of the project.</p>
+<p>It is possible to uninstall a project by using the <code class="docutils literal notranslate"><span class="pre">--uninstall</span></code> option. In
+this case we just pass the install name to GPRinstall:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gprinstall</span> <span class="o">--</span><span class="n">uninstall</span> <span class="n">prj1</span>
+<span class="n">gprinstall</span> <span class="o">--</span><span class="n">uninstall</span> <span class="n">prj2</span>
+</pre></div>
+</div>
+<p>And both <code class="docutils literal notranslate"><span class="pre">lib.gpr</span></code> and <code class="docutils literal notranslate"><span class="pre">tools.gpr</span></code> above will be uninstalled with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gprinstall</span> <span class="o">--</span><span class="n">uninstall</span> <span class="n">myapp</span>
+</pre></div>
+</div>
+<p>Note that GPRinstall does not deal with dependencies between projects. Also
+GPRinstall in uninstall mode does not need nor use information in the installed
+project. This is because the project may not be present anymore and many
+different project scenario may have been installed. So when uninstalling
+GPRinstall just use the manifest file (whose name is the install name)
+information.</p>
+<div class="section" id="switches-for-gprinstall">
+<span id="id30"></span><h3><span class="section-number">4.4.1. </span>Switches for GPRinstall<a class="headerlink" href="#switches-for-gprinstall" title="Permalink to this headline">¶</a></h3>
+<p>The switches for GPRinstall are:</p>
+<ul>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">--config=</span><em><span class="pre">main</span> <span class="pre">config</span> <span class="pre">project</span> <span class="pre">file</span> <span class="pre">name</span></em></code></p>
+<p>Specify the configuration project file name</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">--autoconf=</span><em><span class="pre">config</span> <span class="pre">project</span> <span class="pre">file</span> <span class="pre">name</span></em></code></p>
+<p>This specifies a configuration project file name that already exists or will
+be created automatically. Option <code class="samp docutils literal notranslate"><span class="pre">--autoconf=</span></code>
+cannot be specified more than once. If the configuration project file
+specified with <code class="samp docutils literal notranslate"><span class="pre">--autoconf=</span></code> exists, then it is used. Otherwise,
+GPRconfig is invoked to create it automatically.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">--build-name</span></code></p>
+<p>Specify under which name the current
+project build must be installed. The default value is
+<cite>default</cite>. Using this option it is possible to install different
+builds (using different configuration, options, etc…) of the same
+project. The given name will be used by client to select which build
+they want to use (link against).</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">--build-var</span></code></p>
+<p>Specify the name of the build variable in the installed project.
+If this options is not used, the default build variable used is
+<code class="docutils literal notranslate"><span class="pre">&lt;PROJECT_NAME&gt;_BUILD</span></code>.</p>
+<p>It is possible to specify multiple variables in –build-var
+option. In this case, if the first build variable is not found, the
+second one will be checked, and so on. This makes it possible to
+have a project specific variable to select the corresponding build
+and a more generic build variable shared by multiple projects.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ gprinstall -Pproject1 \
+  --build-var=PROJECT1_BUILD,LIBRARY_TYPE
+              ^
+              Scenario variable to control
+              specifically this project
+
+                             ^
+                             Scenario variable to control
+                             the default for a set of projects
+
+$ gprinstall -Pproject2 \
+  --build-var=PROJECT2_BUILD,LIBRARY_TYPE
+</pre></div>
+</div>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">--no-build-var</span></code></p>
+<p>Specify that no build/scenario
+variable should be generated. This option can be use for a project
+where there is single configuration, so a single installation. This
+option cannot be used with <code class="samp docutils literal notranslate"><span class="pre">--build-var</span></code>.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">--dry-run</span></code></p>
+<p>Install nothing, just display the actions
+that would have been done.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">-a</span></code></p>
+<p>Install all the sources (default). Cannot be used with <code class="docutils literal notranslate"><span class="pre">-m</span></code> below.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">-m</span></code></p>
+<p>Install only the interface sources (minimal set of sources). Cannot
+be used with <code class="docutils literal notranslate"><span class="pre">-a</span></code> above.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">-f</span></code></p>
+<p>Force overwriting of existing files</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">-h</span></code></p>
+<p>Display this message</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">--mode=[dev/usage]</span></code></p>
+<p>Specify the installation mode.</p>
+<ul>
+<li><p>dev</p>
+<p>This is the default mode. The installation is done in developer
+mode. All files to use the project are copied to install prefix. For a
+library this means that the specs, the corresponding ALI files for
+Ada units and the library itself (static or relocatable) are
+installed. For a standard project the object files are installed
+instead of the library.</p>
+</li>
+<li><p>usage</p>
+<p>The installation is done in usage mode. This means that only the
+library or the executable is installed. In this installation mode
+there is no project generated, nor specs or ALI files installed.</p>
+</li>
+</ul>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 89%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Mode</p></td>
+<td><p>Interpretation</p></td>
+</tr>
+<tr class="row-even"><td><p><cite>dev</cite></p></td>
+<td><p>For this mode the binaries (built libraries and
+executable) are installed together with the sources to use them.</p></td>
+</tr>
+<tr class="row-odd"><td><p><cite>usage</cite></p></td>
+<td><p>For this mode only the binaries are installed and no project are
+created.</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">-p</span></code>, <code class="samp docutils literal notranslate"><span class="pre">--create-missing-dirs</span></code></p>
+<p>Create missing directories in the installation location.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">-P</span><em><span class="pre">proj</span></em></code></p>
+<p>Specify the project file to install.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">--prefix=</span><em><span class="pre">path</span></em></code></p>
+<p>Specify the location of the installation.
+If not specified, the default location for the current
+compiler is used. That is, <code class="docutils literal notranslate"><span class="pre">path</span></code> corresponds to parent directory
+where <code class="docutils literal notranslate"><span class="pre">gprinstall</span></code> is found.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">--install-name=</span><em><span class="pre">name</span></em></code></p>
+<p>Specify the name to use for recording the installation.
+The default is the project name without the extension. If set this
+option is also used as include or library directories’ suffix to
+group all related installations under a common directory.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">--sources-subdir=</span><em><span class="pre">path</span></em></code></p>
+<p>Specify the value for the sources installation directory if an absolute path.
+Otherwise it is appended to the prefix above. The default is
+<code class="docutils literal notranslate"><span class="pre">include/&lt;project_name&gt;[.&lt;build-name&gt;]</span></code></p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">--lib-subdir=</span><em><span class="pre">path</span></em></code></p>
+<p>Specify the value for the library and object installation
+directory if an absolute path.
+Otherwise it is appended to the prefix above. The default is
+<code class="docutils literal notranslate"><span class="pre">lib/&lt;project_name&gt;[.&lt;build-name&gt;]</span></code></p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">--link-lib-subdir=</span><em><span class="pre">path</span></em></code></p>
+<p>Specify the value for the
+library symlink directory if an absolute path. Otherwise it is
+appended to the prefix above.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">---exec-subdir=</span><em><span class="pre">path</span></em></code></p>
+<p>Specify the value for the
+executables installation directory if an absolute path. Otherwise it is
+appended to the prefix above. The default is <code class="docutils literal notranslate"><span class="pre">bin</span></code>.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">--project-subdir=</span><em><span class="pre">path</span></em></code></p>
+<p>Specify the value for the
+project installation directory if an absolute path. Otherwise it is
+appended to the prefix above. The default is <code class="docutils literal notranslate"><span class="pre">share/gpr</span></code>.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">--no-project</span></code></p>
+<p>Specify that no project is to be generated and installed.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">--target=</span><em><span class="pre">targetname</span></em></code></p>
+<p>Specify a target for cross platforms.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">--no-lib-link</span></code></p>
+<p>Disable copy of shared libraries into
+the executable directory on Windows or creation of symlink in the lib
+directory on UNIX. This is done by default to place the shared
+libraries into a directory where application will look for them.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">--sources-only</span></code></p>
+<p>Copy only sources part of the project,
+the object, library or executable files are never copied. When this
+switch is used the installed project is not set as externally built.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">--side-debug</span></code></p>
+<p>Write debug symbols out of executables and libraries into a
+separate file. The separate file is named after the main file with
+an added <code class="docutils literal notranslate"><span class="pre">.debug</span></code> extension. That is, if the executable to be
+installed is named <code class="docutils literal notranslate"><span class="pre">main</span></code>, then a file <code class="docutils literal notranslate"><span class="pre">main.debug</span></code> is also created in
+the same location, containing only the debug information. The
+debug information is then removed from the <code class="docutils literal notranslate"><span class="pre">main</span></code> executable.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">--subdirs=</span><em><span class="pre">subdir</span></em></code></p>
+<p>This indicates that the object, library and executable directories specified
+in the project file will be suffixed with {subdir}. If needed, those
+subdirectories are created except for externally built projects: in this case
+if the subdirectories already exist they are used, otherwise the base
+directories are used.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">--relocate-build-tree[=</span><em><span class="pre">dir</span></em><span class="pre">]</span></code></p>
+<p>With this option it is possible to achieve out-of-tree build. That
+is, real object, library or exec directories are relocated to the
+current working directory or dir if specified.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">--root-dir=</span><em><span class="pre">dir</span></em></code></p>
+<p>This option is to be used with –relocate-build-tree above and
+cannot be specified alone. This option specifies the root directory
+for artifacts for proper relocation. The default value is the main
+project directory. This may not be suitable for relocation if for
+example some artifact directories are in parent directory of the
+main project. The specified directory must be a parent of all
+artifact directories.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">-q</span></code></p>
+<p>Be quiet/terse. There is no output, except to report problems.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">-r</span></code></p>
+<p>(Recursive.) Install all projects referenced by the main
+project directly or indirectly. Without this switch, GPRinstall only
+installs the main project.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">--no-manifest</span></code></p>
+<p>Prevent the manifest file from being created. Note that using this
+option will make it impossible to uninstall the project using
+GPRinstall. See option <cite>–uninstall</cite>.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">--uninstall</span></code></p>
+<p>Uninstall mode, files installed for a given project or install name
+will be removed. A check is done that no manual changes have been
+applied to the files before removing.  Deletion of the files can be
+forced in this case by using the <code class="samp docutils literal notranslate"><span class="pre">-f</span></code> option. Note that the
+parameter in this case is not the project name but the install name which
+corresponds to the manifest file.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">--list</span></code></p>
+<p>List mode, displays all the installed packaged.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">--stat</span></code></p>
+<p>Apply to list mode above, displays also some
+statistics about the installed packages : number of files, total size
+used on disk, and whether there is some files missing.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">-v</span></code></p>
+<p>Verbose mode</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">-Xnm=</span><em><span class="pre">val</span></em></code></p>
+<p>Specify an external reference for Project Files.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="specifying-a-naming-scheme-with-gprname">
+<span id="id31"></span><h2><span class="section-number">4.5. </span>Specifying a Naming Scheme with GPRname<a class="headerlink" href="#specifying-a-naming-scheme-with-gprname" title="Permalink to this headline">¶</a></h2>
+<p>When the Ada source file names do not follow a regular naming
+scheme, the mapping of Ada units to source file names must be indicated
+in package Naming with attributes Spec and Body.</p>
+<p>To help maintain the correspondence between compilation unit names and
+source file names within the compiler,
+the tool <cite>gprname</cite> may be used to generate automatically these attributes.</p>
+<div class="section" id="running-gprname">
+<span id="id32"></span><h3><span class="section-number">4.5.1. </span>Running <cite>gprname</cite><a class="headerlink" href="#running-gprname" title="Permalink to this headline">¶</a></h3>
+<p>The usual form of the <cite>gprname</cite> command is:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ gprname <span class="o">[</span><span class="sb">`</span>switches<span class="sb">`</span><span class="o">]</span> <span class="sb">`</span>naming_pattern<span class="sb">`</span> <span class="o">[</span><span class="sb">`</span>naming_patterns<span class="sb">`</span><span class="o">]</span>
+    <span class="o">[</span>--and <span class="o">[</span><span class="sb">`</span>switches<span class="sb">`</span><span class="o">]</span> <span class="sb">`</span>naming_pattern<span class="sb">`</span> <span class="o">[</span><span class="sb">`</span>naming_patterns<span class="sb">`</span><span class="o">]]</span>
+</pre></div>
+</div>
+<p>Most of the arguments are optional: switch <em>-P</em> must be specified to indicate
+the project file and at least one Naming Pattern.</p>
+<p><cite>gprname</cite> will attempt to
+find all the compilation units in files that follow at least one of the
+naming patterns. To find Ada compilation units,
+<cite>gprname</cite> will use the GNAT compiler in syntax-check-only mode on all
+regular files.</p>
+<p>One or several Naming Patterns may be given as arguments to <cite>gprname</cite>.
+Each Naming Pattern is enclosed between double quotes (or single
+quotes on Windows).
+A Naming Pattern is a regular expression similar to the wildcard patterns
+used in file names by the Unix shells or the DOS prompt.</p>
+<p><cite>gprname</cite> may be called with several sections of directories/patterns.
+Sections are separated by switch <cite>–and</cite>. In each section, there must be
+at least one pattern. If no directory is specified in a section, the
+project directory is implied.
+The options other that the directory switches and the patterns apply globally
+even if they are in different sections.</p>
+<p>Examples of Naming Patterns are:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;*.[12].ada&quot;</span>
+<span class="s2">&quot;*.ad[sb]*&quot;</span>
+<span class="s2">&quot;body_*&quot;</span>    <span class="s2">&quot;spec_*&quot;</span>
+</pre></div>
+</div>
+<p>For a more complete description of the syntax of Naming Patterns,
+see the second kind of regular expressions described in <code class="file docutils literal notranslate"><span class="pre">g-regexp.ads</span></code>
+(the ‘Glob’ regular expressions).</p>
+</div>
+<div class="section" id="switches-for-gprname">
+<span id="switches-for-pgprname"></span><h3><span class="section-number">4.5.2. </span>Switches for GPRname<a class="headerlink" href="#switches-for-gprname" title="Permalink to this headline">¶</a></h3>
+<p>Switches for <cite>gprname</cite> must precede any specified Naming Pattern.</p>
+<p>You may specify any of the following switches to <cite>gprname</cite>:</p>
+<ul id="index-17">
+<li><p><code class="samp docutils literal notranslate"><span class="pre">--version</span></code></p>
+<p>Display Copyright and version, then exit disregarding all other options.</p>
+</li>
+</ul>
+<ul id="index-18">
+<li><p><code class="samp docutils literal notranslate"><span class="pre">--target=&lt;targ&gt;</span></code></p>
+<p>Indicates the target of the GNAT compiler. This may be needed if there is
+no native compiler available.</p>
+</li>
+</ul>
+<ul id="index-19">
+<li><p><code class="samp docutils literal notranslate"><span class="pre">--help</span></code></p>
+<p>If <em>–version</em> was not used, display usage, then exit disregarding
+all other options.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">--subdirs=</span><em><span class="pre">dir</span></em></code></p>
+<p>This indicates that the object, library and executable directories specified
+in the project file will be suffixed with {subdir}. If needed, those
+subdirectories are created except for externally built projects: in this case
+if the subdirectories already exist they are used, otherwise the base
+directories are used.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">--no-backup</span></code></p>
+<p>Do not create a backup copy of the project file if it already exists.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">--ignore-duplicate-files</span></code></p>
+<p>Ignore files with the same basename, and take the first one found into
+account only. By default when encountering a duplicate file, a warning is
+emitted, and duplicate entries in the <cite>Naming</cite> package will be generated,
+needing manual editing to resolve the conflict. With this switch, gprname
+assumes that only the first file should be used and others should be
+ignored.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">--ignore-predefined-units</span></code></p>
+<p>Ignore predefined units (children of System, Interfaces and Ada packages).</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">--and</span></code></p>
+<p>Start another section of directories/patterns.</p>
+</li>
+</ul>
+<ul id="index-20">
+<li><p><code class="samp docutils literal notranslate"><span class="pre">-d</span><em><span class="pre">dir</span></em></code></p>
+<p>Look for source files in directory <code class="file docutils literal notranslate"><span class="pre">dir</span></code>. There may be zero, one or more
+spaces between <em>-d</em> and <code class="file docutils literal notranslate"><span class="pre">dir</span></code>.
+<code class="file docutils literal notranslate"><span class="pre">dir</span></code> may end with <cite>/**</cite>, that is it may be of the form
+<cite>root_dir/**</cite>. In this case, the directory <cite>root_dir</cite> and all of its
+subdirectories, recursively, have to be searched for sources.
+When a switch <em>-d</em>
+is specified, the current working directory will not be searched for source
+files, unless it is explicitly specified with a <em>-d</em>
+or <em>-D</em> switch.
+Several switches <em>-d</em> may be specified.
+If <code class="file docutils literal notranslate"><span class="pre">dir</span></code> is a relative path, it is relative to the directory of
+the project file specified with switch <em>-P</em>. The directory
+specified with switch <em>-d</em> must exist and be readable.</p>
+</li>
+</ul>
+<ul id="index-21">
+<li><p><code class="samp docutils literal notranslate"><span class="pre">-D</span><em><span class="pre">filename</span></em></code></p>
+<p>Look for source files in all directories listed in text file <code class="file docutils literal notranslate"><span class="pre">filename</span></code>.
+There may be zero, one or more spaces between <em>-D</em>
+and <code class="file docutils literal notranslate"><span class="pre">filename</span></code>.
+<code class="file docutils literal notranslate"><span class="pre">filename</span></code> must be an existing, readable text file.
+Each nonempty line in <code class="file docutils literal notranslate"><span class="pre">filename</span></code> must be a directory.
+Specifying switch <em>-D</em> is equivalent to specifying as many
+switches <em>-d</em> as there are nonempty lines in
+<code class="file docutils literal notranslate"><span class="pre">file</span></code>.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">-eL</span></code></p>
+<p>Follow symbolic links when processing project files.</p>
+</li>
+<li id="index-22"><p><code class="samp docutils literal notranslate"><span class="pre">-f</span><em><span class="pre">pattern</span></em></code></p>
+<p>Foreign C language patterns. Using this switch, it is possible to add sources
+of language C to the list of sources of a project file.</p>
+<p>For example,</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>gprname -P prj.gpr -f<span class="s2">&quot;*.c&quot;</span> <span class="s2">&quot;*.ada&quot;</span> -f <span class="s2">&quot;*.clang&quot;</span>
+</pre></div>
+</div>
+<p>will look for Ada units in all files with the <code class="file docutils literal notranslate"><span class="pre">.ada</span></code> extension,
+and will add to the list of file for project <code class="file docutils literal notranslate"><span class="pre">prj.gpr</span></code> the C files
+with extensions <code class="file docutils literal notranslate"><span class="pre">.c</span></code> and <code class="file docutils literal notranslate"><span class="pre">.clang</span></code>. Attribute Languages will be
+declared with the list of languages with sources. In the above example,
+it will be (“Ada”, “C”) if Ada and C sources have been found.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">-f:</span><em><span class="pre">&lt;lang&gt;</span></em> <em><span class="pre">pattern</span></em></code></p>
+<p>Foreign language {&lt;lang&gt;} patterns. Using this switch, it is possible to add
+sources of language &lt;lang&gt; to the list of sources of a project file.</p>
+<p>For example,</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>gprname -P prj.gpr <span class="s2">&quot;*.ada&quot;</span> -f:C++ <span class="s2">&quot;*.cpp&quot;</span> -f:C++ <span class="s2">&quot;*.CPP&quot;</span>
+</pre></div>
+</div>
+<p>Files with extensions <code class="file docutils literal notranslate"><span class="pre">.cpp</span></code> and <code class="file docutils literal notranslate"><span class="pre">*.CPP</span></code> are C++ sources.
+Attribute Languages will have value (“Ada”, “C++”) if Ada and C++ sources
+are found.</p>
+</li>
+<li id="index-23"><p><code class="samp docutils literal notranslate"><span class="pre">-h</span></code></p>
+<p>Output usage (help) information. The output is written to <code class="file docutils literal notranslate"><span class="pre">stdout</span></code>.</p>
+</li>
+<li id="index-24"><p><code class="samp docutils literal notranslate"><span class="pre">-P</span><em><span class="pre">proj</span></em></code></p>
+<p>Create or update project file <code class="file docutils literal notranslate"><span class="pre">proj</span></code>. There may be zero, one or more
+space between <em>-P</em> and <code class="file docutils literal notranslate"><span class="pre">proj</span></code>. <code class="file docutils literal notranslate"><span class="pre">proj</span></code> may include directory
+information. <code class="file docutils literal notranslate"><span class="pre">proj</span></code> must be writable.
+There must be only one switch <em>-P</em>.
+If switch <em>–no-backup</em> is not specified, a backup copy of the project file is created
+in the project directory with file name &lt;proj&gt;.gpr.saved_x. ‘x’ is the first
+non negative number that makes this backup copy a new file.</p>
+</li>
+<li id="index-25"><p><code class="samp docutils literal notranslate"><span class="pre">-v</span></code></p>
+<p>Verbose mode. Output detailed explanation of behavior to <code class="file docutils literal notranslate"><span class="pre">stdout</span></code>.
+This includes name of the file written, the name of the directories to search
+and, for each file in those directories whose name matches at least one of
+the Naming Patterns, an indication of whether the file contains a unit,
+and if so the name of the unit.</p>
+</li>
+</ul>
+<ul id="index-26">
+<li><p><code class="samp docutils literal notranslate"><span class="pre">-v</span> <span class="pre">-v</span></code></p>
+<p>Very Verbose mode. In addition to the output produced in verbose mode,
+for each file in the searched directories whose name matches none of
+the Naming Patterns, an indication is given that there is no match.</p>
+</li>
+<li id="index-27"><p><code class="samp docutils literal notranslate"><span class="pre">-x</span><em><span class="pre">pattern</span></em></code></p>
+<p>Excluded patterns. Using this switch, it is possible to exclude some files
+that would match the name patterns. For example,</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>gprname -P prj.gpr -x <span class="s2">&quot;*_nt.ada&quot;</span> <span class="s2">&quot;*.ada&quot;</span>
+</pre></div>
+</div>
+<p>will look for Ada units in all files with the <code class="file docutils literal notranslate"><span class="pre">.ada</span></code> extension,
+except those whose names end with <code class="file docutils literal notranslate"><span class="pre">_nt.ada</span></code>.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="example-of-gprname-usage">
+<span id="id33"></span><h3><span class="section-number">4.5.3. </span>Example of <cite>gprname</cite> Usage<a class="headerlink" href="#example-of-gprname-usage" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ gprname -P/home/me/proj.gpr -x <span class="s2">&quot;*_nt_body.ada&quot;</span>
+-dsources -dsources/plus -Dcommon_dirs.txt <span class="s2">&quot;body_*&quot;</span> <span class="s2">&quot;spec_*&quot;</span>
+</pre></div>
+</div>
+<p>Note that several switches <em>-d</em> may be used,
+even in conjunction with one or several switches
+<em>-D</em>. Several Naming Patterns and one excluded pattern
+are used in this example.</p>
+</div>
+</div>
+<div class="section" id="the-library-browser-gprls">
+<span id="id34"></span><h2><span class="section-number">4.6. </span>The Library Browser GPRls<a class="headerlink" href="#the-library-browser-gprls" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="index-28"></span><p id="index-29"><cite>gprls</cite> is a tool that outputs information about compiled sources. It gives the
+relationship between objects, unit names and source files. It can also be used
+to check source dependencies as well as various characteristics.</p>
+<div class="section" id="running-gprls">
+<span id="id35"></span><h3><span class="section-number">4.6.1. </span>Running <cite>gprls</cite><a class="headerlink" href="#running-gprls" title="Permalink to this headline">¶</a></h3>
+<p>The <cite>gprls</cite> command has the form</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ gprls switches `object_or_dependency_files`
+</pre></div>
+</div>
+</div></blockquote>
+<p>The main argument is the list of object files or <code class="file docutils literal notranslate"><span class="pre">ali</span></code> files for Ada
+sources for which information is requested.</p>
+<p><cite>gprls</cite> uses a project file, either specified through a single switch -P,
+or the default project file. If no <cite>object_or_dependency_files</cite> is specified
+then all the object files corresponding to the sources of the project are
+deemed to be specified. If <cite>object_or_dependency_files</cite> is specified for
+an aggregate project and there is more than one such file in different
+aggregated projects then the file found first is used to show the information.</p>
+<p>In normal mode, without option other that -P &lt;project file&gt;, <cite>gprls</cite> produces
+information for each object/dependency file: the full path of the object,
+the name of the principal unit in this object if the source is in Ada,
+the status of the source and the full path of the source.</p>
+<p>Here is a simple example of use:</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ gprls -P prj.gpr
+/my_path/obj/pkg.o
+   pkg
+     DIF pkg.adb
+/my_path/obj/main.o
+   main
+     MOK main.adb
+</pre></div>
+</div>
+</div></blockquote>
+<p>The first three lines can be interpreted as follows: the main unit which is
+contained in
+object file <code class="file docutils literal notranslate"><span class="pre">pkg.o</span></code> is pkg, whose main source is in
+<code class="file docutils literal notranslate"><span class="pre">pkg.adb</span></code>. Furthermore, the version of the source used for the
+compilation of pkg has been modified (DIF). Each source file has a status
+qualifier which can be:</p>
+<dl class="simple">
+<dt><em>OK (unchanged)</em></dt><dd><p>The version of the source file used for the compilation of the
+specified unit corresponds exactly to the actual source file.</p>
+</dd>
+<dt><em>MOK (slightly modified)</em></dt><dd><p>The version of the source file used for the compilation of the
+specified unit differs from the actual source file but not enough to
+require recompilation. If you use <cite>gprbuild</cite> with the qualifier
+<em>-m (minimal recompilation)</em>, a file marked
+MOK will not be recompiled.</p>
+</dd>
+<dt><em>DIF (modified)</em></dt><dd><p>The source used to build this object has been modified and need to be
+recompiled.</p>
+</dd>
+<dt><em>??? (dependency file not found)</em></dt><dd><p>The object/dependency file cannot be found.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="switches-for-gprls">
+<span id="id36"></span><h3><span class="section-number">4.6.2. </span>Switches for GPRls<a class="headerlink" href="#switches-for-gprls" title="Permalink to this headline">¶</a></h3>
+<p><cite>gprls</cite> recognizes the following switches:</p>
+<dl class="simple" id="index-30">
+<dt><code class="samp docutils literal notranslate"><span class="pre">--version</span></code></dt><dd><p>Display Copyright and version, then exit disregarding all other options.</p>
+</dd>
+</dl>
+<dl class="simple" id="index-31">
+<dt><code class="samp docutils literal notranslate"><span class="pre">--help</span></code></dt><dd><p>If <em>–version</em> was not used, display usage, then exit disregarding
+all other options.</p>
+</dd>
+</dl>
+<dl class="simple" id="index-32">
+<dt><code class="samp docutils literal notranslate"><span class="pre">--closure</span></code></dt><dd><p>Display the Ada closures of the mains specified on the command line or
+in attribute Main of the main project. The absolute paths of the units in
+the closures are listed, but no status is checked. If all the ALI files are
+found, then the list is preceded with the line “Closure:” or “Closures:”.
+Otherwise, it is preceded with the line “Incomplete Closure:” or
+“Incomplete closures:”.</p>
+</dd>
+</dl>
+<dl class="simple" id="index-33">
+<dt><code class="samp docutils literal notranslate"><span class="pre">-P</span> <span class="pre">&lt;project</span> <span class="pre">file&gt;</span></code></dt><dd><p>Use this project file. This switch may only be specified once.</p>
+</dd>
+</dl>
+<dl class="simple" id="index-34">
+<dt><code class="samp docutils literal notranslate"><span class="pre">-a</span></code></dt><dd><p>Consider all units, including those of the predefined Ada library.
+Especially useful with <em>-d</em>.</p>
+</dd>
+</dl>
+<dl class="simple" id="index-35">
+<dt><code class="samp docutils literal notranslate"><span class="pre">-d</span></code></dt><dd><p>List sources from which specified units depend on.</p>
+</dd>
+</dl>
+<dl class="simple" id="index-36">
+<dt><code class="samp docutils literal notranslate"><span class="pre">-h</span></code></dt><dd><p>Output the list of options.</p>
+</dd>
+</dl>
+<dl class="simple" id="index-37">
+<dt><code class="samp docutils literal notranslate"><span class="pre">-o</span></code></dt><dd><p>Only output information about object files.</p>
+</dd>
+</dl>
+<dl class="simple" id="index-38">
+<dt><code class="samp docutils literal notranslate"><span class="pre">-s</span></code></dt><dd><p>Only output information about source files.</p>
+</dd>
+</dl>
+<dl class="simple" id="index-39">
+<dt><code class="samp docutils literal notranslate"><span class="pre">-u</span></code></dt><dd><p>Only output information about compilation units.</p>
+</dd>
+</dl>
+<dl class="simple" id="index-40">
+<dt><code class="samp docutils literal notranslate"><span class="pre">-U</span></code></dt><dd><p>If no object/dependency file is specified, list information for the sources
+of all the projects in the project tree.</p>
+</dd>
+</dl>
+<dl class="simple" id="index-41">
+<dt><code class="samp docutils literal notranslate"><span class="pre">-files=</span><em><span class="pre">file</span></em></code></dt><dd><p>Take as arguments the files listed in text file <cite>file</cite>.
+Text file <cite>file</cite> may contain empty lines that are ignored.
+Each nonempty line should contain the name of an existing object/dependency
+file.
+Several such switches may be specified simultaneously.</p>
+</dd>
+</dl>
+<dl class="simple" id="index-42">
+<dt><code class="samp docutils literal notranslate"><span class="pre">-aP</span><em><span class="pre">dir</span></em></code></dt><dd><p>Add <cite>dir</cite> at the beginning of the project search dir.</p>
+</dd>
+</dl>
+<dl class="simple" id="index-43">
+<dt><code class="samp docutils literal notranslate"><span class="pre">--RTS=</span><em><span class="pre">rts-path</span></em><span class="pre">`</span></code></dt><dd><p>Specifies the default location of the Ada runtime library.
+Same meaning as the equivalent <em>gprbuild</em> switch.</p>
+</dd>
+</dl>
+<dl class="simple" id="index-44">
+<dt><code class="samp docutils literal notranslate"><span class="pre">-v</span></code></dt><dd><p>Verbose mode. Output the complete source, object and project paths.
+For each Ada source, include special characteristics such as:</p>
+<ul class="simple">
+<li><p><em>Preelaborable</em>: The unit is preelaborable in the Ada sense.</p></li>
+<li><p><em>No_Elab_Code</em>:  No elaboration code has been produced by the compiler for this unit.</p></li>
+<li><p><em>Pure</em>: The unit is pure in the Ada sense.</p></li>
+<li><p><em>Elaborate_Body</em>: The unit contains a pragma Elaborate_Body.</p></li>
+<li><p><em>Remote_Types</em>: The unit contains a pragma Remote_Types.</p></li>
+<li><p><em>Shared_Passive</em>: The unit contains a pragma Shared_Passive.</p></li>
+<li><p><em>Predefined</em>: This unit is part of the predefined environment and cannot be modified
+by the user.</p></li>
+<li><p><em>Remote_Call_Interface</em>: The unit contains a pragma Remote_Call_Interface.</p></li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="examples-of-gprls-usage">
+<span id="example-of-gprls-usage"></span><h3><span class="section-number">4.6.3. </span>Examples of <cite>gprls</cite> Usage<a class="headerlink" href="#examples-of-gprls-usage" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ gprls -v -P prj.gpr
+
+ 5 lines: No errors
+gprconfig --batch -o /my_path/obj/auto.cgpr --target=x86_64-linux --config=ada,,
+Creating configuration file: /my_path/obj/auto.cgpr
+Checking configuration /my_path/obj/auto.cgpr
+
+GPRLS Pro 17.0 (20161010) (x86_64-unknown-linux-gnu)
+Copyright (C) 2015-2016, AdaCore
+
+Source Search Path:
+   &lt;Current directory&gt;
+   /my_path/local/lib/gcc/x86_64-pc-linux-gnu/4.9.4//adainclude/
+
+Object Search Path:
+   &lt;Current directory&gt;
+   /my_path/local/lib/gcc/x86_64-pc-linux-gnu/4.9.4//adalib/
+
+Project Search Path:
+   &lt;Current_Directory&gt;
+   /my_path/local/x86_64-unknown-linux-gnu/lib/gnat
+   /my_path/local/x86_64-unknown-linux-gnu/share/gpr
+   /my_path/local/share/gpr
+   /my_path/local/lib/gnat
+
+/my_path/obj/pkg.o
+   Unit =&gt;
+     Name   =&gt; pkg
+     Kind   =&gt; package body
+     Flags  =&gt; No_Elab_Code
+   Source =&gt; pkg.adb unchanged
+   Unit =&gt;
+     Name   =&gt; pkg
+     Kind   =&gt; package spec
+     Flags  =&gt; No_Elab_Code
+   Source =&gt; pkg.ads unchanged
+/my_path/obj/main.o
+   Unit =&gt;
+     Name   =&gt; main
+     Kind   =&gt; subprogram body
+     Flags  =&gt; No_Elab_Code
+   Source =&gt; main.adb slightly modified
+
+$ gprls -d -P prj.gpr main.o
+/my_path/obj/main.o
+   main
+       MOK main.adb
+
+        OK pkg.ads
+
+$ gprls -s -P prj.gpr main.o
+   main
+main.adb
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../gprbuild_ug.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">4. GPRbuild Companion Tools</a><ul>
+<li><a class="reference internal" href="#configuring-with-gprconfig">4.1. Configuring with GPRconfig</a><ul>
+<li><a class="reference internal" href="#configuration">4.1.1. Configuration</a></li>
+<li><a class="reference internal" href="#using-gprconfig">4.1.2. Using GPRconfig</a><ul>
+<li><a class="reference internal" href="#description">4.1.2.1. Description</a></li>
+<li><a class="reference internal" href="#command-line-arguments">4.1.2.2. Command line arguments</a></li>
+<li><a class="reference internal" href="#interactive-use">4.1.2.3. Interactive use</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#the-gprconfig-knowledge-base">4.1.3. The GPRconfig knowledge base</a><ul>
+<li><a class="reference internal" href="#general-file-format">4.1.3.1. General file format</a></li>
+<li><a class="reference internal" href="#compiler-description">4.1.3.2. Compiler description</a></li>
+<li><a class="reference internal" href="#gprconfig-external-values">4.1.3.3. GPRconfig external values</a></li>
+<li><a class="reference internal" href="#gprconfig-variable-substitution">4.1.3.4. GPRconfig variable substitution</a></li>
+<li><a class="reference internal" href="#configurations">4.1.3.5. Configurations</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#configuration-file-reference">4.2. Configuration File Reference</a><ul>
+<li><a class="reference internal" href="#project-level-configuration-attributes">4.2.1. Project Level Configuration Attributes</a><ul>
+<li><a class="reference internal" href="#general-attributes">4.2.1.1. General Attributes</a></li>
+<li><a class="reference internal" href="#general-library-related-attributes">4.2.1.2. General Library Related Attributes</a></li>
+<li><a class="reference internal" href="#archive-related-attributes">4.2.1.3. Archive Related Attributes</a></li>
+<li><a class="reference internal" href="#shared-library-related-attributes">4.2.1.4. Shared Library Related Attributes</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#package-naming">4.2.2. Package Naming</a></li>
+<li><a class="reference internal" href="#package-builder">4.2.3. Package Builder</a></li>
+<li><a class="reference internal" href="#package-compiler">4.2.4. Package Compiler</a><ul>
+<li><a class="reference internal" href="#general-compilation-attributes">4.2.4.1. General Compilation Attributes</a></li>
+<li><a class="reference internal" href="#mapping-file-related-attributes">4.2.4.2. Mapping File Related Attributes</a></li>
+<li><a class="reference internal" href="#config-file-related-attributes">4.2.4.3. Config File Related Attributes</a></li>
+<li><a class="reference internal" href="#dependency-related-attributes">4.2.4.4. Dependency Related Attributes</a></li>
+<li><a class="reference internal" href="#search-path-related-attributes">4.2.4.5. Search Path Related Attributes</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#package-binder">4.2.5. Package Binder</a></li>
+<li><a class="reference internal" href="#package-linker">4.2.6. Package Linker</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#cleaning-up-with-gprclean">4.3. Cleaning up with GPRclean</a><ul>
+<li><a class="reference internal" href="#switches-for-gprclean">4.3.1. Switches for GPRclean</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#installing-with-gprinstall">4.4. Installing with GPRinstall</a><ul>
+<li><a class="reference internal" href="#switches-for-gprinstall">4.4.1. Switches for GPRinstall</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#specifying-a-naming-scheme-with-gprname">4.5. Specifying a Naming Scheme with GPRname</a><ul>
+<li><a class="reference internal" href="#running-gprname">4.5.1. Running <cite>gprname</cite></a></li>
+<li><a class="reference internal" href="#switches-for-gprname">4.5.2. Switches for GPRname</a></li>
+<li><a class="reference internal" href="#example-of-gprname-usage">4.5.3. Example of <cite>gprname</cite> Usage</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#the-library-browser-gprls">4.6. The Library Browser GPRls</a><ul>
+<li><a class="reference internal" href="#running-gprls">4.6.1. Running <cite>gprls</cite></a></li>
+<li><a class="reference internal" href="#switches-for-gprls">4.6.2. Switches for GPRls</a></li>
+<li><a class="reference internal" href="#examples-of-gprls-usage">4.6.3. Examples of <cite>gprls</cite> Usage</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="building_with_gprbuild.html"
+                        title="previous chapter"><span class="section-number">3. </span>Building with GPRbuild</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../share/gnu_free_documentation_license.html"
+                        title="next chapter">GNU Free Documentation License</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/gprbuild_ug/companion_tools.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../share/gnu_free_documentation_license.html" title="GNU Free Documentation License"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="building_with_gprbuild.html" title="3. Building with GPRbuild"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../gprbuild_ug.html">GPR Tools User&#39;s Guide 2021 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">4. </span>GPRbuild Companion Tools</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2008-2021, Free Software Foundation.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
+    </div>
+  </body>
+</html>

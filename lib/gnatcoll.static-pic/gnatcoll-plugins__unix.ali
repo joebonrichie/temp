@@ -1,0 +1,90 @@
+V "GNAT Lib v2021"
+A -O2
+A -gnatA
+A -fPIC
+A -gnatn
+A -gnatwa
+A -gnatwC
+A -gnatwJ
+A -mtune=generic
+A -march=x86-64
+P ZX
+
+RN
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_OBSOLESCENT_FEATURES
+
+U gnatcoll.plugins%b	gnatcoll-plugins__unix.adb  096411c8 NE OO PK IU
+W gnatcoll%s		gnatcoll.ads		gnatcoll.ali
+W interfaces%s		interfac.ads		interfac.ali
+W interfaces.c%s	i-c.adb			i-c.ali
+W interfaces.c.strings%s  i-cstrin.adb		i-cstrin.ali
+W system%s		system.ads		system.ali
+
+U gnatcoll.plugins%s	gnatcoll-plugins.ads	1c41057a EE NE OO PK IU
+W gnatcoll%s		gnatcoll.ads		gnatcoll.ali
+W system%s		system.ads		system.ali
+
+D ada.ads		20210520051131 76789da1 ada%s
+D a-unccon.ads		20210520051130 0e9b276f ada.unchecked_conversion%s
+D gnatcoll.ads		20210519051041 6a5da479 gnatcoll%s
+D gnatcoll-plugins.ads	20210519051041 d4c6371e gnatcoll.plugins%s
+D gnatcoll-plugins__unix.adb  20210519051041 4b65bd14 gnatcoll.plugins%b
+D interfac.ads		20210520051132 edec285f interfaces%s
+D i-c.ads		20210520051132 d9beded9 interfaces.c%s
+D i-cstrin.ads		20210520051132 341d0ddf interfaces.c.strings%s
+D system.ads		20210520051135 a2da961d system%s
+D s-exctab.ads		20210520051132 54135002 system.exception_table%s
+D s-parame.ads		20210520051134 4752c4cb system.parameters%s
+D s-stalib.ads		20210520051134 472fbca8 system.standard_library%s
+G a e
+G c Z s b [load gnatcoll__plugins 31 13 none]
+G c Z s b [routine_address gnatcoll__plugins 35 13 none]
+G c Z s b [last_error_message gnatcoll__plugins 40 13 none]
+G c Z s b [unload gnatcoll__plugins 44 14 none]
+X 3 gnatcoll.ads
+24K9*GNATCOLL 27e13 4|26r9 54r5 5|27r14 81r5
+X 4 gnatcoll-plugins.ads
+26K18*Plugins 3|24k9 4|50E9 54l14 54e21 5|27b23 81l14 81t21
+28M9*Plugin<9|67M9> 29r25 31r41 36r12 44r33 50c9 52r25 52r35 5|33r41 34r64
+. 47r34 48r32 71r33 72r34
+29m4*No_Plugin{28M9} 52c4
+31V13*Load{28M9} 31>19 5|33b13 41l8 41t12
+31a19 Path{string} 5|33b19 38r38
+35V13*Routine_Address{9|67M9} 36>8 36>20 5|47b13 54l8 54t23
+36m8 P{28M9} 5|47b30 53r31
+36a20 Name{string} 5|47b42 51r35
+40V13*Last_Error_Message{string} 5|60b13 65l8 65t26
+44U14*Unload 44=22 5|71b14 79l8 79t14
+44m22 P{28M9} 5|71b22 78r27
+X 5 gnatcoll-plugins__unix.adb
+34V16*dlopen{4|28M9} 34>24 34>43 35b<c,dlopen>25 40s14
+34a24 Lib_Name{string}
+34i43 Mode{7|35I9}
+37N7 RTLD_LAZY 40r30
+38a7 C_Path=38:43{string} 40r22
+48V16*dlsym{9|67M9} 48>23 48>40 49b<c,dlsym>25 53s14
+48m23 Handle{4|28M9} 53r21
+48a40 Sym_Name{string} 53r34
+51a7 C_Name=51:40{string} 53r46
+61V16*dlerror{8|47P9} 62b<c,dlerror>25 64s31
+72V16*dlclose{7|35I9} 72>25 73b<c,dlclose>25 78s18
+72m25 Handle{4|28M9}
+75i7 Ignored{7|35I9} 76r28 78m7
+X 6 interfac.ads
+38K9*Interfaces 5|25r6 25r32 6|231e15
+X 7 i-c.ads
+18K20*C 5|25r17 34r50 61r31 64r14 72r49 75r17 7|237e17
+35I9*int<integer> 5|34r52 72r51 75r19
+X 8 i-cstrin.ads
+36K22*Strings 5|25w19 61r33 64r16 8|106e25
+47P9*chars_ptr 5|61r41
+74V13*Value{string} 5|64s24
+X 9 system.ads
+37K9*System 4|24w6 36r42 50r23 52r43 5|24w6 24r32 9|154e11
+67M9*Address 4|36r49 50r30 5|47r64 48r66
+69m4*Null_Address{67M9} 4|52r50
+

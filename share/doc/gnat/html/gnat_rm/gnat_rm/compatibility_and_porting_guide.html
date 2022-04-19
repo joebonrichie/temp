@@ -1,0 +1,675 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>18. Compatibility and Porting Guide &#8212; GNAT Reference Manual 2021 documentation</title>
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="GNU Free Documentation License" href="../share/gnu_free_documentation_license.html" />
+    <link rel="prev" title="17. Obsolescent Features" href="obsolescent_features.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../share/gnu_free_documentation_license.html" title="GNU Free Documentation License"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="obsolescent_features.html" title="17. Obsolescent Features"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../gnat_rm.html">GNAT Reference Manual 2021 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">18. </span>Compatibility and Porting Guide</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="compatibility-and-porting-guide">
+<span id="id1"></span><h1><span class="section-number">18. </span>Compatibility and Porting Guide<a class="headerlink" href="#compatibility-and-porting-guide" title="Permalink to this headline">¶</a></h1>
+<p>This chapter presents some guidelines for developing portable Ada code,
+describes the compatibility issues that may arise between
+GNAT and other Ada compilation systems (including those for Ada 83),
+and shows how GNAT can expedite porting
+applications developed in other Ada environments.</p>
+<div class="section" id="writing-portable-fixed-point-declarations">
+<span id="id2"></span><h2><span class="section-number">18.1. </span>Writing Portable Fixed-Point Declarations<a class="headerlink" href="#writing-portable-fixed-point-declarations" title="Permalink to this headline">¶</a></h2>
+<p>The Ada Reference Manual gives an implementation freedom to choose bounds
+that are narrower by <code class="docutils literal notranslate"><span class="pre">Small</span></code> from the given bounds.
+For example, if we write</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kr">type</span><span class="p"> </span><span class="n">F1</span> <span class="kr">is</span><span class="p"> </span><span class="kr">delta</span><span class="p"> </span><span class="mi">1</span><span class="o">.</span><span class="mi">0</span> <span class="kr">range</span><span class="p"> </span><span class="o">-</span><span class="mi">128</span><span class="o">.</span><span class="mi">0</span> <span class="o">..</span> <span class="o">+</span><span class="mi">128</span><span class="o">.</span><span class="mi">0</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>then the implementation is allowed to choose -128.0 .. +127.0 if it
+likes, but is not required to do so.</p>
+<p>This leads to possible portability problems, so let’s have a closer
+look at this, and figure out how to avoid these problems.</p>
+<p>First, why does this freedom exist, and why would an implementation
+take advantage of it? To answer this, take a closer look at the type
+declaration for <code class="docutils literal notranslate"><span class="pre">F1</span></code> above. If the compiler uses the given bounds,
+it would need 9 bits to hold the largest positive value (and typically
+that means 16 bits on all machines). But if the implementation chooses
+the +127.0 bound then it can fit values of the type in 8 bits.</p>
+<p>Why not make the user write +127.0 if that’s what is wanted?
+The rationale is that if you are thinking of fixed point
+as a kind of ‘poor man’s floating-point’, then you don’t want
+to be thinking about the scaled integers that are used in its
+representation. Let’s take another example:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kr">type</span><span class="p"> </span><span class="n">F2</span> <span class="kr">is</span><span class="p"> </span><span class="kr">delta</span><span class="p"> </span><span class="mi">2</span><span class="o">.</span><span class="mi">0</span><span class="o">**(-</span><span class="mi">15</span><span class="o">)</span> <span class="kr">range</span><span class="p"> </span><span class="o">-</span><span class="mi">1</span><span class="o">.</span><span class="mi">0</span> <span class="o">..</span> <span class="o">+</span><span class="mi">1</span><span class="o">.</span><span class="mi">0</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Looking at this declaration, it seems casually as though
+it should fit in 16 bits, but again that extra positive value
++1.0 has the scaled integer equivalent of 2**15 which is one too
+big for signed 16 bits. The implementation can treat this as:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kr">type</span><span class="p"> </span><span class="n">F2</span> <span class="kr">is</span><span class="p"> </span><span class="kr">delta</span><span class="p"> </span><span class="mi">2</span><span class="o">.</span><span class="mi">0</span><span class="o">**(-</span><span class="mi">15</span><span class="o">)</span> <span class="kr">range</span><span class="p"> </span><span class="o">-</span><span class="mi">1</span><span class="o">.</span><span class="mi">0</span> <span class="o">..</span> <span class="o">+</span><span class="mi">1</span><span class="o">.</span><span class="mi">0</span><span class="o">-(</span><span class="mi">2</span><span class="o">.</span><span class="mi">0</span><span class="o">**(-</span><span class="mi">15</span><span class="o">))</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>and the Ada language design team felt that this was too annoying
+to require. We don’t need to debate this decision at this point,
+since it is well established (the rule about narrowing the ranges
+dates to Ada 83).</p>
+<p>But the important point is that an implementation is not required
+to do this narrowing, so we have a potential portability problem.
+We could imagine three types of implementation:</p>
+<ol class="loweralpha simple">
+<li><p>those that narrow the range automatically if they can figure
+out that the narrower range will allow storage in a smaller machine unit,</p></li>
+<li><p>those that will narrow only if forced to by a <code class="docutils literal notranslate"><span class="pre">'Size</span></code> clause, and</p></li>
+<li><p>those that will never narrow.</p></li>
+</ol>
+<p>Now if we are language theoreticians, we can imagine a fourth
+approach: to narrow all the time, e.g. to treat</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kr">type</span><span class="p"> </span><span class="n">F3</span> <span class="kr">is</span><span class="p"> </span><span class="kr">delta</span><span class="p"> </span><span class="mi">1</span><span class="o">.</span><span class="mi">0</span> <span class="kr">range</span><span class="p"> </span><span class="o">-</span><span class="mi">10</span><span class="o">.</span><span class="mi">0</span> <span class="o">..</span> <span class="o">+</span><span class="mi">23</span><span class="o">.</span><span class="mi">0</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>as though it had been written:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kr">type</span><span class="p"> </span><span class="n">F3</span> <span class="kr">is</span><span class="p"> </span><span class="kr">delta</span><span class="p"> </span><span class="mi">1</span><span class="o">.</span><span class="mi">0</span> <span class="kr">range</span><span class="p"> </span><span class="o">-</span><span class="mi">9</span><span class="o">.</span><span class="mi">0</span> <span class="o">..</span> <span class="o">+</span><span class="mi">22</span><span class="o">.</span><span class="mi">0</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>But although technically allowed, such a behavior would be hostile and silly,
+and no real compiler would do this. All real compilers will fall into one of
+the categories (a), (b) or (c) above.</p>
+<p>So, how do you get the compiler to do what you want? The answer is give the
+actual bounds you want, and then use a <code class="docutils literal notranslate"><span class="pre">'Small</span></code> clause and a
+<code class="docutils literal notranslate"><span class="pre">'Size</span></code> clause to absolutely pin down what the compiler does.
+E.g., for <code class="docutils literal notranslate"><span class="pre">F2</span></code> above, we will write:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="n">My_Small</span> <span class="o">:</span> <span class="kr">constant</span><span class="p"> </span><span class="o">:=</span> <span class="mi">2</span><span class="o">.</span><span class="mi">0</span><span class="o">**(-</span><span class="mi">15</span><span class="o">)</span><span class="p">;</span>
+<span class="n">My_First</span> <span class="o">:</span> <span class="kr">constant</span><span class="p"> </span><span class="o">:=</span> <span class="o">-</span><span class="mi">1</span><span class="o">.</span><span class="mi">0</span><span class="p">;</span>
+<span class="n">My_Last</span>  <span class="o">:</span> <span class="kr">constant</span><span class="p"> </span><span class="o">:=</span> <span class="o">+</span><span class="mi">1</span><span class="o">.</span><span class="mi">0</span> <span class="o">-</span> <span class="n">My_Small</span><span class="p">;</span>
+
+<span class="kr">type</span><span class="p"> </span><span class="n">F2</span> <span class="kr">is</span><span class="p"> </span><span class="kr">delta</span><span class="p"> </span><span class="n">My_Small</span> <span class="kr">range</span><span class="p"> </span><span class="n">My_First</span> <span class="o">..</span> <span class="n">My_Last</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>and then add</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kr">for</span><span class="p"> </span><span class="n">F2</span><span class="na">&#39;Small</span> <span class="kr">use</span><span class="p"> </span><span class="n">my_Small</span><span class="p">;</span>
+<span class="kr">for</span><span class="p"> </span><span class="n">F2</span><span class="na">&#39;Size</span>  <span class="kr">use</span><span class="p"> </span><span class="mi">16</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>In practice all compilers will do the same thing here and will give you
+what you want, so the above declarations are fully portable. If you really
+want to play language lawyer and guard against ludicrous behavior by the
+compiler you could add</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="n">Test1</span> <span class="o">:</span> <span class="kr">constant</span><span class="p"> </span><span class="o">:=</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">Boolean</span><span class="na">&#39;Pos</span> <span class="o">(</span><span class="n">F2</span><span class="na">&#39;First</span> <span class="o">=</span> <span class="n">My_First</span><span class="o">)</span><span class="p">;</span>
+<span class="n">Test2</span> <span class="o">:</span> <span class="kr">constant</span><span class="p"> </span><span class="o">:=</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">Boolean</span><span class="na">&#39;Pos</span> <span class="o">(</span><span class="n">F2</span><span class="na">&#39;Last</span>  <span class="o">=</span> <span class="n">My_Last</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>One or other or both are allowed to be illegal if the compiler is
+behaving in a silly manner, but at least the silly compiler will not
+get away with silently messing with your (very clear) intentions.</p>
+<p>If you follow this scheme you will be guaranteed that your fixed-point
+types will be portable.</p>
+</div>
+<div class="section" id="compatibility-with-ada-83">
+<span id="id3"></span><h2><span class="section-number">18.2. </span>Compatibility with Ada 83<a class="headerlink" href="#compatibility-with-ada-83" title="Permalink to this headline">¶</a></h2>
+<p id="index-0">Ada 95 and the subsequent revisions Ada 2005 and Ada 2012
+are highly upwards compatible with Ada 83.  In
+particular, the design intention was that the difficulties associated
+with moving from Ada 83 to later versions of the standard should be no greater
+than those that occur when moving from one Ada 83 system to another.</p>
+<p>However, there are a number of points at which there are minor
+incompatibilities.  The <cite>Ada 95 Annotated Reference Manual</cite> contains
+full details of these issues as they relate to Ada 95,
+and should be consulted for a complete treatment.
+In practice the
+following subsections treat the most likely issues to be encountered.</p>
+<div class="section" id="legal-ada-83-programs-that-are-illegal-in-ada-95">
+<span id="id4"></span><h3><span class="section-number">18.2.1. </span>Legal Ada 83 programs that are illegal in Ada 95<a class="headerlink" href="#legal-ada-83-programs-that-are-illegal-in-ada-95" title="Permalink to this headline">¶</a></h3>
+<p>Some legal Ada 83 programs are illegal (i.e., they will fail to compile) in
+Ada 95 and later versions of the standard:</p>
+<ul>
+<li><p><em>Character literals</em></p>
+<p>Some uses of character literals are ambiguous.  Since Ada 95 has introduced
+<code class="docutils literal notranslate"><span class="pre">Wide_Character</span></code> as a new predefined character type, some uses of
+character literals that were legal in Ada 83 are illegal in Ada 95.
+For example:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kr">for</span><span class="p"> </span><span class="n">Char</span> <span class="kr">in</span><span class="p"> </span><span class="sc">&#39;A&#39;</span> <span class="o">..</span> <span class="sc">&#39;Z&#39;</span> <span class="kr">loop</span><span class="p"> </span><span class="o">...</span> <span class="k">end loop</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The problem is that ‘A’ and ‘Z’ could be from either
+<code class="docutils literal notranslate"><span class="pre">Character</span></code> or <code class="docutils literal notranslate"><span class="pre">Wide_Character</span></code>.  The simplest correction
+is to make the type explicit; e.g.:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kr">for</span><span class="p"> </span><span class="n">Char</span> <span class="kr">in</span><span class="p"> </span><span class="n">Character</span> <span class="kr">range</span><span class="p"> </span><span class="sc">&#39;A&#39;</span> <span class="o">..</span> <span class="sc">&#39;Z&#39;</span> <span class="kr">loop</span><span class="p"> </span><span class="o">...</span> <span class="k">end loop</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+<li><p><em>New reserved words</em></p>
+<p>The identifiers <code class="docutils literal notranslate"><span class="pre">abstract</span></code>, <code class="docutils literal notranslate"><span class="pre">aliased</span></code>, <code class="docutils literal notranslate"><span class="pre">protected</span></code>,
+<code class="docutils literal notranslate"><span class="pre">requeue</span></code>, <code class="docutils literal notranslate"><span class="pre">tagged</span></code>, and <code class="docutils literal notranslate"><span class="pre">until</span></code> are reserved in Ada 95.
+Existing Ada 83 code using any of these identifiers must be edited to
+use some alternative name.</p>
+</li>
+<li><p><em>Freezing rules</em></p>
+<p>The rules in Ada 95 are slightly different with regard to the point at
+which entities are frozen, and representation pragmas and clauses are
+not permitted past the freeze point.  This shows up most typically in
+the form of an error message complaining that a representation item
+appears too late, and the appropriate corrective action is to move
+the item nearer to the declaration of the entity to which it refers.</p>
+<p>A particular case is that representation pragmas
+cannot be applied to a subprogram body.  If necessary, a separate subprogram
+declaration must be introduced to which the pragma can be applied.</p>
+</li>
+<li><p><em>Optional bodies for library packages</em></p>
+<p>In Ada 83, a package that did not require a package body was nevertheless
+allowed to have one.  This lead to certain surprises in compiling large
+systems (situations in which the body could be unexpectedly ignored by the
+binder).  In Ada 95, if a package does not require a body then it is not
+permitted to have a body.  To fix this problem, simply remove a redundant
+body if it is empty, or, if it is non-empty, introduce a dummy declaration
+into the spec that makes the body required.  One approach is to add a private
+part to the package declaration (if necessary), and define a parameterless
+procedure called <code class="docutils literal notranslate"><span class="pre">Requires_Body</span></code>, which must then be given a dummy
+procedure body in the package body, which then becomes required.
+Another approach (assuming that this does not introduce elaboration
+circularities) is to add an <code class="docutils literal notranslate"><span class="pre">Elaborate_Body</span></code> pragma to the package spec,
+since one effect of this pragma is to require the presence of a package body.</p>
+</li>
+<li><p><em>Numeric_Error is the same exception as Constraint_Error</em></p>
+<p>In Ada 95, the exception <code class="docutils literal notranslate"><span class="pre">Numeric_Error</span></code> is a renaming of <code class="docutils literal notranslate"><span class="pre">Constraint_Error</span></code>.
+This means that it is illegal to have separate exception handlers for
+the two exceptions.  The fix is simply to remove the handler for the
+<code class="docutils literal notranslate"><span class="pre">Numeric_Error</span></code> case (since even in Ada 83, a compiler was free to raise
+<code class="docutils literal notranslate"><span class="pre">Constraint_Error</span></code> in place of <code class="docutils literal notranslate"><span class="pre">Numeric_Error</span></code> in all cases).</p>
+</li>
+<li><p><em>Indefinite subtypes in generics</em></p>
+<p>In Ada 83, it was permissible to pass an indefinite type (e.g, <code class="docutils literal notranslate"><span class="pre">String</span></code>)
+as the actual for a generic formal private type, but then the instantiation
+would be illegal if there were any instances of declarations of variables
+of this type in the generic body.  In Ada 95, to avoid this clear violation
+of the methodological principle known as the ‘contract model’,
+the generic declaration explicitly indicates whether
+or not such instantiations are permitted.  If a generic formal parameter
+has explicit unknown discriminants, indicated by using <code class="docutils literal notranslate"><span class="pre">(&lt;&gt;)</span></code> after the
+subtype name, then it can be instantiated with indefinite types, but no
+stand-alone variables can be declared of this type.  Any attempt to declare
+such a variable will result in an illegality at the time the generic is
+declared.  If the <code class="docutils literal notranslate"><span class="pre">(&lt;&gt;)</span></code> notation is not used, then it is illegal
+to instantiate the generic with an indefinite type.
+This is the potential incompatibility issue when porting Ada 83 code to Ada 95.
+It will show up as a compile time error, and
+the fix is usually simply to add the <code class="docutils literal notranslate"><span class="pre">(&lt;&gt;)</span></code> to the generic declaration.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="more-deterministic-semantics">
+<span id="id5"></span><h3><span class="section-number">18.2.2. </span>More deterministic semantics<a class="headerlink" href="#more-deterministic-semantics" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p><em>Conversions</em></p>
+<p>Conversions from real types to integer types round away from 0.  In Ada 83
+the conversion Integer(2.5) could deliver either 2 or 3 as its value.  This
+implementation freedom was intended to support unbiased rounding in
+statistical applications, but in practice it interfered with portability.
+In Ada 95 the conversion semantics are unambiguous, and rounding away from 0
+is required.  Numeric code may be affected by this change in semantics.
+Note, though, that this issue is no worse than already existed in Ada 83
+when porting code from one vendor to another.</p>
+</li>
+<li><p><em>Tasking</em></p>
+<p>The Real-Time Annex introduces a set of policies that define the behavior of
+features that were implementation dependent in Ada 83, such as the order in
+which open select branches are executed.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="changed-semantics">
+<span id="id6"></span><h3><span class="section-number">18.2.3. </span>Changed semantics<a class="headerlink" href="#changed-semantics" title="Permalink to this headline">¶</a></h3>
+<p>The worst kind of incompatibility is one where a program that is legal in
+Ada 83 is also legal in Ada 95 but can have an effect in Ada 95 that was not
+possible in Ada 83.  Fortunately this is extremely rare, but the one
+situation that you should be alert to is the change in the predefined type
+<code class="docutils literal notranslate"><span class="pre">Character</span></code> from 7-bit ASCII to 8-bit Latin-1.</p>
+<blockquote>
+<div></div></blockquote>
+<ul id="index-1">
+<li><p><em>Range of type ``Character``</em></p>
+<p>The range of <code class="docutils literal notranslate"><span class="pre">Standard.Character</span></code> is now the full 256 characters
+of Latin-1, whereas in most Ada 83 implementations it was restricted
+to 128 characters. Although some of the effects of
+this change will be manifest in compile-time rejection of legal
+Ada 83 programs it is possible for a working Ada 83 program to have
+a different effect in Ada 95, one that was not permitted in Ada 83.
+As an example, the expression
+<code class="docutils literal notranslate"><span class="pre">Character'Pos(Character'Last)</span></code> returned <code class="docutils literal notranslate"><span class="pre">127</span></code> in Ada 83 and now
+delivers <code class="docutils literal notranslate"><span class="pre">255</span></code> as its value.
+In general, you should look at the logic of any
+character-processing Ada 83 program and see whether it needs to be adapted
+to work correctly with Latin-1.  Note that the predefined Ada 95 API has a
+character handling package that may be relevant if code needs to be adapted
+to account for the additional Latin-1 elements.
+The desirable fix is to
+modify the program to accommodate the full character set, but in some cases
+it may be convenient to define a subtype or derived type of Character that
+covers only the restricted range.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="other-language-compatibility-issues">
+<span id="id7"></span><h3><span class="section-number">18.2.4. </span>Other language compatibility issues<a class="headerlink" href="#other-language-compatibility-issues" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p><em>-gnat83</em> switch</p>
+<p>All implementations of GNAT provide a switch that causes GNAT to operate
+in Ada 83 mode.  In this mode, some but not all compatibility problems
+of the type described above are handled automatically.  For example, the
+new reserved words introduced in Ada 95 and Ada 2005 are treated simply
+as identifiers as in Ada 83.  However,
+in practice, it is usually advisable to make the necessary modifications
+to the program to remove the need for using this switch.
+See the <code class="docutils literal notranslate"><span class="pre">Compiling</span> <span class="pre">Different</span> <span class="pre">Versions</span> <span class="pre">of</span> <span class="pre">Ada</span></code> section in
+the <cite>GNAT User’s Guide</cite>.</p>
+</li>
+<li><p>Support for removed Ada 83 pragmas and attributes</p>
+<p>A number of pragmas and attributes from Ada 83 were removed from Ada 95,
+generally because they were replaced by other mechanisms.  Ada 95 and Ada 2005
+compilers are allowed, but not required, to implement these missing
+elements.  In contrast with some other compilers, GNAT implements all
+such pragmas and attributes, eliminating this compatibility concern.  These
+include <code class="docutils literal notranslate"><span class="pre">pragma</span> <span class="pre">Interface</span></code> and the floating point type attributes
+(<code class="docutils literal notranslate"><span class="pre">Emax</span></code>, <code class="docutils literal notranslate"><span class="pre">Mantissa</span></code>, etc.), among other items.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="compatibility-between-ada-95-and-ada-2005">
+<span id="id8"></span><h2><span class="section-number">18.3. </span>Compatibility between Ada 95 and Ada 2005<a class="headerlink" href="#compatibility-between-ada-95-and-ada-2005" title="Permalink to this headline">¶</a></h2>
+<p id="index-2">Although Ada 2005 was designed to be upwards compatible with Ada 95, there are
+a number of incompatibilities. Several are enumerated below;
+for a complete description please see the
+<cite>Annotated Ada 2005 Reference Manual</cite>, or section 9.1.1 in
+<cite>Rationale for Ada 2005</cite>.</p>
+<ul>
+<li><p><em>New reserved words.</em></p>
+<p>The words <code class="docutils literal notranslate"><span class="pre">interface</span></code>, <code class="docutils literal notranslate"><span class="pre">overriding</span></code> and <code class="docutils literal notranslate"><span class="pre">synchronized</span></code> are
+reserved in Ada 2005.
+A pre-Ada 2005 program that uses any of these as an identifier will be
+illegal.</p>
+</li>
+<li><p><em>New declarations in predefined packages.</em></p>
+<p>A number of packages in the predefined environment contain new declarations:
+<code class="docutils literal notranslate"><span class="pre">Ada.Exceptions</span></code>, <code class="docutils literal notranslate"><span class="pre">Ada.Real_Time</span></code>, <code class="docutils literal notranslate"><span class="pre">Ada.Strings</span></code>,
+<code class="docutils literal notranslate"><span class="pre">Ada.Strings.Fixed</span></code>, <code class="docutils literal notranslate"><span class="pre">Ada.Strings.Bounded</span></code>,
+<code class="docutils literal notranslate"><span class="pre">Ada.Strings.Unbounded</span></code>, <code class="docutils literal notranslate"><span class="pre">Ada.Strings.Wide_Fixed</span></code>,
+<code class="docutils literal notranslate"><span class="pre">Ada.Strings.Wide_Bounded</span></code>, <code class="docutils literal notranslate"><span class="pre">Ada.Strings.Wide_Unbounded</span></code>,
+<code class="docutils literal notranslate"><span class="pre">Ada.Tags</span></code>, <code class="docutils literal notranslate"><span class="pre">Ada.Text_IO</span></code>, and <code class="docutils literal notranslate"><span class="pre">Interfaces.C</span></code>.
+If an Ada 95 program does a <code class="docutils literal notranslate"><span class="pre">with</span></code> and <code class="docutils literal notranslate"><span class="pre">use</span></code> of any of these
+packages, the new declarations may cause name clashes.</p>
+</li>
+<li><p><em>Access parameters.</em></p>
+<p>A nondispatching subprogram with an access parameter cannot be renamed
+as a dispatching operation.  This was permitted in Ada 95.</p>
+</li>
+<li><p><em>Access types, discriminants, and constraints.</em></p>
+<p>Rule changes in this area have led to some incompatibilities; for example,
+constrained subtypes of some access types are not permitted in Ada 2005.</p>
+</li>
+<li><p><em>Aggregates for limited types.</em></p>
+<p>The allowance of aggregates for limited types in Ada 2005 raises the
+possibility of ambiguities in legal Ada 95 programs, since additional types
+now need to be considered in expression resolution.</p>
+</li>
+<li><p><em>Fixed-point multiplication and division.</em></p>
+<p>Certain expressions involving ‘*’ or ‘/’ for a fixed-point type, which
+were legal in Ada 95 and invoked the predefined versions of these operations,
+are now ambiguous.
+The ambiguity may be resolved either by applying a type conversion to the
+expression, or by explicitly invoking the operation from package
+<code class="docutils literal notranslate"><span class="pre">Standard</span></code>.</p>
+</li>
+<li><p><em>Return-by-reference types.</em></p>
+<p>The Ada 95 return-by-reference mechanism has been removed.  Instead, the user
+can declare a function returning a value from an anonymous access type.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="implementation-dependent-characteristics">
+<span id="id9"></span><h2><span class="section-number">18.4. </span>Implementation-dependent characteristics<a class="headerlink" href="#implementation-dependent-characteristics" title="Permalink to this headline">¶</a></h2>
+<p>Although the Ada language defines the semantics of each construct as
+precisely as practical, in some situations (for example for reasons of
+efficiency, or where the effect is heavily dependent on the host or target
+platform) the implementation is allowed some freedom.  In porting Ada 83
+code to GNAT, you need to be aware of whether / how the existing code
+exercised such implementation dependencies.  Such characteristics fall into
+several categories, and GNAT offers specific support in assisting the
+transition from certain Ada 83 compilers.</p>
+<div class="section" id="implementation-defined-pragmas">
+<span id="id10"></span><h3><span class="section-number">18.4.1. </span>Implementation-defined pragmas<a class="headerlink" href="#implementation-defined-pragmas" title="Permalink to this headline">¶</a></h3>
+<p>Ada compilers are allowed to supplement the language-defined pragmas, and
+these are a potential source of non-portability.  All GNAT-defined pragmas
+are described in <a class="reference internal" href="implementation_defined_pragmas.html#implementation-defined-pragmas"><span class="std std-ref">Implementation Defined Pragmas</span></a>,
+and these include several that are specifically
+intended to correspond to other vendors’ Ada 83 pragmas.
+For migrating from VADS, the pragma <code class="docutils literal notranslate"><span class="pre">Use_VADS_Size</span></code> may be useful.
+For compatibility with HP Ada 83, GNAT supplies the pragmas
+<code class="docutils literal notranslate"><span class="pre">Extend_System</span></code>, <code class="docutils literal notranslate"><span class="pre">Ident</span></code>, <code class="docutils literal notranslate"><span class="pre">Inline_Generic</span></code>,
+<code class="docutils literal notranslate"><span class="pre">Interface_Name</span></code>, <code class="docutils literal notranslate"><span class="pre">Passive</span></code>, <code class="docutils literal notranslate"><span class="pre">Suppress_All</span></code>,
+and <code class="docutils literal notranslate"><span class="pre">Volatile</span></code>.
+Other relevant pragmas include <code class="docutils literal notranslate"><span class="pre">External</span></code> and <code class="docutils literal notranslate"><span class="pre">Link_With</span></code>.
+Some vendor-specific
+Ada 83 pragmas (<code class="docutils literal notranslate"><span class="pre">Share_Generic</span></code>, <code class="docutils literal notranslate"><span class="pre">Subtitle</span></code>, and <code class="docutils literal notranslate"><span class="pre">Title</span></code>) are
+recognized, thus
+avoiding compiler rejection of units that contain such pragmas; they are not
+relevant in a GNAT context and hence are not otherwise implemented.</p>
+</div>
+<div class="section" id="implementation-defined-attributes">
+<span id="id11"></span><h3><span class="section-number">18.4.2. </span>Implementation-defined attributes<a class="headerlink" href="#implementation-defined-attributes" title="Permalink to this headline">¶</a></h3>
+<p>Analogous to pragmas, the set of attributes may be extended by an
+implementation.  All GNAT-defined attributes are described in
+<a class="reference internal" href="implementation_defined_attributes.html#implementation-defined-attributes"><span class="std std-ref">Implementation Defined Attributes</span></a>,
+and these include several that are specifically intended
+to correspond to other vendors’ Ada 83 attributes.  For migrating from VADS,
+the attribute <code class="docutils literal notranslate"><span class="pre">VADS_Size</span></code> may be useful.  For compatibility with HP
+Ada 83, GNAT supplies the attributes <code class="docutils literal notranslate"><span class="pre">Bit</span></code>, <code class="docutils literal notranslate"><span class="pre">Machine_Size</span></code> and
+<code class="docutils literal notranslate"><span class="pre">Type_Class</span></code>.</p>
+</div>
+<div class="section" id="libraries">
+<span id="id12"></span><h3><span class="section-number">18.4.3. </span>Libraries<a class="headerlink" href="#libraries" title="Permalink to this headline">¶</a></h3>
+<p>Vendors may supply libraries to supplement the standard Ada API.  If Ada 83
+code uses vendor-specific libraries then there are several ways to manage
+this in Ada 95 and later versions of the standard:</p>
+<ul class="simple">
+<li><p>If the source code for the libraries (specs and bodies) are
+available, then the libraries can be migrated in the same way as the
+application.</p></li>
+<li><p>If the source code for the specs but not the bodies are
+available, then you can reimplement the bodies.</p></li>
+<li><p>Some features introduced by Ada 95 obviate the need for library support.  For
+example most Ada 83 vendors supplied a package for unsigned integers.  The
+Ada 95 modular type feature is the preferred way to handle this need, so
+instead of migrating or reimplementing the unsigned integer package it may
+be preferable to retrofit the application using modular types.</p></li>
+</ul>
+</div>
+<div class="section" id="elaboration-order">
+<span id="id13"></span><h3><span class="section-number">18.4.4. </span>Elaboration order<a class="headerlink" href="#elaboration-order" title="Permalink to this headline">¶</a></h3>
+<p>The implementation can choose any elaboration order consistent with the unit
+dependency relationship.  This freedom means that some orders can result in
+Program_Error being raised due to an ‘Access Before Elaboration’: an attempt
+to invoke a subprogram before its body has been elaborated, or to instantiate
+a generic before the generic body has been elaborated.  By default GNAT
+attempts to choose a safe order (one that will not encounter access before
+elaboration problems) by implicitly inserting <code class="docutils literal notranslate"><span class="pre">Elaborate</span></code> or
+<code class="docutils literal notranslate"><span class="pre">Elaborate_All</span></code> pragmas where
+needed.  However, this can lead to the creation of elaboration circularities
+and a resulting rejection of the program by gnatbind.  This issue is
+thoroughly described in the <em>Elaboration Order Handling in GNAT</em> appendix
+in the <cite>GNAT User’s Guide</cite>.
+In brief, there are several
+ways to deal with this situation:</p>
+<ul class="simple">
+<li><p>Modify the program to eliminate the circularities, e.g., by moving
+elaboration-time code into explicitly-invoked procedures</p></li>
+<li><p>Constrain the elaboration order by including explicit <code class="docutils literal notranslate"><span class="pre">Elaborate_Body</span></code> or
+<code class="docutils literal notranslate"><span class="pre">Elaborate</span></code> pragmas, and then inhibit the generation of implicit
+<code class="docutils literal notranslate"><span class="pre">Elaborate_All</span></code>
+pragmas either globally (as an effect of the <em>-gnatE</em> switch) or locally
+(by selectively suppressing elaboration checks via pragma
+<code class="docutils literal notranslate"><span class="pre">Suppress(Elaboration_Check)</span></code> when it is safe to do so).</p></li>
+</ul>
+</div>
+<div class="section" id="target-specific-aspects">
+<span id="id14"></span><h3><span class="section-number">18.4.5. </span>Target-specific aspects<a class="headerlink" href="#target-specific-aspects" title="Permalink to this headline">¶</a></h3>
+<p>Low-level applications need to deal with machine addresses, data
+representations, interfacing with assembler code, and similar issues.  If
+such an Ada 83 application is being ported to different target hardware (for
+example where the byte endianness has changed) then you will need to
+carefully examine the program logic; the porting effort will heavily depend
+on the robustness of the original design.  Moreover, Ada 95 (and thus
+Ada 2005 and Ada 2012) are sometimes
+incompatible with typical Ada 83 compiler practices regarding implicit
+packing, the meaning of the Size attribute, and the size of access values.
+GNAT’s approach to these issues is described in <a class="reference internal" href="#representation-clauses"><span class="std std-ref">Representation Clauses</span></a>.</p>
+</div>
+</div>
+<div class="section" id="compatibility-with-other-ada-systems">
+<span id="id15"></span><h2><span class="section-number">18.5. </span>Compatibility with Other Ada Systems<a class="headerlink" href="#compatibility-with-other-ada-systems" title="Permalink to this headline">¶</a></h2>
+<p>If programs avoid the use of implementation dependent and
+implementation defined features, as documented in the
+<cite>Ada Reference Manual</cite>, there should be a high degree of portability between
+GNAT and other Ada systems.  The following are specific items which
+have proved troublesome in moving Ada 95 programs from GNAT to other Ada 95
+compilers, but do not affect porting code to GNAT.
+(As of January 2007, GNAT is the only compiler available for Ada 2005;
+the following issues may or may not arise for Ada 2005 programs
+when other compilers appear.)</p>
+<ul>
+<li><p><em>Ada 83 Pragmas and Attributes</em></p>
+<p>Ada 95 compilers are allowed, but not required, to implement the missing
+Ada 83 pragmas and attributes that are no longer defined in Ada 95.
+GNAT implements all such pragmas and attributes, eliminating this as
+a compatibility concern, but some other Ada 95 compilers reject these
+pragmas and attributes.</p>
+</li>
+<li><p><em>Specialized Needs Annexes</em></p>
+<p>GNAT implements the full set of special needs annexes.  At the
+current time, it is the only Ada 95 compiler to do so.  This means that
+programs making use of these features may not be portable to other Ada
+95 compilation systems.</p>
+</li>
+<li><p><em>Representation Clauses</em></p>
+<p>Some other Ada 95 compilers implement only the minimal set of
+representation clauses required by the Ada 95 reference manual.  GNAT goes
+far beyond this minimal set, as described in the next section.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="representation-clauses">
+<span id="id16"></span><h2><span class="section-number">18.6. </span>Representation Clauses<a class="headerlink" href="#representation-clauses" title="Permalink to this headline">¶</a></h2>
+<p>The Ada 83 reference manual was quite vague in describing both the minimal
+required implementation of representation clauses, and also their precise
+effects.  Ada 95 (and thus also Ada 2005) are much more explicit, but the
+minimal set of capabilities required is still quite limited.</p>
+<p>GNAT implements the full required set of capabilities in
+Ada 95 and Ada 2005, but also goes much further, and in particular
+an effort has been made to be compatible with existing Ada 83 usage to the
+greatest extent possible.</p>
+<p>A few cases exist in which Ada 83 compiler behavior is incompatible with
+the requirements in Ada 95 (and thus also Ada 2005).  These are instances of
+intentional or accidental dependence on specific implementation dependent
+characteristics of these Ada 83 compilers.  The following is a list of
+the cases most likely to arise in existing Ada 83 code.</p>
+<ul>
+<li><p><em>Implicit Packing</em></p>
+<p>Some Ada 83 compilers allowed a Size specification to cause implicit
+packing of an array or record.  This could cause expensive implicit
+conversions for change of representation in the presence of derived
+types, and the Ada design intends to avoid this possibility.
+Subsequent AI’s were issued to make it clear that such implicit
+change of representation in response to a Size clause is inadvisable,
+and this recommendation is represented explicitly in the Ada 95 (and Ada 2005)
+Reference Manuals as implementation advice that is followed by GNAT.
+The problem will show up as an error
+message rejecting the size clause.  The fix is simply to provide
+the explicit pragma <code class="docutils literal notranslate"><span class="pre">Pack</span></code>, or for more fine tuned control, provide
+a Component_Size clause.</p>
+</li>
+<li><p><em>Meaning of Size Attribute</em></p>
+<p>The Size attribute in Ada 95 (and Ada 2005) for discrete types is defined as
+the minimal number of bits required to hold values of the type.  For example,
+on a 32-bit machine, the size of <code class="docutils literal notranslate"><span class="pre">Natural</span></code> will typically be 31 and not
+32 (since no sign bit is required).  Some Ada 83 compilers gave 31, and
+some 32 in this situation.  This problem will usually show up as a compile
+time error, but not always.  It is a good idea to check all uses of the
+‘Size attribute when porting Ada 83 code.  The GNAT specific attribute
+Object_Size can provide a useful way of duplicating the behavior of
+some Ada 83 compiler systems.</p>
+</li>
+<li><p><em>Size of Access Types</em></p>
+<p>A common assumption in Ada 83 code is that an access type is in fact a pointer,
+and that therefore it will be the same size as a System.Address value.  This
+assumption is true for GNAT in most cases with one exception.  For the case of
+a pointer to an unconstrained array type (where the bounds may vary from one
+value of the access type to another), the default is to use a ‘fat pointer’,
+which is represented as two separate pointers, one to the bounds, and one to
+the array.  This representation has a number of advantages, including improved
+efficiency.  However, it may cause some difficulties in porting existing Ada 83
+code which makes the assumption that, for example, pointers fit in 32 bits on
+a machine with 32-bit addressing.</p>
+<p>To get around this problem, GNAT also permits the use of ‘thin pointers’ for
+access types in this case (where the designated type is an unconstrained array
+type).  These thin pointers are indeed the same size as a System.Address value.
+To specify a thin pointer, use a size clause for the type, for example:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kr">type</span><span class="p"> </span><span class="n">X</span> <span class="kr">is</span><span class="p"> </span><span class="kr">access</span><span class="p"> </span><span class="kr">all</span><span class="p"> </span><span class="n">String</span><span class="p">;</span>
+<span class="kr">for</span><span class="p"> </span><span class="n">X</span><span class="na">&#39;Size</span> <span class="kr">use</span><span class="p"> </span><span class="n">Standard</span><span class="na">&#39;Address_Size</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>which will cause the type X to be represented using a single pointer.
+When using this representation, the bounds are right behind the array.
+This representation is slightly less efficient, and does not allow quite
+such flexibility in the use of foreign pointers or in using the
+Unrestricted_Access attribute to create pointers to non-aliased objects.
+But for any standard portable use of the access type it will work in
+a functionally correct manner and allow porting of existing code.
+Note that another way of forcing a thin pointer representation
+is to use a component size clause for the element size in an array,
+or a record representation clause for an access field in a record.</p>
+<p>See the documentation of Unrestricted_Access in the GNAT RM for a
+full discussion of possible problems using this attribute in conjunction
+with thin pointers.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="compatibility-with-hp-ada-83">
+<span id="id17"></span><h2><span class="section-number">18.7. </span>Compatibility with HP Ada 83<a class="headerlink" href="#compatibility-with-hp-ada-83" title="Permalink to this headline">¶</a></h2>
+<p>All the HP Ada 83 pragmas and attributes are recognized, although only a subset
+of them can sensibly be implemented.  The description of pragmas in
+<a class="reference internal" href="implementation_defined_pragmas.html#implementation-defined-pragmas"><span class="std std-ref">Implementation Defined Pragmas</span></a> indicates whether or not they are
+applicable to GNAT.</p>
+<ul>
+<li><p><em>Default floating-point representation</em></p>
+<p>In GNAT, the default floating-point format is IEEE, whereas in HP Ada 83,
+it is VMS format.</p>
+</li>
+<li><p><em>System</em></p>
+<p>the package System in GNAT exactly corresponds to the definition in the
+Ada 95 reference manual, which means that it excludes many of the
+HP Ada 83 extensions.  However, a separate package Aux_DEC is provided
+that contains the additional definitions, and a special pragma,
+Extend_System allows this package to be treated transparently as an
+extension of package System.</p>
+</li>
+</ul>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../gnat_rm.html">
+              <img class="logo" src="../_static/adacore_transparent.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="../gnat_rm.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">18. Compatibility and Porting Guide</a><ul>
+<li><a class="reference internal" href="#writing-portable-fixed-point-declarations">18.1. Writing Portable Fixed-Point Declarations</a></li>
+<li><a class="reference internal" href="#compatibility-with-ada-83">18.2. Compatibility with Ada 83</a><ul>
+<li><a class="reference internal" href="#legal-ada-83-programs-that-are-illegal-in-ada-95">18.2.1. Legal Ada 83 programs that are illegal in Ada 95</a></li>
+<li><a class="reference internal" href="#more-deterministic-semantics">18.2.2. More deterministic semantics</a></li>
+<li><a class="reference internal" href="#changed-semantics">18.2.3. Changed semantics</a></li>
+<li><a class="reference internal" href="#other-language-compatibility-issues">18.2.4. Other language compatibility issues</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#compatibility-between-ada-95-and-ada-2005">18.3. Compatibility between Ada 95 and Ada 2005</a></li>
+<li><a class="reference internal" href="#implementation-dependent-characteristics">18.4. Implementation-dependent characteristics</a><ul>
+<li><a class="reference internal" href="#implementation-defined-pragmas">18.4.1. Implementation-defined pragmas</a></li>
+<li><a class="reference internal" href="#implementation-defined-attributes">18.4.2. Implementation-defined attributes</a></li>
+<li><a class="reference internal" href="#libraries">18.4.3. Libraries</a></li>
+<li><a class="reference internal" href="#elaboration-order">18.4.4. Elaboration order</a></li>
+<li><a class="reference internal" href="#target-specific-aspects">18.4.5. Target-specific aspects</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#compatibility-with-other-ada-systems">18.5. Compatibility with Other Ada Systems</a></li>
+<li><a class="reference internal" href="#representation-clauses">18.6. Representation Clauses</a></li>
+<li><a class="reference internal" href="#compatibility-with-hp-ada-83">18.7. Compatibility with HP Ada 83</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="obsolescent_features.html"
+                        title="previous chapter"><span class="section-number">17. </span>Obsolescent Features</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../share/gnu_free_documentation_license.html"
+                        title="next chapter">GNU Free Documentation License</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/gnat_rm/compatibility_and_porting_guide.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../share/gnu_free_documentation_license.html" title="GNU Free Documentation License"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="obsolescent_features.html" title="17. Obsolescent Features"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../gnat_rm.html">GNAT Reference Manual 2021 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">18. </span>Compatibility and Porting Guide</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2008-2021, Free Software Foundation.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
+    </div>
+  </body>
+</html>

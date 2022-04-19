@@ -1,0 +1,1978 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Platform-Specific Information &#8212; GNAT User&#39;s Guide for Native Platforms 2021 documentation</title>
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Example of Binder Output File" href="example_of_binder_output.html" />
+    <link rel="prev" title="6. GNAT and Program Execution" href="gnat_and_program_execution.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="example_of_binder_output.html" title="Example of Binder Output File"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="gnat_and_program_execution.html" title="6. GNAT and Program Execution"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../gnat_ugn.html">GNAT User&#39;s Guide for Native Platforms 2021 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Platform-Specific Information</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="platform-specific-information">
+<span id="id1"></span><h1>Platform-Specific Information<a class="headerlink" href="#platform-specific-information" title="Permalink to this headline">¶</a></h1>
+<p>This appendix contains information relating to the implementation
+of run-time libraries on various platforms and also covers
+topics related to the GNAT implementation on Windows and Mac OS.</p>
+<div class="section" id="run-time-libraries">
+<span id="id2"></span><h2>Run-Time Libraries<a class="headerlink" href="#run-time-libraries" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="index-0"></span><span class="target" id="index-1"></span><p id="index-2">The GNAT run-time implementation may vary with respect to both the
+underlying threads library and the exception-handling scheme.
+For threads support, the default run-time will bind to the thread
+package of the underlying operating system.</p>
+<p>For exception handling, either or both of two models are supplied:</p>
+<blockquote>
+<div><span class="target" id="index-3"></span></div></blockquote>
+<ul id="index-4">
+<li><p><strong>Zero-Cost Exceptions</strong> (“ZCX”),
+which uses binder-generated tables that
+are interrogated at run time to locate a handler.</p>
+<span class="target" id="index-5"></span></li>
+<li id="index-6"><p><strong>setjmp / longjmp</strong> (‘SJLJ’),
+which uses dynamically-set data to establish
+the set of handlers</p></li>
+</ul>
+<p>Most programs should experience a substantial speed improvement by
+being compiled with a ZCX run-time.
+This is especially true for
+tasking applications or applications with many exception handlers.
+Note however that the ZCX run-time does not support asynchronous abort
+of tasks (<code class="docutils literal notranslate"><span class="pre">abort</span></code> and <code class="docutils literal notranslate"><span class="pre">select-then-abort</span></code> constructs) and will instead
+implement abort by polling points in the runtime. You can also add additional
+polling points explicitly if needed in your application via <code class="docutils literal notranslate"><span class="pre">pragma</span>
+<span class="pre">Abort_Defer</span></code>.</p>
+<p>This section summarizes which combinations of threads and exception support
+are supplied on various GNAT platforms.</p>
+<div class="section" id="summary-of-run-time-configurations">
+<span id="id3"></span><h3>Summary of Run-Time Configurations<a class="headerlink" href="#summary-of-run-time-configurations" title="Permalink to this headline">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 21%" />
+<col style="width: 37%" />
+<col style="width: 18%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Platform</p></th>
+<th class="head"><p>Run-Time</p></th>
+<th class="head"><p>Tasking</p></th>
+<th class="head"><p>Exceptions</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td rowspan="2"><p>GNU/Linux</p></td>
+<td><p>rts-native
+(default)</p></td>
+<td><p>pthread library</p></td>
+<td><p>ZCX</p></td>
+</tr>
+<tr class="row-odd"><td><p>rts-sjlj</p></td>
+<td><p>pthread library</p></td>
+<td><p>SJLJ</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>Windows</p></td>
+<td><p>rts-native
+(default)</p></td>
+<td><p>native Win32 threads</p></td>
+<td><p>ZCX</p></td>
+</tr>
+<tr class="row-odd"><td><p>rts-sjlj</p></td>
+<td><p>native Win32 threads</p></td>
+<td><p>SJLJ</p></td>
+</tr>
+<tr class="row-even"><td><p>Mac OS</p></td>
+<td><p>rts-native</p></td>
+<td><p>pthread library</p></td>
+<td><p>ZCX</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="specifying-a-run-time-library">
+<span id="id4"></span><h2>Specifying a Run-Time Library<a class="headerlink" href="#specifying-a-run-time-library" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="file docutils literal notranslate"><span class="pre">adainclude</span></code> subdirectory containing the sources of the GNAT
+run-time library, and the <code class="file docutils literal notranslate"><span class="pre">adalib</span></code> subdirectory containing the
+<code class="file docutils literal notranslate"><span class="pre">ALI</span></code> files and the static and/or shared GNAT library, are located
+in the gcc target-dependent area:</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>target=$prefix/lib/gcc/gcc-*dumpmachine*/gcc-*dumpversion*/
+</pre></div>
+</div>
+</div></blockquote>
+<p>As indicated above, on some platforms several run-time libraries are supplied.
+These libraries are installed in the target dependent area and
+contain a complete source and binary subdirectory. The detailed description
+below explains the differences between the different libraries in terms of
+their thread support.</p>
+<p>The default run-time library (when GNAT is installed) is <em>rts-native</em>.
+This default run-time is selected by the means of soft links.
+For example on x86-linux:</p>
+<img alt="../_images/rtlibrary-structure.png" src="../_images/rtlibrary-structure.png" />
+<p>If the <em>rts-sjlj</em> library is to be selected on a permanent basis,
+these soft links can be modified with the following commands:</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd $target
+$ rm -f adainclude adalib
+$ ln -s rts-sjlj/adainclude adainclude
+$ ln -s rts-sjlj/adalib adalib
+</pre></div>
+</div>
+</div></blockquote>
+<p>Alternatively, you can specify <code class="file docutils literal notranslate"><span class="pre">rts-sjlj/adainclude</span></code> in the file
+<code class="file docutils literal notranslate"><span class="pre">$target/ada_source_path</span></code> and <code class="file docutils literal notranslate"><span class="pre">rts-sjlj/adalib</span></code> in
+<code class="file docutils literal notranslate"><span class="pre">$target/ada_object_path</span></code>.</p>
+<p id="index-7">Selecting another run-time library temporarily can be
+achieved by using the <code class="switch docutils literal notranslate"><span class="pre">--RTS</span></code> switch, e.g., <code class="switch docutils literal notranslate"><span class="pre">--RTS=sjlj</span></code></p>
+<span class="target" id="choosing-the-scheduling-policy"></span><span class="target" id="index-8"></span><span class="target" id="index-9"></span><div class="section" id="index-10">
+<span id="id5"></span><h3>Choosing the Scheduling Policy<a class="headerlink" href="#index-10" title="Permalink to this headline">¶</a></h3>
+<p>When using a POSIX threads implementation, you have a choice of several
+scheduling policies: <code class="docutils literal notranslate"><span class="pre">SCHED_FIFO</span></code>, <code class="docutils literal notranslate"><span class="pre">SCHED_RR</span></code> and <code class="docutils literal notranslate"><span class="pre">SCHED_OTHER</span></code>.</p>
+<p>Typically, the default is <code class="docutils literal notranslate"><span class="pre">SCHED_OTHER</span></code>, while using <code class="docutils literal notranslate"><span class="pre">SCHED_FIFO</span></code>
+or <code class="docutils literal notranslate"><span class="pre">SCHED_RR</span></code> requires special (e.g., root) privileges.</p>
+<span class="target" id="index-11"></span><span class="target" id="index-12"></span><p id="index-13">By default, GNAT uses the <code class="docutils literal notranslate"><span class="pre">SCHED_OTHER</span></code> policy. To specify
+<code class="docutils literal notranslate"><span class="pre">SCHED_FIFO</span></code>,
+you can use one of the following:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">pragma</span> <span class="pre">Time_Slice</span> <span class="pre">(0.0)</span></code></p></li>
+<li><p>the corresponding binder option <code class="switch docutils literal notranslate"><span class="pre">-T0</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pragma</span> <span class="pre">Task_Dispatching_Policy</span> <span class="pre">(FIFO_Within_Priorities)</span></code></p></li>
+</ul>
+<p>To specify <code class="docutils literal notranslate"><span class="pre">SCHED_RR</span></code>,
+you should use <code class="docutils literal notranslate"><span class="pre">pragma</span> <span class="pre">Time_Slice</span></code> with a
+value greater than 0.0, or else use the corresponding <code class="switch docutils literal notranslate"><span class="pre">-T</span></code>
+binder option.</p>
+<p>To make sure a program is running as root, you can put something like
+this in a library package body in your application:</p>
+<blockquote>
+<div><div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="k">function </span><span class="nf">geteuid</span> <span class="kr">return</span><span class="p"> </span><span class="n">Integer</span><span class="p">;</span>
+<span class="kr">pragma</span><span class="p"> </span><span class="n">Import</span> <span class="o">(</span><span class="n">C</span><span class="p">,</span> <span class="n">geteuid</span><span class="p">,</span> <span class="s">&quot;geteuid&quot;</span><span class="o">)</span><span class="p">;</span>
+<span class="n">Ignore</span> <span class="o">:</span> <span class="kr">constant</span><span class="p"> </span><span class="n">Boolean</span> <span class="o">:=</span>
+  <span class="o">(</span><span class="kr">if</span><span class="p"> </span><span class="n">geteuid</span> <span class="o">=</span> <span class="mi">0</span> <span class="kr">then</span><span class="p"> </span><span class="kc">True</span> <span class="kr">else</span><span class="p"> </span><span class="kr">raise</span><span class="p"> </span><span class="n">Program_Error</span> <span class="kr">with</span><span class="p"> </span><span class="s">&quot;must be root&quot;</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>It gets the effective user id, and if it’s not 0 (i.e. root), it raises
+Program_Error.</p>
+<span class="target" id="index-14"></span></div>
+</div>
+<div class="section" id="gnu-linux-topics">
+<span id="index-15"></span><span id="id6"></span><h2>GNU/Linux Topics<a class="headerlink" href="#gnu-linux-topics" title="Permalink to this headline">¶</a></h2>
+<p>This section describes topics that are specific to GNU/Linux platforms.</p>
+<div class="section" id="required-packages-on-gnu-linux">
+<span id="id7"></span><h3>Required Packages on GNU/Linux<a class="headerlink" href="#required-packages-on-gnu-linux" title="Permalink to this headline">¶</a></h3>
+<p>GNAT requires the C library developer’s package to be installed.
+The name of of that package depends on your GNU/Linux distribution:</p>
+<ul class="simple">
+<li><p>RedHat, SUSE: <code class="docutils literal notranslate"><span class="pre">glibc-devel</span></code>;</p></li>
+<li><p>Debian, Ubuntu: <code class="docutils literal notranslate"><span class="pre">libc6-dev</span></code> (normally installed by default).</p></li>
+</ul>
+<p>If using the 32-bit version of GNAT on a 64-bit version of GNU/Linux,
+you’ll need the 32-bit version of the following packages:</p>
+<ul class="simple">
+<li><p>RedHat, SUSE: <code class="docutils literal notranslate"><span class="pre">glibc.i686</span></code>, <code class="docutils literal notranslate"><span class="pre">glibc-devel.i686</span></code>, <code class="docutils literal notranslate"><span class="pre">ncurses-libs.i686</span></code></p></li>
+<li><p>Debian, Ubuntu: <code class="docutils literal notranslate"><span class="pre">libc6:i386</span></code>, <code class="docutils literal notranslate"><span class="pre">libc6-dev:i386</span></code>, <code class="docutils literal notranslate"><span class="pre">lib32ncursesw5</span></code></p></li>
+</ul>
+<p>Other GNU/Linux distributions might be choosing a different name
+for those packages.</p>
+</div>
+</div>
+<div class="section" id="microsoft-windows-topics">
+<span id="index-16"></span><span id="id8"></span><h2>Microsoft Windows Topics<a class="headerlink" href="#microsoft-windows-topics" title="Permalink to this headline">¶</a></h2>
+<p>This section describes topics that are specific to the Microsoft Windows
+platforms.</p>
+<div class="section" id="using-gnat-on-windows">
+<span id="id9"></span><h3>Using GNAT on Windows<a class="headerlink" href="#using-gnat-on-windows" title="Permalink to this headline">¶</a></h3>
+<p>One of the strengths of the GNAT technology is that its tool set
+(<code class="docutils literal notranslate"><span class="pre">gcc</span></code>, <code class="docutils literal notranslate"><span class="pre">gnatbind</span></code>, <code class="docutils literal notranslate"><span class="pre">gnatlink</span></code>, <code class="docutils literal notranslate"><span class="pre">gnatmake</span></code>, the
+<code class="docutils literal notranslate"><span class="pre">gdb</span></code> debugger, etc.) is used in the same way regardless of the
+platform.</p>
+<p>On Windows this tool set is complemented by a number of Microsoft-specific
+tools that have been provided to facilitate interoperability with Windows
+when this is required. With these tools:</p>
+<ul class="simple">
+<li><p>You can build applications using the <code class="docutils literal notranslate"><span class="pre">CONSOLE</span></code> or <code class="docutils literal notranslate"><span class="pre">WINDOWS</span></code>
+subsystems.</p></li>
+<li><p>You can use any Dynamically Linked Library (DLL) in your Ada code (both
+relocatable and non-relocatable DLLs are supported).</p></li>
+<li><p>You can build Ada DLLs for use in other applications. These applications
+can be written in a language other than Ada (e.g., C, C++, etc). Again both
+relocatable and non-relocatable Ada DLLs are supported.</p></li>
+<li><p>You can include Windows resources in your Ada application.</p></li>
+<li><p>You can use or create COM/DCOM objects.</p></li>
+</ul>
+<p>Immediately below are listed all known general GNAT-for-Windows restrictions.
+Other restrictions about specific features like Windows Resources and DLLs
+are listed in separate sections below.</p>
+<ul class="simple">
+<li><p>It is not possible to use <code class="docutils literal notranslate"><span class="pre">GetLastError</span></code> and <code class="docutils literal notranslate"><span class="pre">SetLastError</span></code>
+when tasking, protected records, or exceptions are used. In these
+cases, in order to implement Ada semantics, the GNAT run-time system
+calls certain Win32 routines that set the last error variable to 0 upon
+success. It should be possible to use <code class="docutils literal notranslate"><span class="pre">GetLastError</span></code> and
+<code class="docutils literal notranslate"><span class="pre">SetLastError</span></code> when tasking, protected record, and exception
+features are not used, but it is not guaranteed to work.</p></li>
+<li><p>It is not possible to link against Microsoft C++ libraries except for
+import libraries. Interfacing must be done by the mean of DLLs.</p></li>
+<li><p>It is possible to link against Microsoft C libraries. Yet the preferred
+solution is to use C/C++ compiler that comes with GNAT, since it
+doesn’t require having two different development environments and makes the
+inter-language debugging experience smoother.</p></li>
+<li><p>When the compilation environment is located on FAT32 drives, users may
+experience recompilations of the source files that have not changed if
+Daylight Saving Time (DST) state has changed since the last time files
+were compiled. NTFS drives do not have this problem.</p></li>
+<li><p>No components of the GNAT toolset use any entries in the Windows
+registry. The only entries that can be created are file associations and
+PATH settings, provided the user has chosen to create them at installation
+time, as well as some minimal book-keeping information needed to correctly
+uninstall or integrate different GNAT products.</p></li>
+</ul>
+</div>
+<div class="section" id="using-a-network-installation-of-gnat">
+<span id="id10"></span><h3>Using a network installation of GNAT<a class="headerlink" href="#using-a-network-installation-of-gnat" title="Permalink to this headline">¶</a></h3>
+<p>Make sure the system on which GNAT is installed is accessible from the
+current machine, i.e., the install location is shared over the network.
+Shared resources are accessed on Windows by means of UNC paths, which
+have the format <code class="docutils literal notranslate"><span class="pre">\\\\server\\sharename\\path</span></code></p>
+<p>In order to use such a network installation, simply add the UNC path of the
+<code class="file docutils literal notranslate"><span class="pre">bin</span></code> directory of your GNAT installation in front of your PATH. For
+example, if GNAT is installed in <code class="file docutils literal notranslate"><span class="pre">\GNAT</span></code> directory of a share location
+called <code class="file docutils literal notranslate"><span class="pre">c-drive</span></code> on a machine <code class="file docutils literal notranslate"><span class="pre">LOKI</span></code>, the following command will
+make it available:</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ path \\loki\c-drive\gnat\bin;%path%`
+</pre></div>
+</div>
+</div></blockquote>
+<p>Be aware that every compilation using the network installation results in the
+transfer of large amounts of data across the network and will likely cause
+serious performance penalty.</p>
+</div>
+<div class="section" id="console-and-windows-subsystems">
+<span id="id11"></span><h3>CONSOLE and WINDOWS subsystems<a class="headerlink" href="#console-and-windows-subsystems" title="Permalink to this headline">¶</a></h3>
+<span class="target" id="index-17"></span><span class="target" id="index-18"></span><p id="index-19">There are two main subsystems under Windows. The <code class="docutils literal notranslate"><span class="pre">CONSOLE</span></code> subsystem
+(which is the default subsystem) will always create a console when
+launching the application. This is not something desirable when the
+application has a Windows GUI. To get rid of this console the
+application must be using the <code class="docutils literal notranslate"><span class="pre">WINDOWS</span></code> subsystem. To do so
+the <code class="switch docutils literal notranslate"><span class="pre">-mwindows</span></code> linker option must be specified.</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ gnatmake winprog -largs -mwindows
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="temporary-files">
+<span id="id12"></span><h3>Temporary Files<a class="headerlink" href="#temporary-files" title="Permalink to this headline">¶</a></h3>
+<p id="index-20">It is possible to control where temporary files gets created by setting
+the <span class="target" id="index-21"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">TMP</span></code> environment variable. The file will be created:</p>
+<ul class="simple">
+<li><p>Under the directory pointed to by the <span class="target" id="index-22"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">TMP</span></code> environment variable if
+this directory exists.</p></li>
+<li><p>Under <code class="file docutils literal notranslate"><span class="pre">c:\temp</span></code>, if the <span class="target" id="index-23"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">TMP</span></code> environment variable is not
+set (or not pointing to a directory) and if this directory exists.</p></li>
+<li><p>Under the current working directory otherwise.</p></li>
+</ul>
+<p>This allows you to determine exactly where the temporary
+file will be created. This is particularly useful in networked
+environments where you may not have write access to some
+directories.</p>
+</div>
+<div class="section" id="disabling-command-line-argument-expansion">
+<h3>Disabling Command Line Argument Expansion<a class="headerlink" href="#disabling-command-line-argument-expansion" title="Permalink to this headline">¶</a></h3>
+<p id="index-24">By default, an executable compiled for the Windows platform will do
+the following postprocessing on the arguments passed on the command
+line:</p>
+<ul>
+<li><p>If the argument contains the characters <code class="docutils literal notranslate"><span class="pre">*</span></code> and/or <code class="docutils literal notranslate"><span class="pre">?</span></code>, then
+file expansion will be attempted. For example, if the current directory
+contains <code class="file docutils literal notranslate"><span class="pre">a.txt</span></code> and <code class="file docutils literal notranslate"><span class="pre">b.txt</span></code>, then when calling:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ my_ada_program *.txt
+</pre></div>
+</div>
+<p>The following arguments will effectively be passed to the main program
+(for example when using <code class="docutils literal notranslate"><span class="pre">Ada.Command_Line.Argument</span></code>):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Ada</span><span class="o">.</span><span class="n">Command_Line</span><span class="o">.</span><span class="n">Argument</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;a.txt&quot;</span>
+<span class="n">Ada</span><span class="o">.</span><span class="n">Command_Line</span><span class="o">.</span><span class="n">Argument</span> <span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;b.txt&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Filename expansion can be disabled for a given argument by using single
+quotes. Thus, calling:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ my_ada_program &#39;*.txt&#39;
+</pre></div>
+</div>
+<p>will result in:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Ada</span><span class="o">.</span><span class="n">Command_Line</span><span class="o">.</span><span class="n">Argument</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;*.txt&quot;</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p>Note that if the program is launched from a shell such as Cygwin Bash
+then quote removal might be performed by the shell.</p>
+<p>In some contexts it might be useful to disable this feature (for example if
+the program performs its own argument expansion). In order to do this, a C
+symbol needs to be defined and set to <code class="docutils literal notranslate"><span class="pre">0</span></code>. You can do this by
+adding the following code fragment in one of your Ada units:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="n">Do_Argv_Expansion</span> <span class="o">:</span> <span class="n">Integer</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kr">pragma</span><span class="p"> </span><span class="n">Export</span> <span class="o">(</span><span class="n">C</span><span class="p">,</span> <span class="n">Do_Argv_Expansion</span><span class="p">,</span> <span class="s">&quot;__gnat_do_argv_expansion&quot;</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The results of previous examples will be respectively:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Ada</span><span class="o">.</span><span class="n">Command_Line</span><span class="o">.</span><span class="n">Argument</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;*.txt&quot;</span>
+</pre></div>
+</div>
+<p>and:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Ada</span><span class="o">.</span><span class="n">Command_Line</span><span class="o">.</span><span class="n">Argument</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;&#39;*.txt&#39;&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="windows-socket-timeouts">
+<h3>Windows Socket Timeouts<a class="headerlink" href="#windows-socket-timeouts" title="Permalink to this headline">¶</a></h3>
+<p>Microsoft Windows desktops older than <code class="docutils literal notranslate"><span class="pre">8.0</span></code> and Microsoft Windows Servers
+older than <code class="docutils literal notranslate"><span class="pre">2019</span></code> set a socket timeout 500 milliseconds longer than the value
+set by setsockopt with <code class="docutils literal notranslate"><span class="pre">SO_RCVTIMEO</span></code> and <code class="docutils literal notranslate"><span class="pre">SO_SNDTIMEO</span></code> options. The GNAT
+runtime makes a correction for the difference in the corresponding Windows
+versions. For Windows Server starting with version <code class="docutils literal notranslate"><span class="pre">2019</span></code>, the user must
+provide a manifest file for the GNAT runtime to be able to recognize that
+the Windows version does not need the timeout correction. The manifest file
+should be located in the same directory as the executable file, and its file
+name must match the executable name suffixed by <code class="docutils literal notranslate"><span class="pre">.manifest</span></code>. For example,
+if the executable name is <code class="file docutils literal notranslate"><span class="pre">sock_wto.exe</span></code>, then the manifest file name
+has to be <code class="file docutils literal notranslate"><span class="pre">sock_wto.exe.manifest</span></code>. The manifest file must contain at
+least the following data:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;
+&lt;assembly xmlns=&quot;urn:schemas-microsoft-com:asm.v1&quot; manifestVersion=&quot;1.0&quot;&gt;
+&lt;compatibility xmlns=&quot;urn:schemas-microsoft-com:compatibility.v1&quot;&gt;
+&lt;application&gt;
+   &lt;!-- Windows Vista --&gt;
+   &lt;supportedOS Id=&quot;{e2011457-1546-43c5-a5fe-008deee3d3f0}&quot;/&gt;
+   &lt;!-- Windows 7 --&gt;
+   &lt;supportedOS Id=&quot;{35138b9a-5d96-4fbd-8e2d-a2440225f93a}&quot;/&gt;
+   &lt;!-- Windows 8 --&gt;
+   &lt;supportedOS Id=&quot;{4a2f28e3-53b9-4441-ba9c-d69d4a4a6e38}&quot;/&gt;
+   &lt;!-- Windows 8.1 --&gt;
+   &lt;supportedOS Id=&quot;{1f676c76-80e1-4239-95bb-83d0f6d0da78}&quot;/&gt;
+   &lt;!-- Windows 10 --&gt;
+   &lt;supportedOS Id=&quot;{8e0f7a12-bfb3-4fe8-b9a5-48fd50a15a9a}&quot;/&gt;
+&lt;/application&gt;
+&lt;/compatibility&gt;
+&lt;/assembly&gt;
+</pre></div>
+</div>
+<p>Without the manifest file, the socket timeout is going to be overcorrected on
+these Windows Server versions and the actual time is going to be 500
+milliseconds shorter than what was set with GNAT.Sockets.Set_Socket_Option.
+Note that on Microsoft Windows versions where correction is necessary, there
+is no way to set a socket timeout shorter than 500 ms. If a socket timeout
+shorter than 500 ms is needed on these Windows versions, a call to
+Check_Selector should be added before any socket read or write operations.</p>
+</div>
+<div class="section" id="mixed-language-programming-on-windows">
+<span id="id13"></span><h3>Mixed-Language Programming on Windows<a class="headerlink" href="#mixed-language-programming-on-windows" title="Permalink to this headline">¶</a></h3>
+<p>Developing pure Ada applications on Windows is no different than on
+other GNAT-supported platforms. However, when developing or porting an
+application that contains a mix of Ada and C/C++, the choice of your
+Windows C/C++ development environment conditions your overall
+interoperability strategy.</p>
+<p>If you use <code class="docutils literal notranslate"><span class="pre">gcc</span></code> or Microsoft C to compile the non-Ada part of
+your application, there are no Windows-specific restrictions that
+affect the overall interoperability with your Ada code. If you do want
+to use the Microsoft tools for your C++ code, you have two choices:</p>
+<ul class="simple">
+<li><p>Encapsulate your C++ code in a DLL to be linked with your Ada
+application. In this case, use the Microsoft or whatever environment to
+build the DLL and use GNAT to build your executable
+(<a class="reference internal" href="#using-dlls-with-gnat"><span class="std std-ref">Using DLLs with GNAT</span></a>).</p></li>
+<li><p>Or you can encapsulate your Ada code in a DLL to be linked with the
+other part of your application. In this case, use GNAT to build the DLL
+(<a class="reference internal" href="#building-dlls-with-gnat-project-files"><span class="std std-ref">Building DLLs with GNAT Project files</span></a>) and use the Microsoft
+or whatever environment to build your executable.</p></li>
+</ul>
+<p>In addition to the description about C main in
+<a class="reference internal" href="the_gnat_compilation_model.html#mixed-language-programming"><span class="std std-ref">Mixed Language Programming</span></a> section, if the C main uses a
+stand-alone library it is required on x86-windows to
+setup the SEH context. For this the C main must looks like this:</p>
+<blockquote>
+<div><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/* main.c */</span>
+<span class="k">extern</span> <span class="kt">void</span> <span class="nf">adainit</span> <span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+<span class="k">extern</span> <span class="kt">void</span> <span class="nf">adafinal</span> <span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+<span class="k">extern</span> <span class="kt">void</span> <span class="nf">__gnat_initialize</span><span class="p">(</span><span class="kt">void</span><span class="o">*</span><span class="p">);</span>
+<span class="k">extern</span> <span class="kt">void</span> <span class="nf">call_to_ada</span> <span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+
+<span class="kt">int</span> <span class="nf">main</span> <span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
+<span class="p">{</span>
+  <span class="kt">int</span> <span class="n">SEH</span> <span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+
+  <span class="cm">/* Initialize the SEH context */</span>
+  <span class="n">__gnat_initialize</span> <span class="p">(</span><span class="o">&amp;</span><span class="n">SEH</span><span class="p">);</span>
+
+  <span class="n">adainit</span><span class="p">();</span>
+
+  <span class="cm">/* Then call Ada services in the stand-alone library */</span>
+
+  <span class="n">call_to_ada</span><span class="p">();</span>
+
+  <span class="n">adafinal</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>Note that this is not needed on x86_64-windows where the Windows
+native SEH support is used.</p>
+<div class="section" id="windows-calling-conventions">
+<span id="id14"></span><h4>Windows Calling Conventions<a class="headerlink" href="#windows-calling-conventions" title="Permalink to this headline">¶</a></h4>
+<span class="target" id="index-25"></span><p id="index-26">This section pertain only to Win32. On Win64 there is a single native
+calling convention. All convention specifiers are ignored on this
+platform.</p>
+<p>When a subprogram <code class="docutils literal notranslate"><span class="pre">F</span></code> (caller) calls a subprogram <code class="docutils literal notranslate"><span class="pre">G</span></code>
+(callee), there are several ways to push <code class="docutils literal notranslate"><span class="pre">G</span></code>‘s parameters on the
+stack and there are several possible scenarios to clean up the stack
+upon <code class="docutils literal notranslate"><span class="pre">G</span></code>‘s return. A calling convention is an agreed upon software
+protocol whereby the responsibilities between the caller (<code class="docutils literal notranslate"><span class="pre">F</span></code>) and
+the callee (<code class="docutils literal notranslate"><span class="pre">G</span></code>) are clearly defined. Several calling conventions
+are available for Windows:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">C</span></code> (Microsoft defined)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Stdcall</span></code> (Microsoft defined)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Win32</span></code> (GNAT specific)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DLL</span></code> (GNAT specific)</p></li>
+</ul>
+<div class="section" id="c-calling-convention">
+<span id="id15"></span><h5><code class="docutils literal notranslate"><span class="pre">C</span></code> Calling Convention<a class="headerlink" href="#c-calling-convention" title="Permalink to this headline">¶</a></h5>
+<p>This is the default calling convention used when interfacing to C/C++
+routines compiled with either <code class="docutils literal notranslate"><span class="pre">gcc</span></code> or Microsoft Visual C++.</p>
+<p>In the <code class="docutils literal notranslate"><span class="pre">C</span></code> calling convention subprogram parameters are pushed on the
+stack by the caller from right to left. The caller itself is in charge of
+cleaning up the stack after the call. In addition, the name of a routine
+with <code class="docutils literal notranslate"><span class="pre">C</span></code> calling convention is mangled by adding a leading underscore.</p>
+<p>The name to use on the Ada side when importing (or exporting) a routine
+with <code class="docutils literal notranslate"><span class="pre">C</span></code> calling convention is the name of the routine. For
+instance the C function:</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">get_val</span> <span class="p">(</span><span class="n">long</span><span class="p">);</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>should be imported from Ada as follows:</p>
+<blockquote>
+<div><div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="k">function </span><span class="nf">Get_Val</span> <span class="o">(</span><span class="n">V</span> <span class="o">:</span> <span class="n">Interfaces.C.long</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Interfaces.C.int</span><span class="p">;</span>
+<span class="kr">pragma</span><span class="p"> </span><span class="n">Import</span> <span class="o">(</span><span class="n">C</span><span class="p">,</span> <span class="n">Get_Val</span><span class="p">,</span> <span class="n">External_Name</span> <span class="o">=&gt;</span> <span class="s">&quot;get_val&quot;</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>Note that in this particular case the <code class="docutils literal notranslate"><span class="pre">External_Name</span></code> parameter could
+have been omitted since, when missing, this parameter is taken to be the
+name of the Ada entity in lower case. When the <code class="docutils literal notranslate"><span class="pre">Link_Name</span></code> parameter
+is missing, as in the above example, this parameter is set to be the
+<code class="docutils literal notranslate"><span class="pre">External_Name</span></code> with a leading underscore.</p>
+<p>When importing a variable defined in C, you should always use the <code class="docutils literal notranslate"><span class="pre">C</span></code>
+calling convention unless the object containing the variable is part of a
+DLL (in which case you should use the <code class="docutils literal notranslate"><span class="pre">Stdcall</span></code> calling
+convention, <a class="reference internal" href="#stdcall-calling-convention"><span class="std std-ref">Stdcall Calling Convention</span></a>).</p>
+</div>
+<div class="section" id="stdcall-calling-convention">
+<span id="id16"></span><h5><code class="docutils literal notranslate"><span class="pre">Stdcall</span></code> Calling Convention<a class="headerlink" href="#stdcall-calling-convention" title="Permalink to this headline">¶</a></h5>
+<p>This convention, which was the calling convention used for Pascal
+programs, is used by Microsoft for all the routines in the Win32 API for
+efficiency reasons. It must be used to import any routine for which this
+convention was specified.</p>
+<p>In the <code class="docutils literal notranslate"><span class="pre">Stdcall</span></code> calling convention subprogram parameters are pushed
+on the stack by the caller from right to left. The callee (and not the
+caller) is in charge of cleaning the stack on routine exit. In addition,
+the name of a routine with <code class="docutils literal notranslate"><span class="pre">Stdcall</span></code> calling convention is mangled by
+adding a leading underscore (as for the <code class="docutils literal notranslate"><span class="pre">C</span></code> calling convention) and a
+trailing <code class="samp docutils literal notranslate"><span class="pre">&#64;</span><em><span class="pre">nn</span></em></code>, where <code class="docutils literal notranslate"><span class="pre">nn</span></code> is the overall size (in
+bytes) of the parameters passed to the routine.</p>
+<p>The name to use on the Ada side when importing a C routine with a
+<code class="docutils literal notranslate"><span class="pre">Stdcall</span></code> calling convention is the name of the C routine. The leading
+underscore and trailing <code class="samp docutils literal notranslate"><span class="pre">&#64;</span><em><span class="pre">nn</span></em></code> are added automatically by
+the compiler. For instance the Win32 function:</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">APIENTRY</span> <span class="nb">int</span> <span class="n">get_val</span> <span class="p">(</span><span class="n">long</span><span class="p">);</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>should be imported from Ada as follows:</p>
+<blockquote>
+<div><div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="k">function </span><span class="nf">Get_Val</span> <span class="o">(</span><span class="n">V</span> <span class="o">:</span> <span class="n">Interfaces.C.long</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Interfaces.C.int</span><span class="p">;</span>
+<span class="kr">pragma</span><span class="p"> </span><span class="n">Import</span> <span class="o">(</span><span class="n">Stdcall</span><span class="p">,</span> <span class="n">Get_Val</span><span class="o">)</span><span class="p">;</span>
+<span class="c">--  On the x86 a long is 4 bytes, so the Link_Name is &quot;_get_val@4&quot;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>As for the <code class="docutils literal notranslate"><span class="pre">C</span></code> calling convention, when the <code class="docutils literal notranslate"><span class="pre">External_Name</span></code>
+parameter is missing, it is taken to be the name of the Ada entity in lower
+case. If instead of writing the above import pragma you write:</p>
+<blockquote>
+<div><div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="k">function </span><span class="nf">Get_Val</span> <span class="o">(</span><span class="n">V</span> <span class="o">:</span> <span class="n">Interfaces.C.long</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Interfaces.C.int</span><span class="p">;</span>
+<span class="kr">pragma</span><span class="p"> </span><span class="n">Import</span> <span class="o">(</span><span class="n">Stdcall</span><span class="p">,</span> <span class="n">Get_Val</span><span class="p">,</span> <span class="n">External_Name</span> <span class="o">=&gt;</span> <span class="s">&quot;retrieve_val&quot;</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>then the imported routine is <code class="docutils literal notranslate"><span class="pre">_retrieve_val&#64;4</span></code>. However, if instead
+of specifying the <code class="docutils literal notranslate"><span class="pre">External_Name</span></code> parameter you specify the
+<code class="docutils literal notranslate"><span class="pre">Link_Name</span></code> as in the following example:</p>
+<blockquote>
+<div><div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="k">function </span><span class="nf">Get_Val</span> <span class="o">(</span><span class="n">V</span> <span class="o">:</span> <span class="n">Interfaces.C.long</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Interfaces.C.int</span><span class="p">;</span>
+<span class="kr">pragma</span><span class="p"> </span><span class="n">Import</span> <span class="o">(</span><span class="n">Stdcall</span><span class="p">,</span> <span class="n">Get_Val</span><span class="p">,</span> <span class="n">Link_Name</span> <span class="o">=&gt;</span> <span class="s">&quot;retrieve_val&quot;</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>then the imported routine is <code class="docutils literal notranslate"><span class="pre">retrieve_val</span></code>, that is, there is no
+decoration at all. No leading underscore and no Stdcall suffix
+<code class="samp docutils literal notranslate"><span class="pre">&#64;</span><em><span class="pre">nn</span></em></code>.</p>
+<p>This is especially important as in some special cases a DLL’s entry
+point name lacks a trailing <code class="samp docutils literal notranslate"><span class="pre">&#64;</span><em><span class="pre">nn</span></em></code> while the exported
+name generated for a call has it.</p>
+<p>It is also possible to import variables defined in a DLL by using an
+import pragma for a variable. As an example, if a DLL contains a
+variable defined as:</p>
+<blockquote>
+<div><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">my_var</span><span class="p">;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>then, to access this variable from Ada you should write:</p>
+<blockquote>
+<div><div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="n">My_Var</span> <span class="o">:</span> <span class="n">Interfaces.C.int</span><span class="p">;</span>
+<span class="kr">pragma</span><span class="p"> </span><span class="n">Import</span> <span class="o">(</span><span class="n">Stdcall</span><span class="p">,</span> <span class="n">My_Var</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>Note that to ease building cross-platform bindings this convention
+will be handled as a <code class="docutils literal notranslate"><span class="pre">C</span></code> calling convention on non-Windows platforms.</p>
+</div>
+<div class="section" id="win32-calling-convention">
+<span id="id17"></span><h5><code class="docutils literal notranslate"><span class="pre">Win32</span></code> Calling Convention<a class="headerlink" href="#win32-calling-convention" title="Permalink to this headline">¶</a></h5>
+<p>This convention, which is GNAT-specific is fully equivalent to the
+<code class="docutils literal notranslate"><span class="pre">Stdcall</span></code> calling convention described above.</p>
+</div>
+<div class="section" id="dll-calling-convention">
+<span id="id18"></span><h5><code class="docutils literal notranslate"><span class="pre">DLL</span></code> Calling Convention<a class="headerlink" href="#dll-calling-convention" title="Permalink to this headline">¶</a></h5>
+<p>This convention, which is GNAT-specific is fully equivalent to the
+<code class="docutils literal notranslate"><span class="pre">Stdcall</span></code> calling convention described above.</p>
+</div>
+</div>
+<div class="section" id="introduction-to-dynamic-link-libraries-dlls">
+<span id="id19"></span><h4>Introduction to Dynamic Link Libraries (DLLs)<a class="headerlink" href="#introduction-to-dynamic-link-libraries-dlls" title="Permalink to this headline">¶</a></h4>
+<p id="index-27">A Dynamically Linked Library (DLL) is a library that can be shared by
+several applications running under Windows. A DLL can contain any number of
+routines and variables.</p>
+<p>One advantage of DLLs is that you can change and enhance them without
+forcing all the applications that depend on them to be relinked or
+recompiled. However, you should be aware than all calls to DLL routines are
+slower since, as you will understand below, such calls are indirect.</p>
+<p>To illustrate the remainder of this section, suppose that an application
+wants to use the services of a DLL <code class="file docutils literal notranslate"><span class="pre">API.dll</span></code>. To use the services
+provided by <code class="file docutils literal notranslate"><span class="pre">API.dll</span></code> you must statically link against the DLL or
+an import library which contains a jump table with an entry for each
+routine and variable exported by the DLL. In the Microsoft world this
+import library is called <code class="file docutils literal notranslate"><span class="pre">API.lib</span></code>. When using GNAT this import
+library is called either <code class="file docutils literal notranslate"><span class="pre">libAPI.dll.a</span></code>, <code class="file docutils literal notranslate"><span class="pre">libapi.dll.a</span></code>,
+<code class="file docutils literal notranslate"><span class="pre">libAPI.a</span></code> or <code class="file docutils literal notranslate"><span class="pre">libapi.a</span></code> (names are case insensitive).</p>
+<p>After you have linked your application with the DLL or the import library
+and you run your application, here is what happens:</p>
+<ul class="simple">
+<li><p>Your application is loaded into memory.</p></li>
+<li><p>The DLL <code class="file docutils literal notranslate"><span class="pre">API.dll</span></code> is mapped into the address space of your
+application. This means that:</p>
+<ul>
+<li><p>The DLL will use the stack of the calling thread.</p></li>
+<li><p>The DLL will use the virtual address space of the calling process.</p></li>
+<li><p>The DLL will allocate memory from the virtual address space of the calling
+process.</p></li>
+<li><p>Handles (pointers) can be safely exchanged between routines in the DLL
+routines and routines in the application using the DLL.</p></li>
+</ul>
+</li>
+<li><p>The entries in the jump table (from the import library <code class="file docutils literal notranslate"><span class="pre">libAPI.dll.a</span></code>
+or <code class="file docutils literal notranslate"><span class="pre">API.lib</span></code> or automatically created when linking against a DLL)
+which is part of your application are initialized with the addresses
+of the routines and variables in <code class="file docutils literal notranslate"><span class="pre">API.dll</span></code>.</p></li>
+<li><p>If present in <code class="file docutils literal notranslate"><span class="pre">API.dll</span></code>, routines <code class="docutils literal notranslate"><span class="pre">DllMain</span></code> or
+<code class="docutils literal notranslate"><span class="pre">DllMainCRTStartup</span></code> are invoked. These routines typically contain
+the initialization code needed for the well-being of the routines and
+variables exported by the DLL.</p></li>
+</ul>
+<p>There is an additional point which is worth mentioning. In the Windows
+world there are two kind of DLLs: relocatable and non-relocatable
+DLLs. Non-relocatable DLLs can only be loaded at a very specific address
+in the target application address space. If the addresses of two
+non-relocatable DLLs overlap and these happen to be used by the same
+application, a conflict will occur and the application will run
+incorrectly. Hence, when possible, it is always preferable to use and
+build relocatable DLLs. Both relocatable and non-relocatable DLLs are
+supported by GNAT. Note that the <code class="switch docutils literal notranslate"><span class="pre">-s</span></code> linker option (see GNU Linker
+User’s Guide) removes the debugging symbols from the DLL but the DLL can
+still be relocated.</p>
+<p>As a side note, an interesting difference between Microsoft DLLs and
+Unix shared libraries, is the fact that on most Unix systems all public
+routines are exported by default in a Unix shared library, while under
+Windows it is possible (but not required) to list exported routines in
+a definition file (see <a class="reference internal" href="#the-definition-file"><span class="std std-ref">The Definition File</span></a>).</p>
+</div>
+<div class="section" id="using-dlls-with-gnat">
+<span id="id20"></span><h4>Using DLLs with GNAT<a class="headerlink" href="#using-dlls-with-gnat" title="Permalink to this headline">¶</a></h4>
+<p>To use the services of a DLL, say <code class="file docutils literal notranslate"><span class="pre">API.dll</span></code>, in your Ada application
+you must have:</p>
+<ul class="simple">
+<li><p>The Ada spec for the routines and/or variables you want to access in
+<code class="file docutils literal notranslate"><span class="pre">API.dll</span></code>. If not available this Ada spec must be built from the C/C++
+header files provided with the DLL.</p></li>
+<li><p>The import library (<code class="file docutils literal notranslate"><span class="pre">libAPI.dll.a</span></code> or <code class="file docutils literal notranslate"><span class="pre">API.lib</span></code>). As previously
+mentioned an import library is a statically linked library containing the
+import table which will be filled at load time to point to the actual
+<code class="file docutils literal notranslate"><span class="pre">API.dll</span></code> routines. Sometimes you don’t have an import library for the
+DLL you want to use. The following sections will explain how to build
+one. Note that this is optional.</p></li>
+<li><p>The actual DLL, <code class="file docutils literal notranslate"><span class="pre">API.dll</span></code>.</p></li>
+</ul>
+<p>Once you have all the above, to compile an Ada application that uses the
+services of <code class="file docutils literal notranslate"><span class="pre">API.dll</span></code> and whose main subprogram is <code class="docutils literal notranslate"><span class="pre">My_Ada_App</span></code>,
+you simply issue the command</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ gnatmake my_ada_app -largs -lAPI
+</pre></div>
+</div>
+</div></blockquote>
+<p>The argument <code class="switch docutils literal notranslate"><span class="pre">-largs</span> <span class="pre">-lAPI</span></code> at the end of the <code class="docutils literal notranslate"><span class="pre">gnatmake</span></code> command
+tells the GNAT linker to look for an import library. The linker will
+look for a library name in this specific order:</p>
+<ul class="simple">
+<li><p><code class="file docutils literal notranslate"><span class="pre">libAPI.dll.a</span></code></p></li>
+<li><p><code class="file docutils literal notranslate"><span class="pre">API.dll.a</span></code></p></li>
+<li><p><code class="file docutils literal notranslate"><span class="pre">libAPI.a</span></code></p></li>
+<li><p><code class="file docutils literal notranslate"><span class="pre">API.lib</span></code></p></li>
+<li><p><code class="file docutils literal notranslate"><span class="pre">libAPI.dll</span></code></p></li>
+<li><p><code class="file docutils literal notranslate"><span class="pre">API.dll</span></code></p></li>
+</ul>
+<p>The first three are the GNU style import libraries. The third is the
+Microsoft style import libraries. The last two are the actual DLL names.</p>
+<p>Note that if the Ada package spec for <code class="file docutils literal notranslate"><span class="pre">API.dll</span></code> contains the
+following pragma</p>
+<blockquote>
+<div><div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kr">pragma</span><span class="p"> </span><span class="n">Linker_Options</span> <span class="o">(</span><span class="s">&quot;-lAPI&quot;</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>you do not have to add <code class="switch docutils literal notranslate"><span class="pre">-largs</span> <span class="pre">-lAPI</span></code> at the end of the
+<code class="docutils literal notranslate"><span class="pre">gnatmake</span></code> command.</p>
+<p>If any one of the items above is missing you will have to create it
+yourself. The following sections explain how to do so using as an
+example a fictitious DLL called <code class="file docutils literal notranslate"><span class="pre">API.dll</span></code>.</p>
+<div class="section" id="creating-an-ada-spec-for-the-dll-services">
+<span id="id21"></span><h5>Creating an Ada Spec for the DLL Services<a class="headerlink" href="#creating-an-ada-spec-for-the-dll-services" title="Permalink to this headline">¶</a></h5>
+<p>A DLL typically comes with a C/C++ header file which provides the
+definitions of the routines and variables exported by the DLL. The Ada
+equivalent of this header file is a package spec that contains definitions
+for the imported entities. If the DLL you intend to use does not come with
+an Ada spec you have to generate one such spec yourself. For example if
+the header file of <code class="file docutils literal notranslate"><span class="pre">API.dll</span></code> is a file <code class="file docutils literal notranslate"><span class="pre">api.h</span></code> containing the
+following two definitions:</p>
+<blockquote>
+<div><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">some_var</span><span class="p">;</span>
+<span class="kt">int</span> <span class="nf">get</span> <span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="p">);</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>then the equivalent Ada spec could be:</p>
+<blockquote>
+<div><div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kr">with</span><span class="p"> </span><span class="n">Interfaces.C.Strings</span><span class="p">;</span>
+<span class="k">package </span><span class="nf">API</span> <span class="kr">is</span><span class="p"></span>
+   <span class="kr">use</span><span class="p"> </span><span class="n">Interfaces</span><span class="p">;</span>
+
+   <span class="n">Some_Var</span> <span class="o">:</span> <span class="n">C.int</span><span class="p">;</span>
+   <span class="k">function </span><span class="nf">Get</span> <span class="o">(</span><span class="n">Str</span> <span class="o">:</span> <span class="n">C.Strings.Chars_Ptr</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">C.int</span><span class="p">;</span>
+
+<span class="kr">private</span><span class="p"></span>
+   <span class="kr">pragma</span><span class="p"> </span><span class="n">Import</span> <span class="o">(</span><span class="n">C</span><span class="p">,</span> <span class="n">Get</span><span class="o">)</span><span class="p">;</span>
+   <span class="kr">pragma</span><span class="p"> </span><span class="n">Import</span> <span class="o">(</span><span class="n">DLL</span><span class="p">,</span> <span class="n">Some_Var</span><span class="o">)</span><span class="p">;</span>
+<span class="k">end </span><span class="nf">API</span><span class="p">;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="creating-an-import-library">
+<span id="id22"></span><h5>Creating an Import Library<a class="headerlink" href="#creating-an-import-library" title="Permalink to this headline">¶</a></h5>
+<p id="index-28">If a Microsoft-style import library <code class="file docutils literal notranslate"><span class="pre">API.lib</span></code> or a GNAT-style
+import library <code class="file docutils literal notranslate"><span class="pre">libAPI.dll.a</span></code> or <code class="file docutils literal notranslate"><span class="pre">libAPI.a</span></code> is available
+with <code class="file docutils literal notranslate"><span class="pre">API.dll</span></code> you can skip this section. You can also skip this
+section if <code class="file docutils literal notranslate"><span class="pre">API.dll</span></code> or <code class="file docutils literal notranslate"><span class="pre">libAPI.dll</span></code> is built with GNU tools
+as in this case it is possible to link directly against the
+DLL. Otherwise read on.</p>
+<p class="rubric" id="the-definition-file"><span id="index-29"></span>The Definition File</p>
+<p>As previously mentioned, and unlike Unix systems, the list of symbols
+that are exported from a DLL must be provided explicitly in Windows.
+The main goal of a definition file is precisely that: list the symbols
+exported by a DLL. A definition file (usually a file with a <code class="docutils literal notranslate"><span class="pre">.def</span></code>
+suffix) has the following structure:</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[LIBRARY ``name``]
+[DESCRIPTION ``string``]
+EXPORTS
+   ``symbol1``
+   ``symbol2``
+   ...
+</pre></div>
+</div>
+</div></blockquote>
+<dl>
+<dt><em>LIBRARY name</em></dt><dd><p>This section, which is optional, gives the name of the DLL.</p>
+</dd>
+<dt><em>DESCRIPTION string</em></dt><dd><p>This section, which is optional, gives a description string that will be
+embedded in the import library.</p>
+</dd>
+<dt><em>EXPORTS</em></dt><dd><p>This section gives the list of exported symbols (procedures, functions or
+variables). For instance in the case of <code class="file docutils literal notranslate"><span class="pre">API.dll</span></code> the <code class="docutils literal notranslate"><span class="pre">EXPORTS</span></code>
+section of <code class="file docutils literal notranslate"><span class="pre">API.def</span></code> looks like:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">EXPORTS</span>
+   <span class="n">some_var</span>
+   <span class="n">get</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+<p>Note that you must specify the correct suffix (<code class="samp docutils literal notranslate"><span class="pre">&#64;</span><em><span class="pre">nn</span></em></code>)
+(see <a class="reference internal" href="#windows-calling-conventions"><span class="std std-ref">Windows Calling Conventions</span></a>) for a Stdcall
+calling convention function in the exported symbols list.</p>
+<p>There can actually be other sections in a definition file, but these
+sections are not relevant to the discussion at hand.</p>
+<p class="rubric" id="create-def-file-automatically">Creating a Definition File Automatically</p>
+<p>You can automatically create the definition file <code class="file docutils literal notranslate"><span class="pre">API.def</span></code>
+(see <a class="reference internal" href="#the-definition-file"><span class="std std-ref">The Definition File</span></a>) from a DLL.
+For that use the <code class="docutils literal notranslate"><span class="pre">dlltool</span></code> program as follows:</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ dlltool API.dll -z API.def --export-all-symbols
+</pre></div>
+</div>
+<p>Note that if some routines in the DLL have the <code class="docutils literal notranslate"><span class="pre">Stdcall</span></code> convention
+(<a class="reference internal" href="#windows-calling-conventions"><span class="std std-ref">Windows Calling Conventions</span></a>) with stripped <code class="samp docutils literal notranslate"><span class="pre">&#64;</span><em><span class="pre">nn</span></em></code>
+suffix then you’ll have to edit <code class="file docutils literal notranslate"><span class="pre">api.def</span></code> to add it, and specify
+<code class="switch docutils literal notranslate"><span class="pre">-k</span></code> to <code class="docutils literal notranslate"><span class="pre">gnatdll</span></code> when creating the import library.</p>
+<p>Here are some hints to find the right <code class="samp docutils literal notranslate"><span class="pre">&#64;</span><em><span class="pre">nn</span></em></code> suffix.</p>
+<ul>
+<li><p>If you have the Microsoft import library (.lib), it is possible to get
+the right symbols by using Microsoft <code class="docutils literal notranslate"><span class="pre">dumpbin</span></code> tool (see the
+corresponding Microsoft documentation for further details).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ dumpbin /exports api.lib
+</pre></div>
+</div>
+</li>
+<li><p>If you have a message about a missing symbol at link time the compiler
+tells you what symbol is expected. You just have to go back to the
+definition file and add the right suffix.</p></li>
+</ul>
+</div></blockquote>
+<p class="rubric" id="gnat-style-import-library">GNAT-Style Import Library</p>
+<p>To create a static import library from <code class="file docutils literal notranslate"><span class="pre">API.dll</span></code> with the GNAT tools
+you should create the .def file, then use <code class="docutils literal notranslate"><span class="pre">gnatdll</span></code> tool
+(see <a class="reference internal" href="#using-gnatdll"><span class="std std-ref">Using gnatdll</span></a>) as follows:</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ gnatdll -e API.def -d API.dll
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">gnatdll</span></code> takes as input a definition file <code class="file docutils literal notranslate"><span class="pre">API.def</span></code> and the
+name of the DLL containing the services listed in the definition file
+<code class="file docutils literal notranslate"><span class="pre">API.dll</span></code>. The name of the static import library generated is
+computed from the name of the definition file as follows: if the
+definition file name is <code class="file docutils literal notranslate"><span class="pre">xyz.def</span></code>, the import library name will
+be <code class="file docutils literal notranslate"><span class="pre">libxyz.a</span></code>. Note that in the previous example option
+<code class="switch docutils literal notranslate"><span class="pre">-e</span></code> could have been removed because the name of the definition
+file (before the <code class="docutils literal notranslate"><span class="pre">.def</span></code> suffix) is the same as the name of the
+DLL (<a class="reference internal" href="#using-gnatdll"><span class="std std-ref">Using gnatdll</span></a> for more information about <code class="docutils literal notranslate"><span class="pre">gnatdll</span></code>).</p>
+</div></blockquote>
+<p class="rubric" id="msvs-style-import-library">Microsoft-Style Import Library</p>
+<p>A Microsoft import library is needed only if you plan to make an
+Ada DLL available to applications developed with Microsoft
+tools (<a class="reference internal" href="#mixed-language-programming-on-windows"><span class="std std-ref">Mixed-Language Programming on Windows</span></a>).</p>
+<p>To create a Microsoft-style import library for <code class="file docutils literal notranslate"><span class="pre">API.dll</span></code> you
+should create the .def file, then build the actual import library using
+Microsoft’s <code class="docutils literal notranslate"><span class="pre">lib</span></code> utility:</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ lib -machine:IX86 -def:API.def -out:API.lib
+</pre></div>
+</div>
+<p>If you use the above command the definition file <code class="file docutils literal notranslate"><span class="pre">API.def</span></code> must
+contain a line giving the name of the DLL:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LIBRARY</span>      <span class="s2">&quot;API&quot;</span>
+</pre></div>
+</div>
+<p>See the Microsoft documentation for further details about the usage of
+<code class="docutils literal notranslate"><span class="pre">lib</span></code>.</p>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="building-dlls-with-gnat-project-files">
+<span id="id23"></span><h4>Building DLLs with GNAT Project files<a class="headerlink" href="#building-dlls-with-gnat-project-files" title="Permalink to this headline">¶</a></h4>
+<p id="index-30">There is nothing specific to Windows in the build process.
+See the <em>Library Projects</em> section in the <em>GNAT Project Manager</em>
+chapter of the <em>GPRbuild User’s Guide</em>.</p>
+<p>Due to a system limitation, it is not possible under Windows to create threads
+when inside the <code class="docutils literal notranslate"><span class="pre">DllMain</span></code> routine which is used for auto-initialization
+of shared libraries, so it is not possible to have library level tasks in SALs.</p>
+</div>
+<div class="section" id="building-dlls-with-gnat">
+<span id="id24"></span><h4>Building DLLs with GNAT<a class="headerlink" href="#building-dlls-with-gnat" title="Permalink to this headline">¶</a></h4>
+<p id="index-31">This section explain how to build DLLs using the GNAT built-in DLL
+support. With the following procedure it is straight forward to build
+and use DLLs with GNAT.</p>
+<ul>
+<li><p>Building object files.
+The first step is to build all objects files that are to be included
+into the DLL. This is done by using the standard <code class="docutils literal notranslate"><span class="pre">gnatmake</span></code> tool.</p></li>
+<li><p>Building the DLL.
+To build the DLL you must use the <code class="docutils literal notranslate"><span class="pre">gcc</span></code> <code class="switch docutils literal notranslate"><span class="pre">-shared</span></code> and
+<code class="switch docutils literal notranslate"><span class="pre">-shared-libgcc</span></code> options. It is quite simple to use this method:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ gcc -shared -shared-libgcc -o api.dll obj1.o obj2.o ...
+</pre></div>
+</div>
+<p>It is important to note that in this case all symbols found in the
+object files are automatically exported. It is possible to restrict
+the set of symbols to export by passing to <code class="docutils literal notranslate"><span class="pre">gcc</span></code> a definition
+file (see <a class="reference internal" href="#the-definition-file"><span class="std std-ref">The Definition File</span></a>).
+For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ gcc -shared -shared-libgcc -o api.dll api.def obj1.o obj2.o ...
+</pre></div>
+</div>
+<p>If you use a definition file you must export the elaboration procedures
+for every package that required one. Elaboration procedures are named
+using the package name followed by “_E”.</p>
+</li>
+<li><p>Preparing DLL to be used.
+For the DLL to be used by client programs the bodies must be hidden
+from it and the .ali set with read-only attribute. This is very important
+otherwise GNAT will recompile all packages and will not actually use
+the code in the DLL. For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ mkdir apilib
+$ copy *.ads *.ali api.dll apilib
+$ attrib +R apilib\\*.ali
+</pre></div>
+</div>
+</li>
+</ul>
+<p>At this point it is possible to use the DLL by directly linking
+against it. Note that you must use the GNAT shared runtime when using
+GNAT shared libraries. This is achieved by using the <code class="switch docutils literal notranslate"><span class="pre">-shared</span></code> binder
+option.</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ gnatmake main -Iapilib -bargs -shared -largs -Lapilib -lAPI
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="building-dlls-with-gnatdll">
+<span id="id25"></span><h4>Building DLLs with gnatdll<a class="headerlink" href="#building-dlls-with-gnatdll" title="Permalink to this headline">¶</a></h4>
+<p id="index-32">Note that it is preferred to use GNAT Project files
+(<a class="reference internal" href="#building-dlls-with-gnat-project-files"><span class="std std-ref">Building DLLs with GNAT Project files</span></a>) or the built-in GNAT
+DLL support (<a class="reference internal" href="#building-dlls-with-gnat"><span class="std std-ref">Building DLLs with GNAT</span></a>) or to build DLLs.</p>
+<p>This section explains how to build DLLs containing Ada code using
+<code class="docutils literal notranslate"><span class="pre">gnatdll</span></code>. These DLLs will be referred to as Ada DLLs in the
+remainder of this section.</p>
+<p>The steps required to build an Ada DLL that is to be used by Ada as well as
+non-Ada applications are as follows:</p>
+<ul class="simple">
+<li><p>You need to mark each Ada entity exported by the DLL with a <code class="docutils literal notranslate"><span class="pre">C</span></code> or
+<code class="docutils literal notranslate"><span class="pre">Stdcall</span></code> calling convention to avoid any Ada name mangling for the
+entities exported by the DLL
+(see <a class="reference internal" href="#exporting-ada-entities"><span class="std std-ref">Exporting Ada Entities</span></a>). You can
+skip this step if you plan to use the Ada DLL only from Ada applications.</p></li>
+<li><p>Your Ada code must export an initialization routine which calls the routine
+<code class="docutils literal notranslate"><span class="pre">adainit</span></code> generated by <code class="docutils literal notranslate"><span class="pre">gnatbind</span></code> to perform the elaboration of
+the Ada code in the DLL (<a class="reference internal" href="#ada-dlls-and-elaboration"><span class="std std-ref">Ada DLLs and Elaboration</span></a>). The initialization
+routine exported by the Ada DLL must be invoked by the clients of the DLL
+to initialize the DLL.</p></li>
+<li><p>When useful, the DLL should also export a finalization routine which calls
+routine <code class="docutils literal notranslate"><span class="pre">adafinal</span></code> generated by <code class="docutils literal notranslate"><span class="pre">gnatbind</span></code> to perform the
+finalization of the Ada code in the DLL (<a class="reference internal" href="#ada-dlls-and-finalization"><span class="std std-ref">Ada DLLs and Finalization</span></a>).
+The finalization routine exported by the Ada DLL must be invoked by the
+clients of the DLL when the DLL services are no further needed.</p></li>
+<li><p>You must provide a spec for the services exported by the Ada DLL in each
+of the programming languages to which you plan to make the DLL available.</p></li>
+<li><p>You must provide a definition file listing the exported entities
+(<a class="reference internal" href="#the-definition-file"><span class="std std-ref">The Definition File</span></a>).</p></li>
+<li><p>Finally you must use <code class="docutils literal notranslate"><span class="pre">gnatdll</span></code> to produce the DLL and the import
+library (<a class="reference internal" href="#using-gnatdll"><span class="std std-ref">Using gnatdll</span></a>).</p></li>
+</ul>
+<p>Note that a relocatable DLL stripped using the <code class="docutils literal notranslate"><span class="pre">strip</span></code>
+binutils tool will not be relocatable anymore. To build a DLL without
+debug information pass <code class="switch docutils literal notranslate"><span class="pre">-largs</span> <span class="pre">-s</span></code> to <code class="docutils literal notranslate"><span class="pre">gnatdll</span></code>. This
+restriction does not apply to a DLL built using a Library Project.
+See the <em>Library Projects</em> section in the <em>GNAT Project Manager</em>
+chapter of the <em>GPRbuild User’s Guide</em>.</p>
+<div class="section" id="limitations-when-using-ada-dlls-from-ada">
+<h5>Limitations When Using Ada DLLs from Ada<a class="headerlink" href="#limitations-when-using-ada-dlls-from-ada" title="Permalink to this headline">¶</a></h5>
+<p>When using Ada DLLs from Ada applications there is a limitation users
+should be aware of. Because on Windows the GNAT run-time is not in a DLL of
+its own, each Ada DLL includes a part of the GNAT run-time. Specifically,
+each Ada DLL includes the services of the GNAT run-time that are necessary
+to the Ada code inside the DLL. As a result, when an Ada program uses an
+Ada DLL there are two independent GNAT run-times: one in the Ada DLL and
+one in the main program.</p>
+<p>It is therefore not possible to exchange GNAT run-time objects between the
+Ada DLL and the main Ada program. Example of GNAT run-time objects are file
+handles (e.g., <code class="docutils literal notranslate"><span class="pre">Text_IO.File_Type</span></code>), tasks types, protected objects
+types, etc.</p>
+<p>It is completely safe to exchange plain elementary, array or record types,
+Windows object handles, etc.</p>
+</div>
+<div class="section" id="exporting-ada-entities">
+<span id="id26"></span><h5>Exporting Ada Entities<a class="headerlink" href="#exporting-ada-entities" title="Permalink to this headline">¶</a></h5>
+<p id="index-33">Building a DLL is a way to encapsulate a set of services usable from any
+application. As a result, the Ada entities exported by a DLL should be
+exported with the <code class="docutils literal notranslate"><span class="pre">C</span></code> or <code class="docutils literal notranslate"><span class="pre">Stdcall</span></code> calling conventions to avoid
+any Ada name mangling. As an example here is an Ada package
+<code class="docutils literal notranslate"><span class="pre">API</span></code>, spec and body, exporting two procedures, a function, and a
+variable:</p>
+<blockquote>
+<div><div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kr">with</span><span class="p"> </span><span class="n">Interfaces.C</span><span class="p">; </span><span class="kr">use</span><span class="nn"> Interfaces;</span>
+<span class="k">package </span><span class="nf">API</span> <span class="kr">is</span><span class="p"></span>
+   <span class="n">Count</span> <span class="o">:</span> <span class="n">C.int</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span>
+   <span class="k">function </span><span class="nf">Factorial</span> <span class="o">(</span><span class="n">Val</span> <span class="o">:</span> <span class="n">C.int</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">C.int</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Initialize_API</span><span class="p">;</span>
+   <span class="k">procedure </span><span class="nf">Finalize_API</span><span class="p">;</span>
+   <span class="c">--  Initialization &amp; Finalization routines. More in the next section.</span>
+<span class="kr">private</span><span class="p"></span>
+   <span class="kr">pragma</span><span class="p"> </span><span class="n">Export</span> <span class="o">(</span><span class="n">C</span><span class="p">,</span> <span class="n">Initialize_API</span><span class="o">)</span><span class="p">;</span>
+   <span class="kr">pragma</span><span class="p"> </span><span class="n">Export</span> <span class="o">(</span><span class="n">C</span><span class="p">,</span> <span class="n">Finalize_API</span><span class="o">)</span><span class="p">;</span>
+   <span class="kr">pragma</span><span class="p"> </span><span class="n">Export</span> <span class="o">(</span><span class="n">C</span><span class="p">,</span> <span class="n">Count</span><span class="o">)</span><span class="p">;</span>
+   <span class="kr">pragma</span><span class="p"> </span><span class="n">Export</span> <span class="o">(</span><span class="n">C</span><span class="p">,</span> <span class="n">Factorial</span><span class="o">)</span><span class="p">;</span>
+<span class="k">end </span><span class="nf">API</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="k">package body </span><span class="nf">API</span> <span class="kr">is</span><span class="p"></span>
+   <span class="k">function </span><span class="nf">Factorial</span> <span class="o">(</span><span class="n">Val</span> <span class="o">:</span> <span class="n">C.int</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">C.int</span> <span class="kr">is</span><span class="p"></span>
+      <span class="n">Fact</span> <span class="o">:</span> <span class="n">C.int</span> <span class="o">:=</span> <span class="mi">1</span><span class="p">;</span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="n">Count</span> <span class="o">:=</span> <span class="n">Count</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+      <span class="kr">for</span><span class="p"> </span><span class="n">K</span> <span class="kr">in</span><span class="p"> </span><span class="mi">1</span> <span class="o">..</span> <span class="n">Val</span> <span class="kr">loop</span><span class="p"></span>
+         <span class="n">Fact</span> <span class="o">:=</span> <span class="n">Fact</span> <span class="o">*</span> <span class="n">K</span><span class="p">;</span>
+      <span class="k">end loop</span><span class="p">;</span>
+      <span class="kr">return</span><span class="p"> </span><span class="n">Fact</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Factorial</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Initialize_API</span> <span class="kr">is</span><span class="p"></span>
+      <span class="k">procedure </span><span class="nf">Adainit</span><span class="p">;</span>
+      <span class="kr">pragma</span><span class="p"> </span><span class="n">Import</span> <span class="o">(</span><span class="n">C</span><span class="p">,</span> <span class="n">Adainit</span><span class="o">)</span><span class="p">;</span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="n">Adainit</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Initialize_API</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Finalize_API</span> <span class="kr">is</span><span class="p"></span>
+      <span class="k">procedure </span><span class="nf">Adafinal</span><span class="p">;</span>
+      <span class="kr">pragma</span><span class="p"> </span><span class="n">Import</span> <span class="o">(</span><span class="n">C</span><span class="p">,</span> <span class="n">Adafinal</span><span class="o">)</span><span class="p">;</span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="n">Adafinal</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Finalize_API</span><span class="p">;</span>
+<span class="k">end </span><span class="nf">API</span><span class="p">;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>If the Ada DLL you are building will only be used by Ada applications
+you do not have to export Ada entities with a <code class="docutils literal notranslate"><span class="pre">C</span></code> or <code class="docutils literal notranslate"><span class="pre">Stdcall</span></code>
+convention. As an example, the previous package could be written as
+follows:</p>
+<blockquote>
+<div><div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="k">package </span><span class="nf">API</span> <span class="kr">is</span><span class="p"></span>
+   <span class="n">Count</span> <span class="o">:</span> <span class="n">Integer</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span>
+   <span class="k">function </span><span class="nf">Factorial</span> <span class="o">(</span><span class="n">Val</span> <span class="o">:</span> <span class="n">Integer</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Integer</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Initialize_API</span><span class="p">;</span>
+   <span class="k">procedure </span><span class="nf">Finalize_API</span><span class="p">;</span>
+   <span class="c">--  Initialization and Finalization routines.</span>
+<span class="k">end </span><span class="nf">API</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="k">package body </span><span class="nf">API</span> <span class="kr">is</span><span class="p"></span>
+   <span class="k">function </span><span class="nf">Factorial</span> <span class="o">(</span><span class="n">Val</span> <span class="o">:</span> <span class="n">Integer</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Integer</span> <span class="kr">is</span><span class="p"></span>
+      <span class="n">Fact</span> <span class="o">:</span> <span class="n">Integer</span> <span class="o">:=</span> <span class="mi">1</span><span class="p">;</span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="n">Count</span> <span class="o">:=</span> <span class="n">Count</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+      <span class="kr">for</span><span class="p"> </span><span class="n">K</span> <span class="kr">in</span><span class="p"> </span><span class="mi">1</span> <span class="o">..</span> <span class="n">Val</span> <span class="kr">loop</span><span class="p"></span>
+         <span class="n">Fact</span> <span class="o">:=</span> <span class="n">Fact</span> <span class="o">*</span> <span class="n">K</span><span class="p">;</span>
+      <span class="k">end loop</span><span class="p">;</span>
+      <span class="kr">return</span><span class="p"> </span><span class="n">Fact</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Factorial</span><span class="p">;</span>
+
+   <span class="o">...</span>
+   <span class="c">--  The remainder of this package body is unchanged.</span>
+<span class="k">end </span><span class="nf">API</span><span class="p">;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>Note that if you do not export the Ada entities with a <code class="docutils literal notranslate"><span class="pre">C</span></code> or
+<code class="docutils literal notranslate"><span class="pre">Stdcall</span></code> convention you will have to provide the mangled Ada names
+in the definition file of the Ada DLL
+(<a class="reference internal" href="#creating-the-definition-file"><span class="std std-ref">Creating the Definition File</span></a>).</p>
+</div>
+<div class="section" id="ada-dlls-and-elaboration">
+<span id="id27"></span><h5>Ada DLLs and Elaboration<a class="headerlink" href="#ada-dlls-and-elaboration" title="Permalink to this headline">¶</a></h5>
+<p id="index-34">The DLL that you are building contains your Ada code as well as all the
+routines in the Ada library that are needed by it. The first thing a
+user of your DLL must do is elaborate the Ada code
+(<a class="reference internal" href="elaboration_order_handling_in_gnat.html#elaboration-order-handling-in-gnat"><span class="std std-ref">Elaboration Order Handling in GNAT</span></a>).</p>
+<p>To achieve this you must export an initialization routine
+(<code class="docutils literal notranslate"><span class="pre">Initialize_API</span></code> in the previous example), which must be invoked
+before using any of the DLL services. This elaboration routine must call
+the Ada elaboration routine <code class="docutils literal notranslate"><span class="pre">adainit</span></code> generated by the GNAT binder
+(<a class="reference internal" href="building_executable_programs_with_gnat.html#binding-with-non-ada-main-programs"><span class="std std-ref">Binding with Non-Ada Main Programs</span></a>). See the body of
+<code class="docutils literal notranslate"><span class="pre">Initialize_Api</span></code> for an example. Note that the GNAT binder is
+automatically invoked during the DLL build process by the <code class="docutils literal notranslate"><span class="pre">gnatdll</span></code>
+tool (<a class="reference internal" href="#using-gnatdll"><span class="std std-ref">Using gnatdll</span></a>).</p>
+<p>When a DLL is loaded, Windows systematically invokes a routine called
+<code class="docutils literal notranslate"><span class="pre">DllMain</span></code>. It would therefore be possible to call <code class="docutils literal notranslate"><span class="pre">adainit</span></code>
+directly from <code class="docutils literal notranslate"><span class="pre">DllMain</span></code> without having to provide an explicit
+initialization routine. Unfortunately, it is not possible to call
+<code class="docutils literal notranslate"><span class="pre">adainit</span></code> from the <code class="docutils literal notranslate"><span class="pre">DllMain</span></code> if your program has library level
+tasks because access to the <code class="docutils literal notranslate"><span class="pre">DllMain</span></code> entry point is serialized by
+the system (that is, only a single thread can execute ‘through’ it at a
+time), which means that the GNAT run-time will deadlock waiting for the
+newly created task to complete its initialization.</p>
+</div>
+</div>
+<div class="section" id="ada-dlls-and-finalization">
+<span id="id28"></span><h4>Ada DLLs and Finalization<a class="headerlink" href="#ada-dlls-and-finalization" title="Permalink to this headline">¶</a></h4>
+<p id="index-35">When the services of an Ada DLL are no longer needed, the client code should
+invoke the DLL finalization routine, if available. The DLL finalization
+routine is in charge of releasing all resources acquired by the DLL. In the
+case of the Ada code contained in the DLL, this is achieved by calling
+routine <code class="docutils literal notranslate"><span class="pre">adafinal</span></code> generated by the GNAT binder
+(<a class="reference internal" href="building_executable_programs_with_gnat.html#binding-with-non-ada-main-programs"><span class="std std-ref">Binding with Non-Ada Main Programs</span></a>).
+See the body of <code class="docutils literal notranslate"><span class="pre">Finalize_Api</span></code> for an
+example. As already pointed out the GNAT binder is automatically invoked
+during the DLL build process by the <code class="docutils literal notranslate"><span class="pre">gnatdll</span></code> tool
+(<a class="reference internal" href="#using-gnatdll"><span class="std std-ref">Using gnatdll</span></a>).</p>
+</div>
+<div class="section" id="creating-a-spec-for-ada-dlls">
+<span id="id29"></span><h4>Creating a Spec for Ada DLLs<a class="headerlink" href="#creating-a-spec-for-ada-dlls" title="Permalink to this headline">¶</a></h4>
+<p>To use the services exported by the Ada DLL from another programming
+language (e.g., C), you have to translate the specs of the exported Ada
+entities in that language. For instance in the case of <code class="docutils literal notranslate"><span class="pre">API.dll</span></code>,
+the corresponding C header file could look like:</p>
+<blockquote>
+<div><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">extern</span> <span class="kt">int</span> <span class="o">*</span><span class="n">_imp__count</span><span class="p">;</span>
+<span class="cp">#define count (*_imp__count)</span>
+<span class="kt">int</span> <span class="nf">factorial</span> <span class="p">(</span><span class="kt">int</span><span class="p">);</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>It is important to understand that when building an Ada DLL to be used by
+other Ada applications, you need two different specs for the packages
+contained in the DLL: one for building the DLL and the other for using
+the DLL. This is because the <code class="docutils literal notranslate"><span class="pre">DLL</span></code> calling convention is needed to
+use a variable defined in a DLL, but when building the DLL, the variable
+must have either the <code class="docutils literal notranslate"><span class="pre">Ada</span></code> or <code class="docutils literal notranslate"><span class="pre">C</span></code> calling convention. As an
+example consider a DLL comprising the following package <code class="docutils literal notranslate"><span class="pre">API</span></code>:</p>
+<blockquote>
+<div><div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="k">package </span><span class="nf">API</span> <span class="kr">is</span><span class="p"></span>
+   <span class="n">Count</span> <span class="o">:</span> <span class="n">Integer</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span>
+   <span class="o">...</span>
+   <span class="c">--  Remainder of the package omitted.</span>
+<span class="k">end </span><span class="nf">API</span><span class="p">;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>After producing a DLL containing package <code class="docutils literal notranslate"><span class="pre">API</span></code>, the spec that
+must be used to import <code class="docutils literal notranslate"><span class="pre">API.Count</span></code> from Ada code outside of the
+DLL is:</p>
+<blockquote>
+<div><div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="k">package </span><span class="nf">API</span> <span class="kr">is</span><span class="p"></span>
+   <span class="n">Count</span> <span class="o">:</span> <span class="n">Integer</span><span class="p">;</span>
+   <span class="kr">pragma</span><span class="p"> </span><span class="n">Import</span> <span class="o">(</span><span class="n">DLL</span><span class="p">,</span> <span class="n">Count</span><span class="o">)</span><span class="p">;</span>
+<span class="k">end </span><span class="nf">API</span><span class="p">;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<div class="section" id="creating-the-definition-file">
+<span id="id30"></span><h5>Creating the Definition File<a class="headerlink" href="#creating-the-definition-file" title="Permalink to this headline">¶</a></h5>
+<p>The definition file is the last file needed to build the DLL. It lists
+the exported symbols. As an example, the definition file for a DLL
+containing only package <code class="docutils literal notranslate"><span class="pre">API</span></code> (where all the entities are exported
+with a <code class="docutils literal notranslate"><span class="pre">C</span></code> calling convention) is:</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">EXPORTS</span>
+    <span class="n">count</span>
+    <span class="n">factorial</span>
+    <span class="n">finalize_api</span>
+    <span class="n">initialize_api</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>If the <code class="docutils literal notranslate"><span class="pre">C</span></code> calling convention is missing from package <code class="docutils literal notranslate"><span class="pre">API</span></code>,
+then the definition file contains the mangled Ada names of the above
+entities, which in this case are:</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">EXPORTS</span>
+    <span class="n">api__count</span>
+    <span class="n">api__factorial</span>
+    <span class="n">api__finalize_api</span>
+    <span class="n">api__initialize_api</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="using-gnatdll">
+<span id="id31"></span><h5>Using <code class="docutils literal notranslate"><span class="pre">gnatdll</span></code><a class="headerlink" href="#using-gnatdll" title="Permalink to this headline">¶</a></h5>
+<p id="index-36"><code class="docutils literal notranslate"><span class="pre">gnatdll</span></code> is a tool to automate the DLL build process once all the Ada
+and non-Ada sources that make up your DLL have been compiled.
+<code class="docutils literal notranslate"><span class="pre">gnatdll</span></code> is actually in charge of two distinct tasks: build the
+static import library for the DLL and the actual DLL. The form of the
+<code class="docutils literal notranslate"><span class="pre">gnatdll</span></code> command is</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ gnatdll [ switches ] list-of-files [ -largs opts ]
+</pre></div>
+</div>
+</div></blockquote>
+<p>where <code class="docutils literal notranslate"><span class="pre">list-of-files</span></code> is a list of ALI and object files. The object
+file list must be the exact list of objects corresponding to the non-Ada
+sources whose services are to be included in the DLL. The ALI file list
+must be the exact list of ALI files for the corresponding Ada sources
+whose services are to be included in the DLL. If <code class="docutils literal notranslate"><span class="pre">list-of-files</span></code> is
+missing, only the static import library is generated.</p>
+<p>You may specify any of the following switches to <code class="docutils literal notranslate"><span class="pre">gnatdll</span></code>:</p>
+<blockquote>
+<div></div></blockquote>
+<dl id="index-37">
+<dt><code class="switch docutils literal notranslate"><span class="pre">-a[</span><em><span class="pre">address</span></em><span class="pre">]</span></code></dt><dd><p>Build a non-relocatable DLL at <code class="docutils literal notranslate"><span class="pre">address</span></code>. If <code class="docutils literal notranslate"><span class="pre">address</span></code> is not
+specified the default address <code class="docutils literal notranslate"><span class="pre">0x11000000</span></code> will be used. By default,
+when this switch is missing, <code class="docutils literal notranslate"><span class="pre">gnatdll</span></code> builds relocatable DLL. We
+advise the reader to build relocatable DLL.</p>
+</dd>
+<dt id="index-38"><code class="switch docutils literal notranslate"><span class="pre">-b</span> <em><span class="pre">address</span></em></code></dt><dd><p>Set the relocatable DLL base address. By default the address is
+<code class="docutils literal notranslate"><span class="pre">0x11000000</span></code>.</p>
+</dd>
+<dt id="index-39"><code class="switch docutils literal notranslate"><span class="pre">-bargs</span> <em><span class="pre">opts</span></em></code></dt><dd><p>Binder options. Pass <code class="docutils literal notranslate"><span class="pre">opts</span></code> to the binder.</p>
+</dd>
+<dt id="index-40"><code class="switch docutils literal notranslate"><span class="pre">-d</span> <em><span class="pre">dllfile</span></em></code></dt><dd><p><code class="docutils literal notranslate"><span class="pre">dllfile</span></code> is the name of the DLL. This switch must be present for
+<code class="docutils literal notranslate"><span class="pre">gnatdll</span></code> to do anything. The name of the generated import library is
+obtained algorithmically from <code class="docutils literal notranslate"><span class="pre">dllfile</span></code> as shown in the following
+example: if <code class="docutils literal notranslate"><span class="pre">dllfile</span></code> is <code class="file docutils literal notranslate"><span class="pre">xyz.dll</span></code>, the import library name is
+<code class="file docutils literal notranslate"><span class="pre">libxyz.dll.a</span></code>. The name of the definition file to use (if not specified
+by option <code class="switch docutils literal notranslate"><span class="pre">-e</span></code>) is obtained algorithmically from <code class="docutils literal notranslate"><span class="pre">dllfile</span></code>
+as shown in the following example:
+if <code class="docutils literal notranslate"><span class="pre">dllfile</span></code> is <code class="file docutils literal notranslate"><span class="pre">xyz.dll</span></code>, the definition
+file used is <code class="file docutils literal notranslate"><span class="pre">xyz.def</span></code>.</p>
+</dd>
+<dt id="index-41"><code class="switch docutils literal notranslate"><span class="pre">-e</span> <em><span class="pre">deffile</span></em></code></dt><dd><p><code class="docutils literal notranslate"><span class="pre">deffile</span></code> is the name of the definition file.</p>
+</dd>
+<dt id="index-42"><code class="switch docutils literal notranslate"><span class="pre">-g</span></code></dt><dd><p>Generate debugging information. This information is stored in the object
+file and copied from there to the final DLL file by the linker,
+where it can be read by the debugger. You must use the
+<code class="switch docutils literal notranslate"><span class="pre">-g</span></code> switch if you plan on using the debugger or the symbolic
+stack traceback.</p>
+</dd>
+<dt id="index-43"><code class="switch docutils literal notranslate"><span class="pre">-h</span></code></dt><dd><p>Help mode. Displays <code class="docutils literal notranslate"><span class="pre">gnatdll</span></code> switch usage information.</p>
+</dd>
+<dt id="index-44"><code class="switch docutils literal notranslate"><span class="pre">-I</span><em><span class="pre">dir</span></em></code></dt><dd><p>Direct <code class="docutils literal notranslate"><span class="pre">gnatdll</span></code> to search the <code class="docutils literal notranslate"><span class="pre">dir</span></code> directory for source and
+object files needed to build the DLL.
+(<a class="reference internal" href="building_executable_programs_with_gnat.html#search-paths-and-the-run-time-library-rtl"><span class="std std-ref">Search Paths and the Run-Time Library (RTL)</span></a>).</p>
+</dd>
+<dt id="index-45"><code class="switch docutils literal notranslate"><span class="pre">-k</span></code></dt><dd><p>Removes the <code class="samp docutils literal notranslate"><span class="pre">&#64;</span><em><span class="pre">nn</span></em></code> suffix from the import library’s exported
+names, but keeps them for the link names. You must specify this
+option if you want to use a <code class="docutils literal notranslate"><span class="pre">Stdcall</span></code> function in a DLL for which
+the <code class="samp docutils literal notranslate"><span class="pre">&#64;</span><em><span class="pre">nn</span></em></code> suffix has been removed. This is the case for most
+of the Windows NT DLL for example. This option has no effect when
+<code class="switch docutils literal notranslate"><span class="pre">-n</span></code> option is specified.</p>
+</dd>
+<dt id="index-46"><code class="switch docutils literal notranslate"><span class="pre">-l</span> <em><span class="pre">file</span></em></code></dt><dd><p>The list of ALI and object files used to build the DLL are listed in
+<code class="docutils literal notranslate"><span class="pre">file</span></code>, instead of being given in the command line. Each line in
+<code class="docutils literal notranslate"><span class="pre">file</span></code> contains the name of an ALI or object file.</p>
+</dd>
+<dt id="index-47"><code class="switch docutils literal notranslate"><span class="pre">-n</span></code></dt><dd><p>No Import. Do not create the import library.</p>
+</dd>
+<dt id="index-48"><code class="switch docutils literal notranslate"><span class="pre">-q</span></code></dt><dd><p>Quiet mode. Do not display unnecessary messages.</p>
+</dd>
+<dt id="index-49"><code class="switch docutils literal notranslate"><span class="pre">-v</span></code></dt><dd><p>Verbose mode. Display extra information.</p>
+</dd>
+<dt id="index-50"><code class="switch docutils literal notranslate"><span class="pre">-largs</span> <em><span class="pre">opts</span></em></code></dt><dd><p>Linker options. Pass <code class="docutils literal notranslate"><span class="pre">opts</span></code> to the linker.</p>
+</dd>
+</dl>
+<p class="rubric"><code class="docutils literal notranslate"><span class="pre">gnatdll</span></code> Example</p>
+<p>As an example the command to build a relocatable DLL from <code class="file docutils literal notranslate"><span class="pre">api.adb</span></code>
+once <code class="file docutils literal notranslate"><span class="pre">api.adb</span></code> has been compiled and <code class="file docutils literal notranslate"><span class="pre">api.def</span></code> created is</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ gnatdll -d api.dll api.ali
+</pre></div>
+</div>
+</div></blockquote>
+<p>The above command creates two files: <code class="file docutils literal notranslate"><span class="pre">libapi.dll.a</span></code> (the import
+library) and <code class="file docutils literal notranslate"><span class="pre">api.dll</span></code> (the actual DLL). If you want to create
+only the DLL, just type:</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ gnatdll -d api.dll -n api.ali
+</pre></div>
+</div>
+</div></blockquote>
+<p>Alternatively if you want to create just the import library, type:</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ gnatdll -d api.dll
+</pre></div>
+</div>
+</div></blockquote>
+<p class="rubric"><code class="docutils literal notranslate"><span class="pre">gnatdll</span></code> behind the Scenes</p>
+<p>This section details the steps involved in creating a DLL. <code class="docutils literal notranslate"><span class="pre">gnatdll</span></code>
+does these steps for you. Unless you are interested in understanding what
+goes on behind the scenes, you should skip this section.</p>
+<p>We use the previous example of a DLL containing the Ada package <code class="docutils literal notranslate"><span class="pre">API</span></code>,
+to illustrate the steps necessary to build a DLL. The starting point is a
+set of objects that will make up the DLL and the corresponding ALI
+files. In the case of this example this means that <code class="file docutils literal notranslate"><span class="pre">api.o</span></code> and
+<code class="file docutils literal notranslate"><span class="pre">api.ali</span></code> are available. To build a relocatable DLL, <code class="docutils literal notranslate"><span class="pre">gnatdll</span></code> does
+the following:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">gnatdll</span></code> builds the base file (<code class="file docutils literal notranslate"><span class="pre">api.base</span></code>). A base file gives
+the information necessary to generate relocation information for the
+DLL.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ gnatbind -n api
+$ gnatlink api -o api.jnk -mdll -Wl,--base-file,api.base
+</pre></div>
+</div>
+<p>In addition to the base file, the <code class="docutils literal notranslate"><span class="pre">gnatlink</span></code> command generates an
+output file <code class="file docutils literal notranslate"><span class="pre">api.jnk</span></code> which can be discarded. The <code class="switch docutils literal notranslate"><span class="pre">-mdll</span></code> switch
+asks <code class="docutils literal notranslate"><span class="pre">gnatlink</span></code> to generate the routines <code class="docutils literal notranslate"><span class="pre">DllMain</span></code> and
+<code class="docutils literal notranslate"><span class="pre">DllMainCRTStartup</span></code> that are called by the Windows loader when the DLL
+is loaded into memory.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gnatdll</span></code> uses <code class="docutils literal notranslate"><span class="pre">dlltool</span></code> (see <a class="reference internal" href="#using-dlltool"><span class="std std-ref">Using dlltool</span></a>) to build the
+export table (<code class="file docutils literal notranslate"><span class="pre">api.exp</span></code>). The export table contains the relocation
+information in a form which can be used during the final link to ensure
+that the Windows loader is able to place the DLL anywhere in memory.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ dlltool --dllname api.dll --def api.def --base-file api.base \\
+          --output-exp api.exp
+</pre></div>
+</div>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gnatdll</span></code> builds the base file using the new export table. Note that
+<code class="docutils literal notranslate"><span class="pre">gnatbind</span></code> must be called once again since the binder generated file
+has been deleted during the previous call to <code class="docutils literal notranslate"><span class="pre">gnatlink</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ gnatbind -n api
+$ gnatlink api -o api.jnk api.exp -mdll
+      -Wl,--base-file,api.base
+</pre></div>
+</div>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gnatdll</span></code> builds the new export table using the new base file and
+generates the DLL import library <code class="file docutils literal notranslate"><span class="pre">libAPI.dll.a</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ dlltool --dllname api.dll --def api.def --base-file api.base \\
+          --output-exp api.exp --output-lib libAPI.a
+</pre></div>
+</div>
+</li>
+<li><p>Finally <code class="docutils literal notranslate"><span class="pre">gnatdll</span></code> builds the relocatable DLL using the final export
+table.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ gnatbind -n api
+$ gnatlink api api.exp -o api.dll -mdll
+</pre></div>
+</div>
+</li>
+</ul>
+<p class="rubric" id="using-dlltool">Using <code class="docutils literal notranslate"><span class="pre">dlltool</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">dlltool</span></code> is the low-level tool used by <code class="docutils literal notranslate"><span class="pre">gnatdll</span></code> to build
+DLLs and static import libraries. This section summarizes the most
+common <code class="docutils literal notranslate"><span class="pre">dlltool</span></code> switches. The form of the <code class="docutils literal notranslate"><span class="pre">dlltool</span></code> command
+is</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ dlltool [`switches`]
+</pre></div>
+</div>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">dlltool</span></code> switches include:</p>
+<dl class="simple" id="index-51">
+<dt><code class="switch docutils literal notranslate"><span class="pre">--base-file</span> <em><span class="pre">basefile</span></em></code></dt><dd><p>Read the base file <code class="docutils literal notranslate"><span class="pre">basefile</span></code> generated by the linker. This switch
+is used to create a relocatable DLL.</p>
+</dd>
+</dl>
+<dl class="simple" id="index-52">
+<dt><code class="switch docutils literal notranslate"><span class="pre">--def</span> <em><span class="pre">deffile</span></em></code></dt><dd><p>Read the definition file.</p>
+</dd>
+</dl>
+<dl class="simple" id="index-53">
+<dt><code class="switch docutils literal notranslate"><span class="pre">--dllname</span> <em><span class="pre">name</span></em></code></dt><dd><p>Gives the name of the DLL. This switch is used to embed the name of the
+DLL in the static import library generated by <code class="docutils literal notranslate"><span class="pre">dlltool</span></code> with switch
+<code class="switch docutils literal notranslate"><span class="pre">--output-lib</span></code>.</p>
+</dd>
+</dl>
+<dl class="simple" id="index-54">
+<dt><code class="switch docutils literal notranslate"><span class="pre">-k</span></code></dt><dd><p>Kill <code class="samp docutils literal notranslate"><span class="pre">&#64;</span><em><span class="pre">nn</span></em></code> from exported names
+(<a class="reference internal" href="#windows-calling-conventions"><span class="std std-ref">Windows Calling Conventions</span></a>
+for a discussion about <code class="docutils literal notranslate"><span class="pre">Stdcall</span></code>-style symbols.</p>
+</dd>
+</dl>
+<dl class="simple" id="index-55">
+<dt><code class="switch docutils literal notranslate"><span class="pre">--help</span></code></dt><dd><p>Prints the <code class="docutils literal notranslate"><span class="pre">dlltool</span></code> switches with a concise description.</p>
+</dd>
+</dl>
+<dl class="simple" id="index-56">
+<dt><code class="switch docutils literal notranslate"><span class="pre">--output-exp</span> <em><span class="pre">exportfile</span></em></code></dt><dd><p>Generate an export file <code class="docutils literal notranslate"><span class="pre">exportfile</span></code>. The export file contains the
+export table (list of symbols in the DLL) and is used to create the DLL.</p>
+</dd>
+</dl>
+<dl class="simple" id="index-57">
+<dt><code class="switch docutils literal notranslate"><span class="pre">--output-lib</span> <em><span class="pre">libfile</span></em></code></dt><dd><p>Generate a static import library <code class="docutils literal notranslate"><span class="pre">libfile</span></code>.</p>
+</dd>
+</dl>
+<dl class="simple" id="index-58">
+<dt><code class="switch docutils literal notranslate"><span class="pre">-v</span></code></dt><dd><p>Verbose mode.</p>
+</dd>
+</dl>
+<dl class="simple" id="index-59">
+<dt><code class="switch docutils literal notranslate"><span class="pre">--as</span> <em><span class="pre">assembler-name</span></em></code></dt><dd><p>Use <code class="docutils literal notranslate"><span class="pre">assembler-name</span></code> as the assembler. The default is <code class="docutils literal notranslate"><span class="pre">as</span></code>.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="gnat-and-windows-resources">
+<span id="id32"></span><h4>GNAT and Windows Resources<a class="headerlink" href="#gnat-and-windows-resources" title="Permalink to this headline">¶</a></h4>
+<p id="index-60">Resources are an easy way to add Windows specific objects to your
+application. The objects that can be added as resources include:</p>
+<ul class="simple">
+<li><p>menus</p></li>
+<li><p>accelerators</p></li>
+<li><p>dialog boxes</p></li>
+<li><p>string tables</p></li>
+<li><p>bitmaps</p></li>
+<li><p>cursors</p></li>
+<li><p>icons</p></li>
+<li><p>fonts</p></li>
+<li><p>version information</p></li>
+</ul>
+<p>For example, a version information resource can be defined as follow and
+embedded into an executable or DLL:</p>
+<p>A version information resource can be used to embed information into an
+executable or a DLL. These information can be viewed using the file properties
+from the Windows Explorer. Here is an example of a version information
+resource:</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="n">VERSIONINFO</span>
+<span class="n">FILEVERSION</span>     <span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span>
+<span class="n">PRODUCTVERSION</span>  <span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span>
+<span class="n">BEGIN</span>
+  <span class="n">BLOCK</span> <span class="s2">&quot;StringFileInfo&quot;</span>
+  <span class="n">BEGIN</span>
+    <span class="n">BLOCK</span> <span class="s2">&quot;080904E4&quot;</span>
+    <span class="n">BEGIN</span>
+      <span class="n">VALUE</span> <span class="s2">&quot;CompanyName&quot;</span><span class="p">,</span> <span class="s2">&quot;My Company Name&quot;</span>
+      <span class="n">VALUE</span> <span class="s2">&quot;FileDescription&quot;</span><span class="p">,</span> <span class="s2">&quot;My application&quot;</span>
+      <span class="n">VALUE</span> <span class="s2">&quot;FileVersion&quot;</span><span class="p">,</span> <span class="s2">&quot;1.0&quot;</span>
+      <span class="n">VALUE</span> <span class="s2">&quot;InternalName&quot;</span><span class="p">,</span> <span class="s2">&quot;my_app&quot;</span>
+      <span class="n">VALUE</span> <span class="s2">&quot;LegalCopyright&quot;</span><span class="p">,</span> <span class="s2">&quot;My Name&quot;</span>
+      <span class="n">VALUE</span> <span class="s2">&quot;OriginalFilename&quot;</span><span class="p">,</span> <span class="s2">&quot;my_app.exe&quot;</span>
+      <span class="n">VALUE</span> <span class="s2">&quot;ProductName&quot;</span><span class="p">,</span> <span class="s2">&quot;My App&quot;</span>
+      <span class="n">VALUE</span> <span class="s2">&quot;ProductVersion&quot;</span><span class="p">,</span> <span class="s2">&quot;1.0&quot;</span>
+    <span class="n">END</span>
+  <span class="n">END</span>
+
+  <span class="n">BLOCK</span> <span class="s2">&quot;VarFileInfo&quot;</span>
+  <span class="n">BEGIN</span>
+    <span class="n">VALUE</span> <span class="s2">&quot;Translation&quot;</span><span class="p">,</span> <span class="mh">0x809</span><span class="p">,</span> <span class="mi">1252</span>
+  <span class="n">END</span>
+<span class="n">END</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>The value <code class="docutils literal notranslate"><span class="pre">0809</span></code> (langID) is for the U.K English language and
+<code class="docutils literal notranslate"><span class="pre">04E4</span></code> (charsetID), which is equal to <code class="docutils literal notranslate"><span class="pre">1252</span></code> decimal, for
+multilingual.</p>
+<p>This section explains how to build, compile and use resources. Note that this
+section does not cover all resource objects, for a complete description see
+the corresponding Microsoft documentation.</p>
+<div class="section" id="building-resources">
+<span id="id33"></span><h5>Building Resources<a class="headerlink" href="#building-resources" title="Permalink to this headline">¶</a></h5>
+<p id="index-61">A resource file is an ASCII file. By convention resource files have an
+<code class="file docutils literal notranslate"><span class="pre">.rc</span></code> extension.
+The easiest way to build a resource file is to use Microsoft tools
+such as <code class="docutils literal notranslate"><span class="pre">imagedit.exe</span></code> to build bitmaps, icons and cursors and
+<code class="docutils literal notranslate"><span class="pre">dlgedit.exe</span></code> to build dialogs.
+It is always possible to build an <code class="file docutils literal notranslate"><span class="pre">.rc</span></code> file yourself by writing a
+resource script.</p>
+<p>It is not our objective to explain how to write a resource file. A
+complete description of the resource script language can be found in the
+Microsoft documentation.</p>
+</div>
+<div class="section" id="compiling-resources">
+<span id="id34"></span><h5>Compiling Resources<a class="headerlink" href="#compiling-resources" title="Permalink to this headline">¶</a></h5>
+<span class="target" id="index-62"></span><span class="target" id="index-63"></span><p id="index-64">This section describes how to build a GNAT-compatible (COFF) object file
+containing the resources. This is done using the Resource Compiler
+<code class="docutils literal notranslate"><span class="pre">windres</span></code> as follows:</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ windres -i myres.rc -o myres.o
+</pre></div>
+</div>
+</div></blockquote>
+<p>By default <code class="docutils literal notranslate"><span class="pre">windres</span></code> will run <code class="docutils literal notranslate"><span class="pre">gcc</span></code> to preprocess the <code class="file docutils literal notranslate"><span class="pre">.rc</span></code>
+file. You can specify an alternate preprocessor (usually named
+<code class="file docutils literal notranslate"><span class="pre">cpp.exe</span></code>) using the <code class="docutils literal notranslate"><span class="pre">windres</span></code> <code class="switch docutils literal notranslate"><span class="pre">--preprocessor</span></code>
+parameter. A list of all possible options may be obtained by entering
+the command <code class="docutils literal notranslate"><span class="pre">windres</span></code> <code class="switch docutils literal notranslate"><span class="pre">--help</span></code>.</p>
+<p>It is also possible to use the Microsoft resource compiler <code class="docutils literal notranslate"><span class="pre">rc.exe</span></code>
+to produce a <code class="file docutils literal notranslate"><span class="pre">.res</span></code> file (binary resource file). See the
+corresponding Microsoft documentation for further details. In this case
+you need to use <code class="docutils literal notranslate"><span class="pre">windres</span></code> to translate the <code class="file docutils literal notranslate"><span class="pre">.res</span></code> file to a
+GNAT-compatible object file as follows:</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ windres -i myres.res -o myres.o
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="using-resources">
+<span id="id35"></span><h5>Using Resources<a class="headerlink" href="#using-resources" title="Permalink to this headline">¶</a></h5>
+<p id="index-65">To include the resource file in your program just add the
+GNAT-compatible object file for the resource(s) to the linker
+arguments. With <code class="docutils literal notranslate"><span class="pre">gnatmake</span></code> this is done by using the <code class="switch docutils literal notranslate"><span class="pre">-largs</span></code>
+option:</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ gnatmake myprog -largs myres.o
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="using-gnat-dlls-from-microsoft-visual-studio-applications">
+<span id="using-gnat-dll-from-msvs"></span><h4>Using GNAT DLLs from Microsoft Visual Studio Applications<a class="headerlink" href="#using-gnat-dlls-from-microsoft-visual-studio-applications" title="Permalink to this headline">¶</a></h4>
+<p id="index-66">This section describes a common case of mixed GNAT/Microsoft Visual Studio
+application development, where the main program is developed using MSVS, and
+is linked with a DLL developed using GNAT. Such a mixed application should
+be developed following the general guidelines outlined above; below is the
+cookbook-style sequence of steps to follow:</p>
+<ol class="arabic simple">
+<li><p>First develop and build the GNAT shared library using a library project
+(let’s assume the project is <code class="file docutils literal notranslate"><span class="pre">mylib.gpr</span></code>, producing the library <code class="file docutils literal notranslate"><span class="pre">libmylib.dll</span></code>):</p></li>
+</ol>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ gprbuild -p mylib.gpr
+</pre></div>
+</div>
+</div></blockquote>
+<ol class="arabic simple" start="2">
+<li><p>Produce a .def file for the symbols you need to interface with, either by
+hand or automatically with possibly some manual adjustments
+(see <a class="reference internal" href="#create-def-file-automatically"><span class="std std-ref">Creating Definition File Automatically</span></a>):</p></li>
+</ol>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ dlltool libmylib.dll -z libmylib.def --export-all-symbols
+</pre></div>
+</div>
+</div></blockquote>
+<ol class="arabic simple" start="3">
+<li><p>Make sure that MSVS command-line tools are accessible on the path.</p></li>
+<li><p>Create the Microsoft-style import library (see <a class="reference internal" href="#msvs-style-import-library"><span class="std std-ref">MSVS-Style Import Library</span></a>):</p></li>
+</ol>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ lib -machine:IX86 -def:libmylib.def -out:libmylib.lib
+</pre></div>
+</div>
+</div></blockquote>
+<p>If you are using a 64-bit toolchain, the above becomes…</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ lib -machine:X64 -def:libmylib.def -out:libmylib.lib
+</pre></div>
+</div>
+</div></blockquote>
+<ol class="arabic simple" start="5">
+<li><p>Build the C main</p></li>
+</ol>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cl /O2 /MD main.c libmylib.lib
+</pre></div>
+</div>
+</div></blockquote>
+<ol class="arabic simple" start="6">
+<li><p>Before running the executable, make sure you have set the PATH to the DLL,
+or copy the DLL into into the directory containing the .exe.</p></li>
+</ol>
+</div>
+<div class="section" id="debugging-a-dll">
+<span id="id36"></span><h4>Debugging a DLL<a class="headerlink" href="#debugging-a-dll" title="Permalink to this headline">¶</a></h4>
+<p id="index-67">Debugging a DLL is similar to debugging a standard program. But
+we have to deal with two different executable parts: the DLL and the
+program that uses it. We have the following four possibilities:</p>
+<ul class="simple">
+<li><p>The program and the DLL are built with GCC/GNAT.</p></li>
+<li><p>The program is built with foreign tools and the DLL is built with
+GCC/GNAT.</p></li>
+<li><p>The program is built with GCC/GNAT and the DLL is built with
+foreign tools.</p></li>
+</ul>
+<p>In this section we address only cases one and two above.
+There is no point in trying to debug
+a DLL with GNU/GDB, if there is no GDB-compatible debugging
+information in it. To do so you must use a debugger compatible with the
+tools suite used to build the DLL.</p>
+<div class="section" id="program-and-dll-both-built-with-gcc-gnat">
+<span id="id37"></span><h5>Program and DLL Both Built with GCC/GNAT<a class="headerlink" href="#program-and-dll-both-built-with-gcc-gnat" title="Permalink to this headline">¶</a></h5>
+<p>This is the simplest case. Both the DLL and the program have <code class="docutils literal notranslate"><span class="pre">GDB</span></code>
+compatible debugging information. It is then possible to break anywhere in
+the process. Let’s suppose here that the main procedure is named
+<code class="docutils literal notranslate"><span class="pre">ada_main</span></code> and that in the DLL there is an entry point named
+<code class="docutils literal notranslate"><span class="pre">ada_dll</span></code>.</p>
+<p>The DLL (<a class="reference internal" href="#introduction-to-dynamic-link-libraries-dlls"><span class="std std-ref">Introduction to Dynamic Link Libraries (DLLs)</span></a>) and
+program must have been built with the debugging information (see GNAT -g
+switch). Here are the step-by-step instructions for debugging it:</p>
+<ul>
+<li><p>Launch <code class="docutils literal notranslate"><span class="pre">GDB</span></code> on the main program.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ gdb -nw ada_main
+</pre></div>
+</div>
+</li>
+<li><p>Start the program and stop at the beginning of the main procedure</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">gdb</span><span class="p">)</span> <span class="n">start</span>
+</pre></div>
+</div>
+<p>This step is required to be able to set a breakpoint inside the DLL. As long
+as the program is not run, the DLL is not loaded. This has the
+consequence that the DLL debugging information is also not loaded, so it is not
+possible to set a breakpoint in the DLL.</p>
+</li>
+<li><p>Set a breakpoint inside the DLL</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">gdb</span><span class="p">)</span> <span class="k">break</span> <span class="n">ada_dll</span>
+<span class="p">(</span><span class="n">gdb</span><span class="p">)</span> <span class="n">cont</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p>At this stage a breakpoint is set inside the DLL. From there on
+you can use the standard approach to debug the whole program
+(<a class="reference internal" href="gnat_and_program_execution.html#running-and-debugging-ada-programs"><span class="std std-ref">Running and Debugging Ada Programs</span></a>).</p>
+</div>
+<div class="section" id="program-built-with-foreign-tools-and-dll-built-with-gcc-gnat">
+<span id="id38"></span><h5>Program Built with Foreign Tools and DLL Built with GCC/GNAT<a class="headerlink" href="#program-built-with-foreign-tools-and-dll-built-with-gcc-gnat" title="Permalink to this headline">¶</a></h5>
+<p>In this case things are slightly more complex because it is not possible to
+start the main program and then break at the beginning to load the DLL and the
+associated DLL debugging information. It is not possible to break at the
+beginning of the program because there is no <code class="docutils literal notranslate"><span class="pre">GDB</span></code> debugging information,
+and therefore there is no direct way of getting initial control. This
+section addresses this issue by describing some methods that can be used
+to break somewhere in the DLL to debug it.</p>
+<p>First suppose that the main procedure is named <code class="docutils literal notranslate"><span class="pre">main</span></code> (this is for
+example some C code built with Microsoft Visual C) and that there is a
+DLL named <code class="docutils literal notranslate"><span class="pre">test.dll</span></code> containing an Ada entry point named
+<code class="docutils literal notranslate"><span class="pre">ada_dll</span></code>.</p>
+<p>The DLL (see <a class="reference internal" href="#introduction-to-dynamic-link-libraries-dlls"><span class="std std-ref">Introduction to Dynamic Link Libraries (DLLs)</span></a>) must have
+been built with debugging information (see the GNAT <code class="switch docutils literal notranslate"><span class="pre">-g</span></code> option).</p>
+<p class="rubric">Debugging the DLL Directly</p>
+<ul>
+<li><p>Find out the executable starting address</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ objdump --file-header main.exe
+</pre></div>
+</div>
+<p>The starting address is reported on the last line. For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">main</span><span class="o">.</span><span class="n">exe</span><span class="p">:</span>     <span class="n">file</span> <span class="nb">format</span> <span class="n">pei</span><span class="o">-</span><span class="n">i386</span>
+<span class="n">architecture</span><span class="p">:</span> <span class="n">i386</span><span class="p">,</span> <span class="n">flags</span> <span class="mh">0x0000010a</span><span class="p">:</span>
+<span class="n">EXEC_P</span><span class="p">,</span> <span class="n">HAS_DEBUG</span><span class="p">,</span> <span class="n">D_PAGED</span>
+<span class="n">start</span> <span class="n">address</span> <span class="mh">0x00401010</span>
+</pre></div>
+</div>
+</li>
+<li><p>Launch the debugger on the executable.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ gdb main.exe
+</pre></div>
+</div>
+</li>
+<li><p>Set a breakpoint at the starting address, and launch the program.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ (gdb) break *0x00401010
+$ (gdb) run
+</pre></div>
+</div>
+<p>The program will stop at the given address.</p>
+</li>
+<li><p>Set a breakpoint on a DLL subroutine.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">gdb</span><span class="p">)</span> <span class="k">break</span> <span class="n">ada_dll</span><span class="o">.</span><span class="n">adb</span><span class="p">:</span><span class="mi">45</span>
+</pre></div>
+</div>
+<p>Or if you want to break using a symbol on the DLL, you need first to
+select the Ada language (language used by the DLL).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">gdb</span><span class="p">)</span> <span class="nb">set</span> <span class="n">language</span> <span class="n">ada</span>
+<span class="p">(</span><span class="n">gdb</span><span class="p">)</span> <span class="k">break</span> <span class="n">ada_dll</span>
+</pre></div>
+</div>
+</li>
+<li><p>Continue the program.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">gdb</span><span class="p">)</span> <span class="n">cont</span>
+</pre></div>
+</div>
+<p>This will run the program until it reaches the breakpoint that has been
+set. From that point you can use the standard way to debug a program
+as described in (<a class="reference internal" href="gnat_and_program_execution.html#running-and-debugging-ada-programs"><span class="std std-ref">Running and Debugging Ada Programs</span></a>).</p>
+</li>
+</ul>
+<p>It is also possible to debug the DLL by attaching to a running process.</p>
+<p class="rubric">Attaching to a Running Process</p>
+<p id="index-68">With <code class="docutils literal notranslate"><span class="pre">GDB</span></code> it is always possible to debug a running process by
+attaching to it. It is possible to debug a DLL this way. The limitation
+of this approach is that the DLL must run long enough to perform the
+attach operation. It may be useful for instance to insert a time wasting
+loop in the code of the DLL to meet this criterion.</p>
+<ul>
+<li><p>Launch the main program <code class="file docutils literal notranslate"><span class="pre">main.exe</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ main
+</pre></div>
+</div>
+</li>
+<li><p>Use the Windows <em>Task Manager</em> to find the process ID. Let’s say
+that the process PID for <code class="file docutils literal notranslate"><span class="pre">main.exe</span></code> is 208.</p></li>
+<li><p>Launch gdb.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ gdb
+</pre></div>
+</div>
+</li>
+<li><p>Attach to the running process to be debugged.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">gdb</span><span class="p">)</span> <span class="n">attach</span> <span class="mi">208</span>
+</pre></div>
+</div>
+</li>
+<li><p>Load the process debugging information.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">gdb</span><span class="p">)</span> <span class="n">symbol</span><span class="o">-</span><span class="n">file</span> <span class="n">main</span><span class="o">.</span><span class="n">exe</span>
+</pre></div>
+</div>
+</li>
+<li><p>Break somewhere in the DLL.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">gdb</span><span class="p">)</span> <span class="k">break</span> <span class="n">ada_dll</span>
+</pre></div>
+</div>
+</li>
+<li><p>Continue process execution.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">gdb</span><span class="p">)</span> <span class="n">cont</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p>This last step will resume the process execution, and stop at
+the breakpoint we have set. From there you can use the standard
+approach to debug a program as described in
+<a class="reference internal" href="gnat_and_program_execution.html#running-and-debugging-ada-programs"><span class="std std-ref">Running and Debugging Ada Programs</span></a>.</p>
+</div>
+</div>
+<div class="section" id="setting-stack-size-from-gnatlink">
+<span id="id39"></span><h4>Setting Stack Size from <code class="docutils literal notranslate"><span class="pre">gnatlink</span></code><a class="headerlink" href="#setting-stack-size-from-gnatlink" title="Permalink to this headline">¶</a></h4>
+<p>It is possible to specify the program stack size at link time. On modern
+versions of Windows, starting with XP, this is mostly useful to set the size of
+the main stack (environment task). The other task stacks are set with pragma
+Storage_Size or with the <em>gnatbind -d</em> command.</p>
+<p>Since older versions of Windows (2000, NT4, etc.) do not allow setting the
+reserve size of individual tasks, the link-time stack size applies to all
+tasks, and pragma Storage_Size has no effect.
+In particular, Stack Overflow checks are made against this
+link-time specified size.</p>
+<p>This setting can be done with <code class="docutils literal notranslate"><span class="pre">gnatlink</span></code> using either of the following:</p>
+<ul>
+<li><p><code class="switch docutils literal notranslate"><span class="pre">-Xlinker</span></code> linker option</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ gnatlink hello -Xlinker --stack=0x10000,0x1000
+</pre></div>
+</div>
+<p>This sets the stack reserve size to 0x10000 bytes and the stack commit
+size to 0x1000 bytes.</p>
+</li>
+<li><p><code class="switch docutils literal notranslate"><span class="pre">-Wl</span></code> linker option</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ gnatlink hello -Wl,--stack=0x1000000
+</pre></div>
+</div>
+<p>This sets the stack reserve size to 0x1000000 bytes. Note that with
+<code class="switch docutils literal notranslate"><span class="pre">-Wl</span></code> option it is not possible to set the stack commit size
+because the comma is a separator for this option.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="setting-heap-size-from-gnatlink">
+<span id="id40"></span><h4>Setting Heap Size from <code class="docutils literal notranslate"><span class="pre">gnatlink</span></code><a class="headerlink" href="#setting-heap-size-from-gnatlink" title="Permalink to this headline">¶</a></h4>
+<p>Under Windows systems, it is possible to specify the program heap size from
+<code class="docutils literal notranslate"><span class="pre">gnatlink</span></code> using either of the following:</p>
+<ul>
+<li><p><code class="switch docutils literal notranslate"><span class="pre">-Xlinker</span></code> linker option</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ gnatlink hello -Xlinker --heap=0x10000,0x1000
+</pre></div>
+</div>
+<p>This sets the heap reserve size to 0x10000 bytes and the heap commit
+size to 0x1000 bytes.</p>
+</li>
+<li><p><code class="switch docutils literal notranslate"><span class="pre">-Wl</span></code> linker option</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ gnatlink hello -Wl,--heap=0x1000000
+</pre></div>
+</div>
+<p>This sets the heap reserve size to 0x1000000 bytes. Note that with
+<code class="switch docutils literal notranslate"><span class="pre">-Wl</span></code> option it is not possible to set the heap commit size
+because the comma is a separator for this option.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="windows-specific-add-ons">
+<span id="win32-specific-addons"></span><h3>Windows Specific Add-Ons<a class="headerlink" href="#windows-specific-add-ons" title="Permalink to this headline">¶</a></h3>
+<p>This section describes the Windows specific add-ons.</p>
+<div class="section" id="win32ada">
+<span id="id41"></span><h4>Win32Ada<a class="headerlink" href="#win32ada" title="Permalink to this headline">¶</a></h4>
+<p>Win32Ada is a binding for the Microsoft Win32 API. This binding can be
+easily installed from the provided installer. To use the Win32Ada
+binding you need to use a project file, and adding a single with_clause
+will give you full access to the Win32Ada binding sources and ensure
+that the proper libraries are passed to the linker.</p>
+<blockquote>
+<div><div class="highlight-gpr notranslate"><div class="highlight"><pre><span></span><span class="kr">with</span><span class="p"> </span><span class="s">&quot;win32ada&quot;</span><span class="p">;</span>
+<span class="k">project </span><span class="nf">P</span> <span class="kr">is</span><span class="p"></span>
+   <span class="kr">for</span><span class="p"> </span><span class="n">Sources</span> <span class="kr">use</span><span class="p"> </span><span class="o">...</span><span class="p">;</span>
+<span class="k">end </span><span class="nf">P</span><span class="p">;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>To build the application you just need to call gprbuild for the
+application’s project, here p.gpr:</p>
+<blockquote>
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>gprbuild p.gpr
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="wposix">
+<span id="id42"></span><h4>wPOSIX<a class="headerlink" href="#wposix" title="Permalink to this headline">¶</a></h4>
+<p>wPOSIX is a minimal POSIX binding whose goal is to help with building
+cross-platforms applications. This binding is not complete though, as
+the Win32 API does not provide the necessary support for all POSIX APIs.</p>
+<p>To use the wPOSIX binding you need to use a project file, and adding
+a single with_clause will give you full access to the wPOSIX binding
+sources and ensure that the proper libraries are passed to the linker.</p>
+<blockquote>
+<div><div class="highlight-gpr notranslate"><div class="highlight"><pre><span></span><span class="kr">with</span><span class="p"> </span><span class="s">&quot;wposix&quot;</span><span class="p">;</span>
+<span class="k">project </span><span class="nf">P</span> <span class="kr">is</span><span class="p"></span>
+   <span class="kr">for</span><span class="p"> </span><span class="n">Sources</span> <span class="kr">use</span><span class="p"> </span><span class="o">...</span><span class="p">;</span>
+<span class="k">end </span><span class="nf">P</span><span class="p">;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>To build the application you just need to call gprbuild for the
+application’s project, here p.gpr:</p>
+<blockquote>
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>gprbuild p.gpr
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+</div>
+</div>
+<div class="section" id="mac-os-topics">
+<span id="id43"></span><h2>Mac OS Topics<a class="headerlink" href="#mac-os-topics" title="Permalink to this headline">¶</a></h2>
+<p id="index-69">This section describes topics that are specific to Apple’s OS X
+platform.</p>
+<div class="section" id="codesigning-the-debugger">
+<h3>Codesigning the Debugger<a class="headerlink" href="#codesigning-the-debugger" title="Permalink to this headline">¶</a></h3>
+<p>The Darwin Kernel requires the debugger to have special permissions
+before it is allowed to control other processes. These permissions
+are granted by codesigning the GDB executable. Without these
+permissions, the debugger will report error messages such as:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Starting</span> <span class="n">program</span><span class="p">:</span> <span class="o">/</span><span class="n">x</span><span class="o">/</span><span class="n">y</span><span class="o">/</span><span class="n">foo</span>
+<span class="n">Unable</span> <span class="n">to</span> <span class="n">find</span> <span class="n">Mach</span> <span class="n">task</span> <span class="n">port</span> <span class="k">for</span> <span class="n">process</span><span class="o">-</span><span class="nb">id</span> <span class="mi">28885</span><span class="p">:</span> <span class="p">(</span><span class="n">os</span><span class="o">/</span><span class="n">kern</span><span class="p">)</span> <span class="n">failure</span> <span class="p">(</span><span class="mh">0x5</span><span class="p">)</span><span class="o">.</span>
+<span class="p">(</span><span class="n">please</span> <span class="n">check</span> <span class="n">gdb</span> <span class="ow">is</span> <span class="n">codesigned</span> <span class="o">-</span> <span class="n">see</span> <span class="n">taskgated</span><span class="p">(</span><span class="mi">8</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Codesigning requires a certificate.  The following procedure explains
+how to create one:</p>
+<ul class="simple">
+<li><p>Start the Keychain Access application (in
+/Applications/Utilities/Keychain Access.app)</p></li>
+<li><p>Select the Keychain Access -&gt; Certificate Assistant -&gt;
+Create a Certificate… menu</p></li>
+<li><p>Then:</p>
+<ul>
+<li><p>Choose a name for the new certificate (this procedure will use
+“gdb-cert” as an example)</p></li>
+<li><p>Set “Identity Type” to “Self Signed Root”</p></li>
+<li><p>Set “Certificate Type” to “Code Signing”</p></li>
+<li><p>Activate the “Let me override defaults” option</p></li>
+</ul>
+</li>
+<li><p>Click several times on “Continue” until the “Specify a Location
+For The Certificate” screen appears, then set “Keychain” to “System”</p></li>
+<li><p>Click on “Continue” until the certificate is created</p></li>
+<li><p>Finally, in the view, double-click on the new certificate,
+and set “When using this certificate” to “Always Trust”</p></li>
+<li><p>Exit the Keychain Access application and restart the computer
+(this is unfortunately required)</p></li>
+</ul>
+<p>Once a certificate has been created, the debugger can be codesigned
+as follow. In a Terminal, run the following command:</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ codesign -f -s  &quot;gdb-cert&quot;  &lt;gnat_install_prefix&gt;/bin/gdb
+</pre></div>
+</div>
+</div></blockquote>
+<p>where “gdb-cert” should be replaced by the actual certificate
+name chosen above, and &lt;gnat_install_prefix&gt; should be replaced by
+the location where you installed GNAT.  Also, be sure that users are
+in the Unix group <code class="docutils literal notranslate"><span class="pre">_developer</span></code>.</p>
+</div>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../gnat_ugn.html">
+              <img class="logo" src="../_static/adacore_transparent.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="../gnat_ugn.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Platform-Specific Information</a><ul>
+<li><a class="reference internal" href="#run-time-libraries">Run-Time Libraries</a><ul>
+<li><a class="reference internal" href="#summary-of-run-time-configurations">Summary of Run-Time Configurations</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#specifying-a-run-time-library">Specifying a Run-Time Library</a><ul>
+<li><a class="reference internal" href="#index-10">Choosing the Scheduling Policy</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#gnu-linux-topics">GNU/Linux Topics</a><ul>
+<li><a class="reference internal" href="#required-packages-on-gnu-linux">Required Packages on GNU/Linux</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#microsoft-windows-topics">Microsoft Windows Topics</a><ul>
+<li><a class="reference internal" href="#using-gnat-on-windows">Using GNAT on Windows</a></li>
+<li><a class="reference internal" href="#using-a-network-installation-of-gnat">Using a network installation of GNAT</a></li>
+<li><a class="reference internal" href="#console-and-windows-subsystems">CONSOLE and WINDOWS subsystems</a></li>
+<li><a class="reference internal" href="#temporary-files">Temporary Files</a></li>
+<li><a class="reference internal" href="#disabling-command-line-argument-expansion">Disabling Command Line Argument Expansion</a></li>
+<li><a class="reference internal" href="#windows-socket-timeouts">Windows Socket Timeouts</a></li>
+<li><a class="reference internal" href="#mixed-language-programming-on-windows">Mixed-Language Programming on Windows</a><ul>
+<li><a class="reference internal" href="#windows-calling-conventions">Windows Calling Conventions</a><ul>
+<li><a class="reference internal" href="#c-calling-convention"><code class="docutils literal notranslate"><span class="pre">C</span></code> Calling Convention</a></li>
+<li><a class="reference internal" href="#stdcall-calling-convention"><code class="docutils literal notranslate"><span class="pre">Stdcall</span></code> Calling Convention</a></li>
+<li><a class="reference internal" href="#win32-calling-convention"><code class="docutils literal notranslate"><span class="pre">Win32</span></code> Calling Convention</a></li>
+<li><a class="reference internal" href="#dll-calling-convention"><code class="docutils literal notranslate"><span class="pre">DLL</span></code> Calling Convention</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#introduction-to-dynamic-link-libraries-dlls">Introduction to Dynamic Link Libraries (DLLs)</a></li>
+<li><a class="reference internal" href="#using-dlls-with-gnat">Using DLLs with GNAT</a><ul>
+<li><a class="reference internal" href="#creating-an-ada-spec-for-the-dll-services">Creating an Ada Spec for the DLL Services</a></li>
+<li><a class="reference internal" href="#creating-an-import-library">Creating an Import Library</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#building-dlls-with-gnat-project-files">Building DLLs with GNAT Project files</a></li>
+<li><a class="reference internal" href="#building-dlls-with-gnat">Building DLLs with GNAT</a></li>
+<li><a class="reference internal" href="#building-dlls-with-gnatdll">Building DLLs with gnatdll</a><ul>
+<li><a class="reference internal" href="#limitations-when-using-ada-dlls-from-ada">Limitations When Using Ada DLLs from Ada</a></li>
+<li><a class="reference internal" href="#exporting-ada-entities">Exporting Ada Entities</a></li>
+<li><a class="reference internal" href="#ada-dlls-and-elaboration">Ada DLLs and Elaboration</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ada-dlls-and-finalization">Ada DLLs and Finalization</a></li>
+<li><a class="reference internal" href="#creating-a-spec-for-ada-dlls">Creating a Spec for Ada DLLs</a><ul>
+<li><a class="reference internal" href="#creating-the-definition-file">Creating the Definition File</a></li>
+<li><a class="reference internal" href="#using-gnatdll">Using <code class="docutils literal notranslate"><span class="pre">gnatdll</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#gnat-and-windows-resources">GNAT and Windows Resources</a><ul>
+<li><a class="reference internal" href="#building-resources">Building Resources</a></li>
+<li><a class="reference internal" href="#compiling-resources">Compiling Resources</a></li>
+<li><a class="reference internal" href="#using-resources">Using Resources</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#using-gnat-dlls-from-microsoft-visual-studio-applications">Using GNAT DLLs from Microsoft Visual Studio Applications</a></li>
+<li><a class="reference internal" href="#debugging-a-dll">Debugging a DLL</a><ul>
+<li><a class="reference internal" href="#program-and-dll-both-built-with-gcc-gnat">Program and DLL Both Built with GCC/GNAT</a></li>
+<li><a class="reference internal" href="#program-built-with-foreign-tools-and-dll-built-with-gcc-gnat">Program Built with Foreign Tools and DLL Built with GCC/GNAT</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#setting-stack-size-from-gnatlink">Setting Stack Size from <code class="docutils literal notranslate"><span class="pre">gnatlink</span></code></a></li>
+<li><a class="reference internal" href="#setting-heap-size-from-gnatlink">Setting Heap Size from <code class="docutils literal notranslate"><span class="pre">gnatlink</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#windows-specific-add-ons">Windows Specific Add-Ons</a><ul>
+<li><a class="reference internal" href="#win32ada">Win32Ada</a></li>
+<li><a class="reference internal" href="#wposix">wPOSIX</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mac-os-topics">Mac OS Topics</a><ul>
+<li><a class="reference internal" href="#codesigning-the-debugger">Codesigning the Debugger</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="gnat_and_program_execution.html"
+                        title="previous chapter"><span class="section-number">6. </span>GNAT and Program Execution</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="example_of_binder_output.html"
+                        title="next chapter">Example of Binder Output File</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/gnat_ugn/platform_specific_information.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="example_of_binder_output.html" title="Example of Binder Output File"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="gnat_and_program_execution.html" title="6. GNAT and Program Execution"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../gnat_ugn.html">GNAT User&#39;s Guide for Native Platforms 2021 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Platform-Specific Information</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2008-2021, Free Software Foundation.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
+    </div>
+  </body>
+</html>

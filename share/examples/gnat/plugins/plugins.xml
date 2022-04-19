@@ -1,0 +1,21 @@
+    <!-- PLUGINS -->
+
+    <action name="&prefix;_plugins" category="">
+        <shell>
+            Project.load "&example_root;/gnat/plugins/main.gpr"
+        </shell>
+        <shell>
+            Editor.edit "demo.adb"
+        </shell>
+        <shell>
+            Editor.edit "README.testing"
+        </shell>
+    </action>
+
+    <submenu before="About">
+        <title>&menu;</title>
+        <menu action="&prefix;_plugins">
+            <title>GNAT &prefix;/Ada Plug-ins</title>
+        </menu>
+    </submenu>
+

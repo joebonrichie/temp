@@ -1,0 +1,23 @@
+project Import_From_C is
+
+   for Languages use ("Ada", "C");
+   for Main use ("use_of_import.adb");
+
+   Prefix := external ("PREFIX", "");
+
+   package Ide is
+      for Vcs_Kind use "CVS";
+      for Compiler_Command ("Ada") use Prefix & "gnatmake";
+      for Compiler_Command ("c") use Prefix & "gcc";
+   end Ide;
+
+   package Builder is
+      for Executable ("imported_function.c") use "";
+   end Builder;
+
+   package Naming is
+      for Specification_Suffix ("c") use ".h";
+      for Implementation_Suffix ("c") use ".c";
+   end Naming;
+
+end Import_From_C;

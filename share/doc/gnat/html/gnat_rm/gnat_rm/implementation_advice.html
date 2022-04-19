@@ -1,0 +1,1403 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>6. Implementation Advice &#8212; GNAT Reference Manual 2021 documentation</title>
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="7. Implementation Defined Characteristics" href="implementation_defined_characteristics.html" />
+    <link rel="prev" title="5. Standard and Implementation Defined Restrictions" href="standard_and_implementation_defined_restrictions.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="implementation_defined_characteristics.html" title="7. Implementation Defined Characteristics"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="standard_and_implementation_defined_restrictions.html" title="5. Standard and Implementation Defined Restrictions"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../gnat_rm.html">GNAT Reference Manual 2021 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">6. </span>Implementation Advice</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="implementation-advice">
+<span id="id1"></span><h1><span class="section-number">6. </span>Implementation Advice<a class="headerlink" href="#implementation-advice" title="Permalink to this headline">¶</a></h1>
+<p>The main text of the Ada Reference Manual describes the required
+behavior of all Ada compilers, and the GNAT compiler conforms to
+these requirements.</p>
+<p>In addition, there are sections throughout the Ada Reference Manual headed
+by the phrase ‘Implementation advice’.  These sections are not normative,
+i.e., they do not specify requirements that all compilers must
+follow.  Rather they provide advice on generally desirable behavior.
+They are not requirements, because they describe behavior that cannot
+be provided on all systems, or may be undesirable on some systems.</p>
+<p>As far as practical, GNAT follows the implementation advice in
+the Ada Reference Manual.  Each such RM section corresponds to a section
+in this chapter whose title specifies the
+RM section number and paragraph number and the subject of
+the advice.  The contents of each section consists of the RM text within
+quotation marks,
+followed by the GNAT interpretation of the advice.  Most often, this simply says
+‘followed’, which means that GNAT follows the advice.  However, in a
+number of cases, GNAT deliberately deviates from this advice, in which
+case the text describes what GNAT does and why.</p>
+<div class="section" id="rm-1-1-3-20-error-detection">
+<span id="index-0"></span><h2><span class="section-number">6.1. </span>RM 1.1.3(20): Error Detection<a class="headerlink" href="#rm-1-1-3-20-error-detection" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>“If an implementation detects the use of an unsupported Specialized Needs
+Annex feature at run time, it should raise <code class="docutils literal notranslate"><span class="pre">Program_Error</span></code> if
+feasible.”</p>
+</div></blockquote>
+<p>Not relevant.  All specialized needs annex features are either supported,
+or diagnosed at compile time.</p>
+</div>
+<div class="section" id="rm-1-1-3-31-child-units">
+<span id="index-1"></span><h2><span class="section-number">6.2. </span>RM 1.1.3(31): Child Units<a class="headerlink" href="#rm-1-1-3-31-child-units" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>“If an implementation wishes to provide implementation-defined
+extensions to the functionality of a language-defined library unit, it
+should normally do so by adding children to the library unit.”</p>
+</div></blockquote>
+<p>Followed.</p>
+</div>
+<div class="section" id="rm-1-1-5-12-bounded-errors">
+<span id="index-2"></span><h2><span class="section-number">6.3. </span>RM 1.1.5(12): Bounded Errors<a class="headerlink" href="#rm-1-1-5-12-bounded-errors" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>“If an implementation detects a bounded error or erroneous
+execution, it should raise <code class="docutils literal notranslate"><span class="pre">Program_Error</span></code>.”</p>
+</div></blockquote>
+<p>Followed in all cases in which the implementation detects a bounded
+error or erroneous execution.  Not all such situations are detected at
+runtime.</p>
+</div>
+<div class="section" id="rm-2-8-16-pragmas">
+<span id="index-3"></span><span id="id2"></span><h2><span class="section-number">6.4. </span>RM 2.8(16): Pragmas<a class="headerlink" href="#rm-2-8-16-pragmas" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>“Normally, implementation-defined pragmas should have no semantic effect
+for error-free programs; that is, if the implementation-defined pragmas
+are removed from a working program, the program should still be legal,
+and should still have the same semantics.”</p>
+</div></blockquote>
+<p>The following implementation defined pragmas are exceptions to this
+rule:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 51%" />
+<col style="width: 49%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Pragma</p></th>
+<th class="head"><p>Explanation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><em>Abort_Defer</em></p></td>
+<td><p>Affects semantics</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>Ada_83</em></p></td>
+<td><p>Affects legality</p></td>
+</tr>
+<tr class="row-even"><td><p><em>Assert</em></p></td>
+<td><p>Affects semantics</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>CPP_Class</em></p></td>
+<td><p>Affects semantics</p></td>
+</tr>
+<tr class="row-even"><td><p><em>CPP_Constructor</em></p></td>
+<td><p>Affects semantics</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>Debug</em></p></td>
+<td><p>Affects semantics</p></td>
+</tr>
+<tr class="row-even"><td><p><em>Interface_Name</em></p></td>
+<td><p>Affects semantics</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>Machine_Attribute</em></p></td>
+<td><p>Affects semantics</p></td>
+</tr>
+<tr class="row-even"><td><p><em>Unimplemented_Unit</em></p></td>
+<td><p>Affects legality</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>Unchecked_Union</em></p></td>
+<td><p>Affects semantics</p></td>
+</tr>
+</tbody>
+</table>
+<p>In each of the above cases, it is essential to the purpose of the pragma
+that this advice not be followed.  For details see
+<a class="reference internal" href="implementation_defined_pragmas.html#implementation-defined-pragmas"><span class="std std-ref">Implementation Defined Pragmas</span></a>.</p>
+</div>
+<div class="section" id="rm-2-8-17-19-pragmas">
+<h2><span class="section-number">6.5. </span>RM 2.8(17-19): Pragmas<a class="headerlink" href="#rm-2-8-17-19-pragmas" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>“Normally, an implementation should not define pragmas that can
+make an illegal program legal, except as follows:</p>
+<ul class="simple">
+<li><p>A pragma used to complete a declaration, such as a pragma <code class="docutils literal notranslate"><span class="pre">Import</span></code>;</p></li>
+<li><p>A pragma used to configure the environment by adding, removing, or
+replacing <code class="docutils literal notranslate"><span class="pre">library_items</span></code>.”</p></li>
+</ul>
+</div></blockquote>
+<p>See <a class="reference internal" href="#rm-2-8-16-pragmas"><span class="std std-ref">RM 2.8(16): Pragmas</span></a>.</p>
+<span class="target" id="index-4"></span></div>
+<div class="section" id="rm-3-5-2-5-alternative-character-sets">
+<span id="index-5"></span><h2><span class="section-number">6.6. </span>RM 3.5.2(5): Alternative Character Sets<a class="headerlink" href="#rm-3-5-2-5-alternative-character-sets" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>“If an implementation supports a mode with alternative interpretations
+for <code class="docutils literal notranslate"><span class="pre">Character</span></code> and <code class="docutils literal notranslate"><span class="pre">Wide_Character</span></code>, the set of graphic
+characters of <code class="docutils literal notranslate"><span class="pre">Character</span></code> should nevertheless remain a proper
+subset of the set of graphic characters of <code class="docutils literal notranslate"><span class="pre">Wide_Character</span></code>.  Any
+character set ‘localizations’ should be reflected in the results of
+the subprograms defined in the language-defined package
+<code class="docutils literal notranslate"><span class="pre">Characters.Handling</span></code> (see A.3) available in such a mode.  In a mode with
+an alternative interpretation of <code class="docutils literal notranslate"><span class="pre">Character</span></code>, the implementation should
+also support a corresponding change in what is a legal
+<code class="docutils literal notranslate"><span class="pre">identifier_letter</span></code>.”</p>
+</div></blockquote>
+<p>Not all wide character modes follow this advice, in particular the JIS
+and IEC modes reflect standard usage in Japan, and in these encoding,
+the upper half of the Latin-1 set is not part of the wide-character
+subset, since the most significant bit is used for wide character
+encoding.  However, this only applies to the external forms.  Internally
+there is no such restriction.</p>
+</div>
+<div class="section" id="rm-3-5-4-28-integer-types">
+<span id="index-6"></span><h2><span class="section-number">6.7. </span>RM 3.5.4(28): Integer Types<a class="headerlink" href="#rm-3-5-4-28-integer-types" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>“An implementation should support <code class="docutils literal notranslate"><span class="pre">Long_Integer</span></code> in addition to
+<code class="docutils literal notranslate"><span class="pre">Integer</span></code> if the target machine supports 32-bit (or longer)
+arithmetic.  No other named integer subtypes are recommended for package
+<code class="docutils literal notranslate"><span class="pre">Standard</span></code>.  Instead, appropriate named integer subtypes should be
+provided in the library package <code class="docutils literal notranslate"><span class="pre">Interfaces</span></code> (see B.2).”</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">Long_Integer</span></code> is supported.  Other standard integer types are supported
+so this advice is not fully followed.  These types
+are supported for convenient interface to C, and so that all hardware
+types of the machine are easily available.</p>
+</div>
+<div class="section" id="rm-3-5-4-29-integer-types">
+<h2><span class="section-number">6.8. </span>RM 3.5.4(29): Integer Types<a class="headerlink" href="#rm-3-5-4-29-integer-types" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>“An implementation for a two’s complement machine should support
+modular types with a binary modulus up to <code class="docutils literal notranslate"><span class="pre">System.Max_Int*2+2</span></code>.  An
+implementation should support a non-binary modules up to <code class="docutils literal notranslate"><span class="pre">Integer'Last</span></code>.”</p>
+</div></blockquote>
+<p>Followed.</p>
+</div>
+<div class="section" id="rm-3-5-5-8-enumeration-values">
+<span id="index-7"></span><h2><span class="section-number">6.9. </span>RM 3.5.5(8): Enumeration Values<a class="headerlink" href="#rm-3-5-5-8-enumeration-values" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>“For the evaluation of a call on <code class="docutils literal notranslate"><span class="pre">S'Pos</span></code> for an enumeration
+subtype, if the value of the operand does not correspond to the internal
+code for any enumeration literal of its type (perhaps due to an
+un-initialized variable), then the implementation should raise
+<code class="docutils literal notranslate"><span class="pre">Program_Error</span></code>.  This is particularly important for enumeration
+types with noncontiguous internal codes specified by an
+enumeration_representation_clause.”</p>
+</div></blockquote>
+<p>Followed.</p>
+</div>
+<div class="section" id="rm-3-5-7-17-float-types">
+<span id="index-8"></span><h2><span class="section-number">6.10. </span>RM 3.5.7(17): Float Types<a class="headerlink" href="#rm-3-5-7-17-float-types" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>“An implementation should support <code class="docutils literal notranslate"><span class="pre">Long_Float</span></code> in addition to
+<code class="docutils literal notranslate"><span class="pre">Float</span></code> if the target machine supports 11 or more digits of
+precision.  No other named floating point subtypes are recommended for
+package <code class="docutils literal notranslate"><span class="pre">Standard</span></code>.  Instead, appropriate named floating point subtypes
+should be provided in the library package <code class="docutils literal notranslate"><span class="pre">Interfaces</span></code> (see B.2).”</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">Short_Float</span></code> and <code class="docutils literal notranslate"><span class="pre">Long_Long_Float</span></code> are also provided.  The
+former provides improved compatibility with other implementations
+supporting this type.  The latter corresponds to the highest precision
+floating-point type supported by the hardware.  On most machines, this
+will be the same as <code class="docutils literal notranslate"><span class="pre">Long_Float</span></code>, but on some machines, it will
+correspond to the IEEE extended form.  The notable case is all x86
+implementations, where <code class="docutils literal notranslate"><span class="pre">Long_Long_Float</span></code> corresponds to the 80-bit
+extended precision format supported in hardware on this processor.
+Note that the 128-bit format on SPARC is not supported, since this
+is a software rather than a hardware format.</p>
+<span class="target" id="index-9"></span></div>
+<div class="section" id="rm-3-6-2-11-multidimensional-arrays">
+<span id="index-10"></span><h2><span class="section-number">6.11. </span>RM 3.6.2(11): Multidimensional Arrays<a class="headerlink" href="#rm-3-6-2-11-multidimensional-arrays" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>“An implementation should normally represent multidimensional arrays in
+row-major order, consistent with the notation used for multidimensional
+array aggregates (see 4.3.3).  However, if a pragma <code class="docutils literal notranslate"><span class="pre">Convention</span></code>
+(<code class="docutils literal notranslate"><span class="pre">Fortran</span></code>, …) applies to a multidimensional array type, then
+column-major order should be used instead (see B.5, <em>Interfacing with Fortran</em>).”</p>
+</div></blockquote>
+<p>Followed.</p>
+</div>
+<div class="section" id="rm-9-6-30-31-duration-small">
+<span id="index-11"></span><h2><span class="section-number">6.12. </span>RM 9.6(30-31): Duration’Small<a class="headerlink" href="#rm-9-6-30-31-duration-small" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>“Whenever possible in an implementation, the value of <code class="docutils literal notranslate"><span class="pre">Duration'Small</span></code>
+should be no greater than 100 microseconds.”</p>
+</div></blockquote>
+<p>Followed.  (<code class="docutils literal notranslate"><span class="pre">Duration'Small</span></code> = 10**(-9)).</p>
+<blockquote>
+<div><p>“The time base for <code class="docutils literal notranslate"><span class="pre">delay_relative_statements</span></code> should be monotonic;
+it need not be the same time base as used for <code class="docutils literal notranslate"><span class="pre">Calendar.Clock</span></code>.”</p>
+</div></blockquote>
+<p>Followed.</p>
+</div>
+<div class="section" id="rm-10-2-1-12-consistent-representation">
+<h2><span class="section-number">6.13. </span>RM 10.2.1(12): Consistent Representation<a class="headerlink" href="#rm-10-2-1-12-consistent-representation" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>“In an implementation, a type declared in a pre-elaborated package should
+have the same representation in every elaboration of a given version of
+the package, whether the elaborations occur in distinct executions of
+the same program, or in executions of distinct programs or partitions
+that include the given version.”</p>
+</div></blockquote>
+<p>Followed, except in the case of tagged types.  Tagged types involve
+implicit pointers to a local copy of a dispatch table, and these pointers
+have representations which thus depend on a particular elaboration of the
+package.  It is not easy to see how it would be possible to follow this
+advice without severely impacting efficiency of execution.</p>
+</div>
+<div class="section" id="rm-11-4-1-19-exception-information">
+<span id="index-12"></span><h2><span class="section-number">6.14. </span>RM 11.4.1(19): Exception Information<a class="headerlink" href="#rm-11-4-1-19-exception-information" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>“<code class="docutils literal notranslate"><span class="pre">Exception_Message</span></code> by default and <code class="docutils literal notranslate"><span class="pre">Exception_Information</span></code>
+should produce information useful for
+debugging.  <code class="docutils literal notranslate"><span class="pre">Exception_Message</span></code> should be short, about one
+line.  <code class="docutils literal notranslate"><span class="pre">Exception_Information</span></code> can be long.  <code class="docutils literal notranslate"><span class="pre">Exception_Message</span></code>
+should not include the
+<code class="docutils literal notranslate"><span class="pre">Exception_Name</span></code>.  <code class="docutils literal notranslate"><span class="pre">Exception_Information</span></code> should include both
+the <code class="docutils literal notranslate"><span class="pre">Exception_Name</span></code> and the <code class="docutils literal notranslate"><span class="pre">Exception_Message</span></code>.”</p>
+</div></blockquote>
+<p>Followed.  For each exception that doesn’t have a specified
+<code class="docutils literal notranslate"><span class="pre">Exception_Message</span></code>, the compiler generates one containing the location
+of the raise statement.  This location has the form ‘file_name:line’, where
+file_name is the short file name (without path information) and line is the line
+number in the file.  Note that in the case of the Zero Cost Exception
+mechanism, these messages become redundant with the Exception_Information that
+contains a full backtrace of the calling sequence, so they are disabled.
+To disable explicitly the generation of the source location message, use the
+Pragma <code class="docutils literal notranslate"><span class="pre">Discard_Names</span></code>.</p>
+<span class="target" id="index-13"></span></div>
+<div class="section" id="rm-11-5-28-suppression-of-checks">
+<span id="index-14"></span><h2><span class="section-number">6.15. </span>RM 11.5(28): Suppression of Checks<a class="headerlink" href="#rm-11-5-28-suppression-of-checks" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>“The implementation should minimize the code executed for checks that
+have been suppressed.”</p>
+</div></blockquote>
+<p>Followed.</p>
+</div>
+<div class="section" id="rm-13-1-21-24-representation-clauses">
+<span id="index-15"></span><h2><span class="section-number">6.16. </span>RM 13.1 (21-24): Representation Clauses<a class="headerlink" href="#rm-13-1-21-24-representation-clauses" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>“The recommended level of support for all representation items is
+qualified as follows:</p>
+<p>An implementation need not support representation items containing
+nonstatic expressions, except that an implementation should support a
+representation item for a given entity if each nonstatic expression in
+the representation item is a name that statically denotes a constant
+declared before the entity.”</p>
+</div></blockquote>
+<p>Followed.  In fact, GNAT goes beyond the recommended level of support
+by allowing nonstatic expressions in some representation clauses even
+without the need to declare constants initialized with the values of
+such expressions.
+For example:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span>  <span class="n">X</span> <span class="o">:</span> <span class="n">Integer</span><span class="p">;</span>
+  <span class="n">Y</span> <span class="o">:</span> <span class="n">Float</span><span class="p">;</span>
+  <span class="kr">for</span><span class="p"> </span><span class="n">Y</span><span class="na">&#39;Address</span> <span class="kr">use</span><span class="p"> </span><span class="n">X</span><span class="na">&#39;Address</span><span class="p">;</span><span class="o">&gt;&gt;</span>
+
+
+<span class="s">&quot;An implementation need not support a specification for the ``Size``</span>
+<span class="s">for a given composite subtype, nor the size or storage place for an</span>
+<span class="s">object (including a component) of a given composite subtype, unless the</span>
+<span class="s">constraints on the subtype and its composite subcomponents (if any) are</span>
+<span class="s">all static constraints.&quot;</span>
+</pre></div>
+</div>
+<p>Followed.  Size Clauses are not permitted on nonstatic components, as
+described above.</p>
+<blockquote>
+<div><p>“An aliased component, or a component whose type is by-reference, should
+always be allocated at an addressable location.”</p>
+</div></blockquote>
+<p>Followed.</p>
+</div>
+<div class="section" id="rm-13-2-6-8-packed-types">
+<span id="index-16"></span><h2><span class="section-number">6.17. </span>RM 13.2(6-8): Packed Types<a class="headerlink" href="#rm-13-2-6-8-packed-types" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>“If a type is packed, then the implementation should try to minimize
+storage allocated to objects of the type, possibly at the expense of
+speed of accessing components, subject to reasonable complexity in
+addressing calculations.</p>
+<p>The recommended level of support pragma <code class="docutils literal notranslate"><span class="pre">Pack</span></code> is:</p>
+<p>For a packed record type, the components should be packed as tightly as
+possible subject to the Sizes of the component subtypes, and subject to
+any <em>record_representation_clause</em> that applies to the type; the
+implementation may, but need not, reorder components or cross aligned
+word boundaries to improve the packing.  A component whose <code class="docutils literal notranslate"><span class="pre">Size</span></code> is
+greater than the word size may be allocated an integral number of words.”</p>
+</div></blockquote>
+<p>Followed.  Tight packing of arrays is supported for all component sizes
+up to 64-bits. If the array component size is 1 (that is to say, if
+the component is a boolean type or an enumeration type with two values)
+then values of the type are implicitly initialized to zero. This
+happens both for objects of the packed type, and for objects that have a
+subcomponent of the packed type.</p>
+<blockquote>
+<div><p>“An implementation should support Address clauses for imported
+subprograms.”</p>
+</div></blockquote>
+<p>Followed.</p>
+</div>
+<div class="section" id="rm-13-3-14-19-address-clauses">
+<span id="index-17"></span><h2><span class="section-number">6.18. </span>RM 13.3(14-19): Address Clauses<a class="headerlink" href="#rm-13-3-14-19-address-clauses" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>“For an array <code class="docutils literal notranslate"><span class="pre">X</span></code>, <code class="docutils literal notranslate"><span class="pre">X'Address</span></code> should point at the first
+component of the array, and not at the array bounds.”</p>
+</div></blockquote>
+<p>Followed.</p>
+<blockquote>
+<div><p>“The recommended level of support for the <code class="docutils literal notranslate"><span class="pre">Address</span></code> attribute is:</p>
+<p><code class="docutils literal notranslate"><span class="pre">X'Address</span></code> should produce a useful result if <code class="docutils literal notranslate"><span class="pre">X</span></code> is an
+object that is aliased or of a by-reference type, or is an entity whose
+<code class="docutils literal notranslate"><span class="pre">Address</span></code> has been specified.”</p>
+</div></blockquote>
+<p>Followed.  A valid address will be produced even if none of those
+conditions have been met.  If necessary, the object is forced into
+memory to ensure the address is valid.</p>
+<blockquote>
+<div><p>“An implementation should support <code class="docutils literal notranslate"><span class="pre">Address</span></code> clauses for imported
+subprograms.”</p>
+</div></blockquote>
+<p>Followed.</p>
+<blockquote>
+<div><p>“Objects (including subcomponents) that are aliased or of a by-reference
+type should be allocated on storage element boundaries.”</p>
+</div></blockquote>
+<p>Followed.</p>
+<blockquote>
+<div><p>“If the <code class="docutils literal notranslate"><span class="pre">Address</span></code> of an object is specified, or it is imported or exported,
+then the implementation should not perform optimizations based on
+assumptions of no aliases.”</p>
+</div></blockquote>
+<p>Followed.</p>
+</div>
+<div class="section" id="rm-13-3-29-35-alignment-clauses">
+<span id="index-18"></span><h2><span class="section-number">6.19. </span>RM 13.3(29-35): Alignment Clauses<a class="headerlink" href="#rm-13-3-29-35-alignment-clauses" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>“The recommended level of support for the <code class="docutils literal notranslate"><span class="pre">Alignment</span></code> attribute for
+subtypes is:</p>
+<p>An implementation should support specified Alignments that are factors
+and multiples of the number of storage elements per word, subject to the
+following:”</p>
+</div></blockquote>
+<p>Followed.</p>
+<blockquote>
+<div><p>“An implementation need not support specified Alignments for
+combinations of Sizes and Alignments that cannot be easily
+loaded and stored by available machine instructions.”</p>
+</div></blockquote>
+<p>Followed.</p>
+<blockquote>
+<div><p>“An implementation need not support specified Alignments that are
+greater than the maximum <code class="docutils literal notranslate"><span class="pre">Alignment</span></code> the implementation ever returns by
+default.”</p>
+</div></blockquote>
+<p>Followed.</p>
+<blockquote>
+<div><p>“The recommended level of support for the <code class="docutils literal notranslate"><span class="pre">Alignment</span></code> attribute for
+objects is:</p>
+<p>Same as above, for subtypes, but in addition:”</p>
+</div></blockquote>
+<p>Followed.</p>
+<blockquote>
+<div><p>“For stand-alone library-level objects of statically constrained
+subtypes, the implementation should support all alignments
+supported by the target linker.  For example, page alignment is likely to
+be supported for such objects, but not for subtypes.”</p>
+</div></blockquote>
+<p>Followed.</p>
+</div>
+<div class="section" id="rm-13-3-42-43-size-clauses">
+<span id="index-19"></span><h2><span class="section-number">6.20. </span>RM 13.3(42-43): Size Clauses<a class="headerlink" href="#rm-13-3-42-43-size-clauses" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>“The recommended level of support for the <code class="docutils literal notranslate"><span class="pre">Size</span></code> attribute of
+objects is:</p>
+<p>A <code class="docutils literal notranslate"><span class="pre">Size</span></code> clause should be supported for an object if the specified
+<code class="docutils literal notranslate"><span class="pre">Size</span></code> is at least as large as its subtype’s <code class="docutils literal notranslate"><span class="pre">Size</span></code>, and
+corresponds to a size in storage elements that is a multiple of the
+object’s <code class="docutils literal notranslate"><span class="pre">Alignment</span></code> (if the <code class="docutils literal notranslate"><span class="pre">Alignment</span></code> is nonzero).”</p>
+</div></blockquote>
+<p>Followed.</p>
+</div>
+<div class="section" id="rm-13-3-50-56-size-clauses">
+<h2><span class="section-number">6.21. </span>RM 13.3(50-56): Size Clauses<a class="headerlink" href="#rm-13-3-50-56-size-clauses" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>“If the <code class="docutils literal notranslate"><span class="pre">Size</span></code> of a subtype is specified, and allows for efficient
+independent addressability (see 9.10) on the target architecture, then
+the <code class="docutils literal notranslate"><span class="pre">Size</span></code> of the following objects of the subtype should equal the
+<code class="docutils literal notranslate"><span class="pre">Size</span></code> of the subtype:</p>
+<p>Aliased objects (including components).”</p>
+</div></blockquote>
+<p>Followed.</p>
+<blockquote>
+<div><p>“<cite>Size</cite> clause on a composite subtype should not affect the
+internal layout of components.”</p>
+</div></blockquote>
+<p>Followed. But note that this can be overridden by use of the implementation
+pragma Implicit_Packing in the case of packed arrays.</p>
+<blockquote>
+<div><p>“The recommended level of support for the <code class="docutils literal notranslate"><span class="pre">Size</span></code> attribute of subtypes is:</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">Size</span></code> (if not specified) of a static discrete or fixed point
+subtype should be the number of bits needed to represent each value
+belonging to the subtype using an unbiased representation, leaving space
+for a sign bit only if the subtype contains negative values.  If such a
+subtype is a first subtype, then an implementation should support a
+specified <code class="docutils literal notranslate"><span class="pre">Size</span></code> for it that reflects this representation.”</p>
+</div></blockquote>
+<p>Followed.</p>
+<blockquote>
+<div><p>“For a subtype implemented with levels of indirection, the <code class="docutils literal notranslate"><span class="pre">Size</span></code>
+should include the size of the pointers, but not the size of what they
+point at.”</p>
+</div></blockquote>
+<p>Followed.</p>
+</div>
+<div class="section" id="rm-13-3-71-73-component-size-clauses">
+<span id="index-20"></span><h2><span class="section-number">6.22. </span>RM 13.3(71-73): Component Size Clauses<a class="headerlink" href="#rm-13-3-71-73-component-size-clauses" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>“The recommended level of support for the <code class="docutils literal notranslate"><span class="pre">Component_Size</span></code>
+attribute is:</p>
+<p>An implementation need not support specified <code class="docutils literal notranslate"><span class="pre">Component_Sizes</span></code> that are
+less than the <code class="docutils literal notranslate"><span class="pre">Size</span></code> of the component subtype.”</p>
+</div></blockquote>
+<p>Followed.</p>
+<blockquote>
+<div><p>“An implementation should support specified Component_Sizes that
+are factors and multiples of the word size.  For such
+Component_Sizes, the array should contain no gaps between
+components.  For other Component_Sizes (if supported), the array
+should contain no gaps between components when packing is also
+specified; the implementation should forbid this combination in cases
+where it cannot support a no-gaps representation.”</p>
+</div></blockquote>
+<p>Followed.</p>
+<span class="target" id="index-21"></span></div>
+<div class="section" id="rm-13-4-9-10-enumeration-representation-clauses">
+<span id="index-22"></span><h2><span class="section-number">6.23. </span>RM 13.4(9-10): Enumeration Representation Clauses<a class="headerlink" href="#rm-13-4-9-10-enumeration-representation-clauses" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>“The recommended level of support for enumeration representation clauses
+is:</p>
+<p>An implementation need not support enumeration representation clauses
+for boolean types, but should at minimum support the internal codes in
+the range <code class="docutils literal notranslate"><span class="pre">System.Min_Int</span> <span class="pre">..</span> <span class="pre">System.Max_Int</span></code>.”</p>
+</div></blockquote>
+<p>Followed.</p>
+<span class="target" id="index-23"></span></div>
+<div class="section" id="rm-13-5-1-17-22-record-representation-clauses">
+<span id="index-24"></span><h2><span class="section-number">6.24. </span>RM 13.5.1(17-22): Record Representation Clauses<a class="headerlink" href="#rm-13-5-1-17-22-record-representation-clauses" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>“The recommended level of support for
+<em>record_representation_clause</em>s is:</p>
+<p>An implementation should support storage places that can be extracted
+with a load, mask, shift sequence of machine code, and set with a load,
+shift, mask, store sequence, given the available machine instructions
+and run-time model.”</p>
+</div></blockquote>
+<p>Followed.</p>
+<blockquote>
+<div><p>“A storage place should be supported if its size is equal to the
+<code class="docutils literal notranslate"><span class="pre">Size</span></code> of the component subtype, and it starts and ends on a
+boundary that obeys the <code class="docutils literal notranslate"><span class="pre">Alignment</span></code> of the component subtype.”</p>
+</div></blockquote>
+<p>Followed.</p>
+<blockquote>
+<div><p>“If the default bit ordering applies to the declaration of a given type,
+then for a component whose subtype’s <code class="docutils literal notranslate"><span class="pre">Size</span></code> is less than the word
+size, any storage place that does not cross an aligned word boundary
+should be supported.”</p>
+</div></blockquote>
+<p>Followed.</p>
+<blockquote>
+<div><p>“An implementation may reserve a storage place for the tag field of a
+tagged type, and disallow other components from overlapping that place.”</p>
+</div></blockquote>
+<p>Followed.  The storage place for the tag field is the beginning of the tagged
+record, and its size is Address’Size.  GNAT will reject an explicit component
+clause for the tag field.</p>
+<blockquote>
+<div><p>“An implementation need not support a <em>component_clause</em> for a
+component of an extension part if the storage place is not after the
+storage places of all components of the parent type, whether or not
+those storage places had been specified.”</p>
+</div></blockquote>
+<p>Followed.  The above advice on record representation clauses is followed,
+and all mentioned features are implemented.</p>
+</div>
+<div class="section" id="rm-13-5-2-5-storage-place-attributes">
+<span id="index-25"></span><h2><span class="section-number">6.25. </span>RM 13.5.2(5): Storage Place Attributes<a class="headerlink" href="#rm-13-5-2-5-storage-place-attributes" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>“If a component is represented using some form of pointer (such as an
+offset) to the actual data of the component, and this data is contiguous
+with the rest of the object, then the storage place attributes should
+reflect the place of the actual data, not the pointer.  If a component is
+allocated discontinuously from the rest of the object, then a warning
+should be generated upon reference to one of its storage place
+attributes.”</p>
+</div></blockquote>
+<p>Followed.  There are no such components in GNAT.</p>
+</div>
+<div class="section" id="rm-13-5-3-7-8-bit-ordering">
+<span id="index-26"></span><h2><span class="section-number">6.26. </span>RM 13.5.3(7-8): Bit Ordering<a class="headerlink" href="#rm-13-5-3-7-8-bit-ordering" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>“The recommended level of support for the non-default bit ordering is:</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">Word_Size</span></code> = <code class="docutils literal notranslate"><span class="pre">Storage_Unit</span></code>, then the implementation
+should support the non-default bit ordering in addition to the default
+bit ordering.”</p>
+</div></blockquote>
+<p>Followed.  Word size does not equal storage size in this implementation.
+Thus non-default bit ordering is not supported.</p>
+</div>
+<div class="section" id="rm-13-7-37-address-as-private">
+<span id="index-27"></span><h2><span class="section-number">6.27. </span>RM 13.7(37): Address as Private<a class="headerlink" href="#rm-13-7-37-address-as-private" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>“<cite>Address</cite> should be of a private type.”</p>
+</div></blockquote>
+<p>Followed.</p>
+<span class="target" id="index-28"></span></div>
+<div class="section" id="rm-13-7-1-16-address-operations">
+<span id="index-29"></span><h2><span class="section-number">6.28. </span>RM 13.7.1(16): Address Operations<a class="headerlink" href="#rm-13-7-1-16-address-operations" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>“Operations in <code class="docutils literal notranslate"><span class="pre">System</span></code> and its children should reflect the target
+environment semantics as closely as is reasonable.  For example, on most
+machines, it makes sense for address arithmetic to ‘wrap around’.
+Operations that do not make sense should raise <code class="docutils literal notranslate"><span class="pre">Program_Error</span></code>.”</p>
+</div></blockquote>
+<p>Followed.  Address arithmetic is modular arithmetic that wraps around.  No
+operation raises <code class="docutils literal notranslate"><span class="pre">Program_Error</span></code>, since all operations make sense.</p>
+</div>
+<div class="section" id="rm-13-9-14-17-unchecked-conversion">
+<span id="index-30"></span><h2><span class="section-number">6.29. </span>RM 13.9(14-17): Unchecked Conversion<a class="headerlink" href="#rm-13-9-14-17-unchecked-conversion" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>“The <code class="docutils literal notranslate"><span class="pre">Size</span></code> of an array object should not include its bounds; hence,
+the bounds should not be part of the converted data.”</p>
+</div></blockquote>
+<p>Followed.</p>
+<blockquote>
+<div><p>“The implementation should not generate unnecessary run-time checks to
+ensure that the representation of <code class="docutils literal notranslate"><span class="pre">S</span></code> is a representation of the
+target type.  It should take advantage of the permission to return by
+reference when possible.  Restrictions on unchecked conversions should be
+avoided unless required by the target environment.”</p>
+</div></blockquote>
+<p>Followed.  There are no restrictions on unchecked conversion.  A warning is
+generated if the source and target types do not have the same size since
+the semantics in this case may be target dependent.</p>
+<blockquote>
+<div><p>“The recommended level of support for unchecked conversions is:</p>
+<p>Unchecked conversions should be supported and should be reversible in
+the cases where this clause defines the result.  To enable meaningful use
+of unchecked conversion, a contiguous representation should be used for
+elementary subtypes, for statically constrained array subtypes whose
+component subtype is one of the subtypes described in this paragraph,
+and for record subtypes without discriminants whose component subtypes
+are described in this paragraph.”</p>
+</div></blockquote>
+<p>Followed.</p>
+</div>
+<div class="section" id="rm-13-11-23-25-implicit-heap-usage">
+<span id="index-31"></span><h2><span class="section-number">6.30. </span>RM 13.11(23-25): Implicit Heap Usage<a class="headerlink" href="#rm-13-11-23-25-implicit-heap-usage" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>“An implementation should document any cases in which it dynamically
+allocates heap storage for a purpose other than the evaluation of an
+allocator.”</p>
+</div></blockquote>
+<p>Followed, the only other points at which heap storage is dynamically
+allocated are as follows:</p>
+<ul class="simple">
+<li><p>At initial elaboration time, to allocate dynamically sized global
+objects.</p></li>
+<li><p>To allocate space for a task when a task is created.</p></li>
+<li><p>To extend the secondary stack dynamically when needed.  The secondary
+stack is used for returning variable length results.</p></li>
+</ul>
+<blockquote>
+<div><p>“A default (implementation-provided) storage pool for an
+access-to-constant type should not have overhead to support deallocation of
+individual objects.”</p>
+</div></blockquote>
+<p>Followed.</p>
+<blockquote>
+<div><p>“A storage pool for an anonymous access type should be created at the
+point of an allocator for the type, and be reclaimed when the designated
+object becomes inaccessible.”</p>
+</div></blockquote>
+<p>Followed.</p>
+</div>
+<div class="section" id="rm-13-11-2-17-unchecked-deallocation">
+<span id="index-32"></span><h2><span class="section-number">6.31. </span>RM 13.11.2(17): Unchecked Deallocation<a class="headerlink" href="#rm-13-11-2-17-unchecked-deallocation" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>“For a standard storage pool, <code class="docutils literal notranslate"><span class="pre">Free</span></code> should actually reclaim the
+storage.”</p>
+</div></blockquote>
+<p>Followed.</p>
+</div>
+<div class="section" id="rm-13-13-2-1-6-stream-oriented-attributes">
+<span id="index-33"></span><h2><span class="section-number">6.32. </span>RM 13.13.2(1.6): Stream Oriented Attributes<a class="headerlink" href="#rm-13-13-2-1-6-stream-oriented-attributes" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>“If not specified, the value of Stream_Size for an elementary type
+should be the number of bits that corresponds to the minimum number of
+stream elements required by the first subtype of the type, rounded up
+to the nearest factor or multiple of the word size that is also a
+multiple of the stream element size.”</p>
+</div></blockquote>
+<p>Followed, except that the number of stream elements is 1, 2, 3, 4 or 8.
+The Stream_Size may be used to override the default choice.</p>
+<p>The default implementation is based on direct binary representations and is
+therefore target- and endianness-dependent.  To address this issue, GNAT also
+supplies an alternate implementation of the stream attributes <code class="docutils literal notranslate"><span class="pre">Read</span></code> and
+<code class="docutils literal notranslate"><span class="pre">Write</span></code>, which uses the target-independent XDR standard representation for
+scalar types. This XDR alternative can be enabled via the binder switch -xdr.</p>
+<span class="target" id="index-34"></span><span class="target" id="index-35"></span><span class="target" id="index-36"></span></div>
+<div class="section" id="rm-a-1-52-names-of-predefined-numeric-types">
+<span id="index-37"></span><h2><span class="section-number">6.33. </span>RM A.1(52): Names of Predefined Numeric Types<a class="headerlink" href="#rm-a-1-52-names-of-predefined-numeric-types" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>“If an implementation provides additional named predefined integer types,
+then the names should end with <code class="docutils literal notranslate"><span class="pre">Integer</span></code> as in
+<code class="docutils literal notranslate"><span class="pre">Long_Integer</span></code>.  If an implementation provides additional named
+predefined floating point types, then the names should end with
+<code class="docutils literal notranslate"><span class="pre">Float</span></code> as in <code class="docutils literal notranslate"><span class="pre">Long_Float</span></code>.”</p>
+</div></blockquote>
+<p>Followed.</p>
+</div>
+<div class="section" id="rm-a-3-2-49-ada-characters-handling">
+<span id="index-38"></span><h2><span class="section-number">6.34. </span>RM A.3.2(49): <code class="docutils literal notranslate"><span class="pre">Ada.Characters.Handling</span></code><a class="headerlink" href="#rm-a-3-2-49-ada-characters-handling" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>“If an implementation provides a localized definition of <code class="docutils literal notranslate"><span class="pre">Character</span></code>
+or <code class="docutils literal notranslate"><span class="pre">Wide_Character</span></code>, then the effects of the subprograms in
+<code class="docutils literal notranslate"><span class="pre">Characters.Handling</span></code> should reflect the localizations.
+See also 3.5.2.”</p>
+</div></blockquote>
+<p>Followed.  GNAT provides no such localized definitions.</p>
+</div>
+<div class="section" id="rm-a-4-4-106-bounded-length-string-handling">
+<span id="index-39"></span><h2><span class="section-number">6.35. </span>RM A.4.4(106): Bounded-Length String Handling<a class="headerlink" href="#rm-a-4-4-106-bounded-length-string-handling" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>“Bounded string objects should not be implemented by implicit pointers
+and dynamic allocation.”</p>
+</div></blockquote>
+<p>Followed.  No implicit pointers or dynamic allocation are used.</p>
+</div>
+<div class="section" id="rm-a-5-2-46-47-random-number-generation">
+<span id="index-40"></span><h2><span class="section-number">6.36. </span>RM A.5.2(46-47): Random Number Generation<a class="headerlink" href="#rm-a-5-2-46-47-random-number-generation" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>“Any storage associated with an object of type <code class="docutils literal notranslate"><span class="pre">Generator</span></code> should be
+reclaimed on exit from the scope of the object.”</p>
+</div></blockquote>
+<p>Followed.</p>
+<blockquote>
+<div><p>“If the generator period is sufficiently long in relation to the number
+of distinct initiator values, then each possible value of
+<code class="docutils literal notranslate"><span class="pre">Initiator</span></code> passed to <code class="docutils literal notranslate"><span class="pre">Reset</span></code> should initiate a sequence of
+random numbers that does not, in a practical sense, overlap the sequence
+initiated by any other value.  If this is not possible, then the mapping
+between initiator values and generator states should be a rapidly
+varying function of the initiator value.”</p>
+</div></blockquote>
+<p>Followed.  The generator period is sufficiently long for the first
+condition here to hold true.</p>
+</div>
+<div class="section" id="rm-a-10-7-23-get-immediate">
+<span id="index-41"></span><h2><span class="section-number">6.37. </span>RM A.10.7(23): <code class="docutils literal notranslate"><span class="pre">Get_Immediate</span></code><a class="headerlink" href="#rm-a-10-7-23-get-immediate" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>“The <code class="docutils literal notranslate"><span class="pre">Get_Immediate</span></code> procedures should be implemented with
+unbuffered input.  For a device such as a keyboard, input should be
+available if a key has already been typed, whereas for a disk
+file, input should always be available except at end of file.  For a file
+associated with a keyboard-like device, any line-editing features of the
+underlying operating system should be disabled during the execution of
+<code class="docutils literal notranslate"><span class="pre">Get_Immediate</span></code>.”</p>
+</div></blockquote>
+<p>Followed on all targets except VxWorks. For VxWorks, there is no way to
+provide this functionality that does not result in the input buffer being
+flushed before the <code class="docutils literal notranslate"><span class="pre">Get_Immediate</span></code> call. A special unit
+<code class="docutils literal notranslate"><span class="pre">Interfaces.Vxworks.IO</span></code> is provided that contains routines to enable
+this functionality.</p>
+</div>
+<div class="section" id="rm-a-18-containers">
+<span id="index-42"></span><h2><span class="section-number">6.38. </span>RM A.18: <code class="docutils literal notranslate"><span class="pre">Containers</span></code><a class="headerlink" href="#rm-a-18-containers" title="Permalink to this headline">¶</a></h2>
+<p>All implementation advice pertaining to Ada.Containers and its
+child units (that is, all implementation advice occurring within
+section A.18 and its subsections) is followed except for A.18.24(17):</p>
+<blockquote>
+<div><p>“Bounded ordered set objects should be implemented without implicit pointers or dynamic allocation. “</p>
+</div></blockquote>
+<p>The implementations of the two Reference_Preserving_Key functions of
+the generic package Ada.Containers.Bounded_Ordered_Sets each currently make
+use of dynamic allocation; other operations on bounded ordered set objects
+follow the implementation advice.</p>
+</div>
+<div class="section" id="rm-b-1-39-41-pragma-export">
+<span id="index-43"></span><h2><span class="section-number">6.39. </span>RM B.1(39-41): Pragma <code class="docutils literal notranslate"><span class="pre">Export</span></code><a class="headerlink" href="#rm-b-1-39-41-pragma-export" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>“If an implementation supports pragma <code class="docutils literal notranslate"><span class="pre">Export</span></code> to a given language,
+then it should also allow the main subprogram to be written in that
+language.  It should support some mechanism for invoking the elaboration
+of the Ada library units included in the system, and for invoking the
+finalization of the environment task.  On typical systems, the
+recommended mechanism is to provide two subprograms whose link names are
+<code class="docutils literal notranslate"><span class="pre">adainit</span></code> and <code class="docutils literal notranslate"><span class="pre">adafinal</span></code>.  <code class="docutils literal notranslate"><span class="pre">adainit</span></code> should contain the
+elaboration code for library units.  <code class="docutils literal notranslate"><span class="pre">adafinal</span></code> should contain the
+finalization code.  These subprograms should have no effect the second
+and subsequent time they are called.”</p>
+</div></blockquote>
+<p>Followed.</p>
+<blockquote>
+<div><p>“Automatic elaboration of pre-elaborated packages should be
+provided when pragma <code class="docutils literal notranslate"><span class="pre">Export</span></code> is supported.”</p>
+</div></blockquote>
+<p>Followed when the main program is in Ada.  If the main program is in a
+foreign language, then
+<code class="docutils literal notranslate"><span class="pre">adainit</span></code> must be called to elaborate pre-elaborated
+packages.</p>
+<blockquote>
+<div><p>“For each supported convention <em>L</em> other than <code class="docutils literal notranslate"><span class="pre">Intrinsic</span></code>, an
+implementation should support <code class="docutils literal notranslate"><span class="pre">Import</span></code> and <code class="docutils literal notranslate"><span class="pre">Export</span></code> pragmas
+for objects of <em>L</em>-compatible types and for subprograms, and pragma
+<cite>Convention</cite> for <em>L</em>-eligible types and for subprograms,
+presuming the other language has corresponding features.  Pragma
+<code class="docutils literal notranslate"><span class="pre">Convention</span></code> need not be supported for scalar types.”</p>
+</div></blockquote>
+<p>Followed.</p>
+<span class="target" id="index-44"></span></div>
+<div class="section" id="rm-b-2-12-13-package-interfaces">
+<span id="index-45"></span><h2><span class="section-number">6.40. </span>RM B.2(12-13): Package <code class="docutils literal notranslate"><span class="pre">Interfaces</span></code><a class="headerlink" href="#rm-b-2-12-13-package-interfaces" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>“For each implementation-defined convention identifier, there should be a
+child package of package Interfaces with the corresponding name.  This
+package should contain any declarations that would be useful for
+interfacing to the language (implementation) represented by the
+convention.  Any declarations useful for interfacing to any language on
+the given hardware architecture should be provided directly in
+<code class="docutils literal notranslate"><span class="pre">Interfaces</span></code>.”</p>
+</div></blockquote>
+<p>Followed.</p>
+<blockquote>
+<div><p>“An implementation supporting an interface to C, COBOL, or Fortran should
+provide the corresponding package or packages described in the following
+clauses.”</p>
+</div></blockquote>
+<p>Followed.  GNAT provides all the packages described in this section.</p>
+</div>
+<div class="section" id="rm-b-3-63-71-interfacing-with-c">
+<span id="index-46"></span><h2><span class="section-number">6.41. </span>RM B.3(63-71): Interfacing with C<a class="headerlink" href="#rm-b-3-63-71-interfacing-with-c" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>“An implementation should support the following interface correspondences
+between Ada and C.”</p>
+</div></blockquote>
+<p>Followed.</p>
+<blockquote>
+<div><p>“An Ada procedure corresponds to a void-returning C function.”</p>
+</div></blockquote>
+<p>Followed.</p>
+<blockquote>
+<div><p>“An Ada function corresponds to a non-void C function.”</p>
+</div></blockquote>
+<p>Followed.</p>
+<blockquote>
+<div><p>“An Ada <code class="docutils literal notranslate"><span class="pre">in</span></code> scalar parameter is passed as a scalar argument to a C
+function.”</p>
+</div></blockquote>
+<p>Followed.</p>
+<blockquote>
+<div><p>“An Ada <code class="docutils literal notranslate"><span class="pre">in</span></code> parameter of an access-to-object type with designated
+type <code class="docutils literal notranslate"><span class="pre">T</span></code> is passed as a <code class="docutils literal notranslate"><span class="pre">t*</span></code> argument to a C function,
+where <code class="docutils literal notranslate"><span class="pre">t</span></code> is the C type corresponding to the Ada type <code class="docutils literal notranslate"><span class="pre">T</span></code>.”</p>
+</div></blockquote>
+<p>Followed.</p>
+<blockquote>
+<div><p>“An Ada access <code class="docutils literal notranslate"><span class="pre">T</span></code> parameter, or an Ada <code class="docutils literal notranslate"><span class="pre">out</span></code> or <code class="docutils literal notranslate"><span class="pre">in</span> <span class="pre">out</span></code>
+parameter of an elementary type <code class="docutils literal notranslate"><span class="pre">T</span></code>, is passed as a <code class="docutils literal notranslate"><span class="pre">t*</span></code>
+argument to a C function, where <code class="docutils literal notranslate"><span class="pre">t</span></code> is the C type corresponding to
+the Ada type <code class="docutils literal notranslate"><span class="pre">T</span></code>.  In the case of an elementary <code class="docutils literal notranslate"><span class="pre">out</span></code> or
+<code class="docutils literal notranslate"><span class="pre">in</span> <span class="pre">out</span></code> parameter, a pointer to a temporary copy is used to
+preserve by-copy semantics.”</p>
+</div></blockquote>
+<p>Followed.</p>
+<blockquote>
+<div><p>“An Ada parameter of a record type <code class="docutils literal notranslate"><span class="pre">T</span></code>, of any mode, is passed as a
+<code class="docutils literal notranslate"><span class="pre">t*</span></code> argument to a C function, where <code class="docutils literal notranslate"><span class="pre">t</span></code> is the C
+structure corresponding to the Ada type <code class="docutils literal notranslate"><span class="pre">T</span></code>.”</p>
+</div></blockquote>
+<p>Followed.  This convention may be overridden by the use of the C_Pass_By_Copy
+pragma, or Convention, or by explicitly specifying the mechanism for a given
+call using an extended import or export pragma.</p>
+<blockquote>
+<div><p>“An Ada parameter of an array type with component type <code class="docutils literal notranslate"><span class="pre">T</span></code>, of any
+mode, is passed as a <code class="docutils literal notranslate"><span class="pre">t*</span></code> argument to a C function, where
+<code class="docutils literal notranslate"><span class="pre">t</span></code> is the C type corresponding to the Ada type <code class="docutils literal notranslate"><span class="pre">T</span></code>.”</p>
+</div></blockquote>
+<p>Followed.</p>
+<blockquote>
+<div><p>“An Ada parameter of an access-to-subprogram type is passed as a pointer
+to a C function whose prototype corresponds to the designated
+subprogram’s specification.”</p>
+</div></blockquote>
+<p>Followed.</p>
+</div>
+<div class="section" id="rm-b-4-95-98-interfacing-with-cobol">
+<span id="index-47"></span><h2><span class="section-number">6.42. </span>RM B.4(95-98): Interfacing with COBOL<a class="headerlink" href="#rm-b-4-95-98-interfacing-with-cobol" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>“An Ada implementation should support the following interface
+correspondences between Ada and COBOL.”</p>
+</div></blockquote>
+<p>Followed.</p>
+<blockquote>
+<div><p>“An Ada access <code class="docutils literal notranslate"><span class="pre">T</span></code> parameter is passed as a <code class="docutils literal notranslate"><span class="pre">BY</span> <span class="pre">REFERENCE</span></code> data item of
+the COBOL type corresponding to <code class="docutils literal notranslate"><span class="pre">T</span></code>.”</p>
+</div></blockquote>
+<p>Followed.</p>
+<blockquote>
+<div><p>“An Ada in scalar parameter is passed as a <code class="docutils literal notranslate"><span class="pre">BY</span> <span class="pre">CONTENT</span></code> data item of
+the corresponding COBOL type.”</p>
+</div></blockquote>
+<p>Followed.</p>
+<blockquote>
+<div><p>“Any other Ada parameter is passed as a <code class="docutils literal notranslate"><span class="pre">BY</span> <span class="pre">REFERENCE</span></code> data item of the
+COBOL type corresponding to the Ada parameter type; for scalars, a local
+copy is used if necessary to ensure by-copy semantics.”</p>
+</div></blockquote>
+<p>Followed.</p>
+</div>
+<div class="section" id="rm-b-5-22-26-interfacing-with-fortran">
+<span id="index-48"></span><h2><span class="section-number">6.43. </span>RM B.5(22-26): Interfacing with Fortran<a class="headerlink" href="#rm-b-5-22-26-interfacing-with-fortran" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>“An Ada implementation should support the following interface
+correspondences between Ada and Fortran:”</p>
+</div></blockquote>
+<p>Followed.</p>
+<blockquote>
+<div><p>“An Ada procedure corresponds to a Fortran subroutine.”</p>
+</div></blockquote>
+<p>Followed.</p>
+<blockquote>
+<div><p>“An Ada function corresponds to a Fortran function.”</p>
+</div></blockquote>
+<p>Followed.</p>
+<blockquote>
+<div><p>“An Ada parameter of an elementary, array, or record type <code class="docutils literal notranslate"><span class="pre">T</span></code> is
+passed as a <code class="docutils literal notranslate"><span class="pre">T</span></code> argument to a Fortran procedure, where <code class="docutils literal notranslate"><span class="pre">T</span></code> is
+the Fortran type corresponding to the Ada type <code class="docutils literal notranslate"><span class="pre">T</span></code>, and where the
+INTENT attribute of the corresponding dummy argument matches the Ada
+formal parameter mode; the Fortran implementation’s parameter passing
+conventions are used.  For elementary types, a local copy is used if
+necessary to ensure by-copy semantics.”</p>
+</div></blockquote>
+<p>Followed.</p>
+<blockquote>
+<div><p>“An Ada parameter of an access-to-subprogram type is passed as a
+reference to a Fortran procedure whose interface corresponds to the
+designated subprogram’s specification.”</p>
+</div></blockquote>
+<p>Followed.</p>
+</div>
+<div class="section" id="rm-c-1-3-5-access-to-machine-operations">
+<span id="index-49"></span><h2><span class="section-number">6.44. </span>RM C.1(3-5): Access to Machine Operations<a class="headerlink" href="#rm-c-1-3-5-access-to-machine-operations" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>“The machine code or intrinsic support should allow access to all
+operations normally available to assembly language programmers for the
+target environment, including privileged instructions, if any.”</p>
+</div></blockquote>
+<p>Followed.</p>
+<blockquote>
+<div><p>“The interfacing pragmas (see Annex B) should support interface to
+assembler; the default assembler should be associated with the
+convention identifier <code class="docutils literal notranslate"><span class="pre">Assembler</span></code>.”</p>
+</div></blockquote>
+<p>Followed.</p>
+<blockquote>
+<div><p>“If an entity is exported to assembly language, then the implementation
+should allocate it at an addressable location, and should ensure that it
+is retained by the linking process, even if not otherwise referenced
+from the Ada code.  The implementation should assume that any call to a
+machine code or assembler subprogram is allowed to read or update every
+object that is specified as exported.”</p>
+</div></blockquote>
+<p>Followed.</p>
+</div>
+<div class="section" id="rm-c-1-10-16-access-to-machine-operations">
+<h2><span class="section-number">6.45. </span>RM C.1(10-16): Access to Machine Operations<a class="headerlink" href="#rm-c-1-10-16-access-to-machine-operations" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>“The implementation should ensure that little or no overhead is
+associated with calling intrinsic and machine-code subprograms.”</p>
+</div></blockquote>
+<p>Followed for both intrinsics and machine-code subprograms.</p>
+<blockquote>
+<div><p>“It is recommended that intrinsic subprograms be provided for convenient
+access to any machine operations that provide special capabilities or
+efficiency and that are not otherwise available through the language
+constructs.”</p>
+</div></blockquote>
+<p>Followed.  A full set of machine operation intrinsic subprograms is provided.</p>
+<blockquote>
+<div><p>“Atomic read-modify-write operations—e.g., test and set, compare and
+swap, decrement and test, enqueue/dequeue.”</p>
+</div></blockquote>
+<p>Followed on any target supporting such operations.</p>
+<blockquote>
+<div><p>“Standard numeric functions—e.g.:, sin, log.”</p>
+</div></blockquote>
+<p>Followed on any target supporting such operations.</p>
+<blockquote>
+<div><p>“String manipulation operations—e.g.:, translate and test.”</p>
+</div></blockquote>
+<p>Followed on any target supporting such operations.</p>
+<blockquote>
+<div><p>“Vector operations—e.g.:, compare vector against thresholds.”</p>
+</div></blockquote>
+<p>Followed on any target supporting such operations.</p>
+<blockquote>
+<div><p>“Direct operations on I/O ports.”</p>
+</div></blockquote>
+<p>Followed on any target supporting such operations.</p>
+</div>
+<div class="section" id="rm-c-3-28-interrupt-support">
+<span id="index-50"></span><h2><span class="section-number">6.46. </span>RM C.3(28): Interrupt Support<a class="headerlink" href="#rm-c-3-28-interrupt-support" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>“If the <code class="docutils literal notranslate"><span class="pre">Ceiling_Locking</span></code> policy is not in effect, the
+implementation should provide means for the application to specify which
+interrupts are to be blocked during protected actions, if the underlying
+system allows for a finer-grain control of interrupt blocking.”</p>
+</div></blockquote>
+<p>Followed.  The underlying system does not allow for finer-grain control
+of interrupt blocking.</p>
+</div>
+<div class="section" id="rm-c-3-1-20-21-protected-procedure-handlers">
+<span id="index-51"></span><h2><span class="section-number">6.47. </span>RM C.3.1(20-21): Protected Procedure Handlers<a class="headerlink" href="#rm-c-3-1-20-21-protected-procedure-handlers" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>“Whenever possible, the implementation should allow interrupt handlers to
+be called directly by the hardware.”</p>
+</div></blockquote>
+<p>Followed on any target where the underlying operating system permits
+such direct calls.</p>
+<blockquote>
+<div><p>“Whenever practical, violations of any
+implementation-defined restrictions should be detected before run time.”</p>
+</div></blockquote>
+<p>Followed.  Compile time warnings are given when possible.</p>
+<span class="target" id="index-52"></span></div>
+<div class="section" id="rm-c-3-2-25-package-interrupts">
+<span id="index-53"></span><h2><span class="section-number">6.48. </span>RM C.3.2(25): Package <code class="docutils literal notranslate"><span class="pre">Interrupts</span></code><a class="headerlink" href="#rm-c-3-2-25-package-interrupts" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>“If implementation-defined forms of interrupt handler procedures are
+supported, such as protected procedures with parameters, then for each
+such form of a handler, a type analogous to <code class="docutils literal notranslate"><span class="pre">Parameterless_Handler</span></code>
+should be specified in a child package of <code class="docutils literal notranslate"><span class="pre">Interrupts</span></code>, with the
+same operations as in the predefined package Interrupts.”</p>
+</div></blockquote>
+<p>Followed.</p>
+</div>
+<div class="section" id="rm-c-4-14-pre-elaboration-requirements">
+<span id="index-54"></span><h2><span class="section-number">6.49. </span>RM C.4(14): Pre-elaboration Requirements<a class="headerlink" href="#rm-c-4-14-pre-elaboration-requirements" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>“It is recommended that pre-elaborated packages be implemented in such a
+way that there should be little or no code executed at run time for the
+elaboration of entities not already covered by the Implementation
+Requirements.”</p>
+</div></blockquote>
+<p>Followed.  Executable code is generated in some cases, e.g., loops
+to initialize large arrays.</p>
+</div>
+<div class="section" id="rm-c-5-8-pragma-discard-names">
+<h2><span class="section-number">6.50. </span>RM C.5(8): Pragma <code class="docutils literal notranslate"><span class="pre">Discard_Names</span></code><a class="headerlink" href="#rm-c-5-8-pragma-discard-names" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>“If the pragma applies to an entity, then the implementation should
+reduce the amount of storage used for storing names associated with that
+entity.”</p>
+</div></blockquote>
+<p>Followed.</p>
+<span class="target" id="index-55"></span></div>
+<div class="section" id="rm-c-7-2-30-the-package-task-attributes">
+<span id="index-56"></span><h2><span class="section-number">6.51. </span>RM C.7.2(30): The Package Task_Attributes<a class="headerlink" href="#rm-c-7-2-30-the-package-task-attributes" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>“Some implementations are targeted to domains in which memory use at run
+time must be completely deterministic.  For such implementations, it is
+recommended that the storage for task attributes will be pre-allocated
+statically and not from the heap.  This can be accomplished by either
+placing restrictions on the number and the size of the task’s
+attributes, or by using the pre-allocated storage for the first <code class="docutils literal notranslate"><span class="pre">N</span></code>
+attribute objects, and the heap for the others.  In the latter case,
+<code class="docutils literal notranslate"><span class="pre">N</span></code> should be documented.”</p>
+</div></blockquote>
+<p>Not followed.  This implementation is not targeted to such a domain.</p>
+</div>
+<div class="section" id="rm-d-3-17-locking-policies">
+<span id="index-57"></span><h2><span class="section-number">6.52. </span>RM D.3(17): Locking Policies<a class="headerlink" href="#rm-d-3-17-locking-policies" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>“The implementation should use names that end with <code class="docutils literal notranslate"><span class="pre">_Locking</span></code> for
+locking policies defined by the implementation.”</p>
+</div></blockquote>
+<p>Followed.  Two implementation-defined locking policies are defined,
+whose names (<code class="docutils literal notranslate"><span class="pre">Inheritance_Locking</span></code> and
+<code class="docutils literal notranslate"><span class="pre">Concurrent_Readers_Locking</span></code>) follow this suggestion.</p>
+</div>
+<div class="section" id="rm-d-4-16-entry-queuing-policies">
+<span id="index-58"></span><h2><span class="section-number">6.53. </span>RM D.4(16): Entry Queuing Policies<a class="headerlink" href="#rm-d-4-16-entry-queuing-policies" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>“Names that end with <code class="docutils literal notranslate"><span class="pre">_Queuing</span></code> should be used
+for all implementation-defined queuing policies.”</p>
+</div></blockquote>
+<p>Followed.  No such implementation-defined queuing policies exist.</p>
+</div>
+<div class="section" id="rm-d-6-9-10-preemptive-abort">
+<span id="index-59"></span><h2><span class="section-number">6.54. </span>RM D.6(9-10): Preemptive Abort<a class="headerlink" href="#rm-d-6-9-10-preemptive-abort" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>“Even though the <em>abort_statement</em> is included in the list of
+potentially blocking operations (see 9.5.1), it is recommended that this
+statement be implemented in a way that never requires the task executing
+the <em>abort_statement</em> to block.”</p>
+</div></blockquote>
+<p>Followed.</p>
+<blockquote>
+<div><p>“On a multi-processor, the delay associated with aborting a task on
+another processor should be bounded; the implementation should use
+periodic polling, if necessary, to achieve this.”</p>
+</div></blockquote>
+<p>Followed.</p>
+</div>
+<div class="section" id="rm-d-7-21-tasking-restrictions">
+<span id="index-60"></span><h2><span class="section-number">6.55. </span>RM D.7(21): Tasking Restrictions<a class="headerlink" href="#rm-d-7-21-tasking-restrictions" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>“When feasible, the implementation should take advantage of the specified
+restrictions to produce a more efficient implementation.”</p>
+</div></blockquote>
+<p>GNAT currently takes advantage of these restrictions by providing an optimized
+run time when the Ravenscar profile and the GNAT restricted run time set
+of restrictions are specified.  See pragma <code class="docutils literal notranslate"><span class="pre">Profile</span> <span class="pre">(Ravenscar)</span></code> and
+pragma <code class="docutils literal notranslate"><span class="pre">Profile</span> <span class="pre">(Restricted)</span></code> for more details.</p>
+</div>
+<div class="section" id="rm-d-8-47-49-monotonic-time">
+<span id="index-61"></span><h2><span class="section-number">6.56. </span>RM D.8(47-49): Monotonic Time<a class="headerlink" href="#rm-d-8-47-49-monotonic-time" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>“When appropriate, implementations should provide configuration
+mechanisms to change the value of <code class="docutils literal notranslate"><span class="pre">Tick</span></code>.”</p>
+</div></blockquote>
+<p>Such configuration mechanisms are not appropriate to this implementation
+and are thus not supported.</p>
+<blockquote>
+<div><p>“It is recommended that <code class="docutils literal notranslate"><span class="pre">Calendar.Clock</span></code> and <code class="docutils literal notranslate"><span class="pre">Real_Time.Clock</span></code>
+be implemented as transformations of the same time base.”</p>
+</div></blockquote>
+<p>Followed.</p>
+<blockquote>
+<div><p>“It is recommended that the best time base which exists in
+the underlying system be available to the application through
+<code class="docutils literal notranslate"><span class="pre">Clock</span></code>.  <cite>Best</cite> may mean highest accuracy or largest range.”</p>
+</div></blockquote>
+<p>Followed.</p>
+<span class="target" id="index-62"></span></div>
+<div class="section" id="rm-e-5-28-29-partition-communication-subsystem">
+<span id="index-63"></span><h2><span class="section-number">6.57. </span>RM E.5(28-29): Partition Communication Subsystem<a class="headerlink" href="#rm-e-5-28-29-partition-communication-subsystem" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>“Whenever possible, the PCS on the called partition should allow for
+multiple tasks to call the RPC-receiver with different messages and
+should allow them to block until the corresponding subprogram body
+returns.”</p>
+</div></blockquote>
+<p>Followed by GLADE, a separately supplied PCS that can be used with
+GNAT.</p>
+<blockquote>
+<div><p>“The <code class="docutils literal notranslate"><span class="pre">Write</span></code> operation on a stream of type <code class="docutils literal notranslate"><span class="pre">Params_Stream_Type</span></code>
+should raise <code class="docutils literal notranslate"><span class="pre">Storage_Error</span></code> if it runs out of space trying to
+write the <code class="docutils literal notranslate"><span class="pre">Item</span></code> into the stream.”</p>
+</div></blockquote>
+<p>Followed by GLADE, a separately supplied PCS that can be used with
+GNAT.</p>
+</div>
+<div class="section" id="rm-f-7-cobol-support">
+<span id="index-64"></span><h2><span class="section-number">6.58. </span>RM F(7): COBOL Support<a class="headerlink" href="#rm-f-7-cobol-support" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>“If COBOL (respectively, C) is widely supported in the target
+environment, implementations supporting the Information Systems Annex
+should provide the child package <code class="docutils literal notranslate"><span class="pre">Interfaces.COBOL</span></code> (respectively,
+<code class="docutils literal notranslate"><span class="pre">Interfaces.C</span></code>) specified in Annex B and should support a
+<code class="docutils literal notranslate"><span class="pre">convention_identifier</span></code> of COBOL (respectively, C) in the interfacing
+pragmas (see Annex B), thus allowing Ada programs to interface with
+programs written in that language.”</p>
+</div></blockquote>
+<p>Followed.</p>
+</div>
+<div class="section" id="rm-f-1-2-decimal-radix-support">
+<span id="index-65"></span><h2><span class="section-number">6.59. </span>RM F.1(2): Decimal Radix Support<a class="headerlink" href="#rm-f-1-2-decimal-radix-support" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>“Packed decimal should be used as the internal representation for objects
+of subtype <code class="docutils literal notranslate"><span class="pre">S</span></code> when <code class="docutils literal notranslate"><span class="pre">S</span></code>’Machine_Radix = 10.”</p>
+</div></blockquote>
+<p>Not followed.  GNAT ignores <code class="docutils literal notranslate"><span class="pre">S</span></code>’Machine_Radix and always uses binary
+representations.</p>
+</div>
+<div class="section" id="rm-g-numerics">
+<span id="index-66"></span><h2><span class="section-number">6.60. </span>RM G: Numerics<a class="headerlink" href="#rm-g-numerics" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>“If Fortran (respectively, C) is widely supported in the target
+environment, implementations supporting the Numerics Annex
+should provide the child package <code class="docutils literal notranslate"><span class="pre">Interfaces.Fortran</span></code> (respectively,
+<code class="docutils literal notranslate"><span class="pre">Interfaces.C</span></code>) specified in Annex B and should support a
+<code class="docutils literal notranslate"><span class="pre">convention_identifier</span></code> of Fortran (respectively, C) in the interfacing
+pragmas (see Annex B), thus allowing Ada programs to interface with
+programs written in that language.”</p>
+</div></blockquote>
+<p>Followed.</p>
+</div>
+<div class="section" id="rm-g-1-1-56-58-complex-types">
+<span id="index-67"></span><h2><span class="section-number">6.61. </span>RM G.1.1(56-58): Complex Types<a class="headerlink" href="#rm-g-1-1-56-58-complex-types" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>“Because the usual mathematical meaning of multiplication of a complex
+operand and a real operand is that of the scaling of both components of
+the former by the latter, an implementation should not perform this
+operation by first promoting the real operand to complex type and then
+performing a full complex multiplication.  In systems that, in the
+future, support an Ada binding to IEC 559:1989, the latter technique
+will not generate the required result when one of the components of the
+complex operand is infinite.  (Explicit multiplication of the infinite
+component by the zero component obtained during promotion yields a NaN
+that propagates into the final result.) Analogous advice applies in the
+case of multiplication of a complex operand and a pure-imaginary
+operand, and in the case of division of a complex operand by a real or
+pure-imaginary operand.”</p>
+</div></blockquote>
+<p>Not followed.</p>
+<blockquote>
+<div><p>“Similarly, because the usual mathematical meaning of addition of a
+complex operand and a real operand is that the imaginary operand remains
+unchanged, an implementation should not perform this operation by first
+promoting the real operand to complex type and then performing a full
+complex addition.  In implementations in which the <code class="docutils literal notranslate"><span class="pre">Signed_Zeros</span></code>
+attribute of the component type is <code class="docutils literal notranslate"><span class="pre">True</span></code> (and which therefore
+conform to IEC 559:1989 in regard to the handling of the sign of zero in
+predefined arithmetic operations), the latter technique will not
+generate the required result when the imaginary component of the complex
+operand is a negatively signed zero.  (Explicit addition of the negative
+zero to the zero obtained during promotion yields a positive zero.)
+Analogous advice applies in the case of addition of a complex operand
+and a pure-imaginary operand, and in the case of subtraction of a
+complex operand and a real or pure-imaginary operand.”</p>
+</div></blockquote>
+<p>Not followed.</p>
+<blockquote>
+<div><p>“Implementations in which <code class="docutils literal notranslate"><span class="pre">Real'Signed_Zeros</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code> should
+attempt to provide a rational treatment of the signs of zero results and
+result components.  As one example, the result of the <code class="docutils literal notranslate"><span class="pre">Argument</span></code>
+function should have the sign of the imaginary component of the
+parameter <code class="docutils literal notranslate"><span class="pre">X</span></code> when the point represented by that parameter lies on
+the positive real axis; as another, the sign of the imaginary component
+of the <code class="docutils literal notranslate"><span class="pre">Compose_From_Polar</span></code> function should be the same as
+(respectively, the opposite of) that of the <code class="docutils literal notranslate"><span class="pre">Argument</span></code> parameter when that
+parameter has a value of zero and the <code class="docutils literal notranslate"><span class="pre">Modulus</span></code> parameter has a
+nonnegative (respectively, negative) value.”</p>
+</div></blockquote>
+<p>Followed.</p>
+</div>
+<div class="section" id="rm-g-1-2-49-complex-elementary-functions">
+<span id="index-68"></span><h2><span class="section-number">6.62. </span>RM G.1.2(49): Complex Elementary Functions<a class="headerlink" href="#rm-g-1-2-49-complex-elementary-functions" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>“Implementations in which <code class="docutils literal notranslate"><span class="pre">Complex_Types.Real'Signed_Zeros</span></code> is
+<code class="docutils literal notranslate"><span class="pre">True</span></code> should attempt to provide a rational treatment of the signs
+of zero results and result components.  For example, many of the complex
+elementary functions have components that are odd functions of one of
+the parameter components; in these cases, the result component should
+have the sign of the parameter component at the origin.  Other complex
+elementary functions have zero components whose sign is opposite that of
+a parameter component at the origin, or is always positive or always
+negative.”</p>
+</div></blockquote>
+<p>Followed.</p>
+</div>
+<div class="section" id="rm-g-2-4-19-accuracy-requirements">
+<span id="index-69"></span><h2><span class="section-number">6.63. </span>RM G.2.4(19): Accuracy Requirements<a class="headerlink" href="#rm-g-2-4-19-accuracy-requirements" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>“The versions of the forward trigonometric functions without a
+<code class="docutils literal notranslate"><span class="pre">Cycle</span></code> parameter should not be implemented by calling the
+corresponding version with a <code class="docutils literal notranslate"><span class="pre">Cycle</span></code> parameter of
+<code class="docutils literal notranslate"><span class="pre">2.0*Numerics.Pi</span></code>, since this will not provide the required
+accuracy in some portions of the domain.  For the same reason, the
+version of <code class="docutils literal notranslate"><span class="pre">Log</span></code> without a <code class="docutils literal notranslate"><span class="pre">Base</span></code> parameter should not be
+implemented by calling the corresponding version with a <code class="docutils literal notranslate"><span class="pre">Base</span></code>
+parameter of <code class="docutils literal notranslate"><span class="pre">Numerics.e</span></code>.”</p>
+</div></blockquote>
+<p>Followed.</p>
+<span class="target" id="index-70"></span></div>
+<div class="section" id="rm-g-2-6-15-complex-arithmetic-accuracy">
+<span id="index-71"></span><h2><span class="section-number">6.64. </span>RM G.2.6(15): Complex Arithmetic Accuracy<a class="headerlink" href="#rm-g-2-6-15-complex-arithmetic-accuracy" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>“The version of the <code class="docutils literal notranslate"><span class="pre">Compose_From_Polar</span></code> function without a
+<code class="docutils literal notranslate"><span class="pre">Cycle</span></code> parameter should not be implemented by calling the
+corresponding version with a <code class="docutils literal notranslate"><span class="pre">Cycle</span></code> parameter of
+<code class="docutils literal notranslate"><span class="pre">2.0*Numerics.Pi</span></code>, since this will not provide the required
+accuracy in some portions of the domain.”</p>
+</div></blockquote>
+<p>Followed.</p>
+</div>
+<div class="section" id="rm-h-6-15-2-pragma-partition-elaboration-policy">
+<span id="index-72"></span><h2><span class="section-number">6.65. </span>RM H.6(15/2): Pragma Partition_Elaboration_Policy<a class="headerlink" href="#rm-h-6-15-2-pragma-partition-elaboration-policy" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>“If the partition elaboration policy is <code class="docutils literal notranslate"><span class="pre">Sequential</span></code> and the
+Environment task becomes permanently blocked during elaboration then the
+partition is deadlocked and it is recommended that the partition be
+immediately terminated.”</p>
+</div></blockquote>
+<p>Not followed.</p>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../gnat_rm.html">
+              <img class="logo" src="../_static/adacore_transparent.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="../gnat_rm.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">6. Implementation Advice</a><ul>
+<li><a class="reference internal" href="#rm-1-1-3-20-error-detection">6.1. RM 1.1.3(20): Error Detection</a></li>
+<li><a class="reference internal" href="#rm-1-1-3-31-child-units">6.2. RM 1.1.3(31): Child Units</a></li>
+<li><a class="reference internal" href="#rm-1-1-5-12-bounded-errors">6.3. RM 1.1.5(12): Bounded Errors</a></li>
+<li><a class="reference internal" href="#rm-2-8-16-pragmas">6.4. RM 2.8(16): Pragmas</a></li>
+<li><a class="reference internal" href="#rm-2-8-17-19-pragmas">6.5. RM 2.8(17-19): Pragmas</a></li>
+<li><a class="reference internal" href="#rm-3-5-2-5-alternative-character-sets">6.6. RM 3.5.2(5): Alternative Character Sets</a></li>
+<li><a class="reference internal" href="#rm-3-5-4-28-integer-types">6.7. RM 3.5.4(28): Integer Types</a></li>
+<li><a class="reference internal" href="#rm-3-5-4-29-integer-types">6.8. RM 3.5.4(29): Integer Types</a></li>
+<li><a class="reference internal" href="#rm-3-5-5-8-enumeration-values">6.9. RM 3.5.5(8): Enumeration Values</a></li>
+<li><a class="reference internal" href="#rm-3-5-7-17-float-types">6.10. RM 3.5.7(17): Float Types</a></li>
+<li><a class="reference internal" href="#rm-3-6-2-11-multidimensional-arrays">6.11. RM 3.6.2(11): Multidimensional Arrays</a></li>
+<li><a class="reference internal" href="#rm-9-6-30-31-duration-small">6.12. RM 9.6(30-31): Duration’Small</a></li>
+<li><a class="reference internal" href="#rm-10-2-1-12-consistent-representation">6.13. RM 10.2.1(12): Consistent Representation</a></li>
+<li><a class="reference internal" href="#rm-11-4-1-19-exception-information">6.14. RM 11.4.1(19): Exception Information</a></li>
+<li><a class="reference internal" href="#rm-11-5-28-suppression-of-checks">6.15. RM 11.5(28): Suppression of Checks</a></li>
+<li><a class="reference internal" href="#rm-13-1-21-24-representation-clauses">6.16. RM 13.1 (21-24): Representation Clauses</a></li>
+<li><a class="reference internal" href="#rm-13-2-6-8-packed-types">6.17. RM 13.2(6-8): Packed Types</a></li>
+<li><a class="reference internal" href="#rm-13-3-14-19-address-clauses">6.18. RM 13.3(14-19): Address Clauses</a></li>
+<li><a class="reference internal" href="#rm-13-3-29-35-alignment-clauses">6.19. RM 13.3(29-35): Alignment Clauses</a></li>
+<li><a class="reference internal" href="#rm-13-3-42-43-size-clauses">6.20. RM 13.3(42-43): Size Clauses</a></li>
+<li><a class="reference internal" href="#rm-13-3-50-56-size-clauses">6.21. RM 13.3(50-56): Size Clauses</a></li>
+<li><a class="reference internal" href="#rm-13-3-71-73-component-size-clauses">6.22. RM 13.3(71-73): Component Size Clauses</a></li>
+<li><a class="reference internal" href="#rm-13-4-9-10-enumeration-representation-clauses">6.23. RM 13.4(9-10): Enumeration Representation Clauses</a></li>
+<li><a class="reference internal" href="#rm-13-5-1-17-22-record-representation-clauses">6.24. RM 13.5.1(17-22): Record Representation Clauses</a></li>
+<li><a class="reference internal" href="#rm-13-5-2-5-storage-place-attributes">6.25. RM 13.5.2(5): Storage Place Attributes</a></li>
+<li><a class="reference internal" href="#rm-13-5-3-7-8-bit-ordering">6.26. RM 13.5.3(7-8): Bit Ordering</a></li>
+<li><a class="reference internal" href="#rm-13-7-37-address-as-private">6.27. RM 13.7(37): Address as Private</a></li>
+<li><a class="reference internal" href="#rm-13-7-1-16-address-operations">6.28. RM 13.7.1(16): Address Operations</a></li>
+<li><a class="reference internal" href="#rm-13-9-14-17-unchecked-conversion">6.29. RM 13.9(14-17): Unchecked Conversion</a></li>
+<li><a class="reference internal" href="#rm-13-11-23-25-implicit-heap-usage">6.30. RM 13.11(23-25): Implicit Heap Usage</a></li>
+<li><a class="reference internal" href="#rm-13-11-2-17-unchecked-deallocation">6.31. RM 13.11.2(17): Unchecked Deallocation</a></li>
+<li><a class="reference internal" href="#rm-13-13-2-1-6-stream-oriented-attributes">6.32. RM 13.13.2(1.6): Stream Oriented Attributes</a></li>
+<li><a class="reference internal" href="#rm-a-1-52-names-of-predefined-numeric-types">6.33. RM A.1(52): Names of Predefined Numeric Types</a></li>
+<li><a class="reference internal" href="#rm-a-3-2-49-ada-characters-handling">6.34. RM A.3.2(49): <code class="docutils literal notranslate"><span class="pre">Ada.Characters.Handling</span></code></a></li>
+<li><a class="reference internal" href="#rm-a-4-4-106-bounded-length-string-handling">6.35. RM A.4.4(106): Bounded-Length String Handling</a></li>
+<li><a class="reference internal" href="#rm-a-5-2-46-47-random-number-generation">6.36. RM A.5.2(46-47): Random Number Generation</a></li>
+<li><a class="reference internal" href="#rm-a-10-7-23-get-immediate">6.37. RM A.10.7(23): <code class="docutils literal notranslate"><span class="pre">Get_Immediate</span></code></a></li>
+<li><a class="reference internal" href="#rm-a-18-containers">6.38. RM A.18: <code class="docutils literal notranslate"><span class="pre">Containers</span></code></a></li>
+<li><a class="reference internal" href="#rm-b-1-39-41-pragma-export">6.39. RM B.1(39-41): Pragma <code class="docutils literal notranslate"><span class="pre">Export</span></code></a></li>
+<li><a class="reference internal" href="#rm-b-2-12-13-package-interfaces">6.40. RM B.2(12-13): Package <code class="docutils literal notranslate"><span class="pre">Interfaces</span></code></a></li>
+<li><a class="reference internal" href="#rm-b-3-63-71-interfacing-with-c">6.41. RM B.3(63-71): Interfacing with C</a></li>
+<li><a class="reference internal" href="#rm-b-4-95-98-interfacing-with-cobol">6.42. RM B.4(95-98): Interfacing with COBOL</a></li>
+<li><a class="reference internal" href="#rm-b-5-22-26-interfacing-with-fortran">6.43. RM B.5(22-26): Interfacing with Fortran</a></li>
+<li><a class="reference internal" href="#rm-c-1-3-5-access-to-machine-operations">6.44. RM C.1(3-5): Access to Machine Operations</a></li>
+<li><a class="reference internal" href="#rm-c-1-10-16-access-to-machine-operations">6.45. RM C.1(10-16): Access to Machine Operations</a></li>
+<li><a class="reference internal" href="#rm-c-3-28-interrupt-support">6.46. RM C.3(28): Interrupt Support</a></li>
+<li><a class="reference internal" href="#rm-c-3-1-20-21-protected-procedure-handlers">6.47. RM C.3.1(20-21): Protected Procedure Handlers</a></li>
+<li><a class="reference internal" href="#rm-c-3-2-25-package-interrupts">6.48. RM C.3.2(25): Package <code class="docutils literal notranslate"><span class="pre">Interrupts</span></code></a></li>
+<li><a class="reference internal" href="#rm-c-4-14-pre-elaboration-requirements">6.49. RM C.4(14): Pre-elaboration Requirements</a></li>
+<li><a class="reference internal" href="#rm-c-5-8-pragma-discard-names">6.50. RM C.5(8): Pragma <code class="docutils literal notranslate"><span class="pre">Discard_Names</span></code></a></li>
+<li><a class="reference internal" href="#rm-c-7-2-30-the-package-task-attributes">6.51. RM C.7.2(30): The Package Task_Attributes</a></li>
+<li><a class="reference internal" href="#rm-d-3-17-locking-policies">6.52. RM D.3(17): Locking Policies</a></li>
+<li><a class="reference internal" href="#rm-d-4-16-entry-queuing-policies">6.53. RM D.4(16): Entry Queuing Policies</a></li>
+<li><a class="reference internal" href="#rm-d-6-9-10-preemptive-abort">6.54. RM D.6(9-10): Preemptive Abort</a></li>
+<li><a class="reference internal" href="#rm-d-7-21-tasking-restrictions">6.55. RM D.7(21): Tasking Restrictions</a></li>
+<li><a class="reference internal" href="#rm-d-8-47-49-monotonic-time">6.56. RM D.8(47-49): Monotonic Time</a></li>
+<li><a class="reference internal" href="#rm-e-5-28-29-partition-communication-subsystem">6.57. RM E.5(28-29): Partition Communication Subsystem</a></li>
+<li><a class="reference internal" href="#rm-f-7-cobol-support">6.58. RM F(7): COBOL Support</a></li>
+<li><a class="reference internal" href="#rm-f-1-2-decimal-radix-support">6.59. RM F.1(2): Decimal Radix Support</a></li>
+<li><a class="reference internal" href="#rm-g-numerics">6.60. RM G: Numerics</a></li>
+<li><a class="reference internal" href="#rm-g-1-1-56-58-complex-types">6.61. RM G.1.1(56-58): Complex Types</a></li>
+<li><a class="reference internal" href="#rm-g-1-2-49-complex-elementary-functions">6.62. RM G.1.2(49): Complex Elementary Functions</a></li>
+<li><a class="reference internal" href="#rm-g-2-4-19-accuracy-requirements">6.63. RM G.2.4(19): Accuracy Requirements</a></li>
+<li><a class="reference internal" href="#rm-g-2-6-15-complex-arithmetic-accuracy">6.64. RM G.2.6(15): Complex Arithmetic Accuracy</a></li>
+<li><a class="reference internal" href="#rm-h-6-15-2-pragma-partition-elaboration-policy">6.65. RM H.6(15/2): Pragma Partition_Elaboration_Policy</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="standard_and_implementation_defined_restrictions.html"
+                        title="previous chapter"><span class="section-number">5. </span>Standard and Implementation Defined Restrictions</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="implementation_defined_characteristics.html"
+                        title="next chapter"><span class="section-number">7. </span>Implementation Defined Characteristics</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/gnat_rm/implementation_advice.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="implementation_defined_characteristics.html" title="7. Implementation Defined Characteristics"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="standard_and_implementation_defined_restrictions.html" title="5. Standard and Implementation Defined Restrictions"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../gnat_rm.html">GNAT Reference Manual 2021 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">6. </span>Implementation Advice</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2008-2021, Free Software Foundation.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
+    </div>
+  </body>
+</html>

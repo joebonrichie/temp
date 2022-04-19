@@ -1,0 +1,45 @@
+V "GNAT Lib v2021"
+A -O2
+A -ffunction-sections
+A -fdata-sections
+A -fsjlj
+A -fno-omit-frame-pointer
+A -momit-leaf-frame-pointer
+A -gnatg
+A -gnatn
+A -gnatU
+A -mtune=generic
+A -march=x86-64
+P
+
+RN
+RV NO_EXCEPTIONS
+RV NO_FLOATING_POINT
+RV NO_RECURSION
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U system.exn_lflt%s	s-exnlfl.ads		e142459b NE OL PK
+Z interfaces%s		interfac.ads		interfac.ali
+W system%s		system.ads		system.ali
+Z system.double_real%s
+W system.exponr%s
+
+D interfac.ads		20210520051132 edec285f interfaces%s
+D system.ads		20210520095221 fa138bbb system%s
+D s-dourea.ads		20210520051132 8a0ecf55 system.double_real%s
+D s-dourea.adb		20210520051132 6aeeb936 system.double_real%b
+D s-dorepr.adb		20210520051132 e195a66d system.double_real.product
+D s-exnlfl.ads		20210520051132 3a76fe2b system.exn_lflt%s
+D s-exponr.ads		20210520051132 2127300b system.exponr%s
+D s-exponr.adb		20210520051132 7c6b8c30 system.exponr%b
+G a e
+G c Z s s [exn_long_floatR system__exn_lflt__exn_long_floatGP2476 38 13 none]
+G c Z s s [exn_long_float system__exn_lflt 38 13 none]
+X 2 system.ads
+37K9*System 154e11 6|34r6 36r9 41r5
+X 6 s-exnlfl.ads
+36K16*Exn_LFlt 2|37k9 6|41l12 41e20
+38V13*Exn_Long_Float[7|38]{long_float} 39r26 8|52b17
+X 7 s-exponr.ads
+38v17*Exponr 2|37k9 6|34w13 38r35
+

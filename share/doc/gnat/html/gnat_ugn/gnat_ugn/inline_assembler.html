@@ -1,0 +1,781 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inline Assembler &#8212; GNAT User&#39;s Guide for Native Platforms 2021 documentation</title>
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="GNU Free Documentation License" href="../share/gnu_free_documentation_license.html" />
+    <link rel="prev" title="Elaboration Order Handling in GNAT" href="elaboration_order_handling_in_gnat.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../share/gnu_free_documentation_license.html" title="GNU Free Documentation License"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="elaboration_order_handling_in_gnat.html" title="Elaboration Order Handling in GNAT"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../gnat_ugn.html">GNAT User&#39;s Guide for Native Platforms 2021 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Inline Assembler</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="inline-assembler">
+<span id="id1"></span><h1>Inline Assembler<a class="headerlink" href="#inline-assembler" title="Permalink to this headline">¶</a></h1>
+<p id="index-0">If you need to write low-level software that interacts directly
+with the hardware, Ada provides two ways to incorporate assembly
+language code into your program.  First, you can import and invoke
+external routines written in assembly language, an Ada feature fully
+supported by GNAT.  However, for small sections of code it may be simpler
+or more efficient to include assembly language statements directly
+in your Ada source program, using the facilities of the implementation-defined
+package <code class="docutils literal notranslate"><span class="pre">System.Machine_Code</span></code>, which incorporates the gcc
+Inline Assembler.  The Inline Assembler approach offers a number of advantages,
+including the following:</p>
+<ul class="simple">
+<li><p>No need to use non-Ada tools</p></li>
+<li><p>Consistent interface over different targets</p></li>
+<li><p>Automatic usage of the proper calling conventions</p></li>
+<li><p>Access to Ada constants and variables</p></li>
+<li><p>Definition of intrinsic routines</p></li>
+<li><p>Possibility of inlining a subprogram comprising assembler code</p></li>
+<li><p>Code optimizer can take Inline Assembler code into account</p></li>
+</ul>
+<p>This appendix presents a series of examples to show you how to use
+the Inline Assembler.  Although it focuses on the Intel x86,
+the general approach applies also to other processors.
+It is assumed that you are familiar with Ada
+and with assembly language programming.</p>
+<div class="section" id="basic-assembler-syntax">
+<span id="id2"></span><h2>Basic Assembler Syntax<a class="headerlink" href="#basic-assembler-syntax" title="Permalink to this headline">¶</a></h2>
+<p>The assembler used by GNAT and gcc is based not on the Intel assembly
+language, but rather on a language that descends from the AT&amp;T Unix
+assembler <code class="docutils literal notranslate"><span class="pre">as</span></code> (and which is often referred to as ‘AT&amp;T syntax’).
+The following table summarizes the main features of <code class="docutils literal notranslate"><span class="pre">as</span></code> syntax
+and points out the differences from the Intel conventions.
+See the gcc <code class="docutils literal notranslate"><span class="pre">as</span></code> and <code class="docutils literal notranslate"><span class="pre">gas</span></code> (an <code class="docutils literal notranslate"><span class="pre">as</span></code> macro
+pre-processor) documentation for further information.</p>
+<div class="line-block">
+<div class="line"><em>Register names</em></div>
+<div class="line-block">
+<div class="line">gcc / <code class="docutils literal notranslate"><span class="pre">as</span></code>: Prefix with ‘%’; for example <code class="docutils literal notranslate"><span class="pre">%eax</span></code></div>
+<div class="line">Intel: No extra punctuation; for example <code class="docutils literal notranslate"><span class="pre">eax</span></code></div>
+</div>
+</div>
+<div class="line-block">
+<div class="line"><em>Immediate operand</em></div>
+<div class="line-block">
+<div class="line">gcc / <code class="docutils literal notranslate"><span class="pre">as</span></code>: Prefix with ‘$’; for example <code class="docutils literal notranslate"><span class="pre">$4</span></code></div>
+<div class="line">Intel: No extra punctuation; for example <code class="docutils literal notranslate"><span class="pre">4</span></code></div>
+</div>
+</div>
+<div class="line-block">
+<div class="line"><em>Address</em></div>
+<div class="line-block">
+<div class="line">gcc / <code class="docutils literal notranslate"><span class="pre">as</span></code>: Prefix with ‘$’; for example <code class="docutils literal notranslate"><span class="pre">$loc</span></code></div>
+<div class="line">Intel: No extra punctuation; for example <code class="docutils literal notranslate"><span class="pre">loc</span></code></div>
+</div>
+</div>
+<div class="line-block">
+<div class="line"><em>Memory contents</em></div>
+<div class="line-block">
+<div class="line">gcc / <code class="docutils literal notranslate"><span class="pre">as</span></code>: No extra punctuation; for example <code class="docutils literal notranslate"><span class="pre">loc</span></code></div>
+<div class="line">Intel: Square brackets; for example <code class="docutils literal notranslate"><span class="pre">[loc]</span></code></div>
+</div>
+</div>
+<div class="line-block">
+<div class="line"><em>Register contents</em></div>
+<div class="line-block">
+<div class="line">gcc / <code class="docutils literal notranslate"><span class="pre">as</span></code>: Parentheses; for example <code class="docutils literal notranslate"><span class="pre">(%eax)</span></code></div>
+<div class="line">Intel: Square brackets; for example <code class="docutils literal notranslate"><span class="pre">[eax]</span></code></div>
+</div>
+</div>
+<div class="line-block">
+<div class="line"><em>Hexadecimal numbers</em></div>
+<div class="line-block">
+<div class="line">gcc / <code class="docutils literal notranslate"><span class="pre">as</span></code>: Leading ‘0x’ (C language syntax); for example <code class="docutils literal notranslate"><span class="pre">0xA0</span></code></div>
+<div class="line">Intel: Trailing ‘h’; for example <code class="docutils literal notranslate"><span class="pre">A0h</span></code></div>
+</div>
+</div>
+<div class="line-block">
+<div class="line"><em>Operand size</em></div>
+<div class="line-block">
+<div class="line">gcc / <code class="docutils literal notranslate"><span class="pre">as</span></code>: Explicit in op code; for example <code class="docutils literal notranslate"><span class="pre">movw</span></code> to move a 16-bit word</div>
+<div class="line">Intel: Implicit, deduced by assembler; for example <code class="docutils literal notranslate"><span class="pre">mov</span></code></div>
+</div>
+</div>
+<div class="line-block">
+<div class="line"><em>Instruction repetition</em></div>
+<div class="line-block">
+<div class="line">gcc / <code class="docutils literal notranslate"><span class="pre">as</span></code>: Split into two lines; for example</div>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">rep</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">stosl</span></code></div>
+</div>
+<div class="line">Intel: Keep on one line; for example <code class="docutils literal notranslate"><span class="pre">rep</span> <span class="pre">stosl</span></code></div>
+</div>
+</div>
+<div class="line-block">
+<div class="line"><em>Order of operands</em></div>
+<div class="line-block">
+<div class="line">gcc / <code class="docutils literal notranslate"><span class="pre">as</span></code>: Source first; for example <code class="docutils literal notranslate"><span class="pre">movw</span> <span class="pre">$4,</span> <span class="pre">%eax</span></code></div>
+<div class="line">Intel: Destination first; for example <code class="docutils literal notranslate"><span class="pre">mov</span> <span class="pre">eax,</span> <span class="pre">4</span></code></div>
+</div>
+</div>
+</div>
+<div class="section" id="a-simple-example-of-inline-assembler">
+<span id="id3"></span><h2>A Simple Example of Inline Assembler<a class="headerlink" href="#a-simple-example-of-inline-assembler" title="Permalink to this headline">¶</a></h2>
+<p>The following example will generate a single assembly language statement,
+<code class="docutils literal notranslate"><span class="pre">nop</span></code>, which does nothing.  Despite its lack of run-time effect,
+the example will be useful in illustrating the basics of
+the Inline Assembler facility.</p>
+<blockquote>
+<div><div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kr">with</span><span class="p"> </span><span class="n">System.Machine_Code</span><span class="p">; </span><span class="kr">use</span><span class="nn"> System.Machine_Code;</span>
+<span class="k">procedure </span><span class="nf">Nothing</span> <span class="kr">is</span><span class="p"></span>
+<span class="kr">begin</span><span class="p"></span>
+   <span class="n">Asm</span> <span class="o">(</span><span class="s">&quot;nop&quot;</span><span class="o">)</span><span class="p">;</span>
+<span class="k">end </span><span class="nf">Nothing</span><span class="p">;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">Asm</span></code> is a procedure declared in package <code class="docutils literal notranslate"><span class="pre">System.Machine_Code</span></code>;
+here it takes one parameter, a <em>template string</em> that must be a static
+expression and that will form the generated instruction.
+<code class="docutils literal notranslate"><span class="pre">Asm</span></code> may be regarded as a compile-time procedure that parses
+the template string and additional parameters (none here),
+from which it generates a sequence of assembly language instructions.</p>
+<p>The examples in this chapter will illustrate several of the forms
+for invoking <code class="docutils literal notranslate"><span class="pre">Asm</span></code>; a complete specification of the syntax
+is found in the <code class="docutils literal notranslate"><span class="pre">Machine_Code_Insertions</span></code> section of the
+<cite>GNAT Reference Manual</cite>.</p>
+<p>Under the standard GNAT conventions, the <code class="docutils literal notranslate"><span class="pre">Nothing</span></code> procedure
+should be in a file named <code class="file docutils literal notranslate"><span class="pre">nothing.adb</span></code>.
+You can build the executable in the usual way:</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ gnatmake nothing
+</pre></div>
+</div>
+</div></blockquote>
+<p>However, the interesting aspect of this example is not its run-time behavior
+but rather the generated assembly code.
+To see this output, invoke the compiler as follows:</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$  gcc -c -S -fomit-frame-pointer -gnatp nothing.adb
+</pre></div>
+</div>
+</div></blockquote>
+<p>where the options are:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><code class="switch docutils literal notranslate"><span class="pre">-c</span></code></dt><dd><p>compile only (no bind or link)</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="switch docutils literal notranslate"><span class="pre">-S</span></code></dt><dd><p>generate assembler listing</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="switch docutils literal notranslate"><span class="pre">-fomit-frame-pointer</span></code></dt><dd><p>do not set up separate stack frames</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="switch docutils literal notranslate"><span class="pre">-gnatp</span></code></dt><dd><p>do not add runtime checks</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p>This gives a human-readable assembler version of the code. The resulting
+file will have the same name as the Ada source file, but with a <code class="docutils literal notranslate"><span class="pre">.s</span></code>
+extension. In our example, the file <code class="file docutils literal notranslate"><span class="pre">nothing.s</span></code> has the following
+contents:</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">.</span><span class="n">file</span> <span class="s2">&quot;nothing.adb&quot;</span>
+<span class="n">gcc2_compiled</span><span class="o">.</span><span class="p">:</span>
+<span class="n">___gnu_compiled_ada</span><span class="p">:</span>
+<span class="o">.</span><span class="n">text</span>
+   <span class="o">.</span><span class="n">align</span> <span class="mi">4</span>
+<span class="o">.</span><span class="n">globl</span> <span class="n">__ada_nothing</span>
+<span class="n">__ada_nothing</span><span class="p">:</span>
+<span class="c1">#APP</span>
+   <span class="n">nop</span>
+<span class="c1">#NO_APP</span>
+   <span class="n">jmp</span> <span class="n">L1</span>
+   <span class="o">.</span><span class="n">align</span> <span class="mi">2</span><span class="p">,</span><span class="mh">0x90</span>
+<span class="n">L1</span><span class="p">:</span>
+   <span class="n">ret</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>The assembly code you included is clearly indicated by
+the compiler, between the <code class="docutils literal notranslate"><span class="pre">#APP</span></code> and <code class="docutils literal notranslate"><span class="pre">#NO_APP</span></code>
+delimiters. The character before the ‘APP’ and ‘NOAPP’
+can differ on different targets. For example, GNU/Linux uses ‘#APP’ while
+on NT you will see ‘/APP’.</p>
+<p>If you make a mistake in your assembler code (such as using the
+wrong size modifier, or using a wrong operand for the instruction) GNAT
+will report this error in a temporary file, which will be deleted when
+the compilation is finished.  Generating an assembler file will help
+in such cases, since you can assemble this file separately using the
+<code class="docutils literal notranslate"><span class="pre">as</span></code> assembler that comes with gcc.</p>
+<p>Assembling the file using the command</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ as nothing.s
+</pre></div>
+</div>
+</div></blockquote>
+<p>will give you error messages whose lines correspond to the assembler
+input file, so you can easily find and correct any mistakes you made.
+If there are no errors, <code class="docutils literal notranslate"><span class="pre">as</span></code> will generate an object file
+<code class="file docutils literal notranslate"><span class="pre">nothing.out</span></code>.</p>
+</div>
+<div class="section" id="output-variables-in-inline-assembler">
+<span id="id4"></span><h2>Output Variables in Inline Assembler<a class="headerlink" href="#output-variables-in-inline-assembler" title="Permalink to this headline">¶</a></h2>
+<p>The examples in this section, showing how to access the processor flags,
+illustrate how to specify the destination operands for assembly language
+statements.</p>
+<blockquote>
+<div><div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kr">with</span><span class="p"> </span><span class="n">Interfaces</span><span class="p">; </span><span class="kr">use</span><span class="nn"> Interfaces;</span><span class="p"></span>
+<span class="kr">with</span><span class="nn"> Ada.Text_IO;</span> <span class="kr">use</span><span class="p"> </span><span class="n">Ada.Text_IO</span><span class="p">;</span>
+<span class="kr">with</span><span class="nn"> System.Machine_Code;</span> <span class="kr">use</span><span class="p"> </span><span class="n">System.Machine_Code</span><span class="p">;</span>
+<span class="k">procedure </span><span class="nf">Get_Flags</span> <span class="kr">is</span><span class="p"></span>
+   <span class="n">Flags</span> <span class="o">:</span> <span class="n">Unsigned_32</span><span class="p">;</span>
+<span class="p">   </span><span class="kr">use</span><span class="nn"> ASCII;</span>
+<span class="kr">begin</span><span class="p"></span>
+   <span class="n">Asm</span> <span class="o">(</span><span class="s">&quot;pushfl&quot;</span>          <span class="o">&amp;</span> <span class="n">LF</span> <span class="o">&amp;</span> <span class="n">HT</span> <span class="o">&amp;</span> <span class="c">-- push flags on stack</span>
+        <span class="s">&quot;popl %%eax&quot;</span>      <span class="o">&amp;</span> <span class="n">LF</span> <span class="o">&amp;</span> <span class="n">HT</span> <span class="o">&amp;</span> <span class="c">-- load eax with flags</span>
+        <span class="s">&quot;movl %%eax, %0&quot;</span><span class="p">,</span>             <span class="c">-- store flags in variable</span>
+        <span class="n">Outputs</span> <span class="o">=&gt;</span> <span class="n">Unsigned_32</span><span class="na">&#39;Asm_Output</span> <span class="o">(</span><span class="s">&quot;=g&quot;</span><span class="p">,</span> <span class="n">Flags</span><span class="o">))</span><span class="p">;</span>
+   <span class="n">Put_Line</span> <span class="o">(</span><span class="s">&quot;Flags register:&quot;</span> <span class="o">&amp;</span> <span class="n">Flags</span><span class="na">&#39;Img</span><span class="o">)</span><span class="p">;</span>
+<span class="k">end </span><span class="nf">Get_Flags</span><span class="p">;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>In order to have a nicely aligned assembly listing, we have separated
+multiple assembler statements in the Asm template string with linefeed
+(ASCII.LF) and horizontal tab (ASCII.HT) characters.
+The resulting section of the assembly output file is:</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#APP</span>
+   <span class="n">pushfl</span>
+   <span class="n">popl</span> <span class="o">%</span><span class="n">eax</span>
+   <span class="n">movl</span> <span class="o">%</span><span class="n">eax</span><span class="p">,</span> <span class="o">-</span><span class="mi">40</span><span class="p">(</span><span class="o">%</span><span class="n">ebp</span><span class="p">)</span>
+<span class="c1">#NO_APP</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>It would have been legal to write the Asm invocation as:</p>
+<blockquote>
+<div><div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="n">Asm</span> <span class="o">(</span><span class="s">&quot;pushfl popl %%eax movl %%eax, %0&quot;</span><span class="o">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>but in the generated assembler file, this would come out as:</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#APP</span>
+   <span class="n">pushfl</span> <span class="n">popl</span> <span class="o">%</span><span class="n">eax</span> <span class="n">movl</span> <span class="o">%</span><span class="n">eax</span><span class="p">,</span> <span class="o">-</span><span class="mi">40</span><span class="p">(</span><span class="o">%</span><span class="n">ebp</span><span class="p">)</span>
+<span class="c1">#NO_APP</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>which is not so convenient for the human reader.</p>
+<p>We use Ada comments
+at the end of each line to explain what the assembler instructions
+actually do.  This is a useful convention.</p>
+<p>When writing Inline Assembler instructions, you need to precede each register
+and variable name with a percent sign.  Since the assembler already requires
+a percent sign at the beginning of a register name, you need two consecutive
+percent signs for such names in the Asm template string, thus <code class="docutils literal notranslate"><span class="pre">%%eax</span></code>.
+In the generated assembly code, one of the percent signs will be stripped off.</p>
+<p>Names such as <code class="docutils literal notranslate"><span class="pre">%0</span></code>, <code class="docutils literal notranslate"><span class="pre">%1</span></code>, <code class="docutils literal notranslate"><span class="pre">%2</span></code>, etc., denote input or output
+variables: operands you later define using <code class="docutils literal notranslate"><span class="pre">Input</span></code> or <code class="docutils literal notranslate"><span class="pre">Output</span></code>
+parameters to <code class="docutils literal notranslate"><span class="pre">Asm</span></code>.
+An output variable is illustrated in
+the third statement in the Asm template string:</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">movl</span> <span class="o">%%</span><span class="n">eax</span><span class="p">,</span> <span class="o">%</span><span class="mi">0</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>The intent is to store the contents of the eax register in a variable that can
+be accessed in Ada.  Simply writing <code class="docutils literal notranslate"><span class="pre">movl</span> <span class="pre">%%eax,</span> <span class="pre">Flags</span></code> would not
+necessarily work, since the compiler might optimize by using a register
+to hold Flags, and the expansion of the <code class="docutils literal notranslate"><span class="pre">movl</span></code> instruction would not be
+aware of this optimization.  The solution is not to store the result directly
+but rather to advise the compiler to choose the correct operand form;
+that is the purpose of the <code class="docutils literal notranslate"><span class="pre">%0</span></code> output variable.</p>
+<p>Information about the output variable is supplied in the <code class="docutils literal notranslate"><span class="pre">Outputs</span></code>
+parameter to <code class="docutils literal notranslate"><span class="pre">Asm</span></code>:</p>
+<blockquote>
+<div><div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="n">Outputs</span> <span class="o">=&gt;</span> <span class="n">Unsigned_32</span><span class="na">&#39;Asm_Output</span> <span class="o">(</span><span class="s">&quot;=g&quot;</span><span class="p">,</span> <span class="n">Flags</span><span class="o">))</span><span class="p">;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>The output is defined by the <code class="docutils literal notranslate"><span class="pre">Asm_Output</span></code> attribute of the target type;
+the general format is</p>
+<blockquote>
+<div><div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="n">Type</span><span class="na">&#39;Asm_Output</span> <span class="o">(</span><span class="n">constraint_string</span><span class="p">,</span> <span class="n">variable_name</span><span class="o">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>The constraint string directs the compiler how
+to store/access the associated variable.  In the example</p>
+<blockquote>
+<div><div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="n">Unsigned_32</span><span class="na">&#39;Asm_Output</span> <span class="o">(</span><span class="s">&quot;=m&quot;</span><span class="p">,</span> <span class="n">Flags</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>the <code class="docutils literal notranslate"><span class="pre">&quot;m&quot;</span></code> (memory) constraint tells the compiler that the variable
+<code class="docutils literal notranslate"><span class="pre">Flags</span></code> should be stored in a memory variable, thus preventing
+the optimizer from keeping it in a register.  In contrast,</p>
+<blockquote>
+<div><div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="n">Unsigned_32</span><span class="na">&#39;Asm_Output</span> <span class="o">(</span><span class="s">&quot;=r&quot;</span><span class="p">,</span> <span class="n">Flags</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>uses the <code class="docutils literal notranslate"><span class="pre">&quot;r&quot;</span></code> (register) constraint, telling the compiler to
+store the variable in a register.</p>
+<p>If the constraint is preceded by the equal character ‘=’, it tells
+the compiler that the variable will be used to store data into it.</p>
+<p>In the <code class="docutils literal notranslate"><span class="pre">Get_Flags</span></code> example, we used the <code class="docutils literal notranslate"><span class="pre">&quot;g&quot;</span></code> (global) constraint,
+allowing the optimizer to choose whatever it deems best.</p>
+<p>There are a fairly large number of constraints, but the ones that are
+most useful (for the Intel x86 processor) are the following:</p>
+<blockquote>
+<div><table class="docutils align-default">
+<colgroup>
+<col style="width: 13%" />
+<col style="width: 88%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><em>=</em></p></td>
+<td><p>output constraint</p></td>
+</tr>
+<tr class="row-even"><td><p><em>g</em></p></td>
+<td><p>global (i.e., can be stored anywhere)</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>m</em></p></td>
+<td><p>in memory</p></td>
+</tr>
+<tr class="row-even"><td><p><em>I</em></p></td>
+<td><p>a constant</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>a</em></p></td>
+<td><p>use eax</p></td>
+</tr>
+<tr class="row-even"><td><p><em>b</em></p></td>
+<td><p>use ebx</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>c</em></p></td>
+<td><p>use ecx</p></td>
+</tr>
+<tr class="row-even"><td><p><em>d</em></p></td>
+<td><p>use edx</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>S</em></p></td>
+<td><p>use esi</p></td>
+</tr>
+<tr class="row-even"><td><p><em>D</em></p></td>
+<td><p>use edi</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>r</em></p></td>
+<td><p>use one of eax, ebx, ecx or edx</p></td>
+</tr>
+<tr class="row-even"><td><p><em>q</em></p></td>
+<td><p>use one of eax, ebx, ecx, edx, esi or edi</p></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p>The full set of constraints is described in the gcc and <code class="docutils literal notranslate"><span class="pre">as</span></code>
+documentation; note that it is possible to combine certain constraints
+in one constraint string.</p>
+<p>You specify the association of an output variable with an assembler operand
+through the <code class="samp docutils literal notranslate"><span class="pre">%</span><em><span class="pre">n</span></em></code> notation, where <em>n</em> is a non-negative
+integer.  Thus in</p>
+<blockquote>
+<div><div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="n">Asm</span> <span class="o">(</span><span class="s">&quot;pushfl&quot;</span>          <span class="o">&amp;</span> <span class="n">LF</span> <span class="o">&amp;</span> <span class="n">HT</span> <span class="o">&amp;</span> <span class="c">-- push flags on stack</span>
+     <span class="s">&quot;popl %%eax&quot;</span>      <span class="o">&amp;</span> <span class="n">LF</span> <span class="o">&amp;</span> <span class="n">HT</span> <span class="o">&amp;</span> <span class="c">-- load eax with flags</span>
+     <span class="s">&quot;movl %%eax, %0&quot;</span><span class="p">,</span>             <span class="c">-- store flags in variable</span>
+     <span class="n">Outputs</span> <span class="o">=&gt;</span> <span class="n">Unsigned_32</span><span class="na">&#39;Asm_Output</span> <span class="o">(</span><span class="s">&quot;=g&quot;</span><span class="p">,</span> <span class="n">Flags</span><span class="o">))</span><span class="p">;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">%0</span></code> will be replaced in the expanded code by the appropriate operand,
+whatever
+the compiler decided for the <code class="docutils literal notranslate"><span class="pre">Flags</span></code> variable.</p>
+<p>In general, you may have any number of output variables:</p>
+<ul class="simple">
+<li><p>Count the operands starting at 0; thus <code class="docutils literal notranslate"><span class="pre">%0</span></code>, <code class="docutils literal notranslate"><span class="pre">%1</span></code>, etc.</p></li>
+<li><p>Specify the <code class="docutils literal notranslate"><span class="pre">Outputs</span></code> parameter as a parenthesized comma-separated list
+of <code class="docutils literal notranslate"><span class="pre">Asm_Output</span></code> attributes</p></li>
+</ul>
+<p>For example:</p>
+<blockquote>
+<div><div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="n">Asm</span> <span class="o">(</span><span class="s">&quot;movl %%eax, %0&quot;</span> <span class="o">&amp;</span> <span class="n">LF</span> <span class="o">&amp;</span> <span class="n">HT</span> <span class="o">&amp;</span>
+     <span class="s">&quot;movl %%ebx, %1&quot;</span> <span class="o">&amp;</span> <span class="n">LF</span> <span class="o">&amp;</span> <span class="n">HT</span> <span class="o">&amp;</span>
+     <span class="s">&quot;movl %%ecx, %2&quot;</span><span class="p">,</span>
+     <span class="n">Outputs</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">Unsigned_32</span><span class="na">&#39;Asm_Output</span> <span class="o">(</span><span class="s">&quot;=g&quot;</span><span class="p">,</span> <span class="n">Var_A</span><span class="o">)</span><span class="p">,</span>   <span class="c">--  %0 = Var_A</span>
+                 <span class="n">Unsigned_32</span><span class="na">&#39;Asm_Output</span> <span class="o">(</span><span class="s">&quot;=g&quot;</span><span class="p">,</span> <span class="n">Var_B</span><span class="o">)</span><span class="p">,</span>   <span class="c">--  %1 = Var_B</span>
+                 <span class="n">Unsigned_32</span><span class="na">&#39;Asm_Output</span> <span class="o">(</span><span class="s">&quot;=g&quot;</span><span class="p">,</span> <span class="n">Var_C</span><span class="o">)))</span><span class="p">;</span> <span class="c">--  %2 = Var_C</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>where <code class="docutils literal notranslate"><span class="pre">Var_A</span></code>, <code class="docutils literal notranslate"><span class="pre">Var_B</span></code>, and <code class="docutils literal notranslate"><span class="pre">Var_C</span></code> are variables
+in the Ada program.</p>
+<p>As a variation on the <code class="docutils literal notranslate"><span class="pre">Get_Flags</span></code> example, we can use the constraints
+string to direct the compiler to store the eax register into the <code class="docutils literal notranslate"><span class="pre">Flags</span></code>
+variable, instead of including the store instruction explicitly in the
+<code class="docutils literal notranslate"><span class="pre">Asm</span></code> template string:</p>
+<blockquote>
+<div><div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kr">with</span><span class="p"> </span><span class="n">Interfaces</span><span class="p">; </span><span class="kr">use</span><span class="nn"> Interfaces;</span><span class="p"></span>
+<span class="kr">with</span><span class="nn"> Ada.Text_IO;</span> <span class="kr">use</span><span class="p"> </span><span class="n">Ada.Text_IO</span><span class="p">;</span>
+<span class="kr">with</span><span class="nn"> System.Machine_Code;</span> <span class="kr">use</span><span class="p"> </span><span class="n">System.Machine_Code</span><span class="p">;</span>
+<span class="k">procedure </span><span class="nf">Get_Flags_2</span> <span class="kr">is</span><span class="p"></span>
+   <span class="n">Flags</span> <span class="o">:</span> <span class="n">Unsigned_32</span><span class="p">;</span>
+<span class="p">   </span><span class="kr">use</span><span class="nn"> ASCII;</span>
+<span class="kr">begin</span><span class="p"></span>
+   <span class="n">Asm</span> <span class="o">(</span><span class="s">&quot;pushfl&quot;</span>      <span class="o">&amp;</span> <span class="n">LF</span> <span class="o">&amp;</span> <span class="n">HT</span> <span class="o">&amp;</span> <span class="c">-- push flags on stack</span>
+        <span class="s">&quot;popl %%eax&quot;</span><span class="p">,</span>             <span class="c">-- save flags in eax</span>
+        <span class="n">Outputs</span> <span class="o">=&gt;</span> <span class="n">Unsigned_32</span><span class="na">&#39;Asm_Output</span> <span class="o">(</span><span class="s">&quot;=a&quot;</span><span class="p">,</span> <span class="n">Flags</span><span class="o">))</span><span class="p">;</span>
+   <span class="n">Put_Line</span> <span class="o">(</span><span class="s">&quot;Flags register:&quot;</span> <span class="o">&amp;</span> <span class="n">Flags</span><span class="na">&#39;Img</span><span class="o">)</span><span class="p">;</span>
+<span class="k">end </span><span class="nf">Get_Flags_2</span><span class="p">;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>The <code class="docutils literal notranslate"><span class="pre">&quot;a&quot;</span></code> constraint tells the compiler that the <code class="docutils literal notranslate"><span class="pre">Flags</span></code>
+variable will come from the eax register. Here is the resulting code:</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#APP</span>
+   <span class="n">pushfl</span>
+   <span class="n">popl</span> <span class="o">%</span><span class="n">eax</span>
+<span class="c1">#NO_APP</span>
+   <span class="n">movl</span> <span class="o">%</span><span class="n">eax</span><span class="p">,</span><span class="o">-</span><span class="mi">40</span><span class="p">(</span><span class="o">%</span><span class="n">ebp</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>The compiler generated the store of eax into Flags after
+expanding the assembler code.</p>
+<p>Actually, there was no need to pop the flags into the eax register;
+more simply, we could just pop the flags directly into the program variable:</p>
+<blockquote>
+<div><div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kr">with</span><span class="p"> </span><span class="n">Interfaces</span><span class="p">; </span><span class="kr">use</span><span class="nn"> Interfaces;</span><span class="p"></span>
+<span class="kr">with</span><span class="nn"> Ada.Text_IO;</span> <span class="kr">use</span><span class="p"> </span><span class="n">Ada.Text_IO</span><span class="p">;</span>
+<span class="kr">with</span><span class="nn"> System.Machine_Code;</span> <span class="kr">use</span><span class="p"> </span><span class="n">System.Machine_Code</span><span class="p">;</span>
+<span class="k">procedure </span><span class="nf">Get_Flags_3</span> <span class="kr">is</span><span class="p"></span>
+   <span class="n">Flags</span> <span class="o">:</span> <span class="n">Unsigned_32</span><span class="p">;</span>
+<span class="p">   </span><span class="kr">use</span><span class="nn"> ASCII;</span>
+<span class="kr">begin</span><span class="p"></span>
+   <span class="n">Asm</span> <span class="o">(</span><span class="s">&quot;pushfl&quot;</span>  <span class="o">&amp;</span> <span class="n">LF</span> <span class="o">&amp;</span> <span class="n">HT</span> <span class="o">&amp;</span> <span class="c">-- push flags on stack</span>
+        <span class="s">&quot;pop %0&quot;</span><span class="p">,</span>             <span class="c">-- save flags in Flags</span>
+        <span class="n">Outputs</span> <span class="o">=&gt;</span> <span class="n">Unsigned_32</span><span class="na">&#39;Asm_Output</span> <span class="o">(</span><span class="s">&quot;=g&quot;</span><span class="p">,</span> <span class="n">Flags</span><span class="o">))</span><span class="p">;</span>
+   <span class="n">Put_Line</span> <span class="o">(</span><span class="s">&quot;Flags register:&quot;</span> <span class="o">&amp;</span> <span class="n">Flags</span><span class="na">&#39;Img</span><span class="o">)</span><span class="p">;</span>
+<span class="k">end </span><span class="nf">Get_Flags_3</span><span class="p">;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="input-variables-in-inline-assembler">
+<span id="id5"></span><h2>Input Variables in Inline Assembler<a class="headerlink" href="#input-variables-in-inline-assembler" title="Permalink to this headline">¶</a></h2>
+<p>The example in this section illustrates how to specify the source operands
+for assembly language statements.
+The program simply increments its input value by 1:</p>
+<blockquote>
+<div><div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kr">with</span><span class="p"> </span><span class="n">Interfaces</span><span class="p">; </span><span class="kr">use</span><span class="nn"> Interfaces;</span><span class="p"></span>
+<span class="kr">with</span><span class="nn"> Ada.Text_IO;</span> <span class="kr">use</span><span class="p"> </span><span class="n">Ada.Text_IO</span><span class="p">;</span>
+<span class="kr">with</span><span class="nn"> System.Machine_Code;</span> <span class="kr">use</span><span class="p"> </span><span class="n">System.Machine_Code</span><span class="p">;</span>
+<span class="k">procedure </span><span class="nf">Increment</span> <span class="kr">is</span><span class="p"></span>
+
+   <span class="k">function </span><span class="nf">Incr</span> <span class="o">(</span><span class="n">Value</span> <span class="o">:</span> <span class="n">Unsigned_32</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Unsigned_32</span> <span class="kr">is</span><span class="p"></span>
+      <span class="n">Result</span> <span class="o">:</span> <span class="n">Unsigned_32</span><span class="p">;</span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="n">Asm</span> <span class="o">(</span><span class="s">&quot;incl %0&quot;</span><span class="p">,</span>
+           <span class="n">Outputs</span> <span class="o">=&gt;</span> <span class="n">Unsigned_32</span><span class="na">&#39;Asm_Output</span> <span class="o">(</span><span class="s">&quot;=a&quot;</span><span class="p">,</span> <span class="n">Result</span><span class="o">)</span><span class="p">,</span>
+           <span class="n">Inputs</span>  <span class="o">=&gt;</span> <span class="n">Unsigned_32</span><span class="na">&#39;Asm_Input</span> <span class="o">(</span><span class="s">&quot;a&quot;</span><span class="p">,</span> <span class="n">Value</span><span class="o">))</span><span class="p">;</span>
+      <span class="kr">return</span><span class="p"> </span><span class="n">Result</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Incr</span><span class="p">;</span>
+
+   <span class="n">Value</span> <span class="o">:</span> <span class="n">Unsigned_32</span><span class="p">;</span>
+
+<span class="kr">begin</span><span class="p"></span>
+   <span class="n">Value</span> <span class="o">:=</span> <span class="mi">5</span><span class="p">;</span>
+   <span class="n">Put_Line</span> <span class="o">(</span><span class="s">&quot;Value before is&quot;</span> <span class="o">&amp;</span> <span class="n">Value</span><span class="na">&#39;Img</span><span class="o">)</span><span class="p">;</span>
+   <span class="n">Value</span> <span class="o">:=</span> <span class="n">Incr</span> <span class="o">(</span><span class="n">Value</span><span class="o">)</span><span class="p">;</span>
+  <span class="n">Put_Line</span> <span class="o">(</span><span class="s">&quot;Value after is&quot;</span> <span class="o">&amp;</span> <span class="n">Value</span><span class="na">&#39;Img</span><span class="o">)</span><span class="p">;</span>
+<span class="k">end </span><span class="nf">Increment</span><span class="p">;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>The <code class="docutils literal notranslate"><span class="pre">Outputs</span></code> parameter to <code class="docutils literal notranslate"><span class="pre">Asm</span></code> specifies
+that the result will be in the eax register and that it is to be stored
+in the <code class="docutils literal notranslate"><span class="pre">Result</span></code> variable.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">Inputs</span></code> parameter looks much like the <code class="docutils literal notranslate"><span class="pre">Outputs</span></code> parameter,
+but with an <code class="docutils literal notranslate"><span class="pre">Asm_Input</span></code> attribute.
+The <code class="docutils literal notranslate"><span class="pre">&quot;=&quot;</span></code> constraint, indicating an output value, is not present.</p>
+<p>You can have multiple input variables, in the same way that you can have more
+than one output variable.</p>
+<p>The parameter count (%0, %1) etc, still starts at the first output statement,
+and continues with the input statements.</p>
+<p>Just as the <code class="docutils literal notranslate"><span class="pre">Outputs</span></code> parameter causes the register to be stored into the
+target variable after execution of the assembler statements, so does the
+<code class="docutils literal notranslate"><span class="pre">Inputs</span></code> parameter cause its variable to be loaded into the register
+before execution of the assembler statements.</p>
+<p>Thus the effect of the <code class="docutils literal notranslate"><span class="pre">Asm</span></code> invocation is:</p>
+<ul class="simple">
+<li><p>load the 32-bit value of <code class="docutils literal notranslate"><span class="pre">Value</span></code> into eax</p></li>
+<li><p>execute the <code class="docutils literal notranslate"><span class="pre">incl</span> <span class="pre">%eax</span></code> instruction</p></li>
+<li><p>store the contents of eax into the <code class="docutils literal notranslate"><span class="pre">Result</span></code> variable</p></li>
+</ul>
+<p>The resulting assembler file (with <code class="switch docutils literal notranslate"><span class="pre">-O2</span></code> optimization) contains:</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>_increment__incr.1:
+   subl $4,%esp
+   movl 8(%esp),%eax
+#APP
+   incl %eax
+#NO_APP
+   movl %eax,%edx
+   movl %ecx,(%esp)
+   addl $4,%esp
+   ret
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="inlining-inline-assembler-code">
+<span id="id6"></span><h2>Inlining Inline Assembler Code<a class="headerlink" href="#inlining-inline-assembler-code" title="Permalink to this headline">¶</a></h2>
+<p>For a short subprogram such as the <code class="docutils literal notranslate"><span class="pre">Incr</span></code> function in the previous
+section, the overhead of the call and return (creating / deleting the stack
+frame) can be significant, compared to the amount of code in the subprogram
+body.  A solution is to apply Ada’s <code class="docutils literal notranslate"><span class="pre">Inline</span></code> pragma to the subprogram,
+which directs the compiler to expand invocations of the subprogram at the
+point(s) of call, instead of setting up a stack frame for out-of-line calls.
+Here is the resulting program:</p>
+<blockquote>
+<div><div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kr">with</span><span class="p"> </span><span class="n">Interfaces</span><span class="p">; </span><span class="kr">use</span><span class="nn"> Interfaces;</span><span class="p"></span>
+<span class="kr">with</span><span class="nn"> Ada.Text_IO;</span> <span class="kr">use</span><span class="p"> </span><span class="n">Ada.Text_IO</span><span class="p">;</span>
+<span class="kr">with</span><span class="nn"> System.Machine_Code;</span> <span class="kr">use</span><span class="p"> </span><span class="n">System.Machine_Code</span><span class="p">;</span>
+<span class="k">procedure </span><span class="nf">Increment_2</span> <span class="kr">is</span><span class="p"></span>
+
+   <span class="k">function </span><span class="nf">Incr</span> <span class="o">(</span><span class="n">Value</span> <span class="o">:</span> <span class="n">Unsigned_32</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Unsigned_32</span> <span class="kr">is</span><span class="p"></span>
+      <span class="n">Result</span> <span class="o">:</span> <span class="n">Unsigned_32</span><span class="p">;</span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="n">Asm</span> <span class="o">(</span><span class="s">&quot;incl %0&quot;</span><span class="p">,</span>
+           <span class="n">Outputs</span> <span class="o">=&gt;</span> <span class="n">Unsigned_32</span><span class="na">&#39;Asm_Output</span> <span class="o">(</span><span class="s">&quot;=a&quot;</span><span class="p">,</span> <span class="n">Result</span><span class="o">)</span><span class="p">,</span>
+           <span class="n">Inputs</span>  <span class="o">=&gt;</span> <span class="n">Unsigned_32</span><span class="na">&#39;Asm_Input</span> <span class="o">(</span><span class="s">&quot;a&quot;</span><span class="p">,</span> <span class="n">Value</span><span class="o">))</span><span class="p">;</span>
+      <span class="kr">return</span><span class="p"> </span><span class="n">Result</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Incr</span><span class="p">;</span>
+   <span class="kr">pragma</span><span class="p"> </span><span class="n">Inline</span> <span class="o">(</span><span class="n">Increment</span><span class="o">)</span><span class="p">;</span>
+
+   <span class="n">Value</span> <span class="o">:</span> <span class="n">Unsigned_32</span><span class="p">;</span>
+
+<span class="kr">begin</span><span class="p"></span>
+   <span class="n">Value</span> <span class="o">:=</span> <span class="mi">5</span><span class="p">;</span>
+   <span class="n">Put_Line</span> <span class="o">(</span><span class="s">&quot;Value before is&quot;</span> <span class="o">&amp;</span> <span class="n">Value</span><span class="na">&#39;Img</span><span class="o">)</span><span class="p">;</span>
+   <span class="n">Value</span> <span class="o">:=</span> <span class="n">Increment</span> <span class="o">(</span><span class="n">Value</span><span class="o">)</span><span class="p">;</span>
+   <span class="n">Put_Line</span> <span class="o">(</span><span class="s">&quot;Value after is&quot;</span> <span class="o">&amp;</span> <span class="n">Value</span><span class="na">&#39;Img</span><span class="o">)</span><span class="p">;</span>
+<span class="k">end </span><span class="nf">Increment_2</span><span class="p">;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>Compile the program with both optimization (<code class="switch docutils literal notranslate"><span class="pre">-O2</span></code>) and inlining
+(<code class="switch docutils literal notranslate"><span class="pre">-gnatn</span></code>) enabled.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">Incr</span></code> function is still compiled as usual, but at the
+point in <code class="docutils literal notranslate"><span class="pre">Increment</span></code> where our function used to be called:</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pushl</span> <span class="o">%</span><span class="n">edi</span>
+<span class="n">call</span> <span class="n">_increment__incr</span><span class="o">.</span><span class="mi">1</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>the code for the function body directly appears:</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">movl</span> <span class="o">%</span><span class="n">esi</span><span class="p">,</span><span class="o">%</span><span class="n">eax</span>
+<span class="c1">#APP</span>
+   <span class="n">incl</span> <span class="o">%</span><span class="n">eax</span>
+<span class="c1">#NO_APP</span>
+   <span class="n">movl</span> <span class="o">%</span><span class="n">eax</span><span class="p">,</span><span class="o">%</span><span class="n">edx</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>thus saving the overhead of stack frame setup and an out-of-line call.</p>
+</div>
+<div class="section" id="other-asm-functionality">
+<span id="id7"></span><h2>Other <code class="docutils literal notranslate"><span class="pre">Asm</span></code> Functionality<a class="headerlink" href="#other-asm-functionality" title="Permalink to this headline">¶</a></h2>
+<p>This section describes two important parameters to the <code class="docutils literal notranslate"><span class="pre">Asm</span></code>
+procedure: <code class="docutils literal notranslate"><span class="pre">Clobber</span></code>, which identifies register usage;
+and <code class="docutils literal notranslate"><span class="pre">Volatile</span></code>, which inhibits unwanted optimizations.</p>
+<div class="section" id="the-clobber-parameter">
+<span id="id8"></span><h3>The <code class="docutils literal notranslate"><span class="pre">Clobber</span></code> Parameter<a class="headerlink" href="#the-clobber-parameter" title="Permalink to this headline">¶</a></h3>
+<p>One of the dangers of intermixing assembly language and a compiled language
+such as Ada is that the compiler needs to be aware of which registers are
+being used by the assembly code.  In some cases, such as the earlier examples,
+the constraint string is sufficient to indicate register usage (e.g.,
+<code class="docutils literal notranslate"><span class="pre">&quot;a&quot;</span></code> for
+the eax register).  But more generally, the compiler needs an explicit
+identification of the registers that are used by the Inline Assembly
+statements.</p>
+<p>Using a register that the compiler doesn’t know about
+could be a side effect of an instruction (like <code class="docutils literal notranslate"><span class="pre">mull</span></code>
+storing its result in both eax and edx).
+It can also arise from explicit register usage in your
+assembly code; for example:</p>
+<blockquote>
+<div><div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="n">Asm</span> <span class="o">(</span><span class="s">&quot;movl %0, %%ebx&quot;</span> <span class="o">&amp;</span> <span class="n">LF</span> <span class="o">&amp;</span> <span class="n">HT</span> <span class="o">&amp;</span>
+     <span class="s">&quot;movl %%ebx, %1&quot;</span><span class="p">,</span>
+     <span class="n">Outputs</span> <span class="o">=&gt;</span> <span class="n">Unsigned_32</span><span class="na">&#39;Asm_Output</span> <span class="o">(</span><span class="s">&quot;=g&quot;</span><span class="p">,</span> <span class="n">Var_Out</span><span class="o">)</span><span class="p">,</span>
+     <span class="n">Inputs</span>  <span class="o">=&gt;</span> <span class="n">Unsigned_32</span><span class="na">&#39;Asm_Input</span>  <span class="o">(</span><span class="s">&quot;g&quot;</span><span class="p">,</span> <span class="n">Var_In</span><span class="o">))</span><span class="p">;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>where the compiler (since it does not analyze the <code class="docutils literal notranslate"><span class="pre">Asm</span></code> template string)
+does not know you are using the ebx register.</p>
+<p>In such cases you need to supply the <code class="docutils literal notranslate"><span class="pre">Clobber</span></code> parameter to <code class="docutils literal notranslate"><span class="pre">Asm</span></code>,
+to identify the registers that will be used by your assembly code:</p>
+<blockquote>
+<div><div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="n">Asm</span> <span class="o">(</span><span class="s">&quot;movl %0, %%ebx&quot;</span> <span class="o">&amp;</span> <span class="n">LF</span> <span class="o">&amp;</span> <span class="n">HT</span> <span class="o">&amp;</span>
+     <span class="s">&quot;movl %%ebx, %1&quot;</span><span class="p">,</span>
+     <span class="n">Outputs</span> <span class="o">=&gt;</span> <span class="n">Unsigned_32</span><span class="na">&#39;Asm_Output</span> <span class="o">(</span><span class="s">&quot;=g&quot;</span><span class="p">,</span> <span class="n">Var_Out</span><span class="o">)</span><span class="p">,</span>
+     <span class="n">Inputs</span>  <span class="o">=&gt;</span> <span class="n">Unsigned_32</span><span class="na">&#39;Asm_Input</span>  <span class="o">(</span><span class="s">&quot;g&quot;</span><span class="p">,</span> <span class="n">Var_In</span><span class="o">)</span><span class="p">,</span>
+     <span class="n">Clobber</span> <span class="o">=&gt;</span> <span class="s">&quot;ebx&quot;</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>The Clobber parameter is a static string expression specifying the
+register(s) you are using.  Note that register names are <em>not</em> prefixed
+by a percent sign. Also, if more than one register is used then their names
+are separated by commas; e.g., <code class="docutils literal notranslate"><span class="pre">&quot;eax,</span> <span class="pre">ebx&quot;</span></code></p>
+<p>The <code class="docutils literal notranslate"><span class="pre">Clobber</span></code> parameter has several additional uses:</p>
+<ul class="simple">
+<li><p>Use ‘register’ name <code class="docutils literal notranslate"><span class="pre">cc</span></code> to indicate that flags might have changed</p></li>
+<li><p>Use ‘register’ name <code class="docutils literal notranslate"><span class="pre">memory</span></code> if you changed a memory location</p></li>
+</ul>
+</div>
+<div class="section" id="the-volatile-parameter">
+<span id="id9"></span><h3>The <code class="docutils literal notranslate"><span class="pre">Volatile</span></code> Parameter<a class="headerlink" href="#the-volatile-parameter" title="Permalink to this headline">¶</a></h3>
+<p id="index-1">Compiler optimizations in the presence of Inline Assembler may sometimes have
+unwanted effects.  For example, when an <code class="docutils literal notranslate"><span class="pre">Asm</span></code> invocation with an input
+variable is inside a loop, the compiler might move the loading of the input
+variable outside the loop, regarding it as a one-time initialization.</p>
+<p>If this effect is not desired, you can disable such optimizations by setting
+the <code class="docutils literal notranslate"><span class="pre">Volatile</span></code> parameter to <code class="docutils literal notranslate"><span class="pre">True</span></code>; for example:</p>
+<blockquote>
+<div><div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="n">Asm</span> <span class="o">(</span><span class="s">&quot;movl %0, %%ebx&quot;</span> <span class="o">&amp;</span> <span class="n">LF</span> <span class="o">&amp;</span> <span class="n">HT</span> <span class="o">&amp;</span>
+     <span class="s">&quot;movl %%ebx, %1&quot;</span><span class="p">,</span>
+     <span class="n">Outputs</span>  <span class="o">=&gt;</span> <span class="n">Unsigned_32</span><span class="na">&#39;Asm_Output</span> <span class="o">(</span><span class="s">&quot;=g&quot;</span><span class="p">,</span> <span class="n">Var_Out</span><span class="o">)</span><span class="p">,</span>
+     <span class="n">Inputs</span>   <span class="o">=&gt;</span> <span class="n">Unsigned_32</span><span class="na">&#39;Asm_Input</span>  <span class="o">(</span><span class="s">&quot;g&quot;</span><span class="p">,</span> <span class="n">Var_In</span><span class="o">)</span><span class="p">,</span>
+     <span class="n">Clobber</span>  <span class="o">=&gt;</span> <span class="s">&quot;ebx&quot;</span><span class="p">,</span>
+     <span class="n">Volatile</span> <span class="o">=&gt;</span> <span class="kc">True</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>By default, <code class="docutils literal notranslate"><span class="pre">Volatile</span></code> is set to <code class="docutils literal notranslate"><span class="pre">False</span></code> unless there is no
+<code class="docutils literal notranslate"><span class="pre">Outputs</span></code> parameter.</p>
+<p>Although setting <code class="docutils literal notranslate"><span class="pre">Volatile</span></code> to <code class="docutils literal notranslate"><span class="pre">True</span></code> prevents unwanted
+optimizations, it will also disable other optimizations that might be
+important for efficiency. In general, you should set <code class="docutils literal notranslate"><span class="pre">Volatile</span></code>
+to <code class="docutils literal notranslate"><span class="pre">True</span></code> only if the compiler’s optimizations have created
+problems.</p>
+</div>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../gnat_ugn.html">
+              <img class="logo" src="../_static/adacore_transparent.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="../gnat_ugn.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Inline Assembler</a><ul>
+<li><a class="reference internal" href="#basic-assembler-syntax">Basic Assembler Syntax</a></li>
+<li><a class="reference internal" href="#a-simple-example-of-inline-assembler">A Simple Example of Inline Assembler</a></li>
+<li><a class="reference internal" href="#output-variables-in-inline-assembler">Output Variables in Inline Assembler</a></li>
+<li><a class="reference internal" href="#input-variables-in-inline-assembler">Input Variables in Inline Assembler</a></li>
+<li><a class="reference internal" href="#inlining-inline-assembler-code">Inlining Inline Assembler Code</a></li>
+<li><a class="reference internal" href="#other-asm-functionality">Other <code class="docutils literal notranslate"><span class="pre">Asm</span></code> Functionality</a><ul>
+<li><a class="reference internal" href="#the-clobber-parameter">The <code class="docutils literal notranslate"><span class="pre">Clobber</span></code> Parameter</a></li>
+<li><a class="reference internal" href="#the-volatile-parameter">The <code class="docutils literal notranslate"><span class="pre">Volatile</span></code> Parameter</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="elaboration_order_handling_in_gnat.html"
+                        title="previous chapter">Elaboration Order Handling in GNAT</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../share/gnu_free_documentation_license.html"
+                        title="next chapter">GNU Free Documentation License</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/gnat_ugn/inline_assembler.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../share/gnu_free_documentation_license.html" title="GNU Free Documentation License"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="elaboration_order_handling_in_gnat.html" title="Elaboration Order Handling in GNAT"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../gnat_ugn.html">GNAT User&#39;s Guide for Native Platforms 2021 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Inline Assembler</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2008-2021, Free Software Foundation.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
+    </div>
+  </body>
+</html>

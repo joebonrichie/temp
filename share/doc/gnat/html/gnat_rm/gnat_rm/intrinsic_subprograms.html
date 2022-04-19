@@ -1,0 +1,274 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>8. Intrinsic Subprograms &#8212; GNAT Reference Manual 2021 documentation</title>
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="9. Representation Clauses and Pragmas" href="representation_clauses_and_pragmas.html" />
+    <link rel="prev" title="7. Implementation Defined Characteristics" href="implementation_defined_characteristics.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="representation_clauses_and_pragmas.html" title="9. Representation Clauses and Pragmas"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="implementation_defined_characteristics.html" title="7. Implementation Defined Characteristics"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../gnat_rm.html">GNAT Reference Manual 2021 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">8. </span>Intrinsic Subprograms</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="intrinsic-subprograms">
+<span id="id1"></span><h1><span class="section-number">8. </span>Intrinsic Subprograms<a class="headerlink" href="#intrinsic-subprograms" title="Permalink to this headline">¶</a></h1>
+<p id="index-0">GNAT allows a user application program to write the declaration:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kr">pragma</span><span class="p"> </span><span class="n">Import</span> <span class="o">(</span><span class="n">Intrinsic</span><span class="p">,</span> <span class="n">name</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>providing that the name corresponds to one of the implemented intrinsic
+subprograms in GNAT, and that the parameter profile of the referenced
+subprogram meets the requirements.  This chapter describes the set of
+implemented intrinsic subprograms, and the requirements on parameter profiles.
+Note that no body is supplied; as with other uses of pragma Import, the
+body is supplied elsewhere (in this case by the compiler itself).  Note
+that any use of this feature is potentially non-portable, since the
+Ada standard does not require Ada compilers to implement this feature.</p>
+<div class="section" id="intrinsic-operators">
+<span id="id2"></span><h2><span class="section-number">8.1. </span>Intrinsic Operators<a class="headerlink" href="#intrinsic-operators" title="Permalink to this headline">¶</a></h2>
+<p id="index-1">All the predefined numeric operators in package Standard
+in <code class="docutils literal notranslate"><span class="pre">pragma</span> <span class="pre">Import</span> <span class="pre">(Intrinsic,..)</span></code>
+declarations.  In the binary operator case, the operands must have the same
+size.  The operand or operands must also be appropriate for
+the operator.  For example, for addition, the operands must
+both be floating-point or both be fixed-point, and the
+right operand for <code class="docutils literal notranslate"><span class="pre">&quot;**&quot;</span></code> must have a root type of
+<code class="docutils literal notranslate"><span class="pre">Standard.Integer'Base</span></code>.
+You can use an intrinsic operator declaration as in the following example:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kr">type</span><span class="p"> </span><span class="n">Int1</span> <span class="kr">is</span><span class="p"> </span><span class="kr">new</span><span class="p"> </span><span class="n">Integer</span><span class="p">;</span>
+<span class="kr">type</span><span class="p"> </span><span class="n">Int2</span> <span class="kr">is</span><span class="p"> </span><span class="kr">new</span><span class="p"> </span><span class="n">Integer</span><span class="p">;</span>
+
+<span class="kr">function</span><span class="p"> </span><span class="s">&quot;+&quot;</span> <span class="o">(</span><span class="n">X1</span> <span class="o">:</span> <span class="n">Int1</span><span class="p">;</span> <span class="n">X2</span> <span class="o">:</span> <span class="n">Int2</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Int1</span><span class="p">;</span>
+<span class="kr">function</span><span class="p"> </span><span class="s">&quot;+&quot;</span> <span class="o">(</span><span class="n">X1</span> <span class="o">:</span> <span class="n">Int1</span><span class="p">;</span> <span class="n">X2</span> <span class="o">:</span> <span class="n">Int2</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Int2</span><span class="p">;</span>
+<span class="kr">pragma</span><span class="p"> </span><span class="n">Import</span> <span class="o">(</span><span class="n">Intrinsic</span><span class="p">,</span> <span class="s">&quot;+&quot;</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>This declaration would permit ‘mixed mode’ arithmetic on items
+of the differing types <code class="docutils literal notranslate"><span class="pre">Int1</span></code> and <code class="docutils literal notranslate"><span class="pre">Int2</span></code>.
+It is also possible to specify such operators for private types, if the
+full views are appropriate arithmetic types.</p>
+</div>
+<div class="section" id="compilation-iso-date">
+<span id="id3"></span><h2><span class="section-number">8.2. </span>Compilation_ISO_Date<a class="headerlink" href="#compilation-iso-date" title="Permalink to this headline">¶</a></h2>
+<p id="index-2">This intrinsic subprogram is used in the implementation of the
+library package <code class="docutils literal notranslate"><span class="pre">GNAT.Source_Info</span></code>.  The only useful use of the
+intrinsic import in this case is the one in this unit, so an
+application program should simply call the function
+<code class="docutils literal notranslate"><span class="pre">GNAT.Source_Info.Compilation_ISO_Date</span></code> to obtain the date of
+the current compilation (in local time format YYYY-MM-DD).</p>
+</div>
+<div class="section" id="compilation-date">
+<span id="id4"></span><h2><span class="section-number">8.3. </span>Compilation_Date<a class="headerlink" href="#compilation-date" title="Permalink to this headline">¶</a></h2>
+<p id="index-3">Same as Compilation_ISO_Date, except the string is in the form
+MMM DD YYYY.</p>
+</div>
+<div class="section" id="compilation-time">
+<span id="id5"></span><h2><span class="section-number">8.4. </span>Compilation_Time<a class="headerlink" href="#compilation-time" title="Permalink to this headline">¶</a></h2>
+<p id="index-4">This intrinsic subprogram is used in the implementation of the
+library package <code class="docutils literal notranslate"><span class="pre">GNAT.Source_Info</span></code>.  The only useful use of the
+intrinsic import in this case is the one in this unit, so an
+application program should simply call the function
+<code class="docutils literal notranslate"><span class="pre">GNAT.Source_Info.Compilation_Time</span></code> to obtain the time of
+the current compilation (in local time format HH:MM:SS).</p>
+</div>
+<div class="section" id="enclosing-entity">
+<span id="id6"></span><h2><span class="section-number">8.5. </span>Enclosing_Entity<a class="headerlink" href="#enclosing-entity" title="Permalink to this headline">¶</a></h2>
+<p id="index-5">This intrinsic subprogram is used in the implementation of the
+library package <code class="docutils literal notranslate"><span class="pre">GNAT.Source_Info</span></code>.  The only useful use of the
+intrinsic import in this case is the one in this unit, so an
+application program should simply call the function
+<code class="docutils literal notranslate"><span class="pre">GNAT.Source_Info.Enclosing_Entity</span></code> to obtain the name of
+the current subprogram, package, task, entry, or protected subprogram.</p>
+</div>
+<div class="section" id="exception-information">
+<span id="id7"></span><h2><span class="section-number">8.6. </span>Exception_Information<a class="headerlink" href="#exception-information" title="Permalink to this headline">¶</a></h2>
+<p id="index-6">This intrinsic subprogram is used in the implementation of the
+library package <code class="docutils literal notranslate"><span class="pre">GNAT.Current_Exception</span></code>.  The only useful
+use of the intrinsic import in this case is the one in this unit,
+so an application program should simply call the function
+<code class="docutils literal notranslate"><span class="pre">GNAT.Current_Exception.Exception_Information</span></code> to obtain
+the exception information associated with the current exception.</p>
+</div>
+<div class="section" id="exception-message">
+<span id="id8"></span><h2><span class="section-number">8.7. </span>Exception_Message<a class="headerlink" href="#exception-message" title="Permalink to this headline">¶</a></h2>
+<p id="index-7">This intrinsic subprogram is used in the implementation of the
+library package <code class="docutils literal notranslate"><span class="pre">GNAT.Current_Exception</span></code>.  The only useful
+use of the intrinsic import in this case is the one in this unit,
+so an application program should simply call the function
+<code class="docutils literal notranslate"><span class="pre">GNAT.Current_Exception.Exception_Message</span></code> to obtain
+the message associated with the current exception.</p>
+</div>
+<div class="section" id="exception-name">
+<span id="id9"></span><h2><span class="section-number">8.8. </span>Exception_Name<a class="headerlink" href="#exception-name" title="Permalink to this headline">¶</a></h2>
+<p id="index-8">This intrinsic subprogram is used in the implementation of the
+library package <code class="docutils literal notranslate"><span class="pre">GNAT.Current_Exception</span></code>.  The only useful
+use of the intrinsic import in this case is the one in this unit,
+so an application program should simply call the function
+<code class="docutils literal notranslate"><span class="pre">GNAT.Current_Exception.Exception_Name</span></code> to obtain
+the name of the current exception.</p>
+</div>
+<div class="section" id="file">
+<span id="id10"></span><h2><span class="section-number">8.9. </span>File<a class="headerlink" href="#file" title="Permalink to this headline">¶</a></h2>
+<p id="index-9">This intrinsic subprogram is used in the implementation of the
+library package <code class="docutils literal notranslate"><span class="pre">GNAT.Source_Info</span></code>.  The only useful use of the
+intrinsic import in this case is the one in this unit, so an
+application program should simply call the function
+<code class="docutils literal notranslate"><span class="pre">GNAT.Source_Info.File</span></code> to obtain the name of the current
+file.</p>
+</div>
+<div class="section" id="line">
+<span id="id11"></span><h2><span class="section-number">8.10. </span>Line<a class="headerlink" href="#line" title="Permalink to this headline">¶</a></h2>
+<p id="index-10">This intrinsic subprogram is used in the implementation of the
+library package <code class="docutils literal notranslate"><span class="pre">GNAT.Source_Info</span></code>.  The only useful use of the
+intrinsic import in this case is the one in this unit, so an
+application program should simply call the function
+<code class="docutils literal notranslate"><span class="pre">GNAT.Source_Info.Line</span></code> to obtain the number of the current
+source line.</p>
+</div>
+<div class="section" id="shifts-and-rotates">
+<span id="id12"></span><h2><span class="section-number">8.11. </span>Shifts and Rotates<a class="headerlink" href="#shifts-and-rotates" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="index-11"></span><span class="target" id="index-12"></span><span class="target" id="index-13"></span><span class="target" id="index-14"></span><p id="index-15">In standard Ada, the shift and rotate functions are available only
+for the predefined modular types in package <code class="docutils literal notranslate"><span class="pre">Interfaces</span></code>.  However, in
+GNAT it is possible to define these functions for any integer
+type (signed or modular), as in this example:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="k">function </span><span class="nf">Shift_Left</span>
+  <span class="o">(</span><span class="n">Value</span>  <span class="o">:</span> <span class="n">T</span><span class="p">;</span>
+   <span class="n">Amount</span> <span class="o">:</span> <span class="n">Natural</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">T</span>
+<span class="kr">with</span><span class="p"> </span><span class="n">Import</span><span class="p">,</span> <span class="n">Convention</span> <span class="o">=&gt;</span> <span class="n">Intrinsic</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The function name must be one of
+Shift_Left, Shift_Right, Shift_Right_Arithmetic, Rotate_Left, or
+Rotate_Right. T must be an integer type. T’Size must be
+8, 16, 32 or 64 bits; if T is modular, the modulus
+must be 2**8, 2**16, 2**32 or 2**64.
+The result type must be the same as the type of <code class="docutils literal notranslate"><span class="pre">Value</span></code>.
+The shift amount must be Natural.
+The formal parameter names can be anything.</p>
+<p>A more convenient way of providing these shift operators is to use the
+Provide_Shift_Operators pragma, which provides the function declarations and
+corresponding pragma Import’s for all five shift functions. For signed types
+the semantics of these operators is to interpret the bitwise result of the
+corresponding operator for modular type. In particular, shifting a negative
+number may change its sign bit to positive.</p>
+</div>
+<div class="section" id="source-location">
+<span id="id13"></span><h2><span class="section-number">8.12. </span>Source_Location<a class="headerlink" href="#source-location" title="Permalink to this headline">¶</a></h2>
+<p id="index-16">This intrinsic subprogram is used in the implementation of the
+library routine <code class="docutils literal notranslate"><span class="pre">GNAT.Source_Info</span></code>.  The only useful use of the
+intrinsic import in this case is the one in this unit, so an
+application program should simply call the function
+<code class="docutils literal notranslate"><span class="pre">GNAT.Source_Info.Source_Location</span></code> to obtain the current
+source file location.</p>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../gnat_rm.html">
+              <img class="logo" src="../_static/adacore_transparent.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="../gnat_rm.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">8. Intrinsic Subprograms</a><ul>
+<li><a class="reference internal" href="#intrinsic-operators">8.1. Intrinsic Operators</a></li>
+<li><a class="reference internal" href="#compilation-iso-date">8.2. Compilation_ISO_Date</a></li>
+<li><a class="reference internal" href="#compilation-date">8.3. Compilation_Date</a></li>
+<li><a class="reference internal" href="#compilation-time">8.4. Compilation_Time</a></li>
+<li><a class="reference internal" href="#enclosing-entity">8.5. Enclosing_Entity</a></li>
+<li><a class="reference internal" href="#exception-information">8.6. Exception_Information</a></li>
+<li><a class="reference internal" href="#exception-message">8.7. Exception_Message</a></li>
+<li><a class="reference internal" href="#exception-name">8.8. Exception_Name</a></li>
+<li><a class="reference internal" href="#file">8.9. File</a></li>
+<li><a class="reference internal" href="#line">8.10. Line</a></li>
+<li><a class="reference internal" href="#shifts-and-rotates">8.11. Shifts and Rotates</a></li>
+<li><a class="reference internal" href="#source-location">8.12. Source_Location</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="implementation_defined_characteristics.html"
+                        title="previous chapter"><span class="section-number">7. </span>Implementation Defined Characteristics</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="representation_clauses_and_pragmas.html"
+                        title="next chapter"><span class="section-number">9. </span>Representation Clauses and Pragmas</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/gnat_rm/intrinsic_subprograms.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="representation_clauses_and_pragmas.html" title="9. Representation Clauses and Pragmas"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="implementation_defined_characteristics.html" title="7. Implementation Defined Characteristics"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../gnat_rm.html">GNAT Reference Manual 2021 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">8. </span>Intrinsic Subprograms</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2008-2021, Free Software Foundation.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
+    </div>
+  </body>
+</html>

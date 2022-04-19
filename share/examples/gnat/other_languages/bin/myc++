@@ -1,0 +1,9 @@
+#! /bin/sh
+# 
+# Since g++ is called through the wrapper, some environment variables
+# set by the wrapper may interfere. This script is used to remove these
+# environment variables.
+#
+unset BINUTILS_ROOT
+unset GCC_ROOT
+g++ -v $* 

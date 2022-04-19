@@ -1,0 +1,81 @@
+		       G N A T   E X A M P L E S
+		       =========================
+
+This example illustrates two design approaches for reliably accessing 
+standard output in a tasking application in which multiple concurrent calls 
+to Put_Line are possible.  
+
+In terms of design, one should assume that a call to Put_Line can be 
+interrupted at any moment, such that only part of the string is output, 
+followed immediately by part of a string from a call by some other task.  In 
+other words the designer must assume that the characters can be intermixed.
+
+Formally, calling Put_Line simultaneously from multiple tasks on the same 
+output file is erroneous, meaning anything could happen.  That is because 
+there is a shared variable -- the output file -- being accessed and modified 
+from separate tasks.  In the absence of any guarantee that this is handled 
+properly in the implementation of Text_IO (and there is no such guarantee in 
+the RM), the attempt is erroneous by virtue of RM 9.11.  The guarantee of 
+RM A (3/2) does not apply: 
+
+3/2  The implementation shall ensure that each language-defined 
+     subprogram is reentrant in the sense that concurrent calls on the same 
+     subprogram perform as specified, so long as all parameters that could be
+     passed by reference denote non-overlapping objects.
+
+In this case the shared file object is a parameter, albeit implicit when 
+Standard Output is used, that does indeed overlap.  
+
+Although anything can happen, typically what happens is that the output works 
+fine, but occasionally gets interspersed in some way.  You might or might not 
+see an interspersed output in a test program, but that doesn't mean it could 
+not happen in a test running somewhat longer.  
+
+A buffered approach is often a good way to approach this problem, in which a 
+protected object is used to hold the strings to be printed by a single, 
+dedicated printer task.  Since only one task is now accessing standard 
+output by calling Put_Line the issue is precluded.  We refer to this as the 
+"concurrent" approach because printing occurs concurrently with the tasks 
+making the requests.  Buffering has the advantage of decoupling the rate of 
+printing requests from their actual printing.  
+
+Alternatively one could have a single protected object serve as a mutual 
+exclusion lock.  In this approach the Print procedure acquires the lock, 
+calls Put_Line, and then releases the lock.  We refer to this as the "inline" 
+approach because the calling tasks actually do the printing.  This approach 
+has the advantage of comparative simplicity.  
+
+Two demonstration programs are provided, one for each design approach.
+
+Building and Running the application
+------------------------------------
+
+The application can be built using the project file 'threadsafe_output' 
+provided in this directory.  You can therefore do: 
+
+        gprbuild -P threadsafe_output.gpr
+
+Doing so will build both the "demo_inline_printer" and the 
+"demo_concurrent_printer" main programs.  Within GPS you can use the Build 
+menu entry and select the "All" submenu entry to build both programs. 
+
+Neither program requires command line parameters.  When invoked, each main 
+program will repeated display a string on standard output and then terminate.  
+The strings are printed by several tasks, concurrently, using one of the two 
+design approaches to prevent intermixed output.  
+
+Features illustrated
+---------------
+
+A number of features are used by these examples:
+
+* Protected objects as mutual exclusion locks
+
+* Protected objects as thread-safe circular bounded buffers (using the 
+  GNAT.Bounded_Buffers generic package) 
+
+* Tasking
+
+
+
+

@@ -1,0 +1,12 @@
+project OO_Airline is
+
+   for Source_Dirs use (".");
+   for Object_Dir  use ".";
+   for Exec_Dir    use ".";
+   for Main use ("broker");
+
+   package Compiler is
+      for Default_Switches ("Ada") use ("-gnat05");
+   end Compiler;
+
+end OO_Airline;

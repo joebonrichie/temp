@@ -1,0 +1,777 @@
+V "GNAT Lib v2021"
+A -O2
+A -gnatA
+A -fPIC
+A -gnat2012
+A -gnatwc
+A -gnatwf
+A -gnatwi
+A -gnatwj
+A -gnatwk
+A -gnatwm
+A -gnatwr
+A -gnatwu
+A -gnatwv
+A -gnaty3
+A -gnatya
+A -gnatyb
+A -gnatyB
+A -gnatyc
+A -gnatyd
+A -gnatye
+A -gnatyf
+A -gnatyh
+A -gnatyi
+A -gnatyI
+A -gnatyk
+A -gnatyl
+A -gnatym
+A -gnatyn
+A -gnatyo
+A -gnatyO
+A -gnatyp
+A -gnatyr
+A -gnatys
+A -gnatyt
+A -gnatyx
+A -gnatn
+A -mtune=generic
+A -march=x86-64
+P SS ZX
+
+RN
+RV NO_ALLOCATORS
+RV NO_CALENDAR
+RV NO_DELAY
+RV NO_DISPATCH
+RV NO_DISPATCHING_CALLS
+RV NO_EXCEPTION_HANDLERS
+RV NO_EXCEPTION_PROPAGATION
+RV NO_EXCEPTIONS
+RV NO_FIXED_POINT
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_LOCAL_ALLOCATORS
+RV NO_NESTED_FINALIZATION
+RV NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_UNCHECKED_DEALLOCATION
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLICIT_LOOPS
+RV NO_ELABORATION_CODE
+
+U aws.services.dispatchers.timer%b  aws-services-dispatchers-timer.adb  2722fe39 OO PK IU
+W ada%s			ada.ads			ada.ali
+Z ada.exceptions%s	a-except.adb		a-except.ali
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W ada.unchecked_deallocation%s
+W aws%s			aws.ads			aws.ali
+W aws.dispatchers%s	aws-dispatchers.adb	aws-dispatchers.ali
+W aws.dispatchers.callback%s  aws-dispatchers-callback.adb  aws-dispatchers-callback.ali
+W aws.messages%s	aws-messages.adb	aws-messages.ali
+W aws.services.dispatchers%s  aws-services-dispatchers.ads  aws-services-dispatchers.ali
+Z system%s		system.ads		system.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+Z system.soft_links%s	s-soflin.adb		s-soflin.ali
+Z system.standard_library%s  s-stalib.adb	s-stalib.ali
+Z system.storage_elements%s  s-stoele.adb	s-stoele.ali
+Z system.storage_pools%s  s-stopoo.adb		s-stopoo.ali
+Z system.storage_pools.subpools%s  s-stposu.adb	s-stposu.ali
+
+U aws.services.dispatchers.timer%s  aws-services-dispatchers-timer.ads  614ab8bf EE OO PF PK IU
+W ada%s			ada.ads			ada.ali
+W ada.calendar%s	a-calend.adb		a-calend.ali
+W ada.calendar.formatting%s  a-calfor.adb	a-calfor.ali
+W ada.containers%s	a-contai.ads		a-contai.ali
+Z ada.containers.generic_array_sort%s
+Z ada.containers.helpers%s  a-conhel.adb	a-conhel.ali
+W ada.containers.vectors%s
+Z ada.exceptions%s	a-except.adb		a-except.ali
+Z ada.finalization%s	a-finali.ads		a-finali.ali
+Z ada.iterator_interfaces%s
+Z ada.streams%s		a-stream.adb		a-stream.ali
+W ada.strings%s		a-string.ads		a-string.ali
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+W ada.strings.unbounded%s  a-strunb.adb		a-strunb.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
+Z ada.unchecked_deallocation%s
+W aws%s			aws.ads			aws.ali
+W aws.dispatchers%s	aws-dispatchers.adb	aws-dispatchers.ali
+W aws.response%s	aws-response.adb	aws-response.ali
+W aws.services.dispatchers%s  aws-services-dispatchers.ads  aws-services-dispatchers.ali
+W aws.status%s		aws-status.adb		aws-status.ali
+Z system%s		system.ads		system.ali
+Z system.finalization_masters%s  s-finmas.adb	s-finmas.ali
+Z system.pool_global%s	s-pooglo.adb		s-pooglo.ali
+Z system.put_images%s	s-putima.adb		s-putima.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+Z system.soft_links%s	s-soflin.adb		s-soflin.ali
+Z system.standard_library%s  s-stalib.adb	s-stalib.ali
+Z system.storage_elements%s  s-stoele.adb	s-stoele.ali
+Z system.storage_pools%s  s-stopoo.adb		s-stopoo.ali
+Z system.storage_pools.subpools%s  s-stposu.adb	s-stposu.ali
+Z system.stream_attributes%s  s-stratt.adb	s-stratt.ali
+
+D ada.ads		20210520051131 76789da1 ada%s
+D a-calend.ads		20210520051128 474d9720 ada.calendar%s
+D a-calend.adb		20210520051128 dfcd352e ada.calendar%b
+D a-calfor.ads		20210520051128 0f4707d1 ada.calendar.formatting%s
+D a-catizo.ads		20210520051128 eaa56756 ada.calendar.time_zones%s
+D a-charac.ads		20210520051128 2d3ec45b ada.characters%s
+D a-chlat1.ads		20210520051128 66457d31 ada.characters.latin_1%s
+D a-contai.ads		20210520051128 61e5e089 ada.containers%s
+D a-cgarso.ads		20210520051128 9129bfa8 ada.containers.generic_array_sort%s
+D a-cohata.ads		20210520051128 bc432d0e ada.containers.hash_tables%s
+D a-conhel.ads		20210520051128 20298884 ada.containers.helpers%s
+D a-conhel.adb		20210520051128 fe7a6827 ada.containers.helpers%b
+D a-cihama.ads		20210520051128 76287ea1 ada.containers.indefinite_hashed_maps%s
+D a-cihase.ads		20210520051128 18093f96 ada.containers.indefinite_hashed_sets%s
+D a-ciorma.ads		20210520051128 3aa5dad0 ada.containers.indefinite_ordered_maps%s
+D a-coinve.ads		20210520051128 0843f47c ada.containers.indefinite_vectors%s
+D a-crbltr.ads		20210520051128 d3d16ba4 ada.containers.red_black_trees%s
+D a-convec.ads		20210520051128 5d39d84a ada.containers.vectors%s
+D a-convec.adb		20210520051128 8dbd1ef5 ada.containers.vectors%b
+D a-direct.ads		20210520051128 078228da ada.directories%s
+D a-envvar.ads		20210520051128 00080416 ada.environment_variables%s
+D a-except.ads		20210520051128 946f3014 ada.exceptions%s
+D a-finali.ads		20210520051128 bf4f806b ada.finalization%s
+D a-ioexce.ads		20210520051128 e4a01f64 ada.io_exceptions%s
+D a-iteint.ads		20210520051128 49a8bee2 ada.iterator_interfaces%s
+D a-reatim.ads		20210520051127 0240fc73 ada.real_time%s
+D a-stream.ads		20210520051129 119b8fb3 ada.streams%s
+D a-string.ads		20210520051129 90ac6797 ada.strings%s
+D a-strhas.ads		20210520051129 c71c2a52 ada.strings.hash%s
+D a-strmap.ads		20210520051129 5a88892a ada.strings.maps%s
+D a-strsea.ads		20210520051129 b9bc90ba ada.strings.search%s
+D a-sttebu.ads		20210520051129 18209c64 ada.strings.text_buffers%s
+D a-strunb.ads		20210520051129 03325227 ada.strings.unbounded%s
+D a-strunb.adb		20210520051129 3b950306 ada.strings.unbounded%b
+D a-stuten.ads		20210520051129 808c40ad ada.strings.utf_encoding%s
+D a-tags.ads		20210520051130 9eaa38c6 ada.tags%s
+D a-taside.ads		20210520051127 00e3a3f6 ada.task_identification%s
+D a-unccon.ads		20210520051130 0e9b276f ada.unchecked_conversion%s
+D a-uncdea.ads		20210520051130 c3a8ac65 ada.unchecked_deallocation%s
+D aws.ads		20210520114206 82646736 aws%s
+D aws-attachments.ads	20210519051431 2270236e aws.attachments%s
+D aws-config.ads	20210519051431 17e5b2cd aws.config%s
+D aws-containers.ads	20210519051431 c7ab8288 aws.containers%s
+D aws-containers-key_value.ads  20210519051431 f3f917f0 aws.containers.key_value%s
+D aws-containers-memory_streams.ads  20210519051431 ea28c859 aws.containers.memory_streams%s
+D aws-containers-string_vectors.ads  20210519051431 b5692847 aws.containers.string_vectors%s
+D aws-containers-tables.ads  20210519051431 00be04da aws.containers.tables%s
+D aws-default.ads	20210519051431 9ec982b1 aws.default%s
+D aws-dispatchers.ads	20210519051431 c78b16eb aws.dispatchers%s
+D aws-dispatchers.adb	20210519051431 ecec79a0 aws.dispatchers%b
+D aws-dispatchers-callback.ads  20210519051431 e42e53cb aws.dispatchers.callback%s
+D aws-dispatchers-callback.adb  20210519051431 940d864e aws.dispatchers.callback%b
+D aws-headers.ads	20210519051431 25633780 aws.headers%s
+D aws-messages.ads	20210519051431 7cd16bc6 aws.messages%s
+D aws-mime.ads		20210519051431 796c9a32 aws.mime%s
+D aws-net.ads		20210519051431 4147ea12 aws.net%s
+D aws-parameters.ads	20210519051431 ff4aa491 aws.parameters%s
+D aws-resources.ads	20210519051431 407ba395 aws.resources%s
+D aws-resources-streams.ads  20210519051431 95c86167 aws.resources.streams%s
+D aws-resources-streams-memory.ads  20210519051431 eb23d323 aws.resources.streams.memory%s
+D aws-response.ads	20210519051431 907d00d3 aws.response%s
+D aws-services.ads	20210519051431 e275bf31 aws.services%s
+D aws-services-dispatchers.ads  20210519051431 ae46fd63 aws.services.dispatchers%s
+D aws-services-dispatchers-timer.ads  20210519051431 b8eb2ff6 aws.services.dispatchers.timer%s
+D aws-services-dispatchers-timer.adb  20210519051431 c49e45a7 aws.services.dispatchers.timer%b
+D aws-session.ads	20210519051431 7ee0b17c aws.session%s
+D aws-status.ads	20210519051431 715df1ae aws.status%s
+D aws-url.ads		20210519051431 32548484 aws.url%s
+D aws-utils.ads		20210519051431 840ea1d3 aws.utils%s
+D gnat.ads		20210520051132 b5988c27 gnat%s
+D g-bytswa.ads		20210520051131 a4d21639 gnat.byte_swapping%s
+D g-regexp.ads		20210520051131 691be386 gnat.regexp%s
+D g-sechas.ads		20210520051131 302163b5 gnat.secure_hashes%s
+D g-shsh32.ads		20210520051131 671c9849 gnat.secure_hashes.sha2_32%s
+D g-shshco.ads		20210520051131 1144502c gnat.secure_hashes.sha2_common%s
+D g-sha256.ads		20210520051131 c083f050 gnat.sha256%s
+D interfac.ads		20210520051132 edec285f interfaces%s
+D i-c.ads		20210520051132 d9beded9 interfaces.c%s
+D memory_streams.ads	20210519051430 bf3b9ce5 memory_streams%s
+D system.ads		20210520051135 a2da961d system%s
+D s-atacco.ads		20210520051132 4c36d12f system.address_to_access_conversions%s
+D s-atocou.ads		20210520051132 b45c2d8d system.atomic_counters%s
+D s-atocou.adb		20210520051132 b65612c0 system.atomic_counters%b
+D s-carun8.ads		20210520051132 a903718d system.compare_array_unsigned_8%s
+D s-exctab.ads		20210520051132 54135002 system.exception_table%s
+D s-finmas.ads		20210520051132 1ab4dba8 system.finalization_masters%s
+D s-finroo.ads		20210520051132 4ff27390 system.finalization_root%s
+D s-linux.ads		20210520051127 ed0b8aee system.linux%s
+D s-memory.ads		20210520051133 597d6634 system.memory%s
+D s-multip.ads		20210520051133 38ac9f73 system.multiprocessors%s
+D s-oscons.ads		20210520095158 e3a42aec system.os_constants%s
+D s-osinte.ads		20210520051127 222ac181 system.os_interface%s
+D s-osprim.ads		20210520051133 07fd65f6 system.os_primitives%s
+D s-parame.ads		20210520051134 4752c4cb system.parameters%s
+D s-pooglo.ads		20210520051134 ede33ef8 system.pool_global%s
+D s-putima.ads		20210520051134 4e095881 system.put_images%s
+D s-regexp.ads		20210520051134 9c7d27a7 system.regexp%s
+D s-secsta.ads		20210520051134 9b3ab94b system.secondary_stack%s
+D s-soflin.ads		20210520051134 a7318a92 system.soft_links%s
+D s-stache.ads		20210520051134 a37c21ec system.stack_checking%s
+D s-stausa.ads		20210520051134 017a0a05 system.stack_usage%s
+D s-stalib.ads		20210520051134 472fbca8 system.standard_library%s
+D s-stalib.adb		20210520051134 977290bf system.standard_library%b
+D s-stoele.ads		20210520051134 2dc34a04 system.storage_elements%s
+D s-stoele.adb		20210520051134 ed88f8fb system.storage_elements%b
+D s-stopoo.ads		20210520051134 e9fa2dd8 system.storage_pools%s
+D s-stposu.ads		20210520051134 e251976f system.storage_pools.subpools%s
+D s-stratt.ads		20210520051134 7bdda3fa system.stream_attributes%s
+D s-stratt.adb		20210520051134 fc996108 system.stream_attributes%b
+D s-statxd.ads		20210520051134 b54789f6 system.stream_attributes.xdr%s
+D s-string.ads		20210520051134 8fe54fb7 system.strings%s
+D s-ststop.ads		20210520051134 5fbf1b38 system.strings.stream_ops%s
+D s-tasinf.ads		20210520051127 2b3f8252 system.task_info%s
+D s-taspri.ads		20210520051127 4ec891e7 system.task_primitives%s
+D s-taprop.ads		20210520051127 6eefbe12 system.task_primitives.operations%s
+D s-taskin.ads		20210520051127 88fba9ad system.tasking%s
+D s-taprob.ads		20210520051127 acd6094d system.tasking.protected_objects%s
+D s-tpoben.ads		20210520051127 60ad3dae system.tasking.protected_objects.entries%s
+D s-tassta.ads		20210520051127 cca55c94 system.tasking.stages%s
+D s-traent.ads		20210520051134 26a8d361 system.traceback_entries%s
+D s-unstyp.ads		20210520051134 2b077493 system.unsigned_types%s
+D templates_parser.ads	20210519053215 1cb5e754 templates_parser%s
+D templates_parser-utils.ads  20210519053215 8849593d templates_parser.utils%s
+D templates_parser_tasking.ads  20210519053215 4c0209f0 templates_parser_tasking%s
+D unchconv.ads		20210520051135 ca2f9e18 unchecked_conversion%s
+D zlib.ads		20210519051430 0714e1ed zlib%s
+G a e
+G c Z s b [once aws__services__dispatchers__timer 57 13 none]
+G c Z s b [yearly aws__services__dispatchers__timer 73 13 none]
+G c Z s b [monthly aws__services__dispatchers__timer 87 13 none]
+G c Z s b [weekly aws__services__dispatchers__timer 99 13 none]
+G c Z s b [daily aws__services__dispatchers__timer 111 13 none]
+G c Z s b [hourly aws__services__dispatchers__timer 121 13 none]
+G c Z s b [minutely aws__services__dispatchers__timer 129 13 none]
+G c Z s b [register aws__services__dispatchers__timer 135 14 none]
+G c Z s b [register aws__services__dispatchers__timer 142 14 none]
+G c Z s b [unregister aws__services__dispatchers__timer 149 14 none]
+G c Z s b [register_default_callback aws__services__dispatchers__timer 155 14 none]
+G c Z s b [initialize aws__services__dispatchers__timer 165 25 none]
+G c Z s b [finalize aws__services__dispatchers__timer 166 25 none]
+G c Z s b [dispatch aws__services__dispatchers__timer 168 24 none]
+G c Z s b [clone aws__services__dispatchers__timer 177 24 none]
+G c Z s s [has_element aws__services__dispatchers__timer__period_table 115 13 206_4]
+G c Z s s [empty aws__services__dispatchers__timer__period_table 125 13 206_4]
+G c Z s s [Oeq aws__services__dispatchers__timer__period_table 127 24 206_4]
+G c Z s s [to_vector aws__services__dispatchers__timer__period_table 136 13 206_4]
+G c Z s s [to_vector aws__services__dispatchers__timer__period_table 139 13 206_4]
+G c Z s s [Oconcat aws__services__dispatchers__timer__period_table 145 13 206_4]
+G c Z s s [Oconcat aws__services__dispatchers__timer__period_table 149 13 206_4]
+G c Z s s [Oconcat aws__services__dispatchers__timer__period_table 153 13 206_4]
+G c Z s s [Oconcat aws__services__dispatchers__timer__period_table 157 13 206_4]
+G c Z s s [capacity aws__services__dispatchers__timer__period_table 161 13 206_4]
+G c Z s s [reserve_capacity aws__services__dispatchers__timer__period_table 164 14 206_4]
+G c Z s s [length aws__services__dispatchers__timer__period_table 175 13 206_4]
+G c Z s s [set_length aws__services__dispatchers__timer__period_table 178 14 206_4]
+G c Z s s [is_empty aws__services__dispatchers__timer__period_table 187 13 206_4]
+G c Z s s [clear aws__services__dispatchers__timer__period_table 190 14 206_4]
+G c Z s s [to_cursor aws__services__dispatchers__timer__period_table 194 13 206_4]
+G c Z s s [to_index aws__services__dispatchers__timer__period_table 201 13 206_4]
+G c Z s s [element aws__services__dispatchers__timer__period_table 206 13 206_4]
+G c Z s s [element aws__services__dispatchers__timer__period_table 213 13 206_4]
+G c Z s s [replace_element aws__services__dispatchers__timer__period_table 217 14 206_4]
+G c Z s s [replace_element aws__services__dispatchers__timer__period_table 228 14 206_4]
+G c Z s s [query_element aws__services__dispatchers__timer__period_table 239 14 206_4]
+G c Z s s [query_element aws__services__dispatchers__timer__period_table 250 14 206_4]
+G c Z s s [update_element aws__services__dispatchers__timer__period_table 259 14 206_4]
+G c Z s s [update_element aws__services__dispatchers__timer__period_table 276 14 206_4]
+G c Z s s [constant_reference aws__services__dispatchers__timer__period_table 303 13 206_4]
+G c Z s s [reference aws__services__dispatchers__timer__period_table 308 13 206_4]
+G c Z s s [constant_reference aws__services__dispatchers__timer__period_table 313 13 206_4]
+G c Z s s [reference aws__services__dispatchers__timer__period_table 318 13 206_4]
+G c Z s s [assign aws__services__dispatchers__timer__period_table 323 14 206_4]
+G c Z s s [copy aws__services__dispatchers__timer__period_table 325 13 206_4]
+G c Z s s [move aws__services__dispatchers__timer__period_table 327 14 206_4]
+G c Z s s [new_vector aws__services__dispatchers__timer__period_table 333 13 206_4]
+G c Z s s [insert_vector aws__services__dispatchers__timer__period_table 337 14 206_4]
+G c Z s s [insert_vector aws__services__dispatchers__timer__period_table 361 14 206_4]
+G c Z s s [insert_vector aws__services__dispatchers__timer__period_table 378 14 206_4]
+G c Z s s [insert aws__services__dispatchers__timer__period_table 396 14 206_4]
+G c Z s s [insert aws__services__dispatchers__timer__period_table 404 14 206_4]
+G c Z s s [insert aws__services__dispatchers__timer__period_table 412 14 206_4]
+G c Z s s [insert aws__services__dispatchers__timer__period_table 421 14 206_4]
+G c Z s s [insert aws__services__dispatchers__timer__period_table 438 14 206_4]
+G c Z s s [prepend_vector aws__services__dispatchers__timer__period_table 449 14 206_4]
+G c Z s s [prepend aws__services__dispatchers__timer__period_table 459 14 206_4]
+G c Z s s [append_vector aws__services__dispatchers__timer__period_table 466 14 206_4]
+G c Z s s [append aws__services__dispatchers__timer__period_table 476 14 206_4]
+G c Z s s [append aws__services__dispatchers__timer__period_table 483 14 206_4]
+G c Z s s [insert_space aws__services__dispatchers__timer__period_table 486 14 206_4]
+G c Z s s [insert_space aws__services__dispatchers__timer__period_table 503 14 206_4]
+G c Z s s [delete aws__services__dispatchers__timer__period_table 514 14 206_4]
+G c Z s s [delete aws__services__dispatchers__timer__period_table 524 14 206_4]
+G c Z s s [delete_first aws__services__dispatchers__timer__period_table 533 14 206_4]
+G c Z s s [delete_last aws__services__dispatchers__timer__period_table 538 14 206_4]
+G c Z s s [reverse_elements aws__services__dispatchers__timer__period_table 546 14 206_4]
+G c Z s s [swap aws__services__dispatchers__timer__period_table 549 14 206_4]
+G c Z s s [swap aws__services__dispatchers__timer__period_table 554 14 206_4]
+G c Z s s [first_index aws__services__dispatchers__timer__period_table 560 13 206_4]
+G c Z s s [first aws__services__dispatchers__timer__period_table 563 13 206_4]
+G c Z s s [first_element aws__services__dispatchers__timer__period_table 567 13 206_4]
+G c Z s s [last_index aws__services__dispatchers__timer__period_table 570 13 206_4]
+G c Z s s [last aws__services__dispatchers__timer__period_table 574 13 206_4]
+G c Z s s [last_element aws__services__dispatchers__timer__period_table 578 13 206_4]
+G c Z s s [next aws__services__dispatchers__timer__period_table 581 13 206_4]
+G c Z s s [next aws__services__dispatchers__timer__period_table 587 14 206_4]
+G c Z s s [previous aws__services__dispatchers__timer__period_table 590 13 206_4]
+G c Z s s [previous aws__services__dispatchers__timer__period_table 596 14 206_4]
+G c Z s s [find_index aws__services__dispatchers__timer__period_table 599 13 206_4]
+G c Z s s [find aws__services__dispatchers__timer__period_table 609 13 206_4]
+G c Z s s [reverse_find_index aws__services__dispatchers__timer__period_table 623 13 206_4]
+G c Z s s [reverse_find aws__services__dispatchers__timer__period_table 635 13 206_4]
+G c Z s s [contains aws__services__dispatchers__timer__period_table 649 13 206_4]
+G c Z s s [iterate aws__services__dispatchers__timer__period_table 654 14 206_4]
+G c Z s s [reverse_iterate aws__services__dispatchers__timer__period_table 662 14 206_4]
+G c Z s s [iterate aws__services__dispatchers__timer__period_table 669 13 206_4]
+G c Z s s [iterate aws__services__dispatchers__timer__period_table 672 13 206_4]
+G c Z s s [adjust aws__services__dispatchers__timer__period_table__implementation 90 28 726_4_206_4]
+G c Z s s [finalize aws__services__dispatchers__timer__period_table__implementation 93 28 726_4_206_4]
+G c Z s s [zero_counts aws__services__dispatchers__timer__period_table__implementation 96 17 726_4_206_4]
+G c Z s s [busy aws__services__dispatchers__timer__period_table__implementation 100 17 726_4_206_4]
+G c Z s s [unbusy aws__services__dispatchers__timer__period_table__implementation 104 17 726_4_206_4]
+G c Z s s [lock aws__services__dispatchers__timer__period_table__implementation 108 17 726_4_206_4]
+G c Z s s [unlock aws__services__dispatchers__timer__period_table__implementation 112 17 726_4_206_4]
+G c Z s s [tc_check aws__services__dispatchers__timer__period_table__implementation 116 17 726_4_206_4]
+G c Z s s [te_check aws__services__dispatchers__timer__period_table__implementation 120 17 726_4_206_4]
+G c Z s s [initialize aws__services__dispatchers__timer__period_table__implementation 139 28 726_4_206_4]
+G c Z s s [finalize aws__services__dispatchers__timer__period_table__implementation 140 28 726_4_206_4]
+G c Z s s [initialize aws__services__dispatchers__timer__period_table__implementation 145 28 726_4_206_4]
+G c Z s s [finalize aws__services__dispatchers__timer__period_table__implementation 146 28 726_4_206_4]
+G c Z s s [reference_control_typeDA aws__services__dispatchers__timer__period_table__implementation 84 12 726_4_206_4]
+G c Z s s [reference_control_typeDF aws__services__dispatchers__timer__period_table__implementation 84 12 726_4_206_4]
+G c Z s s [reference_control_typeIP aws__services__dispatchers__timer__period_table__implementation 84 12 726_4_206_4]
+G c Z s s [with_busyDF aws__services__dispatchers__timer__period_table__implementation 136 12 726_4_206_4]
+G c Z s s [with_busyIP aws__services__dispatchers__timer__period_table__implementation 136 12 726_4_206_4]
+G c Z s s [with_lockDF aws__services__dispatchers__timer__period_table__implementation 142 12 726_4_206_4]
+G c Z s s [with_lockIP aws__services__dispatchers__timer__period_table__implementation 142 12 726_4_206_4]
+G c Z s s [put_image aws__services__dispatchers__timer__period_table 747 14 206_4]
+G c Z s s [adjust aws__services__dispatchers__timer__period_table 750 25 206_4]
+G c Z s s [finalize aws__services__dispatchers__timer__period_table 751 25 206_4]
+G c Z s s [write aws__services__dispatchers__timer__period_table 753 14 206_4]
+G c Z s s [read aws__services__dispatchers__timer__period_table 759 14 206_4]
+G c Z s s [read aws__services__dispatchers__timer__period_table 773 14 206_4]
+G c Z s s [write aws__services__dispatchers__timer__period_table 779 14 206_4]
+G c Z s s [write aws__services__dispatchers__timer__period_table 798 14 206_4]
+G c Z s s [read aws__services__dispatchers__timer__period_table 804 14 206_4]
+G c Z s s [write aws__services__dispatchers__timer__period_table 820 14 206_4]
+G c Z s s [read aws__services__dispatchers__timer__period_table 826 14 206_4]
+G c Z s s [pseudo_reference aws__services__dispatchers__timer__period_table 837 13 206_4]
+G c Z s s [get_element_access aws__services__dispatchers__timer__period_table 846 13 206_4]
+G c Z s s [cursorIP aws__services__dispatchers__timer__period_table 768 9 206_4]
+G c Z s s [vectorDA aws__services__dispatchers__timer__period_table 741 9 206_4]
+G c Z s s [vectorDF aws__services__dispatchers__timer__period_table 741 9 206_4]
+G c Z s s [vectorIP aws__services__dispatchers__timer__period_table 741 9 206_4]
+G c Z s s [constant_reference_typeDI aws__services__dispatchers__timer__period_table 788 9 206_4]
+G c Z s s [constant_reference_typeDA aws__services__dispatchers__timer__period_table 788 9 206_4]
+G c Z s s [constant_reference_typeDF aws__services__dispatchers__timer__period_table 788 9 206_4]
+G c Z s s [constant_reference_typeIP aws__services__dispatchers__timer__period_table 788 9 206_4]
+G c Z s s [reference_typeDI aws__services__dispatchers__timer__period_table 810 9 206_4]
+G c Z s s [reference_typeDA aws__services__dispatchers__timer__period_table 810 9 206_4]
+G c Z s s [reference_typeDF aws__services__dispatchers__timer__period_table 810 9 206_4]
+G c Z s s [reference_typeIP aws__services__dispatchers__timer__period_table 810 9 206_4]
+G c Z s s [finalize aws__services__dispatchers__timer__period_table 862 25 206_4]
+G c Z s s [first aws__services__dispatchers__timer__period_table 864 24 206_4]
+G c Z s s [last aws__services__dispatchers__timer__period_table 865 24 206_4]
+G c Z s s [next aws__services__dispatchers__timer__period_table 867 24 206_4]
+G c Z s s [previous aws__services__dispatchers__timer__period_table 871 24 206_4]
+G c Z s s [elements_arrayIP aws__services__dispatchers__timer__period_table 729 9 206_4]
+G c Z s s [elements_typeIP aws__services__dispatchers__timer__period_table 732 9 206_4]
+G c Z s s [iteratorDF aws__services__dispatchers__timer__period_table 854 9 206_4]
+G c Z s s [iteratorIP aws__services__dispatchers__timer__period_table 854 9 206_4]
+G c Z s s [free aws__services__dispatchers__timer__period_table 44 14 206_4]
+G c Z s s [append_slow_path aws__services__dispatchers__timer__period_table 47 14 206_4]
+G c Z s s [handlerDA aws__services__dispatchers__timer 209 9 none]
+G c Z s s [handlerDF aws__services__dispatchers__timer 209 9 none]
+G c Z s s [handlerDI aws__services__dispatchers__timer 209 9 none]
+G c Z s s [handlerIP aws__services__dispatchers__timer 209 9 none]
+G c Z s s [date_timeIP aws__services__dispatchers__timer 182 9 none]
+G c Z s s [periodIP aws__services__dispatchers__timer 192 9 none]
+G c Z s s [nodeDI aws__services__dispatchers__timer 198 9 none]
+G c Z s s [nodeDA aws__services__dispatchers__timer 198 9 none]
+G c Z s s [nodeDF aws__services__dispatchers__timer 198 9 none]
+G c Z s s [nodeIP aws__services__dispatchers__timer 198 9 none]
+G c Z b b [unchecked_free aws__services__dispatchers__timer 41 14 none]
+G r j handler [register aws__services__dispatchers__timer 135 14 none] [handlerDA aws__dispatchers 63 9 none]
+G r k handler [register aws__services__dispatchers__timer 135 14 none] [handlerDF aws__dispatchers 63 9 none]
+G r c none [register aws__services__dispatchers__timer 142 14 none] [create aws__dispatchers__callback 45 13 none]
+G r j handler [register aws__services__dispatchers__timer 142 14 none] [handlerDA aws__dispatchers 63 9 none]
+G r k handler [register aws__services__dispatchers__timer 142 14 none] [handlerDF aws__dispatchers 63 9 none]
+G r e handler [register aws__services__dispatchers__timer 142 14 none] [finalize aws__dispatchers 71 25 none]
+G r c none [register_default_callback aws__services__dispatchers__timer 155 14 none] [free aws__dispatchers 58 14 none]
+G r j handler [register_default_callback aws__services__dispatchers__timer 155 14 none] [handlerDA aws__dispatchers 63 9 none]
+G r k handler [register_default_callback aws__services__dispatchers__timer 155 14 none] [handlerDF aws__dispatchers 63 9 none]
+G r f handler [initialize aws__services__dispatchers__timer 165 25 none] [initialize aws__dispatchers 69 25 none]
+G r c none [finalize aws__services__dispatchers__timer 166 25 none] [ref_counter aws__dispatchers 52 13 none]
+G r e handler [finalize aws__services__dispatchers__timer 166 25 none] [finalize aws__dispatchers 71 25 none]
+G r c none [finalize aws__services__dispatchers__timer 166 25 none] [free aws__dispatchers 58 14 none]
+G r c none [dispatch aws__services__dispatchers__timer 168 24 none] [acknowledge aws__response 234 13 none]
+G r s handler [clone aws__services__dispatchers__timer 177 24 none] [handlerIP aws__dispatchers 63 9 none]
+G r f handler [clone aws__services__dispatchers__timer 177 24 none] [initialize aws__dispatchers 69 25 none]
+G r c none [clone aws__services__dispatchers__timer 177 24 none] [ref_counter aws__dispatchers 52 13 none]
+G r e handler [clone aws__services__dispatchers__timer 177 24 none] [finalize aws__dispatchers 71 25 none]
+G r c none [clone aws__services__dispatchers__timer 177 24 none] [free aws__dispatchers 58 14 none]
+G r j handler [clone aws__services__dispatchers__timer 177 24 none] [handlerDA aws__dispatchers 63 9 none]
+G r k handler [clone aws__services__dispatchers__timer 177 24 none] [handlerDF aws__dispatchers 63 9 none]
+G r d handler [clone aws__services__dispatchers__timer 177 24 none] [adjust aws__dispatchers 70 25 none]
+G r d handler [handlerDA aws__services__dispatchers__timer 209 9 none] [adjust aws__dispatchers 70 25 none]
+G r c none [handlerDF aws__services__dispatchers__timer 209 9 none] [ref_counter aws__dispatchers 52 13 none]
+G r e handler [handlerDF aws__services__dispatchers__timer 209 9 none] [finalize aws__dispatchers 71 25 none]
+G r c none [handlerDF aws__services__dispatchers__timer 209 9 none] [free aws__dispatchers 58 14 none]
+G r f handler [handlerDI aws__services__dispatchers__timer 209 9 none] [initialize aws__dispatchers 69 25 none]
+G r s handler [handlerIP aws__services__dispatchers__timer 209 9 none] [handlerIP aws__dispatchers 63 9 none]
+X 1 ada.ads
+16K9*Ada 20e8 64|32r6 38r14 39r14 43r8 163r8 207r10 65|32r6 42r10
+X 2 a-calend.ads
+36K13*Calendar 413e17 64|32r10 49r29 50r29 51r29 52r29 53r29 54r29 55r29
+. 65|110r16 120r22 120r39 129r20 138r21 140r18 142r16 155r21 157r18 159r16
+. 172r21 174r18 176r16 189r21 191r18 193r16 206r21 208r18 210r16 223r21 225r18
+. 229r16 244r21 246r18 248r16 255r7 257r16
+42I9*Time<226I9> 65|110r25 120r31 138r30 155r30 172r30 189r30 206r30 223r30
+. 244r30
+48I12*Year_Number{integer} 64|49r38
+49I12*Month_Number{integer} 64|50r38
+50I12*Day_Number{integer} 64|51r38
+54O12*Day_Duration{duration}
+56V13*Clock{42I9} 65|120s48
+121V14*"<="{boolean} 65|145s22 145s42 162s22 162s42 179s22 179s42 196s22
+. 196s42 213s22 213s42 234s22 234s42 251s22 251s42
+226I9 Time_Rep<long_long_integer>
+X 4 a-calfor.ads
+24K22*Formatting 223e28 64|32w19 52r38 53r38 54r38 55r38 65|129r29 140r27
+. 142r25 157r27 159r25 174r27 176r25 191r27 193r25 208r27 210r25 225r27 229r25
+. 246r27 248r25 255r16 257r25
+28E9*Day_Name 29e70 64|52r49
+31V13*Day_Of_Week{28E9} 65|257s36
+35I12*Hour_Number{natural} 64|53r49
+36I12*Minute_Number{natural} 64|54r49
+37I12*Second_Number{natural} 64|55r49
+38O12*Second_Duration{2|54O12} 65|129r40
+88U14*Split 65|255s27
+102V13*Time_Of{2|42I9} 65|140s38 142s36 157s38 159s36 174s38 176s36 191s38
+. 193s36 208s38 210s36 225s38 229s36 246s38 248s36
+X 8 a-contai.ads
+16K13*Containers 28e19 64|38r18 207r14
+22I9*Count_Type<integer>
+X 11 a-conhel.ads
+84R12 Reference_Control_Type<23|43R9>
+X 18 a-convec.ads
+74k24*Vectors 875e27 64|38w29 207r25
+81I12*Extended_Index{integer}
+91R9*Vector<23|43R9> 64|211r29[206]
+107R9*Cursor 65|485r29[64|206] 487r26[64|206]
+112r4*No_Element{107R9[64|206]} 65|487r49[64|206] 501r29[64|206]
+175V13*Length{8|22I9} 65|57s34[64|206]
+190U14*Clear 65|325s23[64|206]
+206V13*Element{64|204P9} 65|60s39[64|206]
+213V13*Element{64|204P9} 65|491s48[64|206]
+396U14*Insert 65|69s26[64|206]
+397r7 Container{91R9[64|206]} 65|70r16[64|206]
+398i7 Before{81I12[64|206]} 65|71r16[64|206]
+399p7 New_Item{64|204P9} 65|72r16[64|206]
+483U14*Append 65|449s20[64|206]
+524U14*Delete 65|505s23[64|206]
+669V13*Iterate{25|32C9[119[64|206]]} 65|489s38[64|206]
+X 25 a-iteint.ads
+24h9 Forward_Iterator
+32C9*Reversible_Iterator<32R9[18|119[64|206]]>
+32h9*Reversible_Iterator<24R9[18|119[64|206]]>
+X 28 a-string.ads
+16K13*Strings 35e16 64|39r18 163r12
+X 33 a-strunb.ads
+83K21*Unbounded 765e26 64|39w26 163r20
+88R9*Unbounded_String<23|43R9> 744e15 64|199r16
+104V13*To_Unbounded_String{88R9} 65|445s27
+117V13*To_String{string} 65|493s16
+X 39 a-uncdea.ads
+20u15*Unchecked_Deallocation 65|32w10 42r14
+X 40 aws.ads
+32K9*AWS 41e8 64|34r6 35r6 36r6 41r9 45r24 139r20 157r20 201r16 209r24 210r16
+. 214r5 65|34r6 35r6 37r14 39r8 53r16 54r15 65r22 66r21 317r17 354r19 442r20
+. 447r31 459r36 468r20 474r32 569r5
+34a4*Version{string} 65|305r22
+X 49 aws-dispatchers.ads
+42K13*Dispatchers 76e20 64|34w10 45r28 139r24 157r24 201r20 209r28 210r20
+. 65|34r10 39r12 53r20 54r19 65r26 66r25 317r21 354r23 442r24 447r35 459r40
+. 468r24 474r36
+44H9*Handler<23|43R9><69|457R9> 67e14 64|45r40 139r36 157r36 209r40 65|53r32
+. 54r31 65r38 66r37 317r33 354r35 442r36 447r47 468r36 474r48
+47y13*Dispatch{61|59R9} 65|264R26 269R26 274R26 279R26 284R26 289R26 294R26
+. 300R17
+52V13*Ref_Counter{natural} 65|315s52
+56P9*Handler_Class_Access(44R9) 64|201r32 210r32
+58U14*Free 65|321s13 471s10
+69U25 Initialize<23|46p14> 65|354s7
+70U25 Adjust<23|47p14>
+71U25 Finalize<23|48p14> 65|317s7
+X 51 aws-dispatchers-callback.ads
+38K25*Callback 62e29 65|34w22 459r52
+45V13*Create{40R9} 65|459s61
+X 54 aws-messages.ads
+36K13*Messages 402e17 65|35w10 304r10
+186n31*S404{174E9} 65|304r19
+X 61 aws-response.ads
+51K13*Response 455e17 64|35w10 146r20 170r40 65|108r40 303r14 456r20
+59R9*Data<23|43R9> 446e14 64|170r49 65|108r49
+62P9*Callback(59R9) 64|146r29 65|456r29
+234V13*Acknowledge{59R9} 65|303s23
+X 62 aws-services.ads
+32K13*Services 40|32k9 62|37e17 64|41r13 214r9 65|37r18 569r9
+X 63 aws-services-dispatchers.ads
+32K22*Dispatchers 62|32k13 63|64e29 64|41r22 214r18 65|37r27 569r18
+X 64 aws-services-dispatchers-timer.ads
+41K34*Timer 63|32k22 64|138r20 145r20 165E25 200r16 214l30 214e35 65|37b39
+. 441r20 455r20 569l30 569t35
+45R9*Handler<49|44R9> 49|52p13 70P25 64|135p14 136r27 142p14 143r27 149p14
+. 150r27 155p14 156r27 165P25 165r57 166P25 166r57 168P24 169r20 177P24 177r44
+. 177r60 209c9 212e14 65|48r44 48r60 49r24 107r20 314r55 352r57 439r27 453r27
+. 467r27 482r27
+47R9*Period 70r14 84r14 96r14 108r14 118r14 126r14 132r14 138r26 145r26 192c9
+. 196e14 200r22 65|89r43 91r14 337r43 339r14 363r43 365r14 384r43 386r14
+. 415r43 417r14 441r26 455r26 521r43 523r11 551r43 553r11
+49I12*Year_Number{2|48I12} 58r21 64r21 183r16 65|122r20 404r21 410r21
+50I12*Month_Number{2|49I12} 59r21 65r21 74r21 79r21 184r16 65|123r20 405r21
+. 411r21 542r21 547r21
+51I12*Day_Number{2|50I12} 60r21 66r21 75r21 80r21 88r21 92r21 185r16 65|124r20
+. 377r21 381r21 406r21 412r21 543r21 548r21
+52E12*Day_Name{4|28E9} 100r21 104r21 186r16 65|125r20 227r22 227r45 231r22
+. 231r47 514r21 518r21
+53I12*Hour_Number{4|35I12} 61r21 67r21 76r21 81r21 89r21 93r21 101r21 105r21
+. 112r21 115r21 187r16 65|84r21 87r21 126r20 378r21 382r21 407r21 413r21
+. 515r21 519r21 544r21 549r21
+54I12*Minute_Number{4|36I12} 62r21 68r21 77r21 82r21 90r21 94r21 102r21 106r21
+. 113r21 116r21 122r21 124r21 188r16 65|85r21 88r21 127r20 334r21 336r21
+. 379r21 383r21 408r21 414r21 516r21 520r21 545r21 550r21
+55I12*Second_Number{4|37I12} 63r21 69r21 78r21 83r21 91r21 95r21 103r21 107r21
+. 114r21 117r21 123r21 125r21 130r21 131r21 189r16 65|86r21 89r21 128r20
+. 335r21 337r21 362r21 363r21 380r21 384r21 409r21 415r21 517r21 521r21 546r21
+. 551r21
+57V13*Once{47R9} 58>7 59>7 60>7 61>7 62>7 63>7 64>7 65>7 66>7 67>7 68>7 69>7
+. 65|403b13 432l8 432t12
+58i7 From_Year{49I12} 65|404b7 418r41
+59i7 From_Month{50I12} 65|405b7 419r41
+60i7 From_Day{51I12} 65|406b7 420r41
+61i7 From_Hour{53I12} 65|407b7 421r41
+62i7 From_Minute{54I12} 65|408b7 422r41
+63i7 From_Second{55I12} 65|409b7 423r41
+64i7 To_Year{49I12} 65|410b7 425r41
+65i7 To_Month{50I12} 65|411b7 426r41
+66i7 To_Day{51I12} 65|412b7 427r41
+67i7 To_Hour{53I12} 65|413b7 428r41
+68i7 To_Minute{54I12} 65|414b7 429r41
+69i7 To_Second{55I12} 65|415b7 430r41
+73V13*Yearly{47R9} 74>7 75>7 76>7 77>7 78>7 79>7 80>7 81>7 82>7 83>7 65|541b13
+. 567l8 567t14
+74i7 From_Month{50I12} 65|542b7 556r24
+75i7 From_Day{51I12} 65|543b7 557r24
+76i7 From_Hour{53I12} 65|544b7 558r24
+77i7 From_Minute{54I12} 65|545b7 559r24
+78i7 From_Second{55I12} 65|546b7 560r24
+79i7 To_Month{50I12} 65|547b7 561r24
+80i7 To_Day{51I12} 65|548b7 562r24
+81i7 To_Hour{53I12} 65|549b7 563r24
+82i7 To_Minute{54I12} 65|550b7 564r24
+83i7 To_Second{55I12} 65|551b7 565r24
+87V13*Monthly{47R9} 88>7 89>7 90>7 91>7 92>7 93>7 94>7 95>7 65|376b13 397l8
+. 397t15
+88i7 From_Day{51I12} 65|377b7 387r41
+89i7 From_Hour{53I12} 65|378b7 388r41
+90i7 From_Minute{54I12} 65|379b7 389r41
+91i7 From_Second{55I12} 65|380b7 390r41
+92i7 To_Day{51I12} 65|381b7 392r41
+93i7 To_Hour{53I12} 65|382b7 393r41
+94i7 To_Minute{54I12} 65|383b7 394r41
+95i7 To_Second{55I12} 65|384b7 395r41
+99V13*Weekly{47R9} 100>7 101>7 102>7 103>7 104>7 105>7 106>7 107>7 65|513b13
+. 535l8 535t14
+100e7 From_Day{52E12} 65|514b7 526r24
+101i7 From_Hour{53I12} 65|515b7 527r24
+102i7 From_Minute{54I12} 65|516b7 528r24
+103i7 From_Second{55I12} 65|517b7 529r24
+104e7 To_Day{52E12} 65|518b7 530r24
+105i7 To_Hour{53I12} 65|519b7 531r24
+106i7 To_Minute{54I12} 65|520b7 532r24
+107i7 To_Second{55I12} 65|521b7 533r24
+111V13*Daily{47R9} 112>7 113>7 114>7 115>7 116>7 117>7 65|83b13 100l8 100t13
+112i7 From_Hour{53I12} 65|84b7 92r41
+113i7 From_Minute{54I12} 65|85b7 93r41
+114i7 From_Second{55I12} 65|86b7 94r41
+115i7 To_Hour{53I12} 65|87b7 96r41
+116i7 To_Minute{54I12} 65|88b7 97r41
+117i7 To_Second{55I12} 65|89b7 98r41
+121V13*Hourly{47R9} 122>7 123>7 124>7 125>7 65|333b13 346l8 346t14
+122i7 From_Minute{54I12} 65|334b7 340r41
+123i7 From_Second{55I12} 65|335b7 341r41
+124i7 To_Minute{54I12} 65|336b7 343r41
+125i7 To_Second{55I12} 65|337b7 344r41
+129V13*Minutely{47R9} 130>7 131>7 65|361b13 370l8 370t16
+130i7 From_Second{55I12} 65|362b7 366r41
+131i7 To_Second{55I12} 65|363b7 368r41
+135U14*Register 136=7 137>7 138>7 139>7 65|438b14 450l8 450t16 458s7
+136r7 Dispatcher{45R9} 65|439b7 449m28 449r28
+137a7 Name{string} 65|440b7 445r48
+138r7 Period{47R9} 65|441b7 446r27
+139c7 Action<49|44R9> 65|442b7 447r62
+142U14*Register 143=7 144>7 145>7 146>7 65|452b14 460l8 460t16
+143r7 Dispatcher{45R9} 65|453b7 459m10
+144a7 Name{string} 65|454b7 459r22
+145r7 Period{47R9} 65|455b7 459r28
+146p7 Action{61|62P9} 65|456b7 459r69
+149U14*Unregister 150=7 151>7 65|481b14 507l8 507t18
+150r7 Dispatcher{45R9} 65|482b7 489r21 505m31 505r31
+151a7 Name{string} 65|483b7 493r40 503r40
+155U14*Register_Default_Callback 156=7 157>7 65|466b14 475l8 475t33
+156r7 Dispatcher{45R9} 65|467b7 470r10 471m16 471r16 474m7
+157c7 Action<49|44R9> 65|468b7 474r63
+165U25 Initialize<49|69p25> 165=37 65|352b25 355l8 355t18
+165r37 Dispatcher{45R9} 65|352b37 354m44 354r44
+166U25 Finalize<49|71p25> 166=37 65|314b25 327l8 327t16
+166r37 Dispatcher{45R9} 65|314b35 315r41 317m42 317r42 320m22 320r22 325m30
+. 325r30
+168V24 Dispatch{61|59R9}<49|47p13> 169>7 170>7 65|106b24 308l8 308t16
+169r7 Dispatcher{45R9} 65|107b7 259r19 299r10 300r27
+170r7 Request{67|58R9} 65|108b7 264r53 269r53 274r53 279r53 284r53 289r53
+. 294r53 300r50
+177V24 Clone{45R9}<69|459p13> 177>31 65|48b24 77l8 77t13
+177r31 Dispatcher{45R9} 65|48b31 51r10 54r46 57r42 60r48
+180E9 Kind 180e73 193r16
+180n18 Once{180E9} 65|262r18 417r30
+180n24 Yearly{180E9} 65|267r18 555r24
+180n32 Monthly{180E9} 65|272r18 386r30
+180n41 Weekly{180E9} 65|277r18 525r24
+180n49 Daily{180E9} 65|91r30 282r18
+180n56 Hourly{180E9} 65|287r18 339r30
+180n64 Minutely{180E9} 65|292r18 365r30
+182R9 Date_Time 190e14 194r16 195r16 65|136r21 137r21 153r21 154r21 170r21
+. 171r21 187r21 188r21 204r21 205r21 221r21 222r21 242r21 243r21
+183i7*Year{49I12} 65|209r15 211r15 226r15 230r15 418m31 425m31
+184i7*Month{50I12} 65|209r23 211r23 226r23 230r23 247r21 249r21 419m31 426m31
+. 556m14 561m12
+185i7*Day{51I12} 65|192r28 194r28 209r32 211r32 227r15 231r15 247r30 249r30
+. 387m31 392m31 420m31 427m31 557m14 562m12
+186e7*N_Day{52E12} 65|227r61 231r38 526m14 530m12
+187i7*Hour{53I12} 65|92m31 96m31 141r33 143r33 192r35 194r35 209r39 211r39
+. 228r15 232r15 247r37 249r37 388m31 393m31 421m31 428m31 527m14 531m12 558m14
+. 563m12
+188i7*Minute{54I12} 65|93m31 97m31 141r41 143r41 158r39 160r39 192r43 194r43
+. 209r47 211r47 228r23 232r23 247r45 249r45 340m31 343m31 389m31 394m31 422m31
+. 429m31 528m14 532m12 559m14 564m12
+189i7*Second{55I12} 65|94m31 98m31 141r51 143r51 158r49 160r49 175r47 177r47
+. 192r53 194r53 209r57 211r57 228r33 232r33 247r55 249r55 341m31 344m31 366m31
+. 368m31 390m31 395m31 423m31 430m31 529m14 533m12 560m14 565m12
+193e7*Mode{180E9} 65|91m22 260r27 339m22 365m22 386m22 417m22 525m9 555m9
+194r7*From{182R9} 65|92m22 136m51 153m51 170m51 187m51 204m51 221m51 242m51
+. 340m22 366m22 387m22 418m22 526m9 527m9 528m9 529m9 556m9 557m9 558m9 559m9
+. 560m9
+195r7*To{182R9} 65|96m22 137m51 154m51 171m51 188m51 205m51 222m51 243m51
+. 343m22 368m22 392m22 425m22 530m9 531m9 532m9 533m9 561m9 562m9 563m9 564m9
+. 565m9
+198R9 Node 202e14 204r31 65|42r38 61r52 445r21
+199r7*Name{33|88R9} 65|493r32
+200r7*Period{47R9} 65|136m44 137m44 153m44 154m44 170m44 171m44 187m44 188m44
+. 204m44 205m44 221m44 222m44 242m44 243m44 260r20
+201p7*Action{49|56P9} 65|63r21 64m25 66r57 264r41 269r41 274r41 279r41 284r41
+. 289r41 294r41 321m24
+204P9 Node_Access(198R9) 207r44 65|42r44 59r33 61r33 112r39 113r39 114r39
+. 115r39 116r39 117r39 118r39 135r36 152r37 169r39 186r38 203r35 220r37 241r37
+. 444r24 491r20
+206K12 Period_Table[18|74] 211r16 65|57r21 60r26 69r13 325r10 449r7 485r16
+. 487r13 487r36 491r35 501r16 505r10
+210p7 Action{49|56P9} 65|51r21 52m25 54r57 299r21 300r38 470r21 471m27 474m18
+211r7 Table{18|91R9[206]} 65|57r53 60r59 70m44 259r30 320r33 325m41 449m39
+. 489r32 505m42
+X 65 aws-services-dispatchers-timer.adb
+41U14 Unchecked_Free[39|20] 322s13 494s16
+49r7 New_Dispatcher{64|45R9} 52m10 70m29 70r29 76r14
+57i11 K<integer> 60r75 71r38
+59p13 Item{64|204P9} 61r58 63r16 66r52
+61p13 New_Item{64|204P9} 64r16 72r29
+112V16 Match_Once{boolean} 112>32 203b16 214l11 214t21 263s19
+112p32 Item{64|204P9} 203b28 204r39 205r39
+113V16 Match_Yearly{boolean} 113>32 241b16 252l11 252t23 268s19
+113p32 Item{64|204P9} 241b30 242r39 243r39
+114V16 Match_Monthly{boolean} 114>32 186b16 197l11 197t24 273s19
+114p32 Item{64|204P9} 186b31 187r39 188r39
+115V16 Match_Weekly{boolean} 115>32 220b16 235l11 235t23 278s19
+115p32 Item{64|204P9} 220b30 221r39 222r39
+116V16 Match_Daily{boolean} 116>32 135b16 146l11 146t22 283s19
+116p32 Item{64|204P9} 135b29 136r39 137r39
+117V16 Match_Hourly{boolean} 117>32 152b16 163l11 163t23 288s19
+117p32 Item{64|204P9} 152b30 153r39 154r39
+118V16 Match_Minutely{boolean} 118>32 169b16 180l11 180t25 293s19
+118p32 Item{64|204P9} 169b32 170r39 171r39
+120i7 Now{2|42I9} 145r25 145r38 162r25 162r38 179r25 179r38 196r25 196r38
+. 213r25 213r38 234r25 234r38 251r25 251r38 256r10 257r49
+122i7 Year{64|49I12} 141r13 143r13 158r13 160r13 175r13 177r13 192r13 194r13
+. 247r13 249r13 256m15
+123i7 Month{64|50I12} 141r19 143r19 158r19 160r19 175r19 177r19 192r19 194r19
+. 256m21
+124i7 Day{64|51I12} 141r26 143r26 158r26 160r26 175r26 177r26 256m28
+125e7 N_Day{64|52E12} 227r36 231r61 257m7
+126i7 Hour{64|53I12} 158r31 160r31 175r31 177r31 256m33
+127i7 Minute{64|54I12} 175r37 177r37 256m39
+128i7 Second{64|55I12} 256m47
+129o7 Sub_Second{4|38O12} 256m55
+136r10 F{64|182R9} 141r31 141r39 141r49
+137r10 T{64|182R9} 143r31 143r39 143r49
+138i10 From{2|42I9} 140m10 145r17
+138i16 To{2|42I9} 142m10 145r45
+153r10 F{64|182R9} 158r37 158r47
+154r10 T{64|182R9} 160r37 160r47
+155i10 From{2|42I9} 157m10 162r17
+155i16 To{2|42I9} 159m10 162r45
+170r10 F{64|182R9} 175r45
+171r10 T{64|182R9} 177r45
+172i10 From{2|42I9} 174m10 179r17
+172i16 To{2|42I9} 176m10 179r45
+187r10 F{64|182R9} 192r26 192r33 192r41 192r51
+188r10 T{64|182R9} 194r26 194r33 194r41 194r51
+189i10 From{2|42I9} 191m10 196r17
+189i16 To{2|42I9} 193m10 196r45
+204r10 F{64|182R9} 209r13 209r21 209r30 209r37 209r45 209r55
+205r10 T{64|182R9} 211r13 211r21 211r30 211r37 211r45 211r55
+206i10 From{2|42I9} 208m10 213r17
+206i16 To{2|42I9} 210m10 213r45
+221r10 F{64|182R9} 226r13 226r21 227r13 227r59 228r13 228r21 228r31
+222r10 T{64|182R9} 230r13 230r21 231r13 231r36 232r13 232r21 232r31
+223i10 From{2|42I9} 225m10 234r17
+223i16 To{2|42I9} 229m10 234r45
+242r10 F{64|182R9} 247r19 247r28 247r35 247r43 247r53
+243r10 T{64|182R9} 249r19 249r28 249r35 249r43 249r53
+244i10 From{2|42I9} 246m10 251r17
+244i16 To{2|42I9} 248m10 251r45
+259p11 Item{64|204P9} 260r15 263r31 264r36 268r33 269r36 273r34 274r36 278r33
+. 279r36 283r32 284r36 288r33 289r36 293r35 294r36
+315i7 Ref_Counter{natural} 319r10
+320p14 Item{64|204P9} 321r19 322r29
+444p7 Value{64|204P9} 449r46
+487r7 Pos{18|107R9[64|206]} 495m16 501r10 505m49 505r49
+489i11 Cursor{any type} 491r57 495r23
+491p13 Item{64|204P9} 493r27 494m32 494r32
+523r7 P{64|47R9} 525m7 526m7 527m7 528m7 529m7 530m7 531m7 532m7 533m7 534r14
+553r7 P{64|47R9} 555m7 556m7 557m7 558m7 559m7 560m7 561m7 562m7 563m7 564m7
+. 565m7 566r14
+X 67 aws-status.ads
+52K13*Status 64|36w10 170r20 65|108r20 67|405e15
+58R9*Data 64|170r27 65|108r27 67|403e14
+X 69 aws-utils.ads
+457h9*Clonable
+459y13*Clone{457R9} 65|54R64 66R64
+X 80 system.ads
+67M9*Address
+X 89 s-memory.ads
+53V13*Alloc{80|67M9} 103i<c,__gnat_malloc>22
+68U14*Free 104i<c,__gnat_free>22
+76V13*Realloc{80|67M9} 105i<c,__gnat_realloc>22
+X 101 s-stausa.ads
+208U14*Initialize 209i<c,__gnat_stack_usage_initialize>22
+273U14*Output_Results 277i<c,__gnat_stack_usage_output_results>22
+X 103 s-stalib.adb
+89U14 Break_Start 90i<c,__gnat_break_start>22
+

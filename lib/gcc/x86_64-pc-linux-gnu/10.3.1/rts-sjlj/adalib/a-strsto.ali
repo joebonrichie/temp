@@ -1,0 +1,71 @@
+V "GNAT Lib v2021"
+A -O2
+A -ffunction-sections
+A -fdata-sections
+A -fsjlj
+A -fno-omit-frame-pointer
+A -momit-leaf-frame-pointer
+A -gnatg
+A -gnatn
+A -gnatU
+A -mtune=generic
+A -march=x86-64
+P
+
+RN
+RV NO_DISPATCHING_CALLS
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_ELABORATION_CODE
+
+U ada.streams.storage%s	a-strsto.ads		23ed2a9e EE OL PU PK
+W ada.streams%s		a-stream.adb		a-stream.ali
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
+Z system%s		system.ads		system.ali
+Z system.put_images%s	s-putima.adb		s-putima.ali
+Z system.soft_links%s	s-soflin.adb		s-soflin.ali
+
+D ada.ads		20210520051131 76789da1 ada%s
+D a-except.ads		20210520051128 946f3014 ada.exceptions%s
+D a-stream.ads		20210520051129 119b8fb3 ada.streams%s
+D a-strsto.ads		20210520051129 3276a52d ada.streams.storage%s
+D a-string.ads		20210520051129 90ac6797 ada.strings%s
+D a-sttebu.ads		20210520051129 18209c64 ada.strings.text_buffers%s
+D a-stuten.ads		20210520051129 808c40ad ada.strings.utf_encoding%s
+D a-tags.ads		20210520051130 9eaa38c6 ada.tags%s
+D a-unccon.ads		20210520051130 0e9b276f ada.unchecked_conversion%s
+D interfac.ads		20210520051132 edec285f interfaces%s
+D system.ads		20210520095221 fa138bbb system%s
+D s-exctab.ads		20210520051132 54135002 system.exception_table%s
+D s-parame.ads		20210520051134 4752c4cb system.parameters%s
+D s-putima.ads		20210520051134 4e095881 system.put_images%s
+D s-secsta.ads		20210520051134 9b3ab94b system.secondary_stack%s
+D s-soflin.ads		20210520051134 a7318a92 system.soft_links%s
+D s-stache.ads		20210520051134 a37c21ec system.stack_checking%s
+D s-stalib.ads		20210520051134 472fbca8 system.standard_library%s
+D s-stoele.ads		20210520051134 2dc34a04 system.storage_elements%s
+D s-stoele.adb		20210520051134 ed88f8fb system.storage_elements%b
+D s-traent.ads		20210520051134 26a8d361 system.traceback_entries%s
+D s-unstyp.ads		20210520051134 2b077493 system.unsigned_types%s
+D unchconv.ads		20210520051135 ca2f9e18 unchecked_conversion%s
+G a e
+G c Z s s [storage_stream_typeDF ada__streams__storage 43 9 none]
+G c Z s s [storage_stream_typeIP ada__streams__storage 43 9 none]
+X 1 ada.ads
+16K9*Ada 20e8 4|33r9 44r5
+X 3 a-stream.ads
+36K13*Streams 1|16k9 3|87e16 4|33r13 44r9
+39H9*Root_Stream_Type 70e64 4|35r45 43r45
+44I9*Stream_Element_Offset<long_long_integer>
+51I12*Stream_Element_Count{44I9} 4|38r44
+57x14*Read
+63x14*Write
+X 4 a-strsto.ads
+33K21*Storage 3|36k13 4|43E9 44l17 44e24
+35H9*Storage_Stream_Type<3|39R9> 3|57p14 63p14 4|37p13 38r16 40p14 40r37
+. 43c9 43e78
+37y13*Element_Count{3|51I12} 38>7
+38r7 Stream{35R9}
+40x14*Clear 40=21
+40r21 Stream{35R9}
+

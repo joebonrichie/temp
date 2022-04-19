@@ -1,0 +1,818 @@
+V "GNAT Lib v2021"
+A -O2
+A -gnatA
+A -gnatn
+A -gnatwa
+A -gnatwC
+A -gnatwJ
+A -mtune=generic
+A -march=x86-64
+P SS ZX
+
+RN
+RV NO_DISPATCH
+RV NO_DISPATCHING_CALLS
+RV NO_ENUMERATION_MAPS
+RV NO_EXCEPTION_HANDLERS
+RV NO_EXCEPTION_PROPAGATION
+RV NO_EXCEPTIONS
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_LOCAL_ALLOCATORS
+RV NO_NESTED_FINALIZATION
+RV NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_UNCHECKED_ACCESS
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ATTRIBUTES
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_ELABORATION_CODE
+RV NO_OBSOLESCENT_FEATURES
+
+U gnatcoll.config%b	gnatcoll-config.adb	9207081a OO PK IU
+W ada%s			ada.ads			ada.ali
+Z ada.exceptions%s	a-except.adb		a-except.ali
+W ada.strings%s		a-string.ads		a-string.ali
+W ada.strings.fixed%s	a-strfix.adb		a-strfix.ali
+W ada.strings.maps%s	a-strmap.adb		a-strmap.ali
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W gnat%s		gnat.ads		gnat.ali
+W gnat.directory_operations%s  g-dirope.adb	g-dirope.ali
+W gnat.os_lib%s		g-os_lib.ads		g-os_lib.ali
+W gnatcoll%s		gnatcoll.ads		gnatcoll.ali
+W gnatcoll.mmap%s	gnatcoll-mmap.adb	gnatcoll-mmap.ali
+W gnatcoll.strings%s	gnatcoll-strings.ads	gnatcoll-strings.ali
+W gnatcoll.templates%s	gnatcoll-templates.adb	gnatcoll-templates.ali
+W gnatcoll.utils%s	gnatcoll-utils.adb	gnatcoll-utils.ali
+W gnatcoll.vfs%s	gnatcoll-vfs.adb	gnatcoll-vfs.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+Z system.soft_links%s	s-soflin.adb		s-soflin.ali
+Z system.standard_library%s  s-stalib.adb	s-stalib.ali
+Z system.val_bool%s	s-valboo.adb		s-valboo.ali
+Z system.val_int%s	s-valint.ads		s-valint.ali
+
+U gnatcoll.config%s	gnatcoll-config.ads	831d95ad EE OO PF PK IU
+W ada%s			ada.ads			ada.ali
+W ada.containers%s	a-contai.ads		a-contai.ali
+Z ada.containers.hash_tables%s  a-cohata.ads	a-cohata.ali
+Z ada.containers.hash_tables.generic_keys%s
+Z ada.containers.hash_tables.generic_operations%s
+Z ada.containers.helpers%s  a-conhel.adb	a-conhel.ali
+W ada.containers.indefinite_hashed_maps%s
+Z ada.containers.prime_numbers%s  a-coprnu.adb	a-coprnu.ali
+Z ada.exceptions%s	a-except.adb		a-except.ali
+Z ada.finalization%s	a-finali.ads		a-finali.ali
+Z ada.iterator_interfaces%s
+Z ada.streams%s		a-stream.adb		a-stream.ali
+W ada.strings%s		a-string.ads		a-string.ali
+W ada.strings.hash%s	a-strhas.adb		a-strhas.ali
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
+Z ada.unchecked_deallocation%s
+W gnatcoll%s		gnatcoll.ads		gnatcoll.ali
+W gnatcoll.strings%s	gnatcoll-strings.ads	gnatcoll-strings.ali
+W gnatcoll.vfs%s	gnatcoll-vfs.adb	gnatcoll-vfs.ali
+Z system%s		system.ads		system.ali
+Z system.finalization_masters%s  s-finmas.adb	s-finmas.ali
+Z system.pool_global%s	s-pooglo.adb		s-pooglo.ali
+Z system.put_images%s	s-putima.adb		s-putima.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+Z system.soft_links%s	s-soflin.adb		s-soflin.ali
+Z system.standard_library%s  s-stalib.adb	s-stalib.ali
+Z system.storage_elements%s  s-stoele.adb	s-stoele.ali
+Z system.storage_pools%s  s-stopoo.adb		s-stopoo.ali
+Z system.storage_pools.subpools%s  s-stposu.adb	s-stposu.ali
+Z system.stream_attributes%s  s-stratt.adb	s-stratt.ali
+Z system.strings.stream_ops%s  s-ststop.adb	s-ststop.ali
+
+D ada.ads		20210520051131 76789da1 ada%s
+D a-calend.ads		20210520051128 474d9720 ada.calendar%s
+D a-calfor.ads		20210520051128 0f4707d1 ada.calendar.formatting%s
+D a-catizo.ads		20210520051128 eaa56756 ada.calendar.time_zones%s
+D a-charac.ads		20210520051128 2d3ec45b ada.characters%s
+D a-chahan.ads		20210520051128 0ce1b450 ada.characters.handling%s
+D a-chlat1.ads		20210520051128 66457d31 ada.characters.latin_1%s
+D a-contai.ads		20210520051128 61e5e089 ada.containers%s
+D a-cohata.ads		20210520051128 bc432d0e ada.containers.hash_tables%s
+D a-chtgke.ads		20210520051128 20177f7b ada.containers.hash_tables.generic_keys%s
+D a-chtgke.adb		20210520051128 fdf2dddc ada.containers.hash_tables.generic_keys%b
+D a-chtgop.ads		20210520051128 11c5978a ada.containers.hash_tables.generic_operations%s
+D a-chtgop.adb		20210520051128 c3ccdc4f ada.containers.hash_tables.generic_operations%b
+D a-conhel.ads		20210520051128 20298884 ada.containers.helpers%s
+D a-conhel.adb		20210520051128 fe7a6827 ada.containers.helpers%b
+D a-cihama.ads		20210520051128 76287ea1 ada.containers.indefinite_hashed_maps%s
+D a-cihama.adb		20210520051128 e0ec62b4 ada.containers.indefinite_hashed_maps%b
+D a-coprnu.ads		20210520051128 0cdf1864 ada.containers.prime_numbers%s
+D a-except.ads		20210520051128 946f3014 ada.exceptions%s
+D a-finali.ads		20210520051128 bf4f806b ada.finalization%s
+D a-ioexce.ads		20210520051128 e4a01f64 ada.io_exceptions%s
+D a-iteint.ads		20210520051128 49a8bee2 ada.iterator_interfaces%s
+D a-numeri.ads		20210520051129 84bea7a3 ada.numerics%s
+D a-nudira.ads		20210520051129 5984dff3 ada.numerics.discrete_random%s
+D a-stream.ads		20210520051129 119b8fb3 ada.streams%s
+D a-string.ads		20210520051129 90ac6797 ada.strings%s
+D a-strfix.ads		20210520051129 aeacf44c ada.strings.fixed%s
+D a-strhas.ads		20210520051129 c71c2a52 ada.strings.hash%s
+D a-shcain.ads		20210520051129 08af52df ada.strings.hash_case_insensitive%s
+D a-strmap.ads		20210520051129 5a88892a ada.strings.maps%s
+D a-sttebu.ads		20210520051129 18209c64 ada.strings.text_buffers%s
+D a-strunb.ads		20210520051129 03325227 ada.strings.unbounded%s
+D a-stuten.ads		20210520051129 808c40ad ada.strings.utf_encoding%s
+D a-tags.ads		20210520051130 9eaa38c6 ada.tags%s
+D a-textio.ads		20210520051130 aef4d56d ada.text_io%s
+D a-unccon.ads		20210520051130 0e9b276f ada.unchecked_conversion%s
+D a-uncdea.ads		20210520051130 c3a8ac65 ada.unchecked_deallocation%s
+D gnat.ads		20210520051132 b5988c27 gnat%s
+D g-calend.ads		20210520051131 cad86fa7 gnat.calendar%s
+D g-dirope.ads		20210520051131 940c4438 gnat.directory_operations%s
+D g-expect.ads		20210520051131 e4246c0f gnat.expect%s
+D g-heasor.ads		20210520051131 fb287677 gnat.heap_sort%s
+D g-os_lib.ads		20210520051131 0db74523 gnat.os_lib%s
+D g-regpat.ads		20210520051131 b85d88ef gnat.regpat%s
+D g-string.ads		20210520051131 c6abc540 gnat.strings%s
+D gnatcoll.ads		20210519051041 6a5da479 gnatcoll%s
+D gnatcoll-atomic.ads	20210519051041 a760a918 gnatcoll.atomic%s
+D gnatcoll-atomic.adb	20210519051041 d76879ba gnatcoll.atomic%b
+D gnatcoll-config.ads	20210519051041 47c22867 gnatcoll.config%s
+D gnatcoll-config.adb	20210519051041 2d4ec13e gnatcoll.config%b
+D gnatcoll-io.ads	20210519051041 40b00e79 gnatcoll.io%s
+D gnatcoll-io-native.ads  20210519051041 60c7703b gnatcoll.io.native%s
+D gnatcoll-io-remote.ads  20210519051041 dbadffe6 gnatcoll.io.remote%s
+D gnatcoll-mmap.ads	20210519051041 645345a7 gnatcoll.mmap%s
+D gnatcoll-path.ads	20210519051041 44783065 gnatcoll.path%s
+D gnatcoll-refcount.ads	20210519051041 b4dda25c gnatcoll.refcount%s
+D gnatcoll-remote.ads	20210519051041 0702f81b gnatcoll.remote%s
+D gnatcoll-remote-db.ads  20210519051041 359f4135 gnatcoll.remote.db%s
+D gnatcoll-storage_pools.ads  20210519051041 f82e283b gnatcoll.storage_pools%s
+D gnatcoll-storage_pools-headers.ads  20210519051041 968b2c2e gnatcoll.storage_pools.headers%s
+D gnatcoll-strings.ads	20210519051041 014a3fb6 gnatcoll.strings%s
+D gnatcoll-strings.ads	20210519051041 014a3fb6 gnatcoll.strings%s
+D gnatcoll-strings_impl.ads  20210519051041 660cba3c gnatcoll.strings_impl%s
+D gnatcoll-strings_impl.adb  20210519051041 4bac4314 gnatcoll.strings_impl%b
+D gnatcoll-templates.ads  20210519051041 bc671465 gnatcoll.templates%s
+D gnatcoll-utils.ads	20210519051041 529681bc gnatcoll.utils%s
+D gnatcoll-vfs.ads	20210519051041 1efc72f6 gnatcoll.vfs%s
+D gnatcoll-vfs.adb	20210519051041 0d1af567 gnatcoll.vfs%b
+D gnatcoll-vfs_types.ads  20210519051041 14be4a8d gnatcoll.vfs_types%s
+D interfac.ads		20210520051132 edec285f interfaces%s
+D i-c.ads		20210520051132 d9beded9 interfaces.c%s
+D i-cstrin.ads		20210520051132 341d0ddf interfaces.c.strings%s
+D i-cstrea.ads		20210520051132 e53d8b8e interfaces.c_streams%s
+D system.ads		20210520051135 a2da961d system%s
+D s-atocou.ads		20210520051132 b45c2d8d system.atomic_counters%s
+D s-atocou.adb		20210520051132 b65612c0 system.atomic_counters%b
+D s-carun8.ads		20210520051132 a903718d system.compare_array_unsigned_8%s
+D s-crtl.ads		20210520051132 0ebbdb71 system.crtl%s
+D s-exctab.ads		20210520051132 54135002 system.exception_table%s
+D s-ficobl.ads		20210520051132 078245e4 system.file_control_block%s
+D s-finmas.ads		20210520051132 1ab4dba8 system.finalization_masters%s
+D s-finroo.ads		20210520051132 4ff27390 system.finalization_root%s
+D s-imagei.ads		20210520051133 0d3f86a7 system.image_i%s
+D s-imgint.ads		20210520051133 bdb6f5ec system.img_int%s
+D s-memory.ads		20210520051133 597d6634 system.memory%s
+D s-os_lib.ads		20210520051133 93b69309 system.os_lib%s
+D s-parame.ads		20210520051134 4752c4cb system.parameters%s
+D s-pooglo.ads		20210520051134 ede33ef8 system.pool_global%s
+D s-putima.ads		20210520051134 4e095881 system.put_images%s
+D s-rannum.ads		20210520051134 c3978523 system.random_numbers%s
+D s-regpat.ads		20210520051134 825a9b7f system.regpat%s
+D s-secsta.ads		20210520051134 9b3ab94b system.secondary_stack%s
+D s-soflin.ads		20210520051134 a7318a92 system.soft_links%s
+D s-stache.ads		20210520051134 a37c21ec system.stack_checking%s
+D s-stalib.ads		20210520051134 472fbca8 system.standard_library%s
+D s-stalib.adb		20210520051134 977290bf system.standard_library%b
+D s-stoele.ads		20210520051134 2dc34a04 system.storage_elements%s
+D s-stoele.adb		20210520051134 ed88f8fb system.storage_elements%b
+D s-stopoo.ads		20210520051134 e9fa2dd8 system.storage_pools%s
+D s-stposu.ads		20210520051134 e251976f system.storage_pools.subpools%s
+D s-stratt.ads		20210520051134 7bdda3fa system.stream_attributes%s
+D s-stratt.adb		20210520051134 fc996108 system.stream_attributes%b
+D s-statxd.ads		20210520051134 b54789f6 system.stream_attributes.xdr%s
+D s-strhas.ads		20210520051134 269cd894 system.string_hash%s
+D s-strhas.adb		20210520051134 2e038444 system.string_hash%b
+D s-string.ads		20210520051134 8fe54fb7 system.strings%s
+D s-ststop.ads		20210520051134 5fbf1b38 system.strings.stream_ops%s
+D s-traent.ads		20210520051134 26a8d361 system.traceback_entries%s
+D s-unstyp.ads		20210520051134 2b077493 system.unsigned_types%s
+D s-valboo.ads		20210520051134 5026d18b system.val_bool%s
+D s-valint.ads		20210520051134 e7fcadb7 system.val_int%s
+D s-valuns.ads		20210520051134 dac7b45d system.val_uns%s
+D s-valuei.ads		20210520051134 978dd0a6 system.value_i%s
+D s-valueu.ads		20210520051134 7b8fccf5 system.value_u%s
+D s-wchcon.ads		20210520051135 1b7d22d2 system.wch_con%s
+D unchconv.ads		20210520051135 ca2f9e18 unchecked_conversion%s
+G a e
+G c b b b [b gnatcoll__config 34 1 none]
+G c Z s b [set_system_id gnatcoll__config 102 14 none]
+G c Z s b [as_integer gnatcoll__config 109 13 none]
+G c Z s b [as_boolean gnatcoll__config 110 13 none]
+G c Z s b [as_absolute_file gnatcoll__config 111 13 none]
+G c Z s b [as_absolute_dir gnatcoll__config 112 13 none]
+G c Z s b [open gnatcoll__config 125 14 none]
+G c Z s b [at_end gnatcoll__config 128 24 none]
+G c Z s b [configure gnatcoll__config 137 14 none]
+G c Z s b [open gnatcoll__config 145 25 none]
+G c Z s b [next gnatcoll__config 146 25 none]
+G c Z s b [section gnatcoll__config 147 24 none]
+G c Z s b [key gnatcoll__config 148 24 none]
+G c Z s b [value gnatcoll__config 149 24 none]
+G c Z s b [set_system_id gnatcoll__config 158 14 none]
+G c Z s b [fill gnatcoll__config 161 14 none]
+G c Z s b [get gnatcoll__config 181 13 none]
+G c Z s b [get_integer gnatcoll__config 191 13 none]
+G c Z s b [get_boolean gnatcoll__config 197 13 none]
+G c Z s b [get_file gnatcoll__config 203 13 none]
+G c Z s b [to_file gnatcoll__config 211 13 none]
+G c Z s b [set gnatcoll__config 221 14 none]
+G c Z s b [create gnatcoll__config 230 13 none]
+G c Z s b [get gnatcoll__config 233 13 none]
+G c Z s b [get_integer gnatcoll__config 237 13 none]
+G c Z s b [get_boolean gnatcoll__config 241 13 none]
+G c Z s b [get_file gnatcoll__config 245 13 none]
+G c Z s b [to_file gnatcoll__config 249 13 none]
+G c Z s s [config_parserDA gnatcoll__config 274 9 none]
+G c Z s s [config_parserDF gnatcoll__config 274 9 none]
+G c Z s s [config_parserDI gnatcoll__config 274 9 none]
+G c Z s s [config_parserIP gnatcoll__config 274 9 none]
+G c Z s s [file_config_parserDA gnatcoll__config 278 9 none]
+G c Z s s [file_config_parserDF gnatcoll__config 278 9 none]
+G c Z s s [file_config_parserDI gnatcoll__config 278 9 none]
+G c Z s s [file_config_parserIP gnatcoll__config 278 9 none]
+G c Z s s [config_valueDI gnatcoll__config 291 9 none]
+G c Z s s [config_valueDA gnatcoll__config 291 9 none]
+G c Z s s [config_valueDF gnatcoll__config 291 9 none]
+G c Z s s [config_valueIP gnatcoll__config 291 9 none]
+G c Z s s [empty gnatcoll__config__string_maps 73 13 296_4]
+G c Z s s [has_element gnatcoll__config__string_maps 79 13 296_4]
+G c Z s s [Oeq gnatcoll__config__string_maps 85 24 296_4]
+G c Z s s [capacity gnatcoll__config__string_maps 96 13 296_4]
+G c Z s s [reserve_capacity gnatcoll__config__string_maps 100 14 296_4]
+G c Z s s [length gnatcoll__config__string_maps 110 13 296_4]
+G c Z s s [is_empty gnatcoll__config__string_maps 113 13 296_4]
+G c Z s s [clear gnatcoll__config__string_maps 116 14 296_4]
+G c Z s s [key gnatcoll__config__string_maps 119 13 296_4]
+G c Z s s [element gnatcoll__config__string_maps 122 13 296_4]
+G c Z s s [replace_element gnatcoll__config__string_maps 125 14 296_4]
+G c Z s s [query_element gnatcoll__config__string_maps 131 14 296_4]
+G c Z s s [update_element gnatcoll__config__string_maps 138 14 296_4]
+G c Z s s [constant_reference gnatcoll__config__string_maps 155 13 296_4]
+G c Z s s [reference gnatcoll__config__string_maps 160 13 296_4]
+G c Z s s [constant_reference gnatcoll__config__string_maps 165 13 296_4]
+G c Z s s [reference gnatcoll__config__string_maps 170 13 296_4]
+G c Z s s [assign gnatcoll__config__string_maps 175 14 296_4]
+G c Z s s [copy gnatcoll__config__string_maps 177 13 296_4]
+G c Z s s [move gnatcoll__config__string_maps 179 14 296_4]
+G c Z s s [insert gnatcoll__config__string_maps 183 14 296_4]
+G c Z s s [insert gnatcoll__config__string_maps 201 14 296_4]
+G c Z s s [include gnatcoll__config__string_maps 212 14 296_4]
+G c Z s s [replace gnatcoll__config__string_maps 223 14 296_4]
+G c Z s s [exclude gnatcoll__config__string_maps 234 14 296_4]
+G c Z s s [delete gnatcoll__config__string_maps 243 14 296_4]
+G c Z s s [delete gnatcoll__config__string_maps 251 14 296_4]
+G c Z s s [first gnatcoll__config__string_maps 257 13 296_4]
+G c Z s s [next gnatcoll__config__string_maps 261 13 296_4]
+G c Z s s [next gnatcoll__config__string_maps 269 14 296_4]
+G c Z s s [find gnatcoll__config__string_maps 272 13 296_4]
+G c Z s s [contains gnatcoll__config__string_maps 278 13 296_4]
+G c Z s s [element gnatcoll__config__string_maps 281 13 296_4]
+G c Z s s [equivalent_keys gnatcoll__config__string_maps 284 13 296_4]
+G c Z s s [equivalent_keys gnatcoll__config__string_maps 288 13 296_4]
+G c Z s s [equivalent_keys gnatcoll__config__string_maps 292 13 296_4]
+G c Z s s [iterate gnatcoll__config__string_maps 296 14 296_4]
+G c Z s s [iterate gnatcoll__config__string_maps 301 13 296_4]
+G c Z s s [node_typeIP gnatcoll__config__string_maps 325 9 296_4]
+G c Z s s [adjust gnatcoll__config__string_maps__ht_types__implementation 90 28 58_7_331_4_296_4]
+G c Z s s [finalize gnatcoll__config__string_maps__ht_types__implementation 93 28 58_7_331_4_296_4]
+G c Z s s [zero_counts gnatcoll__config__string_maps__ht_types__implementation 96 17 58_7_331_4_296_4]
+G c Z s s [busy gnatcoll__config__string_maps__ht_types__implementation 100 17 58_7_331_4_296_4]
+G c Z s s [unbusy gnatcoll__config__string_maps__ht_types__implementation 104 17 58_7_331_4_296_4]
+G c Z s s [lock gnatcoll__config__string_maps__ht_types__implementation 108 17 58_7_331_4_296_4]
+G c Z s s [unlock gnatcoll__config__string_maps__ht_types__implementation 112 17 58_7_331_4_296_4]
+G c Z s s [tc_check gnatcoll__config__string_maps__ht_types__implementation 116 17 58_7_331_4_296_4]
+G c Z s s [te_check gnatcoll__config__string_maps__ht_types__implementation 120 17 58_7_331_4_296_4]
+G c Z s s [initialize gnatcoll__config__string_maps__ht_types__implementation 139 28 58_7_331_4_296_4]
+G c Z s s [finalize gnatcoll__config__string_maps__ht_types__implementation 140 28 58_7_331_4_296_4]
+G c Z s s [initialize gnatcoll__config__string_maps__ht_types__implementation 145 28 58_7_331_4_296_4]
+G c Z s s [finalize gnatcoll__config__string_maps__ht_types__implementation 146 28 58_7_331_4_296_4]
+G c Z s s [reference_control_typeDA gnatcoll__config__string_maps__ht_types__implementation 84 12 58_7_331_4_296_4]
+G c Z s s [reference_control_typeDF gnatcoll__config__string_maps__ht_types__implementation 84 12 58_7_331_4_296_4]
+G c Z s s [reference_control_typeIP gnatcoll__config__string_maps__ht_types__implementation 84 12 58_7_331_4_296_4]
+G c Z s s [with_busyDF gnatcoll__config__string_maps__ht_types__implementation 136 12 58_7_331_4_296_4]
+G c Z s s [with_busyIP gnatcoll__config__string_maps__ht_types__implementation 136 12 58_7_331_4_296_4]
+G c Z s s [with_lockDF gnatcoll__config__string_maps__ht_types__implementation 142 12 58_7_331_4_296_4]
+G c Z s s [with_lockIP gnatcoll__config__string_maps__ht_types__implementation 142 12 58_7_331_4_296_4]
+G c Z s s [buckets_typeIP gnatcoll__config__string_maps__ht_types 46 12 331_4_296_4]
+G c Z s s [hash_table_typeDA gnatcoll__config__string_maps__ht_types 52 12 331_4_296_4]
+G c Z s s [hash_table_typeDF gnatcoll__config__string_maps__ht_types 52 12 331_4_296_4]
+G c Z s s [hash_table_typeIP gnatcoll__config__string_maps__ht_types 52 12 331_4_296_4]
+G c Z s s [put_image gnatcoll__config__string_maps 338 14 296_4]
+G c Z s s [adjust gnatcoll__config__string_maps 341 25 296_4]
+G c Z s s [finalize gnatcoll__config__string_maps 343 25 296_4]
+G c Z s s [write gnatcoll__config__string_maps 349 14 296_4]
+G c Z s s [read gnatcoll__config__string_maps 355 14 296_4]
+G c Z s s [write gnatcoll__config__string_maps 384 14 296_4]
+G c Z s s [read gnatcoll__config__string_maps 390 14 296_4]
+G c Z s s [write gnatcoll__config__string_maps 409 14 296_4]
+G c Z s s [read gnatcoll__config__string_maps 415 14 296_4]
+G c Z s s [write gnatcoll__config__string_maps 431 14 296_4]
+G c Z s s [read gnatcoll__config__string_maps 437 14 296_4]
+G c Z s s [pseudo_reference gnatcoll__config__string_maps 448 13 296_4]
+G c Z s s [get_element_access gnatcoll__config__string_maps 455 13 296_4]
+G c Z s s [mapDA gnatcoll__config__string_maps 334 9 296_4]
+G c Z s s [mapDF gnatcoll__config__string_maps 334 9 296_4]
+G c Z s s [mapIP gnatcoll__config__string_maps 334 9 296_4]
+G c Z s s [cursorIP gnatcoll__config__string_maps 364 9 296_4]
+G c Z s s [constant_reference_typeDI gnatcoll__config__string_maps 399 9 296_4]
+G c Z s s [constant_reference_typeDA gnatcoll__config__string_maps 399 9 296_4]
+G c Z s s [constant_reference_typeDF gnatcoll__config__string_maps 399 9 296_4]
+G c Z s s [constant_reference_typeIP gnatcoll__config__string_maps 399 9 296_4]
+G c Z s s [reference_typeDI gnatcoll__config__string_maps 421 9 296_4]
+G c Z s s [reference_typeDA gnatcoll__config__string_maps 421 9 296_4]
+G c Z s s [reference_typeDF gnatcoll__config__string_maps 421 9 296_4]
+G c Z s s [reference_typeIP gnatcoll__config__string_maps 421 9 296_4]
+G c Z s s [finalize gnatcoll__config__string_maps 471 25 296_4]
+G c Z s s [first gnatcoll__config__string_maps 473 24 296_4]
+G c Z s s [next gnatcoll__config__string_maps 475 24 296_4]
+G c Z s s [iteratorDF gnatcoll__config__string_maps 464 9 296_4]
+G c Z s s [iteratorIP gnatcoll__config__string_maps 464 9 296_4]
+G c Z s s [free_key gnatcoll__config__string_maps 51 14 296_4]
+G c Z s s [free_element gnatcoll__config__string_maps 54 14 296_4]
+G c Z s s [copy_node gnatcoll__config__string_maps 61 13 296_4]
+G c Z s s [equivalent_key_node gnatcoll__config__string_maps 64 13 296_4]
+G c Z s s [find_equal_key gnatcoll__config__string_maps 69 13 296_4]
+G c Z s s [free gnatcoll__config__string_maps 73 14 296_4]
+G c Z s s [hash_node gnatcoll__config__string_maps 76 13 296_4]
+G c Z s s [next gnatcoll__config__string_maps 79 13 296_4]
+G c Z s s [read_node gnatcoll__config__string_maps 82 13 296_4]
+G c Z s s [set_next gnatcoll__config__string_maps 85 14 296_4]
+G c Z s s [vet gnatcoll__config__string_maps 88 13 296_4]
+G c Z s s [write_node gnatcoll__config__string_maps 90 14 296_4]
+G c Z s s [free_hash_table gnatcoll__config__string_maps__ht_ops 57 14 98_4_296_4]
+G c Z s s [index gnatcoll__config__string_maps__ht_ops 61 13 98_4_296_4]
+G c Z s s [index gnatcoll__config__string_maps__ht_ops 67 13 98_4_296_4]
+G c Z s s [checked_index gnatcoll__config__string_maps__ht_ops 74 13 98_4_296_4]
+G c Z s s [checked_index gnatcoll__config__string_maps__ht_ops 81 13 98_4_296_4]
+G c Z s s [adjust gnatcoll__config__string_maps__ht_ops 86 14 98_4_296_4]
+G c Z s s [finalize gnatcoll__config__string_maps__ht_ops 92 14 98_4_296_4]
+G c Z s s [clear gnatcoll__config__string_maps__ht_ops 108 14 98_4_296_4]
+G c Z s s [move gnatcoll__config__string_maps__ht_ops 114 14 98_4_296_4]
+G c Z s s [capacity gnatcoll__config__string_maps__ht_ops 120 13 98_4_296_4]
+G c Z s s [reserve_capacity gnatcoll__config__string_maps__ht_ops 123 14 98_4_296_4]
+G c Z s s [delete_node_at_index gnatcoll__config__string_maps__ht_ops 132 14 98_4_296_4]
+G c Z s s [delete_node_sans_free gnatcoll__config__string_maps__ht_ops 141 14 98_4_296_4]
+G c Z s s [first gnatcoll__config__string_maps__ht_ops 146 13 98_4_296_4]
+G c Z s s [first gnatcoll__config__string_maps__ht_ops 148 13 98_4_296_4]
+G c Z s s [next gnatcoll__config__string_maps__ht_ops 155 13 98_4_296_4]
+G c Z s s [next gnatcoll__config__string_maps__ht_ops 158 13 98_4_296_4]
+G c Z s s [new_buckets gnatcoll__config__string_maps__ht_ops 205 13 98_4_296_4]
+G c Z s s [free_buckets gnatcoll__config__string_maps__ht_ops 209 14 98_4_296_4]
+G c Z s s [index gnatcoll__config__string_maps__key_ops 56 13 106_4_296_4]
+G c Z s s [checked_index gnatcoll__config__string_maps__key_ops 62 13 106_4_296_4]
+G c Z s s [checked_equivalent_keys gnatcoll__config__string_maps__key_ops 69 13 106_4_296_4]
+G c Z s s [delete_key_sans_free gnatcoll__config__string_maps__key_ops 76 14 106_4_296_4]
+G c Z s s [find gnatcoll__config__string_maps__key_ops 84 13 106_4_296_4]
+G c Z s s [is_equalR gnatcoll__config__string_maps__is_equalGP4718 118 13 296_4]
+G c Z s s [is_equal gnatcoll__config__string_maps 118 13 296_4]
+G c Z s s [read_nodesR gnatcoll__config__string_maps__read_nodesGP27064 1005 14 296_4]
+G c Z s s [read_nodes gnatcoll__config__string_maps 1005 14 296_4]
+G c Z s s [write_nodesR gnatcoll__config__string_maps__write_nodesGP36107 1365 14 296_4]
+G c Z s s [write_nodes gnatcoll__config__string_maps 1365 14 296_4]
+G c Z s s [ini_parserDA gnatcoll__config 283 9 none]
+G c Z s s [ini_parserDF gnatcoll__config 283 9 none]
+G c Z s s [ini_parserDI gnatcoll__config 283 9 none]
+G c Z s s [ini_parserIP gnatcoll__config 283 9 none]
+G c Z s s [config_poolDA gnatcoll__config 307 9 none]
+G c Z s s [config_poolDF gnatcoll__config 307 9 none]
+G c Z s s [config_poolDI gnatcoll__config 307 9 none]
+G c Z s s [config_poolIP gnatcoll__config 307 9 none]
+G c Z s s [config_keyDA gnatcoll__config 303 9 none]
+G c Z s s [config_keyDF gnatcoll__config 303 9 none]
+G c Z s s [config_keyDI gnatcoll__config 303 9 none]
+G c Z s s [config_keyIP gnatcoll__config 303 9 none]
+G c Z b b [internal_get gnatcoll__config 43 13 none]
+G c Z b b [at_index gnatcoll__config 49 13 none]
+G c Z b b [substitute gnatcoll__config 53 13 none]
+G r d xstring [b gnatcoll__config 34 1 none] [adjust gnatcoll__strings 1051 28 31_1]
+G r c none [set_system_id gnatcoll__config 102 14 none] [to_xstring gnatcoll__strings 446 16 31_1]
+G r e xstring [set_system_id gnatcoll__config 102 14 none] [finalize gnatcoll__strings 1052 28 31_1]
+G r c none [as_absolute_file gnatcoll__config 111 13 none] [to_string gnatcoll__strings 626 16 31_1]
+G r c none [as_absolute_dir gnatcoll__config 112 13 none] [to_string gnatcoll__strings 626 16 31_1]
+G r c none [open gnatcoll__config 125 14 none] [open_read gnatcoll__mmap 118 13 none]
+G r c none [open gnatcoll__config 125 14 none] [read gnatcoll__mmap 216 14 none]
+G r c none [open gnatcoll__config 125 14 none] [data gnatcoll__mmap__short 316 16 323_4]
+G r c none [open gnatcoll__config 125 14 none] [last gnatcoll__mmap__short 302 16 323_4]
+G r c none [open gnatcoll__config 125 14 none] [to_xstring gnatcoll__strings 446 16 31_1]
+G r e xstring [open gnatcoll__config 125 14 none] [finalize gnatcoll__strings 1052 28 31_1]
+G r c none [open gnatcoll__config 125 14 none] [close gnatcoll__mmap 136 14 none]
+G r c none [at_end gnatcoll__config 128 24 none] [length gnatcoll__strings 346 16 31_1]
+G r c none [configure gnatcoll__config 137 14 none] [to_xstring gnatcoll__strings 446 16 31_1]
+G r e xstring [configure gnatcoll__config 137 14 none] [finalize gnatcoll__strings 1052 28 31_1]
+G r c none [configure gnatcoll__config 137 14 none] [Oadd gnatcoll__vfs 75 13 none]
+G r c none [configure gnatcoll__config 137 14 none] [create gnatcoll__vfs 141 13 none]
+G r e virtual_file [configure gnatcoll__config 137 14 none] [finalize gnatcoll__vfs 630 25 none]
+G r c none [open gnatcoll__config 145 25 none] [open_read gnatcoll__mmap 118 13 none]
+G r c none [open gnatcoll__config 145 25 none] [read gnatcoll__mmap 216 14 none]
+G r c none [open gnatcoll__config 145 25 none] [data gnatcoll__mmap__short 316 16 323_4]
+G r c none [open gnatcoll__config 145 25 none] [last gnatcoll__mmap__short 302 16 323_4]
+G r c none [open gnatcoll__config 145 25 none] [to_xstring gnatcoll__strings 446 16 31_1]
+G r e xstring [open gnatcoll__config 145 25 none] [finalize gnatcoll__strings 1052 28 31_1]
+G r c none [open gnatcoll__config 145 25 none] [close gnatcoll__mmap 136 14 none]
+G r c none [open gnatcoll__config 145 25 none] [length gnatcoll__strings 346 16 31_1]
+G r c none [open gnatcoll__config 145 25 none] [slice gnatcoll__strings 760 16 31_1]
+G r c none [open gnatcoll__config 145 25 none] [Oeq gnatcoll__strings 528 16 31_1]
+G r c none [next gnatcoll__config 146 25 none] [length gnatcoll__strings 346 16 31_1]
+G r c none [next gnatcoll__config 146 25 none] [slice gnatcoll__strings 760 16 31_1]
+G r c none [next gnatcoll__config 146 25 none] [Oeq gnatcoll__strings 528 16 31_1]
+G r e xstring [next gnatcoll__config 146 25 none] [finalize gnatcoll__strings 1052 28 31_1]
+G r c none [section gnatcoll__config 147 24 none] [to_string gnatcoll__strings 626 16 31_1]
+G r c none [key gnatcoll__config 148 24 none] [slice gnatcoll__strings 760 16 31_1]
+G r c none [key gnatcoll__config 148 24 none] [trim gnatcoll__strings 778 16 31_1]
+G r c none [key gnatcoll__config 148 24 none] [to_string gnatcoll__strings 626 16 31_1]
+G r c none [value gnatcoll__config 149 24 none] [slice gnatcoll__strings 760 16 31_1]
+G r c none [value gnatcoll__config 149 24 none] [to_string gnatcoll__strings 626 16 31_1]
+G r c none [value gnatcoll__config 149 24 none] [substitute gnatcoll__templates 107 13 none]
+G r c none [set_system_id gnatcoll__config 158 14 none] [to_xstring gnatcoll__strings 446 16 31_1]
+G r e xstring [set_system_id gnatcoll__config 158 14 none] [finalize gnatcoll__strings 1052 28 31_1]
+G r c none [fill gnatcoll__config 161 14 none] [to_string gnatcoll__strings 626 16 31_1]
+G r c none [fill gnatcoll__config 161 14 none] [to_xstring gnatcoll__strings 446 16 31_1]
+G r e xstring [fill gnatcoll__config 161 14 none] [finalize gnatcoll__strings 1052 28 31_1]
+G r d xstring [fill gnatcoll__config 161 14 none] [adjust gnatcoll__strings 1051 28 31_1]
+G r d xstring [get gnatcoll__config 181 13 none] [adjust gnatcoll__strings 1051 28 31_1]
+G r c none [get gnatcoll__config 181 13 none] [split gnatcoll__utils 88 13 none]
+G r d xstring [get_integer gnatcoll__config 191 13 none] [adjust gnatcoll__strings 1051 28 31_1]
+G r c none [get_integer gnatcoll__config 191 13 none] [split gnatcoll__utils 88 13 none]
+G r d xstring [get_boolean gnatcoll__config 197 13 none] [adjust gnatcoll__strings 1051 28 31_1]
+G r c none [get_boolean gnatcoll__config 197 13 none] [split gnatcoll__utils 88 13 none]
+G r d xstring [get_file gnatcoll__config 203 13 none] [adjust gnatcoll__strings 1051 28 31_1]
+G r e xstring [get_file gnatcoll__config 203 13 none] [finalize gnatcoll__strings 1052 28 31_1]
+G r c none [get_file gnatcoll__config 203 13 none] [split gnatcoll__utils 88 13 none]
+G r c none [get_file gnatcoll__config 203 13 none] [to_string gnatcoll__strings 626 16 31_1]
+G r d xstring [to_file gnatcoll__config 211 13 none] [adjust gnatcoll__strings 1051 28 31_1]
+G r e xstring [to_file gnatcoll__config 211 13 none] [finalize gnatcoll__strings 1052 28 31_1]
+G r d virtual_file [to_file gnatcoll__config 211 13 none] [adjust gnatcoll__vfs 631 25 none]
+G r c none [to_file gnatcoll__config 211 13 none] [Oadd gnatcoll__vfs 75 13 none]
+G r c none [to_file gnatcoll__config 211 13 none] [create gnatcoll__vfs 141 13 none]
+G r c none [to_file gnatcoll__config 211 13 none] [to_string gnatcoll__strings 626 16 31_1]
+G r d xstring [set gnatcoll__config 221 14 none] [adjust gnatcoll__strings 1051 28 31_1]
+G r e xstring [set gnatcoll__config 221 14 none] [finalize gnatcoll__strings 1052 28 31_1]
+G r c none [create gnatcoll__config 230 13 none] [to_xstring gnatcoll__strings 446 16 31_1]
+G r d xstring [create gnatcoll__config 230 13 none] [adjust gnatcoll__strings 1051 28 31_1]
+G r c none [get gnatcoll__config 233 13 none] [to_string gnatcoll__strings 626 16 31_1]
+G r d xstring [get gnatcoll__config 233 13 none] [adjust gnatcoll__strings 1051 28 31_1]
+G r c none [get gnatcoll__config 233 13 none] [split gnatcoll__utils 88 13 none]
+G r c none [get_integer gnatcoll__config 237 13 none] [to_string gnatcoll__strings 626 16 31_1]
+G r d xstring [get_integer gnatcoll__config 237 13 none] [adjust gnatcoll__strings 1051 28 31_1]
+G r c none [get_integer gnatcoll__config 237 13 none] [split gnatcoll__utils 88 13 none]
+G r c none [get_boolean gnatcoll__config 241 13 none] [to_string gnatcoll__strings 626 16 31_1]
+G r d xstring [get_boolean gnatcoll__config 241 13 none] [adjust gnatcoll__strings 1051 28 31_1]
+G r c none [get_boolean gnatcoll__config 241 13 none] [split gnatcoll__utils 88 13 none]
+G r c none [get_file gnatcoll__config 245 13 none] [to_string gnatcoll__strings 626 16 31_1]
+G r d xstring [get_file gnatcoll__config 245 13 none] [adjust gnatcoll__strings 1051 28 31_1]
+G r e xstring [get_file gnatcoll__config 245 13 none] [finalize gnatcoll__strings 1052 28 31_1]
+G r c none [get_file gnatcoll__config 245 13 none] [split gnatcoll__utils 88 13 none]
+G r c none [to_file gnatcoll__config 249 13 none] [to_string gnatcoll__strings 626 16 31_1]
+G r d xstring [to_file gnatcoll__config 249 13 none] [adjust gnatcoll__strings 1051 28 31_1]
+G r e xstring [to_file gnatcoll__config 249 13 none] [finalize gnatcoll__strings 1052 28 31_1]
+G r d virtual_file [to_file gnatcoll__config 249 13 none] [adjust gnatcoll__vfs 631 25 none]
+G r c none [to_file gnatcoll__config 249 13 none] [Oadd gnatcoll__vfs 75 13 none]
+G r c none [to_file gnatcoll__config 249 13 none] [create gnatcoll__vfs 141 13 none]
+G r d xstring [config_parserDA gnatcoll__config 274 9 none] [adjust gnatcoll__strings 1051 28 31_1]
+G r e xstring [config_parserDF gnatcoll__config 274 9 none] [finalize gnatcoll__strings 1052 28 31_1]
+G r s xstring [config_parserIP gnatcoll__config 274 9 none] [xstringIP gnatcoll__strings 1048 12 31_1]
+G r d xstring [file_config_parserDA gnatcoll__config 278 9 none] [adjust gnatcoll__strings 1051 28 31_1]
+G r e xstring [file_config_parserDF gnatcoll__config 278 9 none] [finalize gnatcoll__strings 1052 28 31_1]
+G r s xstring [file_config_parserIP gnatcoll__config 278 9 none] [xstringIP gnatcoll__strings 1048 12 31_1]
+G r d xstring [config_valueDA gnatcoll__config 291 9 none] [adjust gnatcoll__strings 1051 28 31_1]
+G r e xstring [config_valueDF gnatcoll__config 291 9 none] [finalize gnatcoll__strings 1052 28 31_1]
+G r s xstring [config_valueIP gnatcoll__config 291 9 none] [xstringIP gnatcoll__strings 1048 12 31_1]
+G r e xstring [config_valueIP gnatcoll__config 291 9 none] [finalize gnatcoll__strings 1052 28 31_1]
+G r d xstring [ini_parserDA gnatcoll__config 283 9 none] [adjust gnatcoll__strings 1051 28 31_1]
+G r d virtual_file [ini_parserDA gnatcoll__config 283 9 none] [adjust gnatcoll__vfs 631 25 none]
+G r e virtual_file [ini_parserDF gnatcoll__config 283 9 none] [finalize gnatcoll__vfs 630 25 none]
+G r e xstring [ini_parserDF gnatcoll__config 283 9 none] [finalize gnatcoll__strings 1052 28 31_1]
+G r s xstring [ini_parserIP gnatcoll__config 283 9 none] [xstringIP gnatcoll__strings 1048 12 31_1]
+G r c none [ini_parserIP gnatcoll__config 283 9 none] [to_xstring gnatcoll__strings 446 16 31_1]
+G r d xstring [ini_parserIP gnatcoll__config 283 9 none] [adjust gnatcoll__strings 1051 28 31_1]
+G r c none [ini_parserIP gnatcoll__config 283 9 none] [get_home_directory gnatcoll__vfs 477 13 none]
+G r d virtual_file [ini_parserIP gnatcoll__config 283 9 none] [adjust gnatcoll__vfs 631 25 none]
+G r e virtual_file [ini_parserIP gnatcoll__config 283 9 none] [finalize gnatcoll__vfs 630 25 none]
+G r e xstring [ini_parserIP gnatcoll__config 283 9 none] [finalize gnatcoll__strings 1052 28 31_1]
+G r d xstring [config_poolDA gnatcoll__config 307 9 none] [adjust gnatcoll__strings 1051 28 31_1]
+G r e xstring [config_poolDF gnatcoll__config 307 9 none] [finalize gnatcoll__strings 1052 28 31_1]
+G r s xstring [config_poolIP gnatcoll__config 307 9 none] [xstringIP gnatcoll__strings 1048 12 31_1]
+G r e xstring [config_poolIP gnatcoll__config 307 9 none] [finalize gnatcoll__strings 1052 28 31_1]
+G r d xstring [config_keyDA gnatcoll__config 303 9 none] [adjust gnatcoll__strings 1051 28 31_1]
+G r e xstring [config_keyDF gnatcoll__config 303 9 none] [finalize gnatcoll__strings 1052 28 31_1]
+G r s xstring [config_keyIP gnatcoll__config 303 9 none] [xstringIP gnatcoll__strings 1048 12 31_1]
+G r e xstring [config_keyIP gnatcoll__config 303 9 none] [finalize gnatcoll__strings 1052 28 31_1]
+G r d xstring [internal_get gnatcoll__config 43 13 none] [adjust gnatcoll__strings 1051 28 31_1]
+G r c none [at_index gnatcoll__config 49 13 none] [split gnatcoll__utils 88 13 none]
+G r c none [substitute gnatcoll__config 53 13 none] [substitute gnatcoll__templates 107 13 none]
+X 1 ada.ads
+16K9*Ada 20e8 49|63r14 64r14 296r31 299r26 50|24r6 24r37 25r6 25r37
+X 6 a-chahan.ads
+67V13*To_Lower{character} 63|283i21
+68V13*To_Upper{character} 63|285i21
+X 8 a-contai.ads
+16K13*Containers 28e19 49|63r18 296r35
+19M9*Hash_Type
+X 16 a-cihama.ads
+42+9 Key_Type 49|297r7
+43+9 Element_Type 49|298r7
+45V18 Hash{8|19M9} 49|299r7
+46V18 Equivalent_Keys{boolean} 49|300r7
+47V19 "="{boolean} 49|301r8
+49k24*Indefinite_Hashed_Maps 479e42 49|63w29 296r46
+56R9*Map<20|43R9> 49|309r31[296]
+66R9*Cursor 50|345r23[49|296]
+75r4*No_Element{66R9[49|296]} 50|352r23[49|296] 365r14[49|296]
+122V13*Element{49|291R9} 50|355s26[49|296] 368s17[49|296]
+212U14*Include 50|487s7[49|296]
+272V13*Find{66R9[49|296]} 50|350s31[49|296] 360s25[49|296] 362s25[49|296]
+X 22 a-iteint.ads
+24h9 Forward_Iterator
+X 26 a-string.ads
+16K13*Strings 35e16 49|64r18 299r30 50|24r10 24r41 25r10 25r41
+X 27 a-strfix.ads
+43K21*Fixed 1398e22 50|24w18 24r49
+1162V13*Trim{string} 50|306s10
+X 28 a-strhas.ads
+20V22*Hash{8|19M9} 49|64w26 299r38
+X 30 a-strmap.ads
+44K21*Maps 548e21 50|25w18 25r49
+52A9*Character_Set<274A9> 50|40r27
+172V13*To_Set{52A9} 50|40s44
+274A9 Character_Set_Internal(boolean)<character>
+X 38 gnat.ads
+34K9*GNAT 57e9 50|26r6 26r37 27r6 27r37
+X 40 g-dirope.ads
+43K14*Directory_Operations 262e30 50|26w11 26r42
+45A12*Dir_Name_Str{string}<integer>
+107V13*Dir_Name{45A12} 50|130s57
+X 43 g-os_lib.ads
+51K14*OS_Lib=51:36 50|27w11 27r42
+X 46 gnatcoll.ads
+24K9*GNATCOLL 27e13 49|65r14 66r6 68r9 215r32 252r30 312r5 50|28r6 28r37
+. 29r6 29r37 30r6 30r37 31r6 31r37 32r6 32r37 34r14 472r17 567r5
+X 49 gnatcoll-config.ads
+68K18*Config 46|24k9 49|271E4 312l14 312e20 50|34b23 567l14 567t20
+74H9*Config_Parser 90p13 90r28 93p14 93r34 97p13 97r29 98p13 98r25 99p13
+. 99r27 102p14 102r43 109p13 109r38 110p13 110r38 111p13 111r38 112p13 112r38
+. 122r44 163r23 274c9 276e14 278r44 50|62r43 71r32 73r36 80r32 82r36 89r38
+. 90r39 105r37 106r48 317r23
+90y13*At_End{boolean} 90>21 50|321R17
+90r21 Self{74R9}
+93x14*Next 93=20 50|323R10
+93r20 Self{74R9}
+97y13*Section{string} 97>22 50|322R21
+97r22 Self{74R9}
+98y13*Key{string} 98>18 50|322R39
+98r18 Self{74R9}
+99y13*Value{string} 99>20 50|73R29 82R29 90R32 322R53
+99r20 Self{74R9}
+102U14*Set_System_Id 102=29 102>58 50|62b14 65l8 65t21
+102r29 Self{74R9} 50|62b29 64m7
+102a58 System_ID{string} 50|62b58 64r57
+109V13*As_Integer{integer} 109>31 50|71b13 74l8 74t18
+109r31 Self{74R9} 50|71b25 73r57
+110V13*As_Boolean{boolean} 110>31 50|80b13 83l8 83t18
+110r31 Self{74R9} 50|80b25 82r57
+111V13*As_Absolute_File{string} 111>31 50|89b13 99l8 99t24 106R30
+111r31 Self{74R9} 50|89b31 90r60 97r53
+112V13*As_Absolute_Dir{string} 112>31 50|105b13 115l8 115t23
+112r31 Self{74R9} 50|105b30 106r69
+122H9*File_Config_Parser<74R9> 93p14 97p13 98p13 99p13 102p14 109p13 110p13
+. 111p13 112p13 125p14 125r34 128P24 128r39 134r27 278c9 281e14 283r27 50|121r34
+. 140r39 151r13
+125U14*Open 125=20 125>54 50|121b14 134l8 134t12 151s7
+125r20 Self{122R9} 50|121b20 129m7 130m7 131m7
+125a54 Filename{string} 50|121b54 125r23 130r67
+128V24*At_End{boolean}<90p13> 128>32 50|140b24 143l8 143t14
+128r32 Self{122R9} 50|140b32 142r14 142r35
+134R9*INI_Parser<122R9> 102p14 109p13 110p13 111p13 112p13 128P24 137p14
+. 138r33 145P25 145r45 146P25 146r45 147P24 147r40 148P24 148r36 149P24 149r38
+. 283c9 289e14 50|54r14 149r45 161r45 238r33 257r14 284r40 293r36 302r38
+137U14*Configure 138=7 139>7 140>7 141>7 50|237b14 250l8 250t17
+138r7 Self{134R9} 50|238b7 244m7 245m7 248m10
+139a7 Comment_Start{string} 50|239b7 244r41
+140b7 Handles_Sections{boolean} 50|240b7 245r29
+141a7 Home{string} 50|241b7 247r10 248r32
+145U25*Open<125p14> 145=31 145>57 50|149b25 155l8 155t12
+145r31 Self{134R9} 50|149b31 151m33 151r33 152m7 153m7 154m13
+145a57 Filename{string} 50|149b57 151r40
+146U25*Next<93p14> 146=31 50|154s7 161b25 231l8 231t12
+146r31 Self{134R9} 50|161b31 165r50 166r50 169m7 169r21 171r13 172r17 173m10
+. 180r43 185r25 186m25 197r25 198m25 205m10 211r29 213r59 217r16 220r16 221r22
+. 222r22 225m13 226r15 229m10
+147V24*Section{string}<97p13> 147>33 50|284b24 287l8 287t15
+147r33 Self{134R9} 50|284b33 286r14
+148V24*Key{string}<98p13> 148>29 50|293b24 296l8 296t11
+148r29 Self{134R9} 50|293b29 295r14 295r35 295r47
+149V24*Value{string}<99p13> 149>31 50|302b24 309l8 309t13
+149r31 Self{134R9} 50|302b31 305r10 307r13 307r34 307r50
+155R9*Config_Pool 158p14 158r43 161p14 162r23 181p13 181r28 191p13 192r17
+. 197p13 198r17 203p13 204r17 211p13 212r17 221p14 221r33 235r15 239r15 243r15
+. 247r15 251r15 307c9 310e14 50|44r17 316r23 331r43 341r17 402r17 416r17
+. 429r17 442r17 464r17 485r33 510r15 522r15 535r15 548r15 561r15
+158U14*Set_System_Id 158=29 158>56 50|320s7 331b14 334l8 334t21
+158r29 Self{155R9} 50|331b29 333m7
+158a56 System_ID{string} 50|331b56 333r57
+161U14*Fill 162=7 163=7 50|315b14 325l8 325t12
+162r7 Self{155R9} 50|316b7 320m22 322m15
+163c7 Config<74R9> 50|317b7 320r39 321r25 322r30 322r44 322r60 323m16
+169a4*Section_From_Key{string} 183r38 194r27 200r27 206r27 214r27 271c4 50|46r27
+. 343r27 347r20 404r27 418r27 431r27 444r27 466r27
+179i4*Whole_Value{natural} 184r39 195r28 201r28 207r28 236r26 240r26 244r26
+. 248r26 50|50r48 377r48 381r18 405r28 419r28 432r28 445r28 511r26 523r26
+. 536r26 549r26
+181V13*Get{string} 181>18 182>18 183>18 184>18 50|401b13 409l8 409t11 421s29
+. 434s29 513R14
+181r18 Self{155R9} 50|402b7 408r38
+182a18 Key{string} 50|403b7 408r44
+183a18 Section{string} 50|404b7 408r49
+184i18 Index{natural} 50|405b7 408r59
+191V13*Get_Integer{integer} 192>7 193>7 194>7 195>7 50|415b13 422l8 422t19
+. 525R14
+192r7 Self{155R9} 50|416b7 421r34
+193a7 Key{string} 50|417b7 421r40
+194a7 Section{string} 50|418b7 421r45
+195i7 Index{natural} 50|419b7 421r54
+197V13*Get_Boolean{boolean} 198>7 199>7 200>7 201>7 50|428b13 435l8 435t19
+. 538R14
+198r7 Self{155R9} 50|429b7 434r34
+199a7 Key{string} 50|430b7 434r40
+200a7 Section{string} 50|431b7 434r45
+201i7 Index{natural} 50|432b7 434r54
+203V13*Get_File{string} 204>7 205>7 206>7 207>7 50|441b13 457l8 457t16 551R14
+204r7 Self{155R9} 50|442b7 447r52
+205a7 Key{string} 50|443b7 447r58
+206a7 Section{string} 50|444b7 447r63
+207i7 Index{natural} 50|445b7 448r47
+211V13*To_File{67|97R9} 212>7 213>7 214>7 215>7 50|463b13 479l8 479t15 564R14
+212r7 Self{155R9} 50|464b7 469r52
+213a7 Key{string} 50|465b7 469r58
+214a7 Section{string} 50|466b7 469r63
+215a7 Value{string} 50|467b7 471r10 473r31 474r26 477r35
+221U14*Set 221=19 221>46 221>55 221>60 50|322s10 485b14 492l8 492t11
+221r19 Self{155R9} 50|485b19 487m16 487r16 491r32
+221a46 Section{string} 50|485b46 487r27
+221a55 Key{string} 50|485b55 487r43
+221a60 Value{string} 50|485b60 489r32 490r32
+228R9*Config_Key 230p13 230r66 233p13 234r15 237p13 238r15 241p13 242r15
+. 245p13 246r15 249p13 250r15 303c9 305e14 50|498r66 500r14 509r15 521r15
+. 534r15 547r15 560r15
+230V13*Create{228R9} 230>21 230>35 50|498b13 502l8 502t14
+230a21 Key{string} 50|498b21 501r49
+230a35 Section{string} 50|498b35 500r49
+233V13*Get{string} 234>7 235>7 236>7 50|508b13 514l8 514t11
+234r7 Self{228R9} 50|509b7 513r36 513r58
+235c7 Conf<155R9> 50|510b7 513r19
+236i7 Index{natural} 50|511b7 513r73
+237V13*Get_Integer{integer} 238>7 239>7 240>7 50|520b13 527l8 527t19
+238r7 Self{228R9} 50|521b7 526r28 526r50
+239c7 Conf<155R9> 50|522b7 526r11
+240i7 Index{natural} 50|523b7 526r65
+241V13*Get_Boolean{boolean} 242>7 243>7 244>7 50|533b13 540l8 540t19
+242r7 Self{228R9} 50|534b7 539r28 539r50
+243c7 Conf<155R9> 50|535b7 539r11
+244i7 Index{natural} 50|536b7 539r65
+245V13*Get_File{string} 246>7 247>7 248>7 50|546b13 553l8 553t16
+246r7 Self{228R9} 50|547b7 552r27 552r49
+247c7 Conf<155R9> 50|548b7 552r10
+248i7 Index{natural} 50|549b7 552r64
+249V13*To_File{67|97R9} 250>7 251>7 252>7 50|559b13 566l8 566t15
+250r7 Self{228R9} 50|560b7 565r27 565r49
+251c7 Conf<155R9> 50|561b7 565r10
+252a7 Value{string} 50|562b7 565r64
+275r7*System_ID{63|311R12[61|31]} 50|64m12 97r58 130m12 320r46
+279r7 Contents{63|311R12[61|31]} 50|129m12 142r40 165r55 180r48 211r34 221r27
+. 222r27 226r20 295r19 307r18
+280i7 First{integer} 50|131m12 142r19 169m12 171r18 172r22 229m15 295r40
+284i7 Equal{integer} 50|173m15 185r30 186m30 197r30 198m30 217r21 295r52
+. 307r39
+284i14 Eol{integer} 50|152m12 169r26 205m15 307r55
+285r7 Current_Section{63|311R12[61|31]} 50|153m12 225m18 286r19
+286r7 Comment_Start{63|311R12[61|31]} 50|166r55 213r64 244m12
+287b7 Use_Sections{boolean} 50|220r21 245m12
+288r7 Home{67|97R9} 50|248m15 264r26
+291R9 Config_Value 291d23 294e14 298r26 50|37r24 46r52 50r15 343r52 377r15
+. 447r22 469r22 488r16
+291i23*Len{natural} 293r32 50|38m8 489m19
+292r7*System_ID{63|311R12[61|31]} 50|38m18 455r55 477r57 491m19
+293a7*Value{string} 50|38m45 382r23 384r28 490m19
+296K12 String_Maps[16|49] 309r19 50|35r8 345r11
+304r7*Section{63|311R12[61|31]} 50|500m26 513r63 526r55 539r55 552r54 565r54
+304r16*Key{63|311R12[61|31]} 50|501m26 513r41 526r33 539r33 552r32 565r32
+308r7*System_ID{63|311R12[61|31]} 50|333m12 491r37
+309r7*Keys{16|56R9[296]} 50|350r26 360r20 362r20 487m21
+X 50 gnatcoll-config.adb
+37r4 No_Value{49|291R9} 353r26 366r17
+40a4 Whitespaces{30|52A9} 308r13 308r26
+43V13 Internal_Get{49|291R9} 44>7 45>7 46>7 340b13 370l8 370t20 408s24 447s38
+. 469s38
+44r7 Self{49|155R9} 341b7 350r21 360r15 362r15
+45a7 Key{string} 342b7 348r19 349r16 351r20 351r25 351r53 351r67 360r37 362r47
+46a7 Section{string} 343b7 347r10 362r31
+49V13 At_Index{string} 50>7 50>29 376b13 395l8 395t16 408s14 448s32
+50r7 Value{49|291R9} 377b7 382r17 384r22
+50i29 Index{natural} 377b29 381r10 386r13 390r46
+53V13 Substitute{string} 54>7 54>32 256b13 278l8 278t18 304s14
+54c7 Self<49|134R9> 257b7 264r21
+54a32 Value{string} 257b32 272r23 277r17
+90a7 Val{string} 92r10 94r13 94r18 95r17 97r37
+106a7 V{string} 108r10 110r13 110r16 111r17 113r17
+122p7 F{54|92P9} 125m7 126r13 127r20 129r60 133m14 133r14
+123p7 Str{54|335P12} 127m7 129r44
+162i7 Eol{integer} 172m10 178r16 180r58 186r39 192r41 193r40 195r40 198r39
+. 202m13 202r20 205r22 210r46 229r24
+163i7 First_Non_WS{integer} 174m10 191r25 192m25 207r13 210r16 212r29 213r29
+. 221r37 226r36
+164i7 Last_Non_WS{integer} 175m10 193m25 195m25 222r37 226r54
+165i7 Last{integer} 171r27 178r23
+166i7 Comment{integer} 210r31 213r44
+180e16 CC{character} 182r21 197r49
+259V16 Callback{string} 259>26 259>41 260b16 268l11 268t19 273r23
+259a26 Name{string} 260b26 263r13
+259b41 Quoted{boolean} 260b41 261r31
+345r7 C{16|66R9[49|296]} 350m16 352r19 355r35 360m10 362m10 365r10 368r26
+348i14 D{integer} 349r21 351r38 351r58
+379p7 S{86|88P12} 384m10 386r21 387m19 387r19 390r43 391m22 391r22
+390a20 R{string}
+447r7 Val{49|291R9} 448r42 455r51
+448a7 V{string} 450r10 452r31 453r17 455r37
+469r7 Val{49|291R9} 477r53
+X 54 gnatcoll-mmap.ads
+90K18*Mmap 50|28w15 28r46 54|401e18
+92P9*Mapped_File 50|122r13
+118V13*Open_Read{92P9} 50|125s12
+136U14*Close 50|133s7
+216U14*Read 50|126s7
+271I15*Extended_Index_Type{integer}
+274A15*Unconstrained_String{string}<integer>
+275P12*Str_Access(274A15[323])
+335P12*Str_Access{275P12[323]} 50|123r13
+340V13*Last=341:21{271I15[323]} 50|129s54
+344V13*Data=345:21{275P12[323]} 50|127s14
+X 61 gnatcoll-strings.ads
+31K18*Strings[63|302] 49|65w23 275r19 279r18 285r25 286r25 286r44 292r19
+. 304r22 308r19 50|29w15 29r46
+X 63 gnatcoll-strings_impl.ads
+307A15*Char_String{string}<integer>
+311R12*XString<20|43R9> 49|275r27[61|31] 279r26[61|31] 285r33[61|31] 286r33[61|31]
+. 292r27[61|31] 304r30[61|31] 308r27[61|31]
+321r7*Null_XString{311R12[61|31]} 50|38r31[61|31]
+346V16*Length{natural} 50|142s27[61|31] 165s42[61|31] 166s42[61|31]
+446V16*To_XString{311R12[61|31]} 49|286s52[61|31] 50|64s25[61|31] 129s24[61|31]
+. 130s25[61|31] 153s31[61|31] 244s29[61|31] 333s25[61|31] 500s37[61|31] 501s37[61|31]
+528V17*"="{boolean} 50|213s57[61|31]
+626V16*To_String{307A15[61|31]} 50|97s42[61|31] 286s35[61|31] 295s68[61|31]
+. 307s64[61|31] 320s28[61|31] 455s40[61|31] 477s42[61|31] 513s25[61|31] 513s47[61|31]
+. 526s17[61|31] 526s39[61|31] 539s17[61|31] 539s39[61|31] 552s16[61|31] 552s38[61|31]
+. 565s16[61|31] 565s38[61|31]
+760V16*Slice{311R12[61|31]} 50|211s22[61|31] 226s29[61|31] 295s28[61|31]
+. 307s27[61|31]
+778V16*Trim{311R12[61|31]} 50|295s63[61|31]
+X 64 gnatcoll-strings_impl.adb
+1495V19 H[104|60]{8|19M9} 105|44b13[61|31]
+1511V19 H[104|60]{8|19M9} 105|44b13[61|31]
+X 65 gnatcoll-templates.ads
+34K18*Templates 50|30w15 30r46 65|137e23
+47P9*Substitute_Callback(string)
+107V13*Substitute{string} 50|271s14
+108a7 Str{string} 50|272r10
+110p7 Callback{47P9} 50|273r10
+111e7 Delimiter{character} 50|274r10
+133X4*Invalid_Substitution 50|266r19
+X 66 gnatcoll-utils.ads
+36K18*Utils 50|31w15 31r46 66|323e19
+88V13*Split{106|55P9} 50|384s15
+X 67 gnatcoll-vfs.ads
+62K18*VFS 49|66w15 215r41 252r39 288r25 288r45 50|32w15 32r46 472r26 67|673e17
+68A9*Filesystem_String<string>(character)<integer>
+73V14*"+"{string} 50|264s20
+75V14*"+"{68A9} 50|248s31 474s25 477s14
+97R9*Virtual_File<20|43R9> 49|215r45 252r43 288r29 50|467r32 562r30 67|627e14
+98r4*No_File{97R9} 50|472r30
+141V13*Create{97R9} 50|248s23 474s17 476s17
+236V13*Full_Name{68A9} 50|264s31
+477V13*Get_Home_Directory{97R9} 49|288s49
+X 74 system.ads
+67M9*Address
+X 85 s-memory.ads
+53V13*Alloc{74|67M9} 103i<c,__gnat_malloc>22
+68U14*Free 104i<c,__gnat_free>22
+76V13*Realloc{74|67M9} 105i<c,__gnat_realloc>22
+X 86 s-os_lib.ads
+88P12*String_List_Access{106|55P9} 50|379r11
+94U14*Free=94:69 50|387s13 391s16
+430V13*Is_Absolute_Path{boolean} 50|452s13 473s13
+538V13*Normalize_Pathname{string} 50|64s37 97s17 130s37 333s37 455s17 477s15
+1096e4*Directory_Separator{character} 50|110r26 113r21
+X 96 s-stalib.adb
+89U14 Break_Start 90i<c,__gnat_break_start>22
+X 106 s-string.ads
+45P9*String_Access(string)
+54A9*String_List(45P9)<integer>
+55P9*String_List_Access(54A9)
+

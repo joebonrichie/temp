@@ -1,0 +1,74 @@
+		       G N A T   E X A M P L E S
+		       =========================
+
+
+In order to compile the examples, make sure that the 'gprbuild' command is
+in your path. 
+
+Invocation
+----------
+
+In order to build the two executables provided in this example, you need to
+use the "shapes.gpr" project file. On the command-line, do a:
+
+  $ gprbuild -Pshapes
+
+In GPS, click on "Build", then "Make" and then "shapes".
+
+Features tested
+---------------
+
+Vectors
+Ordered sets
+Object-oriented programming
+
+Description of example
+----------------------
+
+The program creates a shape type hierachy that includes lines, rectangles, and
+faces, that can be drawn onto a simple screen buffer.  The main program (see
+test_shapes.adb) creates an object of each shape type, and it draws the line
+and rectangle shapes where they form a top-hat, drawn on top of the face.
+
+The shape class has an operation for drawing the shape onto the screen buffer.
+The draw operation is primitive for the type, so the logic for drawing the
+shape onto the screen is maintained by the shape itself.
+
+The shapes package keeps track of shape instances that have been created, using
+an ordered set (see shapes.adb).  The shape type (see shapes.ads) privately
+derives from Limited_Controlled, so when a shape object is created, its
+Initialize operation inserts the object (really, a pointer to the object) into
+the set.  When the object is destroyed, its Finalize operation deletes the
+object from the set.
+
+The reason for keeping track of shape objects is that when you refresh the
+screen, you want to redraw all of the objects onto the screen, each at its
+current location.  You call refresh whenever you have moved a shape, and want
+it to be (re)drawn at its new position.
+
+Refresh (see shapes.adb) redraws en masse all existing shapes.  It uses the
+set's passive iterator to visit all the shapes in the set, telling each shape
+in turn to draw itself.  It then tells the screen buffer to refresh itself,
+which draws the shapes (as text) onto console.
+
+The element type of the shapes set is an access type (Shape_Class_Access).
+This is an ordered set, so we need to define an order for the access type.
+Shape objects have a unique identity (reference semantics apply because the
+type is tagged), so we implement the order relation (see shapes.adb) by
+comparing machine addresses.  (And we can do that, because type System.Address
+has its own relational operator.)
+
+The main program declares the shape objects, and then declares an array whose
+elements are (anonymous) access objects designating the shape objects.  This is
+more convenient when manipulating the shapes as a group (for example, we move
+all the shapes over to the right), since we can just loop over the elements in
+the array.  (The shape operations we call through the array are dynamically
+dispatching, since the array component is a class-wide type.)
+
+Finally, we sort the shape array.  Its component type is anonymous, so we can't
+sort it using the normal generic array sort operation (Generic_Array_Sort),
+since that requires a both a named component type and a named array type.
+Instead we use Generic_Anonymous_Array_Sort, whose only generic formal type is
+the array index subtype.  It imports generic formal operations Less and Swap,
+to bind index values to components of the actual array object, which must be
+visible at the point of instantiation of the generic operation.

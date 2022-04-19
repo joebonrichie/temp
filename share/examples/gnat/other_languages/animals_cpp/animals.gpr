@@ -1,0 +1,19 @@
+project Animals is
+
+   for Languages use ("Ada", "C++");
+   for Main use ("main.cpp");
+
+   package Compiler is
+      for Default_Switches ("Ada") use ("-gnat05", "-gnatws");
+   end Compiler;
+
+   package Builder is
+      for Executable ("main.cpp") use "animals";
+   end Builder;
+
+   package Naming is
+      for Specification_Suffix ("C++") use ".hpp";
+      for Implementation_Suffix ("C++") use ".cpp";
+   end Naming;
+
+end Animals;

@@ -1,0 +1,916 @@
+V "GNAT Lib v2021"
+A -O2
+A -gnatA
+A -gnat2012
+A -gnatwc
+A -gnatwf
+A -gnatwi
+A -gnatwj
+A -gnatwk
+A -gnatwm
+A -gnatwr
+A -gnatwu
+A -gnatwv
+A -gnaty3
+A -gnatya
+A -gnatyb
+A -gnatyB
+A -gnatyc
+A -gnatyd
+A -gnatye
+A -gnatyf
+A -gnatyh
+A -gnatyi
+A -gnatyI
+A -gnatyk
+A -gnatyl
+A -gnatym
+A -gnatyn
+A -gnatyo
+A -gnatyO
+A -gnatyp
+A -gnatyr
+A -gnatys
+A -gnatyt
+A -gnatyx
+A -gnatn
+A -mtune=generic
+A -march=x86-64
+P SS ZX
+
+RN
+RV SIMPLE_BARRIERS
+RV NO_ACCESS_SUBPROGRAMS
+RV NO_ALLOCATORS
+RV NO_CALENDAR
+RV NO_DELAY
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_DISPATCH
+RV NO_DISPATCHING_CALLS
+RV NO_ENUMERATION_MAPS
+RV NO_EXCEPTION_HANDLERS
+RV NO_EXCEPTION_PROPAGATION
+RV NO_EXCEPTIONS
+RV NO_FIXED_POINT
+RV NO_IO
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_LOCAL_ALLOCATORS
+RV NO_NESTED_FINALIZATION
+RV NO_PROTECTED_TYPES
+RV NO_RELATIVE_DELAY
+RV NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_STREAMS
+RV NO_TASK_ALLOCATORS
+RV NO_TASKING
+RV NO_UNCHECKED_ACCESS
+RV NO_UNCHECKED_DEALLOCATION
+RV STATIC_PRIORITIES
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_ATTRIBUTES
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLICIT_ALIASING
+RV NO_IMPLICIT_LOOPS
+RV NO_ELABORATION_CODE
+RV MAX_PROTECTED_ENTRIES=1
+RV MAX_TASKS=1+
+RV MAX_ENTRY_QUEUE_LENGTH=1+
+
+U aws.services.download%b  aws-services-download.adb  581735b4 OO PF PK IU
+W ada%s			ada.ads			ada.ali
+W ada.calendar%s	a-calend.adb		a-calend.ali
+Z ada.calendar.delays%s	a-caldel.adb		a-caldel.ali
+W ada.containers%s	a-contai.ads		a-contai.ali
+Z ada.containers.generic_array_sort%s
+Z ada.containers.helpers%s  a-conhel.adb	a-conhel.ali
+W ada.containers.vectors%s
+W ada.exceptions%s	a-except.adb		a-except.ali
+Z ada.finalization%s	a-finali.ads		a-finali.ali
+Z ada.iterator_interfaces%s
+Z ada.real_time%s	a-reatim.adb		a-reatim.ali
+W ada.streams%s		a-stream.adb		a-stream.ali
+W ada.strings%s		a-string.ads		a-string.ali
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+W ada.strings.unbounded%s  a-strunb.adb		a-strunb.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+W ada.unchecked_deallocation%s
+W aws%s			aws.ads			aws.ali
+W aws.messages%s	aws-messages.adb	aws-messages.ali
+W aws.mime%s		aws-mime.adb		aws-mime.ali
+W aws.net%s		aws-net.adb		aws-net.ali
+W aws.net.buffered%s	aws-net-buffered.adb	aws-net-buffered.ali
+W aws.net.generic_sets%s  aws-net-generic_sets.adb  aws-net-generic_sets.ali  ED
+W aws.parameters%s	aws-parameters.adb	aws-parameters.ali
+W aws.services%s	aws-services.ads	aws-services.ali
+W aws.services.dispatchers%s  aws-services-dispatchers.ads  aws-services-dispatchers.ali
+W aws.services.dispatchers.uri%s  aws-services-dispatchers-uri.adb  aws-services-dispatchers-uri.ali
+W aws.templates%s	aws-templates.ads	aws-templates.ali
+W aws.utils%s		aws-utils.adb		aws-utils.ali
+Z system%s		system.ads		system.ali
+Z system.finalization_masters%s  s-finmas.adb	s-finmas.ali
+Z system.img_int%s	s-imgint.ads		s-imgint.ali
+Z system.parameters%s	s-parame.adb		s-parame.ali
+Z system.pool_global%s	s-pooglo.adb		s-pooglo.ali
+Z system.put_images%s	s-putima.adb		s-putima.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+Z system.soft_links%s	s-soflin.adb		s-soflin.ali
+Z system.standard_library%s  s-stalib.adb	s-stalib.ali
+Z system.storage_elements%s  s-stoele.adb	s-stoele.ali
+Z system.storage_pools%s  s-stopoo.adb		s-stopoo.ali
+Z system.storage_pools.subpools%s  s-stposu.adb	s-stposu.ali
+Z system.stream_attributes%s  s-stratt.adb	s-stratt.ali
+Z system.strings.stream_ops%s  s-ststop.adb	s-ststop.ali
+Z system.task_info%s	s-tasinf.adb		s-tasinf.ali
+Z system.tasking%s	s-taskin.adb		s-taskin.ali
+Z system.tasking.protected_objects%s  s-taprob.adb  s-taprob.ali
+Z system.tasking.protected_objects.entries%s  s-tpoben.adb  s-tpoben.ali
+Z system.tasking.protected_objects.operations%s  s-tpobop.adb  s-tpobop.ali
+Z system.tasking.stages%s  s-tassta.adb		s-tassta.ali
+Z system.wch_stw%s	s-wchstw.adb		s-wchstw.ali
+
+U aws.services.download%s  aws-services-download.ads  69e87d6f EE NE OO PK IU
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+W aws%s			aws.ads			aws.ali
+W aws.config%s		aws-config.adb		aws-config.ali
+W aws.dispatchers%s	aws-dispatchers.adb	aws-dispatchers.ali
+W aws.resources%s	aws-resources.adb	aws-resources.ali
+W aws.resources.streams%s  aws-resources-streams.adb  aws-resources-streams.ali
+W aws.response%s	aws-response.adb	aws-response.ali
+W aws.services%s	aws-services.ads	aws-services.ali
+W aws.services.dispatchers%s  aws-services-dispatchers.ads  aws-services-dispatchers.ali
+W aws.services.dispatchers.linker%s  aws-services-dispatchers-linker.adb  aws-services-dispatchers-linker.ali
+W aws.status%s		aws-status.adb		aws-status.ali
+
+D ada.ads		20210520051131 76789da1 ada%s
+D a-calend.ads		20210520051128 474d9720 ada.calendar%s
+D a-calend.adb		20210520051128 dfcd352e ada.calendar%b
+D a-caldel.ads		20210520051128 9f20b83d ada.calendar.delays%s
+D a-charac.ads		20210520051128 2d3ec45b ada.characters%s
+D a-chahan.ads		20210520051128 0ce1b450 ada.characters.handling%s
+D a-chlat1.ads		20210520051128 66457d31 ada.characters.latin_1%s
+D a-contai.ads		20210520051128 61e5e089 ada.containers%s
+D a-cgarso.ads		20210520051128 9129bfa8 ada.containers.generic_array_sort%s
+D a-cohata.ads		20210520051128 bc432d0e ada.containers.hash_tables%s
+D a-conhel.ads		20210520051128 20298884 ada.containers.helpers%s
+D a-conhel.adb		20210520051128 fe7a6827 ada.containers.helpers%b
+D a-cihama.ads		20210520051128 76287ea1 ada.containers.indefinite_hashed_maps%s
+D a-cihase.ads		20210520051128 18093f96 ada.containers.indefinite_hashed_sets%s
+D a-ciorma.ads		20210520051128 3aa5dad0 ada.containers.indefinite_ordered_maps%s
+D a-coinve.ads		20210520051128 0843f47c ada.containers.indefinite_vectors%s
+D a-crbltr.ads		20210520051128 d3d16ba4 ada.containers.red_black_trees%s
+D a-convec.ads		20210520051128 5d39d84a ada.containers.vectors%s
+D a-convec.adb		20210520051128 8dbd1ef5 ada.containers.vectors%b
+D a-direct.ads		20210520051128 078228da ada.directories%s
+D a-envvar.ads		20210520051128 00080416 ada.environment_variables%s
+D a-except.ads		20210520051128 946f3014 ada.exceptions%s
+D a-finali.ads		20210520051128 bf4f806b ada.finalization%s
+D a-ioexce.ads		20210520051128 e4a01f64 ada.io_exceptions%s
+D a-iteint.ads		20210520051128 49a8bee2 ada.iterator_interfaces%s
+D a-reatim.ads		20210520051127 0240fc73 ada.real_time%s
+D a-stream.ads		20210520051129 119b8fb3 ada.streams%s
+D a-string.ads		20210520051129 90ac6797 ada.strings%s
+D a-strfix.ads		20210520051129 aeacf44c ada.strings.fixed%s
+D a-strhas.ads		20210520051129 c71c2a52 ada.strings.hash%s
+D a-strmap.ads		20210520051129 5a88892a ada.strings.maps%s
+D a-stmaco.ads		20210520051129 1c0e5368 ada.strings.maps.constants%s
+D a-strsea.ads		20210520051129 b9bc90ba ada.strings.search%s
+D a-sttebu.ads		20210520051129 18209c64 ada.strings.text_buffers%s
+D a-strunb.ads		20210520051129 03325227 ada.strings.unbounded%s
+D a-strunb.adb		20210520051129 3b950306 ada.strings.unbounded%b
+D a-stuten.ads		20210520051129 808c40ad ada.strings.utf_encoding%s
+D a-tags.ads		20210520051130 9eaa38c6 ada.tags%s
+D a-taside.ads		20210520051127 00e3a3f6 ada.task_identification%s
+D a-textio.ads		20210520051130 aef4d56d ada.text_io%s
+D a-unccon.ads		20210520051130 0e9b276f ada.unchecked_conversion%s
+D a-uncdea.ads		20210520051130 c3a8ac65 ada.unchecked_deallocation%s
+D aws.ads		20210520114206 82646736 aws%s
+D aws-attachments.ads	20210519051431 2270236e aws.attachments%s
+D aws-config.ads	20210519051431 17e5b2cd aws.config%s
+D aws-config.adb	20210519051431 05e51043 aws.config%b
+D aws-config-ini.ads	20210519051431 3b5a32c5 aws.config.ini%s
+D aws-containers.ads	20210519051431 c7ab8288 aws.containers%s
+D aws-containers-key_value.ads  20210519051431 f3f917f0 aws.containers.key_value%s
+D aws-containers-memory_streams.ads  20210519051431 ea28c859 aws.containers.memory_streams%s
+D aws-containers-string_vectors.ads  20210519051431 b5692847 aws.containers.string_vectors%s
+D aws-containers-tables.ads  20210519051431 00be04da aws.containers.tables%s
+D aws-default.ads	20210519051431 9ec982b1 aws.default%s
+D aws-digest.ads	20210519051431 f05850e0 aws.digest%s
+D aws-dispatchers.ads	20210519051431 c78b16eb aws.dispatchers%s
+D aws-headers.ads	20210519051431 25633780 aws.headers%s
+D aws-headers-values.ads  20210519051431 e73ab651 aws.headers.values%s
+D aws-messages.ads	20210519051431 7cd16bc6 aws.messages%s
+D aws-messages.adb	20210519051431 4f87b4ac aws.messages%b
+D aws-mime.ads		20210519051431 796c9a32 aws.mime%s
+D aws-net.ads		20210519051431 4147ea12 aws.net%s
+D aws-net.adb		20210519051431 b9755fa9 aws.net%b
+D aws-net-buffered.ads	20210519051431 98a7e729 aws.net.buffered%s
+D aws-net-buffered.adb	20210519051431 04949b23 aws.net.buffered%b
+D aws-net-generic_sets.ads  20210519051431 63584717 aws.net.generic_sets%s
+D aws-net-generic_sets.adb  20210519051431 7789faa1 aws.net.generic_sets%b
+D aws-net-log.ads	20210519051431 dca57234 aws.net.log%s
+D aws-net-poll_events.ads  20210519051431 3fbbce2d aws.net.poll_events%s
+D aws-net-ssl.ads	20210519051431 52fbd46f aws.net.ssl%s
+D aws-net-std.ads	20210519051431 fb394f55 aws.net.std%s
+D aws-os_lib.ads	20210520114209 a9a322e9 aws.os_lib%s
+D aws-parameters.ads	20210519051431 ff4aa491 aws.parameters%s
+D aws-resources.ads	20210519051431 407ba395 aws.resources%s
+D aws-resources-streams.ads  20210519051431 95c86167 aws.resources.streams%s
+D aws-resources-streams-memory.ads  20210519051431 eb23d323 aws.resources.streams.memory%s
+D aws-resources-streams-memory-zlib.ads  20210519051431 964b70a5 aws.resources.streams.memory.zlib%s
+D aws-response.ads	20210519051431 907d00d3 aws.response%s
+D aws-services.ads	20210519051431 e275bf31 aws.services%s
+D aws-services-dispatchers.ads  20210519051431 ae46fd63 aws.services.dispatchers%s
+D aws-services-dispatchers-linker.ads  20210519051431 c6684a41 aws.services.dispatchers.linker%s
+D aws-services-dispatchers-uri.ads  20210519051431 40f8a465 aws.services.dispatchers.uri%s
+D aws-services-download.ads  20210519051431 e973bc23 aws.services.download%s
+D aws-services-download.adb  20210519051431 f838b174 aws.services.download%b
+D aws-session.ads	20210519051431 7ee0b17c aws.session%s
+D aws-status.ads	20210519051431 715df1ae aws.status%s
+D aws-status.adb	20210519051431 fbda0349 aws.status%b
+D aws-templates.ads	20210519051431 7d4c13ec aws.templates%s
+D aws-translator.ads	20210519051431 098e71c4 aws.translator%s
+D aws-url.ads		20210519051431 32548484 aws.url%s
+D aws-utils.ads		20210519051431 840ea1d3 aws.utils%s
+D gnat.ads		20210520051132 b5988c27 gnat%s
+D g-bytswa.ads		20210520051131 a4d21639 gnat.byte_swapping%s
+D g-md5.ads		20210520051131 bb55398e gnat.md5%s
+D g-os_lib.ads		20210520051131 0db74523 gnat.os_lib%s
+D g-regexp.ads		20210520051131 691be386 gnat.regexp%s
+D g-sechas.ads		20210520051131 302163b5 gnat.secure_hashes%s
+D g-sehamd.ads		20210520051131 75201584 gnat.secure_hashes.md5%s
+D g-shsh32.ads		20210520051131 671c9849 gnat.secure_hashes.sha2_32%s
+D g-shshco.ads		20210520051131 1144502c gnat.secure_hashes.sha2_common%s
+D g-sha256.ads		20210520051131 c083f050 gnat.sha256%s
+D interfac.ads		20210520051132 edec285f interfaces%s
+D i-c.ads		20210520051132 d9beded9 interfaces.c%s
+D i-cstrin.ads		20210520051132 341d0ddf interfaces.c.strings%s
+D i-cstrea.ads		20210520051132 e53d8b8e interfaces.c_streams%s
+D memory_streams.ads	20210519051430 bf3b9ce5 memory_streams%s
+D ssl.ads		20210519051431 3abd0079 ssl%s
+D ssl-thin__dummy.ads	20210519051430 eb2eedfc ssl.thin%s
+D system.ads		20210520051135 a2da961d system%s
+D s-atacco.ads		20210520051132 4c36d12f system.address_to_access_conversions%s
+D s-atocou.ads		20210520051132 b45c2d8d system.atomic_counters%s
+D s-atocou.adb		20210520051132 b65612c0 system.atomic_counters%b
+D s-carun8.ads		20210520051132 a903718d system.compare_array_unsigned_8%s
+D s-crtl.ads		20210520051132 0ebbdb71 system.crtl%s
+D s-exctab.ads		20210520051132 54135002 system.exception_table%s
+D s-ficobl.ads		20210520051132 078245e4 system.file_control_block%s
+D s-finmas.ads		20210520051132 1ab4dba8 system.finalization_masters%s
+D s-finroo.ads		20210520051132 4ff27390 system.finalization_root%s
+D s-imagei.ads		20210520051133 0d3f86a7 system.image_i%s
+D s-imgint.ads		20210520051133 bdb6f5ec system.img_int%s
+D s-imglli.ads		20210520051133 3723d9ff system.img_lli%s
+D s-linux.ads		20210520051127 ed0b8aee system.linux%s
+D s-memory.ads		20210520051133 597d6634 system.memory%s
+D s-multip.ads		20210520051133 38ac9f73 system.multiprocessors%s
+D s-oscons.ads		20210520095158 e3a42aec system.os_constants%s
+D s-osinte.ads		20210520051127 222ac181 system.os_interface%s
+D s-os_lib.ads		20210520051133 93b69309 system.os_lib%s
+D s-osprim.ads		20210520051133 07fd65f6 system.os_primitives%s
+D s-parame.ads		20210520051134 4752c4cb system.parameters%s
+D s-pooglo.ads		20210520051134 ede33ef8 system.pool_global%s
+D s-powflt.ads		20210520051134 46f7a1b9 system.powten_flt%s
+D s-putima.ads		20210520051134 4e095881 system.put_images%s
+D s-regexp.ads		20210520051134 9c7d27a7 system.regexp%s
+D s-restri.ads		20210520051134 1b9d0672 system.restrictions%s
+D s-rident.ads		20210520051134 71cd1f87 system.rident%s
+D s-secsta.ads		20210520051134 9b3ab94b system.secondary_stack%s
+D s-soflin.ads		20210520051134 a7318a92 system.soft_links%s
+D s-soflin.adb		20210520051134 fb65da32 system.soft_links%b
+D s-soliin.ads		20210520051134 f1a676b9 system.soft_links.initialize%s
+D s-stache.ads		20210520051134 a37c21ec system.stack_checking%s
+D s-stausa.ads		20210520051134 017a0a05 system.stack_usage%s
+D s-stalib.ads		20210520051134 472fbca8 system.standard_library%s
+D s-stalib.adb		20210520051134 977290bf system.standard_library%b
+D s-stoele.ads		20210520051134 2dc34a04 system.storage_elements%s
+D s-stoele.adb		20210520051134 ed88f8fb system.storage_elements%b
+D s-stopoo.ads		20210520051134 e9fa2dd8 system.storage_pools%s
+D s-stposu.ads		20210520051134 e251976f system.storage_pools.subpools%s
+D s-stratt.ads		20210520051134 7bdda3fa system.stream_attributes%s
+D s-stratt.adb		20210520051134 fc996108 system.stream_attributes%b
+D s-statxd.ads		20210520051134 b54789f6 system.stream_attributes.xdr%s
+D s-string.ads		20210520051134 8fe54fb7 system.strings%s
+D s-ststop.ads		20210520051134 5fbf1b38 system.strings.stream_ops%s
+D s-tasinf.ads		20210520051127 2b3f8252 system.task_info%s
+D s-taspri.ads		20210520051127 4ec891e7 system.task_primitives%s
+D s-taprop.ads		20210520051127 6eefbe12 system.task_primitives.operations%s
+D s-taskin.ads		20210520051127 88fba9ad system.tasking%s
+D s-tasdeb.ads		20210520051127 44e311ad system.tasking.debug%s
+D s-taenca.ads		20210520051127 da9410ac system.tasking.entry_calls%s
+D s-tasini.ads		20210520051127 45f51104 system.tasking.initialization%s
+D s-taprob.ads		20210520051127 acd6094d system.tasking.protected_objects%s
+D s-tpoben.ads		20210520051127 60ad3dae system.tasking.protected_objects.entries%s
+D s-tpobop.ads		20210520051127 5f548bb3 system.tasking.protected_objects.operations%s
+D s-tpobop.adb		20210520051127 26a92858 system.tasking.protected_objects.operations%b
+D s-tasque.ads		20210520051127 9bb7a402 system.tasking.queuing%s
+D s-tasren.ads		20210520051127 a67a9949 system.tasking.rendezvous%s
+D s-tassta.ads		20210520051127 cca55c94 system.tasking.stages%s
+D s-tasuti.ads		20210520051127 4c20fd27 system.tasking.utilities%s
+D s-traent.ads		20210520051134 26a8d361 system.traceback_entries%s
+D s-unstyp.ads		20210520051134 2b077493 system.unsigned_types%s
+D s-vaenu8.ads		20210520051134 b7b91426 system.val_enum_8%s
+D s-valflt.ads		20210520051134 d738ba7d system.val_flt%s
+D s-valint.ads		20210520051134 e7fcadb7 system.val_int%s
+D s-valrea.ads		20210520051134 8ddc6624 system.val_real%s
+D s-valuns.ads		20210520051134 dac7b45d system.val_uns%s
+D s-valuei.ads		20210520051134 978dd0a6 system.value_i%s
+D s-valuen.ads		20210520051134 72b74993 system.value_n%s
+D s-valueu.ads		20210520051134 7b8fccf5 system.value_u%s
+D s-wchcon.ads		20210520051135 1b7d22d2 system.wch_con%s
+D s-wchstw.ads		20210520051135 2d112c01 system.wch_stw%s
+D templates_parser.ads	20210519053215 1cb5e754 templates_parser%s
+D templates_parser-utils.ads  20210519053215 8849593d templates_parser.utils%s
+D templates_parser_tasking.ads  20210519053215 4c0209f0 templates_parser_tasking%s
+D unchconv.ads		20210520051135 ca2f9e18 unchecked_conversion%s
+D zlib.ads		20210519051430 0714e1ed zlib%s
+G a e
+G c b b b [b aws__services__download 50 1 none]
+G c Z s b [start aws__services__download 43 14 none]
+G c Z s b [stop aws__services__download 56 14 none]
+G c Z s b [build aws__services__download 59 13 none]
+G c Z b b [download_informationDI aws__services__download 69 9 none]
+G c Z b b [download_informationDA aws__services__download 69 9 none]
+G c Z b b [download_informationDF aws__services__download 69 9 none]
+G c Z b b [download_informationIP aws__services__download 69 9 none]
+G c Z b b [has_element aws__services__download__download_vectors 115 13 87_4]
+G c Z b b [empty aws__services__download__download_vectors 125 13 87_4]
+G c Z b b [Oeq aws__services__download__download_vectors 127 24 87_4]
+G c Z b b [to_vector aws__services__download__download_vectors 136 13 87_4]
+G c Z b b [to_vector aws__services__download__download_vectors 139 13 87_4]
+G c Z b b [Oconcat aws__services__download__download_vectors 145 13 87_4]
+G c Z b b [Oconcat aws__services__download__download_vectors 149 13 87_4]
+G c Z b b [Oconcat aws__services__download__download_vectors 153 13 87_4]
+G c Z b b [Oconcat aws__services__download__download_vectors 157 13 87_4]
+G c Z b b [capacity aws__services__download__download_vectors 161 13 87_4]
+G c Z b b [reserve_capacity aws__services__download__download_vectors 164 14 87_4]
+G c Z b b [length aws__services__download__download_vectors 175 13 87_4]
+G c Z b b [set_length aws__services__download__download_vectors 178 14 87_4]
+G c Z b b [is_empty aws__services__download__download_vectors 187 13 87_4]
+G c Z b b [clear aws__services__download__download_vectors 190 14 87_4]
+G c Z b b [to_cursor aws__services__download__download_vectors 194 13 87_4]
+G c Z b b [to_index aws__services__download__download_vectors 201 13 87_4]
+G c Z b b [element aws__services__download__download_vectors 206 13 87_4]
+G c Z b b [element aws__services__download__download_vectors 213 13 87_4]
+G c Z b b [replace_element aws__services__download__download_vectors 217 14 87_4]
+G c Z b b [replace_element aws__services__download__download_vectors 228 14 87_4]
+G c Z b b [query_element aws__services__download__download_vectors 239 14 87_4]
+G c Z b b [query_element aws__services__download__download_vectors 250 14 87_4]
+G c Z b b [update_element aws__services__download__download_vectors 259 14 87_4]
+G c Z b b [update_element aws__services__download__download_vectors 276 14 87_4]
+G c Z b b [constant_reference aws__services__download__download_vectors 303 13 87_4]
+G c Z b b [reference aws__services__download__download_vectors 308 13 87_4]
+G c Z b b [constant_reference aws__services__download__download_vectors 313 13 87_4]
+G c Z b b [reference aws__services__download__download_vectors 318 13 87_4]
+G c Z b b [assign aws__services__download__download_vectors 323 14 87_4]
+G c Z b b [copy aws__services__download__download_vectors 325 13 87_4]
+G c Z b b [move aws__services__download__download_vectors 327 14 87_4]
+G c Z b b [new_vector aws__services__download__download_vectors 333 13 87_4]
+G c Z b b [insert_vector aws__services__download__download_vectors 337 14 87_4]
+G c Z b b [insert_vector aws__services__download__download_vectors 361 14 87_4]
+G c Z b b [insert_vector aws__services__download__download_vectors 378 14 87_4]
+G c Z b b [insert aws__services__download__download_vectors 396 14 87_4]
+G c Z b b [insert aws__services__download__download_vectors 404 14 87_4]
+G c Z b b [insert aws__services__download__download_vectors 412 14 87_4]
+G c Z b b [insert aws__services__download__download_vectors 421 14 87_4]
+G c Z b b [insert aws__services__download__download_vectors 438 14 87_4]
+G c Z b b [prepend_vector aws__services__download__download_vectors 449 14 87_4]
+G c Z b b [prepend aws__services__download__download_vectors 459 14 87_4]
+G c Z b b [append_vector aws__services__download__download_vectors 466 14 87_4]
+G c Z b b [append aws__services__download__download_vectors 476 14 87_4]
+G c Z b b [append aws__services__download__download_vectors 483 14 87_4]
+G c Z b b [insert_space aws__services__download__download_vectors 486 14 87_4]
+G c Z b b [insert_space aws__services__download__download_vectors 503 14 87_4]
+G c Z b b [delete aws__services__download__download_vectors 514 14 87_4]
+G c Z b b [delete aws__services__download__download_vectors 524 14 87_4]
+G c Z b b [delete_first aws__services__download__download_vectors 533 14 87_4]
+G c Z b b [delete_last aws__services__download__download_vectors 538 14 87_4]
+G c Z b b [reverse_elements aws__services__download__download_vectors 546 14 87_4]
+G c Z b b [swap aws__services__download__download_vectors 549 14 87_4]
+G c Z b b [swap aws__services__download__download_vectors 554 14 87_4]
+G c Z b b [first_index aws__services__download__download_vectors 560 13 87_4]
+G c Z b b [first aws__services__download__download_vectors 563 13 87_4]
+G c Z b b [first_element aws__services__download__download_vectors 567 13 87_4]
+G c Z b b [last_index aws__services__download__download_vectors 570 13 87_4]
+G c Z b b [last aws__services__download__download_vectors 574 13 87_4]
+G c Z b b [last_element aws__services__download__download_vectors 578 13 87_4]
+G c Z b b [next aws__services__download__download_vectors 581 13 87_4]
+G c Z b b [next aws__services__download__download_vectors 587 14 87_4]
+G c Z b b [previous aws__services__download__download_vectors 590 13 87_4]
+G c Z b b [previous aws__services__download__download_vectors 596 14 87_4]
+G c Z b b [find_index aws__services__download__download_vectors 599 13 87_4]
+G c Z b b [find aws__services__download__download_vectors 609 13 87_4]
+G c Z b b [reverse_find_index aws__services__download__download_vectors 623 13 87_4]
+G c Z b b [reverse_find aws__services__download__download_vectors 635 13 87_4]
+G c Z b b [contains aws__services__download__download_vectors 649 13 87_4]
+G c Z b b [iterate aws__services__download__download_vectors 654 14 87_4]
+G c Z b b [reverse_iterate aws__services__download__download_vectors 662 14 87_4]
+G c Z b b [iterate aws__services__download__download_vectors 669 13 87_4]
+G c Z b b [iterate aws__services__download__download_vectors 672 13 87_4]
+G c Z b b [adjust aws__services__download__download_vectors__implementation 90 28 726_4_87_4]
+G c Z b b [finalize aws__services__download__download_vectors__implementation 93 28 726_4_87_4]
+G c Z b b [zero_counts aws__services__download__download_vectors__implementation 96 17 726_4_87_4]
+G c Z b b [busy aws__services__download__download_vectors__implementation 100 17 726_4_87_4]
+G c Z b b [unbusy aws__services__download__download_vectors__implementation 104 17 726_4_87_4]
+G c Z b b [lock aws__services__download__download_vectors__implementation 108 17 726_4_87_4]
+G c Z b b [unlock aws__services__download__download_vectors__implementation 112 17 726_4_87_4]
+G c Z b b [tc_check aws__services__download__download_vectors__implementation 116 17 726_4_87_4]
+G c Z b b [te_check aws__services__download__download_vectors__implementation 120 17 726_4_87_4]
+G c Z b b [initialize aws__services__download__download_vectors__implementation 139 28 726_4_87_4]
+G c Z b b [finalize aws__services__download__download_vectors__implementation 140 28 726_4_87_4]
+G c Z b b [initialize aws__services__download__download_vectors__implementation 145 28 726_4_87_4]
+G c Z b b [finalize aws__services__download__download_vectors__implementation 146 28 726_4_87_4]
+G c Z b b [reference_control_typeDA aws__services__download__download_vectors__implementation 84 12 726_4_87_4]
+G c Z b b [reference_control_typeDF aws__services__download__download_vectors__implementation 84 12 726_4_87_4]
+G c Z b b [reference_control_typeIP aws__services__download__download_vectors__implementation 84 12 726_4_87_4]
+G c Z b b [with_busyDF aws__services__download__download_vectors__implementation 136 12 726_4_87_4]
+G c Z b b [with_busyIP aws__services__download__download_vectors__implementation 136 12 726_4_87_4]
+G c Z b b [with_lockDF aws__services__download__download_vectors__implementation 142 12 726_4_87_4]
+G c Z b b [with_lockIP aws__services__download__download_vectors__implementation 142 12 726_4_87_4]
+G c Z b b [put_image aws__services__download__download_vectors 747 14 87_4]
+G c Z b b [adjust aws__services__download__download_vectors 750 25 87_4]
+G c Z b b [finalize aws__services__download__download_vectors 751 25 87_4]
+G c Z b b [write aws__services__download__download_vectors 753 14 87_4]
+G c Z b b [read aws__services__download__download_vectors 759 14 87_4]
+G c Z b b [read aws__services__download__download_vectors 773 14 87_4]
+G c Z b b [write aws__services__download__download_vectors 779 14 87_4]
+G c Z b b [write aws__services__download__download_vectors 798 14 87_4]
+G c Z b b [read aws__services__download__download_vectors 804 14 87_4]
+G c Z b b [write aws__services__download__download_vectors 820 14 87_4]
+G c Z b b [read aws__services__download__download_vectors 826 14 87_4]
+G c Z b b [pseudo_reference aws__services__download__download_vectors 837 13 87_4]
+G c Z b b [get_element_access aws__services__download__download_vectors 846 13 87_4]
+G c Z b b [cursorIP aws__services__download__download_vectors 768 9 87_4]
+G c Z b b [vectorDA aws__services__download__download_vectors 741 9 87_4]
+G c Z b b [vectorDF aws__services__download__download_vectors 741 9 87_4]
+G c Z b b [vectorIP aws__services__download__download_vectors 741 9 87_4]
+G c Z b b [constant_reference_typeDI aws__services__download__download_vectors 788 9 87_4]
+G c Z b b [constant_reference_typeDA aws__services__download__download_vectors 788 9 87_4]
+G c Z b b [constant_reference_typeDF aws__services__download__download_vectors 788 9 87_4]
+G c Z b b [constant_reference_typeIP aws__services__download__download_vectors 788 9 87_4]
+G c Z b b [reference_typeDI aws__services__download__download_vectors 810 9 87_4]
+G c Z b b [reference_typeDA aws__services__download__download_vectors 810 9 87_4]
+G c Z b b [reference_typeDF aws__services__download__download_vectors 810 9 87_4]
+G c Z b b [reference_typeIP aws__services__download__download_vectors 810 9 87_4]
+G c Z b b [finalize aws__services__download__download_vectors 862 25 87_4]
+G c Z b b [first aws__services__download__download_vectors 864 24 87_4]
+G c Z b b [last aws__services__download__download_vectors 865 24 87_4]
+G c Z b b [next aws__services__download__download_vectors 867 24 87_4]
+G c Z b b [previous aws__services__download__download_vectors 871 24 87_4]
+G c Z b b [elements_arrayIP aws__services__download__download_vectors 729 9 87_4]
+G c Z b b [elements_arrayDI aws__services__download__download_vectors 729 9 87_4]
+G c Z b b [elements_arrayDA aws__services__download__download_vectors 729 9 87_4]
+G c Z b b [elements_arrayDF aws__services__download__download_vectors 729 9 87_4]
+G c Z b b [elements_typeDI aws__services__download__download_vectors 732 9 87_4]
+G c Z b b [elements_typeDF aws__services__download__download_vectors 732 9 87_4]
+G c Z b b [elements_typeIP aws__services__download__download_vectors 732 9 87_4]
+G c Z b b [iteratorDF aws__services__download__download_vectors 854 9 87_4]
+G c Z b b [iteratorIP aws__services__download__download_vectors 854 9 87_4]
+G c Z b b [free aws__services__download__download_vectors 44 14 87_4]
+G c Z b b [append_slow_path aws__services__download__download_vectors 47 14 87_4]
+G c Z b b [download_manager aws__services__download 93 14 none]
+G c Z b b [add aws__services__download__sock_set 65 14 105_4]
+G c Z b b [add aws__services__download__sock_set 73 14 105_4]
+G c Z b b [add aws__services__download__sock_set 80 14 105_4]
+G c Z b b [add aws__services__download__sock_set 88 14 105_4]
+G c Z b b [set_mode aws__services__download__sock_set 96 14 105_4]
+G c Z b b [set_event aws__services__download__sock_set 103 14 105_4]
+G c Z b b [count aws__services__download__sock_set 111 13 105_4]
+G c Z b b [wait aws__services__download__sock_set 114 14 105_4]
+G c Z b b [wait aws__services__download__sock_set 121 14 105_4]
+G c Z b b [is_read_ready aws__services__download__sock_set 129 13 105_4]
+G c Z b b [is_read_ready aws__services__download__sock_set 138 14 105_4]
+G c Z b b [is_write_ready aws__services__download__sock_set 150 13 105_4]
+G c Z b b [is_error aws__services__download__sock_set 159 13 105_4]
+G c Z b b [in_range aws__services__download__sock_set 167 13 105_4]
+G c Z b b [get_socket aws__services__download__sock_set 172 13 105_4]
+G c Z b b [get_data aws__services__download__sock_set 181 13 105_4]
+G c Z b b [set_data aws__services__download__sock_set 188 14 105_4]
+G c Z b b [remove_socket aws__services__download__sock_set 196 14 105_4]
+G c Z b b [remove_socket aws__services__download__sock_set 204 14 105_4]
+G c Z b b [update_socket aws__services__download__sock_set 213 14 105_4]
+G c Z b b [next aws__services__download__sock_set 221 14 105_4]
+G c Z b b [reset aws__services__download__sock_set 234 14 105_4]
+G c Z b b [finalize aws__services__download__sock_set 258 25 105_4]
+G c Z b b [socket_set_typeDF aws__services__download__sock_set 253 9 105_4]
+G c Z b b [socket_set_typeIP aws__services__download__sock_set 253 9 105_4]
+G c Z b b [socket_recordDI aws__services__download__sock_set 239 9 105_4]
+G c Z b b [socket_recordDA aws__services__download__sock_set 239 9 105_4]
+G c Z b b [socket_recordDF aws__services__download__sock_set 239 9 105_4]
+G c Z b b [socket_recordIP aws__services__download__sock_set 239 9 105_4]
+G c Z b b [socket_arrayIP aws__services__download__sock_set 249 9 105_4]
+G c Z b b [socket_arrayDI aws__services__download__sock_set 249 9 105_4]
+G c Z b b [socket_arrayDA aws__services__download__sock_set 249 9 105_4]
+G c Z b b [socket_arrayDF aws__services__download__sock_set 249 9 105_4]
+G c Z b b [unchecked_free aws__services__download__sock_set 34 14 105_4]
+G c Z b b [unchecked_free aws__services__download__sock_set 37 14 105_4]
+G c Z b b [add_private aws__services__download__sock_set 42 14 105_4]
+G c Z b b [insert aws__services__download__data_manager 111 17 none]
+G c Z b b [update aws__services__download__data_manager 114 17 none]
+G c Z b b [remove aws__services__download__data_manager 117 17 none]
+G c Z b b [ready aws__services__download__data_manager 122 13 none]
+G c Z b b [create_set aws__services__download__data_manager 125 17 none]
+G c Z b b [get aws__services__download__data_manager 128 17 none]
+G c Z b b [get_uid aws__services__download__data_manager 134 17 none]
+G c Z b b [set_shutdown aws__services__download__data_manager 137 17 none]
+G c Z b b [shutdown aws__services__download__data_manager 140 16 none]
+G c Z b b [release aws__services__download__data_manager 143 17 none]
+G c Z b b [data_manager__check_queueN aws__services__download 148 7 none]
+G c Z b b [data_manager__check_queueP aws__services__download 148 7 none]
+G c Z b b [data_manager__indexN aws__services__download 157 7 none]
+G c Z b b [data_manager__indexP aws__services__download 157 7 none]
+G c Z b b [data_manager__insertN aws__services__download 111 7 none]
+G c Z b b [data_manager__insertP aws__services__download 111 7 none]
+G c Z b b [data_manager__updateN aws__services__download 114 7 none]
+G c Z b b [data_manager__updateP aws__services__download 114 7 none]
+G c Z b b [data_manager__removeN aws__services__download 117 7 none]
+G c Z b b [data_manager__removeP aws__services__download 117 7 none]
+G c Z b b [data_manager__create_setN aws__services__download 125 7 none]
+G c Z b b [data_manager__create_setP aws__services__download 125 7 none]
+G c Z b b [data_manager__getN aws__services__download 128 7 none]
+G c Z b b [data_manager__getP aws__services__download 128 7 none]
+G c Z b b [data_manager__get_uidN aws__services__download 134 7 none]
+G c Z b b [data_manager__get_uidP aws__services__download 134 7 none]
+G c Z b b [data_manager__set_shutdownN aws__services__download 137 7 none]
+G c Z b b [data_manager__set_shutdownP aws__services__download 137 7 none]
+G c Z b b [data_manager__shutdownN aws__services__download 140 7 none]
+G c Z b b [data_manager__shutdownP aws__services__download 140 7 none]
+G c Z b b [data_manager__releaseN aws__services__download 143 7 none]
+G c Z b b [data_manager__releaseP aws__services__download 143 7 none]
+G c Z b b [data_managerTVDI aws__services__download 109 4 none]
+G c Z b b [data_managerTVDF aws__services__download 109 4 none]
+G c Z b b [data_managerTVIP aws__services__download 109 4 none]
+G c Z b b [cb aws__services__download 173 13 none]
+G c Z b b [download_managerVIP aws__services__download 93 4 none]
+G r i none [b aws__services__download 50 1 none] [generic_sets aws__net 38 17 none]
+G r s handler [b aws__services__download 50 1 none] [handlerIP aws__services__dispatchers__uri 118 9 none]
+G r l handler [b aws__services__download 50 1 none] [handlerDI aws__services__dispatchers__uri 118 9 none]
+G r k handler [b aws__services__download 50 1 none] [handlerDF aws__services__dispatchers__uri 118 9 none]
+G r c none [start aws__services__download 43 14 none] [register aws__services__dispatchers__uri 53 14 none]
+G r c none [start aws__services__download 43 14 none] [register aws__services__dispatchers__linker 40 14 none]
+G r c none [start aws__services__download 43 14 none] [service_priority aws__config 378 13 none]
+G r c none [stop aws__services__download 56 14 none] [unregister aws__services__dispatchers__uri 73 14 none]
+G r c none [build aws__services__download 59 13 none] [uri aws__status 79 13 none]
+G r c none [build aws__services__download 59 13 none] [image aws__utils 103 13 none]
+G r c none [build aws__services__download 59 13 none] [url aws__response 205 13 none]
+G r c none [download_manager aws__services__download 93 14 none] [to_fd_set aws__net 324 13 none]
+G r j fd_set [download_manager aws__services__download 93 14 none] [fd_setDA aws__net 425 9 none]
+G r k fd_set [download_manager aws__services__download 93 14 none] [fd_setDF aws__net 425 9 none]
+G r c none [download_manager aws__services__download 93 14 none] [add aws__net 330 14 none]
+G r j socket_type [download_manager aws__services__download 93 14 none] [socket_typeDA aws__net 481 9 none]
+G r c none [download_manager aws__services__download 93 14 none] [status_line aws__messages 352 13 none]
+G r c none [download_manager aws__services__download 93 14 none] [put_line aws__net__buffered 44 14 none]
+G r c none [download_manager aws__services__download 93 14 none] [gmt_clock aws__utils 422 13 none]
+G r c none [download_manager aws__services__download 93 14 none] [to_http_date aws__messages 373 13 none]
+G r c none [download_manager aws__services__download 93 14 none] [connection aws__messages 309 13 none]
+G r c none [download_manager aws__services__download 93 14 none] [size aws__resources__streams 56 13 none]
+G r c none [download_manager aws__services__download 93 14 none] [content_length aws__messages 311 13 none]
+G r c none [download_manager aws__services__download 93 14 none] [content_type aws__messages 316 13 none]
+G r c none [download_manager aws__services__download 93 14 none] [content_disposition aws__messages 325 13 none]
+G r c none [download_manager aws__services__download 93 14 none] [new_line aws__net__buffered 48 14 none]
+G r c none [download_manager aws__services__download 93 14 none] [flush aws__net__buffered 55 14 none]
+G r c none [download_manager aws__services__download 93 14 none] [write aws__net__buffered 51 14 none]
+G r k socket_type [download_manager aws__services__download 93 14 none] [socket_typeDF aws__net 481 9 none]
+G r j socket_type [add aws__services__download__sock_set 65 14 105_4] [socket_typeDA aws__net 481 9 none]
+G r k socket_type [add aws__services__download__sock_set 65 14 105_4] [socket_typeDF aws__net 481 9 none]
+G r c none [add aws__services__download__sock_set 65 14 105_4] [to_fd_set aws__net 324 13 none]
+G r j fd_set [add aws__services__download__sock_set 65 14 105_4] [fd_setDA aws__net 425 9 none]
+G r k fd_set [add aws__services__download__sock_set 65 14 105_4] [fd_setDF aws__net 425 9 none]
+G r c none [add aws__services__download__sock_set 65 14 105_4] [add aws__net 330 14 none]
+G r c none [add aws__services__download__sock_set 73 14 105_4] [to_fd_set aws__net 324 13 none]
+G r j fd_set [add aws__services__download__sock_set 73 14 105_4] [fd_setDA aws__net 425 9 none]
+G r k fd_set [add aws__services__download__sock_set 73 14 105_4] [fd_setDF aws__net 425 9 none]
+G r c none [add aws__services__download__sock_set 73 14 105_4] [add aws__net 330 14 none]
+G r j socket_type [add aws__services__download__sock_set 80 14 105_4] [socket_typeDA aws__net 481 9 none]
+G r k socket_type [add aws__services__download__sock_set 80 14 105_4] [socket_typeDF aws__net 481 9 none]
+G r c none [add aws__services__download__sock_set 80 14 105_4] [to_fd_set aws__net 324 13 none]
+G r j fd_set [add aws__services__download__sock_set 80 14 105_4] [fd_setDA aws__net 425 9 none]
+G r k fd_set [add aws__services__download__sock_set 80 14 105_4] [fd_setDF aws__net 425 9 none]
+G r c none [add aws__services__download__sock_set 80 14 105_4] [add aws__net 330 14 none]
+G r c none [add aws__services__download__sock_set 88 14 105_4] [to_fd_set aws__net 324 13 none]
+G r j fd_set [add aws__services__download__sock_set 88 14 105_4] [fd_setDA aws__net 425 9 none]
+G r k fd_set [add aws__services__download__sock_set 88 14 105_4] [fd_setDF aws__net 425 9 none]
+G r c none [add aws__services__download__sock_set 88 14 105_4] [add aws__net 330 14 none]
+G r j socket_type [get_socket aws__services__download__sock_set 172 13 105_4] [socket_typeDA aws__net 481 9 none]
+G r k socket_type [remove_socket aws__services__download__sock_set 196 14 105_4] [socket_typeDF aws__net 481 9 none]
+G r k socket_type [reset aws__services__download__sock_set 234 14 105_4] [socket_typeDF aws__net 481 9 none]
+G r k socket_type [finalize aws__services__download__sock_set 258 25 105_4] [socket_typeDF aws__net 481 9 none]
+G r c none [finalize aws__services__download__sock_set 258 25 105_4] [free aws__net 336 14 none]
+G r k socket_type [socket_set_typeDF aws__services__download__sock_set 253 9 105_4] [socket_typeDF aws__net 481 9 none]
+G r c none [socket_set_typeDF aws__services__download__sock_set 253 9 105_4] [free aws__net 336 14 none]
+G r c none [add_private aws__services__download__sock_set 42 14 105_4] [to_fd_set aws__net 324 13 none]
+G r j fd_set [add_private aws__services__download__sock_set 42 14 105_4] [fd_setDA aws__net 425 9 none]
+G r k fd_set [add_private aws__services__download__sock_set 42 14 105_4] [fd_setDF aws__net 425 9 none]
+G r c none [add_private aws__services__download__sock_set 42 14 105_4] [add aws__net 330 14 none]
+G r c none [create_set aws__services__download__data_manager 125 17 none] [to_fd_set aws__net 324 13 none]
+G r j fd_set [create_set aws__services__download__data_manager 125 17 none] [fd_setDA aws__net 425 9 none]
+G r k fd_set [create_set aws__services__download__data_manager 125 17 none] [fd_setDF aws__net 425 9 none]
+G r c none [create_set aws__services__download__data_manager 125 17 none] [add aws__net 330 14 none]
+G r c none [cb aws__services__download 173 13 none] [parameters aws__status 88 13 none]
+G r j list [cb aws__services__download 173 13 none] [listDA aws__parameters 94 9 none]
+G r k list [cb aws__services__download 173 13 none] [listDF aws__parameters 94 9 none]
+G r c none [cb aws__services__download 173 13 none] [get aws__containers__tables 74 13 none]
+G r c none [cb aws__services__download 173 13 none] [acknowledge aws__response 234 13 none]
+G r c none [cb aws__services__download 173 13 none] [socket aws__status 188 13 none]
+G r j socket_type [cb aws__services__download 173 13 none] [socket_typeDA aws__net 481 9 none]
+G r k socket_type [cb aws__services__download 173 13 none] [socket_typeDF aws__net 481 9 none]
+G r c none [cb aws__services__download 173 13 none] [socket_taken aws__response 260 13 none]
+G r c none [cb aws__services__download 173 13 none] [assoc templates_parser 171 13 none]
+G r j association [cb aws__services__download 173 13 none] [associationDA templates_parser 612 9 none]
+G r c none [cb aws__services__download 173 13 none] [parse templates_parser 458 13 none]
+G r c none [cb aws__services__download 173 13 none] [build aws__response 105 13 none]
+G r c none [cb aws__services__download 173 13 none] [assoc templates_parser 186 13 none]
+G r c none [download_managerVIP aws__services__download 93 4 none] [service_priority aws__config 378 13 none]
+X 1 ada.ads
+16K9*Ada 20e8 83|32r6 33r6 34r6 35r6 36r6 37r6 39r6 52r8 53r8 54r8 55r8 56r8
+X 2 a-calend.ads
+36K13*Calendar 413e17 83|32w10 79r20 85r30 200r22 312r19 321r16 346r32
+42I9*Time<226I9> 83|79r29 312r28
+56V13*Clock{42I9} 83|85s39 200s31 321s25 346s41
+112V14*"-"{duration} 83|321s31
+226I9 Time_Rep<long_long_integer>
+X 8 a-contai.ads
+16K13*Containers 28e19 83|39r10 53r12 88r10
+22I9*Count_Type<integer>
+X 11 a-conhel.ads
+84R12 Reference_Control_Type<23|43R9>
+X 18 a-convec.ads
+74k24*Vectors 875e27 83|39w21 88r21
+91R9*Vector<23|43R9> 83|155r19[87]
+175V13*Length{8|22I9} 83|277s66[87] 295s58[87] 331s43[87]
+187V13*Is_Empty{boolean} 83|319s51[87]
+190U14*Clear 83|417s20[87]
+206V13*Element{83|69R9} 83|278s26[87] 298s31[87] 332s31[87] 384s41[87]
+217U14*Replace_Element 83|348s23[87] 464s20[87]
+483U14*Append 83|398s20[87]
+514U14*Delete 83|428s20[87]
+533U14*Delete_First 83|322s26[87]
+567V13*First_Element{83|69R9} 83|320s31[87]
+X 22 a-except.ads
+44K13*Exceptions 289e19 83|33w10 54r12
+94V13*Exception_Information{string} 83|616s49
+X 25 a-iteint.ads
+24h9 Forward_Iterator
+32h9 Reversible_Iterator<24R9[18|119]>
+X 27 a-stream.ads
+36K13*Streams 87e16 83|34w10 55r12 497r19 498r19
+42M9*Stream_Element
+44I9*Stream_Element_Offset<long_long_integer> 83|498r27
+54A9*Stream_Element_Array(42M9)<44I9> 83|497r27
+X 28 a-string.ads
+16K13*Strings 35e16 83|35r10 56r12
+X 35 a-strunb.ads
+83K21*Unbounded 765e26 83|35w18 56r20
+88R9*Unbounded_String<23|43R9> 744e15 83|70r20 71r20 72r20
+91r4*Null_Unbounded_String{88R9} 83|83r24 83r47 84r24
+104V13*To_Unbounded_String{88R9} 83|196s16 196s47 197s16
+117V13*To_String{string} 83|245s52 247s36 255s49 256s52 333s22 547s30 547s53
+239V14*"="{boolean} 83|384s29
+X 40 a-textio.ads
+58K13*Text_IO 725e16 83|36w10 614r10 615r13
+65P9*File_Type
+181V13*Current_Error{65P9} 83|615s21
+496U14*Put_Line 83|614s18
+X 42 a-uncdea.ads
+20u15*Unchecked_Deallocation 83|37w10 646r39
+X 43 aws.ads
+32K9*AWS 41e8 82|34r6 35r6 36r6 37r6 38r6 39r6 41r9 44r33 85r5 83|41r6 42r6
+. 43r6 44r6 45r6 46r6 47r6 48r6 50r14 624r33 661r5
+34a4*Version{string} 83|534r48
+X 45 aws-config.ads
+45K13*Config 849e15 82|34w10 46r45 83|93r48 626r45
+378V13*Service_Priority{108|108I12} 83|93s55
+396V13*Max_Concurrent_Download{positive} 82|46s52 83|626s52
+X 52 aws-containers-tables.ads
+74V13*Get{string} 83|214s46
+X 55 aws-dispatchers.ads
+42K13*Dispatchers 76e20 82|35w10 44r37 83|624r37
+44H9*Handler<23|43R9><90|457R9> 67e14 82|44r49 83|624r49
+X 58 aws-messages.ads
+36K13*Messages 402e17 83|41w10 204r30 223r13 524r39 524r61 528r24 536r39
+. 539r19 543r19 546r19
+178n7*S200{174E9} 83|524r70
+186n31*S404{174E9} 83|223r22
+224A9*Cache_Option<string>(character)<integer>
+236a4*No_Cache{224A9} 83|204r39
+309V13*Connection{string} 83|536s48
+311V13*Content_Length{string} 83|539s28
+316V13*Content_Type{string} 83|543s28
+325V13*Content_Disposition{string} 83|546s28
+352V13*Status_Line{string} 83|524s48
+373V13*To_HTTP_Date{string} 83|528s33
+X 60 aws-mime.ads
+30K13*MIME 178e13 83|42w10 242r16 252r13 543r42
+45a4*Text_HTML{string} 83|242r21 252r18
+76a4*Application_Octet_Stream{string} 83|543r47
+X 61 aws-net.ads
+45K13*Net 520e12 83|43r10 44r10 76r20 105r28 231r32 273r19 290r19 456r19
+. 505r13 519r26 524r10 526r10 532r10 536r10 538r10 542r10 545r10 549r10 550r10
+. 567r37 587r25 588r25 591r27
+51X4*Socket_Error 83|591r31
+55C9*Socket_Type<55R9>
+55H9*Socket_Type<23|43R9> 484e14 83|231r36 519r30
+56P9*Socket_Access(55R9) 83|76r24 273r23 290r23 456r23
+75A9*Wait_Event_Set(boolean)<66E9>
+83o4*Forever{duration} 83|567r41
+141x14*Shutdown 83|588R29
+X 63 aws-net-buffered.ads
+35K17*Buffered 142e21 83|43w14 505r17 524r14 526r14 532r14 536r14 538r14
+. 542r14 545r14 549r14 550r14 587r29
+44U14*Put_Line 83|524s23 526s23 532s23 536s23 538s23 542s23 545s23
+48U14*New_Line 83|549s23
+51U14*Write 83|505s26
+55U14*Flush 83|550s23 587s38
+X 65 aws-net-generic_sets.ads
+38k17*Generic_Sets 260e25 83|44w14 105r32
+46a4*Output{61|75A9} 83|301r64[105]
+59R9*Socket_Set_Type<23|50R9> 83|125r58[105] 289r58[105] 476r39[105] 514r39[105]
+. 553r29[105]
+61I9*Socket_Count<integer> 83|302r56[105] 477r32[105] 515r32[105] 554r29[105]
+73U14*Add 83|301s25[105]
+111V13*Count{61I9[83|105]} 83|571s33[105]
+121U14*Wait 83|567s19[105]
+150V13*Is_Write_Ready{boolean} 83|578s28[105]
+159V13*Is_Error{boolean} 83|599s31[105]
+181V13*Get_Data{83|69R9} 83|576s34[105]
+188U14*Set_Data 83|302s25[105]
+234U14*Reset 83|610s19[105]
+X 72 aws-parameters.ads
+36K13*Parameters 96e19 83|45w10 213r25 214r35
+38R9*List<52|41R9> 94e70 83|213r36
+X 73 aws-resources.ads
+36K13*Resources 180e18 82|36r10 62r34 83|75r20 183r34 199r16 500r10 540r22
+. 596r22
+X 74 aws-resources-streams.ads
+32K23*Streams 75e26 82|36w20 62r44 83|75r30 183r44 199r26 500r20 540r32 596r32
+34H9*Stream_Type<73|146R9> 73e75 82|62r52 83|183r52
+36P9*Stream_Access(34R9) 83|75r38 199r34
+40x14*Read<73|161p14> 83|500R28
+54x14*Close<73|169p14> 83|596R40
+56V13*Size{27|44I9}<73|166p13> 83|540R40
+X 77 aws-response.ads
+51K13*Response 455e17 82|37w10 63r14 83|173r47 184r14 202r17 212r47 222r17
+. 234r20 241r20 251r17
+59R9*Data<23|43R9> 446e14 82|63r23 83|173r56 184r23 212r56
+105V13*Build{59R9} 83|241s29 251s26
+205V13*URL{59R9} 83|202s26
+207a7 Cache_Control{58|224A9} 83|204r13
+234V13*Acknowledge{59R9} 83|222s26
+260V13*Socket_Taken{59R9} 83|234s29
+X 78 aws-services.ads
+32K13*Services 43|32k9 78|37e17 82|38r10 41r13 45r37 85r9 83|46r10 50r18
+. 625r37 661r9
+X 79 aws-services-dispatchers.ads
+32K22*Dispatchers 64e29 82|38r19 45r46 83|46r19 171r17 625r46 632r7 634r7
+. 649r7
+X 80 aws-services-dispatchers-linker.ads
+36K34*Linker 64e36 82|38w31 45r58 83|625r58 634r19
+38R9*Handler<55|44R9> 62e14 82|45r65 83|625r65
+40U14*Register 83|634s26
+X 81 aws-services-dispatchers-uri.ads
+40K34*URI 123e33 83|46w31 171r29 632r19 649r19
+42R9*Handler<55|44R9> 121e14 83|171r33
+53U14*Register 83|632s23
+73U14*Unregister 83|649s23
+X 82 aws-services-download.ads
+41K22*Download 78|32k13 82|85l18 85e26 83|50b27 628r7 661l18 661t26
+43U14*Start 44>7 45<7 46>7 83|623b14 639l8 639t13
+44c7 Server_Dispatcher<55|44R9> 83|624b7 635r27
+45r7 Main_Dispatcher{80|38R9} 83|625b7 635m10
+46i7 Max_Concurrent_Download{positive} 83|626b7 628r43
+56U14*Stop 83|645b14 659l8 659t12
+59V13*Build{77|59R9} 60>7 61>7 62^7 83|180b13 206l8 206t13
+60r7 Request{85|58R9} 83|181b7 192r34 197r49
+61a7 Name{string} 83|182b7 196r68
+62p7 Resource(74|34R9) 83|183b7 199r49
+X 83 aws-services-download.adb
+58a4 URI_Prefix{string} 203r19 632r51 649r53
+61a4 W_Tmplt{string} 254r16
+62a4 S_Tmplt{string} 244r19
+64I9 Waiting_Position<integer> 77r20 354r18
+69R9 Download_Information 80e14 82r30 88r40 105r46 111r36 114r36 117r36 128r51
+. 157r34 215r16 291r17 311r51 313r18 377r34 396r36 426r36 455r36 478r30 482r17
+. 492r17 516r30 575r23
+70r7*URI{35|88R9} 333r38 384r25 384r53
+71r7*Name{35|88R9} 245r68 255r65 547r46 547r69
+72r7*R_URI{35|88R9} 247r52 256r68
+73b7*Started{boolean} 229r18 238m18
+74b7*Header{boolean} 521m15 580r34
+75p7*Stream{74|36P9} 500r39 540r51 596r52
+76p7*Socket{61|56P9} 231m18 278r38 300r21 301r47 460r22 505r38 519r56 587r50
+. 588r44
+77i7*Position{64I9} 226r15 258r49 351m21 353m21
+78i7*Index{positive} 344m18 383r41
+79i7*Time_Stamp{2|42I9} 321r38 346m18
+82r4 No_Information{69R9} 219r17 341r21
+87K12 Download_Vectors[18|74] 89r8
+93T14 Download_Manager 94l8 94e24 96r43 473b14 617l8 617t24 638r17 647r10
+96P9 Download_Manager_Access(93T14) 98r9 647r28
+98p4 DM{96P9} 638m7 652r17 656m23 656r23
+103i4 Max_Concurrent_Download{positive} 295r13 350r25 354r44 628m16
+105K12 Sock_Set[65|38] 125r49 289r49 301r16 301r55 302r16 302r47 476r30 477r23
+. 514r30 515r23 553r20 554r20 567r10 571r24 576r25 578r19 599r22 610r10
+109w14 Data_Manager 188r7 194r10 217r7 232r13 239r13 266b19 369m10 369r30
+. 370r17 467l8 467t20 522r10 559r10 561r25 565r10 605r19 650r7 658r7
+111U17 Insert 111>25 194s23 396b17 400l11 400t17
+111r25 Download{69R9} 195r13 396b25 398r28
+114U17 Update 114>25 232s26 239s26 455b17 465l11 465t17 522s23
+114r25 Download{69R9} 455b25 460r13 464r44 464r55
+117U17 Remove 117>25 426b17 431l11 431t17 605s32
+117r25 Download{69R9} 426b25 428r35
+122Y13 Ready 406b13 409l11 409t16 559s23
+125U17 Create_Set 125=29 289b17 305l11 305t21 565s23
+125r29 Socket_Set{65|59R9[105]} 289b29 301m30 302m35
+128U17 Get 128>22 128<36 217s20 311b17 361l11 361t14
+128a22 URI{string} 311b22 333r16
+128r36 Download{69R9} 311b36 358m10
+134U17 Get_UID 134<26 188s20 367b17 371l11 371t18
+134i26 UID{positive} 367b26 370m10
+137U17 Set_Shutdown 437b17 440l11 440t23 650s20
+140V16 Shutdown{boolean} 446b16 449l11 449t19 561s38
+143U17 Release 415b17 420l11 420t18 658s20
+148U17 Check_Queue 272b17 283l11 283t22 360s10 430s10
+152i7 Count{natural} 323r16 323r25 399r10 399r19 419r10 429r10 429r19
+155r7 Downloads{18|91R9[87]} 277r56 278r16 295r48 298r21 319r41 320r21 322r16
+. 331r33 332r21 348r13 384r31 398r10 417r10 428r10 464r10
+157V16 Index{positive} 157>23 377b16 390l11 390t16 428s28 464s37
+157r23 Download{69R9} 377b23 383r32 384r16
+160i7 UID{natural} 369m23 369r43 370r30
+162b7 Closing{boolean} 406r47 439r10 448r17
+163b7 Socket_Present{boolean} 275r10 279r16 406r24 418r10 461r13
+171r4 DM_Handler{81|42R9} 632m33 632r33 635r46 649m35 649r35
+173V13 CB{77|59R9} 173>17 212b13 260l8 260t10 632r63
+173r17 Request{85|58R9} 212b17 213r63 231r70
+186i7 UID{positive} 188m29 192r64
+191a10 Key_URI=192:49{string} 196r37 203r46
+213r7 P_List{72|38R9} 214r51
+214a7 URI{string} 217r25
+215r7 Info{69R9} 217m30 219r10 226r10 229r13 231m13 232r34 238m13 239r34
+. 245r63 247r47 255r60 256r63 258r44
+277l10 Check_Socket_Present 280r21 282l19 282e39
+277i37 K{integer} 278r35
+291r10 Info{69R9} 298m13 298r13 300r16 301r42 302r74
+292i10 N{positive} 294m10 297r24
+297i14 K{integer} 298r40 302r70
+313r10 Info{69R9} 320m13 320r13 321r33 332m13 332r13 333r33 341m13 341r13
+. 344m13 346m13 348r47 351m16 353m16 358r22
+314i10 Index{natural} 334m16 339r13 344r27 348r40 350r16 354r36
+319l10 Remove_Old_Entries 325r21 327l19 327e37
+331i14 K{integer} 332r40 334r25
+383i14 K{integer} 384r50 385r23
+475U17 Send_Header 476=10 477>10 478=10 513b17 551l11 551t22 581s25
+476r10 Socket_Set{65|59R9[105]} 514b10 518r31
+477i10 N{65|61I9[105]} 515b10 518r43
+478r10 Info{69R9} 516b10 519r51 521m10 522r31 540r46 547r41 547r64
+481U17 Send_Data 482>10 483<10 491b17 507l11 507t20 584s22
+482r10 Info{69R9} 492b10 500r34 505r33
+483b10 Done{boolean} 493b10 502m10 504r17
+495N10 Buffer_Size 497r54
+497a10 Buffer{27|54A9} 500m51 502r25 505r50
+498i10 Last{27|44I9} 500m59 502r18 505r63
+519c10 Sock<61|55R9> 524r33 527r13 533r13 536r33 539r13 543r13 546r13 549r33
+. 550r30
+553r7 Socket_Set{65|59R9[105]} 565m35 565r35 567m25 567r25 571r40 576r44
+. 578r44 581m38 581r38 599r41 610m26 610r26
+554i7 Count{65|61I9[105]} 567m50
+555b7 Done{boolean} 572m13 584m39 586r25 592m25 595r22 600m19 603r19
+558l7 Main 561r15 611l16 611e20
+571i14 K<integer> 576r56 578r56 581r50 599r53
+575r16 Info{69R9} 580r29 581m53 581r53 584r33 587r45 588r39 596r47 605r40
+613r12 E{22|53R9} 616r72
+646U17 Unchecked_Free[42|20] 656s7
+X 85 aws-status.ads
+52K13*Status 82|39w10 60r18 83|173r27 181r18 192r22 197r37 212r27 213r44
+. 231r55 85|405e15
+58R9*Data 82|60r25 83|173r34 181r25 212r34 85|403e14
+79V13*URI{string} 83|192s29 197s44
+88V13*Parameters{72|38R9} 83|213s51
+188V13*Socket{61|55C9} 83|231s62
+X 87 aws-templates.ads
+32K13*Templates=32:31 83|47w10 243r24 245r27 246r27 253r21 255r24 256r24
+. 257r24
+X 90 aws-utils.ads
+44K13*Utils 83|48w10 192r51 528r47 90|466e14
+103V13*Image{string} 83|192s57
+422V13*GMT_Clock{2|42I9} 83|528s53
+457h9*Clonable
+X 108 system.ads
+67M9*Address
+108I12*Any_Priority{integer}
+X 122 s-memory.ads
+53V13*Alloc{108|67M9} 103i<c,__gnat_malloc>22
+68U14*Free 104i<c,__gnat_free>22
+76V13*Realloc{108|67M9} 105i<c,__gnat_realloc>22
+X 140 s-stausa.ads
+208U14*Initialize 209i<c,__gnat_stack_usage_initialize>22
+273U14*Output_Results 277i<c,__gnat_stack_usage_output_results>22
+X 142 s-stalib.adb
+89U14 Break_Start 90i<c,__gnat_break_start>22
+X 179 templates_parser.ads
+171V13*Assoc{163R9} 83|245s37 246s37 255s34 256s34
+186V13*Assoc{163R9} 83|257s34
+458V13*Parse{string} 83|243s34 253s31
+

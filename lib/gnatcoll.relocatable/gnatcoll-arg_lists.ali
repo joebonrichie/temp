@@ -1,0 +1,588 @@
+V "GNAT Lib v2021"
+A -O2
+A -gnatA
+A -fPIC
+A -gnatn
+A -gnatwa
+A -gnatwC
+A -gnatwJ
+A -mtune=generic
+A -march=x86-64
+P SS ZX
+
+RN
+RV NO_ACCESS_SUBPROGRAMS
+RV NO_ALLOCATORS
+RV NO_EXCEPTION_HANDLERS
+RV NO_EXCEPTION_PROPAGATION
+RV NO_EXCEPTIONS
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_LOCAL_ALLOCATORS
+RV NO_NESTED_FINALIZATION
+RV NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_UNCHECKED_DEALLOCATION
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_ELABORATION_CODE
+RV NO_OBSOLESCENT_FEATURES
+
+U gnatcoll.arg_lists%b	gnatcoll-arg_lists.adb	34da2411 NE OO PK IU
+W ada%s			ada.ads			ada.ali
+W ada.characters%s	a-charac.ads		a-charac.ali
+W ada.characters.handling%s  a-chahan.adb	a-chahan.ali
+W ada.containers%s	a-contai.ads		a-contai.ali
+Z ada.exceptions%s	a-except.adb		a-except.ali
+W ada.strings%s		a-string.ads		a-string.ali
+W ada.strings.fixed%s	a-strfix.adb		a-strfix.ali
+W ada.strings.maps%s	a-strmap.adb		a-strmap.ali
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W ada.unchecked_deallocation%s
+W gnat%s		gnat.ads		gnat.ali
+W gnat.os_lib%s		g-os_lib.ads		g-os_lib.ali
+W gnatcoll%s		gnatcoll.ads		gnatcoll.ali
+W gnatcoll.scripts%s	gnatcoll-scripts.adb	gnatcoll-scripts.ali
+W gnatcoll.scripts.utils%s  gnatcoll-scripts-utils.adb  gnatcoll-scripts-utils.ali
+Z system%s		system.ads		system.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+Z system.soft_links%s	s-soflin.adb		s-soflin.ali
+Z system.standard_library%s  s-stalib.adb	s-stalib.ali
+
+U gnatcoll.arg_lists%s	gnatcoll-arg_lists.ads	b88991f4 EE OO PF PK IU
+W ada%s			ada.ads			ada.ali
+W ada.containers%s	a-contai.ads		a-contai.ali
+Z ada.containers.generic_array_sort%s
+Z ada.containers.helpers%s  a-conhel.adb	a-conhel.ali
+W ada.containers.vectors%s
+Z ada.exceptions%s	a-except.adb		a-except.ali
+Z ada.finalization%s	a-finali.ads		a-finali.ali
+Z ada.iterator_interfaces%s
+Z ada.streams%s		a-stream.adb		a-stream.ali
+W ada.strings%s		a-string.ads		a-string.ali
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+W ada.strings.unbounded%s  a-strunb.adb		a-strunb.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
+Z ada.unchecked_deallocation%s
+W gnat%s		gnat.ads		gnat.ali
+W gnat.os_lib%s		g-os_lib.ads		g-os_lib.ali
+W gnat.strings%s	g-string.ads		g-string.ali
+W gnatcoll%s		gnatcoll.ads		gnatcoll.ali
+Z system%s		system.ads		system.ali
+Z system.finalization_masters%s  s-finmas.adb	s-finmas.ali
+Z system.pool_global%s	s-pooglo.adb		s-pooglo.ali
+Z system.put_images%s	s-putima.adb		s-putima.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+Z system.soft_links%s	s-soflin.adb		s-soflin.ali
+Z system.standard_library%s  s-stalib.adb	s-stalib.ali
+Z system.storage_elements%s  s-stoele.adb	s-stoele.ali
+Z system.storage_pools%s  s-stopoo.adb		s-stopoo.ali
+Z system.storage_pools.subpools%s  s-stposu.adb	s-stposu.ali
+Z system.stream_attributes%s  s-stratt.adb	s-stratt.ali
+Z system.strings.stream_ops%s  s-ststop.adb	s-ststop.ali
+Z system.wch_stw%s	s-wchstw.adb		s-wchstw.ali
+
+D ada.ads		20210520051131 76789da1 ada%s
+D a-calend.ads		20210520051128 474d9720 ada.calendar%s
+D a-calfor.ads		20210520051128 0f4707d1 ada.calendar.formatting%s
+D a-catizo.ads		20210520051128 eaa56756 ada.calendar.time_zones%s
+D a-charac.ads		20210520051128 2d3ec45b ada.characters%s
+D a-chahan.ads		20210520051128 0ce1b450 ada.characters.handling%s
+D a-chlat1.ads		20210520051128 66457d31 ada.characters.latin_1%s
+D a-contai.ads		20210520051128 61e5e089 ada.containers%s
+D a-cgarso.ads		20210520051128 9129bfa8 ada.containers.generic_array_sort%s
+D a-cohata.ads		20210520051128 bc432d0e ada.containers.hash_tables%s
+D a-conhel.ads		20210520051128 20298884 ada.containers.helpers%s
+D a-conhel.adb		20210520051128 fe7a6827 ada.containers.helpers%b
+D a-cidlli.ads		20210520051128 c4257f13 ada.containers.indefinite_doubly_linked_lists%s
+D a-cihama.ads		20210520051128 76287ea1 ada.containers.indefinite_hashed_maps%s
+D a-convec.ads		20210520051128 5d39d84a ada.containers.vectors%s
+D a-convec.adb		20210520051128 8dbd1ef5 ada.containers.vectors%b
+D a-except.ads		20210520051128 946f3014 ada.exceptions%s
+D a-finali.ads		20210520051128 bf4f806b ada.finalization%s
+D a-ioexce.ads		20210520051128 e4a01f64 ada.io_exceptions%s
+D a-iteint.ads		20210520051128 49a8bee2 ada.iterator_interfaces%s
+D a-stream.ads		20210520051129 119b8fb3 ada.streams%s
+D a-string.ads		20210520051129 90ac6797 ada.strings%s
+D a-strfix.ads		20210520051129 aeacf44c ada.strings.fixed%s
+D a-strhas.ads		20210520051129 c71c2a52 ada.strings.hash%s
+D a-strmap.ads		20210520051129 5a88892a ada.strings.maps%s
+D a-strsea.ads		20210520051129 b9bc90ba ada.strings.search%s
+D a-sttebu.ads		20210520051129 18209c64 ada.strings.text_buffers%s
+D a-strunb.ads		20210520051129 03325227 ada.strings.unbounded%s
+D a-strunb.adb		20210520051129 3b950306 ada.strings.unbounded%b
+D a-stuten.ads		20210520051129 808c40ad ada.strings.utf_encoding%s
+D a-tags.ads		20210520051130 9eaa38c6 ada.tags%s
+D a-unccon.ads		20210520051130 0e9b276f ada.unchecked_conversion%s
+D a-uncdea.ads		20210520051130 c3a8ac65 ada.unchecked_deallocation%s
+D gnat.ads		20210520051132 b5988c27 gnat%s
+D g-calend.ads		20210520051131 cad86fa7 gnat.calendar%s
+D g-expect.ads		20210520051131 e4246c0f gnat.expect%s
+D g-os_lib.ads		20210520051131 0db74523 gnat.os_lib%s
+D g-regpat.ads		20210520051131 b85d88ef gnat.regpat%s
+D g-string.ads		20210520051131 c6abc540 gnat.strings%s
+D gnatcoll.ads		20210519051041 6a5da479 gnatcoll%s
+D gnatcoll-any_types.ads  20210519051041 b8e2b29e gnatcoll.any_types%s
+D gnatcoll-arg_lists.ads  20210519051041 47c33f83 gnatcoll.arg_lists%s
+D gnatcoll-arg_lists.adb  20210519051041 c721c5a0 gnatcoll.arg_lists%b
+D gnatcoll-atomic.ads	20210519051041 a760a918 gnatcoll.atomic%s
+D gnatcoll-atomic.adb	20210519051041 d76879ba gnatcoll.atomic%b
+D gnatcoll-io.ads	20210519051041 40b00e79 gnatcoll.io%s
+D gnatcoll-io-native.ads  20210519051041 60c7703b gnatcoll.io.native%s
+D gnatcoll-path.ads	20210519051041 44783065 gnatcoll.path%s
+D gnatcoll-refcount.ads	20210519051041 b4dda25c gnatcoll.refcount%s
+D gnatcoll-scripts.ads	20210519051041 64a447dc gnatcoll.scripts%s
+D gnatcoll-scripts-utils.ads  20210519051041 e3071ecb gnatcoll.scripts.utils%s
+D gnatcoll-storage_pools.ads  20210519051041 f82e283b gnatcoll.storage_pools%s
+D gnatcoll-storage_pools-headers.ads  20210519051041 968b2c2e gnatcoll.storage_pools.headers%s
+D gnatcoll-strings.ads	20210519051041 014a3fb6 gnatcoll.strings%s
+D gnatcoll-strings.ads	20210519051041 014a3fb6 gnatcoll.strings%s
+D gnatcoll-strings_impl.ads  20210519051041 660cba3c gnatcoll.strings_impl%s
+D gnatcoll-strings_impl.adb  20210519051041 4bac4314 gnatcoll.strings_impl%b
+D gnatcoll-utils.ads	20210519051041 529681bc gnatcoll.utils%s
+D gnatcoll-vfs.ads	20210519051041 1efc72f6 gnatcoll.vfs%s
+D gnatcoll-vfs_types.ads  20210519051041 14be4a8d gnatcoll.vfs_types%s
+D interfac.ads		20210520051132 edec285f interfaces%s
+D i-c.ads		20210520051132 d9beded9 interfaces.c%s
+D i-cstrin.ads		20210520051132 341d0ddf interfaces.c.strings%s
+D system.ads		20210520051135 a2da961d system%s
+D s-atocou.ads		20210520051132 b45c2d8d system.atomic_counters%s
+D s-atocou.adb		20210520051132 b65612c0 system.atomic_counters%b
+D s-carun8.ads		20210520051132 a903718d system.compare_array_unsigned_8%s
+D s-exctab.ads		20210520051132 54135002 system.exception_table%s
+D s-finmas.ads		20210520051132 1ab4dba8 system.finalization_masters%s
+D s-finroo.ads		20210520051132 4ff27390 system.finalization_root%s
+D s-imagei.ads		20210520051133 0d3f86a7 system.image_i%s
+D s-imgint.ads		20210520051133 bdb6f5ec system.img_int%s
+D s-memory.ads		20210520051133 597d6634 system.memory%s
+D s-os_lib.ads		20210520051133 93b69309 system.os_lib%s
+D s-parame.ads		20210520051134 4752c4cb system.parameters%s
+D s-pooglo.ads		20210520051134 ede33ef8 system.pool_global%s
+D s-putima.ads		20210520051134 4e095881 system.put_images%s
+D s-regpat.ads		20210520051134 825a9b7f system.regpat%s
+D s-secsta.ads		20210520051134 9b3ab94b system.secondary_stack%s
+D s-soflin.ads		20210520051134 a7318a92 system.soft_links%s
+D s-stache.ads		20210520051134 a37c21ec system.stack_checking%s
+D s-stalib.ads		20210520051134 472fbca8 system.standard_library%s
+D s-stalib.adb		20210520051134 977290bf system.standard_library%b
+D s-stoele.ads		20210520051134 2dc34a04 system.storage_elements%s
+D s-stoele.adb		20210520051134 ed88f8fb system.storage_elements%b
+D s-stopoo.ads		20210520051134 e9fa2dd8 system.storage_pools%s
+D s-stposu.ads		20210520051134 e251976f system.storage_pools.subpools%s
+D s-stratt.ads		20210520051134 7bdda3fa system.stream_attributes%s
+D s-stratt.adb		20210520051134 fc996108 system.stream_attributes%b
+D s-statxd.ads		20210520051134 b54789f6 system.stream_attributes.xdr%s
+D s-strhas.ads		20210520051134 269cd894 system.string_hash%s
+D s-strhas.adb		20210520051134 2e038444 system.string_hash%b
+D s-string.ads		20210520051134 8fe54fb7 system.strings%s
+D s-ststop.ads		20210520051134 5fbf1b38 system.strings.stream_ops%s
+D s-traent.ads		20210520051134 26a8d361 system.traceback_entries%s
+D s-unstyp.ads		20210520051134 2b077493 system.unsigned_types%s
+D s-wchcon.ads		20210520051135 1b7d22d2 system.wch_con%s
+D s-wchstw.ads		20210520051135 2d112c01 system.wch_stw%s
+D unchconv.ads		20210520051135 ca2f9e18 unchecked_conversion%s
+G a e
+G c Z s b [get_command gnatcoll__arg_lists 53 13 none]
+G c Z s b [create gnatcoll__arg_lists 56 13 none]
+G c Z s b [argument_list_to_string gnatcoll__arg_lists 61 13 none]
+G c Z s b [parse_string gnatcoll__arg_lists 70 13 none]
+G c Z s b [parse_string gnatcoll__arg_lists 76 13 none]
+G c Z s b [append_argument gnatcoll__arg_lists 80 14 none]
+G c Z s b [args_length gnatcoll__arg_lists 86 13 none]
+G c Z s b [nth_arg gnatcoll__arg_lists 92 13 none]
+G c Z s b [nth_arg gnatcoll__arg_lists 95 13 none]
+G c Z s b [set_nth_arg gnatcoll__arg_lists 98 14 none]
+G c Z s b [substitute gnatcoll__arg_lists 111 14 none]
+G c Z s b [to_list gnatcoll__arg_lists 119 13 none]
+G c Z s b [to_display_string gnatcoll__arg_lists 131 13 none]
+G c Z s b [to_debug_string gnatcoll__arg_lists 141 13 none]
+G c Z s b [to_script_string gnatcoll__arg_lists 148 13 none]
+G c Z s s [argument_typeDI gnatcoll__arg_lists 155 9 none]
+G c Z s s [argument_typeDA gnatcoll__arg_lists 155 9 none]
+G c Z s s [argument_typeDF gnatcoll__arg_lists 155 9 none]
+G c Z s s [argument_typeIP gnatcoll__arg_lists 155 9 none]
+G c Z s s [has_element gnatcoll__arg_lists__arg_list_vector 115 13 160_4]
+G c Z s s [empty gnatcoll__arg_lists__arg_list_vector 125 13 160_4]
+G c Z s s [Oeq gnatcoll__arg_lists__arg_list_vector 127 24 160_4]
+G c Z s s [to_vector gnatcoll__arg_lists__arg_list_vector 136 13 160_4]
+G c Z s s [to_vector gnatcoll__arg_lists__arg_list_vector 139 13 160_4]
+G c Z s s [Oconcat gnatcoll__arg_lists__arg_list_vector 145 13 160_4]
+G c Z s s [Oconcat gnatcoll__arg_lists__arg_list_vector 149 13 160_4]
+G c Z s s [Oconcat gnatcoll__arg_lists__arg_list_vector 153 13 160_4]
+G c Z s s [Oconcat gnatcoll__arg_lists__arg_list_vector 157 13 160_4]
+G c Z s s [capacity gnatcoll__arg_lists__arg_list_vector 161 13 160_4]
+G c Z s s [reserve_capacity gnatcoll__arg_lists__arg_list_vector 164 14 160_4]
+G c Z s s [length gnatcoll__arg_lists__arg_list_vector 175 13 160_4]
+G c Z s s [set_length gnatcoll__arg_lists__arg_list_vector 178 14 160_4]
+G c Z s s [is_empty gnatcoll__arg_lists__arg_list_vector 187 13 160_4]
+G c Z s s [clear gnatcoll__arg_lists__arg_list_vector 190 14 160_4]
+G c Z s s [to_cursor gnatcoll__arg_lists__arg_list_vector 194 13 160_4]
+G c Z s s [to_index gnatcoll__arg_lists__arg_list_vector 201 13 160_4]
+G c Z s s [element gnatcoll__arg_lists__arg_list_vector 206 13 160_4]
+G c Z s s [element gnatcoll__arg_lists__arg_list_vector 213 13 160_4]
+G c Z s s [replace_element gnatcoll__arg_lists__arg_list_vector 217 14 160_4]
+G c Z s s [replace_element gnatcoll__arg_lists__arg_list_vector 228 14 160_4]
+G c Z s s [query_element gnatcoll__arg_lists__arg_list_vector 239 14 160_4]
+G c Z s s [query_element gnatcoll__arg_lists__arg_list_vector 250 14 160_4]
+G c Z s s [update_element gnatcoll__arg_lists__arg_list_vector 259 14 160_4]
+G c Z s s [update_element gnatcoll__arg_lists__arg_list_vector 276 14 160_4]
+G c Z s s [constant_reference gnatcoll__arg_lists__arg_list_vector 303 13 160_4]
+G c Z s s [reference gnatcoll__arg_lists__arg_list_vector 308 13 160_4]
+G c Z s s [constant_reference gnatcoll__arg_lists__arg_list_vector 313 13 160_4]
+G c Z s s [reference gnatcoll__arg_lists__arg_list_vector 318 13 160_4]
+G c Z s s [assign gnatcoll__arg_lists__arg_list_vector 323 14 160_4]
+G c Z s s [copy gnatcoll__arg_lists__arg_list_vector 325 13 160_4]
+G c Z s s [move gnatcoll__arg_lists__arg_list_vector 327 14 160_4]
+G c Z s s [new_vector gnatcoll__arg_lists__arg_list_vector 333 13 160_4]
+G c Z s s [insert_vector gnatcoll__arg_lists__arg_list_vector 337 14 160_4]
+G c Z s s [insert_vector gnatcoll__arg_lists__arg_list_vector 361 14 160_4]
+G c Z s s [insert_vector gnatcoll__arg_lists__arg_list_vector 378 14 160_4]
+G c Z s s [insert gnatcoll__arg_lists__arg_list_vector 396 14 160_4]
+G c Z s s [insert gnatcoll__arg_lists__arg_list_vector 404 14 160_4]
+G c Z s s [insert gnatcoll__arg_lists__arg_list_vector 412 14 160_4]
+G c Z s s [insert gnatcoll__arg_lists__arg_list_vector 421 14 160_4]
+G c Z s s [insert gnatcoll__arg_lists__arg_list_vector 438 14 160_4]
+G c Z s s [prepend_vector gnatcoll__arg_lists__arg_list_vector 449 14 160_4]
+G c Z s s [prepend gnatcoll__arg_lists__arg_list_vector 459 14 160_4]
+G c Z s s [append_vector gnatcoll__arg_lists__arg_list_vector 466 14 160_4]
+G c Z s s [append gnatcoll__arg_lists__arg_list_vector 476 14 160_4]
+G c Z s s [append gnatcoll__arg_lists__arg_list_vector 483 14 160_4]
+G c Z s s [insert_space gnatcoll__arg_lists__arg_list_vector 486 14 160_4]
+G c Z s s [insert_space gnatcoll__arg_lists__arg_list_vector 503 14 160_4]
+G c Z s s [delete gnatcoll__arg_lists__arg_list_vector 514 14 160_4]
+G c Z s s [delete gnatcoll__arg_lists__arg_list_vector 524 14 160_4]
+G c Z s s [delete_first gnatcoll__arg_lists__arg_list_vector 533 14 160_4]
+G c Z s s [delete_last gnatcoll__arg_lists__arg_list_vector 538 14 160_4]
+G c Z s s [reverse_elements gnatcoll__arg_lists__arg_list_vector 546 14 160_4]
+G c Z s s [swap gnatcoll__arg_lists__arg_list_vector 549 14 160_4]
+G c Z s s [swap gnatcoll__arg_lists__arg_list_vector 554 14 160_4]
+G c Z s s [first_index gnatcoll__arg_lists__arg_list_vector 560 13 160_4]
+G c Z s s [first gnatcoll__arg_lists__arg_list_vector 563 13 160_4]
+G c Z s s [first_element gnatcoll__arg_lists__arg_list_vector 567 13 160_4]
+G c Z s s [last_index gnatcoll__arg_lists__arg_list_vector 570 13 160_4]
+G c Z s s [last gnatcoll__arg_lists__arg_list_vector 574 13 160_4]
+G c Z s s [last_element gnatcoll__arg_lists__arg_list_vector 578 13 160_4]
+G c Z s s [next gnatcoll__arg_lists__arg_list_vector 581 13 160_4]
+G c Z s s [next gnatcoll__arg_lists__arg_list_vector 587 14 160_4]
+G c Z s s [previous gnatcoll__arg_lists__arg_list_vector 590 13 160_4]
+G c Z s s [previous gnatcoll__arg_lists__arg_list_vector 596 14 160_4]
+G c Z s s [find_index gnatcoll__arg_lists__arg_list_vector 599 13 160_4]
+G c Z s s [find gnatcoll__arg_lists__arg_list_vector 609 13 160_4]
+G c Z s s [reverse_find_index gnatcoll__arg_lists__arg_list_vector 623 13 160_4]
+G c Z s s [reverse_find gnatcoll__arg_lists__arg_list_vector 635 13 160_4]
+G c Z s s [contains gnatcoll__arg_lists__arg_list_vector 649 13 160_4]
+G c Z s s [iterate gnatcoll__arg_lists__arg_list_vector 654 14 160_4]
+G c Z s s [reverse_iterate gnatcoll__arg_lists__arg_list_vector 662 14 160_4]
+G c Z s s [iterate gnatcoll__arg_lists__arg_list_vector 669 13 160_4]
+G c Z s s [iterate gnatcoll__arg_lists__arg_list_vector 672 13 160_4]
+G c Z s s [adjust gnatcoll__arg_lists__arg_list_vector__implementation 90 28 726_4_160_4]
+G c Z s s [finalize gnatcoll__arg_lists__arg_list_vector__implementation 93 28 726_4_160_4]
+G c Z s s [zero_counts gnatcoll__arg_lists__arg_list_vector__implementation 96 17 726_4_160_4]
+G c Z s s [busy gnatcoll__arg_lists__arg_list_vector__implementation 100 17 726_4_160_4]
+G c Z s s [unbusy gnatcoll__arg_lists__arg_list_vector__implementation 104 17 726_4_160_4]
+G c Z s s [lock gnatcoll__arg_lists__arg_list_vector__implementation 108 17 726_4_160_4]
+G c Z s s [unlock gnatcoll__arg_lists__arg_list_vector__implementation 112 17 726_4_160_4]
+G c Z s s [tc_check gnatcoll__arg_lists__arg_list_vector__implementation 116 17 726_4_160_4]
+G c Z s s [te_check gnatcoll__arg_lists__arg_list_vector__implementation 120 17 726_4_160_4]
+G c Z s s [initialize gnatcoll__arg_lists__arg_list_vector__implementation 139 28 726_4_160_4]
+G c Z s s [finalize gnatcoll__arg_lists__arg_list_vector__implementation 140 28 726_4_160_4]
+G c Z s s [initialize gnatcoll__arg_lists__arg_list_vector__implementation 145 28 726_4_160_4]
+G c Z s s [finalize gnatcoll__arg_lists__arg_list_vector__implementation 146 28 726_4_160_4]
+G c Z s s [reference_control_typeDA gnatcoll__arg_lists__arg_list_vector__implementation 84 12 726_4_160_4]
+G c Z s s [reference_control_typeDF gnatcoll__arg_lists__arg_list_vector__implementation 84 12 726_4_160_4]
+G c Z s s [reference_control_typeIP gnatcoll__arg_lists__arg_list_vector__implementation 84 12 726_4_160_4]
+G c Z s s [with_busyDF gnatcoll__arg_lists__arg_list_vector__implementation 136 12 726_4_160_4]
+G c Z s s [with_busyIP gnatcoll__arg_lists__arg_list_vector__implementation 136 12 726_4_160_4]
+G c Z s s [with_lockDF gnatcoll__arg_lists__arg_list_vector__implementation 142 12 726_4_160_4]
+G c Z s s [with_lockIP gnatcoll__arg_lists__arg_list_vector__implementation 142 12 726_4_160_4]
+G c Z s s [put_image gnatcoll__arg_lists__arg_list_vector 747 14 160_4]
+G c Z s s [adjust gnatcoll__arg_lists__arg_list_vector 750 25 160_4]
+G c Z s s [finalize gnatcoll__arg_lists__arg_list_vector 751 25 160_4]
+G c Z s s [write gnatcoll__arg_lists__arg_list_vector 753 14 160_4]
+G c Z s s [read gnatcoll__arg_lists__arg_list_vector 759 14 160_4]
+G c Z s s [read gnatcoll__arg_lists__arg_list_vector 773 14 160_4]
+G c Z s s [write gnatcoll__arg_lists__arg_list_vector 779 14 160_4]
+G c Z s s [write gnatcoll__arg_lists__arg_list_vector 798 14 160_4]
+G c Z s s [read gnatcoll__arg_lists__arg_list_vector 804 14 160_4]
+G c Z s s [write gnatcoll__arg_lists__arg_list_vector 820 14 160_4]
+G c Z s s [read gnatcoll__arg_lists__arg_list_vector 826 14 160_4]
+G c Z s s [pseudo_reference gnatcoll__arg_lists__arg_list_vector 837 13 160_4]
+G c Z s s [get_element_access gnatcoll__arg_lists__arg_list_vector 846 13 160_4]
+G c Z s s [cursorIP gnatcoll__arg_lists__arg_list_vector 768 9 160_4]
+G c Z s s [vectorDA gnatcoll__arg_lists__arg_list_vector 741 9 160_4]
+G c Z s s [vectorDF gnatcoll__arg_lists__arg_list_vector 741 9 160_4]
+G c Z s s [vectorIP gnatcoll__arg_lists__arg_list_vector 741 9 160_4]
+G c Z s s [constant_reference_typeDI gnatcoll__arg_lists__arg_list_vector 788 9 160_4]
+G c Z s s [constant_reference_typeDA gnatcoll__arg_lists__arg_list_vector 788 9 160_4]
+G c Z s s [constant_reference_typeDF gnatcoll__arg_lists__arg_list_vector 788 9 160_4]
+G c Z s s [constant_reference_typeIP gnatcoll__arg_lists__arg_list_vector 788 9 160_4]
+G c Z s s [reference_typeDI gnatcoll__arg_lists__arg_list_vector 810 9 160_4]
+G c Z s s [reference_typeDA gnatcoll__arg_lists__arg_list_vector 810 9 160_4]
+G c Z s s [reference_typeDF gnatcoll__arg_lists__arg_list_vector 810 9 160_4]
+G c Z s s [reference_typeIP gnatcoll__arg_lists__arg_list_vector 810 9 160_4]
+G c Z s s [finalize gnatcoll__arg_lists__arg_list_vector 862 25 160_4]
+G c Z s s [first gnatcoll__arg_lists__arg_list_vector 864 24 160_4]
+G c Z s s [last gnatcoll__arg_lists__arg_list_vector 865 24 160_4]
+G c Z s s [next gnatcoll__arg_lists__arg_list_vector 867 24 160_4]
+G c Z s s [previous gnatcoll__arg_lists__arg_list_vector 871 24 160_4]
+G c Z s s [elements_arrayIP gnatcoll__arg_lists__arg_list_vector 729 9 160_4]
+G c Z s s [elements_arrayDI gnatcoll__arg_lists__arg_list_vector 729 9 160_4]
+G c Z s s [elements_arrayDA gnatcoll__arg_lists__arg_list_vector 729 9 160_4]
+G c Z s s [elements_arrayDF gnatcoll__arg_lists__arg_list_vector 729 9 160_4]
+G c Z s s [elements_typeDI gnatcoll__arg_lists__arg_list_vector 732 9 160_4]
+G c Z s s [elements_typeDF gnatcoll__arg_lists__arg_list_vector 732 9 160_4]
+G c Z s s [elements_typeIP gnatcoll__arg_lists__arg_list_vector 732 9 160_4]
+G c Z s s [iteratorDF gnatcoll__arg_lists__arg_list_vector 854 9 160_4]
+G c Z s s [iteratorIP gnatcoll__arg_lists__arg_list_vector 854 9 160_4]
+G c Z s s [free gnatcoll__arg_lists__arg_list_vector 44 14 160_4]
+G c Z s s [append_slow_path gnatcoll__arg_lists__arg_list_vector 47 14 160_4]
+G c Z s s [arg_listDI gnatcoll__arg_lists 163 9 none]
+G c Z s s [arg_listDA gnatcoll__arg_lists 163 9 none]
+G c Z s s [arg_listDF gnatcoll__arg_lists 163 9 none]
+G c Z s s [arg_listIP gnatcoll__arg_lists 163 9 none]
+G c Z b b [parse_command_line_string gnatcoll__arg_lists 36 14 none]
+G c Z b b [escape_backslashes gnatcoll__arg_lists 44 13 none]
+G r c none [parse_string gnatcoll__arg_lists 70 13 none] [argument_string_to_list_with_triple_quotes gnatcoll__scripts__utils 48 13 none]
+G r c none [parse_string gnatcoll__arg_lists 76 13 none] [argument_string_to_list_with_triple_quotes gnatcoll__scripts__utils 48 13 none]
+G r c none [parse_command_line_string gnatcoll__arg_lists 36 14 none] [argument_string_to_list_with_triple_quotes gnatcoll__scripts__utils 48 13 none]
+X 1 ada.ads
+16K9*Ada 20e8 42|28r6 29r6 29r35 160r35 43|26r6 27r6 27r26 28r6 28r35 29r6
+. 29r35 30r6 30r35 98r39
+X 5 a-charac.ads
+16K13*Characters 18e19 43|28r10 28r39
+X 6 a-chahan.ads
+36K24*Handling 160e28 43|28w21 28r50
+54V13*Is_Alphanumeric{boolean} 43|385s31
+67V13*To_Lower{character} 56|283i21
+68V13*To_Upper{character} 56|285i21
+X 8 a-contai.ads
+16K13*Containers 28e19 42|28r10 160r39 43|27w10 27r30
+19M9*Hash_Type
+22I9*Count_Type<integer>
+X 15 a-convec.ads
+74k24*Vectors 875e27 42|28w21 160r50
+91R9*Vector<18|43R9> 42|165r30[160]
+122r4*Empty_Vector{91R9[42|160]} 42|172r52[160]
+175V13*Length{8|22I9} 43|210s59[42|160] 212s41[42|160] 236s42[42|160] 252s34[42|160]
+. 268s34[42|160] 317s34[42|160] 403s51[42|160] 413s47[42|160] 452s41[42|160]
+. 488s27[42|160]
+187V13*Is_Empty{boolean} 43|163s14[42|160]
+206V13*Element{42|155R9} 43|166s32[42|160] 214s31[42|160] 239s37[42|160]
+. 244s40[42|160] 248s36[42|160] 266s27[42|160] 269s51[42|160] 313s32[42|160]
+. 318s35[42|160] 408s57[42|160] 410s45[42|160] 446s24[42|160] 453s26[42|160]
+. 457s33[42|160] 464s63[42|160] 497s29[42|160] 502s18[42|160] 517s18[42|160]
+217U14*Replace_Element 43|448s21[42|160] 516s11[42|160]
+471U14*Append=473:35 43|467s37[42|160]
+483U14*Append 43|115s15[42|160] 138s15[42|160] 177s11[42|160] 190s11[42|160]
+. 459s34[42|160] 471s37[42|160] 513s14[42|160]
+X 20 a-iteint.ads
+24h9 Forward_Iterator
+32h9 Reversible_Iterator<24R9[15|119]>
+X 22 a-string.ads
+16K13*Strings 35e16 42|29r10 29r39 43|29r10 29r39 30r10 30r39
+X 23 a-strfix.ads
+43K21*Fixed 1398e22 43|29w18 29r47
+1162V13*Trim{string} 43|109s10
+1164a7 Left{25|52A9} 43|111r13
+1165a7 Right{25|52A9} 43|112r13
+X 25 a-strmap.ads
+44K21*Maps 548e21 43|30w18 30r47
+52A9*Character_Set<274A9>
+172V13*To_Set{52A9} 43|111s22 112s22
+274A9 Character_Set_Internal(boolean)<character>
+X 28 a-strunb.ads
+83K21*Unbounded 765e26 42|29w18 29r47
+88R9*Unbounded_String<18|43R9> 744e15 42|95r56 157r14 43|44r37 44r62 52r11
+. 52r36 54r11 229r16 264r16 280r25 280r50 287r25 287r50 289r14 306r16 342r38
+. 342r63 350r14 350r39 353r16 445r29 456r38 464r38 500r56
+91r4*Null_Unbounded_String{88R9} 43|360r20 513r32
+93V13*Length{natural} 43|239s25 469s47
+104V13*To_Unbounded_String{88R9} 43|91s21 94s30 138s33 177s29 190s26 229s36
+. 264s36 517s36
+117V13*To_String{string} 43|53s30 166s17 214s16 256s14 271s14 288s33 313s17
+. 324s33 352s35 497s14
+128U14*Append 43|242s16 248s16 266s7 269s10 318s10 406s25 410s25
+136U14*Append 43|59s16 246s16 253s13 294s16 296s16 298s16
+144U14*Append 43|61s16 300s16 319s10 398s19 414s25 423s16
+168V14*"&"{88R9} 43|269s45
+192V13*Element{character} 43|466s28
+208V13*Slice{string} 43|469s34
+217V13*Unbounded_Slice{88R9} 43|244s19
+X 33 a-uncdea.ads
+20u15*Unchecked_Deallocation 43|26w10 98r43
+X 34 gnat.ads
+34K9*GNAT 57e9 42|26r6 27r6 62r24 121r41 43|24r6 24r23 199r41 210r14 525r24
+X 37 g-os_lib.ads
+51K14*OS_Lib=51:36 42|26w11 121r46 43|24w11 24r28 199r46 210r19
+X 39 g-string.ads
+38K14*Strings=38:37 42|27w11 62r29 43|525r29
+X 40 gnatcoll.ads
+24K9*GNATCOLL 27e13 42|31r9 174r5 43|32r6 32r34 34r14 572r5
+X 42 gnatcoll-arg_lists.ads
+31K18*Arg_Lists 40|24k9 42|155E9 174l14 174e23 43|34b23 572l14 572t23
+33E9*Command_Line_Mode 33e57 72r14 107r39 115r44 164r14 43|128r14 338r44
+33n31*Raw_String{33E9} 43|312r19 401r57 405r35 443r15
+33n43*Separate_Args{33E9} 164r35 171r36 43|39r29 135r17 451r15 469r60
+39E9*Argument_Mode 39e47 83r18 156r14 43|188r18
+39n27*Expandable{39E9} 43|94r18 462r24 472r32
+39n39*One_Arg{39E9} 43|90r21 138r24 177r20 448r42 454r24 459r43 513r23
+46R9*Arg_List 51r34 53r30 56r46 72r40 76r67 81r25 86r30 92r26 95r26 98r38
+. 107r65 112r25 115r70 120r25 132r25 141r34 148r35 163c9 168e14 170r34 43|37r21
+. 72r21 128r40 130r12 149r47 151r12 161r30 174r46 175r11 186r25 198r25 225r25
+. 263r34 278r35 335r25 338r70 340r17 356r20 486r30 495r26 500r26 509r38
+51r4*Empty_Command_Line{46R9} 170c4 43|308r14 434r15
+53V13*Get_Command{string} 53>26 43|161b13 168l8 168t19
+53r26 C{46R9} 43|161b26 163r10 166r28
+56V13*Create{46R9} 56>21 43|151s24 174b13 179l8 179t14
+56a21 Command{string} 43|174b21 177r50
+61V13*Argument_List_To_String{string} 62>7 63>7 43|524b13 570l8 570t31
+62a7 List{93|54A9} 43|525b7 530r16 531r29 534r22 535r19 536r26 537r26 538r26
+. 550r19 551r22 553r22 554r29 555r29 556r29 562r29
+63b7 Protect_Quotes{boolean} 43|526b7 533r13 552r19
+70V13*Parse_String{46R9} 71>7 72>7 43|126b13 142l8 142t20
+71a7 Text{string} 43|127b7 136r41 138r54
+72e7 Mode{33E9} 43|128b7 133r18 135r10
+76V13*Parse_String{46R9} 76>27 76>45 43|148b13 155l8 155t20
+76a27 Command{string} 43|149b7 151r32
+76a45 Text{string} 43|149b25 153r38
+80U14*Append_Argument 81=7 82>7 83>7 43|185b14 191l8 191t23
+81r7 C{46R9} 43|186b7 190m7 190r7
+82a7 Argument{string} 43|187b7 190r47
+83e7 Mode{39E9} 43|188b7 190r20
+86V13*Args_Length{integer} 86>26 43|486b13 489l8 489t19 512s17
+86r26 C{46R9} 43|486b26 488r23
+92V13*Nth_Arg{string} 92>22 92>36 43|495b13 498l8 498t15
+92r22 C{46R9} 43|495b22 497r25
+92i36 N{natural} 43|495b36 497r38
+95V13*Nth_Arg{28|88R9} 95>22 95>36 43|500b13 503l8 503t15
+95r22 C{46R9} 43|500b22 502r14
+95i36 N{natural} 43|500b36 502r27
+98U14*Set_Nth_Arg 98=27 98>48 98>61 43|509b14 518l8 518t19
+98r27 C{46R9} 43|509b27 512r30 513m10 513r10 516m7 516r7 517r14
+98i48 N{natural} 43|509b48 512r13 517r10 517r27
+98a61 Arg{string} 43|509b61 517r57
+106P9*Substitution_Function(46R9) 107>16 107>32
+107a16 Param{string}
+107e32 Mode{33E9}
+111U14*Substitute 112=7 113>7 114^7 43|334b14 480l8 480t18
+112r7 CL{46R9} 43|335b7 405r25 432r22 434r10 442r12 446r19 448m16 448r16
+. 452r36 453r21 457r28 464r58 478m13
+113e7 Char{character} 43|336b7 365r24 397r31 398r30 466r45
+114p7 Callback(46R9) 43|337b7 401r29 438r10 468r31
+115a21 Param{string}
+115e37 Mode{33E9}
+119V13*To_List{74|741A12} 120>7 121>7 43|197b13 218l8 218t15
+120r7 C{46R9} 43|198b7 210r55 212r37 214r27
+121b7 Include_Command{boolean} 43|199b7 203r10
+131V13*To_Display_String{string} 132>7 133>7 134>7 43|224b13 257l8 257t25
+132r7 C{46R9} 43|225b7 236r38 239r33 244r36 248r32 252r30
+133b7 Include_Command{boolean} 43|226b7 232r14
+134i7 Max_Arg_Length{positive} 43|227b7 241r26 245r24
+141V13*To_Debug_String{string} 141>30 43|263b13 272l8 272t23
+141r30 C{46R9} 43|263b30 266r23 268r30 269r47
+148V13*To_Script_String{string} 148>31 43|278b13 328l8 328t24
+148r31 C{46R9} 43|278b31 308r10 312r10 313r28 317r30 318r31
+155R9 Argument_Type 158e14 161r16 43|75r44 85r44
+156e7*Mode{39E9} 43|453r38 517r30
+157r7*Text{28|88R9} 43|166r44 214r43 239r57 244r60 248r56 266r39 269r63 313r44
+. 318r51 408r69 410r57 446r36 457r45 464r75 497r41 502r30
+160K12 Arg_List_Vector[15|74] 165r14 172r36
+164e7*Mode{33E9} 171m28 43|39r22 133m10 312r12 405r28 432m14 432r25 442r15
+165r7*V{15|91R9[160]} 172m28 43|115m13 138m13 163r12 166r30 177m9 190m9 210r57
+. 212r39 214r29 236r40 239r35 244r38 248r34 252r32 266r25 268r32 269r49 313r30
+. 317r32 318r33 403r49 408r55 410r43 413r45 446r22 448m19 452r39 453r24 457r31
+. 459m32 464r61 467m35 469r75 471m35 488r25 497r27 502r16 513m12 516m9 517r16
+X 43 gnatcoll-arg_lists.adb
+36U14 Parse_Command_Line_String 37=7 38>7 71b14 120l8 120t33 136s10 153s7
+37r7 CL{42|46R9} 39r19 72b7 115m10 115r10
+38a7 Text{string} 73b7 110r13
+44V13 Escape_Backslashes{28|88R9} 44>33 51b13 65l8 65t26 408s28
+44r33 A{28|88R9} 52b7 53r41
+53a7 S{string} 56r16 57r15 61r27
+54r7 R{28|88R9} 59m24 59r24 61m24 61r24 64r14
+56i11 J{integer} 57r18 61r30
+75V16 Process{42|155R9} 75>25 85b16 95l11 95t18 115s23
+75a25 A{string} 76r22 85b25 89r13 89r16 89r40 89r43 91r42 91r45 91r60 94r51
+97p7 Local_Args{74|746P12} 108m7 114r16 115r32 116r16 119m23 119r23
+98U17 Unchecked_Free[33|20] 119s7
+114i11 J{integer} 115r44 116r28
+130r7 CL{42|46R9} 133m7 136m37 136r37 138m10 138r10 141r14
+151r7 CL{42|46R9} 153m34 153r34 154r14
+175r7 C{42|46R9} 177m7 177r7 178r14
+201i7 First{natural} 204m10 206m10 210r69 212r19 213r24
+210a10 L{74|741A12} 213m13 216r17
+212i14 J{integer} 213r16 214r40
+229r7 Result{28|88R9} 243m19 243r19 246m24 246r24 248m24 248r24 253m21 253r21
+. 256r25
+230i7 Start{natural} 233m10 236r20
+236i11 Index{integer} 239r46 244r49 248r45 252r13
+238i13 Arg_Len{natural} 241r16
+264r7 Result{28|88R9} 266m15 266r15 269m18 269r18 271r25
+268i11 J{integer} 269r60
+280V16 Arg{28|88R9} 280>21 287b16 304l11 304t14 318s26
+280r21 A{28|88R9} 287b21 288r44
+288a10 S{string} 291r19 292r18 300r27
+289r10 R{28|88R9} 294m24 294r24 296m24 296r24 298m24 298r24 300m24 300r24
+. 303r17
+291i14 J{integer} 292r21 300r30
+306r7 Result{28|88R9} 318m18 318r18 319m18 319r18 324r44
+317i11 J{integer} 318r44
+324a10 R{string} 326r17 326r20 326r31
+338a21 Param{string}
+338e37 Mode{42|33E9}
+340r7 New_CL{42|46R9} 432m7 459m25 459r25 467m28 467r28 471m28 471r28 478r19
+342V16 Expand_In_String{28|88R9} 342>34 349b16 429l11 429t27 445s49 456s58
+. 472s44
+342r34 A{28|88R9} 350b10 352r46
+352a10 S{string} 359r13 363r15 364r21 365r16 365r42 370r19 377r30 378r30
+. 384r30 385r48 386r39 387r39 388r39 397r19 401r39 423r27
+353r10 U{28|88R9} 398m27 398r27 407m28 407r28 410m33 410r33 414m33 414r33
+. 423m24 423r24 428r17
+354i10 J{natural} 363m10 364r16 365r19 365r38 367m16 367r21 368r23 370r22
+. 375m19 375r24 376r26 377r25 378r33 380m22 380r27 384r25 385r51 386r42 387r42
+. 388r42 391m22 391r27 397r22 399m19 399r24 401r49 420m19 420r24 423r30 424m16
+. 424r21
+355i10 Beg{natural} 368m16 376m19 401r42
+356r10 New_CL{42|46R9} 401m19 401r19 403r42 408r48 410r36 413r38
+357b10 Skip_Ending_Bracket{boolean} 374m19 383m19 419r19
+403i23 K{integer} 408r66 410r54 413r25
+445r16 U{28|88R9} 448r51
+452i17 J{integer} 453r35 457r42 464r72
+456r25 U{28|88R9} 459r52
+464r25 P{28|88R9} 466r37 469r41 469r55 472r62
+528i7 Length{natural} 531m10 531r20 540m19 540r29 547r31
+530i11 L{integer} 531r35 534r28 535r25 536r32 537r32 538r32
+534i17 S{integer} 535r28 536r35 537r36 538r36
+547a10 S{string} 548r30 558m22 562m16 565m13 568r17 568r25
+548i10 Index{positive} 558r25 559m22 559r31 562r19 563m16 563r25 565r16 566m13
+. 566r22
+550i14 L{integer} 551r28 553r28 554r35 555r35 556r35 562r35
+551i17 J{integer} 553r32 554r39 555r39 556r39 562r38
+X 50 gnatcoll-scripts.ads
+49K18*Scripts 43|32r15 32r43 50|1622e21
+X 51 gnatcoll-scripts-utils.ads
+26K26*Utils 43|32w23 32r51 51|66e27
+48V13*Argument_String_To_List_With_Triple_Quotes{93|55P9} 43|108s21
+X 57 gnatcoll-strings_impl.adb
+1495V19 H[91|60]{8|19M9} 92|44b13[54|31]
+1511V19 H[91|60]{8|19M9} 92|44b13[54|31]
+X 64 system.ads
+67M9*Address
+X 73 s-memory.ads
+53V13*Alloc{64|67M9} 103i<c,__gnat_malloc>22
+68U14*Free 104i<c,__gnat_free>22
+76V13*Realloc{64|67M9} 105i<c,__gnat_realloc>22
+X 74 s-os_lib.ads
+72U14*Free=72:62 43|116s10
+88P12*String_List_Access{93|55P9}
+741A12*Argument_List{74A12}<integer> 42|121r53 43|99r10 199r53 210r26
+746P12*Argument_List_Access{88P12} 43|97r20 99r25
+X 83 s-stalib.adb
+89U14 Break_Start 90i<c,__gnat_break_start>22
+X 93 s-string.ads
+45P9*String_Access(string)
+54A9*String_List(45P9)<integer> 42|62r37 43|525r37
+55P9*String_List_Access(54A9)
+

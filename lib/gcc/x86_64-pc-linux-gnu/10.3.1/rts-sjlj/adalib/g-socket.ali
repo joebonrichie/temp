@@ -1,0 +1,1683 @@
+V "GNAT Lib v2021"
+A -O2
+A -ffunction-sections
+A -fdata-sections
+A -fsjlj
+A -fno-omit-frame-pointer
+A -momit-leaf-frame-pointer
+A -gnatg
+A -gnatn
+A -gnatU
+A -mtune=generic
+A -march=x86-64
+P SS
+
+RN
+RV NO_ACCESS_SUBPROGRAMS
+RV NO_ALLOCATORS
+RV NO_DISPATCH
+RV NO_DISPATCHING_CALLS
+RV NO_ENUMERATION_MAPS
+RV NO_EXCEPTION_HANDLERS
+RV NO_EXCEPTION_PROPAGATION
+RV NO_EXCEPTIONS
+RV NO_FINALIZATION
+RV NO_FIXED_POINT
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_LOCAL_ALLOCATORS
+RV NO_LONG_LONG_INTEGERS
+RV NO_NESTED_FINALIZATION
+RV NO_RECURSION
+RV NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_UNCHECKED_ACCESS
+RV NO_UNCHECKED_CONVERSION
+RV NO_UNCHECKED_DEALLOCATION
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ATTRIBUTES
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLICIT_ALIASING
+RV NO_IMPLICIT_LOOPS
+RV NO_ELABORATION_CODE
+RV NO_OBSOLESCENT_FEATURES
+
+U gnat.sockets%b	g-socket.adb		79e1ec9b OL PF PK
+W ada%s			ada.ads			ada.ali
+W ada.containers%s	a-contai.ads		a-contai.ali
+W ada.containers.generic_array_sort%s
+Z ada.containers.generic_constrained_array_sort%s
+W ada.exceptions%s	a-except.adb		a-except.ali
+W ada.finalization%s	a-finali.ads		a-finali.ali
+W ada.streams%s		a-stream.adb		a-stream.ali
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W ada.unchecked_conversion%s
+W gnat%s		gnat.ads		gnat.ali
+W gnat.sockets%s	g-socket.adb		g-socket.ali
+W gnat.sockets.linker_options%s  g-soliop.ads	g-soliop.ali
+W gnat.sockets.poll%s	g-socpol.adb		g-socpol.ali
+W gnat.sockets.thin%s	g-socthi.adb		g-socthi.ali
+W gnat.sockets.thin_common%s  g-sothco.adb	g-sothco.ali
+Z interfaces%s		interfac.ads		interfac.ali
+W system%s		system.ads		system.ali
+Z system.arith_64%s	s-arit64.adb		s-arit64.ali
+W system.communication%s  s-commun.adb		s-commun.ali
+W system.crtl%s		s-crtl.ads		s-crtl.ali
+Z system.finalization_masters%s  s-finmas.adb	s-finmas.ali
+Z system.img_int%s	s-imgint.ads		s-imgint.ali
+Z system.pool_global%s	s-pooglo.adb		s-pooglo.ali
+Z system.put_images%s	s-putima.adb		s-putima.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+Z system.soft_links%s	s-soflin.adb		s-soflin.ali
+Z system.standard_library%s  s-stalib.adb	s-stalib.ali
+Z system.storage_elements%s  s-stoele.adb	s-stoele.ali
+Z system.storage_pools%s  s-stopoo.adb		s-stopoo.ali
+Z system.storage_pools.subpools%s  s-stposu.adb	s-stposu.ali
+W system.task_lock%s	s-tasloc.adb		s-tasloc.ali
+Z system.val_int%s	s-valint.ads		s-valint.ali
+Z system.wch_stw%s	s-wchstw.adb		s-wchstw.ali
+N A838:7 codepeer modified two_fds
+N A889:7 codepeer modified pair
+N A961:10 codepeer modified l
+N A962:10 codepeer modified s
+N A2958:16 codepeer false_positive "test always false" "self fulfilling prophecy"
+
+U gnat.sockets%s	g-socket.ads		7476f04d BN EE OL PF PK
+W ada%s			ada.ads			ada.ali
+W ada.exceptions%s	a-except.adb		a-except.ali
+W ada.streams%s		a-stream.adb		a-stream.ali
+W ada.strings%s		a-string.ads		a-string.ali
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+W ada.strings.unbounded%s  a-strunb.adb		a-strunb.ali
+W ada.unchecked_deallocation%s
+W gnat%s		gnat.ads		gnat.ali
+W interfaces%s		interfac.ads		interfac.ali
+W interfaces.c%s	i-c.adb			i-c.ali
+W system%s		system.ads		system.ali
+Z system.exception_table%s  s-exctab.adb	s-exctab.ali
+Z system.finalization_masters%s  s-finmas.adb	s-finmas.ali
+W system.os_constants%s	s-oscons.ads		s-oscons.ali
+Z system.pool_global%s	s-pooglo.adb		s-pooglo.ali
+Z system.soft_links%s	s-soflin.adb		s-soflin.ali
+Z system.standard_library%s  s-stalib.adb	s-stalib.ali
+W system.storage_elements%s  s-stoele.adb	s-stoele.ali
+
+D ada.ads		20210520051131 76789da1 ada%s
+D a-charac.ads		20210520051128 2d3ec45b ada.characters%s
+D a-chlat1.ads		20210520051128 66457d31 ada.characters.latin_1%s
+D a-contai.ads		20210520051128 61e5e089 ada.containers%s
+D a-cgarso.ads		20210520051128 9129bfa8 ada.containers.generic_array_sort%s
+D a-cgarso.adb		20210520051128 59f5315a ada.containers.generic_array_sort%b
+D a-cgcaso.ads		20210520051128 9f1e835c ada.containers.generic_constrained_array_sort%s
+D a-cgcaso.adb		20210520051128 21f0752d ada.containers.generic_constrained_array_sort%b
+D a-except.ads		20210520051128 946f3014 ada.exceptions%s
+D a-finali.ads		20210520051128 bf4f806b ada.finalization%s
+D a-stream.ads		20210520051129 119b8fb3 ada.streams%s
+D a-string.ads		20210520051129 90ac6797 ada.strings%s
+D a-strmap.ads		20210520051129 5a88892a ada.strings.maps%s
+D a-strsea.ads		20210520051129 b9bc90ba ada.strings.search%s
+D a-sttebu.ads		20210520051129 18209c64 ada.strings.text_buffers%s
+D a-strunb.ads		20210520051129 03325227 ada.strings.unbounded%s
+D a-strunb.adb		20210520051129 3b950306 ada.strings.unbounded%b
+D a-stuten.ads		20210520051129 808c40ad ada.strings.utf_encoding%s
+D a-tags.ads		20210520051130 9eaa38c6 ada.tags%s
+D a-unccon.ads		20210520051130 0e9b276f ada.unchecked_conversion%s
+D a-uncdea.ads		20210520051130 c3a8ac65 ada.unchecked_deallocation%s
+D gnat.ads		20210520051132 b5988c27 gnat%s
+D g-os_lib.ads		20210520051131 0db74523 gnat.os_lib%s
+D g-socket.ads		20210520051131 935983be gnat.sockets%s
+D g-socket.adb		20210520051131 2d2d8e32 gnat.sockets%b
+D g-soliop.ads		20210520051131 7db90d5b gnat.sockets.linker_options%s
+D g-socpol.ads		20210520051131 6f74da53 gnat.sockets.poll%s
+D g-socthi.ads		20210520051131 8305425b gnat.sockets.thin%s
+D g-sothco.ads		20210520051131 6036b5fb gnat.sockets.thin_common%s
+D g-sothco.adb		20210520051131 61eecff5 gnat.sockets.thin_common%b
+D interfac.ads		20210520051132 edec285f interfaces%s
+D i-c.ads		20210520051132 d9beded9 interfaces.c%s
+D i-cstrin.ads		20210520051132 341d0ddf interfaces.c.strings%s
+D system.ads		20210520095221 fa138bbb system%s
+D s-arit64.ads		20210520051132 5f88d2b0 system.arith_64%s
+D s-atocou.ads		20210520051132 b45c2d8d system.atomic_counters%s
+D s-commun.ads		20210520051132 06400110 system.communication%s
+D s-carun8.ads		20210520051132 a903718d system.compare_array_unsigned_8%s
+D s-crtl.ads		20210520051132 0ebbdb71 system.crtl%s
+D s-exctab.ads		20210520051132 54135002 system.exception_table%s
+D s-exctab.adb		20210520051132 c756f391 system.exception_table%b
+D s-finmas.ads		20210520051132 1ab4dba8 system.finalization_masters%s
+D s-finroo.ads		20210520051132 4ff27390 system.finalization_root%s
+D s-imagei.ads		20210520051133 0d3f86a7 system.image_i%s
+D s-imgint.ads		20210520051133 bdb6f5ec system.img_int%s
+D s-memory.ads		20210520051133 597d6634 system.memory%s
+D s-oscons.ads		20210520095221 e3a42aec system.os_constants%s
+D s-os_lib.ads		20210520051133 93b69309 system.os_lib%s
+D s-parame.ads		20210520051134 4752c4cb system.parameters%s
+D s-pooglo.ads		20210520051134 ede33ef8 system.pool_global%s
+D s-putima.ads		20210520051134 4e095881 system.put_images%s
+D s-secsta.ads		20210520051134 9b3ab94b system.secondary_stack%s
+D s-soflin.ads		20210520051134 a7318a92 system.soft_links%s
+D s-stache.ads		20210520051134 a37c21ec system.stack_checking%s
+D s-stalib.ads		20210520051134 472fbca8 system.standard_library%s
+D s-stalib.adb		20210520051134 977290bf system.standard_library%b
+D s-stoele.ads		20210520051134 2dc34a04 system.storage_elements%s
+D s-stoele.adb		20210520051134 ed88f8fb system.storage_elements%b
+D s-stopoo.ads		20210520051134 e9fa2dd8 system.storage_pools%s
+D s-stposu.ads		20210520051134 e251976f system.storage_pools.subpools%s
+D s-stratt.ads		20210520051134 7bdda3fa system.stream_attributes%s
+D s-string.ads		20210520051134 8fe54fb7 system.strings%s
+D s-tasloc.ads		20210520051134 618a376e system.task_lock%s
+D s-traent.ads		20210520051134 26a8d361 system.traceback_entries%s
+D s-unstyp.ads		20210520051134 2b077493 system.unsigned_types%s
+D s-valint.ads		20210520051134 e7fcadb7 system.val_int%s
+D s-valuns.ads		20210520051134 dac7b45d system.val_uns%s
+D s-valuei.ads		20210520051134 978dd0a6 system.value_i%s
+D s-valueu.ads		20210520051134 7b8fccf5 system.value_u%s
+D s-wchcon.ads		20210520051135 1b7d22d2 system.wch_con%s
+D s-wchstw.ads		20210520051135 2d112c01 system.wch_stw%s
+D unchconv.ads		20210520051135 ca2f9e18 unchecked_conversion%s
+G a e
+G c Z s b [initialize gnat__sockets 380 14 none]
+G c Z s b [initialize gnat__sockets 391 14 none]
+G c Z s b [finalize gnat__sockets 404 14 none]
+G c Z s b [image gnat__sockets 462 13 none]
+G c Z s b [to_ada gnat__sockets 465 13 none]
+G c Z s b [to_c gnat__sockets 469 13 none]
+G c Z s s [inet_addr_bytesIP gnat__sockets 511 9 none]
+G c Z s b [mask gnat__sockets 579 13 none]
+G c Z s b [Oand gnat__sockets 588 13 none]
+G c Z s b [Oor gnat__sockets 589 13 none]
+G c Z s b [Onot gnat__sockets 590 13 none]
+G c Z s b [is_ipv4_address gnat__sockets 613 13 none]
+G c Z s b [is_ipv6_address gnat__sockets 616 13 none]
+G c Z s b [image gnat__sockets 619 13 none]
+G c Z s b [image gnat__sockets 624 13 none]
+G c Z s b [inet_addr gnat__sockets 628 13 none]
+G c Z s b [unix_socket_address gnat__sockets 632 13 none]
+G c Z s b [network_socket_address gnat__sockets 635 13 none]
+G c Z s b [official_name gnat__sockets 646 13 none]
+G c Z s b [aliases_length gnat__sockets 649 13 none]
+G c Z s b [addresses_length gnat__sockets 652 13 none]
+G c Z s b [aliases gnat__sockets 655 13 none]
+G c Z s b [addresses gnat__sockets 660 13 none]
+G c Z s b [get_host_by_address gnat__sockets 670 13 none]
+G c Z s b [get_host_by_name gnat__sockets 677 13 none]
+G c Z s b [host_name gnat__sockets 683 13 none]
+G c Z s b [official_name gnat__sockets 691 13 none]
+G c Z s b [port_number gnat__sockets 694 13 none]
+G c Z s b [protocol_name gnat__sockets 697 13 none]
+G c Z s b [aliases_length gnat__sockets 700 13 none]
+G c Z s b [aliases gnat__sockets 703 13 none]
+G c Z s b [get_service_by_name gnat__sockets 708 13 none]
+G c Z s b [get_service_by_port gnat__sockets 713 13 none]
+G c Z s b [Oadd gnat__sockets 1043 13 none]
+G c Z s b [get_address_info gnat__sockets 1063 13 none]
+G c Z s b [sort gnat__sockets 1095 14 none]
+G c Z s b [ipv6_tcp_preferred gnat__sockets 1100 13 none]
+G c Z s b [get_name_info gnat__sockets 1108 13 none]
+G c Z s b [create_socket gnat__sockets 1120 14 none]
+G c Z s b [create_socket_pair gnat__sockets 1127 14 none]
+G c Z s b [accept_socket gnat__sockets 1137 14 none]
+G c Z s b [accept_socket gnat__sockets 1148 14 none]
+G c Z s b [bind_socket gnat__sockets 1162 14 none]
+G c Z s b [close_socket gnat__sockets 1168 14 none]
+G c Z s b [connect_socket gnat__sockets 1171 14 none]
+G c Z s b [connect_socket gnat__sockets 1177 14 none]
+G c Z s b [control_socket gnat__sockets 1192 14 none]
+G c Z s b [get_peer_name gnat__sockets 1199 13 none]
+G c Z s b [get_socket_name gnat__sockets 1203 13 none]
+G c Z s b [get_socket_option gnat__sockets 1207 13 none]
+G c Z s b [listen_socket gnat__sockets 1215 14 none]
+G c Z s b [receive_socket gnat__sockets 1225 14 none]
+G c Z s b [receive_socket gnat__sockets 1238 14 none]
+G c Z s b [receive_vector gnat__sockets 1249 14 none]
+G c Z s b [resolve_exception gnat__sockets 1258 13 none]
+G c Z s b [send_socket gnat__sockets 1265 14 none]
+G c Z s b [send_socket gnat__sockets 1283 14 none]
+G c Z s b [send_socket gnat__sockets 1292 14 none]
+G c Z s b [send_vector gnat__sockets 1302 14 none]
+G c Z s b [set_close_on_exec gnat__sockets 1311 14 none]
+G c Z s b [set_socket_option gnat__sockets 1322 14 none]
+G c Z s b [shutdown_socket gnat__sockets 1328 14 none]
+G c Z s b [stream gnat__sockets 1338 13 none]
+G c Z s b [stream gnat__sockets 1345 13 none]
+G c Z s b [get_address gnat__sockets 1351 13 none]
+G c Z s s [free gnat__sockets 1355 14 none]
+G c Z s b [clear gnat__sockets 1370 14 none]
+G c Z s b [copy gnat__sockets 1373 14 none]
+G c Z s b [empty gnat__sockets 1376 14 none]
+G c Z s b [get gnat__sockets 1379 14 none]
+G c Z s b [is_empty gnat__sockets 1383 13 none]
+G c Z s b [is_set gnat__sockets 1386 13 none]
+G c Z s b [set gnat__sockets 1391 14 none]
+G c Z s b [image gnat__sockets 1394 13 none]
+G c Z s b [create_selector gnat__sockets 1420 14 none]
+G c Z s b [close_selector gnat__sockets 1423 14 none]
+G c Z s b [check_selector gnat__sockets 1430 14 none]
+G c Z s b [check_selector gnat__sockets 1454 14 none]
+G c Z s b [abort_selector gnat__sockets 1466 14 none]
+G c Z s s [selector_typeIP gnat__sockets 1491 9 none]
+G c Z s s [inet_addr_typeIP gnat__sockets 521 9 none]
+G c Z s s [sock_addr_typeDI gnat__sockets 594 9 none]
+G c Z s s [sock_addr_typeDA gnat__sockets 594 9 none]
+G c Z s s [sock_addr_typeDF gnat__sockets 594 9 none]
+G c Z s s [sock_addr_typeIP gnat__sockets 594 9 none]
+G c Z s b [raise_socket_error gnat__sockets 1594 14 none]
+G c Z s s [name_typeIP gnat__sockets 1566 9 none]
+G c Z s s [name_arrayIP gnat__sockets 1571 9 none]
+G c Z s s [inet_addr_arrayIP gnat__sockets 1572 9 none]
+G c Z s s [host_entry_typeIP gnat__sockets 1574 9 none]
+G c Z s s [service_entry_typeIP gnat__sockets 1580 9 none]
+G c Z s s [option_typeIP gnat__sockets 917 9 none]
+G c Z s s [request_typeIP gnat__sockets 1001 9 none]
+G c Z s s [vector_elementIP gnat__sockets 1048 9 none]
+G c Z s s [vector_typeIP gnat__sockets 1053 9 none]
+G c Z s s [address_infoDI gnat__sockets 1055 9 none]
+G c Z s s [address_infoDA gnat__sockets 1055 9 none]
+G c Z s s [address_infoDF gnat__sockets 1055 9 none]
+G c Z s s [address_infoIP gnat__sockets 1055 9 none]
+G c Z s s [address_info_arrayIP gnat__sockets 1061 9 none]
+G c Z s s [address_info_arrayDI gnat__sockets 1061 9 none]
+G c Z s s [address_info_arrayDA gnat__sockets 1061 9 none]
+G c Z s s [address_info_arrayDF gnat__sockets 1061 9 none]
+G c Z s s [host_serviceIP gnat__sockets 1103 9 none]
+G c Z s s [socket_set_typeIP gnat__sockets 1518 9 none]
+G c Z b b [resolve_error gnat__sockets 149 13 none]
+G c Z b b [to_name gnat__sockets 155 13 none]
+G c Z b b [to_string gnat__sockets 156 13 none]
+G c Z b b [to_int gnat__sockets 159 13 none]
+G c Z b b [set_forced_flags gnat__sockets 162 13 none]
+G c Z b b [netdb_lock gnat__sockets 165 14 none]
+G c Z b b [netdb_unlock gnat__sockets 167 14 none]
+G c Z b b [to_host_entry gnat__sockets 172 13 none]
+G c Z b b [to_service_entry gnat__sockets 175 13 none]
+G c Z b b [value gnat__sockets 178 13 none]
+G c Z b b [to_timeval gnat__sockets 181 13 none]
+G c Z b b [to_duration gnat__sockets 184 13 none]
+G c Z b b [dedot gnat__sockets 188 13 none]
+G c Z b b [raise_host_error gnat__sockets 194 14 none]
+G c Z b b [raise_gai_error gnat__sockets 199 14 none]
+G c Z b b [is_windows gnat__sockets 203 13 none]
+G c Z b b [narrow gnat__sockets 206 14 none]
+G c Z b b [check_for_fd_set gnat__sockets 209 14 none]
+G c Z b b [connect_socket gnat__sockets 214 13 none]
+G c Z b b [read gnat__sockets 231 14 none]
+G c Z b b [write gnat__sockets 236 14 none]
+G c Z b b [read gnat__sockets 249 14 none]
+G c Z b b [write gnat__sockets 254 14 none]
+G c Z b b [wait_on_socket gnat__sockets 258 14 none]
+G c Z b b [err_code_image gnat__sockets 274 13 none]
+G c Z b b [initialize gnat__sockets 277 14 none]
+G c Z b b [finalize gnat__sockets 278 14 none]
+G c Z b b [normalize_empty_socket_set gnat__sockets 280 14 none]
+G c Z b b [is_open gnat__sockets 285 13 none]
+G c Z b b [create_address gnat__sockets 290 13 none]
+G c Z b b [get_bytes gnat__sockets 295 13 none]
+G c Z b b [ipv6_mreqIP gnat__sockets 56 9 none]
+G c Z b b [in_addr_unionIP gnat__sockets 136 9 none]
+G c Z b b [datagram_socket_stream_typeDF gnat__sockets 222 9 none]
+G c Z b b [datagram_socket_stream_typeDI gnat__sockets 222 9 none]
+G c Z b b [datagram_socket_stream_typeIP gnat__sockets 222 9 none]
+G c Z b b [stream_socket_stream_typeDF gnat__sockets 242 9 none]
+G c Z b b [stream_socket_stream_typeIP gnat__sockets 242 9 none]
+G c Z b b [sockets_library_controllerDF gnat__sockets 268 9 none]
+G c Z b b [sockets_library_controllerIP gnat__sockets 268 9 none]
+X 1 ada.ads
+16K9*Ada 20e8 24|46r6 47r6 48r6 49r6 597r20 1046r48 1227r20 1228r20 1240r20
+. 1241r20 1252r20 1259r20 1267r16 1268r20 1285r16 1286r20 1294r16 1295r20
+. 1305r20 1335r37 1355r26 1356r7 1481r24 25|32r6 33r6 33r36 34r6 35r6 35r36
+. 36r6 233r20 234r20 238r16 251r20 252r20 256r16 268r43 1151r31 2112r20 2113r20
+. 2129r20 2130r20 2132r15 2133r15 2134r24 2156r20 2157r20 2179r20 2180r20
+. 2214r20 2246r16 2426r16 2427r20 2440r16 2441r20 2456r16 2457r20 2499r20
+. 2544r27 2594r13 2596r13 3075r16 3099r16 3101r15 3102r15 3103r24
+X 4 a-contai.ads
+16K13*Containers 28e19 25|32r10 1151r35
+X 5 a-cgarso.ads
+23u26*Generic_Array_Sort 4|16k13 25|32w21 1151r46
+X 6 a-cgarso.adb
+41U14 Sort[7|24] 8|32b26[25|1151]
+X 7 a-cgcaso.ads
+24u26*Generic_Constrained_Array_Sort 4|16k13
+X 9 a-except.ads
+44K13*Exceptions 289e19 24|46w10 1259r24 25|33w10 33r40
+48P9*Exception_Id<55|84P9> 25|133r31 134r31 2382r24
+53R9*Exception_Occurrence 263e14 24|1259r35 25|2380r20
+84V13*Exception_Message{string} 25|2383s40
+92V13*Exception_Identity{48P9} 25|2382s40
+X 10 a-finali.ads
+40K13*Finalization 68e21 25|34w10 268r47
+50H9*Limited_Controlled<43|40R9> 66e55 25|268r60
+X 11 a-stream.ads
+36K13*Streams 87e16 24|47w10 1046r52 1227r24 1228r24 1240r24 1241r24 1252r24
+. 1267r20 1268r24 1285r20 1286r24 1294r20 1295r24 1305r24 1335r41 1356r11
+. 25|35w10 35r40 233r24 234r24 238r20 251r24 252r24 256r20 2112r24 2113r24
+. 2129r24 2130r24 2132r19 2133r19 2134r28 2156r24 2157r24 2179r24 2180r24
+. 2214r24 2246r20 2426r20 2427r24 2440r20 2441r24 2456r20 2457r24 2499r24
+. 2544r31 3075r20 3099r20 3101r19 3102r19 3103r28
+39H9*Root_Stream_Type 70e64 24|1335r49 1356r19 25|222r44 242r42
+42M9*Stream_Element 24|1046r60
+44I9*Stream_Element_Offset<long_long_integer> 24|1228r32 1241r32 1268r32
+. 1286r32 1295r32 25|234r32 252r32 2113r32 2130r32 2132r27 2133r27 2134r36
+. 2157r32 2180r32 2427r32 2441r32 2457r32 3077r14 3101r27 3102r27 3103r36
+51I12*Stream_Element_Count{44I9} 24|1252r32 1305r32 25|2214r32 2246r28 2499r32
+. 2544r39
+54A9*Stream_Element_Array(42M9)<44I9> 24|1227r32 1240r32 1267r28 1285r28
+. 1294r28 25|233r32 238r28 251r32 256r28 2112r32 2129r32 2156r32 2179r32
+. 2426r28 2440r28 2456r28 3075r28 3099r28
+X 12 a-string.ads
+16K13*Strings 35e16 24|48r10 597r24 1481r28
+X 16 a-strunb.ads
+83K21*Unbounded 765e26 24|48w18 597r32 1481r36
+88R9*Unbounded_String<10|43R9> 744e15 24|597r42
+93V13*Length{natural} 25|1654s20 1657s59
+104V13*To_Unbounded_String{88R9} 25|3197s47
+117V13*To_String{string} 25|1659s27
+192V13*Element{character} 25|1655s28
+208V13*Slice{string} 25|1657s33
+X 19 a-tags.ads
+652V13 CW_Membership{boolean} 25|981s17 983s32
+X 20 a-unccon.ads
+20v14*Unchecked_Conversion 25|36w10 2594r17 2596r17
+X 21 a-uncdea.ads
+20u15*Unchecked_Deallocation 24|49w10 1355r30
+X 22 gnat.ads
+34K9*GNAT 57e9 24|56r9 1598r5 25|38r6 38r36 39r6 39r36 41r6 42r23 45r6 52r14
+. 2257r11 3260r5
+X 24 g-socket.ads
+56K14*Sockets 22|34k9 24|1481E12 1598l10 1598e17 25|38r11 38r41 39r11 39r41
+. 41r11 42r28 45r11 52b19 2257r16 3260l10 3260t17
+371K12*SOSC=371:32 439r23 439r33 439r49 441r31 1508r54 25|64r36 65r44 74r46
+. 75r46 76r46 77r46 78r46 79r46 80r46 81r46 84r34 85r34 86r34 89r38 90r38
+. 91r38 93r48 94r37 95r37 98r40 99r40 100r40 101r40 102r40 103r40 104r40
+. 105r40 106r40 107r40 108r40 109r40 110r40 111r40 112r40 113r40 114r40 115r40
+. 116r40 117r40 118r40 119r40 120r40 121r40 122r40 123r40 128r20 129r20 130r20
+. 131r20 494r34 720r25 746r29 746r46 993r15 1030r47 1031r42 1187r43 1188r43
+. 1198r32 1199r36 1733r30 1737r24 1737r43 1744r30 1772r42 1807r11 2228r34
+. 2229r52 2257r24 2262r18 2263r18 2264r18 2265r18 2505r24 2506r24 2518r44
+. 2519r18 2598r41 2850r39 2880r27 2881r27 2888r30 2962r36
+380U14*Initialize 382r18 25|1792b14 1800l8 1800t18
+391U14*Initialize 391>26 393r18 25|1771b14 1786l8 1786t18
+391b26 Process_Blocking_IO{boolean} 25|1771b26 1775r10
+404U14*Finalize 406r18 25|937b14 944l8 944t16
+413I9*Socket_Type<integer> 418r25 462r29 465r42 469r28 1121r20 1128r20 1129r20
+. 1138r17 1139r21 1149r18 1150r22 1163r17 1168r37 1172r16 1178r18 1193r17
+. 1199r37 1203r39 1208r17 1216r16 1226r16 1239r16 1250r16 1266r16 1284r16
+. 1293r16 1303r16 1312r23 1323r16 1329r16 1338r30 1346r17 1370r61 1379r63
+. 1388r16 1391r59 1483c9 1484r25 1497r28 1498r28 1519r14 25|209r37 215r16
+. 223r16 243r16 259r18 338r17 339r21 353r17 362r18 363r22 460r17 481r37 527r14
+. 607r16 617r23 650r37 666r16 678r16 688r18 774r17 844r32 845r32 853r20 867r17
+. 875r20 876r20 895r16 896r16 952r20 964r23 965r23 1306r37 1386r16 1406r17
+. 1679r29 1697r21 1930r16 1945r16 1964r23 2037r18 2155r16 2178r16 2212r16
+. 2425r16 2439r16 2455r16 2497r16 2553r59 2576r23 2581r19 2606r16 2783r16
+. 2801r17 2818r30 2830r42 2832r14 2839r28
+418i4*No_Socket{413I9} 1484c4 1497r43 1498r43 1519r29 25|388r20 527r29 579r18
+. 614r23 642r32 643r32 906r20 958r23 968r20 1818r26 1916r44 1918r44 1920r35
+. 1935r27 1962r23 2009r19 2557r22
+420R9*Selector_Type 421r39 424r29 1153r25 1181r25 1420r46 1423r48 1431r22
+. 1455r22 1466r41 1491c9 1491d24 1501e14 1503r21 1505r29 25|262r25 285r26
+. 312r41 366r25 505r22 518r22 625r48 691r25 821r46 1907r26 2040r25
+421P9*Selector_Access(420R9)
+424r4*Null_Selector{420R9} 1505c4
+434o4*Immediate{duration} 445r47
+436o4*Forever{duration} 445r60 1435r43 1460r43 25|509r43 523r43 540r20 2849r64
+. 2862r41 2864r20
+445O12*Timeval_Duration{duration} 447r33 987r23 25|181r31 184r48 2848r48
+. 3024r31
+447O12*Selector_Duration{445O12} 1152r18 1180r18 1435r22 1460r22 25|261r18
+. 365r18 509r22 523r22 690r18 2039r18 3039r48
+450E9*Selector_Status 450e57 1154r22 1182r22 1434r26 1459r26 25|263r22 367r22
+. 508r26 522r26 692r22 2041r22
+450n29*Completed{450E9} 25|385r19 536r17 744r19 2062r39
+450n40*Expired{450E9} 25|591r20 730r20 2059r20
+450n49*Aborted{450E9} 25|588r20 2062r54
+457X4*Socket_Error 25|133r47 1430r16 1485r19 1776r16 2102r13 2761r16
+462V13*Image{string} 462>20 25|496s52 1679b13 1682l8 1682t13
+462i20 Socket{413I9} 25|1679b20 1681r14
+465V13*To_Ada{413I9} 465>21 25|2830b13 2833l8 2833t14
+465i21 Fd{integer} 25|2830b21 2832r27
+469V13*To_C{integer} 469>19 25|2839b13 2842l8 2842t12
+469i19 Socket{413I9} 25|2839b19 2841r23
+473E9*Family_Type 473e79 479r31 594r34 672r17 1066r22 1122r16 1130r16 25|854r16
+. 877r16 1013r22 1219r17 2878r25
+473n25*Family_Inet{473E9} 479r49 509r7 514r53 521r53 523r15 594r49 672r32
+. 1122r31 1532r29 1536r29 1538r29 1540r29 1546r37 1548r37 1550r37 1559r47
+. 25|138r15 854r31 1163r22 1219r32 1231r15 1242r19 1621r18 1630r15 1727r50
+. 2880r44 3142r15 3142r31 3151r15
+473n38*Family_Inet6{473E9} 479r64 509r25 516r53 526r15 1534r29 1542r29 1553r7
+. 1555r7 1557r7 25|140r15 1163r36 1233r15 1243r19 1622r18 1628r15 1650r28
+. 1727r32 2881r44 2934r28 3143r15 3143r32 3152r15
+473n52*Family_Unix{473E9} 596r15 25|1653r15 3197r30
+473n65*Family_Unspec{473E9} 601r15 1066r37 1130r31 25|877r31 886r23 1013r37
+. 1085r44 1670r15 2882r44 2887r19
+479E12*Family_Inet_4_6{473E9} 508r45 521r34 580r16 598r15 25|136r33 291r16
+. 1662r15 3139r16 3159r16
+481E9*Mode_Type 481e66 1057r15 1067r22 1123r16 1131r16 25|83r28 855r16 878r16
+. 1014r22
+481n23*Socket_Stream{481E9} 1057r29 1067r37 1123r31 1131r31 25|84r15 855r31
+. 878r31 1014r37 1171r22
+481n38*Socket_Datagram{481E9} 25|85r15 1171r38
+481n55*Socket_Raw{481E9} 25|86r15
+488E9*Shutmode_Type 488e66 1330r16 25|88r32 2784r16
+488n27*Shut_Read{488E9} 25|89r19
+488n38*Shut_Write{488E9} 25|90r19
+488n50*Shut_Read_Write{488E9} 1330r33 25|91r19 2784r33
+496I9*Port_Type<integer> 499r24 502r23 600r20 636r37 694r57 714r18 1528r24
+. 1529r24 1582r18 25|1353r18 1995r37 2070r57 3007r12
+499i4*Any_Port{496I9} 1528c4
+502i4*No_Port{496I9} 1529c4
+505M9*Inet_Addr_Comp_Type 511r56 25|3172r17
+508a4*Inet_Addr_Bytes_Length(natural) 514r29 516r29 25|3163r38
+511A9*Inet_Addr_Bytes(505M9)<integer> 514r6 516r6 518r33 573r35 25|291r41
+. 295r54 3139r41 3149r54 3171r17 3211r23 3212r23 3213r14 3234r23 3235r23
+. 3236r14 3251r20 3252r11
+513A12*Inet_Addr_V4_Type{511A9}<integer> 524r22
+515A12*Inet_Addr_V6_Type{511A9}<integer> 527r22
+518A12*Inet_Addr_VN_Type{511A9}<integer>
+521R9*Inet_Addr_Type 521d25 530e14 535r35 538r35 541r35 544r35 547r35 550r35
+. 555r44 558r44 561r44 564r44 567r44 570r44 582r41 588r33 588r56 589r31 589r54
+. 590r27 590r50 599r20 619r28 628r47 636r14 662r33 671r17 964r33 968r37 974r27
+. 1531r35 1533r35 1535r35 1537r35 1539r35 1541r35 1545r43 1547r43 1549r43
+. 1552r44 1554r44 1556r44 1572r57 25|291r65 295r31 398r33 1218r17 1617r28
+. 1719r47 1724r16 1995r14 3139r65 3149r31 3161r41 3204r33 3204r56 3227r31
+. 3227r54 3250r27 3250r50
+521e25*Family{479E12} 522r12 25|1223r47 1230r20 1241r24 1244r28 1620r21 1625r42
+. 1627r18 1635r26 1997r44 3150r17 3206r15 3206r30 3219r38 3229r14 3229r29
+. 3242r37 3257r35
+524a13*Sin_V4{513A12} 25|1621r45 3151r35
+527a13*Sin_V6{515A12} 25|3152r36
+535r4*Any_Inet_Addr{521R9} 1531c4
+538r4*Any_Inet6_Addr{521R9} 1533c4
+541r4*No_Inet_Addr{521R9} 1535c4 1559r60
+544r4*Broadcast_Inet_Addr{521R9} 1537c4
+547r4*Loopback_Inet_Addr{521R9} 1539c4
+550r4*Loopback_Inet6_Addr{521R9} 1541c4
+555r4*Unspecified_Group_Inet_Addr{521R9} 1545c4
+558r4*Unspecified_Group_Inet6_Addr{521R9} 1552c4
+561r4*All_Hosts_Group_Inet_Addr{521R9} 1547c4
+564r4*All_Hosts_Group_Inet6_Addr{521R9} 1554c4
+567r4*All_Routers_Group_Inet_Addr{521R9} 1549c4
+570r4*All_Routers_Group_Inet6_Addr{521R9} 1556c4
+573a4*IPv4_To_IPv6_Prefix{511A9}
+579V13*Mask{521R9} 580>7 581>7 582>7 25|3158b13 3189l8 3189t12
+580e7 Family{479E12} 25|3159b7 3163r62 3167r56 3187r33
+581i7 Length{natural} 25|3160b7 3165r10 3174r24 3178r13 3179r31 3180r16 3182r22
+582b7 Host{boolean} 25|3161b7 3175r26 3180r39 3183r29
+588V14*"and"{521R9} 588>20 588>26 25|3204b14 3221l9 3221t13
+588r20 Addr{521R9} 25|3204b20 3206r10 3211r53 3219r33
+588r26 Mask{521R9} 25|3204b26 3206r25 3212r53
+589V14*"or"{521R9} 589>19 589>24 25|3227b14 3244l9 3244t12
+589r19 Net{521R9} 25|3227b19 3229r10 3234r53 3242r33
+589r24 Host{521R9} 25|3227b24 3229r24 3235r53
+590V14*"not"{521R9} 590>20 25|3250b14 3258l9 3258t13
+590r20 Mask{521R9} 25|3250b20 3251r50 3257r30
+594R9*Sock_Addr_Type 594d25 604e14 605r36 610r28 624r28 632r56 636r55 1056r15
+. 1109r22 1140r21 1151r22 1164r17 1173r16 1179r18 1199r57 1203r59 1242r20
+. 1269r23 1296r16 1347r17 1352r47 1559r28 25|216r16 224r16 225r16 340r21
+. 364r22 461r17 667r16 679r16 689r18 977r47 1182r22 1306r57 1386r36 1648r28
+. 1995r55 1997r23 2181r20 2442r16 2458r23 2802r17 3195r56 3197r14
+594e25*Family{473E9} 595r12 599r36 25|1085r35 1167r20 1167r41 1168r27 1168r47
+. 1650r19 1652r18
+597r13*Name{16|88R9} 25|1654r34 1655r43 1657r46 1657r73 1659r44
+599r13*Addr{521R9} 25|1666r51 1998m17
+600i13*Port{496I9} 25|1664r48 1999m17
+610r4*No_Sock_Addr{594R9} 1559c4 25|1395r17
+613V13*Is_IPv4_Address{boolean} 613>30 25|1273s10 1855s24 1870b13 1901l8
+. 1901t23
+613a30 Name{string} 25|1870b30 1877r16 1878r13 1884r21 1884r39 1885r24 1895r16
+616V13*Is_IPv6_Address{boolean} 616>30 25|1273s41 1725s36 1825b13 1864l8
+. 1864t23
+616a30 Name{string} 25|1825b30 1830r16 1831r13 1842r23 1849r29 1853r16 1855r41
+. 1855r65 1857r16
+619V13*Image{string} 619>20 25|1248s43 1617b13 1642l8 1642t13 1666s38
+619r20 Value{521R9} 25|1617b20 1620r15 1621r39 1625r36 1627r12 1629r36 1631r35
+. 1635r20
+624V13*Image{string} 624>20 25|1202s31 1648b13 1673l8 1673t13
+624r20 Value{594R9} 25|1648b20 1650r13 1652r12 1654r28 1655r37 1657r40 1657r67
+. 1659r38 1664r42 1666r45
+628V13*Inet_Addr{521R9} 628>24 25|1274s38 1719b13 1754l8 1754t17
+628a24 Image{string} 25|1719b24 1722r44 1725r53 1732r10
+632V13*Unix_Socket_Address{594R9} 632>34 25|3195b13 3198l8 3198t27
+632a34 Addr{string} 25|3195b34 3197r68
+635V13*Network_Socket_Address{594R9} 636>7 636>30 25|1994b13 2001l8 2001t30
+636r7 Addr{521R9} 25|1995b7 1997r39 1998r25
+636i30 Port{496I9} 25|1995b30 1999r25
+643R9*Host_Entry_Type 644d7 644d23 646r32 649r33 652r35 656r11 661r11 672r52
+. 678r29 1574c9 1578e14 25|172r55 397r11 408r35 418r11 441r33 1219r52 1252r30
+. 1268r53 1294r30 2018r32 2875r55 2901r23
+644i7 Aliases_Length{natural} 1574r26 1576r36 25|443r16
+644i23 Addresses_Length{natural} 1574r42 1577r41 25|410r16
+646V13*Official_Name{string} 646>28 25|2018b13 2021l8 2021t21
+646r28 E{643R9} 25|2018b28 2020r25
+649V13*Aliases_Length{natural} 649>29 25|441b13 444l8 444t22
+649r29 E{643R9} 25|441b29 443r14
+652V13*Addresses_Length{natural} 652>31 25|408b13 411l8 411t24
+652r31 E{643R9} 25|408b31 410r14
+655V13*Aliases{string} 656>7 657>7 25|417b13 423l8 423t15
+656r7 E{643R9} 25|418b7 422r25
+657i7 N{positive} 25|419b7 422r36
+660V13*Addresses{521R9} 661>7 662>7 25|396b13 402l8 402t17
+661r7 E{643R9} 25|397b7 401r14
+662i7 N{positive} 25|398b7 401r27
+665X4*Host_Error 25|134r47 997r19 1001r16 2090r13
+670V13*Get_Host_By_Address{643R9} 671>7 672>7 25|1217b13 1262l8 1262t27 1274s17
+671r7 Address{521R9} 25|1218b7 1223r39 1230r12 1232r35 1234r36 1241r16 1244r20
+. 1248r50
+672e7 Family{473E9} 25|1219b7 1221r28
+677V13*Get_Host_By_Name{643R9} 678>7 25|1268b13 1300l8 1300t24
+678a7 Name{string} 25|1268b31 1273r27 1273r58 1274r49 1278r52 1291r46
+683V13*Host_Name{string} 25|1599b13 1611l8 1611t17
+686R9*Service_Entry_Type 686d29 691r32 694r30 697r32 700r33 704r11 710r33
+. 715r33 1580c9 1585e14 25|175r58 430r11 450r33 1323r33 1341r27 1354r33 1374r27
+. 2027r32 2070r30 2079r32 2987r58 2996r23
+686i29 Aliases_Length{natural} 1580r29 1584r35 25|452r16
+691V13*Official_Name{string} 691>28 25|2027b13 2030l8 2030t21
+691r28 S{686R9} 25|2027b28 2029r25
+694V13*Port_Number{496I9} 694>26 25|2070b13 2073l8 2073t19
+694r26 S{686R9} 25|2070b26 2072r14
+697V13*Protocol_Name{string} 697>28 25|2079b13 2082l8 2082t21
+697r28 S{686R9} 25|2079b28 2081r25
+700V13*Aliases_Length{natural} 700>29 25|450b13 453l8 453t22
+700r29 S{686R9} 25|450b29 452r14
+703V13*Aliases{string} 704>7 705>7 25|429b13 435l8 435t15
+704r7 S{686R9} 25|430b7 434r25
+705i7 N{positive} 25|431b7 434r36
+708V13*Get_Service_By_Name{686R9} 709>7 710>7 25|1321b13 1346l8 1346t27
+709a7 Name{string} 25|1322b7 1325r49
+710a7 Protocol{string} 25|1323b7 1326r49
+713V13*Get_Service_By_Port{686R9} 714>7 715>7 25|1352b13 1379l8 1379t27
+714i7 Port{496I9} 25|1353b7 1365r53
+715a7 Protocol{string} 25|1354b7 1356r49
+718X4*Service_Error 25|1336r16 1369r16
+731E9*Error_Type 776e28 958r21 1259r64 25|151r45 2255r45 2380r49
+732n7*Success{731E9} 25|2289r17
+733n7*Permission_Denied{731E9} 25|2291r17
+734n7*Address_Already_In_Use{731E9} 25|2293r17
+735n7*Cannot_Assign_Requested_Address{731E9} 25|2295r17
+736n7*Address_Family_Not_Supported_By_Protocol{731E9} 25|2297r17
+737n7*Operation_Already_In_Progress{731E9} 25|2299r17
+738n7*Bad_File_Descriptor{731E9} 25|2301r17
+739n7*Software_Caused_Connection_Abort{731E9} 25|2303r17
+740n7*Connection_Refused{731E9} 25|2305r17
+741n7*Connection_Reset_By_Peer{731E9} 25|2307r17
+742n7*Destination_Address_Required{731E9} 25|2309r17
+743n7*Bad_Address{731E9} 25|2311r17
+744n7*Host_Is_Down{731E9} 25|2313r17
+745n7*No_Route_To_Host{731E9} 25|2315r17
+746n7*Operation_Now_In_Progress{731E9} 25|2317r17
+747n7*Interrupted_System_Call{731E9} 25|2319r17
+748n7*Invalid_Argument{731E9} 25|2321r17
+749n7*Input_Output_Error{731E9} 25|2323r17
+750n7*Transport_Endpoint_Already_Connected{731E9} 25|2325r17
+751n7*Too_Many_Symbolic_Links{731E9} 25|2327r17
+752n7*Too_Many_Open_Files{731E9} 25|2329r17
+753n7*Message_Too_Long{731E9} 25|2331r17
+754n7*File_Name_Too_Long{731E9} 25|2333r17
+755n7*Network_Is_Down{731E9} 25|2335r17
+756n7*Network_Dropped_Connection_Because_Of_Reset{731E9} 25|2337r17
+757n7*Network_Is_Unreachable{731E9} 25|2339r17
+758n7*No_Buffer_Space_Available{731E9} 25|2341r17
+759n7*Protocol_Not_Available{731E9} 25|2343r17
+760n7*Transport_Endpoint_Not_Connected{731E9} 25|2345r17
+761n7*Socket_Operation_On_Non_Socket{731E9} 25|2347r17
+762n7*Operation_Not_Supported{731E9} 25|2349r17
+763n7*Protocol_Family_Not_Supported{731E9} 25|2351r17
+764n7*Protocol_Not_Supported{731E9} 25|2355r17
+765n7*Protocol_Wrong_Type_For_Socket{731E9} 25|2357r17
+766n7*Cannot_Send_After_Transport_Endpoint_Shutdown{731E9} 25|2359r17
+767n7*Socket_Type_Not_Supported{731E9} 25|2361r17
+768n7*Connection_Timed_Out{731E9} 25|2363r17
+769n7*Too_Many_References{731E9} 25|2365r17
+770n7*Resource_Temporarily_Unavailable{731E9} 25|2277r17 2367r17
+771n7*Broken_Pipe{731E9} 25|2353r17
+772n7*Unknown_Host{731E9} 25|2262r48
+773n7*Host_Name_Lookup_Failure{731E9} 25|2263r48
+774n7*Non_Recoverable_Error{731E9} 25|2264r48
+775n7*Unknown_Server_Error{731E9} 25|2265r48
+776n7*Cannot_Resolve_Error{731E9} 25|2266r48 2369r17 2397r17 2416r17
+782E9*Level_Type 790e33 1058r15 1068r22 1124r16 1132r16 1209r17 1324r16 25|73r29
+. 856r16 879r16 1015r22 1407r17 2607r16
+783n7*Socket_Level{782E9} 25|74r16
+784n7*IP_Protocol_For_IP_Level{782E9} 1058r29 1068r37 1124r31 1132r31 25|75r16
+. 856r31 879r31 1015r37
+785n7*IP_Protocol_For_IPv6_Level{782E9} 25|76r16
+786n7*IP_Protocol_For_UDP_Level{782E9} 25|77r16
+787n7*IP_Protocol_For_TCP_Level{782E9} 25|78r16
+788n7*IP_Protocol_For_ICMP_Level{782E9} 25|79r16
+789n7*IP_Protocol_For_IGMP_Level{782E9} 25|80r16
+790n7*IP_Protocol_For_RAW_Level{782E9} 25|81r16
+802E9*Option_Name 907e7 910r6 910r38 912r22 913r22 914r22 915r22 917r29 1210r17
+. 25|1408r17
+803n7*Generic_Option{802E9} 919r15 25|1446r15 1506r15 2625r15
+811n7*Keep_Alive{802E9} 910r24 917r44 923r15 25|98r17 1447r15 1511r15 2631r15
+814n7*Reuse_Address{802E9} 924r15 25|102r17 1458r15 1513r15 2633r15
+817n7*Broadcast{802E9} 925r15 25|103r17 1443r15 1510r15 2630r15
+820n7*Send_Buffer{802E9} 953r15 25|104r17 1459r15 1537r15 2669r15
+823n7*Receive_Buffer{802E9} 954r15 25|105r17 1457r15 1536r15 2668r15
+826n7*Linger{802E9} 926r15 935r21 25|106r17 1488r15 1532r15 2662r15
+831n7*Error{802E9} 957r15 25|107r17 1445r15 1541r15 2675r15
+834n7*Send_Timeout{802E9} 985r15 25|121r17 1466r15 1570r15 2722r15
+837n7*Receive_Timeout{802E9} 986r15 25|122r17 1465r15 1569r15 2721r15
+840n7*Busy_Polling{802E9} 950r15 25|123r17 1444r15 1529r15 2657r15
+848n7*No_Delay{802E9} 927r15 25|108r17 1456r15 1512r15 2632r15
+853n7*Keep_Alive_Count{802E9} 941r15 25|99r17 1448r15 1520r15 2642r15
+856n7*Keep_Alive_Idle{802E9} 944r15 25|100r17 1449r15 1523r15 2647r15
+859n7*Keep_Alive_Interval{802E9} 947r15 25|101r17 1450r15 1526r15 2652r15
+866n7*Add_Membership_V4{802E9} 912r42 960r15 966r21 25|109r17 1480r15 1544r15
+. 2680r15
+869n7*Drop_Membership_V4{802E9} 913r42 962r15 967r21 25|110r17 1482r15 1546r15
+. 2681r15
+872n7*Multicast_If_V4{802E9} 914r42 973r15 25|111r17 1451r15 1553r15 2695r15
+875n7*Multicast_Loop_V4{802E9} 915r42 930r15 25|112r17 1453r15 1514r15 2634r15
+879n7*Multicast_TTL{802E9} 979r15 25|114r17 1437r15 1559r15 2705r15
+882n7*Receive_Packet_Info{802E9} 928r15 25|113r17 1438r15 1565r15 2715r15
+889n7*Add_Membership_V6{802E9} 961r15 25|115r17 1481r15 1545r15 2688r15
+892n7*Drop_Membership_V6{802E9} 963r15 25|116r17 1483r15 1547r15 2689r15
+895n7*Multicast_If_V6{802E9} 976r15 25|117r17 1452r15 1556r15 2700r15
+898n7*Multicast_Loop_V6{802E9} 931r15 25|118r17 1454r15 1515r15 2635r15
+902n7*IPv6_Only{802E9} 929r15 25|120r17 1460r15 1516r15 2636r15
+905n7*Multicast_Hops{802E9} 982r15 25|119r17 1455r15 1562r15 2710r15
+909E12*Specific_Option_Name{802E9} 25|97r30 1426r18 2757r25
+912e4*Add_Membership=912:42{802E9}
+913e4*Drop_Membership=913:42{802E9}
+914e4*Multicast_If=914:42{802E9}
+915e4*Multicast_Loop=915:42{802E9}
+917R9*Option_Type 917d22 990e14 1211r48 1325r16 25|1409r48 1422r13 2608r16
+917e22*Name{802E9} 918r12 934r18 965r18 25|2624r19 2757r17 2758r33
+920i13*Optname{32|35I9} 25|1507m17 2760r20 2764r24
+921i13*Optval{32|35I9} 25|1508m17 2626r27
+932b13*Enabled{boolean} 25|1518m17 1533m17 1567m17 2638r47 2663r57 2717r57
+936i19*Seconds{natural} 25|1534m17 2664r44
+942i13*Count{natural} 25|1521m17 2643r34
+945i13*Idle_Seconds{natural} 25|1524m17 2648r34
+948i13*Interval_Seconds{natural} 25|1527m17 2653r34
+951i13*Microseconds{natural} 25|1530m17 2658r34
+955i13*Size{natural} 25|1539m17 2671r34
+958e13*Error{731E9} 25|1542m17
+964r13*Multicast_Address{521R9} 25|2683r57 2690r56
+968r19*Local_Interface{521R9} 25|2684r57
+970i19*Interface_Index{natural} 25|2691r55
+974r13*Outgoing_If{521R9} 25|1554m48 2696r47
+977i13*Outgoing_If_Index{natural} 25|1557m17 2701r34
+980i13*Time_To_Live{natural} 25|1560m17 2706r44
+983i13*Hop_Limit{integer} 25|1563m17 2711r34
+987o13*Timeout{445O12} 25|1574m23 1584m23 1588m20 2731r41 2733r26 2751r42
+997E9*Request_Name 999e23 1001r30 25|93r31
+998n7*Non_Blocking_IO{997E9} 1001r46 1003r15 25|94r18 711r23 759r23 782r15
+. 797r15
+999n7*N_Bytes_To_Read{997E9} 1006r15 25|95r18 785r15 800r15
+1001R9*Request_Type 1001d23 1010e14 1194r24 25|694r13 775r24
+1001e23*Name{997E9} 1002r12 25|711m15 759m15 781r20 790r51 796r20
+1004b13*Enabled{boolean} 25|711m40 759m40 783r48
+1007i13*Size{natural} 25|801m21
+1016M9*Request_Flag_Type 1018r31 1021r40 1026r37 1031r41 1039r34 1043r25
+. 1043r51 1229r16 1243r16 1253r16 1270r16 1287r16 1297r16 1306r16 1587c9
+. 1588r41 1589r41 1590r41 1591r41 1592r41 25|159r25 303r25 303r51 2158r16
+. 2182r16 2215r16 2428r16 2443r16 2459r16 2500r16 2948r25 2949r17
+1018m4*No_Request_Flag{1016M9} 1229r37 1243r37 1253r37 1270r37 1287r37 1297r37
+. 1306r37 1588c4 25|2158r37 2182r37 2215r37 2428r37 2443r37 2459r37 2500r37
+1021m4*Process_Out_Of_Band_Data{1016M9} 1589c4
+1026m4*Peek_At_Incoming_Data{1016M9} 1590c4
+1031m4*Wait_For_A_Full_Reception{1016M9} 1591c4
+1039m4*Send_End_Of_Record{1016M9} 1592c4
+1043V14*"+"{1016M9} 1043>18 1043>21 25|303b14 306l9 306t11
+1043m18 L{1016M9} 25|303b18 305r14
+1043m21 R{1016M9} 25|303b21 305r19
+1046P9*Stream_Element_Reference(11|42M9) 1049r16
+1048R9*Vector_Element 1051e14 1053r52
+1049p7*Base{1046P9}
+1050m7*Length{32|62M9}
+1053A9*Vector_Type(1048R9)<integer> 1251r16 1304r16 25|2213r16 2498r16
+1055R9*Address_Info 1059e14 1061r60 1097r50 1100r47 25|1147r50 1149r36 1152r20
+. 1161r47
+1056r7*Addr{594R9} 25|1082m27 1085r30 1167r15 1167r36 1168r22 1168r42
+1057e7*Mode{481E9} 25|1091m36 1174r19 1174r32
+1058e7*Level{782E9} 25|1100m39
+1061A9*Address_Info_Array(1055R9)<integer> 1073r14 1096r26 25|1020r14 1039r32
+. 1046r32 1047r19 1136r32 1146r26 1152r34
+1063V13*Get_Address_Info{1061A9} 1064>7 1065>7 1066>7 1067>7 1068>7 1069>7
+. 1070>7 1071^7 25|1010b13 1139l8 1139t24
+1064a7 Host{string} 25|1011b7 1023r43 1124r25 1131r16
+1065a7 Service{string} 25|1012b7 1024r46 1025r48 1131r27 1131r59
+1066e7 Family{473E9} 25|1013b7 1027r35
+1067e7 Mode{481E9} 25|1014b7 1028r32
+1068e7 Level{782E9} 25|1015b7 1029r33
+1069b7 Numeric_Host{boolean} 25|1016b7 1030r29
+1070b7 Passive{boolean} 25|1017b7 1031r29
+1071p7 Unknown 25|1018b7 1058r16 1059r16
+1072i10 Family{integer}
+1072i18 Mode{integer}
+1072i24 Level{integer}
+1072i31 Length{integer}
+1095U14*Sort 1096=7 1097^7 25|1145b14 1155l8 1155t12
+1096a7 Addr_Info{1061A9} 25|1146b7 1154m15
+1097p7 Compare(boolean) 25|1147b7 1150r11
+1097r36 Left{1055R9}
+1097r42 Right{1055R9}
+1100V13*IPv6_TCP_Preferred{boolean} 1100>33 1100>39 25|1161b13 1175l8 1175t26
+1100r33 Left{1055R9} 25|1161b33 1167r10 1168r17 1174r14
+1100r39 Right{1055R9} 25|1161b39 1167r30 1168r36 1174r26
+1103R9*Host_Service 1103d23 1103d36 1106e14 1111r47 25|1184r47
+1103i23*Host_Length{natural} 1104r30
+1103i36*Service_Length{natural} 1105r30
+1104a7*Host{string}
+1105a7*Service{string}
+1108V13*Get_Name_Info{1103R9} 1109>7 1110>7 1111>7 25|1181b13 1211l8 1211t21
+1109r7 Addr{594R9} 25|1182b7 1192r41 1202r38
+1110b7 Numeric_Host{boolean} 25|1183b7 1198r14
+1111b7 Numeric_Serv{boolean} 25|1184b7 1199r18
+1120U14*Create_Socket 1121<7 1122>7 1123>7 1124>7 25|852b14 868l8 868t21
+1121i7 Socket{413I9} 25|853b7 867m7
+1122e7 Family{473E9} 25|854b7 861r34
+1123e7 Mode{481E9} 25|855b7 861r50
+1124e7 Level{782E9} 25|856b7 861r65
+1127U14*Create_Socket_Pair 1128<7 1129<7 1130>7 1131>7 1132>7 25|874b14 897l8
+. 897t26
+1128i7 Left{413I9} 25|875b7 895m7
+1129i7 Right{413I9} 25|876b7 896m7
+1130e7 Family{473E9} 25|877b7 886r14 887r26
+1131e7 Mode{481E9} 25|878b7 888r17
+1132e7 Level{782E9} 25|879b7 888r32
+1137U14*Accept_Socket 1138>7 1139<7 1140<7 25|337b14 355l8 355t21 386s10
+1138i7 Server{413I9} 25|338b7 347r31
+1139i7 Socket{413I9} 25|339b7 353m7
+1140r7 Address{594R9} 25|340b7 354m7
+1148U14*Accept_Socket 1149>7 1150<7 1151<7 1152>7 1153^7 1154<7 25|361b14
+. 390l8 390t21
+1149i7 Server{413I9} 25|362b7 377r22 386r25
+1150i7 Socket{413I9} 25|363b7 386m33 388m10
+1151r7 Address{594R9} 25|364b7 386m41
+1152o7 Timeout{447O12} 25|365b7 379r22
+1153p7 Selector(420R9) 25|366b7 370r10 370r49 380r22
+1154e7 Status{450E9} 25|367b7 381m22 385r10
+1162U14*Bind_Socket 1163>7 1164>7 25|459b14 475l8 475t19
+1163i7 Socket{413I9} 25|460b7 470r29
+1164r7 Address{594R9} 25|461b7 468r42
+1168U14*Close_Socket 1168>28 25|650b14 659l8 659t20
+1168i28 Socket{413I9} 25|650b28 654r30
+1171U14*Connect_Socket 1172>7 1173>7 25|677b14 685l8 685t22
+1172i7 Socket{413I9} 25|678b7 682r26
+1173r7 Server{594R9} 25|679b7 682r34
+1177U14*Connect_Socket 1178>7 1179>7 1180>7 1181^7 1182<7 25|687b14 767l8
+. 767t22
+1178i7 Socket{413I9} 25|688b7 712r23 717r30 734r25 746r20 760r23
+1179r7 Server{594R9} 25|689b7 717r38
+1180o7 Timeout{447O12} 25|690b7 729r10 736r25
+1181p7 Selector(420R9) 25|691b7 705r10 705r49 737r25
+1182e7 Status{450E9} 25|692b7 730m10 738m25 744r10
+1192U14*Control_Socket 1193>7 1194=7 25|712s7 760s7 773b14 803l8 803t22
+1193i7 Socket{413I9} 25|774b7 790r24
+1194r7 Request{1001R9} 25|712r31 760r31 775b7 781r12 783r40 790r43 796r12
+. 801m13
+1199V13*Get_Peer_Name{594R9} 1199>28 25|983s17 1306b13 1315l8 1315t21
+1199i28 Socket{413I9} 25|1306b28 1310r32
+1203V13*Get_Socket_Name{594R9} 1203>30 25|1385b13 1399l8 1399t23 2810s19
+1203i30 Socket{413I9} 25|1386b7 1392r36
+1207V13*Get_Socket_Option{917R9} 1208>7 1209>7 1210>7 1211>7 25|1405b13 1593l8
+. 1593t25
+1208i7 Socket{413I9} 25|1406b7 1496r19
+1209e7 Level{782E9} 25|1407b7 1497r20
+1210e7 Name{802E9} 25|1408b7 1422r26 1426r10 1427r26 1436r12 1505r12
+1211i7 Optname{32|35I9} 25|1409b7 1429r13 1433r17
+1215U14*Listen_Socket 1216>7 1217>7 25|1944b14 1953l8 1953t21
+1216i7 Socket{413I9} 25|1945b7 1948r48
+1217i7 Length{natural} 25|1946b7 1948r64
+1225U14*Receive_Socket 1226>7 1227<7 1228<7 1229>7 25|2138s10 2154b14 2171l8
+. 2171t22
+1226i7 Socket{413I9} 25|2155b7 2164r24
+1227a7 Item{11|54A9} 25|2156b7 2164m33 2164r33 2164r47 2170r36
+1228i7 Last{11|44I9} 25|2157b7 2170m7
+1229m7 Flags{1016M9} 25|2158b7 2164r68
+1238U14*Receive_Socket 1239>7 1240<7 1241<7 1242<7 1243>7 25|2116s7 2177b14
+. 2205l8 2205t22
+1239i7 Socket{413I9} 25|2178b7 2191r19
+1240a7 Item{11|54A9} 25|2179b7 2192m12 2192r12 2193r12 2202r36
+1241i7 Last{11|44I9} 25|2180b7 2202m7
+1242r7 From{594R9} 25|2181b7 2204m7
+1243m7 Flags{1016M9} 25|2182b7 2194r20
+1249U14*Receive_Vector 1250>7 1251>7 1252<7 1253>7 25|2211b14 2247l8 2247t22
+1250i7 Socket{413I9} 25|2212b7 2238r19
+1251a7 Vector{1053A9} 25|2213b7 2222r34 2229r37
+1252i7 Count{11|51I12} 25|2214b7 2246m7
+1253m7 Flags{1016M9} 25|2215b7 2240r20
+1258V13*Resolve_Exception{731E9} 1259>7 25|2379b13 2418l8 2418t25
+1259r7 Occurrence{9|53R9} 25|2380b7 2382r60 2383r59
+1265U14*Send_Socket 1266>7 1267>7 1268<7 1269^7 1270>7 1271r19 25|2431s7
+. 2446s7 2454b14 2490l8 2490t19 3109s10
+1266i7 Socket{413I9} 25|2455b7 2478r17
+1267a7 Item{11|54A9} 25|2456b7 2479r10 2480r10 2489r36
+1268i7 Last{11|44I9} 25|2457b7 2489m7
+1269p7 To(594R9) 25|2431r40 2447r30 2458b7 2468r10 2469r45
+1270m7 Flags{1016M9} 25|2431r52 2447r60 2459b7 2481r36
+1283U14*Send_Socket 1284>7 1285>7 1286<7 1287>7 25|2424b14 2432l8 2432t19
+1284i7 Socket{413I9} 25|2425b7 2431r20
+1285a7 Item{11|54A9} 25|2426b7 2431r28
+1286i7 Last{11|44I9} 25|2427b7 2431m34
+1287m7 Flags{1016M9} 25|2428b7 2431r61
+1292U14*Send_Socket 1293>7 1294>7 1295<7 1296>7 1297>7 25|2438b14 2448l8
+. 2448t19 3080s7
+1293i7 Socket{413I9} 25|2439b7 2447r10
+1294a7 Item{11|54A9} 25|2440b7 2447r18
+1295i7 Last{11|44I9} 25|2441b7 2447m24
+1296r7 To{594R9} 25|2442b7 2447r36
+1297m7 Flags{1016M9} 25|2443b7 2447r69
+1302U14*Send_Vector 1303>7 1304>7 1305<7 1306>7 25|2496b14 2547l8 2547t19
+1303i7 Socket{413I9} 25|2497b7 2536r22
+1304a7 Vector{1053A9} 25|2498b7 2512r25 2518r16 2520r18 2527r31 2528r34
+1305i7 Count{11|51I12} 25|2499b7 2510m7 2544m10 2544r19
+1306m7 Flags{1016M9} 25|2500b7 2538r41
+1311U14*Set_Close_On_Exec 1312>7 1313>7 1314<7 25|2575b14 2585l8 2585t25
+1312i7 Socket{413I9} 25|2576b7 2584r38
+1313b7 Close_On_Exec{boolean} 25|2577b7 2584r59
+1314b7 Status{boolean} 25|2578b7 2584m7
+1322U14*Set_Socket_Option 1323>7 1324>7 1325>7 25|2605b14 2776l8 2776t25
+1323i7 Socket{413I9} 25|2606b7 2768r17
+1324e7 Level{782E9} 25|2607b7 2769r18
+1325r7 Option{917R9} 25|2608b7 2624r12 2626r20 2638r40 2643r27 2648r27 2653r27
+. 2658r27 2663r50 2664r37 2671r27 2683r50 2684r50 2690r49 2691r48 2696r40
+. 2701r27 2706r37 2711r27 2717r50 2731r34 2733r19 2751r35 2757r10 2758r26
+. 2760r13 2764r17
+1328U14*Shutdown_Socket 1329>7 1330>7 25|2782b14 2794l8 2794t23
+1329i7 Socket{413I9} 25|2783b7 2789r33
+1330e7 How{488E9} 25|2784b7 2789r53
+1335P9*Stream_Access(11|39R9) 1338r50 1347r40 1352r25 1356r43 25|977r25 2802r40
+. 2811r14 2818r50 2823r14
+1338V13*Stream{1335P9} 1338>21 25|2818b13 2824l8 2824t14
+1338i21 Socket{413I9} 25|2818b21 2822r19
+1345V13*Stream{1335P9} 1346>7 1347>7 25|2800b13 2812l8 2812t14
+1346i7 Socket{413I9} 25|2801b7 2808r19 2810r36
+1347r7 Send_To{594R9} 25|2802b7 2809r19
+1351V13*Get_Address{594R9} 1352>7 25|976b13 985l8 985t19
+1352p7 Stream{1335P9} 25|977b7 980r10 981r46 983r59
+1355U14*Free[21|20]
+1361R9*Socket_Set_Type 1370r35 1373r29 1373r59 1376r32 1379r33 1383r30 1387r16
+. 1391r33 1394r27 1432r29 1433r29 1456r29 1457r29 1458r29 1518c9 1526e14
+. 25|206r36 280r53 506r29 507r29 511r22 519r29 520r29 521r29 606r23 810r16
+. 811r20 903r32 951r23 1688r27 1689r20 1816r30 1929r16 1959r36 2007r53 2553r33
+1370U14*Clear 1370=21 1370>52 25|580s10 605b14 619l8 619t13
+1370r21 Item{1361R9} 25|606b7 609r38 614r10 615m34 615r34 616m30 616r30 617m10
+1370i52 Socket{413I9} 25|607b7 612r25 615r58
+1373U14*Copy 1373>20 1373<46 25|809b14 815l8 815t12
+1373r20 Source{1361R9} 25|810b7 814r17
+1373r46 Target{1361R9} 25|811b7 814m7
+1376U14*Empty 1376<21 25|903b14 907l8 907t13
+1376r21 Item{1361R9} 25|903b21 905m25 905r25 906m7
+1379U14*Get 1379=19 1379<50 25|950b14 970l8 970t11 1701s13
+1379r19 Item{1361R9} 25|951b7 955r35 958r10 960m13 960r13 964m10
+1379i50 Socket{413I9} 25|952b7 965m10 968m10
+1383V13*Is_Empty{boolean} 1383>23 25|1700s20 1816b13 1819l8 1819t16
+1383r23 Item{1361R9} 25|1816b23 1818r14
+1386V13*Is_Set{boolean} 1387>7 1388>7 25|579s37 1928b13 1938l8 1938t14
+1387r7 Item{1361R9} 25|1929b7 1935r14 1936r28 1937r36
+1388i7 Socket{413I9} 25|1930b7 1933r25 1936r18 1937r60
+1391U14*Set 1391=19 1391>50 25|551s10 2553b14 2569l8 2569t11
+1391r19 Item{1361R9} 25|2553b19 2557r10 2561m28 2561r28 2562m10 2564r13 2565m10
+. 2568m29 2568r29
+1391i50 Socket{413I9} 25|2553b50 2555r25 2562r23 2564r25 2565r23 2568r53
+1394V13*Image{string} 1394>20 25|1688b13 1713l8 1713t13
+1394r20 Item{1361R9} 25|1688b20 1689r39
+1420U14*Create_Selector 1420<31 25|821b14 846l8 846t23
+1420r31 Selector{420R9} 25|821b31 826r19 844m7 845m7
+1423U14*Close_Selector 1423=30 25|625b14 644l8 644t22
+1423r30 Selector{420R9} 25|625b30 629r10 629r48 636r36 637r36 642m7 643m7
+1430U14*Check_Selector 1431>7 1432=7 1433=7 1434<7 1435>7 25|504b14 515l8
+. 515t22
+1431r7 Selector{420R9} 25|505b7 514r10
+1432r7 R_Socket_Set{1361R9} 25|506b7 514m20
+1433r7 W_Socket_Set{1361R9} 25|507b7 514m34
+1434e7 Status{450E9} 25|508b7 514m62
+1435o7 Timeout{447O12} 25|509b7 514r70
+1454U14*Check_Selector 1455>7 1456=7 1457=7 1458=7 1459<7 1460>7 25|513s7
+. 517b14 599l8 599t22
+1455r7 Selector{420R9} 25|518b7 532r23 549r14 550r18
+1456r7 R_Socket_Set{1361R9} 25|519b7 551m15 554r44 560m35 567m11 567r11 579r45
+. 580m17 596m15
+1457r7 W_Socket_Set{1361R9} 25|520b7 555r44 561m35 568m11 568r11 597m15
+1458r7 E_Socket_Set{1361R9} 25|521b7 556r44 562m35 569m11 569r11 598m15
+1459e7 Status{450E9} 25|522b7 536m7 588m10 591m10
+1460o7 Timeout{447O12} 25|523b7 540r10 543r30
+1466U14*Abort_Selector 1466>30 25|312b14 331l8 331t22
+1466r30 Selector{420R9} 25|312b30 316r23 319r13 326r43
+1470A9*Fd_Set<57|69A9> 1507c9 1509r8 1514r37 1523r21
+1481K12 ASU=1481:36 25|1654r16 1655r24 1657r29 1657r55 1659r23 3197r43
+1491b24*Is_Null{boolean} 1492r12 1505m47 25|319r22 549r23 629r19 1909r12
+1497i13*R_Sig_Socket{413I9} 25|550r27 636r45 642m16 844m16 1916r28 1920r19
+. 2053r40
+1498i13*W_Sig_Socket{413I9} 25|326r52 637r45 643m16 845m16 1918r28
+1514P9 Fd_Set_Access(1470A9) 1515r26 1516r32
+1516p4 No_Fd_Set_Access{1514P9}
+1519i7*Last{413I9} 25|554r57 555r57 556r57 609r43 614r15 617m15 906m12 955r40
+. 958r15 964m15 1693r51 1695r50 1818r19 1935r19 1936r33 1960r43 1962r15 1964m15
+. 2009r12 2557r15 2562m15 2564r18 2565m15
+1523a7*Set{1470A9} 25|567m24 568m24 569m24 615m39 616m35 905m30 960m18 1937m41
+. 1963m35 2010m30 2561m33 2568m34
+1561N4 Max_Name_Length 1564r45 1566r43
+1564I12 Name_Index{natural} 1566r29
+1566R9 Name_Type 1566d20 1568e14 1571r52 1575r19 1581r18 1583r18 25|155r44
+. 156r29 2978r41 2980r14 3015r29
+1566i20*Length{1564I12} 1567r27 25|3017r31
+1567a7*Name{string} 25|3017r17
+1571A9 Name_Array(1566R9)<integer> 1576r19 1584r18
+1572A9 Inet_Addr_Array(521R9)<integer> 1577r19
+1575r7*Official{1566R9} 25|2020r27 2905m17
+1576a7*Aliases{1571A9} 25|422r27 2907r26 2908m20 2910r55
+1577a7*Addresses{1572A9} 25|401r16 2913r26 2925r59 2935m48 2937m48
+1581r7*Official{1566R9} 25|2029r27 2997m17
+1582i7*Port{496I9} 25|2072r16 3006m17
+1583r7*Protocol{1566R9} 25|2081r27 3005m17
+1584a7*Aliases{1571A9} 25|434r27 2999r26 3000m20 3002r55
+1594U14 Raise_Socket_Error 1594>34 25|329s10 350s10 473s10 573s10 585s13
+. 657s10 683s10 721s13 765s10 793s10 841s10 864s10 892s10 1311s10 1502s10
+. 1607s10 1638s10 1733s10 1741s10 1744s10 1951s10 2100b14 2104l8 2104t26
+. 2167s10 2199s10 2243s10 2486s10 2541s13 2774s10 2792s10 2888s10 2962s16
+. 3089s10 3125s10
+1594i34 Error{integer} 25|2100b34 2103r25 2103r56
+X 25 g-socket.adb
+54K12 C=54:33 58r26 73r44 83r42 88r50 97r55 127r39 159r51 162r35 162r49 199r36
+. 216r39 313r13 326r36 342r13 344r21 347r24 463r13 465r13 470r22 525r14 526r14
+. 554r15 554r26 554r37 555r37 556r37 582r38 609r22 609r31 615r51 636r29 637r29
+. 651r13 654r23 667r39 670r13 674r25 700r23 701r31 746r13 777r21 778r13 783r20
+. 790r17 823r17 858r13 881r14 954r19 955r19 955r28 991r36 1023r19 1023r35
+. 1024r19 1024r35 1035r15 1083r49 1187r21 1187r62 1188r21 1188r62 1189r13
+. 1190r13 1206r34 1207r34 1224r25 1225r24 1227r24 1278r28 1278r44 1279r28
+. 1280r27 1282r27 1308r21 1310r25 1325r25 1325r41 1326r25 1326r41 1327r25
+. 1328r24 1356r25 1356r41 1357r25 1358r24 1365r10 1365r35 1389r21 1390r13
+. 1392r29 1411r16 1412r16 1415r21 1416r21 1417r21 1419r21 1421r13 1496r12
+. 1600r22 1601r14 1610r14 1624r21 1624r43 1624r62 1641r14 1723r16 1937r53
+. 1948r22 1948r41 1948r57 1960r22 1960r31 2160r13 2164r17 2184r13 2186r21
+. 2191r12 2238r12 2461r14 2465r14 2478r10 2536r15 2568r46 2581r48 2581r62
+. 2591r35 2591r49 2592r16 2594r39 2594r46 2596r39 2596r51 2610r16 2614r21
+. 2615r21 2616r21 2618r13 2620r13 2621r13 2638r20 2643r20 2648r20 2653r20
+. 2658r20 2663r30 2664r30 2671r20 2676r20 2691r36 2701r20 2706r20 2711r20
+. 2717r20 2731r22 2768r10 2786r13 2789r26 2884r27 2884r39 2892r33 2897r32
+. 2910r37 2922r38 2925r41 2948r51 2950r17 2992r33 3002r37
+56R9 IPV6_Mreq 59e15 2612r21
+57a7*ipv6mr_multiaddr{29|139A9} 2690m16
+58m7*ipv6mr_interface{32|44M9} 2691m16
+62N4 ENOERROR 2288r24
+64N4 Netdb_Buffer_Size 1224r37 1225r43 1279r40 1280r46 1327r37 1328r43 1357r37
+. 1358r43
+65b4 Need_Netdb_Lock{boolean} 1974r10 1985r10
+73a4 Levels(32|35I9) 861r57 888r24 1029r25 1098r31 1099r28 1497r12 2769r10
+83a4 Modes(32|35I9) 861r43 888r10 1028r25 1088r28 1090r25
+88a4 Shutmodes(32|35I9) 2789r42
+93a4 Requests(47|95I12) 790r33
+97a4 Options(32|35I9) 1427r17 2758r17
+127a4 Flags(32|35I9) 2953r16 2957r16 2965r32
+133p4 Socket_Error_Id{9|48P9} 2409r15
+134p4 Host_Error_Id{9|48P9} 2412r18
+136R9 In_Addr_Union 136d24 143e15 1223r24 1625r21 1726r24 2915r21
+136e24*Family{24|479E12} 137r12
+139r13*In4{29|123R9} 1232m16 1242r37 1631m16 1750r27 2937r36
+141a13*In6{29|139A9} 1234m16 1243r38 1629m16 1748r27 2935r36
+149V13 Resolve_Error{24|731E9} 150>7 151>7 1542s26 2253b13 2373l8 2373t21
+. 2410s17 2413s17
+150i7 Error_Value{integer} 2254b7 2261r15 2276r41 2288r10 2290r13 2292r13
+. 2294r13 2296r13 2298r13 2300r13 2302r13 2304r13 2306r13 2308r13 2310r13
+. 2312r13 2314r13 2316r13 2318r13 2320r13 2322r13 2324r13 2326r13 2328r13
+. 2330r13 2332r13 2334r13 2336r13 2338r13 2340r13 2342r13 2344r13 2346r13
+. 2348r13 2350r13 2352r13 2354r13 2356r13 2358r13 2360r13 2362r13 2364r13
+. 2366r13
+151b7 From_Errno{boolean} 2255b7 2260r14
+155V13 To_Name{24|1566R9} 155>24 2905s29 2909s15 2978b13 2981l8 2981t15 2997s29
+. 3001s15 3005s29
+155a24 N{string} 2978b22 2980r25 2980r35
+156V13 To_String{string} 156>24 422s14 434s14 2020s14 2029s14 2081s14 3015b13
+. 3018l8 3018t17
+156r24 HN{24|1566R9} 3015b24 3017r14 3017r28
+159V13 To_Int{32|35I9} 159>21 2164s60 2194s12 2240s12 2481s28 2538s33 2948b13
+. 2972l8 2972t14
+159m21 F{24|1016M9} 2948b21 2949r38
+162V13 Set_Forced_Flags{32|35I9} 162>31 2481s10 2538s15 2591b13 2599l8 2599t24
+162i31 F{32|35I9} 2591b31 2598r35
+165U14 Netdb_Lock 166r19 1237s7 1285s10 1332s7 1362s7 1972b14 1977l8 1977t18
+167U14 Netdb_Unlock 168r19 1247s10 1255s13 1259s13 1290s13 1297s13 1335s10
+. 1344s10 1368s10 1377s10 1983b14 1988l8 1988t20
+172V13 To_Host_Entry{24|643R9} 172>28 1253s23 1295s23 2875b13 2942l8 2942t21
+172p28 E{29|218P9} 2875b28 2879r44 2884r67 2892r30 2897r29 2905r61 2910r34
+. 2925r38
+175V13 To_Service_Entry{24|686R9} 175>31 1342s20 1375s20 2987b13 3009l8 3009t24
+175p31 E{29|248P9} 2987b31 2992r30 2997r61 3002r34 3005r62 3007r57
+178V13 Value{string} 178>20 2905s38 2909s24 2997s38 3001s24 3005s38 3054b13
+. 3067l8 3067t13
+178m20 S{34|67M9} 3054b20 3056r27
+181V13 To_Timeval{29|58R9} 181>25 543s18 2751s23 3024b13 3048l8 3048t18
+181o25 Val{24|445O12} 3024b25 3031r10 3038r24 3039r42
+184V13 To_Duration{24|445O12} 184>26 1588s31 2848b13 2869l8 2869t19
+184r26 Val{29|58R9} 2848b26 2858r13 2860r13 2862r13 2868r24 2868r48
+188V13 Dedot{string} 188>20 998s17 1002s14 2092s13
+188a20 Value{string} 189r11 189r32 189r39 190r13 190r20 190r35 191r13
+194U14 Raise_Host_Error 194>32 194>51 1248s10 1291s13 2088b14 2094l8 2094t24
+194i32 H_Error{integer} 2088b32 2091r25 2092r60
+194a51 Name{string} 2088b51 2093r20
+199U14 Raise_GAI_Error 199>31 199>43 991b14 1004l8 1004t23 1130s10 1202s10
+199i31 RC{32|35I9} 991b31 993r10 1001r57 1002r47
+199a43 Name{string} 991b43 998r65 1002r62
+203V13 Is_Windows{boolean} 487s10 1472s16 1572s16 1806b13 1810l8 1810t18
+. 2724s16
+206U14 Narrow 206=22 596s7 597s7 598s7 1959b14 1966l8 1966t14
+206r22 Item{24|1361R9} 1959b22 1960r38 1962r10 1963m30 1963r30 1964m10
+209U14 Check_For_Fd_Set 209>32 210r19 481b14 498l8 498t24 612s7 1933s7 2555s7
+209i32 Fd{24|413I9} 481b32 494r13 494r28 496r59
+214V13 Connect_Socket{32|35I9} 215>7 216>7 665b13 675l8 675t22 682s10 717s14
+215i7 Socket{24|413I9} 666b7 674r32
+216r7 Server{24|594R9} 667b7 672r42
+222R9 Datagram_Socket_Stream_Type<11|39R9> 226e14 229r17 231P14 232r23 236P14
+. 237r23 980r24 981r17 2111r23 2807r23 3074r23
+223i7*Socket{24|413I9} 2117r17 2808m9 3081r17
+224r7*To{24|594R9} 2809m9 3084r17
+225r7*From{24|594R9} 981r58 2120m17 2810m9
+228P9 Datagram_Socket_Stream_Access(222R9) 2804r11
+231U14 Read<11|57p14> 232=7 233<7 234<7 2110b14 2121l8 2121t12
+232r7 Stream{222R9} 2111b7 2117r10 2120m10 2120r10
+233a7 Item{11|54A9} 2112b7 2118m10
+234i7 Last{11|44I9} 2113b7 2119m10
+236U14 Write<11|63p14> 237=7 238>7 3073b14 3091l8 3091t13
+237r7 Stream{222R9} 3074b7 3081r10 3084r10
+238a7 Item{11|54A9} 3075b7 3082r10 3088r18
+242R9 Stream_Socket_Stream_Type<11|39R9> 244e14 247r17 249P14 250r23 254P14
+. 255r23 983r32 2128r23 2821r16 3098r23
+243i7*Socket{24|413I9} 983r71 2138r33 2822m9 3109r30
+246P9 Stream_Socket_Stream_Access(242R9) 2819r11
+249U14 Read<11|57p14> 250=7 251<7 252<7 2127b14 2148l8 2148t12
+250r7 Stream{242R9} 2128b7 2138r26
+251a7 Item{11|54A9} 2129b7 2132r61 2134r61 2138m41 2138r41
+252i7 Last{11|44I9} 2130b7 2139m10
+254U14 Write<11|63p14> 255=7 256>7 3097b14 3127l8 3127t13
+255r7 Stream{242R9} 3098b7 3109r23
+256a7 Item{11|54A9} 3099b7 3103r61 3106r16 3109r38
+258U14 Wait_On_Socket 259>7 260>7 261>7 262^7 263<7 376s7 733s10 2036b14
+. 2064l8 2064t22
+259i7 Socket{24|413I9} 377r10 734r13 2037b7 2043r41
+260a7 Event{27|51A9} 378r10 735r13 2038b7 2043r49
+261o7 Timeout{24|447O12} 379r10 736r13 2039b7 2056r26
+262p7 Selector(24|420R9) 380r10 737r13 2040b7 2052r10 2053r31
+263e7 Status{24|450E9} 381r10 738r13 2041b7 2059m10 2062m10
+268R9 Sockets_Library_Controller<10|50R9> 269e22 277P14 277r37 278P14 278r37
+. 924r35 1760r37 3129r40 43|42p14
+274V13 Err_Code_Image{string} 274>29 913b13 918l8 918t22 997s35 1001s32 2091s9
+. 2103s9
+274i29 E{integer} 913b29 914r23
+277U14 Initialize<10|53p14> 277=26 1760b14 1765l8 1765t18
+277r26 X{268R9} 1760b26 1761r28
+278U14 Finalize<10|54p14> 278=26 924b14 931l8 931t16
+278r26 X{268R9} 924b24 925r28
+280U14 Normalize_Empty_Socket_Set 280=42 560s7 561s7 562s7 2007b14 2012l8
+. 2012t34
+280r42 S{24|1361R9} 2007b42 2009r10 2010m28 2010r28
+285V13 Is_Open{boolean} 285>22 316s14 370s40 532s14 629s39 705s40 826s10
+. 1907b13 1922l8 1922t15
+285r22 S{24|420R9} 1907b22 1909r10 1916r26 1918r26 1920r17
+290V13 Create_Address{24|521R9} 291>7 291>33 3138b13 3187s17 3219s17 3242s17
+. 3257s14
+291e7 Family{24|479E12} 3141r12
+291a33 Bytes{24|511A9} 3142r44 3143r46
+295V13 Get_Bytes{24|511A9} 295>24 3149b13 3211s42 3212s42 3234s42 3235s42
+. 3251s39
+295r24 Addr{24|521R9} 3150r12 3151r30 3152r31
+313i7 Res{32|35I9} 326m7 328r10
+342i7 Res{32|35I9} 347m7 349r10 353r30
+343r7 Sin{29|150R9} 344r30 347m40 347r40 354r31
+344i7 Len{32|35I9} 347m53 347r53 354r36
+463i7 Res{32|35I9} 470m7 472r10
+464r7 Sin{29|150R9} 468m20 468r20 470m38 470r38
+465i7 Len{32|35I9} 468m51 470r51
+511r7 E_Socket_Set{24|1361R9} 514m48 514r48
+525i7 Res{32|35I9} 564m7 572r10 582m10 584r13 590r13
+526i7 Last{32|35I9} 554m7 566r11
+527i7 RSig{24|413I9} 550m10 551r29 579r10 579r59 580r31 582r45
+528r7 TVal{29|58R9} 543m10 544m18 544r18
+529p7 TPtr{29|64P9} 541m10 544m10 570r11
+609i7 Last{32|35I9} 616m47 616r47 617r36
+651i7 Res{32|35I9} 654m7 656r10
+669r7 Sin{29|150R9} 672m20 672r20 674m41 674r41
+670i7 Len{32|35I9} 672m50 674r54
+694r7 Req{24|1001R9} 711m7 712m42 712r42 759m7 760m42 760r42
+697i7 Conn_Err{integer} 701r40 719m10 720r13 721r33 747m13 747r13 750m13
+. 754m10 764r10 765r30
+700i7 Res{32|35I9} 717m7 718r10 745m10 749r13
+701i7 Conn_Err_Size{32|35I9} 747m31 747r31
+777i7 Arg{32|35I9} 783m13 790m58 790r58 801r38
+778i7 Res{32|35I9} 789m7 792r10
+822a7 Two_Fds{29|418A12} 837m37 837r37 838r44 844r45 845r45
+823i7 Res{32|35I9} 837m7 840r10
+858i7 Res{32|35I9} 861m7 863r10 867r30
+881i7 Res{32|35I9} 885m7 891r10
+882a7 Pair{29|418A12} 888m40 888r40 889r44 895r29 895r35 896r29 896r35
+914a7 Msg=914:29{string} 916r7 916r12 917r14
+954i7 S{32|35I9} 960m58 960r58 962r47 965r36
+955i7 L{32|35I9} 960m38 960r38 961r47 964r36
+995i13 Errcode{integer} 997r51 998r46
+1019i10 Family{integer}
+1019i18 Mode{integer}
+1019i24 Level{integer}
+1019i31 Length{integer}
+1022p7 A{29|313P9} 1127m21 1127r21 1134r15 1137r26
+1023a7 N{32|86A9} 1124m50 1124r50
+1024a7 S{32|86A9} 1125m21 1125r21
+1026r7 Hints{29|315R9} 1126r21
+1035i7 R{32|35I9} 1123m7 1129r10 1131r13
+1036p7 Iter{29|313P9} 1060r28 1061r28 1062r28 1063r28 1072r19 1083r31 1083r56
+. 1090r37 1099r41 1111m16 1111r24 1114m13 1114r21 1134m7
+1037b7 Found{boolean} 1089m22 1092m25 1097r22
+1039V16 To_Array{24|1061A9} 1046b16 1117s26 1118l11 1118t19 1136s54
+1047a10 Result{24|1061A9} 1070r19 1076r26 1082m16 1085r19 1091m25 1100m28
+. 1117r17
+1049U20 Unsupported 1056b20 1065l14 1065t25 1086s19 1107s22
+1070i14 J{integer} 1076r39 1082r24 1085r27 1091r33 1100r36
+1071l13 Look_For_Supported 1105r27 1112l22 1112e40
+1088e23 M{24|481E9} 1090r32 1091r44
+1098e26 L{24|782E9} 1099r36 1100r48
+1136a14 Result{24|1061A9}
+1147r36 Left{24|1055R9}
+1147r42 Right{24|1055R9}
+1149V16 Comp{boolean} 1149>22 1149>28 1152r54
+1149r22 Left{24|1055R9} 1150r20
+1149r28 Right{24|1055R9} 1150r26
+1151U17 Sorter[5|23] 6|32b26 25|1154s7
+1186r7 SA{29|150R9} 1192m20 1192r20 1195m10 1195r10
+1187a7 H{32|86A9} 1196m10 1196r10 1196r30 1206r44
+1188a7 S{32|86A9} 1197m10 1197r10 1197r30 1207r44
+1189i7 RC{32|35I9} 1194m7 1201r10 1202r27
+1190i7 Len{32|35I9} 1192m47 1195r42
+1206a10 HR{string} 1209r18 1209r40
+1207a10 SR{string} 1209r29 1209r44
+1223r7 HA{136R9} 1232m13 1234m13 1240m10 1240r10 1242r34 1243r35
+1224m7 Buflen{32|62M9} 1245r35
+1225a7 Buf{32|86A9} 1245m22 1245r22
+1226a7 Res{29|211A9} 1245m10 1245r10 1253m38 1253r38
+1227i7 Err{32|35I9} 1245m43 1245r43 1248r37
+1252r17 H{24|643R9}
+1278a10 HN{32|86A9} 1288r13
+1279m10 Buflen{32|62M9} 1288r42
+1280a10 Buf{32|86A9} 1288m29 1288r29
+1281a10 Res{29|211A9} 1288m17 1288r17 1295m38 1295r38
+1282i10 Err{32|35I9} 1288m50 1288r50 1291r40
+1294r17 H{24|643R9}
+1307r7 Sin{29|150R9} 1308r30 1310m41 1310r41 1314r27
+1308i7 Len{32|35I9} 1310m54 1310r54 1314r32
+1325a7 SN{32|86A9} 1334r27
+1326a7 SP{32|86A9} 1334r31
+1327m7 Buflen{32|62M9} 1334r60
+1328a7 Buf{32|86A9} 1334m47 1334r47
+1329a7 Res{29|241A9} 1334m35 1334r35 1342m38 1342r38
+1341r14 S{24|686R9}
+1356a7 SP{32|86A9} 1365r62
+1357m7 Buflen{32|62M9} 1366r35
+1358a7 Buf{32|86A9} 1366m22 1366r22
+1359a7 Res{29|241A9} 1366m10 1366r10 1375m38 1375r38
+1374r14 S{24|686R9}
+1388r7 Sin{29|150R9} 1389r30 1392m45 1392r45 1398r27
+1389i7 Len{32|35I9} 1392m58 1392r58 1398r32
+1390i7 Res{32|35I9} 1392m7 1394r10
+1414a7 V8{29|414A9} 1490r20 1491m20 1491r20 1533r29 1533r33 1534r37 1534r41
+1415i7 V4{32|35I9} 1462r20 1463m20 1463r20 1508r28 1518r29 1521r35 1524r42
+. 1527r46 1530r42 1539r34 1542r50 1554r39 1557r47 1563r39
+1416m7 U4{32|44M9} 1473r23 1474m23 1474r23 1573r19 1581m22 1581r28 1584r44
+1417m7 V1{32|49M9} 1440r20 1441m20 1441r20 1560r42 1567r29
+1418r7 VT{29|58R9} 1476r23 1477m23 1477r23 1588r44
+1419i7 Len{32|35I9} 1440m13 1462m13 1473m16 1476m16 1490m13 1499m17 1499r17
+1420m7 Add{34|67M9} 1441m13 1463m13 1474m16 1477m16 1491m13 1499r12
+1421i7 Res{32|35I9} 1494m7 1501r10
+1422r7 Opt{24|917R9} 1507m13 1508m13 1518m13 1521m13 1524m13 1527m13 1530m13
+. 1533m13 1534m13 1539m13 1542m13 1554m44 1554r44 1557m13 1560m13 1563m13
+. 1567m13 1574m19 1584m19 1588m16 1592r14
+1423i7 Onm{32|35I9} 1427m10 1433m10 1498r12 1507r28
+1600a7 Name{32|86A9} 1604m29 1604r29 1604r43 1610r24
+1601i7 Res{32|35I9} 1604m7 1606r10
+1619m7 Size{29|67M9} 1624r53 1636r32
+1624a7 Dst{32|86A9} 1636m10 1636r10 1641r24
+1625r7 Ia{136R9} 1629m13 1631m13 1635m35 1635r35
+1649V16 Ipv6_Brackets{string} 1649>31 1666s23
+1649a31 S{string} 1650r52 1650r65
+1664a16 Port{string} 1667r20 1667r31
+1689r7 Socket_Set{24|1361R9} 1693r40 1695r39 1700r30 1701m18 1701r18
+1693a10 Last_Img{string} 1695r63 1711r23
+1694a10 Buffer{string} 1706m16 1711r40
+1696i10 Index{positive} 1706r24 1706r33 1707m16 1707r25 1711r53
+1697i10 Socket{24|413I9} 1701m30 1704r48
+1704a16 Socket_Img{string} 1706r41 1706r67 1707r33
+1722a7 Img{32|86A9} 1737m58 1737r58
+1723i7 Res{32|35I9} 1736m7 1740r10 1743r13
+1724r7 Result{24|521R9} 1748m32 1750m32 1753r14
+1725b7 IPv6{boolean} 1727r22 1737r14 1747r10
+1726r7 Ia{136R9} 1738m10 1738r10 1748r24 1750r24
+1772b7 Expected{boolean} 1775r33 1777r65
+1826i7 Prev_Colon{natural} 1834r16 1834r44 1847m13 1849r16 1854r20 1855r47
+1827b7 Double_Colon{boolean} 1835r19 1840m16
+1828i7 Colons{natural} 1832m13 1832r23 1863r14
+1830i11 J{integer} 1831r19 1834r40 1842r19 1847r27 1853r22 1857r22
+1871i7 Dots{natural} 1887m16 1887r24 1900r14
+1877i11 J{integer} 1878r19 1884r16 1885r30 1895r22
+1948i7 Res{32|35I9} 1950r10
+1960i7 Last{32|35I9} 1963m47 1963r47 1964r36
+1997r14 Result{24|594R9} 1998m10 1999m10
+2043r7 Fd_Set{27|71R9} 2053r23 2056r18 2061r21
+2046i7 Count{natural} 2056m35 2058r10
+2047i7 Index{natural} 2061m29 2061r29 2062r24
+2132i7 First{11|44I9} 2133r61 2138r47 2144r28 2146m10
+2133i7 Index{11|44I9} 2138m62 2139r19 2144r20 2144r42 2146r19
+2134i7 Max{11|44I9} 2138r56 2144r50
+2160i7 Res{32|35I9} 2163m7 2166r10 2170r65
+2184i7 Res{32|35I9} 2189m7 2198r10 2202r65
+2185r7 Sin{29|150R9} 2186r30 2195m12 2195r12 2204r28
+2186i7 Len{32|35I9} 2196m12 2196r12 2204r33
+2217i7 Res{39|62I9} 2236m7 2242r10 2246r50
+2219r7 Msg{29|359R9} 2239m12 2239r12
+2382p7 Id{9|48P9} 2409r10 2412r13
+2383a7 Msg{string} 2389r16 2390r22 2391r18 2396r18 2401r20 2402r18 2407r29
+2384i7 First{natural} 2389m7 2390r13 2391r23 2393m10 2393r19 2396r10 2400r15
+. 2407r34
+2385i7 Last{natural} 2400m7 2401r13 2402r23 2404m10 2404r18 2407r43
+2386i7 Val{integer} 2407m7 2410r32 2413r32
+2461i7 Res{32|35I9} 2477m7 2485r10 2489r65
+2463r7 Sin{29|150R9} 2469m23 2469r23 2470m18 2470r18
+2464m7 C_To{34|67M9} 2470m10 2473m10 2482r10
+2465i7 Len{32|35I9} 2469m53 2474m10 2483r10
+2504i7 Res{39|62I9} 2534m10 2540r13 2544r61
+2505m7 Iov_Count{47|428M12} 2511m7 2512r13 2518r32 2520r34 2528r58 2545m10
+. 2545r23
+2506m7 This_Iov_Count{47|428M12} 2517m10 2529r31 2545r35
+2507r7 Msg{29|359R9} 2524m10 2537m15 2537r15
+2580V16*C_Set_Close_On_Exec{32|35I9} 2581>10 2581>32 2582b<c,__gnat_set_close_on_exec>25
+. 2584s17
+2581i10 Socket{24|413I9}
+2581i32 Close_On_Exec{32|35I9}
+2593V16 To_unsigned[20|20]{32|44M9} 2598s22
+2595V16 To_int[20|20]{32|35I9} 2598s14
+2612r7 MR{56R9} 2690m13 2691m13 2692r20 2693m20 2693r20
+2613a7 V8{29|414A9} 2663m13 2663r17 2664m13 2664r17 2665r20 2666m20 2666r20
+. 2683m13 2683r17 2684m13 2684r17 2685r20 2686m20 2686r20
+2614i7 V4{32|35I9} 2626m13 2627r20 2628m20 2628r20 2638m13 2639r20 2640m20
+. 2640r20 2643m13 2644r20 2645m20 2645r20 2648m13 2649r20 2650m20 2650r20
+. 2653m13 2654r20 2655m20 2655r20 2658m13 2659r20 2660m20 2660r20 2671m13
+. 2672r20 2673m20 2673r20 2676m13 2677r20 2678m20 2678r20 2696m13 2697r20
+. 2698m20 2698r20 2701m13 2702r20 2703m20 2703r20 2711m13 2712r20 2713m20
+. 2713r20
+2615m7 U4{32|44M9} 2728r23 2729m23 2729r23 2731m16 2733r49 2735m19 2742r22
+. 2743m22 2743r28 2745r25 2746m22
+2616m7 V1{32|49M9} 2706m13 2707r20 2708m20 2708r20 2717m13 2718r20 2719m20
+. 2719r20
+2617r7 VT{29|58R9} 2751m16 2752r23 2753m23 2753r23
+2618i7 Len{32|35I9} 2627m13 2639m13 2644m13 2649m13 2654m13 2659m13 2665m13
+. 2672m13 2677m13 2685m13 2692m13 2697m13 2702m13 2707m13 2712m13 2718m13
+. 2728m16 2752m16 2771r15
+2619m7 Add{34|67M9} 2628m13 2640m13 2645m13 2650m13 2655m13 2660m13 2666m13
+. 2673m13 2678m13 2686m13 2693m13 2698m13 2703m13 2708m13 2713m13 2719m13
+. 2729m16 2753m16 2771r10
+2620i7 Res{32|35I9} 2767m7 2773r10
+2621i7 Onm{32|35I9} 2758m10 2764m10 2770r10
+2786i7 Res{32|35I9} 2789m7 2791r10
+2804p7 S{228P9} 2807m7 2808r7 2809r7 2810r7 2811r29
+2819p7 S{246P9} 2821m7 2822r7 2823r29
+2849i7 Max_D{long_long_integer} 2858r34 2860r34 2862r61
+2850b7 Tv_sec_64{boolean} 2854r10
+2876i7 Aliases_Count{natural} 2891m7 2892r40 2893m10 2893r27 2902r46
+2876i22 Addresses_Count{natural} 2896m7 2897r39 2898m10 2898r29 2903r46
+2878e7 Family{24|473E9} 2887r10 2915r36 2934r19
+2884m7 Addr_Len{32|62M9} 2922r57
+2901r14 Result{24|643R9} 2905m10 2907r19 2908m13 2910r48 2913r19 2925r52
+. 2935m41 2935r41 2937m41 2937r41
+2907i14 J{integer} 2908r29 2910r44
+2913i14 J{integer} 2925r48 2935r59 2937r59
+2915r16 Ia{136R9} 2929m45 2929r45 2935r33 2937r33
+2922A24 Addr_Buf_T{32|86A9}<32|62M9> 2923r33 2928r31
+2923a16 Unaligned_Addr{2922A24} 2924m20 2924r20 2926m36 2926r36 2933r32
+2928a16 Aligned_Addr{2922A24} 2929m20 2929r20 2930m36 2930r36 2933m16
+2949m7 Current{24|1016M9} 2954r20 2956r13 2968m10 2968r21
+2950i7 Result{32|35I9} 2965m13 2965r23 2971r14
+2953i11 J{integer} 2957r23 2965r39
+2988i7 Aliases_Count{natural} 2991m7 2992r40 2993m10 2993r27 2996r63
+2996r14 Result{24|686R9} 2997m10 2999r19 3000m13 3002r48 3005m10 3006m10
+2999i14 J{integer} 3000r29 3002r44
+3025i7 S{29|46I9} 3032m10 3038m10 3039r67 3047r15
+3026i7 uS{29|52I9} 3033m10 3039m10 3041r13 3043m13 3047r18
+3055a7 Str{string} 3056m11 3056r11 3057m27 3057r27 3059r32 3062r13 3066r14
+3059i7 Terminator{positive} 3062r18 3063m10 3063r24 3066r24
+3077i7 Last{11|44I9} 3083m10 3088r10
+3101i7 First{11|44I9} 3106m7 3107r16 3108r13 3109r44 3114r28 3116m10
+3102i7 Index{11|44I9} 3107m7 3109m59 3114r20 3114r42 3116r19 3124r10
+3103i7 Max{11|44I9} 3108r22 3109r53 3114r50 3124r18
+3129r4 Sockets_Library_Controller_Object{268R9} 3130r25
+3163i7 Addr_Len{natural} 3165r23 3171r40 3178r26
+3171a10 B{24|511A9} 3175m13 3180m13 3182r40 3183m16 3187r41
+3172m10 Part{24|505M9} 3179m13 3180r49 3180r63
+3174i14 J{integer} 3175r16
+3182i17 J{integer} 3183r19
+3211a10 A{24|511A9} 3213r31 3216r19 3217r22
+3212a10 M{24|511A9} 3217r32
+3213a10 R{24|511A9} 3217m13 3219r46
+3216i14 J{integer} 3217r16 3217r25 3217r35
+3234a10 N{24|511A9} 3236r31 3239r19 3240r22
+3235a10 H{24|511A9} 3240r31
+3236a10 R{24|511A9} 3240m13 3242r45
+3239i14 J{integer} 3240r16 3240r25 3240r34
+3251a7 M{24|511A9} 3252r28 3255r23
+3252a7 R{24|511A9} 3254r16 3255m10 3257r43
+3254i11 J{integer} 3255r13 3255r26
+X 26 g-soliop.ads
+41K22*Linker_Options 25|41w19 42r36 26|42e32
+X 27 g-socpol.ads
+37K22*Poll 25|45w19 260r18 378r22 735r25 2038r18 2043r16 2043r28 2053r10
+. 2053r54 2056r7 2061r10 27|216e22
+51A9*Wait_Event_Set(boolean)<39E9> 25|260r23 2038r23
+59a4*Input_Event{51A9} 25|378r27 2053r59
+62a4*Output_Event{51A9} 25|735r30
+71R9*Set 25|2043r21 27|208e14
+77V13*To_Set{71R9} 25|2043s33
+85U14*Append 25|2053s15
+130U14*Wait 25|2056s12
+138U14*Next 25|2061s15
+X 28 g-socthi.ads
+46K22*Thin 25|38w19 38r49 930r7 1764r7 28|270e22
+58V13*Socket_Errno=58:61{integer} 25|329s30 350s30 473s30 573s30 585s33 657s30
+. 683s30 719s22 750s25 793s30 841s30 864s30 892s30 995s43 1311s30 1502s30
+. 1607s30 1638s30 1741s30 1951s30 2167s30 2199s30 2243s30 2486s30 2541s33
+. 2774s30 2792s30 3089s30 3125s30
+61V13*Socket_Error_Message{string} 25|998s24 2103s34
+69K12*Host_Error_Messages 25|2092r20 28|75e27
+71V16*Host_Error_Message{string} 25|2092s40
+81V13*C_Accept{32|35I9} 25|347s14
+86V13*C_Bind{32|35I9} 25|470s14
+91V13*C_Close{32|35I9} 25|654s14
+94V13*C_Connect{32|35I9} 25|674s14
+99V13*C_Gethostname{32|35I9} 25|1604s14
+103V13*C_Getpeername{32|35I9} 25|1310s10
+108V13*C_Getsockname{32|35I9} 25|1392s14
+113V13*C_Getsockopt{32|35I9} 25|745s17 1495s9
+120V13*Socket_Ioctl{32|35I9} 25|789s14
+125V13*C_Listen{32|35I9} 25|1948s31
+129V13*C_Recv{32|35I9} 25|2164s9
+135V13*C_Recvfrom{32|35I9} 25|2190s9
+143V13*C_Recvmsg{39|62I9} 25|2237s9
+148V13*C_Select{32|35I9} 25|565s9
+155V13*C_Sendmsg{39|62I9} 25|2535s12
+160V13*C_Sendto{32|35I9} 25|2477s14
+168V13*C_Setsockopt{32|35I9} 25|2767s14
+175V13*C_Shutdown{32|35I9} 25|2789s14
+179V13*C_Socket{32|35I9} 25|861s14
+187N4*Default_Socket_Pair_Family 25|886r42
+190V13*C_Socketpair{32|35I9} 25|885s14
+201K12*Signalling_Fds 25|326r14 582r17 636r7 637r7 837r14 28|222e22
+203V16*Create{32|35I9} 25|837s29
+208V16*Read{32|35I9} 25|582s32
+213V16*Write{32|35I9} 25|326s29
+218U17*Close 25|636s22 637s22
+248U14*Initialize 25|1764s12
+249U14*Finalize 25|930s12
+X 29 g-sothco.ads
+38K22*Thin_Common 25|39w19 39r49 882r22 29|498e29
+41K12*CS=41:25 25|1002r21 1618r16
+44i4*Failure{32|35I9} 25|328r16 349r16 472r16 572r16 584r19 656r16 682r44
+. 718r16 792r16 840r16 863r16 891r16 1310r68 1394r16 1501r16 1606r16 1950r16
+. 2166r16 2198r16 2242r25 2485r16 2540r28 2773r16 2791r16
+46I9*time_t<long_integer> 25|2858r26 2860r26 3025r12 3038r16
+52I9*suseconds_t<long_integer> 25|2862r27 3026r12 3039r16
+58R9*Timeval 25|181r56 184r32 528r22 1418r21 2617r21 2848r32 3024r56 29|61e14
+59i7*Tv_Sec{46I9} 25|2858r17 2860r17 2868r28
+60i7*Tv_Usec{52I9} 25|2862r17 2868r52
+64P9*Timeval_Access(58R9) 25|529r14
+67M9*socklen_t 25|1195r31 1619r23
+76a4*Families(32|35I9) 25|861r24 887r16 1027r25 1244r10 1635r10
+123R9*In_Addr 25|139r19 29|125e15
+130V13*To_In_Addr[20|20]{123R9} 25|1554s27
+131V13*To_Int[20|20]{32|35I9} 25|2683s30 2684s30 2696s20
+133V13*To_In_Addr{123R9} 25|1232s23 1631s23 2683s38 2684s38 2696s28
+134U14*To_Inet_Addr 25|1554s13 1750s10 2937s19
+139A9*In6_Addr(32|49M9)<integer> 25|57r26 141r19
+144V13*To_In6_Addr{139A9} 25|1234s23 1629s23 2690s36
+145U14*To_Inet_Addr 25|1748s10 2935s19
+150R9*Sockaddr 25|343r21 464r21 669r21 1186r21 1307r21 1388r21 2185r21 2463r22
+. 29|188e15
+191P9*Sockaddr_Access(150R9)
+195U14*Set_Address 25|468s7 672s7 1192s7 2469s10
+204V13*Get_Address{24|594R9} 25|354s18 1083s18 1314s14 1398s14 2204s15
+211A9*Hostent<57|69A9>(57|63M9)<57|54I9> 25|1226r24 1281r27
+218P9*Hostent_Access(211A9) 25|172r32 2875r32
+222V13*Hostent_H_Name{34|67M9} 25|2905s45
+225V13*Hostent_H_Alias{34|67M9} 25|2892s13 2909s31
+228V13*Hostent_H_Addrtype{32|35I9} 25|2879s24
+231V13*Hostent_H_Length{32|35I9} 25|2884s49
+234V13*Hostent_H_Addr{34|67M9} 25|2897s13 2925s22
+241A9*Servent<57|69A9>(57|63M9)<57|54I9> 25|1329r24 1359r24
+248P9*Servent_Access(241A9) 25|175r35 2987r35
+252V13*Servent_S_Name{34|67M9} 25|2997s45
+255V13*Servent_S_Alias{34|67M9} 25|2992s13 3001s31
+258V13*Servent_S_Port{32|45M9} 25|3007s41
+261V13*Servent_S_Proto{34|67M9} 25|3005s45
+280V13*C_Gethostbyname{32|35I9} 25|1287s13
+287V13*C_Gethostbyaddr{32|35I9} 25|1239s10
+296V13*C_Getservbyname{32|35I9} 25|1334s10
+303V13*C_Getservbyport{32|35I9} 25|1364s10
+312R9*Addrinfo 25|1026r32 29|324e15
+313P9*Addrinfo_Access(312R9) 25|1022r19 1036r15
+315R9*Addrinfo
+316i7*ai_flags{32|35I9} 25|1030m10
+317i7*ai_family{32|35I9} 25|1027m10 1060m33
+318i7*ai_socktype{32|35I9} 25|1028m10 1061m33 1090r42
+319i7*ai_protocol{32|35I9} 25|1029m10 1062m33 1099r46
+320m7*ai_addrlen{67M9} 25|1032m10 1063m33 1083r61
+321p7*ai_addr{191P9} 25|1083r36
+323p7*ai_next{313P9} 25|1111r29 1114r26
+336V13*C_Getaddrinfo{32|35I9} 25|1123s12
+337p7 Node{33|39P9} 25|1124r10
+338p7 Service{33|39P9} 25|1125r10
+339p7 Hints(315R9) 25|1126r10
+340p7 Res(313P9) 25|1127r10
+342U14*C_Freeaddrinfo 25|1137s10
+344V13*C_Getnameinfo{32|35I9} 25|1194s13
+353V13*C_GAI_Strerror{33|47P9} 25|1002s31
+359R9*Msghdr 25|2219r13 2507r24 29|367e14
+360m7*Msg_Name{34|67M9} 25|2220m16 2525m13
+361m7*Msg_Namelen{32|44M9} 25|2221m16 2526m13
+362m7*Msg_Iov{34|67M9} 25|2222m16 2527m13
+363m7*Msg_Iovlen{47|428M12} 25|2228m16 2529m13
+364m7*Msg_Control{34|67M9} 25|2231m16 2530m13
+365m7*Msg_Controllen{32|62M9} 25|2232m16 2531m13
+366i7*Msg_Flags{32|35I9} 25|2233m16 2532m13
+374U14*Get_Socket_From_Set 25|959s10
+376p7 Last(32|35I9) 25|960r30
+377p7 Socket(32|35I9) 25|960r48
+384U14*Insert_Socket_In_Set 25|2568s7
+389V14*Is_Socket_In_Set{32|35I9} 25|1937s18
+395U14*Last_Socket_In_Set 25|616s10 1963s10
+404U14*Remove_Socket_From_Set 25|615s10
+407U14*Reset_Socket_Set 25|905s7 2010s10 2561s10
+414A9*Two_Ints(32|35I9)<integer> 25|1414r21 2613r21
+418A12*Fd_Pair{414A9}<integer> 25|822r25 882r34
+423N4*Read_End 25|844r54
+424N4*Write_End 25|845r54
+428V13*Inet_Pton{32|35I9} 25|1736s14
+433V13*Inet_Ntop{33|39P9} 25|1634s10
+444V13*Short_To_Network{32|45M9} 25|1365s17
+449V13*Network_To_Short=451:12{32|45M9} 25|3007s23
+454b4*Minus_500ms_Windows_Timeout{boolean} 25|1577r22 2741r19
+X 31 interfac.ads
+38K9*Interfaces 24|51r6 377r13 920r23 921r23 1050r16 1211r17 1509r29 25|54r22
+. 1409r17 1423r13 1720r11 2502r11 31|231e15
+55I9*Integer_64<long_long_integer>
+X 32 i-c.ads
+18K20*C 24|51w17 377r24 920r34 921r34 1050r27 1211r28 1509r40 25|54r33 1409r28
+. 1423r24 1720r22 2502r22 32|237e17
+35I9*int<integer> 24|377r26 920r36 921r36 1211r30 25|73r46 83r44 88r52 97r57
+. 127r41 159r53 162r37 162r51 199r38 216r41 313r15 326r38 342r15 344r23 347r26
+. 463r15 465r15 470r24 525r16 526r16 554r17 554r28 554r39 555r39 556r39 582r40
+. 609r24 609r33 615r53 636r31 637r31 651r15 654r25 667r41 670r15 674r27 700r25
+. 701r33 746r15 777r23 778r15 783r22 790r19 823r19 858r15 881r16 954r21 955r21
+. 955r30 991r38 1035r17 1083r51 1189r15 1190r15 1227r26 1282r29 1308r23 1310r27
+. 1365r12 1389r23 1390r15 1392r31 1409r30 1415r23 1419r23 1421r15 1423r26
+. 1496r14 1601r16 1723r18 1937r55 1948r24 1948r43 1948r59 1960r24 1960r33
+. 2160r15 2164r19 2184r15 2186r23 2191r14 2238r14 2461r16 2465r16 2478r12
+. 2536r17 2568r48 2581r50 2581r64 2591r37 2591r51 2594r41 2596r53 2614r23
+. 2618r15 2620r15 2621r15 2638r22 2643r22 2648r22 2653r22 2658r22 2663r32
+. 2664r32 2671r22 2676r22 2701r22 2711r22 2768r12 2786r15 2789r28 2892r35
+. 2897r34 2910r39 2925r43 2948r53 2950r19 2992r35 3002r39
+37I9*long<long_integer> 24|1509r42
+44M9*unsigned 25|58r28 1411r18 1416r23 2592r18 2594r48 2596r41 2610r18 2615r23
+. 2691r38 2731r24
+45M9*unsigned_short 25|1365r37
+49M9*unsigned_char 25|1412r18 1417r23 2616r23 2706r22 2717r22
+62M9*size_t 24|1050r29 25|1224r27 1279r30 1327r27 1357r27 1624r45 2884r29
+. 2884r41
+79E9*char<character>
+81e4*nul{79E9} 25|1187r64 1188r64 1624r64
+86A9*char_array(79E9)<62M9> 25|1023r21 1024r21 1187r23 1188r23 1225r26 1278r30
+. 1280r29 1325r27 1326r27 1328r26 1356r27 1358r26 1600r24 1624r23 1722r24
+. 2922r40
+91V13*To_C{86A9} 25|1023s37 1024s37 1278s46 1325s43 1326s43 1356s43 1722s38
+95V13*To_Ada{string} 25|1206s36 1207s36 1610s16 1641s16
+X 33 i-cstrin.ads
+39P9*char_array_access(32|86A9) 25|1618r19
+47P9*chars_ptr
+74V13*Value{string} 25|1002s24
+X 34 system.ads
+37K9*System 24|53r6 54r6 371r25 1508r10 25|47w6 47r32 48r6 48r32 49r6 49r32
+. 50r6 178r24 1420r13 1975r10 1986r10 2220r34 2231r34 2464r14 2473r18 2525r31
+. 2530r31 2619r13 3054r24 34|154e11
+67M9*Address 25|178r31 1420r20 2464r21 2619r20 3054r31
+69m4*Null_Address{67M9} 25|2220r41 2231r41 2473r25 2525r38 2530r38 2619r31
+. 2892r59 2897r60 2992r59
+81V14*"="{boolean} 25|2892r56 2897r57 2992r56
+X 35 s-arit64.ads
+44I12*Int64{31|55I9}
+54V13*Multiply_With_Ovflo_Check64{44I12} 55i<c,__gnat_mulv64>22
+X 37 s-commun.ads
+37K16*Communication 25|48w13 48r39 37|50e25
+40V13*Last_Index{11|44I9} 25|2170s15 2202s15 2489s15
+41i7 First{11|44I9} 25|2170r27 2202r27 2489r27
+42m7 Count{39|60M9} 25|2170r48 2202r48 2489r48
+X 39 s-crtl.ads
+38K16*CRTL 25|49w13 49r39 39|241e16
+60M9*size_t 25|2170r57 2202r57 2489r57
+62I9*ssize_t<long_integer> 25|2217r13 2242r16 2504r24 2540r19
+X 43 s-finroo.ads
+42U14*Adjust
+X 46 s-memory.ads
+53V13*Alloc{34|67M9} 103i<c,__gnat_malloc>22
+68U14*Free 104i<c,__gnat_free>22
+76V13*Realloc{34|67M9} 105i<c,__gnat_realloc>22
+X 47 s-oscons.ads
+44K16*OS_Constants 24|53w13 371r32 47|474e24
+52n21*Windows{52E9} 24|439r54 25|1809r26
+53e4*Target_OS{52E9} 24|439r38 25|1809r14
+67N4*IOV_MAX 25|2229r57 2518r49 2519r23
+95I12*IOCTL_Req_T{32|35I9} 25|93r53
+96N4*FIONBIO 25|94r42
+97N4*FIONREAD 25|95r42
+105N4*EAGAIN 25|2276r10 2276r55
+108N4*EACCES 25|2290r27
+109N4*EADDRINUSE 25|2292r27
+110N4*EADDRNOTAVAIL 25|2294r27
+111N4*EAFNOSUPPORT 25|2296r27
+112N4*EALREADY 25|2298r27
+113N4*EBADF 25|2300r27
+114N4*ECONNABORTED 25|2302r27
+115N4*ECONNREFUSED 25|2304r27
+116N4*ECONNRESET 25|2306r27
+117N4*EDESTADDRREQ 25|2308r27
+118N4*EFAULT 25|2310r27
+119N4*EHOSTDOWN 25|2312r27
+120N4*EHOSTUNREACH 25|2314r27
+121N4*EINPROGRESS 25|720r30 2316r27
+122N4*EINTR 25|2318r27
+123N4*EINVAL 25|1733r35 1744r35 2320r27
+124N4*EIO 25|2322r27
+125N4*EISCONN 25|2324r27
+126N4*ELOOP 25|2326r27
+127N4*EMFILE 25|2328r27
+128N4*EMSGSIZE 25|2330r27
+129N4*ENAMETOOLONG 25|2332r27
+130N4*ENETDOWN 25|2334r27
+131N4*ENETRESET 25|2336r27
+132N4*ENETUNREACH 25|2338r27
+133N4*ENOBUFS 25|2340r27
+134N4*ENOPROTOOPT 25|2342r27
+135N4*ENOTCONN 25|2344r27
+136N4*ENOTSOCK 25|2346r27
+137N4*EOPNOTSUPP 25|2348r27 2962r41
+138N4*EPIPE 25|2352r27
+139N4*EPFNOSUPPORT 25|2350r27 2888r35
+140N4*EPROTONOSUPPORT 25|2354r27
+141N4*EPROTOTYPE 25|2356r27
+143N4*ESHUTDOWN 25|2358r27
+144N4*ESOCKTNOSUPPORT 25|2360r27
+145N4*ETIMEDOUT 25|2362r27
+146N4*ETOOMANYREFS 25|2364r27
+147N4*EWOULDBLOCK 25|2276r20 2366r27
+239N4*AF_INET 25|1737r48 2880r32
+240N4*AF_INET6 25|1737r29 2881r32
+261N4*AI_PASSIVE 25|1031r47
+264N4*AI_NUMERICHOST 25|1030r52
+271N4*NI_NUMERICSERV 25|1199r41
+272N4*NI_NUMERICHOST 25|1198r37
+273N4*NI_MAXHOST 25|1187r48
+274N4*NI_MAXSERV 25|1188r48
+275N4*EAI_SYSTEM 25|993r20
+281N4*SOCK_STREAM 25|84r39
+282N4*SOCK_DGRAM 25|85r39
+283N4*SOCK_RAW 25|86r39
+289N4*HOST_NOT_FOUND 25|2262r23
+290N4*TRY_AGAIN 25|2263r23
+291N4*NO_DATA 25|2265r23
+292N4*NO_RECOVERY 25|2264r23
+298N4*SHUT_RD 25|89r43
+299N4*SHUT_WR 25|90r43
+300N4*SHUT_RDWR 25|91r43
+306N4*SOL_SOCKET 25|74r51 746r34
+307N4*IPPROTO_IP 25|75r51
+308N4*IPPROTO_IPV6 25|76r51
+309N4*IPPROTO_UDP 25|77r51
+310N4*IPPROTO_TCP 25|78r51
+311N4*IPPROTO_ICMP 25|79r51
+312N4*IPPROTO_IGMP 25|80r51
+331N4*IPPROTO_RAW 25|81r51
+337N4*MSG_OOB 25|128r25
+338N4*MSG_PEEK 25|129r25
+339N4*MSG_EOR 25|131r25
+340N4*MSG_WAITALL 25|130r25
+342N4*MSG_Forced_Flags 25|2598r46
+349N4*TCP_NODELAY 25|108r45
+350N4*TCP_KEEPCNT 25|99r45
+351N4*TCP_KEEPIDLE 25|100r45
+352N4*TCP_KEEPINTVL 25|101r45
+353N4*SO_REUSEADDR 25|102r45
+355N4*SO_KEEPALIVE 25|98r45
+356N4*SO_LINGER 25|106r45
+357N4*SO_BROADCAST 25|103r45
+358N4*SO_SNDBUF 25|104r45
+359N4*SO_RCVBUF 25|105r45
+360N4*SO_SNDTIMEO 25|121r45
+361N4*SO_RCVTIMEO 25|122r45
+362N4*SO_ERROR 25|107r45 746r51
+363N4*SO_BUSY_POLL 25|123r45
+364N4*IP_MULTICAST_IF 25|111r45
+365N4*IP_MULTICAST_TTL 25|114r45
+366N4*IP_MULTICAST_LOOP 25|112r45
+367N4*IP_ADD_MEMBERSHIP 25|109r45
+368N4*IP_DROP_MEMBERSHIP 25|110r45
+369N4*IP_PKTINFO 25|113r45
+372N4*IPV6_ADD_MEMBERSHIP 25|115r45
+373N4*IPV6_DROP_MEMBERSHIP 25|116r45
+376N4*IPV6_MULTICAST_HOPS 25|119r45
+377N4*IPV6_MULTICAST_IF 25|117r45
+378N4*IPV6_MULTICAST_LOOP 25|118r45
+390N4*IPV6_V6ONLY 25|120r45
+397N4*SIZEOF_tv_sec 25|2850r44
+401N4*MAX_tv_sec 24|441r36
+407N4*SIZEOF_fd_set 24|1508r59
+408N4*FD_SETSIZE 25|494r39
+428M12*Msg_Iovlen_T{32|62M9} 25|2228r39 2505r29 2506r29
+434N4*Need_Netdb_Buffer 25|64r41
+435N4*Need_Netdb_Lock 25|65r49
+437b4*Thread_Blocking_IO{boolean} 25|1772r47
+X 55 s-stalib.ads
+84P9*Exception_Data_Ptr(83R9)
+X 56 s-stalib.adb
+89U14 Break_Start 90i<c,__gnat_break_start>22
+X 57 s-stoele.ads
+42K16*Storage_Elements 24|54w13 1508r17 57|116e28
+63M9*Storage_Element
+69A9*Storage_Array(63M9)<54I9> 24|1508r34
+X 63 s-tasloc.ads
+46K16*Task_Lock 25|50w13 1975r17 1986r17 63|98e21
+49U14*Lock 25|1975s27
+54U14*Unlock 25|1986s27
+

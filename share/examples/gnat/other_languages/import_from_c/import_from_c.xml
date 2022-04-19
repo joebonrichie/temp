@@ -1,0 +1,18 @@
+    <!-- IMPORT_FROM_C -->
+
+    <action name="&prefix;_import_from_c" category="">
+        <shell>
+            Project.load "&example_root;/gnat/other_languages/import_from_c/import_from_c.gpr"
+        </shell>
+        <shell>
+            Editor.edit "use_of_import.adb"
+        </shell>
+    </action>
+
+    <submenu before="About">
+        <title>&menu;</title>
+        <menu action="&prefix;_import_from_c">
+            <title>GNAT &prefix;/Multiple Languages/Import Functions From C</title>
+        </menu>
+    </submenu>
+

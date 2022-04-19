@@ -1,0 +1,36 @@
+project Knights_Tour is
+
+   for Main use ("knights_tour.adb");
+   for Source_Dirs use ("src/**");
+   for Exec_Dir use ".";
+   for Object_Dir use "objs";
+
+   type Output_Type is ("Windows_NT", "ANSI");
+
+   Output : Output_Type := external ("OS", "ANSI");
+
+   package Naming is
+      case Output is
+         when "ANSI" =>
+            for Implementation ("selected_console")
+              use "selected_console_ansi.adb";
+         when "Windows_NT" =>
+            for Implementation ("selected_console")
+              use "selected_console_win32.adb";
+      end case;
+   end Naming;
+
+   package Ide is
+      for Compiler_Command ("ada") use "gnatmake";
+   end Ide;
+
+   package Builder is
+      for Default_Switches ("ada") use ("-gnatQ");
+   end Builder;
+
+   package Compiler is
+      for Default_Switches ("ada") use ("-O2", "-gnat05");
+   end Compiler;
+
+end Knights_Tour;
+

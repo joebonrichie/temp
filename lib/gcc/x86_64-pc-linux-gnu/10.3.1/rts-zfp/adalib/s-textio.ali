@@ -1,0 +1,53 @@
+V "GNAT Lib v2021"
+A -nostdinc
+A -O2
+A -gnatA
+A --RTS=/it/sbx/a2c2/x86_64-linux/recompilablerts_bootstrap-c/pkg/lib/gcc/x86_64-pc-linux-gnu/10.3.1/rts-zfp/
+A -gnatg
+A -fno-delete-null-pointer-checks
+A -gnatp
+A -gnatn2
+A -fcallgraph-info=su,da
+A -ffunction-sections
+A -fdata-sections
+A -mtune=generic
+A -march=x86-64
+P ZX
+
+RN
+RV NO_EXCEPTIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_OBSOLESCENT_FEATURES
+
+U system.text_io%b	s-textio.adb		f2eecc55 NE OL PK
+W system%s		system.ads		system.ali
+
+U system.text_io%s	s-textio.ads		63192e83 NE OL PR PK
+W system%s		system.ads		system.ali
+
+D system.ads		20210520110340 410ea14a system%s
+D s-textio.ads		20210520110340 22178fc9 system.text_io%s
+D s-textio.adb		20210520110340 d0f9439c system.text_io%b
+G a e
+G c Z s b [initialize system__text_io 43 14 none]
+G c Z s b [is_tx_ready system__text_io 55 13 none]
+G c Z s b [put system__text_io 62 14 none]
+G c Z s b [use_cr_lf_for_new_line system__text_io 66 13 none]
+G c Z s b [is_rx_ready system__text_io 74 13 none]
+G c Z s b [get system__text_io 79 13 none]
+X 1 system.ads
+60K9*System 172e11 2|35r9 82r5 3|35r14 95r5
+X 2 s-textio.ads
+35K16*Text_IO 1|60k9 2|82l12 82e19 3|35b21 95l12 95t19
+43U14*Initialize 3|52b14 55l8 55t18
+47b4*Initialized{boolean} 3|54m7
+55V13*Is_Tx_Ready{boolean} 3|70b13 73l8 73t19
+62U14*Put 62>19 3|79b14 84l8 84t11
+62e19 C{character} 3|79b19 83r31
+66V13*Use_Cr_Lf_For_New_Line{boolean} 3|90b13 93l8 93t30
+74V13*Is_Rx_Ready{boolean} 3|61b13 64l8 64t19
+79V13*Get{character} 3|41b13 46l8 46t11
+X 3 s-textio.adb
+80U17*putchar 80>26 81b<c,putchar>25 83s7
+80i26 C{integer}
+

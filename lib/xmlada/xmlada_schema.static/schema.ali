@@ -1,0 +1,115 @@
+V "GNAT Lib v2021"
+A -O2
+A -gnatA
+A -gnatwu
+A -gnatwa
+A -gnaty
+A -gnatQ
+A -gnatn
+A -mtune=generic
+A -march=x86-64
+P SS ZX
+
+RN
+RV NO_IO
+RV NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLICIT_LOOPS
+RV NO_ELABORATION_CODE
+RV NO_OBSOLESCENT_FEATURES
+
+U schema%b		schema.adb		ea67648f NE OO PK
+W ada%s			ada.ads			ada.ali
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+
+U schema%s		schema.ads		aba6c682 BN EE OO PK
+W ada%s			ada.ads			ada.ali
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+W ada.tags%s		a-tags.adb		a-tags.ali
+Z system%s		system.ads		system.ali
+Z system.exception_table%s  s-exctab.adb	s-exctab.ali
+Z system.standard_library%s  s-stalib.adb	s-stalib.ali
+
+D ada.ads		20210520051131 76789da1 ada%s
+D a-except.ads		20210520051128 946f3014 ada.exceptions%s
+D a-ioexce.ads		20210520051128 e4a01f64 ada.io_exceptions%s
+D a-stream.ads		20210520051129 119b8fb3 ada.streams%s
+D a-string.ads		20210520051129 90ac6797 ada.strings%s
+D a-sttebu.ads		20210520051129 18209c64 ada.strings.text_buffers%s
+D a-stuten.ads		20210520051129 808c40ad ada.strings.utf_encoding%s
+D a-tags.ads		20210520051130 9eaa38c6 ada.tags%s
+D a-textio.ads		20210520051130 aef4d56d ada.text_io%s
+D a-unccon.ads		20210520051130 0e9b276f ada.unchecked_conversion%s
+D interfac.ads		20210520051132 edec285f interfaces%s
+D i-cstrea.ads		20210520051132 e53d8b8e interfaces.c_streams%s
+D schema.ads		20210519052322 350cfe44 schema%s
+D schema.adb		20210519052322 719f4fa6 schema%b
+D system.ads		20210520051135 a2da961d system%s
+D s-crtl.ads		20210520051132 0ebbdb71 system.crtl%s
+D s-exctab.ads		20210520051132 54135002 system.exception_table%s
+D s-exctab.adb		20210520051132 c756f391 system.exception_table%b
+D s-ficobl.ads		20210520051132 078245e4 system.file_control_block%s
+D s-parame.ads		20210520051134 4752c4cb system.parameters%s
+D s-putima.ads		20210520051134 4e095881 system.put_images%s
+D s-secsta.ads		20210520051134 9b3ab94b system.secondary_stack%s
+D s-soflin.ads		20210520051134 a7318a92 system.soft_links%s
+D s-stache.ads		20210520051134 a37c21ec system.stack_checking%s
+D s-stalib.ads		20210520051134 472fbca8 system.standard_library%s
+D s-stoele.ads		20210520051134 2dc34a04 system.storage_elements%s
+D s-stoele.adb		20210520051134 ed88f8fb system.storage_elements%b
+D s-traent.ads		20210520051134 26a8d361 system.traceback_entries%s
+D s-unstyp.ads		20210520051134 2b077493 system.unsigned_types%s
+D s-wchcon.ads		20210520051135 1b7d22d2 system.wch_con%s
+D unchconv.ads		20210520051135 ca2f9e18 unchecked_conversion%s
+G a e
+G c Z s b [set_debug_output schema 29 14 none]
+G c Z s b [debug_push_prefix schema 58 14 none]
+G c Z s b [debug_pop_prefix schema 60 14 none]
+G c Z s b [debug_tag_name schema 63 13 none]
+G c Z s b [debug_output schema 66 14 none]
+G c Z s b [output_action schema 71 14 none]
+G c Z s b [output_seen schema 72 14 none]
+X 1 ada.ads
+16K9*Ada 20e8 13|25r14 63r36 14|24r6 24r24 114r36 115r30
+X 8 a-tags.ads
+70K13*Tags 668e13 13|25w18 63r40 14|114r40 115r34
+74P9*Tag 13|63r45 14|114r45
+87V13*External_Tag{string} 14|115s39
+X 9 a-textio.ads
+58K13*Text_IO 725e16 14|24w10 24r28
+262U14*New_Line 14|55s7
+463U14*Put 14|38s7 44s13 46s13 49s7 52s10
+X 13 schema.ads
+27K9*Schema 53E9 83l5 83e11 14|26b14 126l5 126t11
+29U14*Set_Debug_Output 29>32 14|80b14 83l8 83t24
+29b32 Output{boolean} 14|80b32 82r16
+32X4*XML_Not_Implemented
+35X4*XML_Limitation
+39b4*Dump_Internal_XSD{boolean}
+53E9 Debug_Output_Mode 56e20 59r31 67r28 14|36r14 90r31
+54n7 Debug_Default{53E9} 59r52 67r49 14|36r35 41r15 51r18 90r52
+55n7 Debug_Seen{53E9} 14|43r15 73r34
+56n7 Debug_Action{53E9} 14|45r15 64r34
+58U14 Debug_Push_Prefix 59>7 59>24 14|89b14 97l8 97t25
+59a7 Append{string} 14|90b7 94r24
+59e24 Mode{53E9} 14|90b24 94r32
+60U14 Debug_Pop_Prefix 14|103b14 108l8 108t24
+63V13 Debug_Tag_Name{string} 63>29 14|114b13 124l8 124t22
+63p29 Self{8|74P9} 14|114b29 115r53
+66U14 Debug_Output 67>7 67>21 68r19 14|34b14 56l8 56t20 64s7 73s7 94s10
+67a7 Str{string} 14|35b7 49r12
+67e21 Mode{53E9} 14|36b7 40r12 51r10 64r26 73r26
+71U14 Output_Action 71>29 73r19 14|62b14 65l8 65t21
+71a29 Str{string} 14|62b29 64r21
+72U14 Output_Seen 72>27 73r34 14|71b14 74l8 74t19
+72a27 Str{string} 14|71b27 73r21
+77b4 Debug{boolean} 14|82m7 93r10 105r10
+X 14 schema.adb
+28i4 Debug_Prefixes_Level{natural} 38r18 95m10 95r34 106m10 106r34
+115a7 E{string} 117r24 118r13 119r20 119r32 123r14
+117i11 P{integer} 118r16 119r23
+

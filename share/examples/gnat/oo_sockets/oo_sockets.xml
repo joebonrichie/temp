@@ -1,0 +1,25 @@
+    <!-- OO_SOCKETS -->
+
+    <action name="&prefix;_oo_sockets" category="">
+        <shell>
+            Project.load "&example_root;/gnat/oo_sockets/oo_sockets.gpr"
+        </shell>
+        <shell>
+            Editor.edit "oo_sockets.adb"
+            Editor.edit "server.ads"
+            Editor.edit "server.adb"
+            Editor.edit "client.ads"
+            Editor.edit "client.adb"
+        </shell>
+        <shell>
+            Editor.edit "README.testing"
+        </shell>
+    </action>
+
+    <submenu before="About">
+        <title>&menu;</title>
+        <menu action="&prefix;_oo_sockets">
+            <title>GNAT &prefix;/Objects Over Sockets</title>
+        </menu>
+    </submenu>
+

@@ -1,0 +1,146 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>8. Boyer-Moore: Searching strings &#8212; GNATColl 2021 documentation</title>
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="9. Paragraph filling: formatting text" href="filling.html" />
+    <link rel="prev" title="7. Mmap: Reading and Writing Files" href="mmap.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="filling.html" title="9. Paragraph filling: formatting text"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="mmap.html" title="7. Mmap: Reading and Writing Files"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">GNATColl 2021 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">8. </span><strong>Boyer-Moore</strong>: Searching strings</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="boyer-moore-searching-strings">
+<span id="searching-strings"></span><h1><span class="section-number">8. </span><strong>Boyer-Moore</strong>: Searching strings<a class="headerlink" href="#boyer-moore-searching-strings" title="Permalink to this headline">¶</a></h1>
+<span class="target" id="index-0"></span><p id="index-1">Although the Ada standard provides a number of string-searching subprograms
+(most notably in the <cite>Ada.Strings.Fixed</cite>, <cite>Ada.Strings.Unbounded</cite>
+and <cite>Ada.Strings.Bounded</cite> packages through the <cite>Index</cite> functions),
+these subprograms do not in general provide the most efficient algorithms
+for searching strings.</p>
+<p>The package <strong>GNATCOLL.Boyer_Moore</strong> provides one such optimize algorithm,
+although there exists several others which might be more efficient depending
+on the pattern.</p>
+<p>It deals with string searching, and does not handle regular expressions for
+instance.</p>
+<p>This algorithm needs to preprocess its key (the searched string), but does
+not need to perform any specific analysis of the string to be searched.
+Its execution time can be sub-linear: it doesn’t need to actually check
+every character of the string to be searched, and will skip over some of
+them. The worst case for this algorithm has been proved to need approximately
+3 * N comparisons, hence the algorithm has a complexity of O(n).</p>
+<p>The longer the key, the faster the algorithm in general, since that provides
+more context as to how many characters can be skipped when a non-matching
+character is found..</p>
+<p>We will not go into the details of the algorithm, although a general
+description follows: when the pattern is being preprocessed, Boyer-Moore
+computes how many characters can be skipped if an incorrect match is
+found at that point, depending on which character was read.
+In addition, this algorithm tries to match the key starting from its end,
+which in general provides a greater number of characters to skip.</p>
+<p>For instance, if you are looking for “ABC” in the string “ABDEFG” at the
+first position, the algorithm will compare “C” and “D”. Since “D” does not
+appear in the key “ABC”, it knows that it can immediately skip 3 characters
+and start the search after “D”.</p>
+<p>Using this package is extremely easy, and it has only a limited API:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kr">declare</span>
+  <span class="no">Str</span> <span class="p">:</span> <span class="kr">constant</span> <span class="kt">String</span> <span class="p">:=</span> <span class="s">&quot;ABDEABCFGABC&quot;</span><span class="p">;</span>
+  <span class="n">Key</span> <span class="p">:</span> <span class="n">Pattern</span><span class="p">;</span>
+  <span class="n">Index</span> <span class="p">:</span> <span class="kt">Integer</span><span class="p">;</span>
+<span class="kr">begin</span>
+  <span class="n">Compile</span> <span class="p">(</span><span class="n">Key</span><span class="p">,</span> <span class="s">&quot;ABC&quot;</span><span class="p">);</span>
+  <span class="n">Index</span> <span class="p">:=</span> <span class="n">Search</span> <span class="p">(</span><span class="n">Key</span><span class="p">,</span> <span class="n">Str</span><span class="p">);</span>
+<span class="kr">end</span>
+</pre></div>
+</div>
+<p><cite>Search</cite> will either return -1 when the pattern did not match, or
+the index of the first match in the string. In the example above, it
+will return 5.</p>
+<p>If you want to find the next match, you have to pass a substring to
+search, as in:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="n">Index</span> <span class="p">:=</span> <span class="n">Search</span> <span class="p">(</span><span class="n">Key</span><span class="p">,</span> <span class="n">Str</span> <span class="p">(</span><span class="mi">6</span> <span class="p">..</span> <span class="n">Str</span><span class="p">&#39;</span><span class="na">Last</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/adacore_transparent.png" alt="Logo"/>
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="mmap.html"
+                        title="previous chapter"><span class="section-number">7. </span><strong>Mmap</strong>: Reading and Writing Files</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="filling.html"
+                        title="next chapter"><span class="section-number">9. </span><strong>Paragraph filling</strong>: formatting text</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="filling.html" title="9. Paragraph filling: formatting text"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="mmap.html" title="7. Mmap: Reading and Writing Files"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">GNATColl 2021 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">8. </span><strong>Boyer-Moore</strong>: Searching strings</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2007-2021, AdaCore.
+    </div>
+  </body>
+</html>

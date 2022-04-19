@@ -1,0 +1,402 @@
+V "GNAT Lib v2021"
+A -O2
+A -gnatA
+A -gnatwu
+A -gnatwa
+A -gnaty
+A -gnatQ
+A -gnatn
+A -mtune=generic
+A -march=x86-64
+P SS ZX
+
+RN
+RV NO_ALLOCATORS
+RV NO_DISPATCHING_CALLS
+RV NO_EXCEPTIONS
+RV NO_LOCAL_ALLOCATORS
+RV NO_NESTED_FINALIZATION
+RV NO_RECURSION
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_UNCHECKED_DEALLOCATION
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U dom.core.documents%b	dom-core-documents.adb	f0a7720c NE OO PK IU
+Z ada.exceptions%s	a-except.adb		a-except.ali
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+W dom%s			dom.ads			dom.ali
+W dom.core%s		dom-core.adb		dom-core.ali
+W dom.core.elements%s	dom-core-elements.adb	dom-core-elements.ali
+W dom.core.nodes%s	dom-core-nodes.adb	dom-core-nodes.ali
+W sax%s			sax.ads			sax.ali
+W sax.symbols%s		sax-symbols.adb		sax-symbols.ali
+W sax.utils%s		sax-utils.adb		sax-utils.ali
+Z system%s		system.ads		system.ali
+Z system.storage_elements%s  s-stoele.adb	s-stoele.ali
+Z system.storage_pools%s  s-stopoo.adb		s-stopoo.ali
+Z system.storage_pools.subpools%s  s-stposu.adb	s-stposu.ali
+
+U dom.core.documents%s	dom-core-documents.ads	9a0c02e1 EE NE OO PK IU
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+W dom.core%s		dom-core.adb		dom-core.ali
+
+D ada.ads		20210520051131 76789da1 ada%s
+D a-except.ads		20210520051128 946f3014 ada.exceptions%s
+D a-finali.ads		20210520051128 bf4f806b ada.finalization%s
+D a-stream.ads		20210520051129 119b8fb3 ada.streams%s
+D a-string.ads		20210520051129 90ac6797 ada.strings%s
+D a-sttebu.ads		20210520051129 18209c64 ada.strings.text_buffers%s
+D a-stuten.ads		20210520051129 808c40ad ada.strings.utf_encoding%s
+D a-tags.ads		20210520051130 9eaa38c6 ada.tags%s
+D a-unccon.ads		20210520051130 0e9b276f ada.unchecked_conversion%s
+D a-uncdea.ads		20210520051130 c3a8ac65 ada.unchecked_deallocation%s
+D dom.ads		20210519052322 2bd88f63 dom%s
+D dom-core.ads		20210519052322 3a4cc7f1 dom.core%s
+D dom-core-documents.ads  20210519052322 a040c510 dom.core.documents%s
+D dom-core-documents.adb  20210519052322 0ade524b dom.core.documents%b
+D dom-core-elements.ads	20210519052322 aeb5e62f dom.core.elements%s
+D dom-core-nodes.ads	20210519052322 06d13589 dom.core.nodes%s
+D gnat.ads		20210520051132 b5988c27 gnat%s
+D g-tasloc.ads		20210520051131 9c49392e gnat.task_lock%s
+D interfac.ads		20210520051132 edec285f interfaces%s
+D sax.ads		20210519052322 17965ec6 sax%s
+D sax-encodings.ads	20210519052322 22d791a3 sax.encodings%s
+D sax-htable.ads	20210519052322 2df615ad sax.htable%s
+D sax-pointers.ads	20210519052322 d9877e85 sax.pointers%s
+D sax-pointers.adb	20210519052322 8f6422c0 sax.pointers%b
+D sax-symbols.ads	20210519052322 d3179de8 sax.symbols%s
+D sax-symbols.adb	20210519052322 d4150ebd sax.symbols%b
+D sax-utils.ads		20210519052322 214aab19 sax.utils%s
+D sax-utils.adb		20210519052322 b4529023 sax.utils%b
+D system.ads		20210520051135 a2da961d system%s
+D s-addima.ads		20210520051132 a1ec9d3a system.address_image%s
+D s-exctab.ads		20210520051132 54135002 system.exception_table%s
+D s-finmas.ads		20210520051132 1ab4dba8 system.finalization_masters%s
+D s-finroo.ads		20210520051132 4ff27390 system.finalization_root%s
+D s-memory.ads		20210520051133 597d6634 system.memory%s
+D s-parame.ads		20210520051134 4752c4cb system.parameters%s
+D s-pooglo.ads		20210520051134 ede33ef8 system.pool_global%s
+D s-putima.ads		20210520051134 4e095881 system.put_images%s
+D s-secsta.ads		20210520051134 9b3ab94b system.secondary_stack%s
+D s-soflin.ads		20210520051134 a7318a92 system.soft_links%s
+D s-stache.ads		20210520051134 a37c21ec system.stack_checking%s
+D s-stalib.ads		20210520051134 472fbca8 system.standard_library%s
+D s-stoele.ads		20210520051134 2dc34a04 system.storage_elements%s
+D s-stoele.adb		20210520051134 ed88f8fb system.storage_elements%b
+D s-stopoo.ads		20210520051134 e9fa2dd8 system.storage_pools%s
+D s-stposu.ads		20210520051134 e251976f system.storage_pools.subpools%s
+D s-stratt.ads		20210520051134 7bdda3fa system.stream_attributes%s
+D s-tasloc.ads		20210520051134 618a376e system.task_lock%s
+D s-traent.ads		20210520051134 26a8d361 system.traceback_entries%s
+D s-unstyp.ads		20210520051134 2b077493 system.unsigned_types%s
+D unchconv.ads		20210520051135 ca2f9e18 unchecked_conversion%s
+D unchdeal.ads		20210520051135 214516a4 unchecked_deallocation%s
+D unicode.ads		20210519052322 a421878d unicode%s
+D unicode-ccs.ads	20210519052322 184e29de unicode.ccs%s
+D unicode-ces.ads	20210519052322 68f558ab unicode.ces%s
+D unicode-ces-utf32.ads	20210519052322 b5f035ac unicode.ces.utf32%s
+D unicode-ces-utf8.ads	20210519052322 dcbef85d unicode.ces.utf8%s
+D unicode-encodings.ads	20210519052322 d94939b2 unicode.encodings%s
+D unicode-names.ads	20210519052322 fec77f75 unicode.names%s
+D unicode-names-basic_latin.ads  20210519052322 aa07d1b5 unicode.names.basic_latin%s
+G a e
+G c Z s b [doc_type dom__core__documents 26 13 none]
+G c Z s b [implementation dom__core__documents 30 13 none]
+G c Z s b [get_element dom__core__documents 33 13 none]
+G c Z s b [create_element dom__core__documents 36 13 none]
+G c Z s b [create_element_ns dom__core__documents 43 13 none]
+G c Z s b [create_element_ns dom__core__documents 47 13 none]
+G c Z s b [create_document_fragment dom__core__documents 61 13 none]
+G c Z s b [create_text_node dom__core__documents 64 13 none]
+G c Z s b [create_text_node dom__core__documents 67 13 none]
+G c Z s b [create_comment dom__core__documents 71 13 none]
+G c Z s b [create_cdata_section dom__core__documents 75 13 none]
+G c Z s b [create_processing_instruction dom__core__documents 80 13 none]
+G c Z s b [create_attribute dom__core__documents 87 13 none]
+G c Z s b [create_attribute_ns dom__core__documents 94 13 none]
+G c Z s b [create_attribute_ns dom__core__documents 98 13 none]
+G c Z s b [create_entity_reference dom__core__documents 109 13 none]
+G c Z s b [get_elements_by_tag_name dom__core__documents 117 13 none]
+G c Z s b [get_elements_by_tag_name_ns dom__core__documents 125 13 none]
+G c Z s b [get_element_by_id dom__core__documents 133 13 none]
+G c Z s b [adopt_node dom__core__documents 144 13 none]
+G c Z s b [import_node dom__core__documents 159 13 none]
+G r c none [get_element dom__core__documents 33 13 none] [first_child dom__core__nodes 58 13 none]
+G r c none [get_element dom__core__documents 33 13 none] [next_sibling dom__core__nodes 74 13 none]
+G r c none [create_element dom__core__documents 36 13 none] [find sax__utils 182 13 none]
+G r c none [create_element dom__core__documents 36 13 none] [from_qualified_name dom__core 279 13 none]
+G r c none [create_element_ns dom__core__documents 43 13 none] [find sax__utils 182 13 none]
+G r c none [create_element_ns dom__core__documents 43 13 none] [from_qualified_name dom__core 279 13 none]
+G r s node_name_def [create_element_ns dom__core__documents 47 13 none] [node_name_defIP dom__core 260 9 none]
+G r c none [create_element_ns dom__core__documents 47 13 none] [Oeq sax__utils__symbol_table_pointers 80 16 171_4]
+G r c none [create_element_ns dom__core__documents 47 13 none] [convert sax__utils 187 13 none]
+G r c none [create_processing_instruction dom__core__documents 80 13 none] [get sax__utils__symbol_table_pointers 76 16 171_4]
+G r c none [create_processing_instruction dom__core__documents 80 13 none] [find sax__symbols 46 13 none]
+G r c none [create_attribute dom__core__documents 87 13 none] [find sax__utils 182 13 none]
+G r c none [create_attribute dom__core__documents 87 13 none] [from_qualified_name dom__core 279 13 none]
+G r c none [create_attribute_ns dom__core__documents 94 13 none] [find sax__utils 182 13 none]
+G r c none [create_attribute_ns dom__core__documents 94 13 none] [from_qualified_name dom__core 279 13 none]
+G r s node_name_def [create_attribute_ns dom__core__documents 98 13 none] [node_name_defIP dom__core 260 9 none]
+G r c none [create_attribute_ns dom__core__documents 98 13 none] [Oeq sax__utils__symbol_table_pointers 80 16 171_4]
+G r c none [create_attribute_ns dom__core__documents 98 13 none] [convert sax__utils 187 13 none]
+G r c none [create_entity_reference dom__core__documents 109 13 none] [find sax__utils 182 13 none]
+G r c none [get_elements_by_tag_name dom__core__documents 117 13 none] [first_child dom__core__nodes 58 13 none]
+G r c none [get_elements_by_tag_name dom__core__documents 117 13 none] [next_sibling dom__core__nodes 74 13 none]
+G r c none [get_elements_by_tag_name dom__core__documents 117 13 none] [get_elements_by_tag_name dom__core__elements 139 13 none]
+G r c none [get_elements_by_tag_name_ns dom__core__documents 125 13 none] [first_child dom__core__nodes 58 13 none]
+G r c none [get_elements_by_tag_name_ns dom__core__documents 125 13 none] [next_sibling dom__core__nodes 74 13 none]
+G r c none [get_elements_by_tag_name_ns dom__core__documents 125 13 none] [get_elements_by_tag_name_ns dom__core__elements 147 13 none]
+G r c none [get_element_by_id dom__core__documents 133 13 none] [find sax__utils 182 13 none]
+G r c none [get_element_by_id dom__core__documents 133 13 none] [get dom__core__nodes_htable 60 13 244_4]
+G r c none [adopt_node dom__core__documents 144 13 none] [owner_document dom__core__nodes 82 13 none]
+G r c none [adopt_node dom__core__documents 144 13 none] [document_remove_id dom__core 377 14 none]
+G r c none [adopt_node dom__core__documents 144 13 none] [get sax__symbols 53 13 none]
+G r c none [adopt_node dom__core__documents 144 13 none] [find sax__utils 182 13 none]
+G r c none [adopt_node dom__core__documents 144 13 none] [document_add_id dom__core 371 14 none]
+G r c none [adopt_node dom__core__documents 144 13 none] [remove_attribute_node dom__core__elements 115 13 none]
+G r c none [import_node dom__core__documents 159 13 none] [clone_node dom__core__nodes 157 13 none]
+G r c none [import_node dom__core__documents 159 13 none] [owner_document dom__core__nodes 82 13 none]
+G r c none [import_node dom__core__documents 159 13 none] [document_remove_id dom__core 377 14 none]
+G r c none [import_node dom__core__documents 159 13 none] [get sax__symbols 53 13 none]
+G r c none [import_node dom__core__documents 159 13 none] [find sax__utils 182 13 none]
+G r c none [import_node dom__core__documents 159 13 none] [document_add_id dom__core 371 14 none]
+G r c none [import_node dom__core__documents 159 13 none] [remove_attribute_node dom__core__elements 115 13 none]
+X 11 dom.ads
+37K9*DOM 39e8 13|24r9 168r5 14|24r6 24r37 25r6 25r37 29r14 327r14 340r14
+. 498r5
+X 12 dom-core.ads
+38K13*Core 11|37k9 12|382e13 13|24r13 168r9 14|24r10 24r41 25r10 25r41 29r18
+. 327r18 340r18 498r9
+48A12*DOM_String{54|41A12}<integer> 13|36r56 45r24 46r24 64r54 71r52 75r58
+. 81r32 81r51 87r54 96r23 97r24 109r61 118r34 127r23 128r20 134r36 14|70r56
+. 91r23 92r24 157r54 164r33 181r52 188r27 195r58 203r27 211r32 211r51 230r54
+. 252r23 253r24 307r61 325r34 337r23 338r20 486r36
+53P12*DOM_String_Access{54|42P9} 13|67r54 14|167r54
+63n7*Element_Node{62E9} 14|58r31 76r24 95r24 131r29 411r18
+64n7*Attribute_Node{62E9} 14|235r29 256r29 293r29 383r18
+65n7*Cdata_Section_Node{62E9} 14|200r23 453r18
+66n7*Entity_Reference_Node{62E9} 14|314r23 443r18
+67n7*Entity_Node{62E9} 14|437r18
+68n7*Processing_Instruction_Node{62E9} 14|217r29 446r18
+69n7*Text_Node{62E9} 14|161r29 171r29 450r18
+70n7*Comment_Node{62E9} 14|185r23 456r18
+71n7*Document_Node{62E9} 14|379r18
+72n7*Document_Type_Node{62E9} 14|379r34
+73n7*Document_Fragment_Node{62E9} 14|147r31 402r18
+74n7*Notation_Node{62E9} 14|440r18
+78R9*Node_Record 362e14 14|75r18 94r18 130r18 146r18 160r18 170r18 184r18
+. 199r18 216r18 234r18 255r18 292r18 313r18
+78e22 Node_Type{62E9} 14|58r19 76m10 95m10 131m10 147m10 161m10 171m10 185m10
+. 200m10 217m10 235m10 256m10 293m10 314m10 378r17
+79P9*Node(78R9) 13|134r55 144r50 144r63 160r40 161r14 14|55r15 348r50 348r63
+. 355r35 355r45 373r35 373r45 466r24 475r40 476r14 486r55
+82P12*Element{79P9} 13|33r49 37r14 46r43 52r51 14|54r49 71r14 92r43 116r51
+. 397r23
+83P12*Attr{79P9} 13|88r14 97r43 103r50 14|231r14 253r43 278r50 375r18 397r50
+84P12*Cdata_Section{81P12} 13|76r14 14|196r14
+85P12*Entity_Reference{79P9} 13|110r14 14|308r14
+87P12*Processing_Instruction{79P9} 13|82r14 14|212r14
+88P12*Text{81P12} 13|65r14 68r14 14|158r14 168r14
+89P12*Comment{81P12} 13|72r14 14|182r14
+90P12*Document{79P9} 13|26r29 30r35 33r32 36r35 44r24 48r24 61r45 64r37 67r37
+. 71r35 75r41 81r13 87r37 95r13 99r23 109r44 118r13 126r13 134r13 144r31
+. 160r14 14|36r29 45r35 54r32 70r35 90r13 112r24 143r45 157r37 167r37 181r35
+. 195r41 211r13 230r37 251r13 274r23 307r44 325r13 336r13 348r31 349r26 475r14
+. 486r13
+91P12*Document_Type{79P9} 13|26r46 14|36r46
+92P12*Document_Fragment{79P9} 13|61r62 14|143r62
+95R9*Node_List 221e14 13|118r60 128r46 14|325r60 338r46
+98R9*Named_Node_Map<95R9>
+112R9*DOM_Implementation 13|30r52 14|45r52
+183X4*Not_Supported_Err 14|380r22 438r22 441r22
+211A9 Node_Array(79P9)<integer>
+212P9 Node_Array_Access(211A9)
+218p7*Items{212P9} 14|403r39 405r41 407r54 416r32 417r40 418r41 419r38 421r50
+. 423r41 423r70 424r41 431r30 432r39 433r45
+219i7*Last{integer} 14|405r76 418r69 428m32 432r65
+223r4 Null_List{95R9} 14|81r24 103r24 135r29 150r31
+228r4 Null_Node_Map{98R9} 14|82r24 104r24 136r29
+235p7*N{79P9} 14|494r38
+244K12 Nodes_Htable[22|42] 14|30r8
+252P9 Nodes_Htable_Access(22|44R9[244])
+260R9 Node_Name_Def 264e14 14|118r14 280r14 352r34 366r34
+261p7*Prefix{25|41P9} 14|122m19 126m19 285m19 289m19 368m18
+262p7*Local_Name{25|41P9} 14|121m19 125m19 283m19 287m19 369m18
+263p7*Namespace{25|41P9} 14|123m19 127m19 284m19 288m19 370m18
+279V13 From_Qualified_Name{260R9} 14|79s24 98s24 241s29 262s29
+294b7*Parent_Is_Owner{boolean} 14|78m10 97m10 133m10 149m10 163m10 173m10
+. 187m10 202m10 219m10 237m10 258m10 295m10 316m10 465m14
+301p7*Parent{79P9} 14|77m10 96m10 132m10 148m10 162m10 172m10 186m10 201m10
+. 218m10 236m10 257m10 294m10 315m10 466m14
+304r13*Name{260R9} 14|79m10 98m10 134m10 412m24
+305r13*Children{95R9} 14|81m10 103m10 135m10 431r21 432r30 432r56 433r36
+306r13*Attributes{98R9} 14|82m10 104m10 136m10 416r21 417r29 418r30 418r58
+. 419r27 421r39 423m30 423r59 424m30 428m21
+309r13*Attr_Name{260R9} 14|241m10 262m10 299m10 400m24
+310p13*Attr_Value{25|41P9} 14|243m10 266m10 300m10 385r50 386m27 389r46 392m27
+312p13*Owner_Element{79P9} 14|239m10 260m10 297m10 397r34
+316b13*Is_Id{boolean} 14|240m10 261m10 298m10 384r21
+317b13*Specified{boolean} 14|238m10 259m10 296m10 419r48
+322p13*Text{53P12} 14|164m10 174m10
+325p13*Cdata{53P12} 14|203m10
+328p13*Entity_Reference_Name{25|41P9} 14|317m10 444m24
+335p13*Target{25|41P9} 14|220m10 447m24
+336p13*Pi_Data{25|41P9} 14|222m10 448m24
+339p13*Comment{53P12} 14|188m10
+342r13*Symbols{27|174R12} 14|80r22 80r41 100r17 101r23 102r23 120r24 125r46
+. 126r46 127r46 221r44 223r44 242r22 242r41 263r22 264r23 265r23 282r24 287r46
+. 288r46 289r46 317r45 362r28 493r25
+347p13*Doc_Type{79P9} 14|38r18
+348r13*Implementation{112R9} 14|47r18
+349p13*Ids{252P9} 14|490r14 494r26
+356r13*Doc_Frag_Children{95R9} 14|150m10 403r21 405r23 405r58 407r36
+371U14 Document_Add_Id 14|389s22
+377U14 Document_Remove_Id 14|385s19
+X 13 dom-core-documents.ads
+24K18*Documents 12|38k13 13|168l14 168e23 14|29b23 498l14 498t23
+26V13*Doc_Type{12|91P12} 26>23 14|36b13 39l8 39t16
+26p23 Doc{12|90P12} 14|36b23 38r14
+30V13*Implementation{12|112R9} 30>29 14|45b13 48l8 48t22
+30p29 Doc{12|90P12} 14|45b29 47r14
+33V13*Get_Element{12|82P12} 33>26 14|54b13 64l8 64t19 328s10 341s10
+33p26 Doc{12|90P12} 14|54b26 55r36
+36V13*Create_Element{12|82P12} 36>29 36>45 14|70b13 83l8 83t22
+36p29 Doc{12|90P12} 14|70b29 77r29 80r13 80r18 80r37
+36a45 Tag_Name{12|48A12} 14|70b45 80r50
+43V13*Create_Element_NS{12|82P12} 44>7 45>7 46>7 14|89b13 105l8 105t25
+44p7 Doc{12|90P12} 14|90b7 96r29 99r13 100r13 101r19 102r19
+45a7 Namespace_URI{12|48A12} 14|91b7 102r32
+46a7 Qualified_Name{12|48A12} 14|92b7 101r32
+47V13*Create_Element_NS{12|82P12} 48>7 49>7 50>7 51>7 52>7 14|111b13 137l8
+. 137t25
+48p7 Doc{12|90P12} 14|112b7 120r20 125r42 126r42 127r42 132r29
+49r7 Symbols{27|174R12} 14|113b7 120r10
+50p7 Namespace_URI{25|41P9} 14|114b7 123r33 127r55
+51p7 Prefix{25|41P9} 14|115b7 122r33 126r55
+52p7 Local_Name{25|41P9} 14|116b7 121r33 125r55
+61V13*Create_Document_Fragment{12|92P12} 61>39 14|143b13 151l8 151t32
+61p39 Doc{12|90P12} 14|143b39 148r29
+64V13*Create_Text_Node{12|88P12} 64>31 64>47 14|157b13 165l8 165t24
+64p31 Doc{12|90P12} 14|157b31 162r29
+64a47 Data{12|48A12} 14|157b47 164r45
+67V13*Create_Text_Node{12|88P12} 67>31 67>47 14|167b13 175l8 175t24
+67p31 Doc{12|90P12} 14|167b31 172r29
+67p47 Data{12|53P12} 14|167b47 174r29
+71V13*Create_Comment{12|89P12} 71>29 71>45 14|181b13 189l8 189t22
+71p29 Doc{12|90P12} 14|181b29 186r29
+71a45 Data{12|48A12} 14|181b45 188r39
+75V13*Create_Cdata_Section{12|84P12} 75>35 75>51 14|195b13 204l8 204t28
+75p35 Doc{12|90P12} 14|195b35 201r29
+75a51 Data{12|48A12} 14|195b51 203r39
+80V13*Create_Processing_Instruction{12|87P12} 81>7 81>23 81>44 14|210b13
+. 224l8 224t37
+81p7 Doc{12|90P12} 14|211b7 218r29 221r40 223r40
+81a23 Target{12|48A12} 14|211b23 221r54
+81a44 Data{12|48A12} 14|211b44 223r54
+87V13*Create_Attribute{12|83P12} 87>31 87>47 14|230b13 244l8 244t24
+87p31 Doc{12|90P12} 14|230b31 236r29 239r29 242r13 242r18 242r37
+87a47 Name{12|48A12} 14|230b47 242r50
+94V13*Create_Attribute_NS{12|83P12} 95>7 96>7 97>7 14|250b13 267l8 267t27
+95p7 Doc{12|90P12} 14|251b7 257r29 260r29 263r13 263r18 264r19 265r19
+96a7 Namespace_URI{12|48A12} 14|252b7 265r32
+97a7 Qualified_Name{12|48A12} 14|253b7 264r32
+98V13*Create_Attribute_NS{12|83P12} 99>7 100>7 101>7 102>7 103>7 14|273b13
+. 301l8 301t27
+99p7 Doc{12|90P12} 14|274b7 282r20 287r42 288r42 289r42 294r29 297r29
+100r7 Symbols{27|174R12} 14|275b7 282r10
+101p7 Namespace_URI{25|41P9} 14|276b7 284r33 288r55
+102p7 Prefix{25|41P9} 14|277b7 285r33 289r55
+103p7 Local_Name{25|41P9} 14|278b7 283r33 287r55
+109V13*Create_Entity_Reference{12|85P12} 109>38 109>54 14|307b13 318l8 318t31
+109p38 Doc{12|90P12} 14|307b38 315r29 317r41
+109a54 Name{12|48A12} 14|307b54 317r54
+117V13*Get_Elements_By_Tag_Name{12|95R9} 118>7 118>23 14|324b13 329l8 329t32
+118p7 Doc{12|90P12} 14|325b7 328r23
+118a23 Tag_Name{12|48A12} 14|325b23 328r29
+125V13*Get_Elements_By_Tag_Name_NS{12|95R9} 126>7 127>7 128>7 14|335b13 342l8
+. 342t35
+126p7 Doc{12|90P12} 14|336b7 341r23
+127a7 Namespace_URI{12|48A12} 14|337b7 341r29
+128a7 Local_Name{12|48A12} 14|338b7 341r44
+133V13*Get_Element_By_Id{12|79P9} 134>7 134>23 14|485b13 496l8 496t25
+134p7 Doc{12|90P12} 14|486b7 490r10 493r21 494r22
+134a23 Element_Id{12|48A12} 14|486b23 493r34
+144V13*Adopt_Node{12|79P9} 144>25 144>41 14|348b13 468l8 468t18 478s14
+144p25 Doc{12|90P12} 14|348b25 362r24 389r39 466r30
+144p41 Source{12|79P9} 14|348b41 349r54 464r22 465r7 466r7 467r14
+159V13*Import_Node{12|79P9} 160>8 160>24 160>46 14|474b13 479l8 479t19
+160p8 Doc{12|90P12} 14|475b8 478r26
+160p24 Imported_Node{12|79P9} 14|475b24 478r43
+160b46 Deep{boolean} 14|475b46 478r58
+X 14 dom-core-documents.adb
+55p7 Child{12|79P9} 57r13 58r13 59r20 61m10 61r33
+118r7 Name{12|260R9} 121m10 125m10 134r29
+280r7 Name{12|260R9} 283m10 287m10 299r29
+349p7 Old_Doc{12|90P12} 385r39
+351U17 Copy 351=23 359b17 364l11 364t15 368s10 369s10 370s10 386s19 392s19
+. 444s16 447s16 448s16
+351p23 S{25|41P9} 359b23 361r13 362m13 362r42
+352U17 Copy 352=23 366b17 371l11 371t15 400s16 412s16
+352r23 S{12|260R9} 366b23 368m16 368r16 369m16 369r16 370m16 370r16
+355U17 Recurse 355>26 355>41 373b17 407s22 421s25 433s22 459l11 459t18 464s7
+355p26 Parent{12|79P9} 373b26 388r22 389r58 395r19
+355p41 N{12|79P9} 373b41 378r15 384r19 385r48 386r25 389r44 392r25 397r32
+. 397r56 400r22 403r19 405r21 405r56 407r31 407r34 412r22 416r19 417r27 418r28
+. 418r56 419r25 421r34 421r37 423r28 423r57 424r28 428r19 431r19 432r28 432r54
+. 433r31 433r34 444r22 447r22 448r22
+374i10 Dest{integer} 417m19 420m25 420r33 422r33 423r48 428r40
+375p10 Dummy{12|83P12} 376r31 396m19
+404i23 J{integer} 407r61
+418i23 A{integer} 419r45 421r57 422r28 423r77 424r48
+432i23 A{integer} 433r52
+488p7 N{25|41P9} 493m10 494r35
+X 15 dom-core-elements.ads
+26K18*Elements 14|25w15 25r46 327r23 340r23 15|156e22
+115V13*Remove_Attribute_Node{12|83P12} 14|396s28
+139V13*Get_Elements_By_Tag_Name{12|95R9} 14|327s32
+147V13*Get_Elements_By_Tag_Name_NS{12|95R9} 14|340s32
+X 16 dom-core-nodes.ads
+28K18*Nodes 14|24w15 24r46 16|332e19
+58V13*First_Child{12|79P9} 14|55s23
+74V13*Next_Sibling{12|79P9} 14|61s19
+82V13*Owner_Document{12|79P9} 14|349s38
+157V13*Clone_Node{12|79P9} 14|478s31
+X 20 sax.ads
+33K9*Sax 13|49r24 50r24 51r24 52r24 100r23 101r23 102r23 103r23 14|26r6 26r37
+. 27r6 27r37 113r24 114r24 115r24 116r24 276r23 277r23 278r23 361r18 20|35e8
+X 22 sax-htable.ads
+44R9*HTable
+60V13*Get{12|234R9} 14|494s17[12|244]
+X 23 sax-pointers.ads
+59R12*Pointer<3|43R9>
+62P12*Encapsulated_Access(25|35R9)
+76V16*Get{62P12[27|171]} 14|221s35[27|171] 223s35[27|171]
+80V17*"="{boolean} 14|120s18[27|171] 282s18[27|171]
+X 25 sax-symbols.ads
+33K13*Symbols 13|50r28 51r28 52r28 101r27 102r27 103r27 14|26w10 26r41 114r28
+. 115r28 116r28 276r27 277r27 278r27 361r22 25|103e16
+41P9*Symbol<54|43P9> 13|50r36 51r36 52r36 101r35 102r35 103r35 14|114r36
+. 115r36 116r36 276r35 277r35 278r35 351r34 359r34 488r11
+43p4*No_Symbol{41P9} 14|243r29 266r29 300r29 361r30
+46V13*Find{41P9} 14|220R29 222R29
+53V13*Get{54|43P9} 14|362s37
+X 27 sax-utils.ads
+33K13*Utils 13|49r28 100r27 14|27w10 27r41 113r28 27|262e14
+171K12*Symbol_Table_Pointers[23|58] 14|30r22 221r13 223r13
+174R12*Symbol_Table{23|59R12[171]} 13|49r34 100r33 14|113r34 275r23
+182V13*Find{25|41P9} 14|80s31 101s13 102s13 242s31 264s13 265s13 317s35 362s18
+. 493s15
+187V13*Convert{25|41P9} 14|125s33 126s33 127s33 287s33 288s33 289s33
+X 29 system.ads
+67M9*Address
+X 34 s-memory.ads
+53V13*Alloc{29|67M9} 103i<c,__gnat_malloc>22
+68U14*Free 104i<c,__gnat_free>22
+76V13*Realloc{29|67M9} 105i<c,__gnat_realloc>22
+X 54 unicode-ces.ads
+41A12*Byte_Sequence{string}<integer>
+42P9*Byte_Sequence_Access(41A12)
+43P9*Cst_Byte_Sequence_Access(41A12)
+

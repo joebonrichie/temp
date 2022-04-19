@@ -1,0 +1,178 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2. Building GNATColl &#8212; GNATColl 2021 documentation</title>
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="3. Scripts: Embedding script languages" href="scripting.html" />
+    <link rel="prev" title="1. Introduction to the GNAT Component Collection" href="intro.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="scripting.html" title="3. Scripts: Embedding script languages"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="intro.html" title="1. Introduction to the GNAT Component Collection"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">GNATColl 2021 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">2. </span>Building GNATColl</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="building-gnatcoll">
+<span id="id1"></span><h1><span class="section-number">2. </span>Building GNATColl<a class="headerlink" href="#building-gnatcoll" title="Permalink to this headline">¶</a></h1>
+<p>In the instructions detailed below, it is assumed that you have
+unpacked the GNATColl package in a temporary directory and that
+<cite>installdir</cite> is the directory in which you
+would like to install the selected components.</p>
+<p>It is further assumed that you have recent functional GNAT compiler, as well
+as gprbuild.</p>
+<div class="section" id="configuring-the-build-environment">
+<span id="id2"></span><h2><span class="section-number">2.1. </span>Configuring the build environment<a class="headerlink" href="#configuring-the-build-environment" title="Permalink to this headline">¶</a></h2>
+<p>The first step is to configure the build environment. This is done by
+running the <cite>make setup</cite> command in the root directory of the
+GNATColl tree. This step is optional if you are satisfied with default values.</p>
+<p>On Windows, this requires a properly setup Unix-like environment, to provide
+Unix-like tools.</p>
+<p>The following variables can be used to configure the build process:</p>
+<p>General:</p>
+<dl class="simple">
+<dt><em>prefix</em></dt><dd><p>Location of the installation, the default is the running GNAT installation root.</p>
+</dd>
+<dt><em>INTEGRATED</em></dt><dd><p>Treat prefix as compiler installation: yes or no (default). This is so that installed gnatcoll project can later be referenced as a predefined project of this compiler; this adds a normalized target subdir to prefix.</p>
+</dd>
+<dt><em>BUILD</em></dt><dd><p>Controls the build options : PROD (default) or DEBUG</p>
+</dd>
+<dt><em>PROCESSORS</em></dt><dd><p>Parallel compilation (default is 0, which uses all available cores)</p>
+</dd>
+<dt><em>TARGET</em></dt><dd><p>For cross-compilation, auto-detected for native platforms</p>
+</dd>
+<dt><em>SOURCE_DIR</em></dt><dd><p>For out-of-tree build</p>
+</dd>
+<dt><em>ENABLE_SHARED</em></dt><dd><p>Controls whether shared and static-pic library variants should be built: yes (default) or no. If you only intend to use static libraries, specify ‘no’.</p>
+</dd>
+</dl>
+<p>Module-specific:</p>
+<dl class="simple">
+<dt><em>GNATCOLL_MMAP</em></dt><dd><p>Whether MMAP is supported: yes (default) or no; this has no effect on Windows where embedded MMAP implementation is always provided.</p>
+</dd>
+<dt><em>GNATCOLL_MADVISE</em></dt><dd><p>Whether MADVISE: yes (default) or no; this has no effect on Windows where MADVISE functionality is unavailable</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="id3">
+<span id="id4"></span><h2><span class="section-number">2.2. </span>Building GNATColl<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>GNATCOLL Core Module can be built using a GPR project file, to build it is as
+simple as:</p>
+<blockquote>
+<div><p>$ gprbuild gnatcoll.gpr</p>
+</div></blockquote>
+<p>Though, to build all versions of the library (static, relocatable and
+static-pic) it is simpler to use the provided Makefile:</p>
+<blockquote>
+<div><p>$ make</p>
+</div></blockquote>
+</div>
+<div class="section" id="installing-gnatcoll">
+<span id="id5"></span><h2><span class="section-number">2.3. </span>Installing GNATColl<a class="headerlink" href="#installing-gnatcoll" title="Permalink to this headline">¶</a></h2>
+<p>Installing the library is done with the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">install</span>
+</pre></div>
+</div>
+<p>Note that this command does not try to recompile GNATColl, so you must build
+it first. This command will install all library variants that were built.</p>
+<p>Your application can now use the GNATColl code through a project file, by
+adding a <code class="docutils literal notranslate"><span class="pre">with</span></code> clause to <code class="file docutils literal notranslate"><span class="pre">gnatcoll.gpr</span></code>.</p>
+<p>If you wish to install in a different location than was specified at
+configure time, you can override the “prefix” variable from the command line,
+for instance:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">prefix</span><span class="o">=/</span><span class="n">alternate</span><span class="o">/</span><span class="n">directory</span> <span class="n">install</span>
+</pre></div>
+</div>
+<p>This does not require any recompilation.</p>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/adacore_transparent.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">2. Building GNATColl</a><ul>
+<li><a class="reference internal" href="#configuring-the-build-environment">2.1. Configuring the build environment</a></li>
+<li><a class="reference internal" href="#id3">2.2. Building GNATColl</a></li>
+<li><a class="reference internal" href="#installing-gnatcoll">2.3. Installing GNATColl</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="intro.html"
+                        title="previous chapter"><span class="section-number">1. </span>Introduction to the GNAT Component Collection</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="scripting.html"
+                        title="next chapter"><span class="section-number">3. </span><strong>Scripts</strong>: Embedding script languages</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="scripting.html" title="3. Scripts: Embedding script languages"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="intro.html" title="1. Introduction to the GNAT Component Collection"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">GNATColl 2021 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">2. </span>Building GNATColl</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2007-2021, AdaCore.
+    </div>
+  </body>
+</html>

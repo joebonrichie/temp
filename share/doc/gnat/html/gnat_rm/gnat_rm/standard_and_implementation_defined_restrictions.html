@@ -1,0 +1,990 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>5. Standard and Implementation Defined Restrictions &#8212; GNAT Reference Manual 2021 documentation</title>
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="6. Implementation Advice" href="implementation_advice.html" />
+    <link rel="prev" title="4. Implementation Defined Attributes" href="implementation_defined_attributes.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="implementation_advice.html" title="6. Implementation Advice"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="implementation_defined_attributes.html" title="4. Implementation Defined Attributes"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../gnat_rm.html">GNAT Reference Manual 2021 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">5. </span>Standard and Implementation Defined Restrictions</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="standard-and-implementation-defined-restrictions">
+<span id="id1"></span><h1><span class="section-number">5. </span>Standard and Implementation Defined Restrictions<a class="headerlink" href="#standard-and-implementation-defined-restrictions" title="Permalink to this headline">¶</a></h1>
+<p>All Ada Reference Manual-defined Restriction identifiers are implemented:</p>
+<ul class="simple">
+<li><p>language-defined restrictions (see 13.12.1)</p></li>
+<li><p>tasking restrictions (see D.7)</p></li>
+<li><p>high integrity restrictions (see H.4)</p></li>
+</ul>
+<p>GNAT implements additional restriction identifiers. All restrictions, whether
+language defined or GNAT-specific, are listed in the following.</p>
+<div class="section" id="partition-wide-restrictions">
+<span id="id2"></span><h2><span class="section-number">5.1. </span>Partition-Wide Restrictions<a class="headerlink" href="#partition-wide-restrictions" title="Permalink to this headline">¶</a></h2>
+<p>There are two separate lists of restriction identifiers. The first
+set requires consistency throughout a partition (in other words, if the
+restriction identifier is used for any compilation unit in the partition,
+then all compilation units in the partition must obey the restriction).</p>
+<div class="section" id="immediate-reclamation">
+<h3><span class="section-number">5.1.1. </span>Immediate_Reclamation<a class="headerlink" href="#immediate-reclamation" title="Permalink to this headline">¶</a></h3>
+<p id="index-0">[RM H.4] This restriction ensures that, except for storage occupied by
+objects created by allocators and not deallocated via unchecked
+deallocation, any storage reserved at run time for an object is
+immediately reclaimed when the object no longer exists.</p>
+</div>
+<div class="section" id="max-asynchronous-select-nesting">
+<h3><span class="section-number">5.1.2. </span>Max_Asynchronous_Select_Nesting<a class="headerlink" href="#max-asynchronous-select-nesting" title="Permalink to this headline">¶</a></h3>
+<p id="index-1">[RM D.7] Specifies the maximum dynamic nesting level of asynchronous
+selects. Violations of this restriction with a value of zero are
+detected at compile time. Violations of this restriction with values
+other than zero cause Storage_Error to be raised.</p>
+</div>
+<div class="section" id="max-entry-queue-length">
+<h3><span class="section-number">5.1.3. </span>Max_Entry_Queue_Length<a class="headerlink" href="#max-entry-queue-length" title="Permalink to this headline">¶</a></h3>
+<p id="index-2">[RM D.7] This restriction is a declaration that any protected entry compiled in
+the scope of the restriction has at most the specified number of
+tasks waiting on the entry at any one time, and so no queue is required.
+Note that this restriction is checked at run time. Violation of this
+restriction results in the raising of Program_Error exception at the point of
+the call.</p>
+<p id="index-3">The restriction <code class="docutils literal notranslate"><span class="pre">Max_Entry_Queue_Depth</span></code> is recognized as a
+synonym for <code class="docutils literal notranslate"><span class="pre">Max_Entry_Queue_Length</span></code>. This is retained for historical
+compatibility purposes (and a warning will be generated for its use if
+warnings on obsolescent features are activated).</p>
+</div>
+<div class="section" id="max-protected-entries">
+<h3><span class="section-number">5.1.4. </span>Max_Protected_Entries<a class="headerlink" href="#max-protected-entries" title="Permalink to this headline">¶</a></h3>
+<p id="index-4">[RM D.7] Specifies the maximum number of entries per protected type. The
+bounds of every entry family of a protected unit shall be static, or shall be
+defined by a discriminant of a subtype whose corresponding bound is static.</p>
+</div>
+<div class="section" id="max-select-alternatives">
+<h3><span class="section-number">5.1.5. </span>Max_Select_Alternatives<a class="headerlink" href="#max-select-alternatives" title="Permalink to this headline">¶</a></h3>
+<p id="index-5">[RM D.7] Specifies the maximum number of alternatives in a selective accept.</p>
+</div>
+<div class="section" id="max-storage-at-blocking">
+<h3><span class="section-number">5.1.6. </span>Max_Storage_At_Blocking<a class="headerlink" href="#max-storage-at-blocking" title="Permalink to this headline">¶</a></h3>
+<p id="index-6">[RM D.7] Specifies the maximum portion (in storage elements) of a task’s
+Storage_Size that can be retained by a blocked task. A violation of this
+restriction causes Storage_Error to be raised.</p>
+</div>
+<div class="section" id="max-task-entries">
+<h3><span class="section-number">5.1.7. </span>Max_Task_Entries<a class="headerlink" href="#max-task-entries" title="Permalink to this headline">¶</a></h3>
+<p id="index-7">[RM D.7] Specifies the maximum number of entries
+per task.  The bounds of every entry family
+of a task unit shall be static, or shall be
+defined by a discriminant of a subtype whose
+corresponding bound is static.</p>
+</div>
+<div class="section" id="max-tasks">
+<h3><span class="section-number">5.1.8. </span>Max_Tasks<a class="headerlink" href="#max-tasks" title="Permalink to this headline">¶</a></h3>
+<p id="index-8">[RM D.7] Specifies the maximum number of task that may be created, not
+counting the creation of the environment task.  Violations of this
+restriction with a value of zero are detected at compile
+time. Violations of this restriction with values other than zero cause
+Storage_Error to be raised.</p>
+</div>
+<div class="section" id="no-abort-statements">
+<h3><span class="section-number">5.1.9. </span>No_Abort_Statements<a class="headerlink" href="#no-abort-statements" title="Permalink to this headline">¶</a></h3>
+<p id="index-9">[RM D.7] There are no abort_statements, and there are
+no calls to Task_Identification.Abort_Task.</p>
+</div>
+<div class="section" id="no-access-parameter-allocators">
+<h3><span class="section-number">5.1.10. </span>No_Access_Parameter_Allocators<a class="headerlink" href="#no-access-parameter-allocators" title="Permalink to this headline">¶</a></h3>
+<p id="index-10">[RM H.4] This restriction ensures at compile time that there are no
+occurrences of an allocator as the actual parameter to an access
+parameter.</p>
+</div>
+<div class="section" id="no-access-subprograms">
+<h3><span class="section-number">5.1.11. </span>No_Access_Subprograms<a class="headerlink" href="#no-access-subprograms" title="Permalink to this headline">¶</a></h3>
+<p id="index-11">[RM H.4] This restriction ensures at compile time that there are no
+declarations of access-to-subprogram types.</p>
+</div>
+<div class="section" id="no-allocators">
+<h3><span class="section-number">5.1.12. </span>No_Allocators<a class="headerlink" href="#no-allocators" title="Permalink to this headline">¶</a></h3>
+<p id="index-12">[RM H.4] This restriction ensures at compile time that there are no
+occurrences of an allocator.</p>
+</div>
+<div class="section" id="no-anonymous-allocators">
+<h3><span class="section-number">5.1.13. </span>No_Anonymous_Allocators<a class="headerlink" href="#no-anonymous-allocators" title="Permalink to this headline">¶</a></h3>
+<p id="index-13">[RM H.4] This restriction ensures at compile time that there are no
+occurrences of an allocator of anonymous access type.</p>
+</div>
+<div class="section" id="no-asynchronous-control">
+<h3><span class="section-number">5.1.14. </span>No_Asynchronous_Control<a class="headerlink" href="#no-asynchronous-control" title="Permalink to this headline">¶</a></h3>
+<p id="index-14">[RM J.13] This restriction ensures at compile time that there are no semantic
+dependences on the predefined package Asynchronous_Task_Control.</p>
+</div>
+<div class="section" id="no-calendar">
+<h3><span class="section-number">5.1.15. </span>No_Calendar<a class="headerlink" href="#no-calendar" title="Permalink to this headline">¶</a></h3>
+<p id="index-15">[GNAT] This restriction ensures at compile time that there are no semantic
+dependences on package Calendar.</p>
+</div>
+<div class="section" id="no-coextensions">
+<h3><span class="section-number">5.1.16. </span>No_Coextensions<a class="headerlink" href="#no-coextensions" title="Permalink to this headline">¶</a></h3>
+<p id="index-16">[RM H.4] This restriction ensures at compile time that there are no
+coextensions. See 3.10.2.</p>
+</div>
+<div class="section" id="no-default-initialization">
+<h3><span class="section-number">5.1.17. </span>No_Default_Initialization<a class="headerlink" href="#no-default-initialization" title="Permalink to this headline">¶</a></h3>
+<p id="index-17">[GNAT] This restriction prohibits any instance of default initialization
+of variables.  The binder implements a consistency rule which prevents
+any unit compiled without the restriction from with’ing a unit with the
+restriction (this allows the generation of initialization procedures to
+be skipped, since you can be sure that no call is ever generated to an
+initialization procedure in a unit with the restriction active). If used
+in conjunction with Initialize_Scalars or Normalize_Scalars, the effect
+is to prohibit all cases of variables declared without a specific
+initializer (including the case of OUT scalar parameters).</p>
+</div>
+<div class="section" id="no-delay">
+<h3><span class="section-number">5.1.18. </span>No_Delay<a class="headerlink" href="#no-delay" title="Permalink to this headline">¶</a></h3>
+<p id="index-18">[RM H.4] This restriction ensures at compile time that there are no
+delay statements and no semantic dependences on package Calendar.</p>
+</div>
+<div class="section" id="no-dependence">
+<h3><span class="section-number">5.1.19. </span>No_Dependence<a class="headerlink" href="#no-dependence" title="Permalink to this headline">¶</a></h3>
+<p id="index-19">[RM 13.12.1] This restriction ensures at compile time that there are no
+dependences on a library unit.</p>
+</div>
+<div class="section" id="no-direct-boolean-operators">
+<h3><span class="section-number">5.1.20. </span>No_Direct_Boolean_Operators<a class="headerlink" href="#no-direct-boolean-operators" title="Permalink to this headline">¶</a></h3>
+<p id="index-20">[GNAT] This restriction ensures that no logical operators (and/or/xor)
+are used on operands of type Boolean (or any type derived from Boolean).
+This is intended for use in safety critical programs where the certification
+protocol requires the use of short-circuit (and then, or else) forms for all
+composite boolean operations.</p>
+</div>
+<div class="section" id="no-dispatch">
+<h3><span class="section-number">5.1.21. </span>No_Dispatch<a class="headerlink" href="#no-dispatch" title="Permalink to this headline">¶</a></h3>
+<p id="index-21">[RM H.4] This restriction ensures at compile time that there are no
+occurrences of <code class="docutils literal notranslate"><span class="pre">T'Class</span></code>, for any (tagged) subtype <code class="docutils literal notranslate"><span class="pre">T</span></code>.</p>
+</div>
+<div class="section" id="no-dispatching-calls">
+<h3><span class="section-number">5.1.22. </span>No_Dispatching_Calls<a class="headerlink" href="#no-dispatching-calls" title="Permalink to this headline">¶</a></h3>
+<p id="index-22">[GNAT] This restriction ensures at compile time that the code generated by the
+compiler involves no dispatching calls. The use of this restriction allows the
+safe use of record extensions, classwide membership tests and other classwide
+features not involving implicit dispatching. This restriction ensures that
+the code contains no indirect calls through a dispatching mechanism. Note that
+this includes internally-generated calls created by the compiler, for example
+in the implementation of class-wide objects assignments. The
+membership test is allowed in the presence of this restriction, because its
+implementation requires no dispatching.
+This restriction is comparable to the official Ada restriction
+<code class="docutils literal notranslate"><span class="pre">No_Dispatch</span></code> except that it is a bit less restrictive in that it allows
+all classwide constructs that do not imply dispatching.
+The following example indicates constructs that violate this restriction.</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="k">package </span><span class="nf">Pkg</span> <span class="kr">is</span><span class="p"></span>
+  <span class="kr">type</span><span class="p"> </span><span class="n">T</span> <span class="kr">is</span><span class="p"> </span><span class="kr">tagged</span><span class="p"> </span><span class="kr">record</span><span class="p"></span>
+    <span class="n">Data</span> <span class="o">:</span> <span class="n">Natural</span><span class="p">;</span>
+  <span class="k">end record</span><span class="p">;</span>
+  <span class="k">procedure </span><span class="nf">P</span> <span class="o">(</span><span class="n">X</span> <span class="o">:</span> <span class="n">T</span><span class="o">)</span><span class="p">;</span>
+
+  <span class="kr">type</span><span class="p"> </span><span class="n">DT</span> <span class="kr">is</span><span class="p"> </span><span class="kr">new</span><span class="p"> </span><span class="n">T</span> <span class="kr">with</span><span class="p"> </span><span class="kr">record</span><span class="p"></span>
+    <span class="n">More_Data</span> <span class="o">:</span> <span class="n">Natural</span><span class="p">;</span>
+  <span class="k">end record</span><span class="p">;</span>
+  <span class="k">procedure </span><span class="nf">Q</span> <span class="o">(</span><span class="n">X</span> <span class="o">:</span> <span class="n">DT</span><span class="o">)</span><span class="p">;</span>
+<span class="k">end </span><span class="nf">Pkg</span><span class="p">;</span>
+
+<span class="kr">with</span><span class="nn"> Pkg;</span> <span class="kr">use</span><span class="p"> </span><span class="n">Pkg</span><span class="p">;</span>
+<span class="k">procedure </span><span class="nf">Example</span> <span class="kr">is</span><span class="p"></span>
+  <span class="k">procedure </span><span class="nf">Test</span> <span class="o">(</span><span class="n">O</span> <span class="o">:</span> <span class="n">T</span><span class="na">&#39;Class</span><span class="o">)</span> <span class="kr">is</span><span class="p"></span>
+    <span class="n">N</span> <span class="o">:</span> <span class="n">Natural</span>  <span class="o">:=</span> <span class="n">O</span><span class="na">&#39;Size</span><span class="p">;</span><span class="c">--  Error: Dispatching call</span>
+    <span class="n">C</span> <span class="o">:</span> <span class="n">T</span><span class="na">&#39;Class</span> <span class="o">:=</span> <span class="n">O</span><span class="p">;</span>      <span class="c">--  Error: implicit Dispatching Call</span>
+  <span class="kr">begin</span><span class="p"></span>
+    <span class="kr">if</span><span class="p"> </span><span class="n">O</span> <span class="kr">in</span><span class="p"> </span><span class="n">DT</span><span class="na">&#39;Class</span> <span class="kr">then</span><span class="p"> </span> <span class="c">--  OK   : Membership test</span>
+       <span class="n">Q</span> <span class="o">(</span><span class="n">DT</span> <span class="o">(</span><span class="n">O</span><span class="o">))</span><span class="p">;</span>         <span class="c">--  OK   : Type conversion plus direct call</span>
+    <span class="kr">else</span><span class="p"></span>
+       <span class="n">P</span> <span class="o">(</span><span class="n">O</span><span class="o">)</span><span class="p">;</span>              <span class="c">--  Error: Dispatching call</span>
+    <span class="k">end if</span><span class="p">;</span>
+  <span class="k">end </span><span class="nf">Test</span><span class="p">;</span>
+
+  <span class="n">Obj</span> <span class="o">:</span> <span class="n">DT</span><span class="p">;</span>
+<span class="kr">begin</span><span class="p"></span>
+  <span class="n">P</span> <span class="o">(</span><span class="n">Obj</span><span class="o">)</span><span class="p">;</span>                 <span class="c">--  OK   : Direct call</span>
+  <span class="n">P</span> <span class="o">(</span><span class="n">T</span> <span class="o">(</span><span class="n">Obj</span><span class="o">))</span><span class="p">;</span>             <span class="c">--  OK   : Type conversion plus direct call</span>
+  <span class="n">P</span> <span class="o">(</span><span class="n">T</span><span class="na">&#39;Class</span> <span class="o">(</span><span class="n">Obj</span><span class="o">))</span><span class="p">;</span>       <span class="c">--  Error: Dispatching call</span>
+
+  <span class="n">Test</span> <span class="o">(</span><span class="n">Obj</span><span class="o">)</span><span class="p">;</span>              <span class="c">--  OK   : Type conversion</span>
+
+  <span class="kr">if</span><span class="p"> </span><span class="n">Obj</span> <span class="kr">in</span><span class="p"> </span><span class="n">T</span><span class="na">&#39;Class</span> <span class="kr">then</span><span class="p"> </span>  <span class="c">--  OK   : Membership test</span>
+     <span class="kr">null</span><span class="p">;</span>
+  <span class="k">end if</span><span class="p">;</span>
+<span class="k">end </span><span class="nf">Example</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="no-dynamic-attachment">
+<h3><span class="section-number">5.1.23. </span>No_Dynamic_Attachment<a class="headerlink" href="#no-dynamic-attachment" title="Permalink to this headline">¶</a></h3>
+<p id="index-23">[RM D.7] This restriction ensures that there is no call to any of the
+operations defined in package Ada.Interrupts
+(Is_Reserved, Is_Attached, Current_Handler, Attach_Handler, Exchange_Handler,
+Detach_Handler, and Reference).</p>
+<p id="index-24">The restriction <code class="docutils literal notranslate"><span class="pre">No_Dynamic_Interrupts</span></code> is recognized as a
+synonym for <code class="docutils literal notranslate"><span class="pre">No_Dynamic_Attachment</span></code>. This is retained for historical
+compatibility purposes (and a warning will be generated for its use if
+warnings on obsolescent features are activated).</p>
+</div>
+<div class="section" id="no-dynamic-priorities">
+<h3><span class="section-number">5.1.24. </span>No_Dynamic_Priorities<a class="headerlink" href="#no-dynamic-priorities" title="Permalink to this headline">¶</a></h3>
+<p id="index-25">[RM D.7] There are no semantic dependencies on the package Dynamic_Priorities.</p>
+</div>
+<div class="section" id="no-entry-calls-in-elaboration-code">
+<h3><span class="section-number">5.1.25. </span>No_Entry_Calls_In_Elaboration_Code<a class="headerlink" href="#no-entry-calls-in-elaboration-code" title="Permalink to this headline">¶</a></h3>
+<p id="index-26">[GNAT] This restriction ensures at compile time that no task or protected entry
+calls are made during elaboration code.  As a result of the use of this
+restriction, the compiler can assume that no code past an accept statement
+in a task can be executed at elaboration time.</p>
+</div>
+<div class="section" id="no-enumeration-maps">
+<h3><span class="section-number">5.1.26. </span>No_Enumeration_Maps<a class="headerlink" href="#no-enumeration-maps" title="Permalink to this headline">¶</a></h3>
+<p id="index-27">[GNAT] This restriction ensures at compile time that no operations requiring
+enumeration maps are used (that is Image and Value attributes applied
+to enumeration types).</p>
+</div>
+<div class="section" id="no-exception-handlers">
+<h3><span class="section-number">5.1.27. </span>No_Exception_Handlers<a class="headerlink" href="#no-exception-handlers" title="Permalink to this headline">¶</a></h3>
+<p id="index-28">[GNAT] This restriction ensures at compile time that there are no explicit
+exception handlers. It also indicates that no exception propagation will
+be provided. In this mode, exceptions may be raised but will result in
+an immediate call to the last chance handler, a routine that the user
+must define with the following profile:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="k">procedure </span><span class="nf">Last_Chance_Handler</span>
+  <span class="o">(</span><span class="n">Source_Location</span> <span class="o">:</span> <span class="n">System.Address</span><span class="p">;</span> <span class="n">Line</span> <span class="o">:</span> <span class="n">Integer</span><span class="o">)</span><span class="p">;</span>
+<span class="kr">pragma</span><span class="p"> </span><span class="n">Export</span> <span class="o">(</span><span class="n">C</span><span class="p">,</span> <span class="n">Last_Chance_Handler</span><span class="p">,</span>
+               <span class="s">&quot;__gnat_last_chance_handler&quot;</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The parameter is a C null-terminated string representing a message to be
+associated with the exception (typically the source location of the raise
+statement generated by the compiler). The Line parameter when nonzero
+represents the line number in the source program where the raise occurs.</p>
+</div>
+<div class="section" id="no-exception-propagation">
+<h3><span class="section-number">5.1.28. </span>No_Exception_Propagation<a class="headerlink" href="#no-exception-propagation" title="Permalink to this headline">¶</a></h3>
+<p id="index-29">[GNAT] This restriction guarantees that exceptions are never propagated
+to an outer subprogram scope. The only case in which an exception may
+be raised is when the handler is statically in the same subprogram, so
+that the effect of a raise is essentially like a goto statement. Any
+other raise statement (implicit or explicit) will be considered
+unhandled. Exception handlers are allowed, but may not contain an
+exception occurrence identifier (exception choice). In addition, use of
+the package GNAT.Current_Exception is not permitted, and reraise
+statements (raise with no operand) are not permitted.</p>
+</div>
+<div class="section" id="no-exception-registration">
+<h3><span class="section-number">5.1.29. </span>No_Exception_Registration<a class="headerlink" href="#no-exception-registration" title="Permalink to this headline">¶</a></h3>
+<p id="index-30">[GNAT] This restriction ensures at compile time that no stream operations for
+types Exception_Id or Exception_Occurrence are used. This also makes it
+impossible to pass exceptions to or from a partition with this restriction
+in a distributed environment. If this restriction is active, the generated
+code is simplified by omitting the otherwise-required global registration
+of exceptions when they are declared.</p>
+</div>
+<div class="section" id="no-exceptions">
+<h3><span class="section-number">5.1.30. </span>No_Exceptions<a class="headerlink" href="#no-exceptions" title="Permalink to this headline">¶</a></h3>
+<p id="index-31">[RM H.4] This restriction ensures at compile time that there are no
+raise statements and no exception handlers and also suppresses the
+generation of language-defined run-time checks.</p>
+</div>
+<div class="section" id="no-finalization">
+<h3><span class="section-number">5.1.31. </span>No_Finalization<a class="headerlink" href="#no-finalization" title="Permalink to this headline">¶</a></h3>
+<p id="index-32">[GNAT] This restriction disables the language features described in
+chapter 7.6 of the Ada 2005 RM as well as all form of code generation
+performed by the compiler to support these features. The following types
+are no longer considered controlled when this restriction is in effect:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Ada.Finalization.Controlled</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Ada.Finalization.Limited_Controlled</span></code></p></li>
+<li><p>Derivations from <code class="docutils literal notranslate"><span class="pre">Controlled</span></code> or <code class="docutils literal notranslate"><span class="pre">Limited_Controlled</span></code></p></li>
+<li><p>Class-wide types</p></li>
+<li><p>Protected types</p></li>
+<li><p>Task types</p></li>
+<li><p>Array and record types with controlled components</p></li>
+</ul>
+<p>The compiler no longer generates code to initialize, finalize or adjust an
+object or a nested component, either declared on the stack or on the heap. The
+deallocation of a controlled object no longer finalizes its contents.</p>
+</div>
+<div class="section" id="no-fixed-point">
+<h3><span class="section-number">5.1.32. </span>No_Fixed_Point<a class="headerlink" href="#no-fixed-point" title="Permalink to this headline">¶</a></h3>
+<p id="index-33">[RM H.4] This restriction ensures at compile time that there are no
+occurrences of fixed point types and operations.</p>
+</div>
+<div class="section" id="no-floating-point">
+<h3><span class="section-number">5.1.33. </span>No_Floating_Point<a class="headerlink" href="#no-floating-point" title="Permalink to this headline">¶</a></h3>
+<p id="index-34">[RM H.4] This restriction ensures at compile time that there are no
+occurrences of floating point types and operations.</p>
+</div>
+<div class="section" id="no-implicit-conditionals">
+<h3><span class="section-number">5.1.34. </span>No_Implicit_Conditionals<a class="headerlink" href="#no-implicit-conditionals" title="Permalink to this headline">¶</a></h3>
+<p id="index-35">[GNAT] This restriction ensures that the generated code does not contain any
+implicit conditionals, either by modifying the generated code where possible,
+or by rejecting any construct that would otherwise generate an implicit
+conditional. Note that this check does not include run time constraint
+checks, which on some targets may generate implicit conditionals as
+well. To control the latter, constraint checks can be suppressed in the
+normal manner. Constructs generating implicit conditionals include comparisons
+of composite objects and the Max/Min attributes.</p>
+</div>
+<div class="section" id="no-implicit-dynamic-code">
+<h3><span class="section-number">5.1.35. </span>No_Implicit_Dynamic_Code<a class="headerlink" href="#no-implicit-dynamic-code" title="Permalink to this headline">¶</a></h3>
+<span class="target" id="index-36"></span><p id="index-37">[GNAT] This restriction prevents the compiler from building ‘trampolines’.
+This is a structure that is built on the stack and contains dynamic
+code to be executed at run time. On some targets, a trampoline is
+built for the following features: <code class="docutils literal notranslate"><span class="pre">Access</span></code>,
+<code class="docutils literal notranslate"><span class="pre">Unrestricted_Access</span></code>, or <code class="docutils literal notranslate"><span class="pre">Address</span></code> of a nested subprogram;
+nested task bodies; primitive operations of nested tagged types.
+Trampolines do not work on machines that prevent execution of stack
+data. For example, on windows systems, enabling DEP (data execution
+protection) will cause trampolines to raise an exception.
+Trampolines are also quite slow at run time.</p>
+<p>On many targets, trampolines have been largely eliminated. Look at the
+version of system.ads for your target — if it has
+Always_Compatible_Rep equal to False, then trampolines are largely
+eliminated. In particular, a trampoline is built for the following
+features: <code class="docutils literal notranslate"><span class="pre">Address</span></code> of a nested subprogram;
+<code class="docutils literal notranslate"><span class="pre">Access</span></code> or <code class="docutils literal notranslate"><span class="pre">Unrestricted_Access</span></code> of a nested subprogram,
+but only if pragma Favor_Top_Level applies, or the access type has a
+foreign-language convention; primitive operations of nested tagged
+types.</p>
+</div>
+<div class="section" id="no-implicit-heap-allocations">
+<h3><span class="section-number">5.1.36. </span>No_Implicit_Heap_Allocations<a class="headerlink" href="#no-implicit-heap-allocations" title="Permalink to this headline">¶</a></h3>
+<p id="index-38">[RM D.7] No constructs are allowed to cause implicit heap allocation.</p>
+</div>
+<div class="section" id="no-implicit-protected-object-allocations">
+<h3><span class="section-number">5.1.37. </span>No_Implicit_Protected_Object_Allocations<a class="headerlink" href="#no-implicit-protected-object-allocations" title="Permalink to this headline">¶</a></h3>
+<p id="index-39">[GNAT] No constructs are allowed to cause implicit heap allocation of a
+protected object.</p>
+</div>
+<div class="section" id="no-implicit-task-allocations">
+<h3><span class="section-number">5.1.38. </span>No_Implicit_Task_Allocations<a class="headerlink" href="#no-implicit-task-allocations" title="Permalink to this headline">¶</a></h3>
+<p id="index-40">[GNAT] No constructs are allowed to cause implicit heap allocation of a task.</p>
+</div>
+<div class="section" id="no-initialize-scalars">
+<h3><span class="section-number">5.1.39. </span>No_Initialize_Scalars<a class="headerlink" href="#no-initialize-scalars" title="Permalink to this headline">¶</a></h3>
+<p id="index-41">[GNAT] This restriction ensures that no unit in the partition is compiled with
+pragma Initialize_Scalars. This allows the generation of more efficient
+code, and in particular eliminates dummy null initialization routines that
+are otherwise generated for some record and array types.</p>
+</div>
+<div class="section" id="no-io">
+<h3><span class="section-number">5.1.40. </span>No_IO<a class="headerlink" href="#no-io" title="Permalink to this headline">¶</a></h3>
+<p id="index-42">[RM H.4] This restriction ensures at compile time that there are no
+dependences on any of the library units Sequential_IO, Direct_IO,
+Text_IO, Wide_Text_IO, Wide_Wide_Text_IO, or Stream_IO.</p>
+</div>
+<div class="section" id="no-local-allocators">
+<h3><span class="section-number">5.1.41. </span>No_Local_Allocators<a class="headerlink" href="#no-local-allocators" title="Permalink to this headline">¶</a></h3>
+<p id="index-43">[RM H.4] This restriction ensures at compile time that there are no
+occurrences of an allocator in subprograms, generic subprograms, tasks,
+and entry bodies.</p>
+</div>
+<div class="section" id="no-local-protected-objects">
+<h3><span class="section-number">5.1.42. </span>No_Local_Protected_Objects<a class="headerlink" href="#no-local-protected-objects" title="Permalink to this headline">¶</a></h3>
+<p id="index-44">[RM D.7] This restriction ensures at compile time that protected objects are
+only declared at the library level.</p>
+</div>
+<div class="section" id="no-local-timing-events">
+<h3><span class="section-number">5.1.43. </span>No_Local_Timing_Events<a class="headerlink" href="#no-local-timing-events" title="Permalink to this headline">¶</a></h3>
+<p id="index-45">[RM D.7] All objects of type Ada.Real_Time.Timing_Events.Timing_Event are
+declared at the library level.</p>
+</div>
+<div class="section" id="no-long-long-integers">
+<h3><span class="section-number">5.1.44. </span>No_Long_Long_Integers<a class="headerlink" href="#no-long-long-integers" title="Permalink to this headline">¶</a></h3>
+<p id="index-46">[GNAT] This partition-wide restriction forbids any explicit reference to
+type Standard.Long_Long_Integer, and also forbids declaring range types whose
+implicit base type is Long_Long_Integer, and modular types whose size exceeds
+Long_Integer’Size.</p>
+</div>
+<div class="section" id="no-multiple-elaboration">
+<h3><span class="section-number">5.1.45. </span>No_Multiple_Elaboration<a class="headerlink" href="#no-multiple-elaboration" title="Permalink to this headline">¶</a></h3>
+<p id="index-47">[GNAT] When this restriction is active and the static elaboration model is
+used, and -fpreserve-control-flow is not used, the compiler is allowed to
+suppress the elaboration counter normally associated with the unit, even if
+the unit has elaboration code. This counter is typically used to check for
+access before elaboration and to control multiple elaboration attempts. If the
+restriction is used, then the situations in which multiple elaboration is
+possible, including non-Ada main programs and Stand Alone libraries, are not
+permitted and will be diagnosed by the binder.</p>
+</div>
+<div class="section" id="no-nested-finalization">
+<h3><span class="section-number">5.1.46. </span>No_Nested_Finalization<a class="headerlink" href="#no-nested-finalization" title="Permalink to this headline">¶</a></h3>
+<p id="index-48">[RM D.7] All objects requiring finalization are declared at the library level.</p>
+</div>
+<div class="section" id="no-protected-type-allocators">
+<h3><span class="section-number">5.1.47. </span>No_Protected_Type_Allocators<a class="headerlink" href="#no-protected-type-allocators" title="Permalink to this headline">¶</a></h3>
+<p id="index-49">[RM D.7] This restriction ensures at compile time that there are no allocator
+expressions that attempt to allocate protected objects.</p>
+</div>
+<div class="section" id="no-protected-types">
+<h3><span class="section-number">5.1.48. </span>No_Protected_Types<a class="headerlink" href="#no-protected-types" title="Permalink to this headline">¶</a></h3>
+<p id="index-50">[RM H.4] This restriction ensures at compile time that there are no
+declarations of protected types or protected objects.</p>
+</div>
+<div class="section" id="no-recursion">
+<h3><span class="section-number">5.1.49. </span>No_Recursion<a class="headerlink" href="#no-recursion" title="Permalink to this headline">¶</a></h3>
+<p id="index-51">[RM H.4] A program execution is erroneous if a subprogram is invoked as
+part of its execution.</p>
+</div>
+<div class="section" id="no-reentrancy">
+<h3><span class="section-number">5.1.50. </span>No_Reentrancy<a class="headerlink" href="#no-reentrancy" title="Permalink to this headline">¶</a></h3>
+<p id="index-52">[RM H.4] A program execution is erroneous if a subprogram is executed by
+two tasks at the same time.</p>
+</div>
+<div class="section" id="no-relative-delay">
+<h3><span class="section-number">5.1.51. </span>No_Relative_Delay<a class="headerlink" href="#no-relative-delay" title="Permalink to this headline">¶</a></h3>
+<p id="index-53">[RM D.7] This restriction ensures at compile time that there are no delay
+relative statements and prevents expressions such as <code class="docutils literal notranslate"><span class="pre">delay</span> <span class="pre">1.23;</span></code> from
+appearing in source code.</p>
+</div>
+<div class="section" id="no-requeue-statements">
+<h3><span class="section-number">5.1.52. </span>No_Requeue_Statements<a class="headerlink" href="#no-requeue-statements" title="Permalink to this headline">¶</a></h3>
+<p id="index-54">[RM D.7] This restriction ensures at compile time that no requeue statements
+are permitted and prevents keyword <code class="docutils literal notranslate"><span class="pre">requeue</span></code> from being used in source
+code.</p>
+<p id="index-55">The restriction <code class="docutils literal notranslate"><span class="pre">No_Requeue</span></code> is recognized as a
+synonym for <code class="docutils literal notranslate"><span class="pre">No_Requeue_Statements</span></code>. This is retained for historical
+compatibility purposes (and a warning will be generated for its use if
+warnings on oNobsolescent features are activated).</p>
+</div>
+<div class="section" id="no-secondary-stack">
+<h3><span class="section-number">5.1.53. </span>No_Secondary_Stack<a class="headerlink" href="#no-secondary-stack" title="Permalink to this headline">¶</a></h3>
+<p id="index-56">[GNAT] This restriction ensures at compile time that the generated code
+does not contain any reference to the secondary stack.  The secondary
+stack is used to implement functions returning unconstrained objects
+(arrays or records) on some targets. Suppresses the allocation of
+secondary stacks for tasks (excluding the environment task) at run time.</p>
+</div>
+<div class="section" id="no-select-statements">
+<h3><span class="section-number">5.1.54. </span>No_Select_Statements<a class="headerlink" href="#no-select-statements" title="Permalink to this headline">¶</a></h3>
+<p id="index-57">[RM D.7] This restriction ensures at compile time no select statements of any
+kind are permitted, that is the keyword <code class="docutils literal notranslate"><span class="pre">select</span></code> may not appear.</p>
+</div>
+<div class="section" id="no-specific-termination-handlers">
+<h3><span class="section-number">5.1.55. </span>No_Specific_Termination_Handlers<a class="headerlink" href="#no-specific-termination-handlers" title="Permalink to this headline">¶</a></h3>
+<p id="index-58">[RM D.7] There are no calls to Ada.Task_Termination.Set_Specific_Handler
+or to Ada.Task_Termination.Specific_Handler.</p>
+</div>
+<div class="section" id="no-specification-of-aspect">
+<h3><span class="section-number">5.1.56. </span>No_Specification_of_Aspect<a class="headerlink" href="#no-specification-of-aspect" title="Permalink to this headline">¶</a></h3>
+<p id="index-59">[RM 13.12.1] This restriction checks at compile time that no aspect
+specification, attribute definition clause, or pragma is given for a
+given aspect.</p>
+</div>
+<div class="section" id="no-standard-allocators-after-elaboration">
+<h3><span class="section-number">5.1.57. </span>No_Standard_Allocators_After_Elaboration<a class="headerlink" href="#no-standard-allocators-after-elaboration" title="Permalink to this headline">¶</a></h3>
+<p id="index-60">[RM D.7] Specifies that an allocator using a standard storage pool
+should never be evaluated at run time after the elaboration of the
+library items of the partition has completed. Otherwise, Storage_Error
+is raised.</p>
+</div>
+<div class="section" id="no-standard-storage-pools">
+<h3><span class="section-number">5.1.58. </span>No_Standard_Storage_Pools<a class="headerlink" href="#no-standard-storage-pools" title="Permalink to this headline">¶</a></h3>
+<p id="index-61">[GNAT] This restriction ensures at compile time that no access types
+use the standard default storage pool.  Any access type declared must
+have an explicit Storage_Pool attribute defined specifying a
+user-defined storage pool.</p>
+</div>
+<div class="section" id="no-stream-optimizations">
+<h3><span class="section-number">5.1.59. </span>No_Stream_Optimizations<a class="headerlink" href="#no-stream-optimizations" title="Permalink to this headline">¶</a></h3>
+<p id="index-62">[GNAT] This restriction affects the performance of stream operations on types
+<code class="docutils literal notranslate"><span class="pre">String</span></code>, <code class="docutils literal notranslate"><span class="pre">Wide_String</span></code> and <code class="docutils literal notranslate"><span class="pre">Wide_Wide_String</span></code>. By default, the
+compiler uses block reads and writes when manipulating <code class="docutils literal notranslate"><span class="pre">String</span></code> objects
+due to their superior performance. When this restriction is in effect, the
+compiler performs all IO operations on a per-character basis.</p>
+</div>
+<div class="section" id="no-streams">
+<h3><span class="section-number">5.1.60. </span>No_Streams<a class="headerlink" href="#no-streams" title="Permalink to this headline">¶</a></h3>
+<p id="index-63">[GNAT] This restriction ensures at compile/bind time that there are no
+stream objects created and no use of stream attributes.
+This restriction does not forbid dependences on the package
+<code class="docutils literal notranslate"><span class="pre">Ada.Streams</span></code>. So it is permissible to with
+<code class="docutils literal notranslate"><span class="pre">Ada.Streams</span></code> (or another package that does so itself)
+as long as no actual stream objects are created and no
+stream attributes are used.</p>
+<p>Note that the use of restriction allows optimization of tagged types,
+since they do not need to worry about dispatching stream operations.
+To take maximum advantage of this space-saving optimization, any
+unit declaring a tagged type should be compiled with the restriction,
+though this is not required.</p>
+</div>
+<div class="section" id="no-task-allocators">
+<h3><span class="section-number">5.1.61. </span>No_Task_Allocators<a class="headerlink" href="#no-task-allocators" title="Permalink to this headline">¶</a></h3>
+<p id="index-64">[RM D.7] There are no allocators for task types
+or types containing task subcomponents.</p>
+</div>
+<div class="section" id="no-task-at-interrupt-priority">
+<h3><span class="section-number">5.1.62. </span>No_Task_At_Interrupt_Priority<a class="headerlink" href="#no-task-at-interrupt-priority" title="Permalink to this headline">¶</a></h3>
+<p id="index-65">[GNAT] This restriction ensures at compile time that there is no
+Interrupt_Priority aspect or pragma for a task or a task type. As
+a consequence, the tasks are always created with a priority below
+that an interrupt priority.</p>
+</div>
+<div class="section" id="no-task-attributes-package">
+<h3><span class="section-number">5.1.63. </span>No_Task_Attributes_Package<a class="headerlink" href="#no-task-attributes-package" title="Permalink to this headline">¶</a></h3>
+<p id="index-66">[GNAT] This restriction ensures at compile time that there are no implicit or
+explicit dependencies on the package <code class="docutils literal notranslate"><span class="pre">Ada.Task_Attributes</span></code>.</p>
+<p id="index-67">The restriction <code class="docutils literal notranslate"><span class="pre">No_Task_Attributes</span></code> is recognized as a synonym
+for <code class="docutils literal notranslate"><span class="pre">No_Task_Attributes_Package</span></code>. This is retained for historical
+compatibility purposes (and a warning will be generated for its use if
+warnings on obsolescent features are activated).</p>
+</div>
+<div class="section" id="no-task-hierarchy">
+<h3><span class="section-number">5.1.64. </span>No_Task_Hierarchy<a class="headerlink" href="#no-task-hierarchy" title="Permalink to this headline">¶</a></h3>
+<p id="index-68">[RM D.7] All (non-environment) tasks depend
+directly on the environment task of the partition.</p>
+</div>
+<div class="section" id="no-task-termination">
+<h3><span class="section-number">5.1.65. </span>No_Task_Termination<a class="headerlink" href="#no-task-termination" title="Permalink to this headline">¶</a></h3>
+<p id="index-69">[RM D.7] Tasks that terminate are erroneous.</p>
+</div>
+<div class="section" id="no-tasking">
+<h3><span class="section-number">5.1.66. </span>No_Tasking<a class="headerlink" href="#no-tasking" title="Permalink to this headline">¶</a></h3>
+<p id="index-70">[GNAT] This restriction prevents the declaration of tasks or task types
+throughout the partition.  It is similar in effect to the use of
+<code class="docutils literal notranslate"><span class="pre">Max_Tasks</span> <span class="pre">=&gt;</span> <span class="pre">0</span></code> except that violations are caught at compile time
+and cause an error message to be output either by the compiler or
+binder.</p>
+</div>
+<div class="section" id="no-terminate-alternatives">
+<h3><span class="section-number">5.1.67. </span>No_Terminate_Alternatives<a class="headerlink" href="#no-terminate-alternatives" title="Permalink to this headline">¶</a></h3>
+<p id="index-71">[RM D.7] There are no selective accepts with terminate alternatives.</p>
+</div>
+<div class="section" id="no-unchecked-access">
+<h3><span class="section-number">5.1.68. </span>No_Unchecked_Access<a class="headerlink" href="#no-unchecked-access" title="Permalink to this headline">¶</a></h3>
+<p id="index-72">[RM H.4] This restriction ensures at compile time that there are no
+occurrences of the Unchecked_Access attribute.</p>
+</div>
+<div class="section" id="no-unchecked-conversion">
+<h3><span class="section-number">5.1.69. </span>No_Unchecked_Conversion<a class="headerlink" href="#no-unchecked-conversion" title="Permalink to this headline">¶</a></h3>
+<p id="index-73">[RM J.13] This restriction ensures at compile time that there are no semantic
+dependences on the predefined generic function Unchecked_Conversion.</p>
+</div>
+<div class="section" id="no-unchecked-deallocation">
+<h3><span class="section-number">5.1.70. </span>No_Unchecked_Deallocation<a class="headerlink" href="#no-unchecked-deallocation" title="Permalink to this headline">¶</a></h3>
+<p id="index-74">[RM J.13] This restriction ensures at compile time that there are no semantic
+dependences on the predefined generic procedure Unchecked_Deallocation.</p>
+</div>
+<div class="section" id="no-use-of-entity">
+<h3><span class="section-number">5.1.71. </span>No_Use_Of_Entity<a class="headerlink" href="#no-use-of-entity" title="Permalink to this headline">¶</a></h3>
+<p id="index-75">[GNAT] This restriction ensures at compile time that there are no references
+to the entity given in the form</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">No_Use_Of_Entity</span> <span class="o">=&gt;</span> <span class="n">Name</span>
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">Name</span></code> is the fully qualified entity, for example</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">No_Use_Of_Entity</span> <span class="o">=&gt;</span> <span class="n">Ada</span><span class="o">.</span><span class="n">Text_IO</span><span class="o">.</span><span class="n">Put_Line</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="pure-barriers">
+<h3><span class="section-number">5.1.72. </span>Pure_Barriers<a class="headerlink" href="#pure-barriers" title="Permalink to this headline">¶</a></h3>
+<p id="index-76">[GNAT] This restriction ensures at compile time that protected entry
+barriers are restricted to:</p>
+<ul class="simple">
+<li><p>components of the protected object (excluding selection from dereferences),</p></li>
+<li><p>constant declarations,</p></li>
+<li><p>named numbers,</p></li>
+<li><p>enumeration literals,</p></li>
+<li><p>integer literals,</p></li>
+<li><p>real literals,</p></li>
+<li><p>character literals,</p></li>
+<li><p>implicitly defined comparison operators,</p></li>
+<li><p>uses of the Standard.”not” operator,</p></li>
+<li><p>short-circuit operator,</p></li>
+<li><p>the Count attribute</p></li>
+</ul>
+<p>This restriction is a relaxation of the Simple_Barriers restriction,
+but still ensures absence of side effects, exceptions, and recursion
+during the evaluation of the barriers.</p>
+</div>
+<div class="section" id="simple-barriers">
+<h3><span class="section-number">5.1.73. </span>Simple_Barriers<a class="headerlink" href="#simple-barriers" title="Permalink to this headline">¶</a></h3>
+<p id="index-77">[RM D.7] This restriction ensures at compile time that barriers in entry
+declarations for protected types are restricted to either static boolean
+expressions or references to simple boolean variables defined in the private
+part of the protected type.  No other form of entry barriers is permitted.</p>
+<p id="index-78">The restriction <code class="docutils literal notranslate"><span class="pre">Boolean_Entry_Barriers</span></code> is recognized as a
+synonym for <code class="docutils literal notranslate"><span class="pre">Simple_Barriers</span></code>. This is retained for historical
+compatibility purposes (and a warning will be generated for its use if
+warnings on obsolescent features are activated).</p>
+</div>
+<div class="section" id="static-priorities">
+<h3><span class="section-number">5.1.74. </span>Static_Priorities<a class="headerlink" href="#static-priorities" title="Permalink to this headline">¶</a></h3>
+<p id="index-79">[GNAT] This restriction ensures at compile time that all priority expressions
+are static, and that there are no dependences on the package
+<code class="docutils literal notranslate"><span class="pre">Ada.Dynamic_Priorities</span></code>.</p>
+</div>
+<div class="section" id="static-storage-size">
+<h3><span class="section-number">5.1.75. </span>Static_Storage_Size<a class="headerlink" href="#static-storage-size" title="Permalink to this headline">¶</a></h3>
+<p id="index-80">[GNAT] This restriction ensures at compile time that any expression appearing
+in a Storage_Size pragma or attribute definition clause is static.</p>
+</div>
+</div>
+<div class="section" id="program-unit-level-restrictions">
+<span id="id3"></span><h2><span class="section-number">5.2. </span>Program Unit Level Restrictions<a class="headerlink" href="#program-unit-level-restrictions" title="Permalink to this headline">¶</a></h2>
+<p>The second set of restriction identifiers
+does not require partition-wide consistency.
+The restriction may be enforced for a single
+compilation unit without any effect on any of the
+other compilation units in the partition.</p>
+<div class="section" id="no-elaboration-code">
+<h3><span class="section-number">5.2.1. </span>No_Elaboration_Code<a class="headerlink" href="#no-elaboration-code" title="Permalink to this headline">¶</a></h3>
+<p id="index-81">[GNAT] This restriction ensures at compile time that no elaboration code is
+generated.  Note that this is not the same condition as is enforced
+by pragma <code class="docutils literal notranslate"><span class="pre">Preelaborate</span></code>.  There are cases in which pragma
+<code class="docutils literal notranslate"><span class="pre">Preelaborate</span></code> still permits code to be generated (e.g., code
+to initialize a large array to all zeroes), and there are cases of units
+which do not meet the requirements for pragma <code class="docutils literal notranslate"><span class="pre">Preelaborate</span></code>,
+but for which no elaboration code is generated.  Generally, it is
+the case that preelaborable units will meet the restrictions, with
+the exception of large aggregates initialized with an others_clause,
+and exception declarations (which generate calls to a run-time
+registry procedure).  This restriction is enforced on
+a unit by unit basis, it need not be obeyed consistently
+throughout a partition.</p>
+<p>In the case of aggregates with others, if the aggregate has a dynamic
+size, there is no way to eliminate the elaboration code (such dynamic
+bounds would be incompatible with <code class="docutils literal notranslate"><span class="pre">Preelaborate</span></code> in any case). If
+the bounds are static, then use of this restriction actually modifies
+the code choice of the compiler to avoid generating a loop, and instead
+generate the aggregate statically if possible, no matter how many times
+the data for the others clause must be repeatedly generated.</p>
+<p>It is not possible to precisely document
+the constructs which are compatible with this restriction, since,
+unlike most other restrictions, this is not a restriction on the
+source code, but a restriction on the generated object code. For
+example, if the source contains a declaration:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="n">Val</span> <span class="o">:</span> <span class="kr">constant</span><span class="p"> </span><span class="n">Integer</span> <span class="o">:=</span> <span class="n">X</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>where X is not a static constant, it may be possible, depending
+on complex optimization circuitry, for the compiler to figure
+out the value of X at compile time, in which case this initialization
+can be done by the loader, and requires no initialization code. It
+is not possible to document the precise conditions under which the
+optimizer can figure this out.</p>
+<p>Note that this the implementation of this restriction requires full
+code generation. If it is used in conjunction with “semantics only”
+checking, then some cases of violations may be missed.</p>
+<p>When this restriction is active, we are not requesting control-flow
+preservation with -fpreserve-control-flow, and the static elaboration model is
+used, the compiler is allowed to suppress the elaboration counter normally
+associated with the unit. This counter is typically used to check for access
+before elaboration and to control multiple elaboration attempts.</p>
+</div>
+<div class="section" id="no-dynamic-sized-objects">
+<h3><span class="section-number">5.2.2. </span>No_Dynamic_Sized_Objects<a class="headerlink" href="#no-dynamic-sized-objects" title="Permalink to this headline">¶</a></h3>
+<p id="index-82">[GNAT] This restriction disallows certain constructs that might lead to the
+creation of dynamic-sized composite objects (or array or discriminated type).
+An array subtype indication is illegal if the bounds are not static
+or references to discriminants of an enclosing type.
+A discriminated subtype indication is illegal if the type has
+discriminant-dependent array components or a variant part, and the
+discriminants are not static. In addition, array and record aggregates are
+illegal in corresponding cases. Note that this restriction does not forbid
+access discriminants. It is often a good idea to combine this restriction
+with No_Secondary_Stack.</p>
+</div>
+<div class="section" id="no-entry-queue">
+<h3><span class="section-number">5.2.3. </span>No_Entry_Queue<a class="headerlink" href="#no-entry-queue" title="Permalink to this headline">¶</a></h3>
+<p id="index-83">[GNAT] This restriction is a declaration that any protected entry compiled in
+the scope of the restriction has at most one task waiting on the entry
+at any one time, and so no queue is required.  This restriction is not
+checked at compile time.  A program execution is erroneous if an attempt
+is made to queue a second task on such an entry.</p>
+</div>
+<div class="section" id="no-implementation-aspect-specifications">
+<h3><span class="section-number">5.2.4. </span>No_Implementation_Aspect_Specifications<a class="headerlink" href="#no-implementation-aspect-specifications" title="Permalink to this headline">¶</a></h3>
+<p id="index-84">[RM 13.12.1] This restriction checks at compile time that no
+GNAT-defined aspects are present.  With this restriction, the only
+aspects that can be used are those defined in the Ada Reference Manual.</p>
+</div>
+<div class="section" id="no-implementation-attributes">
+<h3><span class="section-number">5.2.5. </span>No_Implementation_Attributes<a class="headerlink" href="#no-implementation-attributes" title="Permalink to this headline">¶</a></h3>
+<p id="index-85">[RM 13.12.1] This restriction checks at compile time that no
+GNAT-defined attributes are present.  With this restriction, the only
+attributes that can be used are those defined in the Ada Reference
+Manual.</p>
+</div>
+<div class="section" id="no-implementation-identifiers">
+<h3><span class="section-number">5.2.6. </span>No_Implementation_Identifiers<a class="headerlink" href="#no-implementation-identifiers" title="Permalink to this headline">¶</a></h3>
+<p id="index-86">[RM 13.12.1] This restriction checks at compile time that no
+implementation-defined identifiers (marked with pragma Implementation_Defined)
+occur within language-defined packages.</p>
+</div>
+<div class="section" id="no-implementation-pragmas">
+<h3><span class="section-number">5.2.7. </span>No_Implementation_Pragmas<a class="headerlink" href="#no-implementation-pragmas" title="Permalink to this headline">¶</a></h3>
+<p id="index-87">[RM 13.12.1] This restriction checks at compile time that no
+GNAT-defined pragmas are present.  With this restriction, the only
+pragmas that can be used are those defined in the Ada Reference Manual.</p>
+</div>
+<div class="section" id="no-implementation-restrictions">
+<h3><span class="section-number">5.2.8. </span>No_Implementation_Restrictions<a class="headerlink" href="#no-implementation-restrictions" title="Permalink to this headline">¶</a></h3>
+<p id="index-88">[GNAT] This restriction checks at compile time that no GNAT-defined restriction
+identifiers (other than <code class="docutils literal notranslate"><span class="pre">No_Implementation_Restrictions</span></code> itself)
+are present.  With this restriction, the only other restriction identifiers
+that can be used are those defined in the Ada Reference Manual.</p>
+</div>
+<div class="section" id="no-implementation-units">
+<h3><span class="section-number">5.2.9. </span>No_Implementation_Units<a class="headerlink" href="#no-implementation-units" title="Permalink to this headline">¶</a></h3>
+<p id="index-89">[RM 13.12.1] This restriction checks at compile time that there is no
+mention in the context clause of any implementation-defined descendants
+of packages Ada, Interfaces, or System.</p>
+</div>
+<div class="section" id="no-implicit-aliasing">
+<h3><span class="section-number">5.2.10. </span>No_Implicit_Aliasing<a class="headerlink" href="#no-implicit-aliasing" title="Permalink to this headline">¶</a></h3>
+<p id="index-90">[GNAT] This restriction, which is not required to be partition-wide consistent,
+requires an explicit aliased keyword for an object to which ‘Access,
+‘Unchecked_Access, or ‘Address is applied, and forbids entirely the use of
+the ‘Unrestricted_Access attribute for objects. Note: the reason that
+Unrestricted_Access is forbidden is that it would require the prefix
+to be aliased, and in such cases, it can always be replaced by
+the standard attribute Unchecked_Access which is preferable.</p>
+</div>
+<div class="section" id="no-implicit-loops">
+<h3><span class="section-number">5.2.11. </span>No_Implicit_Loops<a class="headerlink" href="#no-implicit-loops" title="Permalink to this headline">¶</a></h3>
+<p id="index-91">[GNAT] This restriction ensures that the generated code of the unit marked
+with this restriction does not contain any implicit <code class="docutils literal notranslate"><span class="pre">for</span></code> loops, either by
+modifying the generated code where possible, or by rejecting any construct
+that would otherwise generate an implicit <code class="docutils literal notranslate"><span class="pre">for</span></code> loop. If this restriction is
+active, it is possible to build large array aggregates with all static
+components without generating an intermediate temporary, and without generating
+a loop to initialize individual components. Otherwise, a loop is created for
+arrays larger than about 5000 scalar components. Note that if this restriction
+is set in the spec of a package, it will not apply to its body.</p>
+</div>
+<div class="section" id="no-obsolescent-features">
+<h3><span class="section-number">5.2.12. </span>No_Obsolescent_Features<a class="headerlink" href="#no-obsolescent-features" title="Permalink to this headline">¶</a></h3>
+<p id="index-92">[RM 13.12.1] This restriction checks at compile time that no obsolescent
+features are used, as defined in Annex J of the Ada Reference Manual.</p>
+</div>
+<div class="section" id="no-wide-characters">
+<h3><span class="section-number">5.2.13. </span>No_Wide_Characters<a class="headerlink" href="#no-wide-characters" title="Permalink to this headline">¶</a></h3>
+<p id="index-93">[GNAT] This restriction ensures at compile time that no uses of the types
+<code class="docutils literal notranslate"><span class="pre">Wide_Character</span></code> or <code class="docutils literal notranslate"><span class="pre">Wide_String</span></code> or corresponding wide
+wide types
+appear, and that no wide or wide wide string or character literals
+appear in the program (that is literals representing characters not in
+type <code class="docutils literal notranslate"><span class="pre">Character</span></code>).</p>
+</div>
+<div class="section" id="static-dispatch-tables">
+<h3><span class="section-number">5.2.14. </span>Static_Dispatch_Tables<a class="headerlink" href="#static-dispatch-tables" title="Permalink to this headline">¶</a></h3>
+<p id="index-94">[GNAT] This restriction checks at compile time that all the artifacts
+associated with dispatch tables can be placed in read-only memory.</p>
+</div>
+<div class="section" id="spark-05">
+<h3><span class="section-number">5.2.15. </span>SPARK_05<a class="headerlink" href="#spark-05" title="Permalink to this headline">¶</a></h3>
+<p id="index-95">[GNAT] This restriction no longer has any effect and is superseded by
+SPARK 2014, whose restrictions are checked by the tool GNATprove. To check that
+a codebase respects SPARK 2014 restrictions, mark the code with pragma or
+aspect <code class="docutils literal notranslate"><span class="pre">SPARK_Mode</span></code>, and run the tool GNATprove at Stone assurance level, as
+follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gnatprove</span> <span class="o">-</span><span class="n">P</span> <span class="n">project</span><span class="o">.</span><span class="n">gpr</span> <span class="o">--</span><span class="n">mode</span><span class="o">=</span><span class="n">stone</span>
+</pre></div>
+</div>
+<p>or equivalently:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gnatprove</span> <span class="o">-</span><span class="n">P</span> <span class="n">project</span><span class="o">.</span><span class="n">gpr</span> <span class="o">--</span><span class="n">mode</span><span class="o">=</span><span class="n">check_all</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../gnat_rm.html">
+              <img class="logo" src="../_static/adacore_transparent.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="../gnat_rm.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">5. Standard and Implementation Defined Restrictions</a><ul>
+<li><a class="reference internal" href="#partition-wide-restrictions">5.1. Partition-Wide Restrictions</a><ul>
+<li><a class="reference internal" href="#immediate-reclamation">5.1.1. Immediate_Reclamation</a></li>
+<li><a class="reference internal" href="#max-asynchronous-select-nesting">5.1.2. Max_Asynchronous_Select_Nesting</a></li>
+<li><a class="reference internal" href="#max-entry-queue-length">5.1.3. Max_Entry_Queue_Length</a></li>
+<li><a class="reference internal" href="#max-protected-entries">5.1.4. Max_Protected_Entries</a></li>
+<li><a class="reference internal" href="#max-select-alternatives">5.1.5. Max_Select_Alternatives</a></li>
+<li><a class="reference internal" href="#max-storage-at-blocking">5.1.6. Max_Storage_At_Blocking</a></li>
+<li><a class="reference internal" href="#max-task-entries">5.1.7. Max_Task_Entries</a></li>
+<li><a class="reference internal" href="#max-tasks">5.1.8. Max_Tasks</a></li>
+<li><a class="reference internal" href="#no-abort-statements">5.1.9. No_Abort_Statements</a></li>
+<li><a class="reference internal" href="#no-access-parameter-allocators">5.1.10. No_Access_Parameter_Allocators</a></li>
+<li><a class="reference internal" href="#no-access-subprograms">5.1.11. No_Access_Subprograms</a></li>
+<li><a class="reference internal" href="#no-allocators">5.1.12. No_Allocators</a></li>
+<li><a class="reference internal" href="#no-anonymous-allocators">5.1.13. No_Anonymous_Allocators</a></li>
+<li><a class="reference internal" href="#no-asynchronous-control">5.1.14. No_Asynchronous_Control</a></li>
+<li><a class="reference internal" href="#no-calendar">5.1.15. No_Calendar</a></li>
+<li><a class="reference internal" href="#no-coextensions">5.1.16. No_Coextensions</a></li>
+<li><a class="reference internal" href="#no-default-initialization">5.1.17. No_Default_Initialization</a></li>
+<li><a class="reference internal" href="#no-delay">5.1.18. No_Delay</a></li>
+<li><a class="reference internal" href="#no-dependence">5.1.19. No_Dependence</a></li>
+<li><a class="reference internal" href="#no-direct-boolean-operators">5.1.20. No_Direct_Boolean_Operators</a></li>
+<li><a class="reference internal" href="#no-dispatch">5.1.21. No_Dispatch</a></li>
+<li><a class="reference internal" href="#no-dispatching-calls">5.1.22. No_Dispatching_Calls</a></li>
+<li><a class="reference internal" href="#no-dynamic-attachment">5.1.23. No_Dynamic_Attachment</a></li>
+<li><a class="reference internal" href="#no-dynamic-priorities">5.1.24. No_Dynamic_Priorities</a></li>
+<li><a class="reference internal" href="#no-entry-calls-in-elaboration-code">5.1.25. No_Entry_Calls_In_Elaboration_Code</a></li>
+<li><a class="reference internal" href="#no-enumeration-maps">5.1.26. No_Enumeration_Maps</a></li>
+<li><a class="reference internal" href="#no-exception-handlers">5.1.27. No_Exception_Handlers</a></li>
+<li><a class="reference internal" href="#no-exception-propagation">5.1.28. No_Exception_Propagation</a></li>
+<li><a class="reference internal" href="#no-exception-registration">5.1.29. No_Exception_Registration</a></li>
+<li><a class="reference internal" href="#no-exceptions">5.1.30. No_Exceptions</a></li>
+<li><a class="reference internal" href="#no-finalization">5.1.31. No_Finalization</a></li>
+<li><a class="reference internal" href="#no-fixed-point">5.1.32. No_Fixed_Point</a></li>
+<li><a class="reference internal" href="#no-floating-point">5.1.33. No_Floating_Point</a></li>
+<li><a class="reference internal" href="#no-implicit-conditionals">5.1.34. No_Implicit_Conditionals</a></li>
+<li><a class="reference internal" href="#no-implicit-dynamic-code">5.1.35. No_Implicit_Dynamic_Code</a></li>
+<li><a class="reference internal" href="#no-implicit-heap-allocations">5.1.36. No_Implicit_Heap_Allocations</a></li>
+<li><a class="reference internal" href="#no-implicit-protected-object-allocations">5.1.37. No_Implicit_Protected_Object_Allocations</a></li>
+<li><a class="reference internal" href="#no-implicit-task-allocations">5.1.38. No_Implicit_Task_Allocations</a></li>
+<li><a class="reference internal" href="#no-initialize-scalars">5.1.39. No_Initialize_Scalars</a></li>
+<li><a class="reference internal" href="#no-io">5.1.40. No_IO</a></li>
+<li><a class="reference internal" href="#no-local-allocators">5.1.41. No_Local_Allocators</a></li>
+<li><a class="reference internal" href="#no-local-protected-objects">5.1.42. No_Local_Protected_Objects</a></li>
+<li><a class="reference internal" href="#no-local-timing-events">5.1.43. No_Local_Timing_Events</a></li>
+<li><a class="reference internal" href="#no-long-long-integers">5.1.44. No_Long_Long_Integers</a></li>
+<li><a class="reference internal" href="#no-multiple-elaboration">5.1.45. No_Multiple_Elaboration</a></li>
+<li><a class="reference internal" href="#no-nested-finalization">5.1.46. No_Nested_Finalization</a></li>
+<li><a class="reference internal" href="#no-protected-type-allocators">5.1.47. No_Protected_Type_Allocators</a></li>
+<li><a class="reference internal" href="#no-protected-types">5.1.48. No_Protected_Types</a></li>
+<li><a class="reference internal" href="#no-recursion">5.1.49. No_Recursion</a></li>
+<li><a class="reference internal" href="#no-reentrancy">5.1.50. No_Reentrancy</a></li>
+<li><a class="reference internal" href="#no-relative-delay">5.1.51. No_Relative_Delay</a></li>
+<li><a class="reference internal" href="#no-requeue-statements">5.1.52. No_Requeue_Statements</a></li>
+<li><a class="reference internal" href="#no-secondary-stack">5.1.53. No_Secondary_Stack</a></li>
+<li><a class="reference internal" href="#no-select-statements">5.1.54. No_Select_Statements</a></li>
+<li><a class="reference internal" href="#no-specific-termination-handlers">5.1.55. No_Specific_Termination_Handlers</a></li>
+<li><a class="reference internal" href="#no-specification-of-aspect">5.1.56. No_Specification_of_Aspect</a></li>
+<li><a class="reference internal" href="#no-standard-allocators-after-elaboration">5.1.57. No_Standard_Allocators_After_Elaboration</a></li>
+<li><a class="reference internal" href="#no-standard-storage-pools">5.1.58. No_Standard_Storage_Pools</a></li>
+<li><a class="reference internal" href="#no-stream-optimizations">5.1.59. No_Stream_Optimizations</a></li>
+<li><a class="reference internal" href="#no-streams">5.1.60. No_Streams</a></li>
+<li><a class="reference internal" href="#no-task-allocators">5.1.61. No_Task_Allocators</a></li>
+<li><a class="reference internal" href="#no-task-at-interrupt-priority">5.1.62. No_Task_At_Interrupt_Priority</a></li>
+<li><a class="reference internal" href="#no-task-attributes-package">5.1.63. No_Task_Attributes_Package</a></li>
+<li><a class="reference internal" href="#no-task-hierarchy">5.1.64. No_Task_Hierarchy</a></li>
+<li><a class="reference internal" href="#no-task-termination">5.1.65. No_Task_Termination</a></li>
+<li><a class="reference internal" href="#no-tasking">5.1.66. No_Tasking</a></li>
+<li><a class="reference internal" href="#no-terminate-alternatives">5.1.67. No_Terminate_Alternatives</a></li>
+<li><a class="reference internal" href="#no-unchecked-access">5.1.68. No_Unchecked_Access</a></li>
+<li><a class="reference internal" href="#no-unchecked-conversion">5.1.69. No_Unchecked_Conversion</a></li>
+<li><a class="reference internal" href="#no-unchecked-deallocation">5.1.70. No_Unchecked_Deallocation</a></li>
+<li><a class="reference internal" href="#no-use-of-entity">5.1.71. No_Use_Of_Entity</a></li>
+<li><a class="reference internal" href="#pure-barriers">5.1.72. Pure_Barriers</a></li>
+<li><a class="reference internal" href="#simple-barriers">5.1.73. Simple_Barriers</a></li>
+<li><a class="reference internal" href="#static-priorities">5.1.74. Static_Priorities</a></li>
+<li><a class="reference internal" href="#static-storage-size">5.1.75. Static_Storage_Size</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#program-unit-level-restrictions">5.2. Program Unit Level Restrictions</a><ul>
+<li><a class="reference internal" href="#no-elaboration-code">5.2.1. No_Elaboration_Code</a></li>
+<li><a class="reference internal" href="#no-dynamic-sized-objects">5.2.2. No_Dynamic_Sized_Objects</a></li>
+<li><a class="reference internal" href="#no-entry-queue">5.2.3. No_Entry_Queue</a></li>
+<li><a class="reference internal" href="#no-implementation-aspect-specifications">5.2.4. No_Implementation_Aspect_Specifications</a></li>
+<li><a class="reference internal" href="#no-implementation-attributes">5.2.5. No_Implementation_Attributes</a></li>
+<li><a class="reference internal" href="#no-implementation-identifiers">5.2.6. No_Implementation_Identifiers</a></li>
+<li><a class="reference internal" href="#no-implementation-pragmas">5.2.7. No_Implementation_Pragmas</a></li>
+<li><a class="reference internal" href="#no-implementation-restrictions">5.2.8. No_Implementation_Restrictions</a></li>
+<li><a class="reference internal" href="#no-implementation-units">5.2.9. No_Implementation_Units</a></li>
+<li><a class="reference internal" href="#no-implicit-aliasing">5.2.10. No_Implicit_Aliasing</a></li>
+<li><a class="reference internal" href="#no-implicit-loops">5.2.11. No_Implicit_Loops</a></li>
+<li><a class="reference internal" href="#no-obsolescent-features">5.2.12. No_Obsolescent_Features</a></li>
+<li><a class="reference internal" href="#no-wide-characters">5.2.13. No_Wide_Characters</a></li>
+<li><a class="reference internal" href="#static-dispatch-tables">5.2.14. Static_Dispatch_Tables</a></li>
+<li><a class="reference internal" href="#spark-05">5.2.15. SPARK_05</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="implementation_defined_attributes.html"
+                        title="previous chapter"><span class="section-number">4. </span>Implementation Defined Attributes</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="implementation_advice.html"
+                        title="next chapter"><span class="section-number">6. </span>Implementation Advice</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/gnat_rm/standard_and_implementation_defined_restrictions.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="implementation_advice.html" title="6. Implementation Advice"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="implementation_defined_attributes.html" title="4. Implementation Defined Attributes"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../gnat_rm.html">GNAT Reference Manual 2021 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">5. </span>Standard and Implementation Defined Restrictions</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2008-2021, Free Software Foundation.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
+    </div>
+  </body>
+</html>

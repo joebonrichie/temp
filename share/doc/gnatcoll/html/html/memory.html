@@ -1,0 +1,205 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>6. Memory: Monitoring memory usage &#8212; GNATColl 2021 documentation</title>
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="7. Mmap: Reading and Writing Files" href="mmap.html" />
+    <link rel="prev" title="5. Strings: high-performance strings" href="strings.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="mmap.html" title="7. Mmap: Reading and Writing Files"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="strings.html" title="5. Strings: high-performance strings"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">GNATColl 2021 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">6. </span><strong>Memory</strong>: Monitoring memory usage</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="memory-monitoring-memory-usage">
+<h1><span class="section-number">6. </span><strong>Memory</strong>: Monitoring memory usage<a class="headerlink" href="#memory-monitoring-memory-usage" title="Permalink to this headline">¶</a></h1>
+<p>The GNAT compiler allocates and deallocates all memory either through
+type-specific debug pools that you have defined yourself, or defaults to
+the standard malloc and free system calls. However, it calls those through
+an Ada proxy, in the package <cite>System.Memory</cite> that you can also
+replace in your own application if need be.</p>
+<p>Like this:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kd">procedure</span> <span class="nf">Ada</span>
+</pre></div>
+</div>
+<p><cite>gnatcoll</cite> provides such a possible replacement. Its implementation
+is also based on <cite>malloc</cite> and <cite>free</cite>, but if you so chose you
+can activate extra monitoring capabilities to help you find out which parts
+of your program is allocating the most memory, or where memory is allocated
+at any moment in the life of your application.</p>
+<p>This package is called <cite>GNATCOLL.Memory</cite>. To use it requires a bit of
+preparation in your application:</p>
+<ul>
+<li><p>You need to create your own version of <code class="file docutils literal notranslate"><span class="pre">s-memory.adb</span></code> with the
+template below, and put it somewhere in your source path. This file should
+contain the following bit of code:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kn">with</span> <span class="nn">GNATCOLL.Memory</span><span class="p">;</span>
+
+<span class="kd">package</span> <span class="kd">body</span> <span class="nc">System.Memory</span> <span class="kr">is</span>
+   <span class="kd">package</span> <span class="nc">M</span> <span class="kr">renames</span> <span class="nc">GNATCOLL.Memory</span><span class="p">;</span>
+
+   <span class="kd">function</span> <span class="nf">Alloc</span> <span class="p">(</span><span class="nv">Size</span> <span class="p">: </span><span class="nv">size_t</span><span class="p">)</span> <span class="kr">return</span> <span class="n">System</span><span class="p">.</span><span class="kt">Address</span> <span class="kr">is</span>
+   <span class="kr">begin</span>
+      <span class="kr">return</span> <span class="n">M</span><span class="p">.</span><span class="n">Alloc</span> <span class="p">(</span><span class="n">M</span><span class="p">.</span><span class="n">size_t</span> <span class="p">(</span><span class="n">Size</span><span class="p">));</span>
+   <span class="kr">end</span> <span class="nf">Alloc</span><span class="p">;</span>
+
+   <span class="kd">procedure</span> <span class="nf">Free</span> <span class="p">(</span><span class="nv">Ptr</span> <span class="p">: </span><span class="nv">System</span><span class="p">.</span><span class="nv">Address</span><span class="p">)</span> <span class="kr">renames</span> <span class="n">M</span><span class="p">.</span><span class="n">Free</span><span class="p">;</span>
+
+   <span class="kd">function</span> <span class="nf">Realloc</span>
+     <span class="p">(</span><span class="nv">Ptr</span>  <span class="p">: </span><span class="nv">System</span><span class="p">.</span><span class="nv">Address</span><span class="p">;</span>
+      <span class="nv">Size</span> <span class="p">: </span><span class="nv">size_t</span><span class="p">)</span>
+      <span class="kr">return</span> <span class="n">System</span><span class="p">.</span><span class="kt">Address</span> <span class="kr">is</span>
+   <span class="kr">begin</span>
+      <span class="kr">return</span> <span class="n">M</span><span class="p">.</span><span class="n">Realloc</span> <span class="p">(</span><span class="n">Ptr</span><span class="p">,</span> <span class="n">M</span><span class="p">.</span><span class="n">size_t</span> <span class="p">(</span><span class="n">Size</span><span class="p">));</span>
+   <span class="kr">end</span> <span class="nf">Realloc</span><span class="p">;</span>
+<span class="kr">end</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+<li><p>You then need to compile your application with the extra switch
+<cite>-a</cite> passed to <cite>gnatmake</cite> or <cite>gprbuild</cite>, so that this
+file is appropriately compiled and linked with your application</p></li>
+<li><p>If you only do this, the monitor is disabled by default. This
+basically has zero overhead for your application (apart from the initial
+small allocation of some internal data). When you call the procedure
+<cite>GNATCOLL.Memory.Configure</cite> to activate the monitor, each memory
+allocation or deallocation will result in extra overhead that will slow
+down your application a bit. But at that point you can then get access
+to the information stored in the monitor</p></li>
+</ul>
+<p>We actually recommend that the activation of the monitor be based on an
+environment variable or command line switch of your application, so that
+you can decide at any time to rerun your application with the monitor
+activated, rather than have to go through an extra recompilation.</p>
+<p>All allocations and deallocations are monitor automatically when this
+module is activated. However, you can also manually call
+<cite>GNATCOLL.Memory.Mark_Traceback</cite> to add a dummy entry in the
+internal tables that matches the current stack trace. This is helpful
+for instance if you want to monitor the calls to a specific subprogram,
+and know both the number of calls, and which callers executed it how
+many times. This can help find hotspots in your application to optimize
+the code.</p>
+<p>The information that is available through the monitor is the list of
+all chunks of memory that were allocated in Ada (this does not include
+allocations done in other languages like C). These chunks are grouped
+based on the stack trace at the time of their invocation, and this
+package knows how many times each stack trace executed each allocation.</p>
+<p>As a result, you can call the function <cite>GNATCOLL.Memory.Dump</cite> to
+dump on the standard output various types of data, sorted. To limit the
+output to a somewhat usable format, <cite>Dump</cite> asks you to specify
+how many blocks it should output.</p>
+<p><em>Debugging dangling pointer</em>
+Using a dangling pointer can lead (and usually it does) to no crash or no side
+effects. Frequently, freed buffers still contains valid data and are still part
+of pages owned by your process. Probably, this occurs more often on linux
+compare to windows.</p>
+<p>Writing 0 or 0xDD pattern when a memory is freed will be (because of the
+exception that will be thrown) detected at the first usage of a freed buffer.
+The crash occurrence will be higher and less random. This makes solid reproducer
+more easy to build.</p>
+<p>For dangling pointer usage debugging, use Memory_Free_Pattern parameter when
+calling <cite>GNATCOLL.Memory.Configure</cite> procedure.</p>
+<dl class="simple">
+<dt><em>Memory usage</em></dt><dd><p>Blocks are sorted based on the amount of memory they have allocated and
+is still allocated. This helps you find which part of your application
+is currently using the most memory.</p>
+</dd>
+<dt><em>Allocations count</em></dt><dd><p>Blocks are sorted based on the number of allocation that are still
+allocated. This helps you find which part of your application has done
+the most number of allocations (since malloc is a rather slow system
+call, it is in general a good idea to try and reduce the number of
+allocations in an application).</p>
+</dd>
+<dt><em>Total number of allocations</em></dt><dd><p>This is similar to the above, but includes all allocations ever done
+in this block, even if memory has been deallocated since then.</p>
+</dd>
+<dt><em>Marked blocks</em></dt><dd><p>These are the blocks that were created through your calls to
+<cite>GNATCOLL.Memory.Mark_Traceback</cite>. They are sorted by the number
+of allocation for that stacktrace, and also shows you the total number
+of such allocations in marked blocks. This is useful to monitor and
+analyze calls to specific places in your code</p>
+</dd>
+</dl>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/adacore_transparent.png" alt="Logo"/>
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="strings.html"
+                        title="previous chapter"><span class="section-number">5. </span><strong>Strings</strong>: high-performance strings</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="mmap.html"
+                        title="next chapter"><span class="section-number">7. </span><strong>Mmap</strong>: Reading and Writing Files</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="mmap.html" title="7. Mmap: Reading and Writing Files"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="strings.html" title="5. Strings: high-performance strings"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">GNATColl 2021 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">6. </span><strong>Memory</strong>: Monitoring memory usage</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2007-2021, AdaCore.
+    </div>
+  </body>
+</html>

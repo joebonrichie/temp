@@ -1,0 +1,209 @@
+V "GNAT Lib v2021"
+A -O2
+A -gnatA
+A -fPIC
+A -gnatwu
+A -gnatwa
+A -gnaty
+A -gnatQ
+A -gnatn
+A -mtune=generic
+A -march=x86-64
+P SS ZX
+
+RN
+RV NO_EXCEPTIONS
+RV NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_UNCHECKED_DEALLOCATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U unicode.ces.utf16%b	unicode-ces-utf16.adb	ad1d2052 NE OO PK
+Z ada.exceptions%s	a-except.adb		a-except.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+W unicode%s		unicode.adb		unicode.ali
+W unicode.ccs%s		unicode-ccs.adb		unicode-ccs.ali
+W unicode.ces%s		unicode-ces.adb		unicode-ces.ali
+W unicode.ces.utf32%s	unicode-ces-utf32.adb	unicode-ces-utf32.ali
+
+U unicode.ces.utf16%s	unicode-ces-utf16.ads	76c334e3 BN EE NE OO PK
+W unchecked_deallocation%s
+W unicode%s		unicode.adb		unicode.ali
+W unicode.ccs%s		unicode-ccs.adb		unicode-ccs.ali
+W unicode.ces%s		unicode-ces.adb		unicode-ces.ali
+W unicode.ces.utf32%s	unicode-ces-utf32.adb	unicode-ces-utf32.ali
+
+D ada.ads		20210520051131 76789da1 ada%s
+D a-except.ads		20210520051128 946f3014 ada.exceptions%s
+D a-unccon.ads		20210520051130 0e9b276f ada.unchecked_conversion%s
+D system.ads		20210520051135 a2da961d system%s
+D s-exctab.ads		20210520051132 54135002 system.exception_table%s
+D s-parame.ads		20210520051134 4752c4cb system.parameters%s
+D s-secsta.ads		20210520051134 9b3ab94b system.secondary_stack%s
+D s-stalib.ads		20210520051134 472fbca8 system.standard_library%s
+D s-stoele.ads		20210520051134 2dc34a04 system.storage_elements%s
+D s-traent.ads		20210520051134 26a8d361 system.traceback_entries%s
+D unchdeal.ads		20210520051135 214516a4 unchecked_deallocation%s
+D unicode.ads		20210519052322 a421878d unicode%s
+D unicode-ccs.ads	20210519052322 184e29de unicode.ccs%s
+D unicode-ces.ads	20210519052322 68f558ab unicode.ces%s
+D unicode-ces-utf16.ads	20210519052322 92cd669e unicode.ces.utf16%s
+D unicode-ces-utf16.adb	20210519052322 926e5abe unicode.ces.utf16%b
+D unicode-ces-utf32.ads	20210519052322 b5f035ac unicode.ces.utf32%s
+G a e
+G c Z s b [encode unicode__ces__utf16 64 14 none]
+G c Z s b [read unicode__ces__utf16 71 14 none]
+G c Z s b [read_be unicode__ces__utf16 80 14 none]
+G c Z s b [encode_be unicode__ces__utf16 86 14 none]
+G c Z s b [width unicode__ces__utf16 93 13 none]
+G c Z s b [length unicode__ces__utf16 96 13 none]
+G c Z s b [from_utf32 unicode__ces__utf16 103 13 none]
+G c Z s b [to_utf32 unicode__ces__utf16 108 13 none]
+G c Z s b [to_unicode_le unicode__ces__utf16 117 13 none]
+G c Z s b [to_cs unicode__ces__utf16 129 13 none]
+G c Z s s [free unicode__ces__utf16 159 14 none]
+G c Z s s [free unicode__ces__utf16 161 14 none]
+G r c none [from_utf32 unicode__ces__utf16 103 13 none] [read unicode__ces__utf32 73 14 none]
+G r c none [to_utf32 unicode__ces__utf16 108 13 none] [encode unicode__ces__utf32 64 14 none]
+G r c none [to_unicode_le unicode__ces__utf16 117 13 none] [read_bom unicode__ces 79 14 none]
+X 11 unchdeal.ads
+20u11*Unchecked_Deallocation 15|41w6 159r26 161r26
+X 12 unicode.ads
+111K9*Unicode 157e12 15|39r6 40r6 43r9 104r13 110r14 119r15 119r44 131r15
+. 131r44 167r5 16|24r6 24r30 25r6 25r30 27r14 205r13 214r10 226r14 235r10
+. 249r15 249r44 306r15 306r44 346r5
+114M9*Unicode_Char 15|65r16 74r19 83r19 87r16 93r27 16|34r16 38r14 65r16
+. 69r14 98r19 100r14 138r19 140r14 175r27 191r13 211r11 231r11 257r16 313r16
+X 13 unicode-ccs.ads
+31K17*CCS 72e16 15|40w14 119r23 119r52 131r23 131r52 16|25w14 25r38 249r23
+. 249r52 306r23 306r52
+44P9*Conversion_Function(12|114M9)
+47R9*Character_Set 50e14 15|119r27 131r27 16|249r27 306r27
+48p7*To_Unicode{44P9} 16|270r16 276r27 282r16 292r27
+49p7*To_CS{44P9} 16|316r16 322r27 328r16 338r30
+56V13*Identity{12|114M9} 16|270r29 282r29 316r24 328r24
+59r4*Unicode_Character_Set{47R9} 15|119r56 131r56 16|249r56 306r56
+X 14 unicode-ces.ads
+35K17*CES 12|111k9 14|171e16 15|39r14 43r17 104r21 110r22 167r13 16|24r14
+. 24r38 27r22 205r21 214r18 226r22 235r18 346r13
+41A12*Byte_Sequence{string}<integer> 15|66r23 88r23 16|35r23 66r23
+53E9*Byte_Order 53e56 15|120r15 132r15 16|250r15 254r16 307r15
+53n24*High_Byte_First{53E9} 16|264r32
+53n41*Low_Byte_First{53E9} 16|263r32 269r14 315r18
+56e4*Default_Byte_Order{53E9} 15|120r29 132r29 16|250r29 307r29
+62E9*Bom_Type 72e15 16|252r16
+64n7*Utf16_LE{62E9} 15|142r17 16|263r15
+65n7*Utf16_BE{62E9} 15|149r17 16|264r15
+72n7*Unknown{62E9} 16|265r15
+79U14*Read_Bom 16|260s7
+111P9*Read_Function
+122P9*Width_Function(integer)
+127P9*Encode_Function 15|145r17 152r17
+136P9*Length_Function(integer)
+139R9*Encoding_Scheme 145e14 15|141r33 148r33
+140e7*BOM{62E9} 15|142m7 149m7
+141p7*Read{111P9} 15|143m7 150m7
+142p7*Width{122P9} 15|144m7 151m7
+143p7*Encode{127P9} 15|145m7 152m7
+144p7*Length{136P9} 15|146m7 153m7
+163X4*Invalid_Encoding 16|118r19 158r19 266r33
+167X4*Incomplete_Encoding 16|103r16 111r19 143r16 151r19
+X 15 unicode-ces-utf16.ads
+43K21*Utf16 14|35k17 15|167l17 167e22 16|27b26 346l17 346t22
+49A12*Utf16_String{string}<integer> 50r39 53r31 57r31 96r27 118r15 132r56
+. 160r7 16|188r27 248r15 307r56
+50P9*Utf16_String_Access(49A12) 160r21
+53A12*Utf16_LE_String{49A12}<integer> 54r42 72r15 105r14 109r13 120r56 130r15
+. 162r7 16|96r15 206r14 208r16 225r13 250r56 256r16 305r15 312r16
+54P9*Utf16_LE_String_Access(53A12) 162r24
+57A12*Utf16_BE_String{49A12}<integer> 81r15 16|136r15
+64U14*Encode 65>7 66=7 67=7 145r34 16|33b14 58l8 58t14 215s10 276s16 292s16
+. 322s16
+65m7 Char{12|114M9} 16|34b7 40r10 41r15 42r16 49r16 51r16
+66a7 Output{14|41A12} 16|35b7 43m10 44m10 52m10 53m10 54m10 55m10
+67i7 Index{natural} 16|36b7 43r18 44r18 45m10 45r19 52r18 53r18 54r18 55r18
+. 56m10 56r19
+71U14*Read 72>7 73=7 74<7 143r17 16|95b14 129l8 129t12 194s10 234s10 275s16
+. 321s16 337s16
+72a7 Str{53A12} 16|96b7 102r22 106r27 106r67 110r25 113r30 114r29
+73i7 Index{positive} 16|97b7 102r10 106r32 106r72 110r13 113r35 114r34 124m10
+. 124r19 127m10 127r19
+74m7 Char{12|114M9} 16|98b7 123m10 126m10
+80U14*Read_BE 81>7 82=7 83<7 150r17 16|135b14 169l8 169t15 291s16
+81a7 Str{57A12} 16|136b7 142r22 146r27 146r63 150r25 153r30 154r29
+82i7 Index{positive} 16|137b7 142r10 146r32 146r68 150r13 153r35 154r34 164m10
+. 164r19 167m10 167r19
+83m7 Char{12|114M9} 16|138b7 163m10 166m10
+86U14*Encode_BE 87>7 88=7 89=7 152r34 16|64b14 89l8 89t17 338s16
+87m7 Char{12|114M9} 16|65b7 71r10 72r15 73r16 80r16 82r16
+88a7 Output{14|41A12} 16|66b7 74m10 75m10 83m10 84m10 85m10 86m10
+89i7 Index{natural} 16|67b7 74r18 75r18 76m10 76r19 83r18 84r18 85r18 86r18
+. 87m10 87r19
+93V13*Width{natural} 93>20 144r17 151r17 166r19 16|175b13 182l8 182t13
+93m20 Char{12|114M9} 16|175b20 177r10
+96V13*Length{natural} 96>21 146r17 153r17 16|188b13 198l8 198t14
+96a21 Str{49A12} 16|188b21 189r24 193r20 194r16
+103V13*From_Utf32{53A12} 104>7 16|204b13 218l8 218t18
+104a7 Str{17|50A12} 16|205b7 208r39 209r23 213r18 214r34
+108V13*To_Utf32{17|50A12} 109>7 16|224b13 238l8 238t16
+109a7 Str{53A12} 16|225b7 228r39 229r22 233r18 234r16
+117V13*To_Unicode_LE{53A12} 118>7 119>7 120>7 16|247b13 298l8 298t21
+118a7 Str{49A12} 16|248b7 255r27 256r38 260r17 271r20 271r25 271r47 274r24
+. 275r22 283r24 284r29 285r29 290r24 291r25
+119r7 Cs{13|47R9} 16|249b7 270r13 276r24 282r13 292r24
+120e7 Order{14|53E9} 16|250b7 254r30
+129V13*To_CS{49A12} 130>7 131>7 132>7 16|304b13 344l8 344t13
+130a7 Str{53A12} 16|305b7 311r27 312r38 317r20 317r25 317r47 320r24 321r22
+. 329r24 330r29 331r29 336r24 337r22
+131r7 Cs{13|47R9} 16|306b7 316r13 322r24 328r13 338r27
+132e7 Order{14|53E9} 16|307b7 309r29 315r10
+141r4*Utf16_LE_Encoding{14|139R9}
+148r4*Utf16_BE_Encoding{14|139R9}
+159U14*Free[11|20]
+161U14*Free[11|20]
+X 16 unicode-ces-utf16.adb
+38m7 C{12|114M9} 41m10 43r47 48m10 52r47 53r48
+38m10 D{12|114M9} 42m10 44r47 50m10 54r47 55r48
+69m7 C{12|114M9} 72m10 75r47 79m10 83r48 84r47
+69m10 D{12|114M9} 73m10 74r47 81m10 85r48 86r47
+100m7 C{12|114M9} 106m7 109r10 121m10 121r15 123r18 126r18
+100m10 D{12|114M9} 113m10 117r18 122m10 122r15 123r39
+140m7 C{12|114M9} 146m7 149r10 161m10 161r15 163r18 166r18
+140m10 D{12|114M9} 153m10 157r18 162m10 162r15 163r39
+189i7 Pos{natural} 193r13 194m21 194r21
+190i7 Len{natural} 195m10 195r17 197r14
+191m7 C{12|114M9} 194m26
+208a7 Result{15|53A12} 210r28 215m21 215r21 217r14
+209i7 J{positive} 213r13 214m39 214r39
+210i7 R_Index{natural} 215m29 215r29 217r27
+211m7 C{12|114M9} 214m42 215r18
+228a7 Result{17|50A12} 230r28 235m39 235r39 237r14
+229i7 J{natural} 233r13 234m21 234r21
+230i7 R_Index{natural} 235m47 235r47 237r27
+231m7 C{12|114M9} 234m24 235r36
+252e7 BOM{14|62E9} 260m30 262r12
+253i7 Offset{natural} 260m22 271r37 273r22 278r33 281r19 294r33 296r30
+254e7 O{14|53E9} 263m27 264m27 269r10
+255i7 J{natural} 273m13 273r18 274r19 275m27 275r27 276m46 276r46 281m10
+. 281r15 283r19 284r19 284r34 285r19 285r34 286m16 286r21 289m13 289r18 290r19
+. 291m30 291r30 292m46 292r46
+256a7 S{15|53A12} 276m43 276r43 278r20 278r23 278r43 284m16 285m16 292m43
+. 292r43 294r20 294r23 294r43 296r17 296r20 296r40
+257m7 C{12|114M9} 275m30 276r39 291m33 292r39
+310i7 Offset{natural} 317r37 319r22 324r33 327r19 340r33 342r30
+311i7 J{natural} 319m13 319r18 320r19 321m27 321r27 322m41 322r41 327m10
+. 327r15 329r19 330r19 330r34 331r19 331r34 332m16 332r21 335m13 335r18 336r19
+. 337m27 337r27 338m44 338r44
+312a7 S{15|53A12} 322m38 322r38 324r20 324r23 324r43 330m16 331m16 338m41
+. 338r41 340r20 340r23 340r43 342r17 342r20 342r40
+313m7 C{12|114M9} 321m30 322r34 337m30 338r37
+X 17 unicode-ces-utf32.ads
+40K21*Utf32 15|39w18 104r25 110r26 16|24w18 24r42 205r25 214r22 226r26 235r22
+. 17|158e22
+46A12*Utf32_String{string}<integer>
+50A12*Utf32_LE_String{46A12}<integer> 15|104r31 110r32 16|205r31 226r32 228r16
+57N4*Utf32_Char_Width 16|208r52 228r57
+64U14*Encode 16|235s28
+73U14*Read 16|214s28
+

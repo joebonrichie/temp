@@ -1,0 +1,133 @@
+V "GNAT Lib v2021"
+A -O2
+A -gnatA
+A -fPIC
+A -gnatwu
+A -gnatwa
+A -gnaty
+A -gnatQ
+A -gnatn
+A -mtune=generic
+A -march=x86-64
+P SS ZX
+
+RN
+RV NO_ACCESS_SUBPROGRAMS
+RV NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_UNCHECKED_DEALLOCATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLICIT_LOOPS
+RV NO_ELABORATION_CODE
+
+U unicode.ces%b		unicode-ces.adb		6a391607 NE OO PK
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+W unicode%s		unicode.adb		unicode.ali
+
+U unicode.ces%s		unicode-ces.ads		ed91c982 EE OO PK
+Z system%s		system.ads		system.ali
+Z system.exception_table%s  s-exctab.adb	s-exctab.ali
+Z system.standard_library%s  s-stalib.adb	s-stalib.ali
+W unchecked_deallocation%s
+W unicode%s		unicode.adb		unicode.ali
+
+D ada.ads		20210520051131 76789da1 ada%s
+D a-except.ads		20210520051128 946f3014 ada.exceptions%s
+D a-unccon.ads		20210520051130 0e9b276f ada.unchecked_conversion%s
+D system.ads		20210520051135 a2da961d system%s
+D s-exctab.ads		20210520051132 54135002 system.exception_table%s
+D s-exctab.adb		20210520051132 c756f391 system.exception_table%b
+D s-parame.ads		20210520051134 4752c4cb system.parameters%s
+D s-secsta.ads		20210520051134 9b3ab94b system.secondary_stack%s
+D s-soflin.ads		20210520051134 a7318a92 system.soft_links%s
+D s-stache.ads		20210520051134 a37c21ec system.stack_checking%s
+D s-stalib.ads		20210520051134 472fbca8 system.standard_library%s
+D s-stoele.ads		20210520051134 2dc34a04 system.storage_elements%s
+D s-traent.ads		20210520051134 26a8d361 system.traceback_entries%s
+D unchdeal.ads		20210520051135 214516a4 unchecked_deallocation%s
+D unicode.ads		20210519052322 a421878d unicode%s
+D unicode-ces.ads	20210519052322 68f558ab unicode.ces%s
+D unicode-ces.adb	20210519052322 02cc4eac unicode.ces%b
+G a e
+G c Z s s [free unicode__ces 46 14 none]
+G c Z s b [read_bom unicode__ces 79 14 none]
+G c Z s b [write_bom unicode__ces 92 13 none]
+G c Z s b [index_from_offset unicode__ces 153 13 none]
+G c Z s s [encoding_schemeIP unicode__ces 139 9 none]
+X 14 unchdeal.ads
+20u11*Unchecked_Deallocation 16|33w6 46r26
+X 15 unicode.ads
+111K9*Unicode 157e12 16|35r9 123r23 171r5 17|24r14 212r5
+114M9*Unicode_Char 16|114r29 123r31 128r26 17|200r14
+X 16 unicode-ces.ads
+35K17*CES 15|111k9 16|171l13 171e16 17|24b22 212l13 212t16
+41A12*Byte_Sequence{string}<integer> 42r44 43r53 47r7 112r25 129r33 137r22
+. 154r13 17|195r13
+42P9*Byte_Sequence_Access(41A12) 47r22
+43P9*Cst_Byte_Sequence_Access(41A12)
+46U14*Free[14|20]
+53E9*Byte_Order 53e56 56r34
+53n24*High_Byte_First{53E9}
+53n41*Low_Byte_First{53E9} 56r48
+56e4*Default_Byte_Order{53E9}
+62E9*Bom_Type 72e15 76r30 77r30 82r17 92r30 140r25 17|33r17 157r30
+63n7*Utf8_All{62E9} 17|74r17 170r15
+64n7*Utf16_LE{62E9} 76r45 17|48r17 134r17 160r15
+65n7*Utf16_BE{62E9} 76r57 17|41r17 124r17 162r15
+66n7*Utf32_LE{62E9} 77r45 17|66r17 164r15
+67n7*Utf32_BE{62E9} 77r57 17|57r17 167r15
+68n7*Ucs4_BE{62E9} 17|84r17 173r15
+69n7*Ucs4_LE{62E9} 17|94r17 176r15
+70n7*Ucs4_2143{62E9} 17|104r17 179r15
+71n7*Ucs4_3412{62E9} 17|114r17 182r15
+72n7*Unknown{62E9} 17|145r17 149r17 185r15
+76E12*Bom_Type_Utf16{62E9}
+77E12*Bom_Type_Utf32{62E9}
+79U14*Read_Bom 80>7 81<7 82<7 83>7 17|30b14 151l8 151t16
+80a7 Str{string} 17|31b7 36r10 37r18 37r23 38r18 38r23 43r13 44r18 44r23
+. 45r18 45r23 50r13 51r18 51r23 52r18 52r23 53r18 53r23 54r18 54r23 59r13
+. 60r18 60r23 61r18 61r23 62r18 62r23 63r18 63r23 68r13 69r18 69r23 70r18
+. 70r23 71r18 71r23 77r18 78r18 78r23 79r18 79r23 80r18 80r23 81r18 81r23
+. 87r18 88r18 88r23 89r18 89r23 90r18 90r23 91r18 91r23 97r18 98r18 98r23
+. 99r18 99r23 100r18 100r23 101r18 101r23 107r18 108r18 108r23 109r18 109r23
+. 110r18 110r23 111r18 111r23 117r18 118r18 118r23 119r18 119r23 120r18 120r23
+. 121r18 121r23 127r18 128r18 128r23 129r18 129r23 130r18 130r23 131r18 131r23
+. 137r18 138r18 138r23 139r18 139r23 140r18 140r23 141r18 141r23
+81i7 Len{natural} 17|32b7 40m10 47m10 56m10 65m10 73m10 83m10 93m10 103m10
+. 113m10 123m10 133m10 144m10 148m10
+82e7 BOM{62E9} 17|33b7 41m10 48m10 57m10 66m10 74m10 84m10 94m10 104m10 114m10
+. 124m10 134m10 145m10 149m10
+83b7 XML_Support{boolean} 17|34b7 76r13 86r13 96r13 106r13 116r13 126r13
+. 136r13
+92V13*Write_Bom{string} 92>24 17|157b13 188l8 188t17
+92e24 BOM{62E9} 17|157b24 159r12
+111P9*Read_Function 112>17 113=17 114<17 141r25
+112a17 Str{41A12}
+113i17 Index{positive}
+114m17 Char{15|114M9}
+122P9*Width_Function(integer) 123>16 142r25
+123m16 Char{15|114M9}
+127P9*Encode_Function 128>17 129=17 130=17 143r25
+128m17 Char{15|114M9}
+129a17 Output{41A12}
+130i17 Index{natural}
+136P9*Length_Function(integer) 137>16 144r25
+137a16 Str{41A12}
+139R9*Encoding_Scheme 145e14 154r57 17|195r57
+140e7*BOM{62E9}
+141p7*Read{111P9} 17|206r19
+142p7*Width{122P9}
+143p7*Encode{127P9}
+144p7*Length{136P9}
+153V13*Index_From_Offset{integer} 154>7 154>28 154>46 17|194b13 210l8 210t25
+154a7 Str{41A12} 17|195b7 198r25 202r20 206r25
+154i28 Offset{natural} 17|195b28 199r25
+154r46 Encoding{139R9} 17|195b46 206r10
+163X4*Invalid_Encoding
+167X4*Incomplete_Encoding
+X 17 unicode-ces.adb
+198i7 Pos{natural} 202r13 204r20 206m30 206r30
+199i7 Offs{integer} 203r13 207m10 207r18
+200m7 C{15|114M9} 206m35
+

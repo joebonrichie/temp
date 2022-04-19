@@ -1,0 +1,22 @@
+project Cpp_Pragmas is
+
+   for Languages use ("Ada", "C++");
+   for Main use ("ex6_main.adb");
+
+   Prefix := external ("PREFIX", "");
+
+   package Ide is
+      for Compiler_Command ("Ada") use Prefix & "gnatmake";
+      for Compiler_Command ("C++") use Prefix & "g++";
+   end Ide;
+
+   package Builder is
+      for Executable ("ex6_main.adb") use "";
+   end Builder;
+
+   package Naming is
+      for Specification_Suffix ("C++") use ".h";
+      for Implementation_Suffix ("C++") use ".cc";
+   end Naming;
+
+end Cpp_Pragmas;

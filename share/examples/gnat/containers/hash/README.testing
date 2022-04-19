@@ -1,0 +1,59 @@
+		       G N A T   E X A M P L E S
+		       =========================
+
+
+In order to compile the examples, make sure that the 'gprbuild' command is
+in your path. 
+
+Invocation
+----------
+
+In order to build the two executables provided in this example, you need to
+use the "hash.gpr" project file. On the command-line, do a:
+
+  $ gprbuild -Phash
+
+In GPS, click on "Build", then "Make" and then "hash".
+
+Features tested
+---------------
+
+Hashed map containers (Indefinite_Hashed_Maps)
+
+Description of example
+----------------------
+
+This is a simple program to test the operation of a map.  Programs
+like this are used to compare how easy it is to do something in one
+language compared to another.  In this case, we're going to
+implement an algorithm for testing the operation of the hashed map.
+
+The program accepts a command-line argument, representing the
+length of the map.  If you don't specify a value, it defaults to
+the value 2**16.
+
+Since we know the number of items we plan to insert in the map, we
+first call Reserve_Capacity to preallocate the internal hash table.
+This is important for efficiency, since it avoids the rehashing
+that would occur during insertion as the hash table expands.
+
+We first iterate in a loop to populate the map, converting the
+value of the loop index to a hexidecimal string, and using that as
+the key of a new item that we insert in the map.
+
+We then iterate in another loop, converting the value of the loop
+index to a decimal string this time, and using that to perform a
+membership test.  We maintain a count of the total number of times
+the membership test returns true.  When the loop terminates, we
+print the value of the count.
+
+For the output, the printed value of the count is the same as the
+length of the map expressed as a hex number.  So for example if you
+specify 16 as the command line paramater, then the count will be
+10.  If you specify 32, then count will be 20, etc.
+
+Note that in this example, we didn't really need a hashed map,
+since we never actually use the element part of the map entry. A
+set would do just as well (if not better, since it would probably
+be slightly more efficient). It would be a simple exercise to
+rewrite this example using the hashed set container.

@@ -1,0 +1,26 @@
+with "main.gpr";
+
+Project Full1 is 
+
+   --  This project reuses some definitions done in main.gpr, so that
+   --  they don't have to be done twice.
+
+   for Main use ("text_io_example", "tgef", "tef");
+   --  We have to specify the list of all the main programs
+
+   for Source_Dirs use ("./src");
+   --  Ditto for Source_Dirs, since it was an empty attribute in
+   --  main.gpr
+
+   for Object_Dir use Main'Object_Dir;
+   for Exec_Dir use Main'Exec_Dir;
+   --  We reuse the attributes defined in main.gpr. Note the ' sign 
+   --  between the name of the project and the attribute.
+
+   package Compiler renames Main.Compiler;
+   package Builder renames Main.Builder;
+   --  Ditto for the package compiler and builder of project Main. Note 
+   --  that we have a dot instead of a ' sign, because we rename a package
+   --  and not reuse an attribute.
+
+end Full1;

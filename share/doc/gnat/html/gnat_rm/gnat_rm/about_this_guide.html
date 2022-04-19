@@ -1,0 +1,245 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1. About This Guide &#8212; GNAT Reference Manual 2021 documentation</title>
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="2. Implementation Defined Pragmas" href="implementation_defined_pragmas.html" />
+    <link rel="prev" title="GNAT Reference Manual" href="../gnat_rm.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="implementation_defined_pragmas.html" title="2. Implementation Defined Pragmas"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../gnat_rm.html" title="GNAT Reference Manual"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../gnat_rm.html">GNAT Reference Manual 2021 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">1. </span>About This Guide</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="about-this-guide">
+<span id="id1"></span><h1><span class="section-number">1. </span>About This Guide<a class="headerlink" href="#about-this-guide" title="Permalink to this headline">¶</a></h1>
+<p>This manual contains useful information in writing programs using the
+GNAT compiler.  It includes information on implementation dependent
+characteristics of GNAT, including all the information required by
+Annex M of the Ada language standard.</p>
+<p>GNAT implements Ada 95, Ada 2005 and Ada 2012, and it may also be
+invoked in Ada 83 compatibility mode.
+By default, GNAT assumes Ada 2012,
+but you can override with a compiler switch
+to explicitly specify the language version.
+(Please refer to the <em>GNAT User’s Guide</em> for details on these switches.)
+Throughout this manual, references to ‘Ada’ without a year suffix
+apply to all the Ada versions of the language.</p>
+<p>Ada is designed to be highly portable.
+In general, a program will have the same effect even when compiled by
+different compilers on different platforms.
+However, since Ada is designed to be used in a
+wide variety of applications, it also contains a number of system
+dependent features to be used in interfacing to the external world.</p>
+<span class="target" id="index-0"></span><p id="index-1">Note: Any program that makes use of implementation-dependent features
+may be non-portable.  You should follow good programming practice and
+isolate and clearly document any sections of your program that make use
+of these features in a non-portable manner.</p>
+<div class="section" id="what-this-reference-manual-contains">
+<h2><span class="section-number">1.1. </span>What This Reference Manual Contains<a class="headerlink" href="#what-this-reference-manual-contains" title="Permalink to this headline">¶</a></h2>
+<p>This reference manual contains the following chapters:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="implementation_defined_pragmas.html#implementation-defined-pragmas"><span class="std std-ref">Implementation Defined Pragmas</span></a>, lists GNAT implementation-dependent
+pragmas, which can be used to extend and enhance the functionality of the
+compiler.</p></li>
+<li><p><a class="reference internal" href="implementation_defined_attributes.html#implementation-defined-attributes"><span class="std std-ref">Implementation Defined Attributes</span></a>, lists GNAT
+implementation-dependent attributes, which can be used to extend and
+enhance the functionality of the compiler.</p></li>
+<li><p><a class="reference internal" href="standard_and_implementation_defined_restrictions.html#standard-and-implementation-defined-restrictions"><span class="std std-ref">Standard and Implementation Defined Restrictions</span></a>, lists GNAT
+implementation-dependent restrictions, which can be used to extend and
+enhance the functionality of the compiler.</p></li>
+<li><p><a class="reference internal" href="implementation_advice.html#implementation-advice"><span class="std std-ref">Implementation Advice</span></a>, provides information on generally
+desirable behavior which are not requirements that all compilers must
+follow since it cannot be provided on all systems, or which may be
+undesirable on some systems.</p></li>
+<li><p><a class="reference internal" href="implementation_defined_characteristics.html#implementation-defined-characteristics"><span class="std std-ref">Implementation Defined Characteristics</span></a>, provides a guide to
+minimizing implementation dependent features.</p></li>
+<li><p><a class="reference internal" href="intrinsic_subprograms.html#intrinsic-subprograms"><span class="std std-ref">Intrinsic Subprograms</span></a>, describes the intrinsic subprograms
+implemented by GNAT, and how they can be imported into user
+application programs.</p></li>
+<li><p><a class="reference internal" href="representation_clauses_and_pragmas.html#representation-clauses-and-pragmas"><span class="std std-ref">Representation Clauses and Pragmas</span></a>, describes in detail the
+way that GNAT represents data, and in particular the exact set
+of representation clauses and pragmas that is accepted.</p></li>
+<li><p><a class="reference internal" href="standard_library_routines.html#standard-library-routines"><span class="std std-ref">Standard Library Routines</span></a>, provides a listing of packages and a
+brief description of the functionality that is provided by Ada’s
+extensive set of standard library routines as implemented by GNAT.</p></li>
+<li><p><a class="reference internal" href="the_implementation_of_standard_i_o.html#the-implementation-of-standard-i-o"><span class="std std-ref">The Implementation of Standard I/O</span></a>, details how the GNAT
+implementation of the input-output facilities.</p></li>
+<li><p><a class="reference internal" href="the_gnat_library.html#the-gnat-library"><span class="std std-ref">The GNAT Library</span></a>, is a catalog of packages that complement
+the Ada predefined library.</p></li>
+<li><p><a class="reference internal" href="interfacing_to_other_languages.html#interfacing-to-other-languages"><span class="std std-ref">Interfacing to Other Languages</span></a>, describes how programs
+written in Ada using GNAT can be interfaced to other programming
+languages.</p></li>
+<li><p><a class="reference internal" href="specialized_needs_annexes.html#specialized-needs-annexes"><span class="std std-ref">Specialized Needs Annexes</span></a>, describes the GNAT implementation of all
+of the specialized needs annexes.</p></li>
+<li><p><a class="reference internal" href="implementation_of_specific_ada_features.html#implementation-of-specific-ada-features"><span class="std std-ref">Implementation of Specific Ada Features</span></a>, discusses issues related
+to GNAT’s implementation of machine code insertions, tasking, and several
+other features.</p></li>
+<li><p><a class="reference internal" href="implementation_of_ada_2012_features.html#implementation-of-ada-2012-features"><span class="std std-ref">Implementation of Ada 2012 Features</span></a>, describes the status of the
+GNAT implementation of the Ada 2012 language standard.</p></li>
+<li><p><a class="reference internal" href="obsolescent_features.html#obsolescent-features"><span class="std std-ref">Obsolescent Features</span></a> documents implementation dependent features,
+including pragmas and attributes, which are considered obsolescent, since
+there are other preferred ways of achieving the same results. These
+obsolescent forms are retained for backwards compatibility.</p></li>
+<li><p><a class="reference internal" href="compatibility_and_porting_guide.html#compatibility-and-porting-guide"><span class="std std-ref">Compatibility and Porting Guide</span></a> presents some guidelines for
+developing portable Ada code, describes the compatibility issues that
+may arise between GNAT and other Ada compilation systems (including those
+for Ada 83), and shows how GNAT can expedite porting applications
+developed in other Ada environments.</p></li>
+<li><p><a class="reference internal" href="../share/gnu_free_documentation_license.html#gnu-fdl"><span class="std std-ref">GNU Free Documentation License</span></a> contains the license for this document.</p></li>
+</ul>
+<span class="target" id="index-2"></span><p id="index-3">This reference manual assumes a basic familiarity with the Ada 95 language, as
+described in the
+<cite>International Standard ANSI/ISO/IEC-8652:1995</cite>.
+It does not require knowledge of the new features introduced by Ada 2005 or
+Ada 2012.
+All three reference manuals are included in the GNAT documentation
+package.</p>
+</div>
+<div class="section" id="conventions">
+<h2><span class="section-number">1.2. </span>Conventions<a class="headerlink" href="#conventions" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="index-4"></span><p id="index-5">Following are examples of the typographical and graphic conventions used
+in this guide:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">Functions</span></code>, <code class="docutils literal notranslate"><span class="pre">utility</span> <span class="pre">program</span> <span class="pre">names</span></code>, <code class="docutils literal notranslate"><span class="pre">standard</span> <span class="pre">names</span></code>,
+and <code class="docutils literal notranslate"><span class="pre">classes</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Option</span> <span class="pre">flags</span></code></p></li>
+<li><p><code class="file docutils literal notranslate"><span class="pre">File</span> <span class="pre">names</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Variables</span></code></p></li>
+<li><p><em>Emphasis</em></p></li>
+<li><p>[optional information or parameters]</p></li>
+<li><p>Examples are described by text</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ow">and</span> <span class="n">then</span> <span class="n">shown</span> <span class="n">this</span> <span class="n">way</span><span class="o">.</span>
+</pre></div>
+</div>
+</li>
+<li><p>Commands that are entered by the user are shown as preceded by a prompt string
+comprising the <code class="docutils literal notranslate"><span class="pre">$</span></code> character followed by a space.</p></li>
+</ul>
+</div>
+<div class="section" id="related-information">
+<h2><span class="section-number">1.3. </span>Related Information<a class="headerlink" href="#related-information" title="Permalink to this headline">¶</a></h2>
+<p>See the following documents for further information on GNAT:</p>
+<ul class="simple">
+<li><p><cite>GNAT User’s Guide for Native Platforms</cite>,
+which provides information on how to use the
+GNAT development environment.</p></li>
+<li><p><cite>Ada 95 Reference Manual</cite>, the Ada 95 programming language standard.</p></li>
+<li><p><cite>Ada 95 Annotated Reference Manual</cite>, which is an annotated version
+of the Ada 95 standard.  The annotations describe
+detailed aspects of the design decision, and in particular contain useful
+sections on Ada 83 compatibility.</p></li>
+<li><p><cite>Ada 2005 Reference Manual</cite>, the Ada 2005 programming language standard.</p></li>
+<li><p><cite>Ada 2005 Annotated Reference Manual</cite>, which is an annotated version
+of the Ada 2005 standard.  The annotations describe
+detailed aspects of the design decision.</p></li>
+<li><p><cite>Ada 2012 Reference Manual</cite>, the Ada 2012 programming language standard.</p></li>
+<li><p><cite>DEC Ada, Technical Overview and Comparison on DIGITAL Platforms</cite>,
+which contains specific information on compatibility between GNAT and
+DEC Ada 83 systems.</p></li>
+<li><p><cite>DEC Ada, Language Reference Manual</cite>, part number AA-PYZAB-TK, which
+describes in detail the pragmas and attributes provided by the DEC Ada 83
+compiler system.</p></li>
+</ul>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../gnat_rm.html">
+              <img class="logo" src="../_static/adacore_transparent.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="../gnat_rm.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">1. About This Guide</a><ul>
+<li><a class="reference internal" href="#what-this-reference-manual-contains">1.1. What This Reference Manual Contains</a></li>
+<li><a class="reference internal" href="#conventions">1.2. Conventions</a></li>
+<li><a class="reference internal" href="#related-information">1.3. Related Information</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../gnat_rm.html"
+                        title="previous chapter">GNAT Reference Manual</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="implementation_defined_pragmas.html"
+                        title="next chapter"><span class="section-number">2. </span>Implementation Defined Pragmas</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/gnat_rm/about_this_guide.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="implementation_defined_pragmas.html" title="2. Implementation Defined Pragmas"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../gnat_rm.html" title="GNAT Reference Manual"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../gnat_rm.html">GNAT Reference Manual 2021 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">1. </span>About This Guide</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2008-2021, Free Software Foundation.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
+    </div>
+  </body>
+</html>

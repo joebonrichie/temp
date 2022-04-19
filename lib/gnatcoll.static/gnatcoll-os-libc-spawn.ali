@@ -1,0 +1,107 @@
+V "GNAT Lib v2021"
+A -O2
+A -gnatA
+A -gnatn
+A -gnatwa
+A -gnatwC
+A -gnatwJ
+A -mtune=generic
+A -march=x86-64
+P SS ZX
+
+RN
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U gnatcoll.os.libc.spawn%s  gnatcoll-os-libc-spawn.ads  a14baea1 NE OO PK IU
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+W gnatcoll%s		gnatcoll.ads		gnatcoll.ali
+W gnatcoll.os%s		gnatcoll-os.ads		gnatcoll-os.ali
+W gnatcoll.os.fs%s	gnatcoll-os-fs.adb	gnatcoll-os-fs.ali
+W gnatcoll.os.libc%s	gnatcoll-os-libc.ads	gnatcoll-os-libc.ali
+W system%s		system.ads		system.ali
+
+D ada.ads		20210520051131 76789da1 ada%s
+D a-charac.ads		20210520051128 2d3ec45b ada.characters%s
+D a-chacon.ads		20210520051128 5b23f5eb ada.characters.conversions%s
+D a-chlat1.ads		20210520051128 66457d31 ada.characters.latin_1%s
+D a-except.ads		20210520051128 946f3014 ada.exceptions%s
+D a-finali.ads		20210520051128 bf4f806b ada.finalization%s
+D a-stream.ads		20210520051129 119b8fb3 ada.streams%s
+D a-string.ads		20210520051129 90ac6797 ada.strings%s
+D a-strmap.ads		20210520051129 5a88892a ada.strings.maps%s
+D a-sttebu.ads		20210520051129 18209c64 ada.strings.text_buffers%s
+D a-strunb.ads		20210520051129 03325227 ada.strings.unbounded%s
+D a-stuten.ads		20210520051129 808c40ad ada.strings.utf_encoding%s
+D a-tags.ads		20210520051130 9eaa38c6 ada.tags%s
+D a-unccon.ads		20210520051130 0e9b276f ada.unchecked_conversion%s
+D gnatcoll.ads		20210519051041 6a5da479 gnatcoll%s
+D gnatcoll-os.ads	20210519051041 399a6f15 gnatcoll.os%s
+D gnatcoll-os-fs.ads	20210519051041 d02b2d60 gnatcoll.os.fs%s
+D gnatcoll-os-libc.ads	20210519051041 7c7adcbd gnatcoll.os.libc%s
+D gnatcoll-os-libc-spawn.ads  20210519051041 afc0c961 gnatcoll.os.libc.spawn%s
+D gnatcoll-os-libc_constants__linux.ads  20210519051041 5c752caa gnatcoll.os.libc_constants%s
+D interfac.ads		20210520051132 edec285f interfaces%s
+D i-c.ads		20210520051132 d9beded9 interfaces.c%s
+D system.ads		20210520051135 a2da961d system%s
+D s-atocou.ads		20210520051132 b45c2d8d system.atomic_counters%s
+D s-exctab.ads		20210520051132 54135002 system.exception_table%s
+D s-finroo.ads		20210520051132 4ff27390 system.finalization_root%s
+D s-parame.ads		20210520051134 4752c4cb system.parameters%s
+D s-putima.ads		20210520051134 4e095881 system.put_images%s
+D s-secsta.ads		20210520051134 9b3ab94b system.secondary_stack%s
+D s-soflin.ads		20210520051134 a7318a92 system.soft_links%s
+D s-stache.ads		20210520051134 a37c21ec system.stack_checking%s
+D s-stalib.ads		20210520051134 472fbca8 system.standard_library%s
+D s-stoele.ads		20210520051134 2dc34a04 system.storage_elements%s
+D s-stoele.adb		20210520051134 ed88f8fb system.storage_elements%b
+D s-stratt.ads		20210520051134 7bdda3fa system.stream_attributes%s
+D s-traent.ads		20210520051134 26a8d361 system.traceback_entries%s
+D s-unstyp.ads		20210520051134 2b077493 system.unsigned_types%s
+D unchconv.ads		20210520051135 ca2f9e18 unchecked_conversion%s
+G a e
+G c Z s s [init gnatcoll__os__libc__spawn 48 13 none]
+G c Z s s [destroy gnatcoll__os__libc__spawn 54 14 none]
+G c Z s s [add_dup2 gnatcoll__os__libc__spawn 60 13 none]
+G c Z s s [add_close gnatcoll__os__libc__spawn 70 13 none]
+G c Z s s [posix_spawn gnatcoll__os__libc__spawn 79 13 none]
+X 15 gnatcoll.ads
+24K9*GNATCOLL 27e13 19|26r6 29r9 31r23 92r5
+X 16 gnatcoll-os.ads
+26K18*OS 15|24k9 16|82e16 19|26r15 29r18 31r32 92r14
+46M9*C_String<23|67M9> 19|81r21
+58M9*C_String_Array<23|67M9> 19|84r21 85r21
+X 17 gnatcoll-os-fs.ads
+29K21*FS 125e19 19|26w18 31r35
+33I9*File_Descriptor<integer> 19|62r21 63r21 72r16
+X 18 gnatcoll-os-libc.ads
+27K21*Libc 16|26k18 18|180e21 19|29r21 92r17
+X 19 gnatcoll-os-libc-spawn.ads
+29K26*Spawn 18|27k21 19|92l22 92e27
+31K12*FS=31:35 62r18 63r18 72r13
+33M9*File_Actions<23|67M9> 36r28 37r7 48r25 54r28 61r18 71r13 82r21
+36m4*Null_Actions{33M9}
+39M9*Spawn_Attributes<23|67M9> 42r31 43r7 83r21
+42m4*Null_Attributes{39M9}
+45I9*Process_Id<integer> 80r28
+48V13*Init{33M9}
+54U14*Destroy 54>23
+54m23 FA{33M9}
+60V13*Add_Dup2{integer} 61>8 62>8 63>8
+61m8 Actions{33M9}
+62i8 Fd{17|33I9}
+63i8 Fd2{17|33I9}
+70V13*Add_Close{integer} 71>8 72>8
+71m8 FA{33M9}
+72i8 Fd{17|33I9}
+79V13*Posix_Spawn{integer} 80=8 81>8 82>8 83>8 84>8 85>8
+80i8 Pid{45I9}
+81m8 Path{16|46M9}
+82m8 Actions{33M9}
+83m8 Attributes{39M9}
+84m8 Argv{16|58M9}
+85m8 Env{16|58M9}
+X 23 system.ads
+37K9*System 19|27w6 33r29 37r21 39r33 43r25 23|154e11
+67M9*Address 19|33r36 39r40
+69m4*Null_Address{67M9} 19|37r28 43r32
+

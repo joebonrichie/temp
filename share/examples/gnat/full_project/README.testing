@@ -1,0 +1,31 @@
+		       G N A T   E X A M P L E S
+		       =========================
+
+The projects in this directory illustrates a more elaborate project
+organization:
+
+* main.gpr contains some variable definitions
+* full1.gpr is a first project that uses these definitions
+* full2.gpr is a second project that uses these definiitions.
+
+One interesting feature, besides the 'with' mechanism, is the external
+variable mechanism, which makes possible defining from outside the
+project file a variable which is used inside.
+
+In our case, the projects use an external variable named 'BUILD' which
+can be used to change some optimization and some directories. The default
+value for BUILD is "debug", but alternatives include "release" and 
+"release_optimized"
+
+The first way to change the value of BUILD is to use an environment 
+variable:
+
+  $ export BUILD=release
+  $ gprbuild -P full1.gpr
+  $ gprbuild -P full2.gpr
+
+The second way to change this variable is to use the -X switch of
+gnatmake
+
+  $ gprbuild -XBUILD=release_optimized -P full1.gpr
+  $ gprbuild -XBUILD=release_optimized -P full2.gpr

@@ -1,0 +1,1877 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>9. Representation Clauses and Pragmas &#8212; GNAT Reference Manual 2021 documentation</title>
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="10. Standard Library Routines" href="standard_library_routines.html" />
+    <link rel="prev" title="8. Intrinsic Subprograms" href="intrinsic_subprograms.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="standard_library_routines.html" title="10. Standard Library Routines"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="intrinsic_subprograms.html" title="8. Intrinsic Subprograms"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../gnat_rm.html">GNAT Reference Manual 2021 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">9. </span>Representation Clauses and Pragmas</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="representation-clauses-and-pragmas">
+<span id="id1"></span><h1><span class="section-number">9. </span>Representation Clauses and Pragmas<a class="headerlink" href="#representation-clauses-and-pragmas" title="Permalink to this headline">¶</a></h1>
+<span class="target" id="index-0"></span><span class="target" id="index-1"></span><span class="target" id="index-2"></span><p id="index-3">This section describes the representation clauses accepted by GNAT, and
+their effect on the representation of corresponding data objects.</p>
+<p>GNAT fully implements Annex C (Systems Programming).  This means that all
+the implementation advice sections in chapter 13 are fully implemented.
+However, these sections only require a minimal level of support for
+representation clauses.  GNAT provides much more extensive capabilities,
+and this section describes the additional capabilities provided.</p>
+<div class="section" id="alignment-clauses">
+<span id="id2"></span><h2><span class="section-number">9.1. </span>Alignment Clauses<a class="headerlink" href="#alignment-clauses" title="Permalink to this headline">¶</a></h2>
+<p id="index-4">GNAT requires that all alignment clauses specify 0 or a power of 2, and
+all default alignments are always a power of 2. Specifying 0 is the
+same as specifying 1.</p>
+<p>The default alignment values are as follows:</p>
+<ul>
+<li><p><em>Elementary Types</em>.</p>
+<p>For elementary types, the alignment is the minimum of the actual size of
+objects of the type divided by <code class="docutils literal notranslate"><span class="pre">Storage_Unit</span></code>,
+and the maximum alignment supported by the target.
+(This maximum alignment is given by the GNAT-specific attribute
+<code class="docutils literal notranslate"><span class="pre">Standard'Maximum_Alignment</span></code>; see <a class="reference internal" href="implementation_defined_attributes.html#attribute-maximum-alignment"><span class="std std-ref">Attribute Maximum_Alignment</span></a>.)</p>
+<p id="index-5">For example, for type <code class="docutils literal notranslate"><span class="pre">Long_Float</span></code>, the object size is 8 bytes, and the
+default alignment will be 8 on any target that supports alignments
+this large, but on some targets, the maximum alignment may be smaller
+than 8, in which case objects of type <code class="docutils literal notranslate"><span class="pre">Long_Float</span></code> will be maximally
+aligned.</p>
+</li>
+<li><p><em>Arrays</em>.</p>
+<p>For arrays, the alignment is equal to the alignment of the component type
+for the normal case where no packing or component size is given.  If the
+array is packed, and the packing is effective (see separate section on
+packed arrays), then the alignment will be either 4, 2, or 1 for long packed
+arrays or arrays whose length is not known at compile time, depending on
+whether the component size is divisible by 4, 2, or is odd.  For short packed
+arrays, which are handled internally as modular types, the alignment
+will be as described for elementary types, e.g. a packed array of length
+31 bits will have an object size of four bytes, and an alignment of 4.</p>
+</li>
+<li><p><em>Records</em>.</p>
+<p>For the normal unpacked case, the alignment of a record is equal to
+the maximum alignment of any of its components.  For tagged records, this
+includes the implicit access type used for the tag.  If a pragma <code class="docutils literal notranslate"><span class="pre">Pack</span></code>
+is used and all components are packable (see separate section on pragma
+<code class="docutils literal notranslate"><span class="pre">Pack</span></code>), then the resulting alignment is 1, unless the layout of the
+record makes it profitable to increase it.</p>
+<p>A special case is when:</p>
+<ul class="simple">
+<li><p>the size of the record is given explicitly, or a
+full record representation clause is given, and</p></li>
+<li><p>the size of the record is 2, 4, or 8 bytes.</p></li>
+</ul>
+<p>In this case, an alignment is chosen to match the
+size of the record. For example, if we have:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kr">type</span><span class="p"> </span><span class="n">Small</span> <span class="kr">is</span><span class="p"> </span><span class="kr">record</span><span class="p"></span>
+   <span class="n">A</span><span class="p">,</span> <span class="n">B</span> <span class="o">:</span> <span class="n">Character</span><span class="p">;</span>
+<span class="k">end record</span><span class="p">;</span>
+<span class="kr">for</span><span class="p"> </span><span class="n">Small</span><span class="na">&#39;Size</span> <span class="kr">use</span><span class="p"> </span><span class="mi">16</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>then the default alignment of the record type <code class="docutils literal notranslate"><span class="pre">Small</span></code> is 2, not 1. This
+leads to more efficient code when the record is treated as a unit, and also
+allows the type to specified as <code class="docutils literal notranslate"><span class="pre">Atomic</span></code> on architectures requiring
+strict alignment.</p>
+</li>
+</ul>
+<p>An alignment clause may specify a larger alignment than the default value
+up to some maximum value dependent on the target (obtainable by using the
+attribute reference <code class="docutils literal notranslate"><span class="pre">Standard'Maximum_Alignment</span></code>). It may also specify
+a smaller alignment than the default value for enumeration, integer and
+fixed point types, as well as for record types, for example</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kr">type</span><span class="p"> </span><span class="n">V</span> <span class="kr">is</span><span class="p"> </span><span class="kr">record</span><span class="p"></span>
+   <span class="n">A</span> <span class="o">:</span> <span class="n">Integer</span><span class="p">;</span>
+<span class="k">end record</span><span class="p">;</span>
+
+<span class="kr">for</span><span class="p"> </span><span class="n">V</span><span class="na">&#39;alignment</span> <span class="kr">use</span><span class="p"> </span><span class="mi">1</span><span class="p">;</span>
+</pre></div>
+</div>
+<p id="index-6">The default alignment for the type <code class="docutils literal notranslate"><span class="pre">V</span></code> is 4, as a result of the
+Integer field in the record, but it is permissible, as shown, to
+override the default alignment of the record with a smaller value.</p>
+<p id="index-7">Note that according to the Ada standard, an alignment clause applies only
+to the first named subtype. If additional subtypes are declared, then the
+compiler is allowed to choose any alignment it likes, and there is no way
+to control this choice. Consider:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kr">type</span><span class="p"> </span><span class="n">R</span> <span class="kr">is</span><span class="p"> </span><span class="kr">range</span><span class="p"> </span><span class="mi">1</span> <span class="o">..</span> <span class="mi">10_000</span><span class="p">;</span>
+<span class="kr">for</span><span class="p"> </span><span class="n">R</span><span class="na">&#39;Alignment</span> <span class="kr">use</span><span class="p"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="kr">subtype</span><span class="p"> </span><span class="n">RS</span> <span class="kr">is</span><span class="p"> </span><span class="n">R</span> <span class="kr">range</span><span class="p"> </span><span class="mi">1</span> <span class="o">..</span> <span class="mi">1000</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The alignment clause specifies an alignment of 1 for the first named subtype
+<code class="docutils literal notranslate"><span class="pre">R</span></code> but this does not necessarily apply to <code class="docutils literal notranslate"><span class="pre">RS</span></code>. When writing
+portable Ada code, you should avoid writing code that explicitly or
+implicitly relies on the alignment of such subtypes.</p>
+<p>For the GNAT compiler, if an explicit alignment clause is given, this
+value is also used for any subsequent subtypes. So for GNAT, in the
+above example, you can count on the alignment of <code class="docutils literal notranslate"><span class="pre">RS</span></code> being 1. But this
+assumption is non-portable, and other compilers may choose different
+alignments for the subtype <code class="docutils literal notranslate"><span class="pre">RS</span></code>.</p>
+</div>
+<div class="section" id="size-clauses">
+<span id="id3"></span><h2><span class="section-number">9.2. </span>Size Clauses<a class="headerlink" href="#size-clauses" title="Permalink to this headline">¶</a></h2>
+<p id="index-8">The default size for a type <code class="docutils literal notranslate"><span class="pre">T</span></code> is obtainable through the
+language-defined attribute <code class="docutils literal notranslate"><span class="pre">T'Size</span></code> and also through the
+equivalent GNAT-defined attribute <code class="docutils literal notranslate"><span class="pre">T'Value_Size</span></code>.
+For objects of type <code class="docutils literal notranslate"><span class="pre">T</span></code>, GNAT will generally increase the type size
+so that the object size (obtainable through the GNAT-defined attribute
+<code class="docutils literal notranslate"><span class="pre">T'Object_Size</span></code>)
+is a multiple of <code class="docutils literal notranslate"><span class="pre">T'Alignment</span> <span class="pre">*</span> <span class="pre">Storage_Unit</span></code>.</p>
+<p>For example:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kr">type</span><span class="p"> </span><span class="n">Smallint</span> <span class="kr">is</span><span class="p"> </span><span class="kr">range</span><span class="p"> </span><span class="mi">1</span> <span class="o">..</span> <span class="mi">6</span><span class="p">;</span>
+
+<span class="kr">type</span><span class="p"> </span><span class="n">Rec</span> <span class="kr">is</span><span class="p"> </span><span class="kr">record</span><span class="p"></span>
+   <span class="n">Y1</span> <span class="o">:</span> <span class="n">integer</span><span class="p">;</span>
+   <span class="n">Y2</span> <span class="o">:</span> <span class="n">boolean</span><span class="p">;</span>
+<span class="k">end record</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>In this example, <code class="docutils literal notranslate"><span class="pre">Smallint'Size</span></code> = <code class="docutils literal notranslate"><span class="pre">Smallint'Value_Size</span></code> = 3,
+as specified by the RM rules,
+but objects of this type will have a size of 8
+(<code class="docutils literal notranslate"><span class="pre">Smallint'Object_Size</span></code> = 8),
+since objects by default occupy an integral number
+of storage units.  On some targets, notably older
+versions of the Digital Alpha, the size of stand
+alone objects of this type may be 32, reflecting
+the inability of the hardware to do byte load/stores.</p>
+<p>Similarly, the size of type <code class="docutils literal notranslate"><span class="pre">Rec</span></code> is 40 bits
+(<code class="docutils literal notranslate"><span class="pre">Rec'Size</span></code> = <code class="docutils literal notranslate"><span class="pre">Rec'Value_Size</span></code> = 40), but
+the alignment is 4, so objects of this type will have
+their size increased to 64 bits so that it is a multiple
+of the alignment (in bits).  This decision is
+in accordance with the specific Implementation Advice in RM 13.3(43):</p>
+<blockquote>
+<div><p>“A <code class="docutils literal notranslate"><span class="pre">Size</span></code> clause should be supported for an object if the specified
+<code class="docutils literal notranslate"><span class="pre">Size</span></code> is at least as large as its subtype’s <code class="docutils literal notranslate"><span class="pre">Size</span></code>, and corresponds
+to a size in storage elements that is a multiple of the object’s
+<code class="docutils literal notranslate"><span class="pre">Alignment</span></code> (if the <code class="docutils literal notranslate"><span class="pre">Alignment</span></code> is nonzero).”</p>
+</div></blockquote>
+<p>An explicit size clause may be used to override the default size by
+increasing it.  For example, if we have:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kr">type</span><span class="p"> </span><span class="n">My_Boolean</span> <span class="kr">is</span><span class="p"> </span><span class="kr">new</span><span class="p"> </span><span class="n">Boolean</span><span class="p">;</span>
+<span class="kr">for</span><span class="p"> </span><span class="n">My_Boolean</span><span class="na">&#39;Size</span> <span class="kr">use</span><span class="p"> </span><span class="mi">32</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>then values of this type will always be 32-bit long.  In the case of discrete
+types, the size can be increased up to 64 bits on 32-bit targets and 128 bits
+on 64-bit targets, with the effect that the entire specified field is used to
+hold the value, sign- or zero-extended as appropriate.  If more than 64 bits
+or 128 bits resp. is specified, then padding space is allocated after the
+value, and a warning is issued that there are unused bits.</p>
+<p>Similarly the size of records and arrays may be increased, and the effect
+is to add padding bits after the value.  This also causes a warning message
+to be generated.</p>
+<p>The largest Size value permitted in GNAT is 2**31-1.  Since this is a
+Size in bits, this corresponds to an object of size 256 megabytes (minus
+one).  This limitation is true on all targets.  The reason for this
+limitation is that it improves the quality of the code in many cases
+if it is known that a Size value can be accommodated in an object of
+type Integer.</p>
+</div>
+<div class="section" id="storage-size-clauses">
+<span id="id4"></span><h2><span class="section-number">9.3. </span>Storage_Size Clauses<a class="headerlink" href="#storage-size-clauses" title="Permalink to this headline">¶</a></h2>
+<p id="index-9">For tasks, the <code class="docutils literal notranslate"><span class="pre">Storage_Size</span></code> clause specifies the amount of space
+to be allocated for the task stack.  This cannot be extended, and if the
+stack is exhausted, then <code class="docutils literal notranslate"><span class="pre">Storage_Error</span></code> will be raised (if stack
+checking is enabled).  Use a <code class="docutils literal notranslate"><span class="pre">Storage_Size</span></code> attribute definition clause,
+or a <code class="docutils literal notranslate"><span class="pre">Storage_Size</span></code> pragma in the task definition to set the
+appropriate required size.  A useful technique is to include in every
+task definition a pragma of the form:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kr">pragma</span><span class="p"> </span><span class="n">Storage_Size</span> <span class="o">(</span><span class="n">Default_Stack_Size</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Then <code class="docutils literal notranslate"><span class="pre">Default_Stack_Size</span></code> can be defined in a global package, and
+modified as required. Any tasks requiring stack sizes different from the
+default can have an appropriate alternative reference in the pragma.</p>
+<p>You can also use the <em>-d</em> binder switch to modify the default stack
+size.</p>
+<p>For access types, the <code class="docutils literal notranslate"><span class="pre">Storage_Size</span></code> clause specifies the maximum
+space available for allocation of objects of the type.  If this space is
+exceeded then <code class="docutils literal notranslate"><span class="pre">Storage_Error</span></code> will be raised by an allocation attempt.
+In the case where the access type is declared local to a subprogram, the
+use of a <code class="docutils literal notranslate"><span class="pre">Storage_Size</span></code> clause triggers automatic use of a special
+predefined storage pool (<code class="docutils literal notranslate"><span class="pre">System.Pool_Size</span></code>) that ensures that all
+space for the pool is automatically reclaimed on exit from the scope in
+which the type is declared.</p>
+<p>A special case recognized by the compiler is the specification of a
+<code class="docutils literal notranslate"><span class="pre">Storage_Size</span></code> of zero for an access type.  This means that no
+items can be allocated from the pool, and this is recognized at compile
+time, and all the overhead normally associated with maintaining a fixed
+size storage pool is eliminated.  Consider the following example:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="k">procedure </span><span class="nf">p</span> <span class="kr">is</span><span class="p"></span>
+   <span class="kr">type</span><span class="p"> </span><span class="n">R</span> <span class="kr">is</span><span class="p"> </span><span class="kr">array</span><span class="p"> </span><span class="o">(</span><span class="n">Natural</span><span class="o">)</span> <span class="kr">of</span><span class="p"> </span><span class="n">Character</span><span class="p">;</span>
+   <span class="kr">type</span><span class="p"> </span><span class="n">P</span> <span class="kr">is</span><span class="p"> </span><span class="kr">access</span><span class="p"> </span><span class="kr">all</span><span class="p"> </span><span class="n">R</span><span class="p">;</span>
+   <span class="kr">for</span><span class="p"> </span><span class="n">P</span><span class="na">&#39;Storage_Size</span> <span class="kr">use</span><span class="p"> </span><span class="mi">0</span><span class="p">;</span>
+   <span class="c">--  Above access type intended only for interfacing purposes</span>
+
+   <span class="n">y</span> <span class="o">:</span> <span class="n">P</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">g</span> <span class="o">(</span><span class="n">m</span> <span class="o">:</span> <span class="n">P</span><span class="o">)</span><span class="p">;</span>
+   <span class="kr">pragma</span><span class="p"> </span><span class="n">Import</span> <span class="o">(</span><span class="n">C</span><span class="p">,</span> <span class="n">g</span><span class="o">)</span><span class="p">;</span>
+
+   <span class="c">--  ...</span>
+
+<span class="kr">begin</span><span class="p"></span>
+   <span class="c">--  ...</span>
+   <span class="n">y</span> <span class="o">:=</span> <span class="kr">new</span><span class="p"> </span><span class="n">R</span><span class="p">;</span>
+<span class="kr">end</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>As indicated in this example, these dummy storage pools are often useful in
+connection with interfacing where no object will ever be allocated.  If you
+compile the above example, you get the warning:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="o">.</span><span class="n">adb</span><span class="p">:</span><span class="mi">16</span><span class="p">:</span><span class="mi">09</span><span class="p">:</span> <span class="n">warning</span><span class="p">:</span> <span class="n">allocation</span> <span class="kn">from</span> <span class="nn">empty</span> <span class="n">storage</span> <span class="n">pool</span>
+<span class="n">p</span><span class="o">.</span><span class="n">adb</span><span class="p">:</span><span class="mi">16</span><span class="p">:</span><span class="mi">09</span><span class="p">:</span> <span class="n">warning</span><span class="p">:</span> <span class="n">Storage_Error</span> <span class="n">will</span> <span class="n">be</span> <span class="n">raised</span> <span class="n">at</span> <span class="n">run</span> <span class="n">time</span>
+</pre></div>
+</div>
+<p>Of course in practice, there will not be any explicit allocators in the
+case of such an access declaration.</p>
+</div>
+<div class="section" id="size-of-variant-record-objects">
+<span id="id5"></span><h2><span class="section-number">9.4. </span>Size of Variant Record Objects<a class="headerlink" href="#size-of-variant-record-objects" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="index-10"></span><p id="index-11">In the case of variant record objects, there is a question whether Size gives
+information about a particular variant, or the maximum size required
+for any variant.  Consider the following program</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kr">with</span><span class="p"> </span><span class="n">Text_IO</span><span class="p">; </span><span class="kr">use</span><span class="nn"> Text_IO;</span>
+<span class="k">procedure </span><span class="nf">q</span> <span class="kr">is</span><span class="p"></span>
+   <span class="kr">type</span><span class="p"> </span><span class="n">R1</span> <span class="o">(</span><span class="n">A</span> <span class="o">:</span> <span class="n">Boolean</span> <span class="o">:=</span> <span class="kc">False</span><span class="o">)</span> <span class="kr">is</span><span class="p"> </span><span class="kr">record</span><span class="p"></span>
+     <span class="kr">case</span><span class="p"> </span><span class="n">A</span> <span class="kr">is</span><span class="p"></span>
+       <span class="kr">when</span><span class="p"> </span><span class="kc">True</span>  <span class="o">=&gt;</span> <span class="n">X</span> <span class="o">:</span> <span class="n">Character</span><span class="p">;</span>
+       <span class="kr">when</span><span class="p"> </span><span class="kc">False</span> <span class="o">=&gt;</span> <span class="kr">null</span><span class="p">;</span>
+     <span class="k">end </span><span class="nf">case</span><span class="p">;</span>
+   <span class="k">end record</span><span class="p">;</span>
+
+   <span class="n">V1</span> <span class="o">:</span> <span class="n">R1</span> <span class="o">(</span><span class="kc">False</span><span class="o">)</span><span class="p">;</span>
+   <span class="n">V2</span> <span class="o">:</span> <span class="n">R1</span><span class="p">;</span>
+
+<span class="kr">begin</span><span class="p"></span>
+   <span class="n">Put_Line</span> <span class="o">(</span><span class="n">Integer</span><span class="na">&#39;Image</span> <span class="o">(</span><span class="n">V1</span><span class="na">&#39;Size</span><span class="o">))</span><span class="p">;</span>
+   <span class="n">Put_Line</span> <span class="o">(</span><span class="n">Integer</span><span class="na">&#39;Image</span> <span class="o">(</span><span class="n">V2</span><span class="na">&#39;Size</span><span class="o">))</span><span class="p">;</span>
+<span class="k">end </span><span class="nf">q</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Here we are dealing with a variant record, where the True variant
+requires 16 bits, and the False variant requires 8 bits.
+In the above example, both V1 and V2 contain the False variant,
+which is only 8 bits long.  However, the result of running the
+program is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">8</span>
+<span class="mi">16</span>
+</pre></div>
+</div>
+<p>The reason for the difference here is that the discriminant value of
+V1 is fixed, and will always be False.  It is not possible to assign
+a True variant value to V1, therefore 8 bits is sufficient.  On the
+other hand, in the case of V2, the initial discriminant value is
+False (from the default), but it is possible to assign a True
+variant value to V2, therefore 16 bits must be allocated for V2
+in the general case, even fewer bits may be needed at any particular
+point during the program execution.</p>
+<p>As can be seen from the output of this program, the <code class="docutils literal notranslate"><span class="pre">'Size</span></code>
+attribute applied to such an object in GNAT gives the actual allocated
+size of the variable, which is the largest size of any of the variants.
+The Ada Reference Manual is not completely clear on what choice should
+be made here, but the GNAT behavior seems most consistent with the
+language in the RM.</p>
+<p>In some cases, it may be desirable to obtain the size of the current
+variant, rather than the size of the largest variant.  This can be
+achieved in GNAT by making use of the fact that in the case of a
+subprogram parameter, GNAT does indeed return the size of the current
+variant (because a subprogram has no way of knowing how much space
+is actually allocated for the actual).</p>
+<p>Consider the following modified version of the above program:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kr">with</span><span class="p"> </span><span class="n">Text_IO</span><span class="p">; </span><span class="kr">use</span><span class="nn"> Text_IO;</span>
+<span class="k">procedure </span><span class="nf">q</span> <span class="kr">is</span><span class="p"></span>
+   <span class="kr">type</span><span class="p"> </span><span class="n">R1</span> <span class="o">(</span><span class="n">A</span> <span class="o">:</span> <span class="n">Boolean</span> <span class="o">:=</span> <span class="kc">False</span><span class="o">)</span> <span class="kr">is</span><span class="p"> </span><span class="kr">record</span><span class="p"></span>
+     <span class="kr">case</span><span class="p"> </span><span class="n">A</span> <span class="kr">is</span><span class="p"></span>
+       <span class="kr">when</span><span class="p"> </span><span class="kc">True</span>  <span class="o">=&gt;</span> <span class="n">X</span> <span class="o">:</span> <span class="n">Character</span><span class="p">;</span>
+       <span class="kr">when</span><span class="p"> </span><span class="kc">False</span> <span class="o">=&gt;</span> <span class="kr">null</span><span class="p">;</span>
+     <span class="k">end </span><span class="nf">case</span><span class="p">;</span>
+   <span class="k">end record</span><span class="p">;</span>
+
+   <span class="n">V2</span> <span class="o">:</span> <span class="n">R1</span><span class="p">;</span>
+
+   <span class="k">function </span><span class="nf">Size</span> <span class="o">(</span><span class="n">V</span> <span class="o">:</span> <span class="n">R1</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Integer</span> <span class="kr">is</span><span class="p"></span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="kr">return</span><span class="p"> </span><span class="n">V</span><span class="na">&#39;Size</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Size</span><span class="p">;</span>
+
+<span class="kr">begin</span><span class="p"></span>
+   <span class="n">Put_Line</span> <span class="o">(</span><span class="n">Integer</span><span class="na">&#39;Image</span> <span class="o">(</span><span class="n">V2</span><span class="na">&#39;Size</span><span class="o">))</span><span class="p">;</span>
+   <span class="n">Put_Line</span> <span class="o">(</span><span class="n">Integer</span><span class="na">&#39;Image</span> <span class="o">(</span><span class="n">Size</span> <span class="o">(</span><span class="n">V2</span><span class="o">)))</span><span class="p">;</span>
+   <span class="n">V2</span> <span class="o">:=</span> <span class="o">(</span><span class="kc">True</span><span class="p">,</span> <span class="sc">&#39;x&#39;</span><span class="o">)</span><span class="p">;</span>
+   <span class="n">Put_Line</span> <span class="o">(</span><span class="n">Integer</span><span class="na">&#39;Image</span> <span class="o">(</span><span class="n">V2</span><span class="na">&#39;Size</span><span class="o">))</span><span class="p">;</span>
+   <span class="n">Put_Line</span> <span class="o">(</span><span class="n">Integer</span><span class="na">&#39;Image</span> <span class="o">(</span><span class="n">Size</span> <span class="o">(</span><span class="n">V2</span><span class="o">)))</span><span class="p">;</span>
+<span class="k">end </span><span class="nf">q</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The output from this program is</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">16</span>
+<span class="mi">8</span>
+<span class="mi">16</span>
+<span class="mi">16</span>
+</pre></div>
+</div>
+<p>Here we see that while the <code class="docutils literal notranslate"><span class="pre">'Size</span></code> attribute always returns
+the maximum size, regardless of the current variant value, the
+<code class="docutils literal notranslate"><span class="pre">Size</span></code> function does indeed return the size of the current
+variant value.</p>
+</div>
+<div class="section" id="biased-representation">
+<span id="id6"></span><h2><span class="section-number">9.5. </span>Biased Representation<a class="headerlink" href="#biased-representation" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="index-12"></span><p id="index-13">In the case of scalars with a range starting at other than zero, it is
+possible in some cases to specify a size smaller than the default minimum
+value, and in such cases, GNAT uses an unsigned biased representation,
+in which zero is used to represent the lower bound, and successive values
+represent successive values of the type.</p>
+<p>For example, suppose we have the declaration:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kr">type</span><span class="p"> </span><span class="n">Small</span> <span class="kr">is</span><span class="p"> </span><span class="kr">range</span><span class="p"> </span><span class="o">-</span><span class="mi">7</span> <span class="o">..</span> <span class="o">-</span><span class="mi">4</span><span class="p">;</span>
+<span class="kr">for</span><span class="p"> </span><span class="n">Small</span><span class="na">&#39;Size</span> <span class="kr">use</span><span class="p"> </span><span class="mi">2</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Although the default size of type <code class="docutils literal notranslate"><span class="pre">Small</span></code> is 4, the <code class="docutils literal notranslate"><span class="pre">Size</span></code>
+clause is accepted by GNAT and results in the following representation
+scheme:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span><span class="mi">7</span> <span class="ow">is</span> <span class="n">represented</span> <span class="k">as</span> <span class="mi">2</span><span class="c1">#00#</span>
+<span class="o">-</span><span class="mi">6</span> <span class="ow">is</span> <span class="n">represented</span> <span class="k">as</span> <span class="mi">2</span><span class="c1">#01#</span>
+<span class="o">-</span><span class="mi">5</span> <span class="ow">is</span> <span class="n">represented</span> <span class="k">as</span> <span class="mi">2</span><span class="c1">#10#</span>
+<span class="o">-</span><span class="mi">4</span> <span class="ow">is</span> <span class="n">represented</span> <span class="k">as</span> <span class="mi">2</span><span class="c1">#11#</span>
+</pre></div>
+</div>
+<p>Biased representation is only used if the specified <code class="docutils literal notranslate"><span class="pre">Size</span></code> clause
+cannot be accepted in any other manner.  These reduced sizes that force
+biased representation can be used for all discrete types except for
+enumeration types for which a representation clause is given.</p>
+</div>
+<div class="section" id="value-size-and-object-size-clauses">
+<span id="id7"></span><h2><span class="section-number">9.6. </span>Value_Size and Object_Size Clauses<a class="headerlink" href="#value-size-and-object-size-clauses" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="index-14"></span><span class="target" id="index-15"></span><p id="index-16">In Ada 95 and Ada 2005, <code class="docutils literal notranslate"><span class="pre">T'Size</span></code> for a type <code class="docutils literal notranslate"><span class="pre">T</span></code> is the minimum
+number of bits required to hold values of type <code class="docutils literal notranslate"><span class="pre">T</span></code>.
+Although this interpretation was allowed in Ada 83, it was not required,
+and this requirement in practice can cause some significant difficulties.
+For example, in most Ada 83 compilers, <code class="docutils literal notranslate"><span class="pre">Natural'Size</span></code> was 32.
+However, in Ada 95 and Ada 2005,
+<code class="docutils literal notranslate"><span class="pre">Natural'Size</span></code> is
+typically 31.  This means that code may change in behavior when moving
+from Ada 83 to Ada 95 or Ada 2005.  For example, consider:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kr">type</span><span class="p"> </span><span class="n">Rec</span> <span class="kr">is</span><span class="p"> </span><span class="kr">record</span><span class="p">;</span>
+   <span class="n">A</span> <span class="o">:</span> <span class="n">Natural</span><span class="p">;</span>
+   <span class="n">B</span> <span class="o">:</span> <span class="n">Natural</span><span class="p">;</span>
+<span class="k">end record</span><span class="p">;</span>
+
+<span class="kr">for</span><span class="p"> </span><span class="n">Rec</span> <span class="kr">use</span><span class="p"> </span><span class="kr">record</span><span class="p"></span>
+   <span class="kr">at</span><span class="p"> </span><span class="mi">0</span>  <span class="kr">range</span><span class="p"> </span><span class="mi">0</span> <span class="o">..</span> <span class="n">Natural</span><span class="na">&#39;Size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+   <span class="kr">at</span><span class="p"> </span><span class="mi">0</span>  <span class="kr">range</span><span class="p"> </span><span class="n">Natural</span><span class="na">&#39;Size</span> <span class="o">..</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">Natural</span><span class="na">&#39;Size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+<span class="k">end record</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>In the above code, since the typical size of <code class="docutils literal notranslate"><span class="pre">Natural</span></code> objects
+is 32 bits and <code class="docutils literal notranslate"><span class="pre">Natural'Size</span></code> is 31, the above code can cause
+unexpected inefficient packing in Ada 95 and Ada 2005, and in general
+there are cases where the fact that the object size can exceed the
+size of the type causes surprises.</p>
+<p>To help get around this problem GNAT provides two implementation
+defined attributes, <code class="docutils literal notranslate"><span class="pre">Value_Size</span></code> and <code class="docutils literal notranslate"><span class="pre">Object_Size</span></code>.  When
+applied to a type, these attributes yield the size of the type
+(corresponding to the RM defined size attribute), and the size of
+objects of the type respectively.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">Object_Size</span></code> is used for determining the default size of
+objects and components.  This size value can be referred to using the
+<code class="docutils literal notranslate"><span class="pre">Object_Size</span></code> attribute.  The phrase ‘is used’ here means that it is
+the basis of the determination of the size.  The backend is free to
+pad this up if necessary for efficiency, e.g., an 8-bit stand-alone
+character might be stored in 32 bits on a machine with no efficient
+byte access instructions such as the Alpha.</p>
+<p>The default rules for the value of <code class="docutils literal notranslate"><span class="pre">Object_Size</span></code> for
+discrete types are as follows:</p>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">Object_Size</span></code> for base subtypes reflect the natural hardware
+size in bits (run the compiler with <em>-gnatS</em> to find those values
+for numeric types). Enumeration types and fixed-point base subtypes have
+8, 16, 32, or 64 bits for this size, depending on the range of values
+to be stored.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">Object_Size</span></code> of a subtype is the same as the
+<code class="docutils literal notranslate"><span class="pre">Object_Size</span></code> of
+the type from which it is obtained.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">Object_Size</span></code> of a derived base type is copied from the parent
+base type, and the <code class="docutils literal notranslate"><span class="pre">Object_Size</span></code> of a derived first subtype is copied
+from the parent first subtype.</p></li>
+</ul>
+<p>The <code class="docutils literal notranslate"><span class="pre">Value_Size</span></code> attribute
+is the (minimum) number of bits required to store a value
+of the type.
+This value is used to determine how tightly to pack
+records or arrays with components of this type, and also affects
+the semantics of unchecked conversion (unchecked conversions where
+the <code class="docutils literal notranslate"><span class="pre">Value_Size</span></code> values differ generate a warning, and are potentially
+target dependent).</p>
+<p>The default rules for the value of <code class="docutils literal notranslate"><span class="pre">Value_Size</span></code> are as follows:</p>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">Value_Size</span></code> for a base subtype is the minimum number of bits
+required to store all values of the type (including the sign bit
+only if negative values are possible).</p></li>
+<li><p>If a subtype statically matches the first subtype of a given type, then it has
+by default the same <code class="docutils literal notranslate"><span class="pre">Value_Size</span></code> as the first subtype.  This is a
+consequence of RM 13.1(14): “if two subtypes statically match,
+then their subtype-specific aspects are the same”.)</p></li>
+<li><p>All other subtypes have a <code class="docutils literal notranslate"><span class="pre">Value_Size</span></code> corresponding to the minimum
+number of bits required to store all values of the subtype.  For
+dynamic bounds, it is assumed that the value can range down or up
+to the corresponding bound of the ancestor</p></li>
+</ul>
+<p>The RM defined attribute <code class="docutils literal notranslate"><span class="pre">Size</span></code> corresponds to the
+<code class="docutils literal notranslate"><span class="pre">Value_Size</span></code> attribute.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">Size</span></code> attribute may be defined for a first-named subtype.  This sets
+the <code class="docutils literal notranslate"><span class="pre">Value_Size</span></code> of
+the first-named subtype to the given value, and the
+<code class="docutils literal notranslate"><span class="pre">Object_Size</span></code> of this first-named subtype to the given value padded up
+to an appropriate boundary.  It is a consequence of the default rules
+above that this <code class="docutils literal notranslate"><span class="pre">Object_Size</span></code> will apply to all further subtypes.  On the
+other hand, <code class="docutils literal notranslate"><span class="pre">Value_Size</span></code> is affected only for the first subtype, any
+dynamic subtypes obtained from it directly, and any statically matching
+subtypes.  The <code class="docutils literal notranslate"><span class="pre">Value_Size</span></code> of any other static subtypes is not affected.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Value_Size</span></code> and
+<code class="docutils literal notranslate"><span class="pre">Object_Size</span></code> may be explicitly set for any subtype using
+an attribute definition clause.  Note that the use of these attributes
+can cause the RM 13.1(14) rule to be violated.  If two access types
+reference aliased objects whose subtypes have differing <code class="docutils literal notranslate"><span class="pre">Object_Size</span></code>
+values as a result of explicit attribute definition clauses, then it
+is illegal to convert from one access subtype to the other. For a more
+complete description of this additional legality rule, see the
+description of the <code class="docutils literal notranslate"><span class="pre">Object_Size</span></code> attribute.</p>
+<p>To get a feel for the difference, consider the following examples (note
+that in each case the base is <code class="docutils literal notranslate"><span class="pre">Short_Short_Integer</span></code> with a size of 8):</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 63%" />
+<col style="width: 18%" />
+<col style="width: 18%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Type or subtype declaration</p></th>
+<th class="head"><p>Object_Size</p></th>
+<th class="head"><p>Value_Size</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">type</span> <span class="pre">x1</span> <span class="pre">is</span> <span class="pre">range</span> <span class="pre">0</span> <span class="pre">..</span> <span class="pre">5;</span></code></p></td>
+<td><p>8</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">type</span> <span class="pre">x2</span> <span class="pre">is</span> <span class="pre">range</span> <span class="pre">0</span> <span class="pre">..</span> <span class="pre">5;</span></code>
+<code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">x2'size</span> <span class="pre">use</span> <span class="pre">12;</span></code></p></td>
+<td><p>16</p></td>
+<td><p>12</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">subtype</span> <span class="pre">x3</span> <span class="pre">is</span> <span class="pre">x2</span> <span class="pre">range</span> <span class="pre">0</span> <span class="pre">..</span> <span class="pre">3;</span></code></p></td>
+<td><p>16</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">subtype</span> <span class="pre">x4</span> <span class="pre">is</span> <span class="pre">x2'base</span> <span class="pre">range</span> <span class="pre">0</span> <span class="pre">..</span> <span class="pre">10;</span></code></p></td>
+<td><p>8</p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">dynamic</span> <span class="pre">:</span> <span class="pre">x2'Base</span> <span class="pre">range</span> <span class="pre">-64</span> <span class="pre">..</span> <span class="pre">+63;</span></code></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">subtype</span> <span class="pre">x5</span> <span class="pre">is</span> <span class="pre">x2</span> <span class="pre">range</span> <span class="pre">0</span> <span class="pre">..</span> <span class="pre">dynamic;</span></code></p></td>
+<td><p>16</p></td>
+<td><p>3*</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">subtype</span> <span class="pre">x6</span> <span class="pre">is</span> <span class="pre">x2'base</span> <span class="pre">range</span> <span class="pre">0</span> <span class="pre">..</span> <span class="pre">dynamic;</span></code></p></td>
+<td><p>8</p></td>
+<td><p>7*</p></td>
+</tr>
+</tbody>
+</table>
+<p>Note: the entries marked ‘*’ are not actually specified by the Ada
+Reference Manual, which has nothing to say about size in the dynamic
+case. What GNAT does is to allocate sufficient bits to accommodate any
+possible dynamic values for the bounds at run-time.</p>
+<p>So far, so good, but GNAT has to obey the RM rules, so the question is
+under what conditions must the RM <code class="docutils literal notranslate"><span class="pre">Size</span></code> be used.
+The following is a list
+of the occasions on which the RM <code class="docutils literal notranslate"><span class="pre">Size</span></code> must be used:</p>
+<ul class="simple">
+<li><p>Component size for packed arrays or records</p></li>
+<li><p>Value of the attribute <code class="docutils literal notranslate"><span class="pre">Size</span></code> for a type</p></li>
+<li><p>Warning about sizes not matching for unchecked conversion</p></li>
+</ul>
+<p>For record types, the <code class="docutils literal notranslate"><span class="pre">Object_Size</span></code> is always a multiple of the
+alignment of the type (this is true for all types). In some cases the
+<code class="docutils literal notranslate"><span class="pre">Value_Size</span></code> can be smaller. Consider:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kr">type</span><span class="p"> </span><span class="n">R</span> <span class="kr">is</span><span class="p"> </span><span class="kr">record</span><span class="p"></span>
+  <span class="n">X</span> <span class="o">:</span> <span class="n">Integer</span><span class="p">;</span>
+  <span class="n">Y</span> <span class="o">:</span> <span class="n">Character</span><span class="p">;</span>
+<span class="k">end record</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>On a typical 32-bit architecture, the X component will occupy four bytes
+and the Y component will occupy one byte, for a total of 5 bytes. As a
+result <code class="docutils literal notranslate"><span class="pre">R'Value_Size</span></code> will be 40 (bits) since this is the minimum size
+required to store a value of this type. For example, it is permissible
+to have a component of type R in an array whose component size is
+specified to be 40 bits.</p>
+<p>However, <code class="docutils literal notranslate"><span class="pre">R'Object_Size</span></code> will be 64 (bits). The difference is due to
+the alignment requirement for objects of the record type. The X
+component will require four-byte alignment because that is what type
+Integer requires, whereas the Y component, a Character, will only
+require 1-byte alignment. Since the alignment required for X is the
+greatest of all the components’ alignments, that is the alignment
+required for the enclosing record type, i.e., 4 bytes or 32 bits. As
+indicated above, the actual object size must be rounded up so that it is
+a multiple of the alignment value. Therefore, 40 bits rounded up to the
+next multiple of 32 yields 64 bits.</p>
+<p>For all other types, the <code class="docutils literal notranslate"><span class="pre">Object_Size</span></code>
+and <code class="docutils literal notranslate"><span class="pre">Value_Size</span></code> are the same (and equivalent to the RM attribute <code class="docutils literal notranslate"><span class="pre">Size</span></code>).
+Only <code class="docutils literal notranslate"><span class="pre">Size</span></code> may be specified for such types.</p>
+<p>Note that <code class="docutils literal notranslate"><span class="pre">Value_Size</span></code> can be used to force biased representation
+for a particular subtype. Consider this example:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kr">type</span><span class="p"> </span><span class="n">R</span> <span class="kr">is</span><span class="p"> </span><span class="o">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">E</span><span class="p">,</span> <span class="n">F</span><span class="o">)</span><span class="p">;</span>
+<span class="kr">subtype</span><span class="p"> </span><span class="n">RAB</span> <span class="kr">is</span><span class="p"> </span><span class="n">R</span> <span class="kr">range</span><span class="p"> </span><span class="n">A</span> <span class="o">..</span> <span class="n">B</span><span class="p">;</span>
+<span class="kr">subtype</span><span class="p"> </span><span class="n">REF</span> <span class="kr">is</span><span class="p"> </span><span class="n">R</span> <span class="kr">range</span><span class="p"> </span><span class="n">E</span> <span class="o">..</span> <span class="n">F</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>By default, <code class="docutils literal notranslate"><span class="pre">RAB</span></code>
+has a size of 1 (sufficient to accommodate the representation
+of <code class="docutils literal notranslate"><span class="pre">A</span></code> and <code class="docutils literal notranslate"><span class="pre">B</span></code>, 0 and 1), and <code class="docutils literal notranslate"><span class="pre">REF</span></code>
+has a size of 3 (sufficient to accommodate the representation
+of <code class="docutils literal notranslate"><span class="pre">E</span></code> and <code class="docutils literal notranslate"><span class="pre">F</span></code>, 4 and 5). But if we add the
+following <code class="docutils literal notranslate"><span class="pre">Value_Size</span></code> attribute definition clause:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kr">for</span><span class="p"> </span><span class="n">REF</span><span class="na">&#39;Value_Size</span> <span class="kr">use</span><span class="p"> </span><span class="mi">1</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>then biased representation is forced for <code class="docutils literal notranslate"><span class="pre">REF</span></code>,
+and 0 will represent <code class="docutils literal notranslate"><span class="pre">E</span></code> and 1 will represent <code class="docutils literal notranslate"><span class="pre">F</span></code>.
+A warning is issued when a <code class="docutils literal notranslate"><span class="pre">Value_Size</span></code> attribute
+definition clause forces biased representation. This
+warning can be turned off using <code class="switch docutils literal notranslate"><span class="pre">-gnatw.B</span></code>.</p>
+</div>
+<div class="section" id="component-size-clauses">
+<span id="id8"></span><h2><span class="section-number">9.7. </span>Component_Size Clauses<a class="headerlink" href="#component-size-clauses" title="Permalink to this headline">¶</a></h2>
+<p id="index-17">Normally, the value specified in a component size clause must be consistent
+with the subtype of the array component with regard to size and alignment.
+In other words, the value specified must be at least equal to the size
+of this subtype, and must be a multiple of the alignment value.</p>
+<p>In addition, component size clauses are allowed which cause the array
+to be packed, by specifying a smaller value.  A first case is for
+component size values in the range 1 through 63 on 32-bit targets,
+and 1 through 127 on 64-bit targets.  The value specified may not
+be smaller than the Size of the subtype.  GNAT will accurately
+honor all packing requests in this range.  For example, if we have:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kr">type</span><span class="p"> </span><span class="n">r</span> <span class="kr">is</span><span class="p"> </span><span class="kr">array</span><span class="p"> </span><span class="o">(</span><span class="mi">1</span> <span class="o">..</span> <span class="mi">8</span><span class="o">)</span> <span class="kr">of</span><span class="p"> </span><span class="n">Natural</span><span class="p">;</span>
+<span class="kr">for</span><span class="p"> </span><span class="n">r</span><span class="na">&#39;Component_Size</span> <span class="kr">use</span><span class="p"> </span><span class="mi">31</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>then the resulting array has a length of 31 bytes (248 bits = 8 * 31).
+Of course access to the components of such an array is considerably
+less efficient than if the natural component size of 32 is used.
+A second case is when the subtype of the component is a record type
+padded because of its default alignment.  For example, if we have:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kr">type</span><span class="p"> </span><span class="n">r</span> <span class="kr">is</span><span class="p"> </span><span class="kr">record</span><span class="p"></span>
+  <span class="n">i</span> <span class="o">:</span> <span class="n">Integer</span><span class="p">;</span>
+  <span class="n">j</span> <span class="o">:</span> <span class="n">Integer</span><span class="p">;</span>
+  <span class="n">b</span> <span class="o">:</span> <span class="n">Boolean</span><span class="p">;</span>
+<span class="k">end record</span><span class="p">;</span>
+
+<span class="kr">type</span><span class="p"> </span><span class="n">a</span> <span class="kr">is</span><span class="p"> </span><span class="kr">array</span><span class="p"> </span><span class="o">(</span><span class="mi">1</span> <span class="o">..</span> <span class="mi">8</span><span class="o">)</span> <span class="kr">of</span><span class="p"> </span><span class="n">r</span><span class="p">;</span>
+<span class="kr">for</span><span class="p"> </span><span class="n">a</span><span class="na">&#39;Component_Size</span> <span class="kr">use</span><span class="p"> </span><span class="mi">72</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>then the resulting array has a length of 72 bytes, instead of 96 bytes
+if the alignment of the record (4) was obeyed.</p>
+<p>Note that there is no point in giving both a component size clause
+and a pragma Pack for the same array type. if such duplicate
+clauses are given, the pragma Pack will be ignored.</p>
+</div>
+<div class="section" id="bit-order-clauses">
+<span id="id9"></span><h2><span class="section-number">9.8. </span>Bit_Order Clauses<a class="headerlink" href="#bit-order-clauses" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="index-18"></span><span class="target" id="index-19"></span><p id="index-20">For record subtypes, GNAT permits the specification of the <code class="docutils literal notranslate"><span class="pre">Bit_Order</span></code>
+attribute.  The specification may either correspond to the default bit
+order for the target, in which case the specification has no effect and
+places no additional restrictions, or it may be for the non-standard
+setting (that is the opposite of the default).</p>
+<p>In the case where the non-standard value is specified, the effect is
+to renumber bits within each byte, but the ordering of bytes is not
+affected.  There are certain
+restrictions placed on component clauses as follows:</p>
+<ul>
+<li><p>Components fitting within a single storage unit.</p>
+<p>These are unrestricted, and the effect is merely to renumber bits.  For
+example if we are on a little-endian machine with <code class="docutils literal notranslate"><span class="pre">Low_Order_First</span></code>
+being the default, then the following two declarations have exactly
+the same effect:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span> <span class="n">R1</span> <span class="ow">is</span> <span class="n">record</span>
+   <span class="n">A</span> <span class="p">:</span> <span class="n">Boolean</span><span class="p">;</span>
+   <span class="n">B</span> <span class="p">:</span> <span class="n">Integer</span> <span class="nb">range</span> <span class="mi">1</span> <span class="o">..</span> <span class="mi">120</span><span class="p">;</span>
+<span class="n">end</span> <span class="n">record</span><span class="p">;</span>
+
+<span class="k">for</span> <span class="n">R1</span> <span class="n">use</span> <span class="n">record</span>
+   <span class="n">A</span> <span class="n">at</span> <span class="mi">0</span> <span class="nb">range</span> <span class="mi">0</span> <span class="o">..</span> <span class="mi">0</span><span class="p">;</span>
+   <span class="n">B</span> <span class="n">at</span> <span class="mi">0</span> <span class="nb">range</span> <span class="mi">1</span> <span class="o">..</span> <span class="mi">7</span><span class="p">;</span>
+<span class="n">end</span> <span class="n">record</span><span class="p">;</span>
+
+<span class="nb">type</span> <span class="n">R2</span> <span class="ow">is</span> <span class="n">record</span>
+   <span class="n">A</span> <span class="p">:</span> <span class="n">Boolean</span><span class="p">;</span>
+   <span class="n">B</span> <span class="p">:</span> <span class="n">Integer</span> <span class="nb">range</span> <span class="mi">1</span> <span class="o">..</span> <span class="mi">120</span><span class="p">;</span>
+<span class="n">end</span> <span class="n">record</span><span class="p">;</span>
+
+<span class="k">for</span> <span class="n">R2</span><span class="s1">&#39;Bit_Order use High_Order_First;</span>
+
+<span class="k">for</span> <span class="n">R2</span> <span class="n">use</span> <span class="n">record</span>
+   <span class="n">A</span> <span class="n">at</span> <span class="mi">0</span> <span class="nb">range</span> <span class="mi">7</span> <span class="o">..</span> <span class="mi">7</span><span class="p">;</span>
+   <span class="n">B</span> <span class="n">at</span> <span class="mi">0</span> <span class="nb">range</span> <span class="mi">0</span> <span class="o">..</span> <span class="mi">6</span><span class="p">;</span>
+<span class="n">end</span> <span class="n">record</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The useful application here is to write the second declaration with the
+<code class="docutils literal notranslate"><span class="pre">Bit_Order</span></code> attribute definition clause, and know that it will be treated
+the same, regardless of whether the target is little-endian or big-endian.</p>
+</li>
+<li><p>Components occupying an integral number of bytes.</p>
+<p>These are components that exactly fit in two or more bytes.  Such component
+declarations are allowed, but have no effect, since it is important to realize
+that the <code class="docutils literal notranslate"><span class="pre">Bit_Order</span></code> specification does not affect the ordering of bytes.
+In particular, the following attempt at getting an endian-independent integer
+does not work:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span> <span class="n">R2</span> <span class="ow">is</span> <span class="n">record</span>
+   <span class="n">A</span> <span class="p">:</span> <span class="n">Integer</span><span class="p">;</span>
+<span class="n">end</span> <span class="n">record</span><span class="p">;</span>
+
+<span class="k">for</span> <span class="n">R2</span><span class="s1">&#39;Bit_Order use High_Order_First;</span>
+
+<span class="k">for</span> <span class="n">R2</span> <span class="n">use</span> <span class="n">record</span>
+   <span class="n">A</span> <span class="n">at</span> <span class="mi">0</span> <span class="nb">range</span> <span class="mi">0</span> <span class="o">..</span> <span class="mi">31</span><span class="p">;</span>
+<span class="n">end</span> <span class="n">record</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>This declaration will result in a little-endian integer on a
+little-endian machine, and a big-endian integer on a big-endian machine.
+If byte flipping is required for interoperability between big- and
+little-endian machines, this must be explicitly programmed.  This capability
+is not provided by <code class="docutils literal notranslate"><span class="pre">Bit_Order</span></code>.</p>
+</li>
+<li><p>Components that are positioned across byte boundaries.</p>
+<p>but do not occupy an integral number of bytes.  Given that bytes are not
+reordered, such fields would occupy a non-contiguous sequence of bits
+in memory, requiring non-trivial code to reassemble.  They are for this
+reason not permitted, and any component clause specifying such a layout
+will be flagged as illegal by GNAT.</p>
+</li>
+</ul>
+<p>Since the misconception that Bit_Order automatically deals with all
+endian-related incompatibilities is a common one, the specification of
+a component field that is an integral number of bytes will always
+generate a warning.  This warning may be suppressed using <code class="docutils literal notranslate"><span class="pre">pragma</span> <span class="pre">Warnings</span> <span class="pre">(Off)</span></code>
+if desired.  The following section contains additional
+details regarding the issue of byte ordering.</p>
+</div>
+<div class="section" id="effect-of-bit-order-on-byte-ordering">
+<span id="id10"></span><h2><span class="section-number">9.9. </span>Effect of Bit_Order on Byte Ordering<a class="headerlink" href="#effect-of-bit-order-on-byte-ordering" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="index-21"></span><p id="index-22">In this section we will review the effect of the <code class="docutils literal notranslate"><span class="pre">Bit_Order</span></code> attribute
+definition clause on byte ordering.  Briefly, it has no effect at all, but
+a detailed example will be helpful.  Before giving this
+example, let us review the precise
+definition of the effect of defining <code class="docutils literal notranslate"><span class="pre">Bit_Order</span></code>.  The effect of a
+non-standard bit order is described in section 13.5.3 of the Ada
+Reference Manual:</p>
+<blockquote>
+<div><p>“2   A bit ordering is a method of interpreting the meaning of
+the storage place attributes.”</p>
+</div></blockquote>
+<p>To understand the precise definition of storage place attributes in
+this context, we visit section 13.5.1 of the manual:</p>
+<blockquote>
+<div><p>“13   A record_representation_clause (without the mod_clause)
+specifies the layout.  The storage place attributes (see 13.5.2)
+are taken from the values of the position, first_bit, and last_bit
+expressions after normalizing those values so that first_bit is
+less than Storage_Unit.”</p>
+</div></blockquote>
+<p>The critical point here is that storage places are taken from
+the values after normalization, not before.  So the <code class="docutils literal notranslate"><span class="pre">Bit_Order</span></code>
+interpretation applies to normalized values.  The interpretation
+is described in the later part of the 13.5.3 paragraph:</p>
+<blockquote>
+<div><p>“2   A bit ordering is a method of interpreting the meaning of
+the storage place attributes.  High_Order_First (known in the
+vernacular as ‘big endian’) means that the first bit of a
+storage element (bit 0) is the most significant bit (interpreting
+the sequence of bits that represent a component as an unsigned
+integer value).  Low_Order_First (known in the vernacular as
+‘little endian’) means the opposite: the first bit is the
+least significant.”</p>
+</div></blockquote>
+<p>Note that the numbering is with respect to the bits of a storage
+unit.  In other words, the specification affects only the numbering
+of bits within a single storage unit.</p>
+<p>We can make the effect clearer by giving an example.</p>
+<p>Suppose that we have an external device which presents two bytes, the first
+byte presented, which is the first (low addressed byte) of the two byte
+record is called Master, and the second byte is called Slave.</p>
+<p>The left most (most significant bit is called Control for each byte, and
+the remaining 7 bits are called V1, V2, … V7, where V7 is the rightmost
+(least significant) bit.</p>
+<p>On a big-endian machine, we can write the following representation clause</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kr">type</span><span class="p"> </span><span class="n">Data</span> <span class="kr">is</span><span class="p"> </span><span class="kr">record</span><span class="p"></span>
+   <span class="n">Master_Control</span> <span class="o">:</span> <span class="n">Bit</span><span class="p">;</span>
+   <span class="n">Master_V1</span>      <span class="o">:</span> <span class="n">Bit</span><span class="p">;</span>
+   <span class="n">Master_V2</span>      <span class="o">:</span> <span class="n">Bit</span><span class="p">;</span>
+   <span class="n">Master_V3</span>      <span class="o">:</span> <span class="n">Bit</span><span class="p">;</span>
+   <span class="n">Master_V4</span>      <span class="o">:</span> <span class="n">Bit</span><span class="p">;</span>
+   <span class="n">Master_V5</span>      <span class="o">:</span> <span class="n">Bit</span><span class="p">;</span>
+   <span class="n">Master_V6</span>      <span class="o">:</span> <span class="n">Bit</span><span class="p">;</span>
+   <span class="n">Master_V7</span>      <span class="o">:</span> <span class="n">Bit</span><span class="p">;</span>
+   <span class="n">Slave_Control</span>  <span class="o">:</span> <span class="n">Bit</span><span class="p">;</span>
+   <span class="n">Slave_V1</span>       <span class="o">:</span> <span class="n">Bit</span><span class="p">;</span>
+   <span class="n">Slave_V2</span>       <span class="o">:</span> <span class="n">Bit</span><span class="p">;</span>
+   <span class="n">Slave_V3</span>       <span class="o">:</span> <span class="n">Bit</span><span class="p">;</span>
+   <span class="n">Slave_V4</span>       <span class="o">:</span> <span class="n">Bit</span><span class="p">;</span>
+   <span class="n">Slave_V5</span>       <span class="o">:</span> <span class="n">Bit</span><span class="p">;</span>
+   <span class="n">Slave_V6</span>       <span class="o">:</span> <span class="n">Bit</span><span class="p">;</span>
+   <span class="n">Slave_V7</span>       <span class="o">:</span> <span class="n">Bit</span><span class="p">;</span>
+<span class="k">end record</span><span class="p">;</span>
+
+<span class="kr">for</span><span class="p"> </span><span class="n">Data</span> <span class="kr">use</span><span class="p"> </span><span class="kr">record</span><span class="p"></span>
+   <span class="n">Master_Control</span> <span class="kr">at</span><span class="p"> </span><span class="mi">0</span> <span class="kr">range</span><span class="p"> </span><span class="mi">0</span> <span class="o">..</span> <span class="mi">0</span><span class="p">;</span>
+   <span class="n">Master_V1</span>      <span class="kr">at</span><span class="p"> </span><span class="mi">0</span> <span class="kr">range</span><span class="p"> </span><span class="mi">1</span> <span class="o">..</span> <span class="mi">1</span><span class="p">;</span>
+   <span class="n">Master_V2</span>      <span class="kr">at</span><span class="p"> </span><span class="mi">0</span> <span class="kr">range</span><span class="p"> </span><span class="mi">2</span> <span class="o">..</span> <span class="mi">2</span><span class="p">;</span>
+   <span class="n">Master_V3</span>      <span class="kr">at</span><span class="p"> </span><span class="mi">0</span> <span class="kr">range</span><span class="p"> </span><span class="mi">3</span> <span class="o">..</span> <span class="mi">3</span><span class="p">;</span>
+   <span class="n">Master_V4</span>      <span class="kr">at</span><span class="p"> </span><span class="mi">0</span> <span class="kr">range</span><span class="p"> </span><span class="mi">4</span> <span class="o">..</span> <span class="mi">4</span><span class="p">;</span>
+   <span class="n">Master_V5</span>      <span class="kr">at</span><span class="p"> </span><span class="mi">0</span> <span class="kr">range</span><span class="p"> </span><span class="mi">5</span> <span class="o">..</span> <span class="mi">5</span><span class="p">;</span>
+   <span class="n">Master_V6</span>      <span class="kr">at</span><span class="p"> </span><span class="mi">0</span> <span class="kr">range</span><span class="p"> </span><span class="mi">6</span> <span class="o">..</span> <span class="mi">6</span><span class="p">;</span>
+   <span class="n">Master_V7</span>      <span class="kr">at</span><span class="p"> </span><span class="mi">0</span> <span class="kr">range</span><span class="p"> </span><span class="mi">7</span> <span class="o">..</span> <span class="mi">7</span><span class="p">;</span>
+   <span class="n">Slave_Control</span>  <span class="kr">at</span><span class="p"> </span><span class="mi">1</span> <span class="kr">range</span><span class="p"> </span><span class="mi">0</span> <span class="o">..</span> <span class="mi">0</span><span class="p">;</span>
+   <span class="n">Slave_V1</span>       <span class="kr">at</span><span class="p"> </span><span class="mi">1</span> <span class="kr">range</span><span class="p"> </span><span class="mi">1</span> <span class="o">..</span> <span class="mi">1</span><span class="p">;</span>
+   <span class="n">Slave_V2</span>       <span class="kr">at</span><span class="p"> </span><span class="mi">1</span> <span class="kr">range</span><span class="p"> </span><span class="mi">2</span> <span class="o">..</span> <span class="mi">2</span><span class="p">;</span>
+   <span class="n">Slave_V3</span>       <span class="kr">at</span><span class="p"> </span><span class="mi">1</span> <span class="kr">range</span><span class="p"> </span><span class="mi">3</span> <span class="o">..</span> <span class="mi">3</span><span class="p">;</span>
+   <span class="n">Slave_V4</span>       <span class="kr">at</span><span class="p"> </span><span class="mi">1</span> <span class="kr">range</span><span class="p"> </span><span class="mi">4</span> <span class="o">..</span> <span class="mi">4</span><span class="p">;</span>
+   <span class="n">Slave_V5</span>       <span class="kr">at</span><span class="p"> </span><span class="mi">1</span> <span class="kr">range</span><span class="p"> </span><span class="mi">5</span> <span class="o">..</span> <span class="mi">5</span><span class="p">;</span>
+   <span class="n">Slave_V6</span>       <span class="kr">at</span><span class="p"> </span><span class="mi">1</span> <span class="kr">range</span><span class="p"> </span><span class="mi">6</span> <span class="o">..</span> <span class="mi">6</span><span class="p">;</span>
+   <span class="n">Slave_V7</span>       <span class="kr">at</span><span class="p"> </span><span class="mi">1</span> <span class="kr">range</span><span class="p"> </span><span class="mi">7</span> <span class="o">..</span> <span class="mi">7</span><span class="p">;</span>
+<span class="k">end record</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Now if we move this to a little endian machine, then the bit ordering within
+the byte is backwards, so we have to rewrite the record rep clause as:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kr">for</span><span class="p"> </span><span class="n">Data</span> <span class="kr">use</span><span class="p"> </span><span class="kr">record</span><span class="p"></span>
+   <span class="n">Master_Control</span> <span class="kr">at</span><span class="p"> </span><span class="mi">0</span> <span class="kr">range</span><span class="p"> </span><span class="mi">7</span> <span class="o">..</span> <span class="mi">7</span><span class="p">;</span>
+   <span class="n">Master_V1</span>      <span class="kr">at</span><span class="p"> </span><span class="mi">0</span> <span class="kr">range</span><span class="p"> </span><span class="mi">6</span> <span class="o">..</span> <span class="mi">6</span><span class="p">;</span>
+   <span class="n">Master_V2</span>      <span class="kr">at</span><span class="p"> </span><span class="mi">0</span> <span class="kr">range</span><span class="p"> </span><span class="mi">5</span> <span class="o">..</span> <span class="mi">5</span><span class="p">;</span>
+   <span class="n">Master_V3</span>      <span class="kr">at</span><span class="p"> </span><span class="mi">0</span> <span class="kr">range</span><span class="p"> </span><span class="mi">4</span> <span class="o">..</span> <span class="mi">4</span><span class="p">;</span>
+   <span class="n">Master_V4</span>      <span class="kr">at</span><span class="p"> </span><span class="mi">0</span> <span class="kr">range</span><span class="p"> </span><span class="mi">3</span> <span class="o">..</span> <span class="mi">3</span><span class="p">;</span>
+   <span class="n">Master_V5</span>      <span class="kr">at</span><span class="p"> </span><span class="mi">0</span> <span class="kr">range</span><span class="p"> </span><span class="mi">2</span> <span class="o">..</span> <span class="mi">2</span><span class="p">;</span>
+   <span class="n">Master_V6</span>      <span class="kr">at</span><span class="p"> </span><span class="mi">0</span> <span class="kr">range</span><span class="p"> </span><span class="mi">1</span> <span class="o">..</span> <span class="mi">1</span><span class="p">;</span>
+   <span class="n">Master_V7</span>      <span class="kr">at</span><span class="p"> </span><span class="mi">0</span> <span class="kr">range</span><span class="p"> </span><span class="mi">0</span> <span class="o">..</span> <span class="mi">0</span><span class="p">;</span>
+   <span class="n">Slave_Control</span>  <span class="kr">at</span><span class="p"> </span><span class="mi">1</span> <span class="kr">range</span><span class="p"> </span><span class="mi">7</span> <span class="o">..</span> <span class="mi">7</span><span class="p">;</span>
+   <span class="n">Slave_V1</span>       <span class="kr">at</span><span class="p"> </span><span class="mi">1</span> <span class="kr">range</span><span class="p"> </span><span class="mi">6</span> <span class="o">..</span> <span class="mi">6</span><span class="p">;</span>
+   <span class="n">Slave_V2</span>       <span class="kr">at</span><span class="p"> </span><span class="mi">1</span> <span class="kr">range</span><span class="p"> </span><span class="mi">5</span> <span class="o">..</span> <span class="mi">5</span><span class="p">;</span>
+   <span class="n">Slave_V3</span>       <span class="kr">at</span><span class="p"> </span><span class="mi">1</span> <span class="kr">range</span><span class="p"> </span><span class="mi">4</span> <span class="o">..</span> <span class="mi">4</span><span class="p">;</span>
+   <span class="n">Slave_V4</span>       <span class="kr">at</span><span class="p"> </span><span class="mi">1</span> <span class="kr">range</span><span class="p"> </span><span class="mi">3</span> <span class="o">..</span> <span class="mi">3</span><span class="p">;</span>
+   <span class="n">Slave_V5</span>       <span class="kr">at</span><span class="p"> </span><span class="mi">1</span> <span class="kr">range</span><span class="p"> </span><span class="mi">2</span> <span class="o">..</span> <span class="mi">2</span><span class="p">;</span>
+   <span class="n">Slave_V6</span>       <span class="kr">at</span><span class="p"> </span><span class="mi">1</span> <span class="kr">range</span><span class="p"> </span><span class="mi">1</span> <span class="o">..</span> <span class="mi">1</span><span class="p">;</span>
+   <span class="n">Slave_V7</span>       <span class="kr">at</span><span class="p"> </span><span class="mi">1</span> <span class="kr">range</span><span class="p"> </span><span class="mi">0</span> <span class="o">..</span> <span class="mi">0</span><span class="p">;</span>
+<span class="k">end record</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>It is a nuisance to have to rewrite the clause, especially if
+the code has to be maintained on both machines.  However,
+this is a case that we can handle with the
+<code class="docutils literal notranslate"><span class="pre">Bit_Order</span></code> attribute if it is implemented.
+Note that the implementation is not required on byte addressed
+machines, but it is indeed implemented in GNAT.
+This means that we can simply use the
+first record clause, together with the declaration</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kr">for</span><span class="p"> </span><span class="n">Data</span><span class="na">&#39;Bit_Order</span> <span class="kr">use</span><span class="p"> </span><span class="n">High_Order_First</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>and the effect is what is desired, namely the layout is exactly the same,
+independent of whether the code is compiled on a big-endian or little-endian
+machine.</p>
+<p>The important point to understand is that byte ordering is not affected.
+A <code class="docutils literal notranslate"><span class="pre">Bit_Order</span></code> attribute definition never affects which byte a field
+ends up in, only where it ends up in that byte.
+To make this clear, let us rewrite the record rep clause of the previous
+example as:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kr">for</span><span class="p"> </span><span class="n">Data</span><span class="na">&#39;Bit_Order</span> <span class="kr">use</span><span class="p"> </span><span class="n">High_Order_First</span><span class="p">;</span>
+<span class="kr">for</span><span class="p"> </span><span class="n">Data</span> <span class="kr">use</span><span class="p"> </span><span class="kr">record</span><span class="p"></span>
+   <span class="n">Master_Control</span> <span class="kr">at</span><span class="p"> </span><span class="mi">0</span> <span class="kr">range</span><span class="p"> </span> <span class="mi">0</span> <span class="o">..</span> <span class="mi">0</span><span class="p">;</span>
+   <span class="n">Master_V1</span>      <span class="kr">at</span><span class="p"> </span><span class="mi">0</span> <span class="kr">range</span><span class="p"> </span> <span class="mi">1</span> <span class="o">..</span> <span class="mi">1</span><span class="p">;</span>
+   <span class="n">Master_V2</span>      <span class="kr">at</span><span class="p"> </span><span class="mi">0</span> <span class="kr">range</span><span class="p"> </span> <span class="mi">2</span> <span class="o">..</span> <span class="mi">2</span><span class="p">;</span>
+   <span class="n">Master_V3</span>      <span class="kr">at</span><span class="p"> </span><span class="mi">0</span> <span class="kr">range</span><span class="p"> </span> <span class="mi">3</span> <span class="o">..</span> <span class="mi">3</span><span class="p">;</span>
+   <span class="n">Master_V4</span>      <span class="kr">at</span><span class="p"> </span><span class="mi">0</span> <span class="kr">range</span><span class="p"> </span> <span class="mi">4</span> <span class="o">..</span> <span class="mi">4</span><span class="p">;</span>
+   <span class="n">Master_V5</span>      <span class="kr">at</span><span class="p"> </span><span class="mi">0</span> <span class="kr">range</span><span class="p"> </span> <span class="mi">5</span> <span class="o">..</span> <span class="mi">5</span><span class="p">;</span>
+   <span class="n">Master_V6</span>      <span class="kr">at</span><span class="p"> </span><span class="mi">0</span> <span class="kr">range</span><span class="p"> </span> <span class="mi">6</span> <span class="o">..</span> <span class="mi">6</span><span class="p">;</span>
+   <span class="n">Master_V7</span>      <span class="kr">at</span><span class="p"> </span><span class="mi">0</span> <span class="kr">range</span><span class="p"> </span> <span class="mi">7</span> <span class="o">..</span> <span class="mi">7</span><span class="p">;</span>
+   <span class="n">Slave_Control</span>  <span class="kr">at</span><span class="p"> </span><span class="mi">0</span> <span class="kr">range</span><span class="p"> </span> <span class="mi">8</span> <span class="o">..</span> <span class="mi">8</span><span class="p">;</span>
+   <span class="n">Slave_V1</span>       <span class="kr">at</span><span class="p"> </span><span class="mi">0</span> <span class="kr">range</span><span class="p"> </span> <span class="mi">9</span> <span class="o">..</span> <span class="mi">9</span><span class="p">;</span>
+   <span class="n">Slave_V2</span>       <span class="kr">at</span><span class="p"> </span><span class="mi">0</span> <span class="kr">range</span><span class="p"> </span><span class="mi">10</span> <span class="o">..</span> <span class="mi">10</span><span class="p">;</span>
+   <span class="n">Slave_V3</span>       <span class="kr">at</span><span class="p"> </span><span class="mi">0</span> <span class="kr">range</span><span class="p"> </span><span class="mi">11</span> <span class="o">..</span> <span class="mi">11</span><span class="p">;</span>
+   <span class="n">Slave_V4</span>       <span class="kr">at</span><span class="p"> </span><span class="mi">0</span> <span class="kr">range</span><span class="p"> </span><span class="mi">12</span> <span class="o">..</span> <span class="mi">12</span><span class="p">;</span>
+   <span class="n">Slave_V5</span>       <span class="kr">at</span><span class="p"> </span><span class="mi">0</span> <span class="kr">range</span><span class="p"> </span><span class="mi">13</span> <span class="o">..</span> <span class="mi">13</span><span class="p">;</span>
+   <span class="n">Slave_V6</span>       <span class="kr">at</span><span class="p"> </span><span class="mi">0</span> <span class="kr">range</span><span class="p"> </span><span class="mi">14</span> <span class="o">..</span> <span class="mi">14</span><span class="p">;</span>
+   <span class="n">Slave_V7</span>       <span class="kr">at</span><span class="p"> </span><span class="mi">0</span> <span class="kr">range</span><span class="p"> </span><span class="mi">15</span> <span class="o">..</span> <span class="mi">15</span><span class="p">;</span>
+<span class="k">end record</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>This is exactly equivalent to saying (a repeat of the first example):</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kr">for</span><span class="p"> </span><span class="n">Data</span><span class="na">&#39;Bit_Order</span> <span class="kr">use</span><span class="p"> </span><span class="n">High_Order_First</span><span class="p">;</span>
+<span class="kr">for</span><span class="p"> </span><span class="n">Data</span> <span class="kr">use</span><span class="p"> </span><span class="kr">record</span><span class="p"></span>
+   <span class="n">Master_Control</span> <span class="kr">at</span><span class="p"> </span><span class="mi">0</span> <span class="kr">range</span><span class="p"> </span><span class="mi">0</span> <span class="o">..</span> <span class="mi">0</span><span class="p">;</span>
+   <span class="n">Master_V1</span>      <span class="kr">at</span><span class="p"> </span><span class="mi">0</span> <span class="kr">range</span><span class="p"> </span><span class="mi">1</span> <span class="o">..</span> <span class="mi">1</span><span class="p">;</span>
+   <span class="n">Master_V2</span>      <span class="kr">at</span><span class="p"> </span><span class="mi">0</span> <span class="kr">range</span><span class="p"> </span><span class="mi">2</span> <span class="o">..</span> <span class="mi">2</span><span class="p">;</span>
+   <span class="n">Master_V3</span>      <span class="kr">at</span><span class="p"> </span><span class="mi">0</span> <span class="kr">range</span><span class="p"> </span><span class="mi">3</span> <span class="o">..</span> <span class="mi">3</span><span class="p">;</span>
+   <span class="n">Master_V4</span>      <span class="kr">at</span><span class="p"> </span><span class="mi">0</span> <span class="kr">range</span><span class="p"> </span><span class="mi">4</span> <span class="o">..</span> <span class="mi">4</span><span class="p">;</span>
+   <span class="n">Master_V5</span>      <span class="kr">at</span><span class="p"> </span><span class="mi">0</span> <span class="kr">range</span><span class="p"> </span><span class="mi">5</span> <span class="o">..</span> <span class="mi">5</span><span class="p">;</span>
+   <span class="n">Master_V6</span>      <span class="kr">at</span><span class="p"> </span><span class="mi">0</span> <span class="kr">range</span><span class="p"> </span><span class="mi">6</span> <span class="o">..</span> <span class="mi">6</span><span class="p">;</span>
+   <span class="n">Master_V7</span>      <span class="kr">at</span><span class="p"> </span><span class="mi">0</span> <span class="kr">range</span><span class="p"> </span><span class="mi">7</span> <span class="o">..</span> <span class="mi">7</span><span class="p">;</span>
+   <span class="n">Slave_Control</span>  <span class="kr">at</span><span class="p"> </span><span class="mi">1</span> <span class="kr">range</span><span class="p"> </span><span class="mi">0</span> <span class="o">..</span> <span class="mi">0</span><span class="p">;</span>
+   <span class="n">Slave_V1</span>       <span class="kr">at</span><span class="p"> </span><span class="mi">1</span> <span class="kr">range</span><span class="p"> </span><span class="mi">1</span> <span class="o">..</span> <span class="mi">1</span><span class="p">;</span>
+   <span class="n">Slave_V2</span>       <span class="kr">at</span><span class="p"> </span><span class="mi">1</span> <span class="kr">range</span><span class="p"> </span><span class="mi">2</span> <span class="o">..</span> <span class="mi">2</span><span class="p">;</span>
+   <span class="n">Slave_V3</span>       <span class="kr">at</span><span class="p"> </span><span class="mi">1</span> <span class="kr">range</span><span class="p"> </span><span class="mi">3</span> <span class="o">..</span> <span class="mi">3</span><span class="p">;</span>
+   <span class="n">Slave_V4</span>       <span class="kr">at</span><span class="p"> </span><span class="mi">1</span> <span class="kr">range</span><span class="p"> </span><span class="mi">4</span> <span class="o">..</span> <span class="mi">4</span><span class="p">;</span>
+   <span class="n">Slave_V5</span>       <span class="kr">at</span><span class="p"> </span><span class="mi">1</span> <span class="kr">range</span><span class="p"> </span><span class="mi">5</span> <span class="o">..</span> <span class="mi">5</span><span class="p">;</span>
+   <span class="n">Slave_V6</span>       <span class="kr">at</span><span class="p"> </span><span class="mi">1</span> <span class="kr">range</span><span class="p"> </span><span class="mi">6</span> <span class="o">..</span> <span class="mi">6</span><span class="p">;</span>
+   <span class="n">Slave_V7</span>       <span class="kr">at</span><span class="p"> </span><span class="mi">1</span> <span class="kr">range</span><span class="p"> </span><span class="mi">7</span> <span class="o">..</span> <span class="mi">7</span><span class="p">;</span>
+<span class="k">end record</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Why are they equivalent? Well take a specific field, the <code class="docutils literal notranslate"><span class="pre">Slave_V2</span></code>
+field.  The storage place attributes are obtained by normalizing the
+values given so that the <code class="docutils literal notranslate"><span class="pre">First_Bit</span></code> value is less than 8.  After
+normalizing the values (0,10,10) we get (1,2,2) which is exactly what
+we specified in the other case.</p>
+<p>Now one might expect that the <code class="docutils literal notranslate"><span class="pre">Bit_Order</span></code> attribute might affect
+bit numbering within the entire record component (two bytes in this
+case, thus affecting which byte fields end up in), but that is not
+the way this feature is defined, it only affects numbering of bits,
+not which byte they end up in.</p>
+<p>Consequently it never makes sense to specify a starting bit number
+greater than 7 (for a byte addressable field) if an attribute
+definition for <code class="docutils literal notranslate"><span class="pre">Bit_Order</span></code> has been given, and indeed it
+may be actively confusing to specify such a value, so the compiler
+generates a warning for such usage.</p>
+<p>If you do need to control byte ordering then appropriate conditional
+values must be used.  If in our example, the slave byte came first on
+some machines we might write:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="n">Master_Byte_First</span> <span class="kr">constant</span><span class="p"> </span><span class="n">Boolean</span> <span class="o">:=</span> <span class="o">...</span><span class="p">;</span>
+
+<span class="n">Master_Byte</span> <span class="o">:</span> <span class="kr">constant</span><span class="p"> </span><span class="n">Natural</span> <span class="o">:=</span>
+                <span class="mi">1</span> <span class="o">-</span> <span class="n">Boolean</span><span class="na">&#39;Pos</span> <span class="o">(</span><span class="n">Master_Byte_First</span><span class="o">)</span><span class="p">;</span>
+<span class="n">Slave_Byte</span>  <span class="o">:</span> <span class="kr">constant</span><span class="p"> </span><span class="n">Natural</span> <span class="o">:=</span>
+                <span class="n">Boolean</span><span class="na">&#39;Pos</span> <span class="o">(</span><span class="n">Master_Byte_First</span><span class="o">)</span><span class="p">;</span>
+
+<span class="kr">for</span><span class="p"> </span><span class="n">Data</span><span class="na">&#39;Bit_Order</span> <span class="kr">use</span><span class="p"> </span><span class="n">High_Order_First</span><span class="p">;</span>
+<span class="kr">for</span><span class="p"> </span><span class="n">Data</span> <span class="kr">use</span><span class="p"> </span><span class="kr">record</span><span class="p"></span>
+   <span class="n">Master_Control</span> <span class="kr">at</span><span class="p"> </span><span class="n">Master_Byte</span> <span class="kr">range</span><span class="p"> </span><span class="mi">0</span> <span class="o">..</span> <span class="mi">0</span><span class="p">;</span>
+   <span class="n">Master_V1</span>      <span class="kr">at</span><span class="p"> </span><span class="n">Master_Byte</span> <span class="kr">range</span><span class="p"> </span><span class="mi">1</span> <span class="o">..</span> <span class="mi">1</span><span class="p">;</span>
+   <span class="n">Master_V2</span>      <span class="kr">at</span><span class="p"> </span><span class="n">Master_Byte</span> <span class="kr">range</span><span class="p"> </span><span class="mi">2</span> <span class="o">..</span> <span class="mi">2</span><span class="p">;</span>
+   <span class="n">Master_V3</span>      <span class="kr">at</span><span class="p"> </span><span class="n">Master_Byte</span> <span class="kr">range</span><span class="p"> </span><span class="mi">3</span> <span class="o">..</span> <span class="mi">3</span><span class="p">;</span>
+   <span class="n">Master_V4</span>      <span class="kr">at</span><span class="p"> </span><span class="n">Master_Byte</span> <span class="kr">range</span><span class="p"> </span><span class="mi">4</span> <span class="o">..</span> <span class="mi">4</span><span class="p">;</span>
+   <span class="n">Master_V5</span>      <span class="kr">at</span><span class="p"> </span><span class="n">Master_Byte</span> <span class="kr">range</span><span class="p"> </span><span class="mi">5</span> <span class="o">..</span> <span class="mi">5</span><span class="p">;</span>
+   <span class="n">Master_V6</span>      <span class="kr">at</span><span class="p"> </span><span class="n">Master_Byte</span> <span class="kr">range</span><span class="p"> </span><span class="mi">6</span> <span class="o">..</span> <span class="mi">6</span><span class="p">;</span>
+   <span class="n">Master_V7</span>      <span class="kr">at</span><span class="p"> </span><span class="n">Master_Byte</span> <span class="kr">range</span><span class="p"> </span><span class="mi">7</span> <span class="o">..</span> <span class="mi">7</span><span class="p">;</span>
+   <span class="n">Slave_Control</span>  <span class="kr">at</span><span class="p"> </span><span class="n">Slave_Byte</span>  <span class="kr">range</span><span class="p"> </span><span class="mi">0</span> <span class="o">..</span> <span class="mi">0</span><span class="p">;</span>
+   <span class="n">Slave_V1</span>       <span class="kr">at</span><span class="p"> </span><span class="n">Slave_Byte</span>  <span class="kr">range</span><span class="p"> </span><span class="mi">1</span> <span class="o">..</span> <span class="mi">1</span><span class="p">;</span>
+   <span class="n">Slave_V2</span>       <span class="kr">at</span><span class="p"> </span><span class="n">Slave_Byte</span>  <span class="kr">range</span><span class="p"> </span><span class="mi">2</span> <span class="o">..</span> <span class="mi">2</span><span class="p">;</span>
+   <span class="n">Slave_V3</span>       <span class="kr">at</span><span class="p"> </span><span class="n">Slave_Byte</span>  <span class="kr">range</span><span class="p"> </span><span class="mi">3</span> <span class="o">..</span> <span class="mi">3</span><span class="p">;</span>
+   <span class="n">Slave_V4</span>       <span class="kr">at</span><span class="p"> </span><span class="n">Slave_Byte</span>  <span class="kr">range</span><span class="p"> </span><span class="mi">4</span> <span class="o">..</span> <span class="mi">4</span><span class="p">;</span>
+   <span class="n">Slave_V5</span>       <span class="kr">at</span><span class="p"> </span><span class="n">Slave_Byte</span>  <span class="kr">range</span><span class="p"> </span><span class="mi">5</span> <span class="o">..</span> <span class="mi">5</span><span class="p">;</span>
+   <span class="n">Slave_V6</span>       <span class="kr">at</span><span class="p"> </span><span class="n">Slave_Byte</span>  <span class="kr">range</span><span class="p"> </span><span class="mi">6</span> <span class="o">..</span> <span class="mi">6</span><span class="p">;</span>
+   <span class="n">Slave_V7</span>       <span class="kr">at</span><span class="p"> </span><span class="n">Slave_Byte</span>  <span class="kr">range</span><span class="p"> </span><span class="mi">7</span> <span class="o">..</span> <span class="mi">7</span><span class="p">;</span>
+<span class="k">end record</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Now to switch between machines, all that is necessary is
+to set the boolean constant <code class="docutils literal notranslate"><span class="pre">Master_Byte_First</span></code> in
+an appropriate manner.</p>
+</div>
+<div class="section" id="pragma-pack-for-arrays">
+<span id="id11"></span><h2><span class="section-number">9.10. </span>Pragma Pack for Arrays<a class="headerlink" href="#pragma-pack-for-arrays" title="Permalink to this headline">¶</a></h2>
+<p id="index-23">Pragma <code class="docutils literal notranslate"><span class="pre">Pack</span></code> applied to an array has an effect that depends upon whether the
+component type is <em>packable</em>.  For a component type to be <em>packable</em>, it must
+be one of the following cases:</p>
+<ul class="simple">
+<li><p>Any elementary type.</p></li>
+<li><p>Any small packed array type with a static size.</p></li>
+<li><p>Any small simple record type with a static size.</p></li>
+</ul>
+<p>For all these cases, if the component subtype size is in the range
+1 through 63 on 32-bit targets, and 1 through 127 on 64-bit targets,
+then the effect of the pragma <code class="docutils literal notranslate"><span class="pre">Pack</span></code> is exactly as though a
+component size were specified giving the component subtype size.</p>
+<p>All other types are non-packable, they occupy an integral number of storage
+units and the only effect of pragma Pack is to remove alignment gaps.</p>
+<p>For example if we have:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kr">type</span><span class="p"> </span><span class="n">r</span> <span class="kr">is</span><span class="p"> </span><span class="kr">range</span><span class="p"> </span><span class="mi">0</span> <span class="o">..</span> <span class="mi">17</span><span class="p">;</span>
+
+<span class="kr">type</span><span class="p"> </span><span class="n">ar</span> <span class="kr">is</span><span class="p"> </span><span class="kr">array</span><span class="p"> </span><span class="o">(</span><span class="mi">1</span> <span class="o">..</span> <span class="mi">8</span><span class="o">)</span> <span class="kr">of</span><span class="p"> </span><span class="n">r</span><span class="p">;</span>
+<span class="kr">pragma</span><span class="p"> </span><span class="n">Pack</span> <span class="o">(</span><span class="n">ar</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Then the component size of <code class="docutils literal notranslate"><span class="pre">ar</span></code> will be set to 5 (i.e., to <code class="docutils literal notranslate"><span class="pre">r'size</span></code>,
+and the size of the array <code class="docutils literal notranslate"><span class="pre">ar</span></code> will be exactly 40 bits).</p>
+<p>Note that in some cases this rather fierce approach to packing can produce
+unexpected effects.  For example, in Ada 95 and Ada 2005,
+subtype <code class="docutils literal notranslate"><span class="pre">Natural</span></code> typically has a size of 31, meaning that if you
+pack an array of <code class="docutils literal notranslate"><span class="pre">Natural</span></code>, you get 31-bit
+close packing, which saves a few bits, but results in far less efficient
+access.  Since many other Ada compilers will ignore such a packing request,
+GNAT will generate a warning on some uses of pragma <code class="docutils literal notranslate"><span class="pre">Pack</span></code> that it guesses
+might not be what is intended.  You can easily remove this warning by
+using an explicit <code class="docutils literal notranslate"><span class="pre">Component_Size</span></code> setting instead, which never generates
+a warning, since the intention of the programmer is clear in this case.</p>
+<p>GNAT treats packed arrays in one of two ways.  If the size of the array is
+known at compile time and is at most 64 bits on 32-bit targets, and at most
+128 bits on 64-bit targets, then internally the array is represented as a
+single modular type, of exactly the appropriate number of bits.  If the
+length is greater than 64 bits on 32-bit targets, and greater than 128
+bits on 64-bit targets, or is not known at compile time, then the packed
+array is represented as an array of bytes, and its length is always a
+multiple of 8 bits.</p>
+<p>Note that to represent a packed array as a modular type, the alignment must
+be suitable for the modular type involved. For example, on typical machines
+a 32-bit packed array will be represented by a 32-bit modular integer with
+an alignment of four bytes. If you explicitly override the default alignment
+with an alignment clause that is too small, the modular representation
+cannot be used. For example, consider the following set of declarations:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kr">type</span><span class="p"> </span><span class="n">R</span> <span class="kr">is</span><span class="p"> </span><span class="kr">range</span><span class="p"> </span><span class="mi">1</span> <span class="o">..</span> <span class="mi">3</span><span class="p">;</span>
+<span class="kr">type</span><span class="p"> </span><span class="n">S</span> <span class="kr">is</span><span class="p"> </span><span class="kr">array</span><span class="p"> </span><span class="o">(</span><span class="mi">1</span> <span class="o">..</span> <span class="mi">31</span><span class="o">)</span> <span class="kr">of</span><span class="p"> </span><span class="n">R</span><span class="p">;</span>
+<span class="kr">for</span><span class="p"> </span><span class="n">S</span><span class="na">&#39;Component_Size</span> <span class="kr">use</span><span class="p"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="kr">for</span><span class="p"> </span><span class="n">S</span><span class="na">&#39;Size</span> <span class="kr">use</span><span class="p"> </span><span class="mi">62</span><span class="p">;</span>
+<span class="kr">for</span><span class="p"> </span><span class="n">S</span><span class="na">&#39;Alignment</span> <span class="kr">use</span><span class="p"> </span><span class="mi">1</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>If the alignment clause were not present, then a 62-bit modular
+representation would be chosen (typically with an alignment of 4 or 8
+bytes depending on the target). But the default alignment is overridden
+with the explicit alignment clause. This means that the modular
+representation cannot be used, and instead the array of bytes
+representation must be used, meaning that the length must be a multiple
+of 8. Thus the above set of declarations will result in a diagnostic
+rejecting the size clause and noting that the minimum size allowed is 64.</p>
+<span class="target" id="index-24"></span><p id="index-25">One special case that is worth noting occurs when the base type of the
+component size is 8/16/32 and the subtype is one bit less. Notably this
+occurs with subtype <code class="docutils literal notranslate"><span class="pre">Natural</span></code>. Consider:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kr">type</span><span class="p"> </span><span class="n">Arr</span> <span class="kr">is</span><span class="p"> </span><span class="kr">array</span><span class="p"> </span><span class="o">(</span><span class="mi">1</span> <span class="o">..</span> <span class="mi">32</span><span class="o">)</span> <span class="kr">of</span><span class="p"> </span><span class="n">Natural</span><span class="p">;</span>
+<span class="kr">pragma</span><span class="p"> </span><span class="n">Pack</span> <span class="o">(</span><span class="n">Arr</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>In all commonly used Ada 83 compilers, this pragma Pack would be ignored,
+since typically <code class="docutils literal notranslate"><span class="pre">Natural'Size</span></code> is 32 in Ada 83, and in any case most
+Ada 83 compilers did not attempt 31 bit packing.</p>
+<p>In Ada 95 and Ada 2005, <code class="docutils literal notranslate"><span class="pre">Natural'Size</span></code> is required to be 31. Furthermore,
+GNAT really does pack 31-bit subtype to 31 bits. This may result in a
+substantial unintended performance penalty when porting legacy Ada 83 code.
+To help prevent this, GNAT generates a warning in such cases. If you really
+want 31 bit packing in a case like this, you can set the component size
+explicitly:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kr">type</span><span class="p"> </span><span class="n">Arr</span> <span class="kr">is</span><span class="p"> </span><span class="kr">array</span><span class="p"> </span><span class="o">(</span><span class="mi">1</span> <span class="o">..</span> <span class="mi">32</span><span class="o">)</span> <span class="kr">of</span><span class="p"> </span><span class="n">Natural</span><span class="p">;</span>
+<span class="kr">for</span><span class="p"> </span><span class="n">Arr</span><span class="na">&#39;Component_Size</span> <span class="kr">use</span><span class="p"> </span><span class="mi">31</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Here 31-bit packing is achieved as required, and no warning is generated,
+since in this case the programmer intention is clear.</p>
+</div>
+<div class="section" id="pragma-pack-for-records">
+<span id="id12"></span><h2><span class="section-number">9.11. </span>Pragma Pack for Records<a class="headerlink" href="#pragma-pack-for-records" title="Permalink to this headline">¶</a></h2>
+<p id="index-26">Pragma <code class="docutils literal notranslate"><span class="pre">Pack</span></code> applied to a record will pack the components to reduce
+wasted space from alignment gaps and by reducing the amount of space
+taken by components.  We distinguish between <em>packable</em> components and
+<em>non-packable</em> components.
+Components of the following types are considered packable:</p>
+<ul class="simple">
+<li><p>Components of an elementary type are packable unless they are aliased,
+independent or atomic.</p></li>
+<li><p>Small packed arrays, where the size is statically known, are represented
+internally as modular integers, and so they are also packable.</p></li>
+<li><p>Small simple records, where the size is statically known, are also packable.</p></li>
+</ul>
+<p>For all these cases, if the <code class="docutils literal notranslate"><span class="pre">'Size</span></code> value is in the range 1 through 64 on
+32-bit targets, and 1 through 128 on 64-bit targets, the components occupy
+the exact number of bits corresponding to this value and are packed with no
+padding bits, i.e. they can start on an arbitrary bit boundary.</p>
+<p>All other types are non-packable, they occupy an integral number of storage
+units and the only effect of pragma <code class="docutils literal notranslate"><span class="pre">Pack</span></code> is to remove alignment gaps.</p>
+<p>For example, consider the record</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kr">type</span><span class="p"> </span><span class="n">Rb1</span> <span class="kr">is</span><span class="p"> </span><span class="kr">array</span><span class="p"> </span><span class="o">(</span><span class="mi">1</span> <span class="o">..</span> <span class="mi">13</span><span class="o">)</span> <span class="kr">of</span><span class="p"> </span><span class="n">Boolean</span><span class="p">;</span>
+<span class="kr">pragma</span><span class="p"> </span><span class="n">Pack</span> <span class="o">(</span><span class="n">Rb1</span><span class="o">)</span><span class="p">;</span>
+
+<span class="kr">type</span><span class="p"> </span><span class="n">Rb2</span> <span class="kr">is</span><span class="p"> </span><span class="kr">array</span><span class="p"> </span><span class="o">(</span><span class="mi">1</span> <span class="o">..</span> <span class="mi">65</span><span class="o">)</span> <span class="kr">of</span><span class="p"> </span><span class="n">Boolean</span><span class="p">;</span>
+<span class="kr">pragma</span><span class="p"> </span><span class="n">Pack</span> <span class="o">(</span><span class="n">Rb2</span><span class="o">)</span><span class="p">;</span>
+
+<span class="kr">type</span><span class="p"> </span><span class="n">AF</span> <span class="kr">is</span><span class="p"> </span><span class="kr">new</span><span class="p"> </span><span class="n">Float</span> <span class="kr">with</span><span class="p"> </span><span class="n">Atomic</span><span class="p">;</span>
+
+<span class="kr">type</span><span class="p"> </span><span class="n">X2</span> <span class="kr">is</span><span class="p"> </span><span class="kr">record</span><span class="p"></span>
+   <span class="n">L1</span> <span class="o">:</span> <span class="n">Boolean</span><span class="p">;</span>
+   <span class="n">L2</span> <span class="o">:</span> <span class="n">Duration</span><span class="p">;</span>
+   <span class="n">L3</span> <span class="o">:</span> <span class="n">AF</span><span class="p">;</span>
+   <span class="n">L4</span> <span class="o">:</span> <span class="n">Boolean</span><span class="p">;</span>
+   <span class="n">L5</span> <span class="o">:</span> <span class="n">Rb1</span><span class="p">;</span>
+   <span class="n">L6</span> <span class="o">:</span> <span class="n">Rb2</span><span class="p">;</span>
+<span class="k">end record</span><span class="p">;</span>
+<span class="kr">pragma</span><span class="p"> </span><span class="n">Pack</span> <span class="o">(</span><span class="n">X2</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The representation for the record <code class="docutils literal notranslate"><span class="pre">X2</span></code> is as follows on 32-bit targets:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kr">for</span><span class="p"> </span><span class="n">X2</span><span class="na">&#39;Size</span> <span class="kr">use</span><span class="p"> </span><span class="mi">224</span><span class="p">;</span>
+<span class="kr">for</span><span class="p"> </span><span class="n">X2</span> <span class="kr">use</span><span class="p"> </span><span class="kr">record</span><span class="p"></span>
+   <span class="n">L1</span> <span class="kr">at</span><span class="p"> </span> <span class="mi">0</span> <span class="kr">range</span><span class="p"> </span> <span class="mi">0</span> <span class="o">..</span> <span class="mi">0</span><span class="p">;</span>
+   <span class="n">L2</span> <span class="kr">at</span><span class="p"> </span> <span class="mi">0</span> <span class="kr">range</span><span class="p"> </span> <span class="mi">1</span> <span class="o">..</span> <span class="mi">64</span><span class="p">;</span>
+   <span class="n">L3</span> <span class="kr">at</span><span class="p"> </span><span class="mi">12</span> <span class="kr">range</span><span class="p"> </span> <span class="mi">0</span> <span class="o">..</span> <span class="mi">31</span><span class="p">;</span>
+   <span class="n">L4</span> <span class="kr">at</span><span class="p"> </span><span class="mi">16</span> <span class="kr">range</span><span class="p"> </span> <span class="mi">0</span> <span class="o">..</span> <span class="mi">0</span><span class="p">;</span>
+   <span class="n">L5</span> <span class="kr">at</span><span class="p"> </span><span class="mi">16</span> <span class="kr">range</span><span class="p"> </span> <span class="mi">1</span> <span class="o">..</span> <span class="mi">13</span><span class="p">;</span>
+   <span class="n">L6</span> <span class="kr">at</span><span class="p"> </span><span class="mi">18</span> <span class="kr">range</span><span class="p"> </span> <span class="mi">0</span> <span class="o">..</span> <span class="mi">71</span><span class="p">;</span>
+<span class="k">end record</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Studying this example, we see that the packable fields <code class="docutils literal notranslate"><span class="pre">L1</span></code>
+and <code class="docutils literal notranslate"><span class="pre">L2</span></code> are of length equal to their sizes, and placed at
+specific bit boundaries (and not byte boundaries) to eliminate
+padding.  But <code class="docutils literal notranslate"><span class="pre">L3</span></code> is of a non-packable float type (because
+it is aliased), so it is on the next appropriate alignment boundary.</p>
+<p>The next two fields are fully packable, so <code class="docutils literal notranslate"><span class="pre">L4</span></code> and <code class="docutils literal notranslate"><span class="pre">L5</span></code> are
+minimally packed with no gaps.  However, type <code class="docutils literal notranslate"><span class="pre">Rb2</span></code> is a packed
+array that is longer than 64 bits, so it is itself non-packable on
+32-bit targets.  Thus the <code class="docutils literal notranslate"><span class="pre">L6</span></code> field is aligned to the next byte
+boundary, and takes an integral number of bytes, i.e., 72 bits.</p>
+</div>
+<div class="section" id="record-representation-clauses">
+<span id="id13"></span><h2><span class="section-number">9.12. </span>Record Representation Clauses<a class="headerlink" href="#record-representation-clauses" title="Permalink to this headline">¶</a></h2>
+<p id="index-27">Record representation clauses may be given for all record types, including
+types obtained by record extension.  Component clauses are allowed for any
+static component.  The restrictions on component clauses depend on the type
+of the component.</p>
+<p id="index-28">For all components of an elementary type, the only restriction on component
+clauses is that the size must be at least the <code class="docutils literal notranslate"><span class="pre">'Size</span></code> value of the type
+(actually the Value_Size).  There are no restrictions due to alignment,
+and such components may freely cross storage boundaries.</p>
+<p>Packed arrays with a size up to and including 64 bits on 32-bit targets,
+and up to and including 128 bits on 64-bit targets, are represented
+internally using a modular type with the appropriate number of bits, and
+thus the same lack of restriction applies.  For example, if you declare:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kr">type</span><span class="p"> </span><span class="n">R</span> <span class="kr">is</span><span class="p"> </span><span class="kr">array</span><span class="p"> </span><span class="o">(</span><span class="mi">1</span> <span class="o">..</span> <span class="mi">49</span><span class="o">)</span> <span class="kr">of</span><span class="p"> </span><span class="n">Boolean</span><span class="p">;</span>
+<span class="kr">pragma</span><span class="p"> </span><span class="n">Pack</span> <span class="o">(</span><span class="n">R</span><span class="o">)</span><span class="p">;</span>
+<span class="kr">for</span><span class="p"> </span><span class="n">R</span><span class="na">&#39;Size</span> <span class="kr">use</span><span class="p"> </span><span class="mi">49</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>then a component clause for a component of type <code class="docutils literal notranslate"><span class="pre">R</span></code> may start on any
+specified bit boundary, and may specify a value of 49 bits or greater.</p>
+<p>For packed bit arrays that are longer than 64 bits on 32-bit targets,
+and longer than 128 bits on 64-bit targets, there are two cases. If the
+component size is a power of 2 (1,2,4,8,16,32,64 bits), including the
+important case of single bits or boolean values, then there are no
+limitations on placement of such components, and they may start and
+end at arbitrary bit boundaries.</p>
+<p>If the component size is not a power of 2 (e.g., 3 or 5), then an array
+of this type must always be placed on on a storage unit (byte) boundary
+and occupy an integral number of storage units (bytes). Any component
+clause that does not meet this requirement will be rejected.</p>
+<p>Any aliased component, or component of an aliased type, must have its
+normal alignment and size. A component clause that does not meet this
+requirement will be rejected.</p>
+<p>The tag field of a tagged type always occupies an address sized field at
+the start of the record.  No component clause may attempt to overlay this
+tag. When a tagged type appears as a component, the tag field must have
+proper alignment</p>
+<p>In the case of a record extension <code class="docutils literal notranslate"><span class="pre">T1</span></code>, of a type <code class="docutils literal notranslate"><span class="pre">T</span></code>, no component
+clause applied to the type <code class="docutils literal notranslate"><span class="pre">T1</span></code> can specify a storage location that
+would overlap the first <code class="docutils literal notranslate"><span class="pre">T'Object_Size</span></code> bits of the record.</p>
+<p>For all other component types, including non-bit-packed arrays,
+the component can be placed at an arbitrary bit boundary,
+so for example, the following is permitted:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kr">type</span><span class="p"> </span><span class="n">R</span> <span class="kr">is</span><span class="p"> </span><span class="kr">array</span><span class="p"> </span><span class="o">(</span><span class="mi">1</span> <span class="o">..</span> <span class="mi">10</span><span class="o">)</span> <span class="kr">of</span><span class="p"> </span><span class="n">Boolean</span><span class="p">;</span>
+<span class="kr">for</span><span class="p"> </span><span class="n">R</span><span class="na">&#39;Size</span> <span class="kr">use</span><span class="p"> </span><span class="mi">80</span><span class="p">;</span>
+
+<span class="kr">type</span><span class="p"> </span><span class="n">Q</span> <span class="kr">is</span><span class="p"> </span><span class="kr">record</span><span class="p"></span>
+   <span class="n">G</span><span class="p">,</span> <span class="n">H</span> <span class="o">:</span> <span class="n">Boolean</span><span class="p">;</span>
+   <span class="n">L</span><span class="p">,</span> <span class="n">M</span> <span class="o">:</span> <span class="n">R</span><span class="p">;</span>
+<span class="k">end record</span><span class="p">;</span>
+
+<span class="kr">for</span><span class="p"> </span><span class="n">Q</span> <span class="kr">use</span><span class="p"> </span><span class="kr">record</span><span class="p"></span>
+   <span class="n">G</span> <span class="kr">at</span><span class="p"> </span><span class="mi">0</span> <span class="kr">range</span><span class="p"> </span> <span class="mi">0</span> <span class="o">..</span>   <span class="mi">0</span><span class="p">;</span>
+   <span class="n">H</span> <span class="kr">at</span><span class="p"> </span><span class="mi">0</span> <span class="kr">range</span><span class="p"> </span> <span class="mi">1</span> <span class="o">..</span>   <span class="mi">1</span><span class="p">;</span>
+   <span class="n">L</span> <span class="kr">at</span><span class="p"> </span><span class="mi">0</span> <span class="kr">range</span><span class="p"> </span> <span class="mi">2</span> <span class="o">..</span>  <span class="mi">81</span><span class="p">;</span>
+   <span class="n">R</span> <span class="kr">at</span><span class="p"> </span><span class="mi">0</span> <span class="kr">range</span><span class="p"> </span><span class="mi">82</span> <span class="o">..</span> <span class="mi">161</span><span class="p">;</span>
+<span class="k">end record</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="handling-of-records-with-holes">
+<span id="id14"></span><h2><span class="section-number">9.13. </span>Handling of Records with Holes<a class="headerlink" href="#handling-of-records-with-holes" title="Permalink to this headline">¶</a></h2>
+<p id="index-29">As a result of alignment considerations, records may contain “holes”
+or gaps which do not correspond to the data bits of any of the components.
+Record representation clauses can also result in holes in records.</p>
+<p>GNAT does not attempt to clear these holes, so in record objects,
+they should be considered to hold undefined rubbish. The generated
+equality routine just tests components so does not access these
+undefined bits, and assignment and copy operations may or may not
+preserve the contents of these holes (for assignments, the holes
+in the target will in practice contain either the bits that are
+present in the holes in the source, or the bits that were present
+in the target before the assignment).</p>
+<p>If it is necessary to ensure that holes in records have all zero
+bits, then record objects for which this initialization is desired
+should be explicitly set to all zero values using Unchecked_Conversion
+or address overlays. For example</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kr">type</span><span class="p"> </span><span class="n">HRec</span> <span class="kr">is</span><span class="p"> </span><span class="kr">record</span><span class="p"></span>
+   <span class="n">C</span> <span class="o">:</span> <span class="n">Character</span><span class="p">;</span>
+   <span class="n">I</span> <span class="o">:</span> <span class="n">Integer</span><span class="p">;</span>
+<span class="k">end record</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>On typical machines, integers need to be aligned on a four-byte
+boundary, resulting in three bytes of undefined rubbish following
+the 8-bit field for C. To ensure that the hole in a variable of
+type HRec is set to all zero bits,
+you could for example do:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kr">type</span><span class="p"> </span><span class="n">Base</span> <span class="kr">is</span><span class="p"> </span><span class="kr">record</span><span class="p"></span>
+   <span class="n">Dummy1</span><span class="p">,</span> <span class="n">Dummy2</span> <span class="o">:</span> <span class="n">Integer</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="k">end record</span><span class="p">;</span>
+
+<span class="n">BaseVar</span> <span class="o">:</span> <span class="n">Base</span><span class="p">;</span>
+<span class="n">RealVar</span> <span class="o">:</span> <span class="n">Hrec</span><span class="p">;</span>
+<span class="kr">for</span><span class="p"> </span><span class="n">RealVar</span><span class="na">&#39;Address</span> <span class="kr">use</span><span class="p"> </span><span class="n">BaseVar</span><span class="na">&#39;Address</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Now the 8-bytes of the value of RealVar start out containing all zero
+bits. A safer approach is to just define dummy fields, avoiding the
+holes, as in:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kr">type</span><span class="p"> </span><span class="n">HRec</span> <span class="kr">is</span><span class="p"> </span><span class="kr">record</span><span class="p"></span>
+   <span class="n">C</span>      <span class="o">:</span> <span class="n">Character</span><span class="p">;</span>
+   <span class="n">Dummy1</span> <span class="o">:</span> <span class="n">Short_Short_Integer</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span>
+   <span class="n">Dummy2</span> <span class="o">:</span> <span class="n">Short_Short_Integer</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span>
+   <span class="n">Dummy3</span> <span class="o">:</span> <span class="n">Short_Short_Integer</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span>
+   <span class="n">I</span>      <span class="o">:</span> <span class="n">Integer</span><span class="p">;</span>
+<span class="k">end record</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>And to make absolutely sure that the intent of this is followed, you
+can use representation clauses:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kr">for</span><span class="p"> </span><span class="n">Hrec</span> <span class="kr">use</span><span class="p"> </span><span class="kr">record</span><span class="p"></span>
+   <span class="n">C</span>      <span class="kr">at</span><span class="p"> </span><span class="mi">0</span> <span class="kr">range</span><span class="p"> </span><span class="mi">0</span> <span class="o">..</span> <span class="mi">7</span><span class="p">;</span>
+   <span class="n">Dummy1</span> <span class="kr">at</span><span class="p"> </span><span class="mi">1</span> <span class="kr">range</span><span class="p"> </span><span class="mi">0</span> <span class="o">..</span> <span class="mi">7</span><span class="p">;</span>
+   <span class="n">Dummy2</span> <span class="kr">at</span><span class="p"> </span><span class="mi">2</span> <span class="kr">range</span><span class="p"> </span><span class="mi">0</span> <span class="o">..</span> <span class="mi">7</span><span class="p">;</span>
+   <span class="n">Dummy3</span> <span class="kr">at</span><span class="p"> </span><span class="mi">3</span> <span class="kr">range</span><span class="p"> </span><span class="mi">0</span> <span class="o">..</span> <span class="mi">7</span><span class="p">;</span>
+   <span class="n">I</span>      <span class="kr">at</span><span class="p"> </span><span class="mi">4</span> <span class="kr">range</span><span class="p"> </span><span class="mi">0</span> <span class="o">..</span> <span class="mi">31</span><span class="p">;</span>
+<span class="k">end record</span><span class="p">;</span>
+<span class="kr">for</span><span class="p"> </span><span class="n">Hrec</span><span class="na">&#39;Size</span> <span class="kr">use</span><span class="p"> </span><span class="mi">64</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="enumeration-clauses">
+<span id="id15"></span><h2><span class="section-number">9.14. </span>Enumeration Clauses<a class="headerlink" href="#enumeration-clauses" title="Permalink to this headline">¶</a></h2>
+<p>The only restriction on enumeration clauses is that the range of values
+must be representable.  For the signed case, if one or more of the
+representation values are negative, all values must be in the range:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="n">System.Min_Int</span> <span class="o">..</span> <span class="n">System.Max_Int</span>
+</pre></div>
+</div>
+<p>For the unsigned case, where all values are nonnegative, the values must
+be in the range:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span> <span class="o">..</span> <span class="n">System.Max_Binary_Modulus</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>A <em>confirming</em> representation clause is one in which the values range
+from 0 in sequence, i.e., a clause that confirms the default representation
+for an enumeration type.
+Such a confirming representation
+is permitted by these rules, and is specially recognized by the compiler so
+that no extra overhead results from the use of such a clause.</p>
+<p>If an array has an index type which is an enumeration type to which an
+enumeration clause has been applied, then the array is stored in a compact
+manner.  Consider the declarations:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kr">type</span><span class="p"> </span><span class="n">r</span> <span class="kr">is</span><span class="p"> </span><span class="o">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="o">)</span><span class="p">;</span>
+<span class="kr">for</span><span class="p"> </span><span class="n">r</span> <span class="kr">use</span><span class="p"> </span><span class="o">(</span><span class="n">A</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span> <span class="n">B</span> <span class="o">=&gt;</span> <span class="mi">5</span><span class="p">,</span> <span class="n">C</span> <span class="o">=&gt;</span> <span class="mi">10</span><span class="o">)</span><span class="p">;</span>
+<span class="kr">type</span><span class="p"> </span><span class="n">t</span> <span class="kr">is</span><span class="p"> </span><span class="kr">array</span><span class="p"> </span><span class="o">(</span><span class="n">r</span><span class="o">)</span> <span class="kr">of</span><span class="p"> </span><span class="n">Character</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The array type t corresponds to a vector with exactly three elements and
+has a default size equal to <code class="docutils literal notranslate"><span class="pre">3*Character'Size</span></code>.  This ensures efficient
+use of space, but means that accesses to elements of the array will incur
+the overhead of converting representation values to the corresponding
+positional values, (i.e., the value delivered by the <code class="docutils literal notranslate"><span class="pre">Pos</span></code> attribute).</p>
+</div>
+<div class="section" id="address-clauses">
+<span id="id16"></span><h2><span class="section-number">9.15. </span>Address Clauses<a class="headerlink" href="#address-clauses" title="Permalink to this headline">¶</a></h2>
+<p id="index-30">The reference manual allows a general restriction on representation clauses,
+as found in RM 13.1(22):</p>
+<blockquote>
+<div><p>“An implementation need not support representation
+items containing nonstatic expressions, except that
+an implementation should support a representation item
+for a given entity if each nonstatic expression in the
+representation item is a name that statically denotes
+a constant declared before the entity.”</p>
+</div></blockquote>
+<p>In practice this is applicable only to address clauses, since this is the
+only case in which a nonstatic expression is permitted by the syntax.  As
+the AARM notes in sections 13.1 (22.a-22.h):</p>
+<blockquote>
+<div><p>22.a   Reason: This is to avoid the following sort of thing:</p>
+<p>22.b        X : Integer := F(…);
+Y : Address := G(…);
+for X’Address use Y;</p>
+<p>22.c   In the above, we have to evaluate the
+initialization expression for X before we
+know where to put the result.  This seems
+like an unreasonable implementation burden.</p>
+<p>22.d   The above code should instead be written
+like this:</p>
+<p>22.e        Y : constant Address := G(…);
+X : Integer := F(…);
+for X’Address use Y;</p>
+<p>22.f   This allows the expression ‘Y’ to be safely
+evaluated before X is created.</p>
+<p>22.g   The constant could be a formal parameter of mode in.</p>
+<p>22.h   An implementation can support other nonstatic
+expressions if it wants to.  Expressions of type
+Address are hardly ever static, but their value
+might be known at compile time anyway in many
+cases.</p>
+</div></blockquote>
+<p>GNAT does indeed permit many additional cases of nonstatic expressions.  In
+particular, if the type involved is elementary there are no restrictions
+(since in this case, holding a temporary copy of the initialization value,
+if one is present, is inexpensive).  In addition, if there is no implicit or
+explicit initialization, then there are no restrictions.  GNAT will reject
+only the case where all three of these conditions hold:</p>
+<ul>
+<li><p>The type of the item is non-elementary (e.g., a record or array).</p></li>
+<li><p>There is explicit or implicit initialization required for the object.
+Note that access values are always implicitly initialized.</p></li>
+<li><p>The address value is nonstatic.  Here GNAT is more permissive than the
+RM, and allows the address value to be the address of a previously declared
+stand-alone variable, as long as it does not itself have an address clause.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Anchor</span>  <span class="p">:</span> <span class="n">Some_Initialized_Type</span><span class="p">;</span>
+<span class="n">Overlay</span> <span class="p">:</span> <span class="n">Some_Initialized_Type</span><span class="p">;</span>
+<span class="k">for</span> <span class="n">Overlay</span><span class="s1">&#39;Address use Anchor&#39;</span><span class="n">Address</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>However, the prefix of the address clause cannot be an array component, or
+a component of a discriminated record.</p>
+</li>
+</ul>
+<p>As noted above in section 22.h, address values are typically nonstatic.  In
+particular the To_Address function, even if applied to a literal value, is
+a nonstatic function call.  To avoid this minor annoyance, GNAT provides
+the implementation defined attribute ‘To_Address.  The following two
+expressions have identical values:</p>
+<span class="target" id="index-31"></span><div class="highlight-ada notranslate" id="index-32"><div class="highlight"><pre><span></span><span class="n">To_Address</span> <span class="o">(</span><span class="mi">16#1234_0000#</span><span class="o">)</span>
+<span class="n">System</span><span class="na">&#39;To_Address</span> <span class="o">(</span><span class="mi">16#1234_0000#</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>except that the second form is considered to be a static expression, and
+thus when used as an address clause value is always permitted.</p>
+<p>Additionally, GNAT treats as static an address clause that is an
+unchecked_conversion of a static integer value.  This simplifies the porting
+of legacy code, and provides a portable equivalent to the GNAT attribute
+<code class="docutils literal notranslate"><span class="pre">To_Address</span></code>.</p>
+<p>Another issue with address clauses is the interaction with alignment
+requirements.  When an address clause is given for an object, the address
+value must be consistent with the alignment of the object (which is usually
+the same as the alignment of the type of the object).  If an address clause
+is given that specifies an inappropriately aligned address value, then the
+program execution is erroneous.</p>
+<p>Since this source of erroneous behavior can have unfortunate effects on
+machines with strict alignment requirements, GNAT
+checks (at compile time if possible, generating a warning, or at execution
+time with a run-time check) that the alignment is appropriate.  If the
+run-time check fails, then <code class="docutils literal notranslate"><span class="pre">Program_Error</span></code> is raised.  This run-time
+check is suppressed if range checks are suppressed, or if the special GNAT
+check Alignment_Check is suppressed, or if
+<code class="docutils literal notranslate"><span class="pre">pragma</span> <span class="pre">Restrictions</span> <span class="pre">(No_Elaboration_Code)</span></code> is in effect. It is also
+suppressed by default on non-strict alignment machines (such as the x86).</p>
+<p>Finally, GNAT does not permit overlaying of objects of class-wide types. In
+most cases, the compiler can detect an attempt at such overlays and will
+generate a warning at compile time and a Program_Error exception at run time.</p>
+<p id="index-33">An address clause cannot be given for an exported object.  More
+understandably the real restriction is that objects with an address
+clause cannot be exported.  This is because such variables are not
+defined by the Ada program, so there is no external object to export.</p>
+<p id="index-34">It is permissible to give an address clause and a pragma Import for the
+same object.  In this case, the variable is not really defined by the
+Ada program, so there is no external symbol to be linked.  The link name
+and the external name are ignored in this case.  The reason that we allow this
+combination is that it provides a useful idiom to avoid unwanted
+initializations on objects with address clauses.</p>
+<p>When an address clause is given for an object that has implicit or
+explicit initialization, then by default initialization takes place.  This
+means that the effect of the object declaration is to overwrite the
+memory at the specified address.  This is almost always not what the
+programmer wants, so GNAT will output a warning:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">System</span><span class="p">;</span>
+<span class="n">package</span> <span class="n">G</span> <span class="ow">is</span>
+   <span class="nb">type</span> <span class="n">R</span> <span class="ow">is</span> <span class="n">record</span>
+      <span class="n">M</span> <span class="p">:</span> <span class="n">Integer</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span>
+   <span class="n">end</span> <span class="n">record</span><span class="p">;</span>
+
+   <span class="n">Ext</span> <span class="p">:</span> <span class="n">R</span><span class="p">;</span>
+   <span class="k">for</span> <span class="n">Ext</span><span class="s1">&#39;Address use System&#39;</span><span class="n">To_Address</span> <span class="p">(</span><span class="mi">16</span><span class="c1">#1234_1234#);</span>
+       <span class="o">|</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">warning</span><span class="p">:</span> <span class="n">implicit</span> <span class="n">initialization</span> <span class="n">of</span> <span class="s2">&quot;Ext&quot;</span> <span class="n">may</span>
+    <span class="n">modify</span> <span class="n">overlaid</span> <span class="n">storage</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">warning</span><span class="p">:</span> <span class="n">use</span> <span class="n">pragma</span> <span class="n">Import</span> <span class="k">for</span> <span class="s2">&quot;Ext&quot;</span> <span class="n">to</span> <span class="n">suppress</span>
+    <span class="n">initialization</span> <span class="p">(</span><span class="n">RM</span> <span class="n">B</span><span class="p">(</span><span class="mi">24</span><span class="p">))</span>
+
+<span class="n">end</span> <span class="n">G</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>As indicated by the warning message, the solution is to use a (dummy) pragma
+Import to suppress this initialization.  The pragma tell the compiler that the
+object is declared and initialized elsewhere.  The following package compiles
+without warnings (and the initialization is suppressed):</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kr">with</span><span class="p"> </span><span class="n">System</span><span class="p">;</span>
+<span class="k">package </span><span class="nf">G</span> <span class="kr">is</span><span class="p"></span>
+   <span class="kr">type</span><span class="p"> </span><span class="n">R</span> <span class="kr">is</span><span class="p"> </span><span class="kr">record</span><span class="p"></span>
+      <span class="n">M</span> <span class="o">:</span> <span class="n">Integer</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span>
+   <span class="k">end record</span><span class="p">;</span>
+
+   <span class="n">Ext</span> <span class="o">:</span> <span class="n">R</span><span class="p">;</span>
+   <span class="kr">for</span><span class="p"> </span><span class="n">Ext</span><span class="na">&#39;Address</span> <span class="kr">use</span><span class="p"> </span><span class="n">System</span><span class="na">&#39;To_Address</span> <span class="o">(</span><span class="mi">16#1234_1234#</span><span class="o">)</span><span class="p">;</span>
+   <span class="kr">pragma</span><span class="p"> </span><span class="n">Import</span> <span class="o">(</span><span class="n">Ada</span><span class="p">,</span> <span class="n">Ext</span><span class="o">)</span><span class="p">;</span>
+<span class="k">end </span><span class="nf">G</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>A final issue with address clauses involves their use for overlaying
+variables, as in the following example:</p>
+<div class="highlight-ada notranslate" id="index-35"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">:</span> <span class="n">Integer</span><span class="p">;</span>
+<span class="n">B</span> <span class="o">:</span> <span class="n">Integer</span><span class="p">;</span>
+<span class="kr">for</span><span class="p"> </span><span class="n">B</span><span class="na">&#39;Address</span> <span class="kr">use</span><span class="p"> </span><span class="n">A</span><span class="na">&#39;Address</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>or alternatively, using the form recommended by the RM:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="n">A</span>    <span class="o">:</span> <span class="n">Integer</span><span class="p">;</span>
+<span class="n">Addr</span> <span class="o">:</span> <span class="kr">constant</span><span class="p"> </span><span class="n">Address</span> <span class="o">:=</span> <span class="n">A</span><span class="na">&#39;Address</span><span class="p">;</span>
+<span class="n">B</span>    <span class="o">:</span> <span class="n">Integer</span><span class="p">;</span>
+<span class="kr">for</span><span class="p"> </span><span class="n">B</span><span class="na">&#39;Address</span> <span class="kr">use</span><span class="p"> </span><span class="n">Addr</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>In both of these cases, <code class="docutils literal notranslate"><span class="pre">A</span></code> and <code class="docutils literal notranslate"><span class="pre">B</span></code> become aliased to one another
+via the address clause. This use of address clauses to overlay
+variables, achieving an effect similar to unchecked conversion
+was erroneous in Ada 83, but in Ada 95 and Ada 2005
+the effect is implementation defined. Furthermore, the
+Ada RM specifically recommends that in a situation
+like this, <code class="docutils literal notranslate"><span class="pre">B</span></code> should be subject to the following
+implementation advice (RM 13.3(19)):</p>
+<blockquote>
+<div><p>“19  If the Address of an object is specified, or it is imported
+or exported, then the implementation should not perform
+optimizations based on assumptions of no aliases.”</p>
+</div></blockquote>
+<p>GNAT follows this recommendation, and goes further by also applying
+this recommendation to the overlaid variable (<code class="docutils literal notranslate"><span class="pre">A</span></code> in the above example)
+in this case. This means that the overlay works “as expected”, in that
+a modification to one of the variables will affect the value of the other.</p>
+<p>More generally, GNAT interprets this recommendation conservatively for
+address clauses: in the cases other than overlays, it considers that the
+object is effectively subject to pragma <code class="docutils literal notranslate"><span class="pre">Volatile</span></code> and implements the
+associated semantics.</p>
+<p>Note that when address clause overlays are used in this way, there is an
+issue of unintentional initialization, as shown by this example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">package</span> <span class="n">Overwrite_Record</span> <span class="ow">is</span>
+   <span class="nb">type</span> <span class="n">R</span> <span class="ow">is</span> <span class="n">record</span>
+      <span class="n">A</span> <span class="p">:</span> <span class="n">Character</span> <span class="o">:=</span> <span class="s1">&#39;C&#39;</span><span class="p">;</span>
+      <span class="n">B</span> <span class="p">:</span> <span class="n">Character</span> <span class="o">:=</span> <span class="s1">&#39;A&#39;</span><span class="p">;</span>
+   <span class="n">end</span> <span class="n">record</span><span class="p">;</span>
+   <span class="n">X</span> <span class="p">:</span> <span class="n">Short_Integer</span> <span class="o">:=</span> <span class="mi">3</span><span class="p">;</span>
+   <span class="n">Y</span> <span class="p">:</span> <span class="n">R</span><span class="p">;</span>
+   <span class="k">for</span> <span class="n">Y</span><span class="s1">&#39;Address use X&#39;</span><span class="n">Address</span><span class="p">;</span>
+       <span class="o">|</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">warning</span><span class="p">:</span> <span class="n">default</span> <span class="n">initialization</span> <span class="n">of</span> <span class="s2">&quot;Y&quot;</span> <span class="n">may</span>
+    <span class="n">modify</span> <span class="s2">&quot;X&quot;</span><span class="p">,</span> <span class="n">use</span> <span class="n">pragma</span> <span class="n">Import</span> <span class="k">for</span> <span class="s2">&quot;Y&quot;</span> <span class="n">to</span>
+    <span class="n">suppress</span> <span class="n">initialization</span> <span class="p">(</span><span class="n">RM</span> <span class="n">B</span><span class="o">.</span><span class="mi">1</span><span class="p">(</span><span class="mi">24</span><span class="p">))</span>
+
+<span class="n">end</span> <span class="n">Overwrite_Record</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Here the default initialization of <code class="docutils literal notranslate"><span class="pre">Y</span></code> will clobber the value
+of <code class="docutils literal notranslate"><span class="pre">X</span></code>, which justifies the warning. The warning notes that
+this effect can be eliminated by adding a <code class="docutils literal notranslate"><span class="pre">pragma</span> <span class="pre">Import</span></code>
+which suppresses the initialization:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="k">package </span><span class="nf">Overwrite_Record</span> <span class="kr">is</span><span class="p"></span>
+   <span class="kr">type</span><span class="p"> </span><span class="n">R</span> <span class="kr">is</span><span class="p"> </span><span class="kr">record</span><span class="p"></span>
+      <span class="n">A</span> <span class="o">:</span> <span class="n">Character</span> <span class="o">:=</span> <span class="sc">&#39;C&#39;</span><span class="p">;</span>
+      <span class="n">B</span> <span class="o">:</span> <span class="n">Character</span> <span class="o">:=</span> <span class="sc">&#39;A&#39;</span><span class="p">;</span>
+   <span class="k">end record</span><span class="p">;</span>
+   <span class="n">X</span> <span class="o">:</span> <span class="n">Short_Integer</span> <span class="o">:=</span> <span class="mi">3</span><span class="p">;</span>
+   <span class="n">Y</span> <span class="o">:</span> <span class="n">R</span><span class="p">;</span>
+   <span class="kr">for</span><span class="p"> </span><span class="n">Y</span><span class="na">&#39;Address</span> <span class="kr">use</span><span class="p"> </span><span class="n">X</span><span class="na">&#39;Address</span><span class="p">;</span>
+   <span class="kr">pragma</span><span class="p"> </span><span class="n">Import</span> <span class="o">(</span><span class="n">Ada</span><span class="p">,</span> <span class="n">Y</span><span class="o">)</span><span class="p">;</span>
+<span class="k">end </span><span class="nf">Overwrite_Record</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Note that the use of <code class="docutils literal notranslate"><span class="pre">pragma</span> <span class="pre">Initialize_Scalars</span></code> may cause variables to
+be initialized when they would not otherwise have been in the absence
+of the use of this pragma. This may cause an overlay to have this
+unintended clobbering effect. The compiler avoids this for scalar
+types, but not for composite objects (where in general the effect
+of <code class="docutils literal notranslate"><span class="pre">Initialize_Scalars</span></code> is part of the initialization routine
+for the composite object):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pragma</span> <span class="n">Initialize_Scalars</span><span class="p">;</span>
+<span class="k">with</span> <span class="n">Ada</span><span class="o">.</span><span class="n">Text_IO</span><span class="p">;</span>  <span class="n">use</span> <span class="n">Ada</span><span class="o">.</span><span class="n">Text_IO</span><span class="p">;</span>
+<span class="n">procedure</span> <span class="n">Overwrite_Array</span> <span class="ow">is</span>
+   <span class="nb">type</span> <span class="n">Arr</span> <span class="ow">is</span> <span class="n">array</span> <span class="p">(</span><span class="mi">1</span> <span class="o">..</span> <span class="mi">5</span><span class="p">)</span> <span class="n">of</span> <span class="n">Integer</span><span class="p">;</span>
+   <span class="n">X</span> <span class="p">:</span> <span class="n">Arr</span> <span class="o">:=</span> <span class="p">(</span><span class="n">others</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">);</span>
+   <span class="n">A</span> <span class="p">:</span> <span class="n">Arr</span><span class="p">;</span>
+   <span class="k">for</span> <span class="n">A</span><span class="s1">&#39;Address use X&#39;</span><span class="n">Address</span><span class="p">;</span>
+       <span class="o">|</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">warning</span><span class="p">:</span> <span class="n">default</span> <span class="n">initialization</span> <span class="n">of</span> <span class="s2">&quot;A&quot;</span> <span class="n">may</span>
+    <span class="n">modify</span> <span class="s2">&quot;X&quot;</span><span class="p">,</span> <span class="n">use</span> <span class="n">pragma</span> <span class="n">Import</span> <span class="k">for</span> <span class="s2">&quot;A&quot;</span> <span class="n">to</span>
+    <span class="n">suppress</span> <span class="n">initialization</span> <span class="p">(</span><span class="n">RM</span> <span class="n">B</span><span class="o">.</span><span class="mi">1</span><span class="p">(</span><span class="mi">24</span><span class="p">))</span>
+
+<span class="n">begin</span>
+   <span class="k">if</span> <span class="n">X</span> <span class="o">/=</span> <span class="n">Arr</span><span class="s1">&#39;(others =&gt; 1) then</span>
+      <span class="n">Put_Line</span> <span class="p">(</span><span class="s2">&quot;X was clobbered&quot;</span><span class="p">);</span>
+   <span class="k">else</span>
+      <span class="n">Put_Line</span> <span class="p">(</span><span class="s2">&quot;X was not clobbered&quot;</span><span class="p">);</span>
+   <span class="n">end</span> <span class="k">if</span><span class="p">;</span>
+<span class="n">end</span> <span class="n">Overwrite_Array</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The above program generates the warning as shown, and at execution
+time, prints <code class="docutils literal notranslate"><span class="pre">X</span> <span class="pre">was</span> <span class="pre">clobbered</span></code>. If the <code class="docutils literal notranslate"><span class="pre">pragma</span> <span class="pre">Import</span></code> is
+added as suggested:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kr">pragma</span><span class="p"> </span><span class="n">Initialize_Scalars</span><span class="p">;</span>
+<span class="kr">with</span><span class="nn"> Ada.Text_IO;</span>  <span class="kr">use</span><span class="p"> </span><span class="n">Ada.Text_IO</span><span class="p">;</span>
+<span class="k">procedure </span><span class="nf">Overwrite_Array</span> <span class="kr">is</span><span class="p"></span>
+   <span class="kr">type</span><span class="p"> </span><span class="n">Arr</span> <span class="kr">is</span><span class="p"> </span><span class="kr">array</span><span class="p"> </span><span class="o">(</span><span class="mi">1</span> <span class="o">..</span> <span class="mi">5</span><span class="o">)</span> <span class="kr">of</span><span class="p"> </span><span class="n">Integer</span><span class="p">;</span>
+   <span class="n">X</span> <span class="o">:</span> <span class="n">Arr</span> <span class="o">:=</span> <span class="o">(</span><span class="kr">others</span><span class="p"> </span><span class="o">=&gt;</span> <span class="mi">1</span><span class="o">)</span><span class="p">;</span>
+   <span class="n">A</span> <span class="o">:</span> <span class="n">Arr</span><span class="p">;</span>
+   <span class="kr">for</span><span class="p"> </span><span class="n">A</span><span class="na">&#39;Address</span> <span class="kr">use</span><span class="p"> </span><span class="n">X</span><span class="na">&#39;Address</span><span class="p">;</span>
+   <span class="kr">pragma</span><span class="p"> </span><span class="n">Import</span> <span class="o">(</span><span class="n">Ada</span><span class="p">,</span> <span class="n">A</span><span class="o">)</span><span class="p">;</span>
+<span class="kr">begin</span><span class="p"></span>
+   <span class="kr">if</span><span class="p"> </span><span class="n">X</span> <span class="o">/=</span> <span class="n">Arr</span><span class="o">&#39;(</span><span class="kr">others</span><span class="p"> </span><span class="o">=&gt;</span> <span class="mi">1</span><span class="o">)</span> <span class="kr">then</span><span class="p"></span>
+      <span class="n">Put_Line</span> <span class="o">(</span><span class="s">&quot;X was clobbered&quot;</span><span class="o">)</span><span class="p">;</span>
+   <span class="kr">else</span><span class="p"></span>
+      <span class="n">Put_Line</span> <span class="o">(</span><span class="s">&quot;X was not clobbered&quot;</span><span class="o">)</span><span class="p">;</span>
+   <span class="k">end if</span><span class="p">;</span>
+<span class="k">end </span><span class="nf">Overwrite_Array</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>then the program compiles without the warning and when run will generate
+the output <code class="docutils literal notranslate"><span class="pre">X</span> <span class="pre">was</span> <span class="pre">not</span> <span class="pre">clobbered</span></code>.</p>
+</div>
+<div class="section" id="use-of-address-clauses-for-memory-mapped-i-o">
+<span id="id17"></span><h2><span class="section-number">9.16. </span>Use of Address Clauses for Memory-Mapped I/O<a class="headerlink" href="#use-of-address-clauses-for-memory-mapped-i-o" title="Permalink to this headline">¶</a></h2>
+<p id="index-36">A common pattern is to use an address clause to map an atomic variable to
+a location in memory that corresponds to a memory-mapped I/O operation or
+operations, for example:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kr">type</span><span class="p"> </span><span class="n">Mem_Word</span> <span class="kr">is</span><span class="p"> </span><span class="kr">record</span><span class="p"></span>
+   <span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">C</span><span class="p">,</span><span class="n">D</span> <span class="o">:</span> <span class="n">Byte</span><span class="p">;</span>
+<span class="k">end record</span><span class="p">;</span>
+<span class="kr">pragma</span><span class="p"> </span><span class="n">Atomic</span> <span class="o">(</span><span class="n">Mem_Word</span><span class="o">)</span><span class="p">;</span>
+<span class="kr">for</span><span class="p"> </span><span class="n">Mem_Word_Size</span> <span class="kr">use</span><span class="p"> </span><span class="mi">32</span><span class="p">;</span>
+
+<span class="n">Mem</span> <span class="o">:</span> <span class="n">Mem_Word</span><span class="p">;</span>
+<span class="kr">for</span><span class="p"> </span><span class="n">Mem</span><span class="na">&#39;Address</span> <span class="kr">use</span><span class="p"> </span><span class="n">some</span><span class="o">-</span><span class="n">address</span><span class="p">;</span>
+<span class="o">...</span>
+<span class="n">Temp</span> <span class="o">:=</span> <span class="n">Mem</span><span class="p">;</span>
+<span class="n">Temp.A</span> <span class="o">:=</span> <span class="mi">32</span><span class="p">;</span>
+<span class="n">Mem</span> <span class="o">:=</span> <span class="n">Temp</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>For a full access (reference or modification) of the variable (Mem) in this
+case, as in the above examples, GNAT guarantees that the entire atomic word
+will be accessed, in accordance with the RM C.6(15) clause.</p>
+<p>A problem arises with a component access such as:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="n">Mem.A</span> <span class="o">:=</span> <span class="mi">32</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Note that the component A is not declared as atomic. This means that it is
+not clear what this assignment means. It could correspond to full word read
+and write as given in the first example, or on architectures that supported
+such an operation it might be a single byte store instruction. The RM does
+not have anything to say in this situation, and GNAT does not make any
+guarantee. The code generated may vary from target to target. GNAT will issue
+a warning in such a case:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Mem</span><span class="o">.</span><span class="n">A</span> <span class="o">:=</span> <span class="mi">32</span><span class="p">;</span>
+<span class="o">|</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">warning</span><span class="p">:</span> <span class="n">access</span> <span class="n">to</span> <span class="n">non</span><span class="o">-</span><span class="n">atomic</span> <span class="n">component</span> <span class="n">of</span> <span class="n">atomic</span> <span class="n">array</span><span class="p">,</span>
+    <span class="n">may</span> <span class="n">cause</span> <span class="n">unexpected</span> <span class="n">accesses</span> <span class="n">to</span> <span class="n">atomic</span> <span class="nb">object</span>
+</pre></div>
+</div>
+<p>It is best to be explicit in this situation, by either declaring the
+components to be atomic if you want the byte store, or explicitly writing
+the full word access sequence if that is what the hardware requires.
+Alternatively, if the full word access sequence is required, GNAT also
+provides the pragma <code class="docutils literal notranslate"><span class="pre">Volatile_Full_Access</span></code> which can be used in lieu of
+pragma <code class="docutils literal notranslate"><span class="pre">Atomic</span></code> and will give the additional guarantee.</p>
+</div>
+<div class="section" id="effect-of-convention-on-representation">
+<span id="id18"></span><h2><span class="section-number">9.17. </span>Effect of Convention on Representation<a class="headerlink" href="#effect-of-convention-on-representation" title="Permalink to this headline">¶</a></h2>
+<p id="index-37">Normally the specification of a foreign language convention for a type or
+an object has no effect on the chosen representation.  In particular, the
+representation chosen for data in GNAT generally meets the standard system
+conventions, and for example records are laid out in a manner that is
+consistent with C.  This means that specifying convention C (for example)
+has no effect.</p>
+<p>There are four exceptions to this general rule:</p>
+<ul>
+<li><p><em>Convention Fortran and array subtypes</em>.</p>
+<p>If pragma Convention Fortran is specified for an array subtype, then in
+accordance with the implementation advice in section 3.6.2(11) of the
+Ada Reference Manual, the array will be stored in a Fortran-compatible
+column-major manner, instead of the normal default row-major order.</p>
+</li>
+<li><p><em>Convention C and enumeration types</em></p>
+<p>GNAT normally stores enumeration types in 8, 16, or 32 bits as required
+to accommodate all values of the type.  For example, for the enumeration
+type declared by:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span> <span class="n">Color</span> <span class="ow">is</span> <span class="p">(</span><span class="n">Red</span><span class="p">,</span> <span class="n">Green</span><span class="p">,</span> <span class="n">Blue</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>8 bits is sufficient to store all values of the type, so by default, objects
+of type <code class="docutils literal notranslate"><span class="pre">Color</span></code> will be represented using 8 bits.  However, normal C
+convention is to use 32 bits for all enum values in C, since enum values
+are essentially of type int.  If pragma <code class="docutils literal notranslate"><span class="pre">Convention</span> <span class="pre">C</span></code> is specified for an
+Ada enumeration type, then the size is modified as necessary (usually to
+32 bits) to be consistent with the C convention for enum values.</p>
+<p>Note that this treatment applies only to types. If Convention C is given for
+an enumeration object, where the enumeration type is not Convention C, then
+Object_Size bits are allocated. For example, for a normal enumeration type,
+with less than 256 elements, only 8 bits will be allocated for the object.
+Since this may be a surprise in terms of what C expects, GNAT will issue a
+warning in this situation. The warning can be suppressed by giving an explicit
+size clause specifying the desired size.</p>
+</li>
+<li><p><em>Convention C/Fortran and Boolean types</em></p>
+<p>In C, the usual convention for boolean values, that is values used for
+conditions, is that zero represents false, and nonzero values represent
+true.  In Ada, the normal convention is that two specific values, typically
+0/1, are used to represent false/true respectively.</p>
+<p>Fortran has a similar convention for <code class="docutils literal notranslate"><span class="pre">LOGICAL</span></code> values (any nonzero
+value represents true).</p>
+<p>To accommodate the Fortran and C conventions, if a pragma Convention specifies
+C or Fortran convention for a derived Boolean, as in the following example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span> <span class="n">C_Switch</span> <span class="ow">is</span> <span class="n">new</span> <span class="n">Boolean</span><span class="p">;</span>
+<span class="n">pragma</span> <span class="n">Convention</span> <span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">C_Switch</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>then the GNAT generated code will treat any nonzero value as true.  For truth
+values generated by GNAT, the conventional value 1 will be used for True, but
+when one of these values is read, any nonzero value is treated as True.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="conventions-and-anonymous-access-types">
+<span id="id19"></span><h2><span class="section-number">9.18. </span>Conventions and Anonymous Access Types<a class="headerlink" href="#conventions-and-anonymous-access-types" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="index-38"></span><p id="index-39">The RM is not entirely clear on convention handling in a number of cases,
+and in particular, it is not clear on the convention to be given to
+anonymous access types in general, and in particular what is to be
+done for the case of anonymous access-to-subprogram.</p>
+<p>In GNAT, we decide that if an explicit Convention is applied
+to an object or component, and its type is such an anonymous type,
+then the convention will apply to this anonymous type as well. This
+seems to make sense since it is anomolous in any case to have a
+different convention for an object and its type, and there is clearly
+no way to explicitly specify a convention for an anonymous type, since
+it doesn’t have a name to specify!</p>
+<p>Furthermore, we decide that if a convention is applied to a record type,
+then this convention is inherited by any of its components that are of an
+anonymous access type which do not have an explicitly specified convention.</p>
+<p>The following program shows these conventions in action:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">package</span> <span class="n">ConvComp</span> <span class="ow">is</span>
+   <span class="nb">type</span> <span class="n">Foo</span> <span class="ow">is</span> <span class="nb">range</span> <span class="mi">1</span> <span class="o">..</span> <span class="mi">10</span><span class="p">;</span>
+   <span class="nb">type</span> <span class="n">T1</span> <span class="ow">is</span> <span class="n">record</span>
+      <span class="n">A</span> <span class="p">:</span> <span class="n">access</span> <span class="n">function</span> <span class="p">(</span><span class="n">X</span> <span class="p">:</span> <span class="n">Foo</span><span class="p">)</span> <span class="k">return</span> <span class="n">Integer</span><span class="p">;</span>
+      <span class="n">B</span> <span class="p">:</span> <span class="n">Integer</span><span class="p">;</span>
+   <span class="n">end</span> <span class="n">record</span><span class="p">;</span>
+   <span class="n">pragma</span> <span class="n">Convention</span> <span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">T1</span><span class="p">);</span>
+
+   <span class="nb">type</span> <span class="n">T2</span> <span class="ow">is</span> <span class="n">record</span>
+      <span class="n">A</span> <span class="p">:</span> <span class="n">access</span> <span class="n">function</span> <span class="p">(</span><span class="n">X</span> <span class="p">:</span> <span class="n">Foo</span><span class="p">)</span> <span class="k">return</span> <span class="n">Integer</span><span class="p">;</span>
+      <span class="n">pragma</span> <span class="n">Convention</span>  <span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">A</span><span class="p">);</span>
+      <span class="n">B</span> <span class="p">:</span> <span class="n">Integer</span><span class="p">;</span>
+   <span class="n">end</span> <span class="n">record</span><span class="p">;</span>
+   <span class="n">pragma</span> <span class="n">Convention</span> <span class="p">(</span><span class="n">COBOL</span><span class="p">,</span> <span class="n">T2</span><span class="p">);</span>
+
+   <span class="nb">type</span> <span class="n">T3</span> <span class="ow">is</span> <span class="n">record</span>
+      <span class="n">A</span> <span class="p">:</span> <span class="n">access</span> <span class="n">function</span> <span class="p">(</span><span class="n">X</span> <span class="p">:</span> <span class="n">Foo</span><span class="p">)</span> <span class="k">return</span> <span class="n">Integer</span><span class="p">;</span>
+      <span class="n">pragma</span> <span class="n">Convention</span>  <span class="p">(</span><span class="n">COBOL</span><span class="p">,</span> <span class="n">A</span><span class="p">);</span>
+      <span class="n">B</span> <span class="p">:</span> <span class="n">Integer</span><span class="p">;</span>
+   <span class="n">end</span> <span class="n">record</span><span class="p">;</span>
+   <span class="n">pragma</span> <span class="n">Convention</span> <span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">T3</span><span class="p">);</span>
+
+   <span class="nb">type</span> <span class="n">T4</span> <span class="ow">is</span> <span class="n">record</span>
+      <span class="n">A</span> <span class="p">:</span> <span class="n">access</span> <span class="n">function</span> <span class="p">(</span><span class="n">X</span> <span class="p">:</span> <span class="n">Foo</span><span class="p">)</span> <span class="k">return</span> <span class="n">Integer</span><span class="p">;</span>
+      <span class="n">B</span> <span class="p">:</span> <span class="n">Integer</span><span class="p">;</span>
+   <span class="n">end</span> <span class="n">record</span><span class="p">;</span>
+   <span class="n">pragma</span> <span class="n">Convention</span> <span class="p">(</span><span class="n">COBOL</span><span class="p">,</span> <span class="n">T4</span><span class="p">);</span>
+
+   <span class="n">function</span> <span class="n">F</span> <span class="p">(</span><span class="n">X</span> <span class="p">:</span> <span class="n">Foo</span><span class="p">)</span> <span class="k">return</span> <span class="n">Integer</span><span class="p">;</span>
+   <span class="n">pragma</span> <span class="n">Convention</span> <span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">F</span><span class="p">);</span>
+
+   <span class="n">function</span> <span class="n">F</span> <span class="p">(</span><span class="n">X</span> <span class="p">:</span> <span class="n">Foo</span><span class="p">)</span> <span class="k">return</span> <span class="n">Integer</span> <span class="ow">is</span> <span class="p">(</span><span class="mi">13</span><span class="p">);</span>
+
+   <span class="n">TV1</span> <span class="p">:</span> <span class="n">T1</span> <span class="o">:=</span> <span class="p">(</span><span class="sa">F</span><span class="s1">&#39;Access, 12);  -- OK</span>
+   <span class="n">TV2</span> <span class="p">:</span> <span class="n">T2</span> <span class="o">:=</span> <span class="p">(</span><span class="sa">F</span><span class="s1">&#39;Access, 13);  -- OK</span>
+
+   <span class="n">TV3</span> <span class="p">:</span> <span class="n">T3</span> <span class="o">:=</span> <span class="p">(</span><span class="sa">F</span><span class="s1">&#39;Access, 13);  -- ERROR</span>
+                <span class="o">|</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">subprogram</span> <span class="s2">&quot;F&quot;</span> <span class="n">has</span> <span class="n">wrong</span> <span class="n">convention</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">does</span> <span class="ow">not</span> <span class="n">match</span> <span class="n">access</span> <span class="n">to</span> <span class="n">subprogram</span> <span class="n">declared</span> <span class="n">at</span> <span class="n">line</span> <span class="mi">17</span>
+     <span class="mf">38.</span>    <span class="n">TV4</span> <span class="p">:</span> <span class="n">T4</span> <span class="o">:=</span> <span class="p">(</span><span class="sa">F</span><span class="s1">&#39;Access, 13);  -- ERROR</span>
+                <span class="o">|</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">subprogram</span> <span class="s2">&quot;F&quot;</span> <span class="n">has</span> <span class="n">wrong</span> <span class="n">convention</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">does</span> <span class="ow">not</span> <span class="n">match</span> <span class="n">access</span> <span class="n">to</span> <span class="n">subprogram</span> <span class="n">declared</span> <span class="n">at</span> <span class="n">line</span> <span class="mi">24</span>
+     <span class="mf">39.</span> <span class="n">end</span> <span class="n">ConvComp</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="determining-the-representations-chosen-by-gnat">
+<span id="id20"></span><h2><span class="section-number">9.19. </span>Determining the Representations chosen by GNAT<a class="headerlink" href="#determining-the-representations-chosen-by-gnat" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="index-40"></span><p id="index-41">Although the descriptions in this section are intended to be complete, it is
+often easier to simply experiment to see what GNAT accepts and what the
+effect is on the layout of types and objects.</p>
+<p>As required by the Ada RM, if a representation clause is not accepted, then
+it must be rejected as illegal by the compiler.  However, when a
+representation clause or pragma is accepted, there can still be questions
+of what the compiler actually does.  For example, if a partial record
+representation clause specifies the location of some components and not
+others, then where are the non-specified components placed? Or if pragma
+<code class="docutils literal notranslate"><span class="pre">Pack</span></code> is used on a record, then exactly where are the resulting
+fields placed? The section on pragma <code class="docutils literal notranslate"><span class="pre">Pack</span></code> in this chapter can be
+used to answer the second question, but it is often easier to just see
+what the compiler does.</p>
+<p>For this purpose, GNAT provides the option <em>-gnatR</em>.  If you compile
+with this option, then the compiler will output information on the actual
+representations chosen, in a format similar to source representation
+clauses.  For example, if we compile the package:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="k">package </span><span class="nf">q</span> <span class="kr">is</span><span class="p"></span>
+   <span class="kr">type</span><span class="p"> </span><span class="n">r</span> <span class="o">(</span><span class="n">x</span> <span class="o">:</span> <span class="n">boolean</span><span class="o">)</span> <span class="kr">is</span><span class="p"> </span><span class="kr">tagged</span><span class="p"> </span><span class="kr">record</span><span class="p"></span>
+      <span class="kr">case</span><span class="p"> </span><span class="n">x</span> <span class="kr">is</span><span class="p"></span>
+         <span class="kr">when</span><span class="p"> </span><span class="kc">True</span> <span class="o">=&gt;</span> <span class="n">S</span> <span class="o">:</span> <span class="n">String</span> <span class="o">(</span><span class="mi">1</span> <span class="o">..</span> <span class="mi">100</span><span class="o">)</span><span class="p">;</span>
+         <span class="kr">when</span><span class="p"> </span><span class="kc">False</span> <span class="o">=&gt;</span> <span class="kr">null</span><span class="p">;</span>
+      <span class="k">end </span><span class="nf">case</span><span class="p">;</span>
+   <span class="k">end record</span><span class="p">;</span>
+
+   <span class="kr">type</span><span class="p"> </span><span class="n">r2</span> <span class="kr">is</span><span class="p"> </span><span class="kr">new</span><span class="p"> </span><span class="n">r</span> <span class="o">(</span><span class="kc">false</span><span class="o">)</span> <span class="kr">with</span><span class="p"> </span><span class="kr">record</span><span class="p"></span>
+      <span class="n">y2</span> <span class="o">:</span> <span class="n">integer</span><span class="p">;</span>
+   <span class="k">end record</span><span class="p">;</span>
+
+   <span class="kr">for</span><span class="p"> </span><span class="n">r2</span> <span class="kr">use</span><span class="p"> </span><span class="kr">record</span><span class="p"></span>
+      <span class="n">y2</span> <span class="kr">at</span><span class="p"> </span><span class="mi">16</span> <span class="kr">range</span><span class="p"> </span><span class="mi">0</span> <span class="o">..</span> <span class="mi">31</span><span class="p">;</span>
+   <span class="k">end record</span><span class="p">;</span>
+
+   <span class="kr">type</span><span class="p"> </span><span class="n">x</span> <span class="kr">is</span><span class="p"> </span><span class="kr">record</span><span class="p"></span>
+      <span class="n">y</span> <span class="o">:</span> <span class="n">character</span><span class="p">;</span>
+   <span class="k">end record</span><span class="p">;</span>
+
+   <span class="kr">type</span><span class="p"> </span><span class="n">x1</span> <span class="kr">is</span><span class="p"> </span><span class="kr">array</span><span class="p"> </span><span class="o">(</span><span class="mi">1</span> <span class="o">..</span> <span class="mi">10</span><span class="o">)</span> <span class="kr">of</span><span class="p"> </span><span class="n">x</span><span class="p">;</span>
+   <span class="kr">for</span><span class="p"> </span><span class="n">x1</span><span class="na">&#39;component_size</span> <span class="kr">use</span><span class="p"> </span><span class="mi">11</span><span class="p">;</span>
+
+   <span class="kr">type</span><span class="p"> </span><span class="n">ia</span> <span class="kr">is</span><span class="p"> </span><span class="kr">access</span><span class="p"> </span><span class="n">integer</span><span class="p">;</span>
+
+   <span class="kr">type</span><span class="p"> </span><span class="n">Rb1</span> <span class="kr">is</span><span class="p"> </span><span class="kr">array</span><span class="p"> </span><span class="o">(</span><span class="mi">1</span> <span class="o">..</span> <span class="mi">13</span><span class="o">)</span> <span class="kr">of</span><span class="p"> </span><span class="n">Boolean</span><span class="p">;</span>
+   <span class="kr">pragma</span><span class="p"> </span><span class="n">Pack</span> <span class="o">(</span><span class="n">rb1</span><span class="o">)</span><span class="p">;</span>
+
+   <span class="kr">type</span><span class="p"> </span><span class="n">Rb2</span> <span class="kr">is</span><span class="p"> </span><span class="kr">array</span><span class="p"> </span><span class="o">(</span><span class="mi">1</span> <span class="o">..</span> <span class="mi">65</span><span class="o">)</span> <span class="kr">of</span><span class="p"> </span><span class="n">Boolean</span><span class="p">;</span>
+   <span class="kr">pragma</span><span class="p"> </span><span class="n">Pack</span> <span class="o">(</span><span class="n">rb2</span><span class="o">)</span><span class="p">;</span>
+
+   <span class="kr">type</span><span class="p"> </span><span class="n">x2</span> <span class="kr">is</span><span class="p"> </span><span class="kr">record</span><span class="p"></span>
+      <span class="n">l1</span> <span class="o">:</span> <span class="n">Boolean</span><span class="p">;</span>
+      <span class="n">l2</span> <span class="o">:</span> <span class="n">Duration</span><span class="p">;</span>
+      <span class="n">l3</span> <span class="o">:</span> <span class="n">Float</span><span class="p">;</span>
+      <span class="n">l4</span> <span class="o">:</span> <span class="n">Boolean</span><span class="p">;</span>
+      <span class="n">l5</span> <span class="o">:</span> <span class="n">Rb1</span><span class="p">;</span>
+      <span class="n">l6</span> <span class="o">:</span> <span class="n">Rb2</span><span class="p">;</span>
+   <span class="k">end record</span><span class="p">;</span>
+   <span class="kr">pragma</span><span class="p"> </span><span class="n">Pack</span> <span class="o">(</span><span class="n">x2</span><span class="o">)</span><span class="p">;</span>
+<span class="k">end </span><span class="nf">q</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>using the switch <em>-gnatR</em> we obtain the following output:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="n">Representation</span> <span class="n">information</span> <span class="kr">for</span><span class="p"> </span><span class="n">unit</span> <span class="n">q</span>
+<span class="c">-------------------------------------</span>
+
+<span class="kr">for</span><span class="p"> </span><span class="n">r</span><span class="na">&#39;Size</span> <span class="kr">use</span><span class="p"> </span>??<span class="p">;</span>
+<span class="kr">for</span><span class="p"> </span><span class="n">r</span><span class="na">&#39;Alignment</span> <span class="kr">use</span><span class="p"> </span><span class="mi">4</span><span class="p">;</span>
+<span class="kr">for</span><span class="p"> </span><span class="n">r</span> <span class="kr">use</span><span class="p"> </span><span class="kr">record</span><span class="p"></span>
+   <span class="n">x</span>    <span class="kr">at</span><span class="p"> </span><span class="mi">4</span> <span class="kr">range</span><span class="p"> </span> <span class="mi">0</span> <span class="o">..</span> <span class="mi">7</span><span class="p">;</span>
+   <span class="n">_tag</span> <span class="kr">at</span><span class="p"> </span><span class="mi">0</span> <span class="kr">range</span><span class="p"> </span> <span class="mi">0</span> <span class="o">..</span> <span class="mi">31</span><span class="p">;</span>
+   <span class="n">s</span>    <span class="kr">at</span><span class="p"> </span><span class="mi">5</span> <span class="kr">range</span><span class="p"> </span> <span class="mi">0</span> <span class="o">..</span> <span class="mi">799</span><span class="p">;</span>
+<span class="k">end record</span><span class="p">;</span>
+
+<span class="kr">for</span><span class="p"> </span><span class="n">r2</span><span class="na">&#39;Size</span> <span class="kr">use</span><span class="p"> </span><span class="mi">160</span><span class="p">;</span>
+<span class="kr">for</span><span class="p"> </span><span class="n">r2</span><span class="na">&#39;Alignment</span> <span class="kr">use</span><span class="p"> </span><span class="mi">4</span><span class="p">;</span>
+<span class="kr">for</span><span class="p"> </span><span class="n">r2</span> <span class="kr">use</span><span class="p"> </span><span class="kr">record</span><span class="p"></span>
+   <span class="n">x</span>       <span class="kr">at</span><span class="p"> </span> <span class="mi">4</span> <span class="kr">range</span><span class="p"> </span> <span class="mi">0</span> <span class="o">..</span> <span class="mi">7</span><span class="p">;</span>
+   <span class="n">_tag</span>    <span class="kr">at</span><span class="p"> </span> <span class="mi">0</span> <span class="kr">range</span><span class="p"> </span> <span class="mi">0</span> <span class="o">..</span> <span class="mi">31</span><span class="p">;</span>
+   <span class="n">_parent</span> <span class="kr">at</span><span class="p"> </span> <span class="mi">0</span> <span class="kr">range</span><span class="p"> </span> <span class="mi">0</span> <span class="o">..</span> <span class="mi">63</span><span class="p">;</span>
+   <span class="n">y2</span>      <span class="kr">at</span><span class="p"> </span><span class="mi">16</span> <span class="kr">range</span><span class="p"> </span> <span class="mi">0</span> <span class="o">..</span> <span class="mi">31</span><span class="p">;</span>
+<span class="k">end record</span><span class="p">;</span>
+
+<span class="kr">for</span><span class="p"> </span><span class="n">x</span><span class="na">&#39;Size</span> <span class="kr">use</span><span class="p"> </span><span class="mi">8</span><span class="p">;</span>
+<span class="kr">for</span><span class="p"> </span><span class="n">x</span><span class="na">&#39;Alignment</span> <span class="kr">use</span><span class="p"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="kr">for</span><span class="p"> </span><span class="n">x</span> <span class="kr">use</span><span class="p"> </span><span class="kr">record</span><span class="p"></span>
+   <span class="n">y</span> <span class="kr">at</span><span class="p"> </span><span class="mi">0</span> <span class="kr">range</span><span class="p"> </span> <span class="mi">0</span> <span class="o">..</span> <span class="mi">7</span><span class="p">;</span>
+<span class="k">end record</span><span class="p">;</span>
+
+<span class="kr">for</span><span class="p"> </span><span class="n">x1</span><span class="na">&#39;Size</span> <span class="kr">use</span><span class="p"> </span><span class="mi">112</span><span class="p">;</span>
+<span class="kr">for</span><span class="p"> </span><span class="n">x1</span><span class="na">&#39;Alignment</span> <span class="kr">use</span><span class="p"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="kr">for</span><span class="p"> </span><span class="n">x1</span><span class="na">&#39;Component_Size</span> <span class="kr">use</span><span class="p"> </span><span class="mi">11</span><span class="p">;</span>
+
+<span class="kr">for</span><span class="p"> </span><span class="n">rb1</span><span class="na">&#39;Size</span> <span class="kr">use</span><span class="p"> </span><span class="mi">13</span><span class="p">;</span>
+<span class="kr">for</span><span class="p"> </span><span class="n">rb1</span><span class="na">&#39;Alignment</span> <span class="kr">use</span><span class="p"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="kr">for</span><span class="p"> </span><span class="n">rb1</span><span class="na">&#39;Component_Size</span> <span class="kr">use</span><span class="p"> </span><span class="mi">1</span><span class="p">;</span>
+
+<span class="kr">for</span><span class="p"> </span><span class="n">rb2</span><span class="na">&#39;Size</span> <span class="kr">use</span><span class="p"> </span><span class="mi">72</span><span class="p">;</span>
+<span class="kr">for</span><span class="p"> </span><span class="n">rb2</span><span class="na">&#39;Alignment</span> <span class="kr">use</span><span class="p"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="kr">for</span><span class="p"> </span><span class="n">rb2</span><span class="na">&#39;Component_Size</span> <span class="kr">use</span><span class="p"> </span><span class="mi">1</span><span class="p">;</span>
+
+<span class="kr">for</span><span class="p"> </span><span class="n">x2</span><span class="na">&#39;Size</span> <span class="kr">use</span><span class="p"> </span><span class="mi">224</span><span class="p">;</span>
+<span class="kr">for</span><span class="p"> </span><span class="n">x2</span><span class="na">&#39;Alignment</span> <span class="kr">use</span><span class="p"> </span><span class="mi">4</span><span class="p">;</span>
+<span class="kr">for</span><span class="p"> </span><span class="n">x2</span> <span class="kr">use</span><span class="p"> </span><span class="kr">record</span><span class="p"></span>
+   <span class="n">l1</span> <span class="kr">at</span><span class="p"> </span> <span class="mi">0</span> <span class="kr">range</span><span class="p"> </span> <span class="mi">0</span> <span class="o">..</span> <span class="mi">0</span><span class="p">;</span>
+   <span class="n">l2</span> <span class="kr">at</span><span class="p"> </span> <span class="mi">0</span> <span class="kr">range</span><span class="p"> </span> <span class="mi">1</span> <span class="o">..</span> <span class="mi">64</span><span class="p">;</span>
+   <span class="n">l3</span> <span class="kr">at</span><span class="p"> </span><span class="mi">12</span> <span class="kr">range</span><span class="p"> </span> <span class="mi">0</span> <span class="o">..</span> <span class="mi">31</span><span class="p">;</span>
+   <span class="n">l4</span> <span class="kr">at</span><span class="p"> </span><span class="mi">16</span> <span class="kr">range</span><span class="p"> </span> <span class="mi">0</span> <span class="o">..</span> <span class="mi">0</span><span class="p">;</span>
+   <span class="n">l5</span> <span class="kr">at</span><span class="p"> </span><span class="mi">16</span> <span class="kr">range</span><span class="p"> </span> <span class="mi">1</span> <span class="o">..</span> <span class="mi">13</span><span class="p">;</span>
+   <span class="n">l6</span> <span class="kr">at</span><span class="p"> </span><span class="mi">18</span> <span class="kr">range</span><span class="p"> </span> <span class="mi">0</span> <span class="o">..</span> <span class="mi">71</span><span class="p">;</span>
+<span class="k">end record</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The Size values are actually the Object_Size, i.e., the default size that
+will be allocated for objects of the type.
+The <code class="docutils literal notranslate"><span class="pre">??</span></code> size for type r indicates that we have a variant record, and the
+actual size of objects will depend on the discriminant value.</p>
+<p>The Alignment values show the actual alignment chosen by the compiler
+for each record or array type.</p>
+<p>The record representation clause for type r shows where all fields
+are placed, including the compiler generated tag field (whose location
+cannot be controlled by the programmer).</p>
+<p>The record representation clause for the type extension r2 shows all the
+fields present, including the parent field, which is a copy of the fields
+of the parent type of r2, i.e., r1.</p>
+<p>The component size and size clauses for types rb1 and rb2 show
+the exact effect of pragma <code class="docutils literal notranslate"><span class="pre">Pack</span></code> on these arrays, and the record
+representation clause for type x2 shows how pragma <cite>Pack</cite> affects
+this record type.</p>
+<p>In some cases, it may be useful to cut and paste the representation clauses
+generated by the compiler into the original source to fix and guarantee
+the actual representation to be used.</p>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../gnat_rm.html">
+              <img class="logo" src="../_static/adacore_transparent.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="../gnat_rm.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">9. Representation Clauses and Pragmas</a><ul>
+<li><a class="reference internal" href="#alignment-clauses">9.1. Alignment Clauses</a></li>
+<li><a class="reference internal" href="#size-clauses">9.2. Size Clauses</a></li>
+<li><a class="reference internal" href="#storage-size-clauses">9.3. Storage_Size Clauses</a></li>
+<li><a class="reference internal" href="#size-of-variant-record-objects">9.4. Size of Variant Record Objects</a></li>
+<li><a class="reference internal" href="#biased-representation">9.5. Biased Representation</a></li>
+<li><a class="reference internal" href="#value-size-and-object-size-clauses">9.6. Value_Size and Object_Size Clauses</a></li>
+<li><a class="reference internal" href="#component-size-clauses">9.7. Component_Size Clauses</a></li>
+<li><a class="reference internal" href="#bit-order-clauses">9.8. Bit_Order Clauses</a></li>
+<li><a class="reference internal" href="#effect-of-bit-order-on-byte-ordering">9.9. Effect of Bit_Order on Byte Ordering</a></li>
+<li><a class="reference internal" href="#pragma-pack-for-arrays">9.10. Pragma Pack for Arrays</a></li>
+<li><a class="reference internal" href="#pragma-pack-for-records">9.11. Pragma Pack for Records</a></li>
+<li><a class="reference internal" href="#record-representation-clauses">9.12. Record Representation Clauses</a></li>
+<li><a class="reference internal" href="#handling-of-records-with-holes">9.13. Handling of Records with Holes</a></li>
+<li><a class="reference internal" href="#enumeration-clauses">9.14. Enumeration Clauses</a></li>
+<li><a class="reference internal" href="#address-clauses">9.15. Address Clauses</a></li>
+<li><a class="reference internal" href="#use-of-address-clauses-for-memory-mapped-i-o">9.16. Use of Address Clauses for Memory-Mapped I/O</a></li>
+<li><a class="reference internal" href="#effect-of-convention-on-representation">9.17. Effect of Convention on Representation</a></li>
+<li><a class="reference internal" href="#conventions-and-anonymous-access-types">9.18. Conventions and Anonymous Access Types</a></li>
+<li><a class="reference internal" href="#determining-the-representations-chosen-by-gnat">9.19. Determining the Representations chosen by GNAT</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="intrinsic_subprograms.html"
+                        title="previous chapter"><span class="section-number">8. </span>Intrinsic Subprograms</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="standard_library_routines.html"
+                        title="next chapter"><span class="section-number">10. </span>Standard Library Routines</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/gnat_rm/representation_clauses_and_pragmas.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="standard_library_routines.html" title="10. Standard Library Routines"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="intrinsic_subprograms.html" title="8. Intrinsic Subprograms"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../gnat_rm.html">GNAT Reference Manual 2021 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">9. </span>Representation Clauses and Pragmas</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2008-2021, Free Software Foundation.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
+    </div>
+  </body>
+</html>

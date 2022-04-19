@@ -1,0 +1,13 @@
+# See: man pkg-config
+prefix=/it/sbx/a2c2/x86_64-linux/python3forgdb/install
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: Python
+Description: Build a C extension for Python
+Requires:
+Version: 3.8
+Libs.private: -lcrypt -lpthread -ldl  -lutil -lrt -lm
+Libs:
+Cflags: -I${includedir}/python3.8

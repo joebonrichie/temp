@@ -1,0 +1,150 @@
+V "GNAT Lib v2021"
+A -O2
+A -gnatA
+A -gnatp
+A -gnatn
+A -gnatwa
+A -gnatw.X
+A -mtune=generic
+A -march=x86-64
+P ZX
+
+RN
+RV NO_CALENDAR
+RV NO_DELAY
+RV NO_FIXED_POINT
+RV NO_IMPLEMENTATION_ATTRIBUTES
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_ELABORATION_CODE
+
+U aunit.time_measure%b	aunit-time_measure.adb	5b9f853f NE OO PK
+W ada%s			ada.ads			ada.ali
+W ada.strings%s		a-string.ads		a-string.ali
+W ada.strings.fixed%s	a-strfix.adb		a-strfix.ali
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+W aunit%s		aunit.adb		aunit.ali
+
+U aunit.time_measure%s	aunit-time_measure.ads	131cf6dd BN EE OO PK
+W ada%s			ada.ads			ada.ali
+W ada.calendar%s	a-calend.adb		a-calend.ali
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+W aunit%s		aunit.adb		aunit.ali
+W aunit.io%s		aunit-io.ads		aunit-io.ali
+
+D ada.ads		20210520051131 76789da1 ada%s
+D a-calend.ads		20210520051128 474d9720 ada.calendar%s
+D a-calend.adb		20210520051128 dfcd352e ada.calendar%b
+D a-charac.ads		20210520051128 2d3ec45b ada.characters%s
+D a-chlat1.ads		20210520051128 66457d31 ada.characters.latin_1%s
+D a-except.ads		20210520051128 946f3014 ada.exceptions%s
+D a-inteio.ads		20210520051128 f64b89a4 ada.integer_text_io%s
+D a-ioexce.ads		20210520051128 e4a01f64 ada.io_exceptions%s
+D a-stream.ads		20210520051129 119b8fb3 ada.streams%s
+D a-string.ads		20210520051129 90ac6797 ada.strings%s
+D a-strfix.ads		20210520051129 aeacf44c ada.strings.fixed%s
+D a-strmap.ads		20210520051129 5a88892a ada.strings.maps%s
+D a-sttebu.ads		20210520051129 18209c64 ada.strings.text_buffers%s
+D a-stuten.ads		20210520051129 808c40ad ada.strings.utf_encoding%s
+D a-tags.ads		20210520051130 9eaa38c6 ada.tags%s
+D a-textio.ads		20210520051130 aef4d56d ada.text_io%s
+D a-tiinio.ads		20210520051130 390edddb ada.text_io.integer_io%s
+D a-unccon.ads		20210520051130 0e9b276f ada.unchecked_conversion%s
+D aunit.ads		20210519052522 76cdf7c6 aunit%s
+D aunit-io.ads		20210519052522 fb5ed18b aunit.io%s
+D aunit-time_measure.ads  20210519052522 d9c247b0 aunit.time_measure%s
+D aunit-time_measure.adb  20210519052522 bc5d5154 aunit.time_measure%b
+D interfac.ads		20210520051132 edec285f interfaces%s
+D i-c.ads		20210520051132 d9beded9 interfaces.c%s
+D i-cstrea.ads		20210520051132 e53d8b8e interfaces.c_streams%s
+D system.ads		20210520051135 a2da961d system%s
+D s-crtl.ads		20210520051132 0ebbdb71 system.crtl%s
+D s-exctab.ads		20210520051132 54135002 system.exception_table%s
+D s-ficobl.ads		20210520051132 078245e4 system.file_control_block%s
+D s-osprim.ads		20210520051133 07fd65f6 system.os_primitives%s
+D s-parame.ads		20210520051134 4752c4cb system.parameters%s
+D s-putima.ads		20210520051134 4e095881 system.put_images%s
+D s-secsta.ads		20210520051134 9b3ab94b system.secondary_stack%s
+D s-soflin.ads		20210520051134 a7318a92 system.soft_links%s
+D s-stache.ads		20210520051134 a37c21ec system.stack_checking%s
+D s-stalib.ads		20210520051134 472fbca8 system.standard_library%s
+D s-stoele.ads		20210520051134 2dc34a04 system.storage_elements%s
+D s-stoele.adb		20210520051134 ed88f8fb system.storage_elements%b
+D s-traent.ads		20210520051134 26a8d361 system.traceback_entries%s
+D s-unstyp.ads		20210520051134 2b077493 system.unsigned_types%s
+D s-wchcon.ads		20210520051135 1b7d22d2 system.wch_con%s
+D unchconv.ads		20210520051135 ca2f9e18 unchecked_conversion%s
+G a e
+G c Z s s [timeIP aunit__time_measure 37 9 none]
+G c Z s b [start_measure aunit__time_measure 47 14 none]
+G c Z s b [stop_measure aunit__time_measure 50 14 none]
+G c Z s b [get_measure aunit__time_measure 53 13 none]
+X 1 ada.ads
+16K9*Ada 20e8 21|32r6 38r15 39r15 44r43 45r43 22|32r6 32r29 33r6 33r29 43r18
+. 52r17 60r16
+X 2 a-calend.ads
+36K13*Calendar 413e17 21|32w10 38r19 39r19 44r47 45r47 22|43r22 52r21 60r20
+42I9*Time<226I9> 21|38r28 39r28 22|60r29
+56V13*Clock{42I9} 22|43s31 52s30
+83V13*Time_Of{42I9} 21|44s56 45s56
+112V14*"-"{duration} 22|62s37
+226I9 Time_Rep<long_long_integer>
+X 10 a-string.ads
+16K13*Strings 35e16 22|32w10 32r33 33r10 33r33
+33n24*Left{33E9} 22|88r34 112r34 119r37 131r34 163r34 173r31
+X 11 a-strfix.ads
+43K21*Fixed 1398e22 22|33w18 33r41
+1097V13*Trim{string} 22|88s21 112s21 119s24 131s21 163s21 173s18
+X 16 a-textio.ads
+65P9*File_Type
+X 19 aunit.ads
+34K9*AUnit 48e10 21|33r6 35r9 57r31 58r38 62r31 63r49 71r5 22|35r14 69r41
+. 145r52 180r5
+X 20 aunit-io.ads
+35K15*IO 59e13 21|33w12 57r37 58r44 62r37 63r55 22|69r47 145r58
+37P12*File_Type{16|65P9} 21|57r40 58r47 62r40 63r58 22|69r50 145r61
+X 21 aunit-time_measure.ads
+35K15*Time_Measure 19|34k9 21|69E9 71l11 71e23 22|35b20 180l11 180t23
+37R9*Time 40e14 44r25 47r40 50r39 53r30 22|41r40 50r39 59r30
+38i7*Start{2|42I9} 44m34 22|43m9 62r41
+39i7*Stop{2|42I9} 45m34 22|52m9 62r32
+42O9*AUnit_Duration<duration> 53r43 58r68 63r79 69c9 22|59r43 62r14 70r41
+. 146r52
+44r4*Null_Time{37R9}
+47U14*Start_Measure 47=29 22|41b14 44l8 44t21
+47r29 T{37R9} 22|41b29 43m7
+50U14*Stop_Measure 50=28 22|50b14 53l8 53t20
+50r28 T{37R9} 22|50b28 52m7
+53V13*Get_Measure{42O9} 53>26 22|59b13 63l8 63t19
+53r26 T{37R9} 22|59b26 62r30 62r39
+57U22 Put 57>27 57>51 22|82s16 88s10 112s10 113s10 119s13 126s10 131s10 136s7
+. 138s7
+57p27 F{20|37P12}
+57a51 S{string}
+58u14*Gen_Put_Measure 58>31 58>58 22|69b14 139l8 139t23
+58p31 File{20|37P12} 22|69b31 82r21 88r15 112r15 113r15 119r18 126r15 131r15
+. 136r12 138r12
+58o58 Measure{42O9} 22|70b31 72r40
+62U22 Put 62>27 62>51 22|157s16 163s10 173s7 175s7 177s7
+62p27 F{20|37P12}
+62a51 S{string}
+63u14*Gen_Put_Measure_In_Seconds 63>42 63>69 22|145b14 178l8 178t34
+63p42 File{20|37P12} 22|145b42 157r21 163r15 173r12 175r12 177r12
+63o69 Measure{42O9} 22|146b42 148r34
+X 22 aunit-time_measure.adb
+71i7 H{integer} 94m10 94r15 111r10 112r27
+71i10 M{integer} 99m10 99r15 117r10 119r30 123r18
+71i13 S{integer} 104m10 104r15 131r27 133r15
+72o7 T{duration} 93r13 95m10 95r15 98r13 100m10 100r15 103r13 105m10 105r15
+. 137r21
+73b7 Force{boolean} 109m7 114m10 117r24 118r17 127m10 130r14
+75U17 Put 75>22 75>35 78b17 89l11 89t14 123s13 133s10 137s7
+75i22 N{integer} 78b22 81r16 88r27
+75i35 Length{integer} 78b35 80r34
+80i14 Dig{integer} 81r24
+147i7 S{integer} 169m10 169r15 173r24
+148o7 T{duration} 168r13 170m10 170r15 176r21
+150U17 Put 150>22 150>35 153b17 164l11 164t14 176s7
+150i22 N{integer} 153b22 156r16 163r27
+150i35 Length{integer} 153b35 155r34
+155i14 Dig{integer} 156r24
+

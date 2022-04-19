@@ -1,0 +1,21 @@
+    <!-- VOLATILE_STREAMS -->
+
+    <action name="&prefix;_volatile_streams" category="">
+        <shell>
+            Project.load "&example_root;/gnat/volatile_streams/volatile_streams.gpr"
+        </shell>
+        <shell>
+            Editor.edit "demo_memory_streams.adb"
+        </shell>
+        <shell>
+            Editor.edit "README.testing"
+        </shell>
+    </action>
+
+    <submenu before="About">
+        <title>&menu;</title>
+        <menu action="&prefix;_volatile_streams">
+            <title>GNAT &prefix;/Volatile Streams</title>
+        </menu>
+    </submenu>
+

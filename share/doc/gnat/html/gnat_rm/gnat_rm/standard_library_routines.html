@@ -1,0 +1,611 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>10. Standard Library Routines &#8212; GNAT Reference Manual 2021 documentation</title>
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="11. The Implementation of Standard I/O" href="the_implementation_of_standard_i_o.html" />
+    <link rel="prev" title="9. Representation Clauses and Pragmas" href="representation_clauses_and_pragmas.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="the_implementation_of_standard_i_o.html" title="11. The Implementation of Standard I/O"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="representation_clauses_and_pragmas.html" title="9. Representation Clauses and Pragmas"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../gnat_rm.html">GNAT Reference Manual 2021 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">10. </span>Standard Library Routines</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="standard-library-routines">
+<span id="id1"></span><h1><span class="section-number">10. </span>Standard Library Routines<a class="headerlink" href="#standard-library-routines" title="Permalink to this headline">¶</a></h1>
+<p>The Ada Reference Manual contains in Annex A a full description of an
+extensive set of standard library routines that can be used in any Ada
+program, and which must be provided by all Ada compilers.  They are
+analogous to the standard C library used by C programs.</p>
+<p>GNAT implements all of the facilities described in annex A, and for most
+purposes the description in the Ada Reference Manual, or appropriate Ada
+text book, will be sufficient for making use of these facilities.</p>
+<p>In the case of the input-output facilities,
+<a class="reference internal" href="the_implementation_of_standard_i_o.html#the-implementation-of-standard-i-o"><span class="std std-ref">The Implementation of Standard I/O</span></a>,
+gives details on exactly how GNAT interfaces to the
+file system.  For the remaining packages, the Ada Reference Manual
+should be sufficient.  The following is a list of the packages included,
+together with a brief description of the functionality that is provided.</p>
+<p>For completeness, references are included to other predefined library
+routines defined in other sections of the Ada Reference Manual (these are
+cross-indexed from Annex A). For further details see the relevant
+package declarations in the run-time library. In particular, a few units
+are not implemented, as marked by the presence of pragma Unimplemented_Unit,
+and in this case the package declaration contains comments explaining why
+the unit is not implemented.</p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">Ada</span></code> <em>(A.2)</em></dt><dd><p>This is a parent package for all the standard library packages.  It is
+usually included implicitly in your program, and itself contains no
+useful data or routines.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Assertions</span></code> <em>(11.4.2)</em></dt><dd><p><code class="docutils literal notranslate"><span class="pre">Assertions</span></code> provides the <code class="docutils literal notranslate"><span class="pre">Assert</span></code> subprograms, and also
+the declaration of the <code class="docutils literal notranslate"><span class="pre">Assertion_Error</span></code> exception.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Asynchronous_Task_Control</span></code> <em>(D.11)</em></dt><dd><p><code class="docutils literal notranslate"><span class="pre">Asynchronous_Task_Control</span></code> provides low level facilities for task
+synchronization. It is typically not implemented. See package spec for details.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Calendar</span></code> <em>(9.6)</em></dt><dd><p><code class="docutils literal notranslate"><span class="pre">Calendar</span></code> provides time of day access, and routines for
+manipulating times and durations.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Calendar.Arithmetic</span></code> <em>(9.6.1)</em></dt><dd><p>This package provides additional arithmetic
+operations for <code class="docutils literal notranslate"><span class="pre">Calendar</span></code>.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Calendar.Formatting</span></code> <em>(9.6.1)</em></dt><dd><p>This package provides formatting operations for <code class="docutils literal notranslate"><span class="pre">Calendar</span></code>.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Calendar.Time_Zones</span></code> <em>(9.6.1)</em></dt><dd><p>This package provides additional <code class="docutils literal notranslate"><span class="pre">Calendar</span></code> facilities
+for handling time zones.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Characters</span></code> <em>(A.3.1)</em></dt><dd><p>This is a dummy parent package that contains no useful entities</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Characters.Conversions</span></code> <em>(A.3.2)</em></dt><dd><p>This package provides character conversion functions.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Characters.Handling</span></code> <em>(A.3.2)</em></dt><dd><p>This package provides some basic character handling capabilities,
+including classification functions for classes of characters (e.g., test
+for letters, or digits).</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Characters.Latin_1</span></code> <em>(A.3.3)</em></dt><dd><p>This package includes a complete set of definitions of the characters
+that appear in type CHARACTER.  It is useful for writing programs that
+will run in international environments.  For example, if you want an
+upper case E with an acute accent in a string, it is often better to use
+the definition of <code class="docutils literal notranslate"><span class="pre">UC_E_Acute</span></code> in this package.  Then your program
+will print in an understandable manner even if your environment does not
+support these extended characters.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Command_Line</span></code> <em>(A.15)</em></dt><dd><p>This package provides access to the command line parameters and the name
+of the current program (analogous to the use of <code class="docutils literal notranslate"><span class="pre">argc</span></code> and <code class="docutils literal notranslate"><span class="pre">argv</span></code>
+in C), and also allows the exit status for the program to be set in a
+system-independent manner.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Complex_Text_IO</span></code> <em>(G.1.3)</em></dt><dd><p>This package provides text input and output of complex numbers.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Containers</span></code> <em>(A.18.1)</em></dt><dd><p>A top level package providing a few basic definitions used by all the
+following specific child packages that provide specific kinds of
+containers.</p>
+</dd>
+</dl>
+<p><code class="docutils literal notranslate"><span class="pre">Ada.Containers.Bounded_Priority_Queues</span></code> <em>(A.18.31)</em></p>
+<p><code class="docutils literal notranslate"><span class="pre">Ada.Containers.Bounded_Synchronized_Queues</span></code> <em>(A.18.29)</em></p>
+<p><code class="docutils literal notranslate"><span class="pre">Ada.Containers.Doubly_Linked_Lists</span></code> <em>(A.18.3)</em></p>
+<p><code class="docutils literal notranslate"><span class="pre">Ada.Containers.Generic_Array_Sort</span></code> <em>(A.18.26)</em></p>
+<p><code class="docutils literal notranslate"><span class="pre">Ada.Containers.Generic_Constrained_Array_Sort</span></code> <em>(A.18.26)</em></p>
+<p><code class="docutils literal notranslate"><span class="pre">Ada.Containers.Generic_Sort</span></code> <em>(A.18.26)</em></p>
+<p><code class="docutils literal notranslate"><span class="pre">Ada.Containers.Hashed_Maps</span></code> <em>(A.18.5)</em></p>
+<p><code class="docutils literal notranslate"><span class="pre">Ada.Containers.Hashed_Sets</span></code> <em>(A.18.8)</em></p>
+<p><code class="docutils literal notranslate"><span class="pre">Ada.Containers.Indefinite_Doubly_Linked_Lists</span></code> <em>(A.18.12)</em></p>
+<p><code class="docutils literal notranslate"><span class="pre">Ada.Containers.Indefinite_Hashed_Maps</span></code> <em>(A.18.13)</em></p>
+<p><code class="docutils literal notranslate"><span class="pre">Ada.Containers.Indefinite_Hashed_Sets</span></code> <em>(A.18.15)</em></p>
+<p><code class="docutils literal notranslate"><span class="pre">Ada.Containers.Indefinite_Holders</span></code> <em>(A.18.18)</em></p>
+<p><code class="docutils literal notranslate"><span class="pre">Ada.Containers.Indefinite_Multiway_Trees</span></code> <em>(A.18.17)</em></p>
+<p><code class="docutils literal notranslate"><span class="pre">Ada.Containers.Indefinite_Ordered_Maps</span></code> <em>(A.18.14)</em></p>
+<p><code class="docutils literal notranslate"><span class="pre">Ada.Containers.Indefinite_Ordered_Sets</span></code> <em>(A.18.16)</em></p>
+<p><code class="docutils literal notranslate"><span class="pre">Ada.Containers.Indefinite_Vectors</span></code> <em>(A.18.11)</em></p>
+<p><code class="docutils literal notranslate"><span class="pre">Ada.Containers.Multiway_Trees</span></code> <em>(A.18.10)</em></p>
+<p><code class="docutils literal notranslate"><span class="pre">Ada.Containers.Ordered_Maps</span></code> <em>(A.18.6)</em></p>
+<p><code class="docutils literal notranslate"><span class="pre">Ada.Containers.Ordered_Sets</span></code> <em>(A.18.9)</em></p>
+<p><code class="docutils literal notranslate"><span class="pre">Ada.Containers.Synchronized_Queue_Interfaces</span></code> <em>(A.18.27)</em></p>
+<p><code class="docutils literal notranslate"><span class="pre">Ada.Containers.Unbounded_Priority_Queues</span></code> <em>(A.18.30)</em></p>
+<p><code class="docutils literal notranslate"><span class="pre">Ada.Containers.Unbounded_Synchronized_Queues</span></code> <em>(A.18.28)</em></p>
+<p><code class="docutils literal notranslate"><span class="pre">Ada.Containers.Vectors</span></code> <em>(A.18.2)</em></p>
+<dl>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Directories</span></code> <em>(A.16)</em></dt><dd><p>This package provides operations on directories.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Directories.Hierarchical_File_Names</span></code> <em>(A.16.1)</em></dt><dd><p>This package provides additional directory operations handling
+hiearchical file names.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Directories.Information</span></code> <em>(A.16)</em></dt><dd><p>This is an implementation defined package for additional directory
+operations, which is not implemented in GNAT.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Decimal</span></code> <em>(F.2)</em></dt><dd><p>This package provides constants describing the range of decimal numbers
+implemented, and also a decimal divide routine (analogous to the COBOL
+verb DIVIDE … GIVING … REMAINDER …)</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Direct_IO</span></code> <em>(A.8.4)</em></dt><dd><p>This package provides input-output using a model of a set of records of
+fixed-length, containing an arbitrary definite Ada type, indexed by an
+integer record number.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Dispatching</span></code> <em>(D.2.1)</em></dt><dd><p>A parent package containing definitions for task dispatching operations.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Dispatching.EDF</span></code> <em>(D.2.6)</em></dt><dd><p>Not implemented in GNAT.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Dispatching.Non_Preemptive</span></code> <em>(D.2.4)</em></dt><dd><p>Not implemented in GNAT.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Dispatching.Round_Robin</span></code> <em>(D.2.5)</em></dt><dd><p>Not implemented in GNAT.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Dynamic_Priorities</span></code> <em>(D.5)</em></dt><dd><p>This package allows the priorities of a task to be adjusted dynamically
+as the task is running.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Environment_Variables</span></code> <em>(A.17)</em></dt><dd><p>This package provides facilities for accessing environment variables.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Exceptions</span></code> <em>(11.4.1)</em></dt><dd><p>This package provides additional information on exceptions, and also
+contains facilities for treating exceptions as data objects, and raising
+exceptions with associated messages.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Execution_Time</span></code> <em>(D.14)</em></dt><dd><p>This package provides CPU clock functionalities. It is not implemented on
+all targets (see package spec for details).</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Execution_Time.Group_Budgets</span></code> <em>(D.14.2)</em></dt><dd><p>Not implemented in GNAT.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Execution_Time.Timers</span></code> <em>(D.14.1)’</em></dt><dd><p>Not implemented in GNAT.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Finalization</span></code> <em>(7.6)</em></dt><dd><p>This package contains the declarations and subprograms to support the
+use of controlled types, providing for automatic initialization and
+finalization (analogous to the constructors and destructors of C++).</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Float_Text_IO</span></code> <em>(A.10.9)</em></dt><dd><p>A library level instantiation of Text_IO.Float_IO for type Float.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Float_Wide_Text_IO</span></code> <em>(A.10.9)</em></dt><dd><p>A library level instantiation of Wide_Text_IO.Float_IO for type Float.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Float_Wide_Wide_Text_IO</span></code> <em>(A.10.9)</em></dt><dd><p>A library level instantiation of Wide_Wide_Text_IO.Float_IO for type Float.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Integer_Text_IO</span></code> <em>(A.10.9)</em></dt><dd><p>A library level instantiation of Text_IO.Integer_IO for type Integer.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Integer_Wide_Text_IO</span></code> <em>(A.10.9)</em></dt><dd><p>A library level instantiation of Wide_Text_IO.Integer_IO for type Integer.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Integer_Wide_Wide_Text_IO</span></code> <em>(A.10.9)</em></dt><dd><p>A library level instantiation of Wide_Wide_Text_IO.Integer_IO for type Integer.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Interrupts</span></code> <em>(C.3.2)</em></dt><dd><p>This package provides facilities for interfacing to interrupts, which
+includes the set of signals or conditions that can be raised and
+recognized as interrupts.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Interrupts.Names</span></code> <em>(C.3.2)</em></dt><dd><p>This package provides the set of interrupt names (actually signal
+or condition names) that can be handled by GNAT.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.IO_Exceptions</span></code> <em>(A.13)</em></dt><dd><p>This package defines the set of exceptions that can be raised by use of
+the standard IO packages.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Iterator_Interfaces</span></code> <em>(5.5.1)</em></dt><dd><p>This package provides a generic interface to generalized iterators.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Locales</span></code> <em>(A.19)</em></dt><dd><p>This package provides declarations providing information (Language
+and Country) about the current locale.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Numerics</span></code></dt><dd><p>This package contains some standard constants and exceptions used
+throughout the numerics packages.  Note that the constants pi and e are
+defined here, and it is better to use these definitions than rolling
+your own.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Numerics.Complex_Arrays</span></code> <em>(G.3.2)</em></dt><dd><p>Provides operations on arrays of complex numbers.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Numerics.Complex_Elementary_Functions</span></code></dt><dd><p>Provides the implementation of standard elementary functions (such as
+log and trigonometric functions) operating on complex numbers using the
+standard <code class="docutils literal notranslate"><span class="pre">Float</span></code> and the <code class="docutils literal notranslate"><span class="pre">Complex</span></code> and <code class="docutils literal notranslate"><span class="pre">Imaginary</span></code> types
+created by the package <code class="docutils literal notranslate"><span class="pre">Numerics.Complex_Types</span></code>.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Numerics.Complex_Types</span></code></dt><dd><p>This is a predefined instantiation of
+<code class="docutils literal notranslate"><span class="pre">Numerics.Generic_Complex_Types</span></code> using <code class="docutils literal notranslate"><span class="pre">Standard.Float</span></code> to
+build the type <code class="docutils literal notranslate"><span class="pre">Complex</span></code> and <code class="docutils literal notranslate"><span class="pre">Imaginary</span></code>.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Numerics.Discrete_Random</span></code></dt><dd><p>This generic package provides a random number generator suitable for generating
+uniformly distributed values of a specified discrete subtype.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Numerics.Float_Random</span></code></dt><dd><p>This package provides a random number generator suitable for generating
+uniformly distributed floating point values in the unit interval.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Numerics.Generic_Complex_Elementary_Functions</span></code></dt><dd><p>This is a generic version of the package that provides the
+implementation of standard elementary functions (such as log and
+trigonometric functions) for an arbitrary complex type.</p>
+<p>The following predefined instantiations of this package are provided:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">Short_Float</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">Ada.Numerics.Short_Complex_Elementary_Functions</span></code></p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Float</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">Ada.Numerics.Complex_Elementary_Functions</span></code></p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Long_Float</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">Ada.Numerics.Long_Complex_Elementary_Functions</span></code></p>
+</li>
+</ul>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Numerics.Generic_Complex_Types</span></code></dt><dd><p>This is a generic package that allows the creation of complex types,
+with associated complex arithmetic operations.</p>
+<p>The following predefined instantiations of this package exist</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">Short_Float</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">Ada.Numerics.Short_Complex_Complex_Types</span></code></p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Float</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">Ada.Numerics.Complex_Complex_Types</span></code></p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Long_Float</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">Ada.Numerics.Long_Complex_Complex_Types</span></code></p>
+</li>
+</ul>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Numerics.Generic_Elementary_Functions</span></code></dt><dd><p>This is a generic package that provides the implementation of standard
+elementary functions (such as log an trigonometric functions) for an
+arbitrary float type.</p>
+<p>The following predefined instantiations of this package exist</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">Short_Float</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">Ada.Numerics.Short_Elementary_Functions</span></code></p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Float</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">Ada.Numerics.Elementary_Functions</span></code></p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Long_Float</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">Ada.Numerics.Long_Elementary_Functions</span></code></p>
+</li>
+</ul>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Numerics.Generic_Real_Arrays</span></code> <em>(G.3.1)</em></dt><dd><p>Generic operations on arrays of reals</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Numerics.Real_Arrays</span></code> <em>(G.3.1)</em></dt><dd><p>Preinstantiation of Ada.Numerics.Generic_Real_Arrays (Float).</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Real_Time</span></code> <em>(D.8)</em></dt><dd><p>This package provides facilities similar to those of <code class="docutils literal notranslate"><span class="pre">Calendar</span></code>, but
+operating with a finer clock suitable for real time control. Note that
+annex D requires that there be no backward clock jumps, and GNAT generally
+guarantees this behavior, but of course if the external clock on which
+the GNAT runtime depends is deliberately reset by some external event,
+then such a backward jump may occur.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Real_Time.Timing_Events</span></code> <em>(D.15)</em></dt><dd><p>Not implemented in GNAT.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Sequential_IO</span></code> <em>(A.8.1)</em></dt><dd><p>This package provides input-output facilities for sequential files,
+which can contain a sequence of values of a single type, which can be
+any Ada type, including indefinite (unconstrained) types.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Storage_IO</span></code> <em>(A.9)</em></dt><dd><p>This package provides a facility for mapping arbitrary Ada types to and
+from a storage buffer.  It is primarily intended for the creation of new
+IO packages.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Streams</span></code> <em>(13.13.1)</em></dt><dd><p>This is a generic package that provides the basic support for the
+concept of streams as used by the stream attributes (<code class="docutils literal notranslate"><span class="pre">Input</span></code>,
+<code class="docutils literal notranslate"><span class="pre">Output</span></code>, <code class="docutils literal notranslate"><span class="pre">Read</span></code> and <code class="docutils literal notranslate"><span class="pre">Write</span></code>).</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Streams.Stream_IO</span></code> <em>(A.12.1)</em></dt><dd><p>This package is a specialization of the type <code class="docutils literal notranslate"><span class="pre">Streams</span></code> defined in
+package <code class="docutils literal notranslate"><span class="pre">Streams</span></code> together with a set of operations providing
+Stream_IO capability.  The Stream_IO model permits both random and
+sequential access to a file which can contain an arbitrary set of values
+of one or more Ada types.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Strings</span></code> <em>(A.4.1)</em></dt><dd><p>This package provides some basic constants used by the string handling
+packages.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Strings.Bounded</span></code> <em>(A.4.4)</em></dt><dd><p>This package provides facilities for handling variable length
+strings.  The bounded model requires a maximum length.  It is thus
+somewhat more limited than the unbounded model, but avoids the use of
+dynamic allocation or finalization.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Strings.Bounded.Equal_Case_Insensitive</span></code> <em>(A.4.10)</em></dt><dd><p>Provides case-insensitive comparisons of bounded strings</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Strings.Bounded.Hash</span></code> <em>(A.4.9)</em></dt><dd><p>This package provides a generic hash function for bounded strings</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Strings.Bounded.Hash_Case_Insensitive</span></code> <em>(A.4.9)</em></dt><dd><p>This package provides a generic hash function for bounded strings that
+converts the string to be hashed to lower case.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Strings.Bounded.Less_Case_Insensitive</span></code> <em>(A.4.10)</em></dt><dd><p>This package provides a comparison function for bounded strings that works
+in a case insensitive manner by converting to lower case before the comparison.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Strings.Fixed</span></code> <em>(A.4.3)</em></dt><dd><p>This package provides facilities for handling fixed length strings.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Strings.Fixed.Equal_Case_Insensitive</span></code> <em>(A.4.10)</em></dt><dd><p>This package provides an equality function for fixed strings that compares
+the strings after converting both to lower case.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Strings.Fixed.Hash_Case_Insensitive</span></code> <em>(A.4.9)</em></dt><dd><p>This package provides a case insensitive hash function for fixed strings that
+converts the string to lower case before computing the hash.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Strings.Fixed.Less_Case_Insensitive</span></code> <em>(A.4.10)</em></dt><dd><p>This package provides a comparison function for fixed strings that works
+in a case insensitive manner by converting to lower case before the comparison.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Strings.Hash</span></code> <em>(A.4.9)</em></dt><dd><p>This package provides a hash function for strings.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Strings.Hash_Case_Insensitive</span></code> <em>(A.4.9)</em></dt><dd><p>This package provides a hash function for strings that is case insensitive.
+The string is converted to lower case before computing the hash.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Strings.Less_Case_Insensitive</span></code> <em>(A.4.10)</em></dt><dd><p>This package provides a comparison function for\strings that works
+in a case insensitive manner by converting to lower case before the comparison.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Strings.Maps</span></code> <em>(A.4.2)</em></dt><dd><p>This package provides facilities for handling character mappings and
+arbitrarily defined subsets of characters.  For instance it is useful in
+defining specialized translation tables.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Strings.Maps.Constants</span></code> <em>(A.4.6)</em></dt><dd><p>This package provides a standard set of predefined mappings and
+predefined character sets.  For example, the standard upper to lower case
+conversion table is found in this package.  Note that upper to lower case
+conversion is non-trivial if you want to take the entire set of
+characters, including extended characters like E with an acute accent,
+into account.  You should use the mappings in this package (rather than
+adding 32 yourself) to do case mappings.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Strings.Unbounded</span></code> <em>(A.4.5)</em></dt><dd><p>This package provides facilities for handling variable length
+strings.  The unbounded model allows arbitrary length strings, but
+requires the use of dynamic allocation and finalization.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Strings.Unbounded.Equal_Case_Insensitive</span></code> <em>(A.4.10)</em></dt><dd><p>Provides case-insensitive comparisons of unbounded strings</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Strings.Unbounded.Hash</span></code> <em>(A.4.9)</em></dt><dd><p>This package provides a generic hash function for unbounded strings</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Strings.Unbounded.Hash_Case_Insensitive</span></code> <em>(A.4.9)</em></dt><dd><p>This package provides a generic hash function for unbounded strings that
+converts the string to be hashed to lower case.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Strings.Unbounded.Less_Case_Insensitive</span></code> <em>(A.4.10)</em></dt><dd><p>This package provides a comparison function for unbounded strings that works
+in a case insensitive manner by converting to lower case before the comparison.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Strings.UTF_Encoding</span></code> <em>(A.4.11)</em></dt><dd><p>This package provides basic definitions for dealing with UTF-encoded strings.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Strings.UTF_Encoding.Conversions</span></code> <em>(A.4.11)</em></dt><dd><p>This package provides conversion functions for UTF-encoded strings.</p>
+</dd>
+</dl>
+<p><code class="docutils literal notranslate"><span class="pre">Ada.Strings.UTF_Encoding.Strings</span></code> <em>(A.4.11)</em></p>
+<p><code class="docutils literal notranslate"><span class="pre">Ada.Strings.UTF_Encoding.Wide_Strings</span></code> <em>(A.4.11)</em></p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Strings.UTF_Encoding.Wide_Wide_Strings</span></code> <em>(A.4.11)</em></dt><dd><p>These packages provide facilities for handling UTF encodings for
+Strings, Wide_Strings and Wide_Wide_Strings.</p>
+</dd>
+</dl>
+<p><code class="docutils literal notranslate"><span class="pre">Ada.Strings.Wide_Bounded</span></code> <em>(A.4.7)</em></p>
+<p><code class="docutils literal notranslate"><span class="pre">Ada.Strings.Wide_Fixed</span></code> <em>(A.4.7)</em></p>
+<p><code class="docutils literal notranslate"><span class="pre">Ada.Strings.Wide_Maps</span></code> <em>(A.4.7)</em></p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Strings.Wide_Unbounded</span></code> <em>(A.4.7)</em></dt><dd><p>These packages provide analogous capabilities to the corresponding
+packages without <code class="docutils literal notranslate"><span class="pre">Wide_</span></code> in the name, but operate with the types
+<code class="docutils literal notranslate"><span class="pre">Wide_String</span></code> and <code class="docutils literal notranslate"><span class="pre">Wide_Character</span></code> instead of <code class="docutils literal notranslate"><span class="pre">String</span></code>
+and <code class="docutils literal notranslate"><span class="pre">Character</span></code>. Versions of all the child packages are available.</p>
+</dd>
+</dl>
+<p><code class="docutils literal notranslate"><span class="pre">Ada.Strings.Wide_Wide_Bounded</span></code> <em>(A.4.7)</em></p>
+<p><code class="docutils literal notranslate"><span class="pre">Ada.Strings.Wide_Wide_Fixed</span></code> <em>(A.4.7)</em></p>
+<p><code class="docutils literal notranslate"><span class="pre">Ada.Strings.Wide_Wide_Maps</span></code> <em>(A.4.7)</em></p>
+<dl>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Strings.Wide_Wide_Unbounded</span></code> <em>(A.4.7)</em></dt><dd><p>These packages provide analogous capabilities to the corresponding
+packages without <code class="docutils literal notranslate"><span class="pre">Wide_</span></code> in the name, but operate with the types
+<code class="docutils literal notranslate"><span class="pre">Wide_Wide_String</span></code> and <code class="docutils literal notranslate"><span class="pre">Wide_Wide_Character</span></code> instead
+of <code class="docutils literal notranslate"><span class="pre">String</span></code> and <code class="docutils literal notranslate"><span class="pre">Character</span></code>.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Synchronous_Barriers</span></code> <em>(D.10.1)</em></dt><dd><p>This package provides facilities for synchronizing tasks at a low level
+with barriers.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Synchronous_Task_Control</span></code> <em>(D.10)</em></dt><dd><p>This package provides some standard facilities for controlling task
+communication in a synchronous manner.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Synchronous_Task_Control.EDF</span></code> <em>(D.10)</em></dt><dd><p>Not implemented in GNAT.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Tags</span></code></dt><dd><p>This package contains definitions for manipulation of the tags of tagged
+values.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Tags.Generic_Dispatching_Constructor</span></code> <em>(3.9)</em></dt><dd><p>This package provides a way of constructing tagged class-wide values given
+only the tag value.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Task_Attributes</span></code> <em>(C.7.2)</em></dt><dd><p>This package provides the capability of associating arbitrary
+task-specific data with separate tasks.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Task_Identifification</span></code> <em>(C.7.1)</em></dt><dd><p>This package provides capabilities for task identification.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Task_Termination</span></code> <em>(C.7.3)</em></dt><dd><p>This package provides control over task termination.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Text_IO</span></code></dt><dd><p>This package provides basic text input-output capabilities for
+character, string and numeric data.  The subpackages of this
+package are listed next. Note that although these are defined
+as subpackages in the RM, they are actually transparently
+implemented as child packages in GNAT, meaning that they
+are only loaded if needed.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Text_IO.Decimal_IO</span></code></dt><dd><p>Provides input-output facilities for decimal fixed-point types</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Text_IO.Enumeration_IO</span></code></dt><dd><p>Provides input-output facilities for enumeration types.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Text_IO.Fixed_IO</span></code></dt><dd><p>Provides input-output facilities for ordinary fixed-point types.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Text_IO.Float_IO</span></code></dt><dd><p>Provides input-output facilities for float types.  The following
+predefined instantiations of this generic package are available:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">Short_Float</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">Short_Float_Text_IO</span></code></p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Float</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">Float_Text_IO</span></code></p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Long_Float</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">Long_Float_Text_IO</span></code></p>
+</li>
+</ul>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Text_IO.Integer_IO</span></code></dt><dd><p>Provides input-output facilities for integer types.  The following
+predefined instantiations of this generic package are available:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">Short_Short_Integer</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">Ada.Short_Short_Integer_Text_IO</span></code></p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Short_Integer</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">Ada.Short_Integer_Text_IO</span></code></p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Integer</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">Ada.Integer_Text_IO</span></code></p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Long_Integer</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">Ada.Long_Integer_Text_IO</span></code></p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Long_Long_Integer</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">Ada.Long_Long_Integer_Text_IO</span></code></p>
+</li>
+</ul>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Text_IO.Modular_IO</span></code></dt><dd><p>Provides input-output facilities for modular (unsigned) types.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Text_IO.Bounded_IO</span> <span class="pre">(A.10.11)</span></code></dt><dd><p>Provides input-output facilities for bounded strings.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Text_IO.Complex_IO</span> <span class="pre">(G.1.3)</span></code></dt><dd><p>This package provides basic text input-output capabilities for complex
+data.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Text_IO.Editing</span> <span class="pre">(F.3.3)</span></code></dt><dd><p>This package contains routines for edited output, analogous to the use
+of pictures in COBOL.  The picture formats used by this package are a
+close copy of the facility in COBOL.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Text_IO.Text_Streams</span> <span class="pre">(A.12.2)</span></code></dt><dd><p>This package provides a facility that allows Text_IO files to be treated
+as streams, so that the stream attributes can be used for writing
+arbitrary data, including binary data, to Text_IO files.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Text_IO.Unbounded_IO</span> <span class="pre">(A.10.12)</span></code></dt><dd><p>This package provides input-output facilities for unbounded strings.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Unchecked_Conversion</span> <span class="pre">(13.9)</span></code></dt><dd><p>This generic package allows arbitrary conversion from one type to
+another of the same size, providing for breaking the type safety in
+special circumstances.</p>
+<p>If the types have the same Size (more accurately the same Value_Size),
+then the effect is simply to transfer the bits from the source to the
+target type without any modification.  This usage is well defined, and
+for simple types whose representation is typically the same across
+all implementations, gives a portable method of performing such
+conversions.</p>
+<p>If the types do not have the same size, then the result is implementation
+defined, and thus may be non-portable.  The following describes how GNAT
+handles such unchecked conversion cases.</p>
+<p>If the types are of different sizes, and are both discrete types, then
+the effect is of a normal type conversion without any constraint checking.
+In particular if the result type has a larger size, the result will be
+zero or sign extended.  If the result type has a smaller size, the result
+will be truncated by ignoring high order bits.</p>
+<p>If the types are of different sizes, and are not both discrete types,
+then the conversion works as though pointers were created to the source
+and target, and the pointer value is converted.  The effect is that bits
+are copied from successive low order storage units and bits of the source
+up to the length of the target type.</p>
+<p>A warning is issued if the lengths differ, since the effect in this
+case is implementation dependent, and the above behavior may not match
+that of some other compiler.</p>
+<p>A pointer to one type may be converted to a pointer to another type using
+unchecked conversion.  The only case in which the effect is undefined is
+when one or both pointers are pointers to unconstrained array types.  In
+this case, the bounds information may get incorrectly transferred, and in
+particular, GNAT uses double size pointers for such types, and it is
+meaningless to convert between such pointer types.  GNAT will issue a
+warning if the alignment of the target designated type is more strict
+than the alignment of the source designated type (since the result may
+be unaligned in this case).</p>
+<p>A pointer other than a pointer to an unconstrained array type may be
+converted to and from System.Address.  Such usage is common in Ada 83
+programs, but note that Ada.Address_To_Access_Conversions is the
+preferred method of performing such conversions in Ada 95 and Ada 2005.
+Neither
+unchecked conversion nor Ada.Address_To_Access_Conversions should be
+used in conjunction with pointers to unconstrained objects, since
+the bounds information cannot be handled correctly in this case.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Unchecked_Deallocation</span></code> <em>(13.11.2)</em></dt><dd><p>This generic package allows explicit freeing of storage previously
+allocated by use of an allocator.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Wide_Text_IO</span></code> <em>(A.11)</em></dt><dd><p>This package is similar to <code class="docutils literal notranslate"><span class="pre">Ada.Text_IO</span></code>, except that the external
+file supports wide character representations, and the internal types are
+<code class="docutils literal notranslate"><span class="pre">Wide_Character</span></code> and <code class="docutils literal notranslate"><span class="pre">Wide_String</span></code> instead of <code class="docutils literal notranslate"><span class="pre">Character</span></code>
+and <code class="docutils literal notranslate"><span class="pre">String</span></code>. The corresponding set of nested packages and child
+packages are defined.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ada.Wide_Wide_Text_IO</span></code> <em>(A.11)</em></dt><dd><p>This package is similar to <code class="docutils literal notranslate"><span class="pre">Ada.Text_IO</span></code>, except that the external
+file supports wide character representations, and the internal types are
+<code class="docutils literal notranslate"><span class="pre">Wide_Character</span></code> and <code class="docutils literal notranslate"><span class="pre">Wide_String</span></code> instead of <code class="docutils literal notranslate"><span class="pre">Character</span></code>
+and <code class="docutils literal notranslate"><span class="pre">String</span></code>. The corresponding set of nested packages and child
+packages are defined.</p>
+</dd>
+</dl>
+<p>For packages in Interfaces and System, all the RM defined packages are
+available in GNAT, see the Ada 2012 RM for full details.</p>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../gnat_rm.html">
+              <img class="logo" src="../_static/adacore_transparent.png" alt="Logo"/>
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="representation_clauses_and_pragmas.html"
+                        title="previous chapter"><span class="section-number">9. </span>Representation Clauses and Pragmas</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="the_implementation_of_standard_i_o.html"
+                        title="next chapter"><span class="section-number">11. </span>The Implementation of Standard I/O</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/gnat_rm/standard_library_routines.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="the_implementation_of_standard_i_o.html" title="11. The Implementation of Standard I/O"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="representation_clauses_and_pragmas.html" title="9. Representation Clauses and Pragmas"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../gnat_rm.html">GNAT Reference Manual 2021 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">10. </span>Standard Library Routines</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2008-2021, Free Software Foundation.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
+    </div>
+  </body>
+</html>

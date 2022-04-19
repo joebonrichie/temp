@@ -1,0 +1,86 @@
+		       G N A T   E X A M P L E S
+		       =========================
+
+This example features a dynamic plugin facility implemented with the
+Operating System Dynamic Library facility and the GNAT Pro Standalone
+libraries support. The UNIX Version is described in this README, but
+the Windows version is roughly similar.
+
+This example comprises a main program which probes regularly for the
+existence of shared libraries in known location. If such libraries
+are present, it uses them to implement features initially not
+present in the main program.
+
+Building and Running the application
+------------------------------------
+
+The application can be built using the set of project files provided in
+this directory.  The 'base' project is shared by the 'main' project,
+which is used to compile the main program, and the 'clocks', 'gauges'
+and 'speedometers' projects used to build the plugins.
+
+These projects are differentiated to use the right operating system
+facilities. To do so, they use an external variable called OS_Name that
+can take two values: Unix or Win32.
+
+To build on Unix, you can therefore do:
+
+        $ gprbuild -XOS_Name=Unix -XExtension=so -XLinker_Option=Short -P main
+
+The main program is called 'demo'. You can start it immediately by doing
+"./demo". Demo first ask for an increment in milliseconds. Type for instance
+'1000' and press enter. As there is no available plugin for the time being,
+'demo' just loops endlessly. If we build now the first plugin:
+
+	$ gprbuild -XOS_Name=Unix -P gauges
+
+'demo' will be able to discover the newly built library (see Discover_Plugins)
+and then load it (see Plugins.Load) using a binding to the dlopen () function
+provided by the C library. Then 'demo' will use Plugins.Call to
+
+   1) retrieve an access to a symbol in the dynamic library using the
+      dlsym() routine.
+
+   2) call the routine pointed to by the returned address
+
+Therefore, we can see that the output of 'demo' changes at the next iteration
+after the compilation of gauges has completed. If you compile the remaining
+examples now:
+
+        $ gprbuild -XOS_Name=Unix -P clocks
+        $ gprbuild -XOS_Name=Unix -P gauges
+        $ gprbuild -XOS_Name=Unix -P speedometers
+
+those new features will appear as well.
+
+At this point it is possible to change the implementation of any plug-in.
+Rebuilding using the commands above, the plug-in will be released by 'demo'
+(see Discover_Plugins) and will be reloaded after 5 seconds. This small delay
+is to ensure that the compilation of the plug-in is terminated.
+
+Features tested
+---------------
+
+A number of interesting features are used by this example:
+
+* The main.gpr project is configured with the OS_Name variable;
+  according to the values of this variable, different bodies are
+  used for the system-specific Plugins package.
+
+* The 'gauges', 'speedometers' and 'clocks' use standalone libraries.
+  Examine the attributes contained in the projects, which describe the
+  corresponding library. The meaning of most of them is obvious.
+  'Library_Interface' is specific to standalone libraries, that is
+  libraries that contain all the required elaboration code to be
+  used whatever the main is. The 'Library_Interface' is a list of
+  units that are made visible by the library.
+
+* the Dash_Board package instantiates the Ada.Containers.Vector package.
+
+* The Hashed_Strings package is an instantiation of the
+  Ada.Containers.Hashed_Sets package.
+
+* The procedure Discover_Plugins in procedure Demo used the
+  Ada.Directories package to search for new shared libraries. And used an
+  Indefinite_Hashed_Maps to keep record of loaded plug-ins with associated
+  handler.

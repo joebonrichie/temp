@@ -1,0 +1,1385 @@
+V "GNAT Lib v2021"
+A -O2
+A -gnatA
+A -gnat2020
+A -gnaty
+A -gnatQ
+A -gnata
+A -gnatn
+A -gnatws
+A -g1
+A -mtune=generic
+A -march=x86-64
+P SS ZX
+
+RN
+RV NO_ALLOCATORS
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_EXCEPTION_HANDLERS
+RV NO_EXCEPTION_PROPAGATION
+RV NO_EXCEPTIONS
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_LOCAL_ALLOCATORS
+RV NO_RECURSION
+RV NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLICIT_LOOPS
+RV NO_ELABORATION_CODE
+
+U gpr.part%b		gpr-part.adb		c77040a0 OO PK IU
+W ada%s			ada.ads			ada.ali
+W ada.characters%s	a-charac.ads		a-charac.ali
+W ada.characters.handling%s  a-chahan.adb	a-chahan.ali
+W ada.exceptions%s	a-except.adb		a-except.ali
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+Z ada.unchecked_conversion%s
+Z ada.unchecked_deallocation%s
+W gnat%s		gnat.ads		gnat.ali
+Z gnat.dynamic_tables%s
+Z gnat.heap_sort_g%s
+W gnat.htable%s		g-htable.adb		g-htable.ali
+W gnat.table%s
+W gpr%s			gpr.adb			gpr.ali
+W gpr.com%s		gpr-com.ads		gpr-com.ali
+W gpr.dect%s		gpr-dect.adb		gpr-dect.ali
+W gpr.env%s		gpr-env.adb		gpr-env.ali
+W gpr.err%s		gpr-err.adb		gpr-err.ali
+W gpr.erroutc%s		gpr-erroutc.adb		gpr-erroutc.ali
+W gpr.names%s		gpr-names.adb		gpr-names.ali
+W gpr.opt%s		gpr-opt.ads		gpr-opt.ali
+W gpr.osint%s		gpr-osint.adb		gpr-osint.ali
+W gpr.output%s		gpr-output.adb		gpr-output.ali
+W gpr.scans%s		gpr-scans.adb		gpr-scans.ali
+W gpr.sinput%s		gpr-sinput.adb		gpr-sinput.ali
+W gpr.snames%s		gpr-snames.adb		gpr-snames.ali
+W gpr.util%s		gpr-util.adb		gpr-util.ali
+W system%s		system.ads		system.ali
+Z system.assertions%s	s-assert.adb		s-assert.ali
+Z system.memory%s	s-memory.adb		s-memory.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+
+U gpr.part%s		gpr-part.ads		74f1cbc5 EE NE OO PK IU
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+W gpr%s			gpr.adb			gpr.ali
+W gpr.tree%s		gpr-tree.adb		gpr-tree.ali
+
+D ada.ads		20210520051131 76789da1 ada%s
+D a-assert.ads		20210520051128 a718b65c ada.assertions%s
+D a-calend.ads		20210520051128 474d9720 ada.calendar%s
+D a-charac.ads		20210520051128 2d3ec45b ada.characters%s
+D a-chahan.ads		20210520051128 0ce1b450 ada.characters.handling%s
+D a-chahan.adb		20210520051128 9621beac ada.characters.handling%b
+D a-chlat1.ads		20210520051128 66457d31 ada.characters.latin_1%s
+D a-comlin.ads		20210520051128 4aa66568 ada.command_line%s
+D a-contai.ads		20210520051128 61e5e089 ada.containers%s
+D a-cgarso.ads		20210520051128 9129bfa8 ada.containers.generic_array_sort%s
+D a-cohata.ads		20210520051128 bc432d0e ada.containers.hash_tables%s
+D a-cohama.ads		20210520051128 12a321ed ada.containers.hashed_maps%s
+D a-conhel.ads		20210520051128 20298884 ada.containers.helpers%s
+D a-conhel.adb		20210520051128 fe7a6827 ada.containers.helpers%b
+D a-cihama.ads		20210520051128 76287ea1 ada.containers.indefinite_hashed_maps%s
+D a-ciorse.ads		20210520051128 61787512 ada.containers.indefinite_ordered_sets%s
+D a-coinve.ads		20210520051128 0843f47c ada.containers.indefinite_vectors%s
+D a-coinve.adb		20210520051128 7bf2f325 ada.containers.indefinite_vectors%b
+D a-coorse.ads		20210520051128 f82bdf1a ada.containers.ordered_sets%s
+D a-crbltr.ads		20210520051128 d3d16ba4 ada.containers.red_black_trees%s
+D a-direct.ads		20210520051128 078228da ada.directories%s
+D a-except.ads		20210520051128 946f3014 ada.exceptions%s
+D a-finali.ads		20210520051128 bf4f806b ada.finalization%s
+D a-ioexce.ads		20210520051128 e4a01f64 ada.io_exceptions%s
+D a-iteint.ads		20210520051128 49a8bee2 ada.iterator_interfaces%s
+D a-stream.ads		20210520051129 119b8fb3 ada.streams%s
+D a-string.ads		20210520051129 90ac6797 ada.strings%s
+D a-strhas.ads		20210520051129 c71c2a52 ada.strings.hash%s
+D a-strmap.ads		20210520051129 5a88892a ada.strings.maps%s
+D a-stmaco.ads		20210520051129 1c0e5368 ada.strings.maps.constants%s
+D a-sttebu.ads		20210520051129 18209c64 ada.strings.text_buffers%s
+D a-strunb.ads		20210520051129 03325227 ada.strings.unbounded%s
+D a-stuten.ads		20210520051129 808c40ad ada.strings.utf_encoding%s
+D a-tags.ads		20210520051130 9eaa38c6 ada.tags%s
+D a-textio.ads		20210520051130 aef4d56d ada.text_io%s
+D a-unccon.ads		20210520051130 0e9b276f ada.unchecked_conversion%s
+D a-uncdea.ads		20210520051130 c3a8ac65 ada.unchecked_deallocation%s
+D gnat.ads		20210520051132 b5988c27 gnat%s
+D g-byorma.ads		20210520051131 2b13b02c gnat.byte_order_mark%s
+D g-bytswa.ads		20210520051131 a4d21639 gnat.byte_swapping%s
+D g-casuti.ads		20210520051131 83c53f24 gnat.case_util%s
+D g-dynhta.ads		20210520051131 b061de91 gnat.dynamic_htables%s
+D g-dyntab.ads		20210520051131 21cef781 gnat.dynamic_tables%s
+D g-dyntab.adb		20210520051131 8cc056dd gnat.dynamic_tables%b
+D g-hesorg.ads		20210520051131 106922da gnat.heap_sort_g%s
+D g-hesorg.adb		20210520051131 b2b1bfd0 gnat.heap_sort_g%b
+D g-htable.ads		20210520051131 4b643b8d gnat.htable%s
+D g-md5.ads		20210520051131 bb55398e gnat.md5%s
+D g-os_lib.ads		20210520051131 0db74523 gnat.os_lib%s
+D g-sechas.ads		20210520051131 302163b5 gnat.secure_hashes%s
+D g-sehamd.ads		20210520051131 75201584 gnat.secure_hashes.md5%s
+D g-souinf.ads		20210520051131 291df751 gnat.source_info%s
+D g-string.ads		20210520051131 c6abc540 gnat.strings%s
+D g-table.ads		20210520051131 876997a0 gnat.table%s
+D g-table.adb		20210520051131 04d15fc2 gnat.table%b
+D gpr.ads		20210519052213 288723b8 gpr%s
+D gpr-ali.ads		20210519052213 606e76fb gpr.ali%s
+D gpr-attr.ads		20210519052213 295fbaea gpr.attr%s
+D gpr-com.ads		20210519052213 c933019e gpr.com%s
+D gpr-cset.ads		20210519052213 c4bc34eb gpr.cset%s
+D gpr-debug.ads		20210519052213 6f9c4c13 gpr.debug%s
+D gpr-dect.ads		20210519052213 bd275a4a gpr.dect%s
+D gpr-env.ads		20210519052213 962fe1c8 gpr.env%s
+D gpr-err.ads		20210519052213 9308dcfe gpr.err%s
+D gpr-erroutc.ads	20210519052213 4b055166 gpr.erroutc%s
+D gpr-ext.ads		20210519052213 d937eee5 gpr.ext%s
+D gpr-names.ads		20210519052213 536ccaeb gpr.names%s
+D gpr-names.adb		20210519052213 11d82195 gpr.names%b
+D gpr-opt.ads		20210519052213 5c55ecda gpr.opt%s
+D gpr-osint.ads		20210519052213 b1fd5ac4 gpr.osint%s
+D gpr-osint.adb		20210519052213 dbf11bcd gpr.osint%b
+D gpr-output.ads	20210519052213 be97932e gpr.output%s
+D gpr-part.ads		20210519052213 8138f9d3 gpr.part%s
+D gpr-part.adb		20210519052213 08cbadea gpr.part%b
+D gpr-scans.ads		20210519052213 a9e8e657 gpr.scans%s
+D gpr-sinput.ads	20210519052213 6eadab07 gpr.sinput%s
+D gpr-sinput.adb	20210519052213 8a31b868 gpr.sinput%b
+D gpr-snames.ads	20210519052213 48189f8c gpr.snames%s
+D gpr-tree.ads		20210519052213 dd4e11ae gpr.tree%s
+D gpr-tree.adb		20210519052213 7341a22d gpr.tree%b
+D gpr-util.ads		20210519052213 af383673 gpr.util%s
+D interfac.ads		20210520051132 edec285f interfaces%s
+D i-c.ads		20210520051132 d9beded9 interfaces.c%s
+D i-cstrea.ads		20210520051132 e53d8b8e interfaces.c_streams%s
+D system.ads		20210520051135 a2da961d system%s
+D s-assert.ads		20210520051132 6a49a4e4 system.assertions%s
+D s-atocou.ads		20210520051132 b45c2d8d system.atomic_counters%s
+D s-casuti.ads		20210520051132 3fd5b654 system.case_util%s
+D s-conca6.ads		20210520051132 d2c72db2 system.concat_6%s
+D s-crtl.ads		20210520051132 0ebbdb71 system.crtl%s
+D s-exctab.ads		20210520051132 54135002 system.exception_table%s
+D s-ficobl.ads		20210520051132 078245e4 system.file_control_block%s
+D s-finmas.ads		20210520051132 1ab4dba8 system.finalization_masters%s
+D s-finroo.ads		20210520051132 4ff27390 system.finalization_root%s
+D s-htable.ads		20210520051132 84c2b3ea system.htable%s
+D s-htable.adb		20210520051132 34c239ad system.htable%b
+D s-imagei.ads		20210520051133 0d3f86a7 system.image_i%s
+D s-imgint.ads		20210520051133 bdb6f5ec system.img_int%s
+D s-memory.ads		20210520051133 597d6634 system.memory%s
+D s-oscons.ads		20210520095158 e3a42aec system.os_constants%s
+D s-os_lib.ads		20210520051133 93b69309 system.os_lib%s
+D s-parame.ads		20210520051134 4752c4cb system.parameters%s
+D s-pooglo.ads		20210520051134 ede33ef8 system.pool_global%s
+D s-putima.ads		20210520051134 4e095881 system.put_images%s
+D s-rident.ads		20210520051134 71cd1f87 system.rident%s
+D s-secsta.ads		20210520051134 9b3ab94b system.secondary_stack%s
+D s-soflin.ads		20210520051134 a7318a92 system.soft_links%s
+D s-stache.ads		20210520051134 a37c21ec system.stack_checking%s
+D s-stalib.ads		20210520051134 472fbca8 system.standard_library%s
+D s-stoele.ads		20210520051134 2dc34a04 system.storage_elements%s
+D s-stoele.adb		20210520051134 ed88f8fb system.storage_elements%b
+D s-stopoo.ads		20210520051134 e9fa2dd8 system.storage_pools%s
+D s-stratt.ads		20210520051134 7bdda3fa system.stream_attributes%s
+D s-strhas.ads		20210520051134 269cd894 system.string_hash%s
+D s-string.ads		20210520051134 8fe54fb7 system.strings%s
+D s-ststop.ads		20210520051134 5fbf1b38 system.strings.stream_ops%s
+D s-traent.ads		20210520051134 26a8d361 system.traceback_entries%s
+D s-unstyp.ads		20210520051134 2b077493 system.unsigned_types%s
+D s-wchcnv.ads		20210520051135 0fb7baf3 system.wch_cnv%s
+D s-wchcon.ads		20210520051135 1b7d22d2 system.wch_con%s
+D unchconv.ads		20210520051135 ca2f9e18 unchecked_conversion%s
+G a e
+G c Z s b [parse gpr__part 39 14 none]
+G c Z b b [with_recordIP gpr__part 59 9 none]
+G c Z b b [table_typeIP gpr__part__withs__tab 126 9 62_4_68_4]
+G c Z b b [empty_table_array_ptr_to_table_ptr gpr__part__withs__tab 154 13 62_4_68_4]
+G c Z b b [is_empty gpr__part__withs__tab 185 13 62_4_68_4]
+G c Z b b [init gpr__part__withs__tab 188 14 62_4_68_4]
+G c Z b b [first gpr__part__withs__tab 194 13 62_4_68_4]
+G c Z b b [last gpr__part__withs__tab 198 13 62_4_68_4]
+G c Z b b [release gpr__part__withs__tab 203 14 62_4_68_4]
+G c Z b b [set_last gpr__part__withs__tab 215 14 62_4_68_4]
+G c Z b b [increment_last gpr__part__withs__tab 224 14 62_4_68_4]
+G c Z b b [decrement_last gpr__part__withs__tab 228 14 62_4_68_4]
+G c Z b b [append gpr__part__withs__tab 232 14 62_4_68_4]
+G c Z b b [append_all gpr__part__withs__tab 239 14 62_4_68_4]
+G c Z b b [set_item gpr__part__withs__tab 242 14 62_4_68_4]
+G c Z b b [move gpr__part__withs__tab 252 14 62_4_68_4]
+G c Z b b [allocate gpr__part__withs__tab 255 14 62_4_68_4]
+G c Z b b [table_privateIP gpr__part__withs__tab 282 9 62_4_68_4]
+G c Z b b [instanceIP gpr__part__withs__tab 161 9 62_4_68_4]
+G c Z b b [last_allocated gpr__part__withs__tab 45 13 62_4_68_4]
+G c Z b b [grow gpr__part__withs__tab 49 14 62_4_68_4]
+G c Z b b [is_empty gpr__part__withs 81 13 68_4]
+G c Z b b [init gpr__part__withs 83 14 68_4]
+G c Z b b [free gpr__part__withs 85 14 68_4]
+G c Z b b [first gpr__part__withs 88 13 68_4]
+G c Z b b [last gpr__part__withs 91 13 68_4]
+G c Z b b [release gpr__part__withs 94 14 68_4]
+G c Z b b [set_last gpr__part__withs 97 14 68_4]
+G c Z b b [increment_last gpr__part__withs 100 14 68_4]
+G c Z b b [decrement_last gpr__part__withs 103 14 68_4]
+G c Z b b [append gpr__part__withs 106 14 68_4]
+G c Z b b [append_all gpr__part__withs 109 14 68_4]
+G c Z b b [set_item gpr__part__withs 112 14 68_4]
+G c Z b b [save gpr__part__withs 120 13 68_4]
+G c Z b b [restore gpr__part__withs 125 14 68_4]
+G c Z b b [allocate gpr__part__withs 130 14 68_4]
+G c Z b b [allocate gpr__part__withs 131 13 68_4]
+G c Z b b [names_and_idIP gpr__part 80 9 none]
+G c Z b b [table_typeIP gpr__part__project_stack__tab 126 9 62_4_87_4]
+G c Z b b [empty_table_array_ptr_to_table_ptr gpr__part__project_stack__tab 154 13 62_4_87_4]
+G c Z b b [is_empty gpr__part__project_stack__tab 185 13 62_4_87_4]
+G c Z b b [init gpr__part__project_stack__tab 188 14 62_4_87_4]
+G c Z b b [first gpr__part__project_stack__tab 194 13 62_4_87_4]
+G c Z b b [last gpr__part__project_stack__tab 198 13 62_4_87_4]
+G c Z b b [release gpr__part__project_stack__tab 203 14 62_4_87_4]
+G c Z b b [set_last gpr__part__project_stack__tab 215 14 62_4_87_4]
+G c Z b b [increment_last gpr__part__project_stack__tab 224 14 62_4_87_4]
+G c Z b b [decrement_last gpr__part__project_stack__tab 228 14 62_4_87_4]
+G c Z b b [append gpr__part__project_stack__tab 232 14 62_4_87_4]
+G c Z b b [append_all gpr__part__project_stack__tab 239 14 62_4_87_4]
+G c Z b b [set_item gpr__part__project_stack__tab 242 14 62_4_87_4]
+G c Z b b [move gpr__part__project_stack__tab 252 14 62_4_87_4]
+G c Z b b [allocate gpr__part__project_stack__tab 255 14 62_4_87_4]
+G c Z b b [table_privateIP gpr__part__project_stack__tab 282 9 62_4_87_4]
+G c Z b b [instanceIP gpr__part__project_stack__tab 161 9 62_4_87_4]
+G c Z b b [last_allocated gpr__part__project_stack__tab 45 13 62_4_87_4]
+G c Z b b [grow gpr__part__project_stack__tab 49 14 62_4_87_4]
+G c Z b b [is_empty gpr__part__project_stack 81 13 87_4]
+G c Z b b [init gpr__part__project_stack 83 14 87_4]
+G c Z b b [free gpr__part__project_stack 85 14 87_4]
+G c Z b b [first gpr__part__project_stack 88 13 87_4]
+G c Z b b [last gpr__part__project_stack 91 13 87_4]
+G c Z b b [release gpr__part__project_stack 94 14 87_4]
+G c Z b b [set_last gpr__part__project_stack 97 14 87_4]
+G c Z b b [increment_last gpr__part__project_stack 100 14 87_4]
+G c Z b b [decrement_last gpr__part__project_stack 103 14 87_4]
+G c Z b b [append gpr__part__project_stack 106 14 87_4]
+G c Z b b [append_all gpr__part__project_stack 109 14 87_4]
+G c Z b b [set_item gpr__part__project_stack 112 14 87_4]
+G c Z b b [save gpr__part__project_stack 120 13 87_4]
+G c Z b b [restore gpr__part__project_stack 125 14 87_4]
+G c Z b b [allocate gpr__part__project_stack 130 14 87_4]
+G c Z b b [allocate gpr__part__project_stack 131 13 87_4]
+G c Z b b [set gpr__part__virtual_hash 72 17 98_4]
+G c Z b b [reset gpr__part__virtual_hash 76 17 98_4]
+G c Z b b [get gpr__part__virtual_hash 79 16 98_4]
+G c Z b b [remove gpr__part__virtual_hash 83 17 98_4]
+G c Z b b [get_first gpr__part__virtual_hash 87 16 98_4]
+G c Z b b [get_next gpr__part__virtual_hash 92 16 98_4]
+G c Z b b [get_first gpr__part__virtual_hash 98 17 98_4]
+G c Z b b [get_next gpr__part__virtual_hash 105 17 98_4]
+G c Z b b [element_wrapperIP gpr__part__virtual_hash 232 12 98_4]
+G c Z b b [free gpr__part__virtual_hash 238 17 98_4]
+G c Z b b [set_next gpr__part__virtual_hash 241 17 98_4]
+G c Z b b [next gpr__part__virtual_hash 242 17 98_4]
+G c Z b b [get_key gpr__part__virtual_hash 243 17 98_4]
+G c Z b b [reset gpr__part__virtual_hash__tab 170 17 245_7_98_4]
+G c Z b b [set gpr__part__virtual_hash__tab 179 17 245_7_98_4]
+G c Z b b [get gpr__part__virtual_hash__tab 182 16 245_7_98_4]
+G c Z b b [present gpr__part__virtual_hash__tab 186 16 245_7_98_4]
+G c Z b b [set_if_not_present gpr__part__virtual_hash__tab 189 16 245_7_98_4]
+G c Z b b [remove gpr__part__virtual_hash__tab 194 17 245_7_98_4]
+G c Z b b [get_first gpr__part__virtual_hash__tab 198 16 245_7_98_4]
+G c Z b b [get_next gpr__part__virtual_hash__tab 203 16 245_7_98_4]
+G c Z b b [TtableBIP gpr__part__virtual_hash__tab 45 7 245_7_98_4]
+G c Z b b [get_non_null gpr__part__virtual_hash__tab 51 16 245_7_98_4]
+G c Z b b [set gpr__part__processed_hash 72 17 111_4]
+G c Z b b [reset gpr__part__processed_hash 76 17 111_4]
+G c Z b b [get gpr__part__processed_hash 79 16 111_4]
+G c Z b b [remove gpr__part__processed_hash 83 17 111_4]
+G c Z b b [get_first gpr__part__processed_hash 87 16 111_4]
+G c Z b b [get_next gpr__part__processed_hash 92 16 111_4]
+G c Z b b [get_first gpr__part__processed_hash 98 17 111_4]
+G c Z b b [get_next gpr__part__processed_hash 105 17 111_4]
+G c Z b b [element_wrapperIP gpr__part__processed_hash 232 12 111_4]
+G c Z b b [free gpr__part__processed_hash 238 17 111_4]
+G c Z b b [set_next gpr__part__processed_hash 241 17 111_4]
+G c Z b b [next gpr__part__processed_hash 242 17 111_4]
+G c Z b b [get_key gpr__part__processed_hash 243 17 111_4]
+G c Z b b [reset gpr__part__processed_hash__tab 170 17 245_7_111_4]
+G c Z b b [set gpr__part__processed_hash__tab 179 17 245_7_111_4]
+G c Z b b [get gpr__part__processed_hash__tab 182 16 245_7_111_4]
+G c Z b b [present gpr__part__processed_hash__tab 186 16 245_7_111_4]
+G c Z b b [set_if_not_present gpr__part__processed_hash__tab 189 16 245_7_111_4]
+G c Z b b [remove gpr__part__processed_hash__tab 194 17 245_7_111_4]
+G c Z b b [get_first gpr__part__processed_hash__tab 198 16 245_7_111_4]
+G c Z b b [get_next gpr__part__processed_hash__tab 203 16 245_7_111_4]
+G c Z b b [TtableBIP gpr__part__processed_hash__tab 45 7 245_7_111_4]
+G c Z b b [get_non_null gpr__part__processed_hash__tab 51 16 245_7_111_4]
+G c Z b b [set gpr__part__resolved_paths 72 17 122_4]
+G c Z b b [reset gpr__part__resolved_paths 76 17 122_4]
+G c Z b b [get gpr__part__resolved_paths 79 16 122_4]
+G c Z b b [remove gpr__part__resolved_paths 83 17 122_4]
+G c Z b b [get_first gpr__part__resolved_paths 87 16 122_4]
+G c Z b b [get_next gpr__part__resolved_paths 92 16 122_4]
+G c Z b b [get_first gpr__part__resolved_paths 98 17 122_4]
+G c Z b b [get_next gpr__part__resolved_paths 105 17 122_4]
+G c Z b b [element_wrapperIP gpr__part__resolved_paths 232 12 122_4]
+G c Z b b [free gpr__part__resolved_paths 238 17 122_4]
+G c Z b b [set_next gpr__part__resolved_paths 241 17 122_4]
+G c Z b b [next gpr__part__resolved_paths 242 17 122_4]
+G c Z b b [get_key gpr__part__resolved_paths 243 17 122_4]
+G c Z b b [reset gpr__part__resolved_paths__tab 170 17 245_7_122_4]
+G c Z b b [set gpr__part__resolved_paths__tab 179 17 245_7_122_4]
+G c Z b b [get gpr__part__resolved_paths__tab 182 16 245_7_122_4]
+G c Z b b [present gpr__part__resolved_paths__tab 186 16 245_7_122_4]
+G c Z b b [set_if_not_present gpr__part__resolved_paths__tab 189 16 245_7_122_4]
+G c Z b b [remove gpr__part__resolved_paths__tab 194 17 245_7_122_4]
+G c Z b b [get_first gpr__part__resolved_paths__tab 198 16 245_7_122_4]
+G c Z b b [get_next gpr__part__resolved_paths__tab 203 16 245_7_122_4]
+G c Z b b [TtableBIP gpr__part__resolved_paths__tab 45 7 245_7_122_4]
+G c Z b b [get_non_null gpr__part__resolved_paths__tab 51 16 245_7_122_4]
+G c Z b b [name_and_pathIP gpr__part 130 9 none]
+G c Z b b [table_typeIP gpr__part__extended_projects__tab 126 9 62_4_135_4]
+G c Z b b [empty_table_array_ptr_to_table_ptr gpr__part__extended_projects__tab 154 13 62_4_135_4]
+G c Z b b [is_empty gpr__part__extended_projects__tab 185 13 62_4_135_4]
+G c Z b b [init gpr__part__extended_projects__tab 188 14 62_4_135_4]
+G c Z b b [first gpr__part__extended_projects__tab 194 13 62_4_135_4]
+G c Z b b [last gpr__part__extended_projects__tab 198 13 62_4_135_4]
+G c Z b b [release gpr__part__extended_projects__tab 203 14 62_4_135_4]
+G c Z b b [set_last gpr__part__extended_projects__tab 215 14 62_4_135_4]
+G c Z b b [increment_last gpr__part__extended_projects__tab 224 14 62_4_135_4]
+G c Z b b [decrement_last gpr__part__extended_projects__tab 228 14 62_4_135_4]
+G c Z b b [append gpr__part__extended_projects__tab 232 14 62_4_135_4]
+G c Z b b [append_all gpr__part__extended_projects__tab 239 14 62_4_135_4]
+G c Z b b [set_item gpr__part__extended_projects__tab 242 14 62_4_135_4]
+G c Z b b [move gpr__part__extended_projects__tab 252 14 62_4_135_4]
+G c Z b b [allocate gpr__part__extended_projects__tab 255 14 62_4_135_4]
+G c Z b b [table_privateIP gpr__part__extended_projects__tab 282 9 62_4_135_4]
+G c Z b b [instanceIP gpr__part__extended_projects__tab 161 9 62_4_135_4]
+G c Z b b [last_allocated gpr__part__extended_projects__tab 45 13 62_4_135_4]
+G c Z b b [grow gpr__part__extended_projects__tab 49 14 62_4_135_4]
+G c Z b b [is_empty gpr__part__extended_projects 81 13 135_4]
+G c Z b b [init gpr__part__extended_projects 83 14 135_4]
+G c Z b b [free gpr__part__extended_projects 85 14 135_4]
+G c Z b b [first gpr__part__extended_projects 88 13 135_4]
+G c Z b b [last gpr__part__extended_projects 91 13 135_4]
+G c Z b b [release gpr__part__extended_projects 94 14 135_4]
+G c Z b b [set_last gpr__part__extended_projects 97 14 135_4]
+G c Z b b [increment_last gpr__part__extended_projects 100 14 135_4]
+G c Z b b [decrement_last gpr__part__extended_projects 103 14 135_4]
+G c Z b b [append gpr__part__extended_projects 106 14 135_4]
+G c Z b b [append_all gpr__part__extended_projects 109 14 135_4]
+G c Z b b [set_item gpr__part__extended_projects 112 14 135_4]
+G c Z b b [save gpr__part__extended_projects 120 13 135_4]
+G c Z b b [restore gpr__part__extended_projects 125 14 135_4]
+G c Z b b [allocate gpr__part__extended_projects 130 14 135_4]
+G c Z b b [allocate gpr__part__extended_projects 131 13 135_4]
+G c Z b b [has_circular_dependencies gpr__part 145 13 none]
+G c Z b b [read_project_qualifier gpr__part 152 14 none]
+G c Z b b [check_extending_all_imports gpr__part 162 14 none]
+G c Z b b [check_aggregate_imports gpr__part 169 14 none]
+G c Z b b [check_import_aggregate gpr__part 175 14 none]
+G c Z b b [create_virtual_extending_project gpr__part 181 14 none]
+G c Z b b [look_for_virtual_projects_for gpr__part 194 14 none]
+G c Z b b [parse_single_project gpr__part 209 14 none]
+G c Z b b [pre_parse_context_clause gpr__part 237 14 none]
+G c Z b b [post_parse_context_clause gpr__part 251 14 none]
+G c Z b b [project_name_from gpr__part 275 13 none]
+G c Z b b [copy_with_clause gpr__part 282 13 none]
+G c Z b b [ultimate_extending gpr__part 289 14 none]
+G r c none [parse gpr__part 39 14 none] [is_initialized gpr__env 186 13 none]
+G r c none [parse gpr__part 39 14 none] [initialize_default_project_path gpr__env 167 14 none]
+G r c none [parse gpr__part 39 14 none] [find_project gpr__env 229 14 none]
+G r c none [parse gpr__part 39 14 none] [initialize gpr__err 45 14 none]
+G r c none [parse gpr__part 39 14 none] [set_comment_as_token gpr__err__scanner 100 17 none]
+G r c none [parse gpr__part 39 14 none] [set_end_of_line_as_token gpr__err__scanner 96 17 none]
+G r c none [parse gpr__part 39 14 none] [get_path gpr__env 204 14 none]
+G r c none [parse gpr__part 39 14 none] [get_name_string gpr__names 42 13 none]
+G r s saved_project_scan_state [parse gpr__part 39 14 none] [saved_project_scan_stateIP gpr__sinput 302 9 none]
+G r c none [parse gpr__part 39 14 none] [debug_output gpr 2791 14 none]
+G r c none [parse gpr__part 39 14 none] [canonical_case_file_name gpr__osint 174 14 none]
+G r c none [parse gpr__part 39 14 none] [name_find gpr__names 75 13 none]
+G r s comment_state [parse gpr__part 39 14 none] [comment_stateIP gpr__tree 1137 9 none]
+G r c none [parse gpr__part 39 14 none] [name_find gpr__names 78 13 none]
+G r c none [parse gpr__part 39 14 none] [get_path_name_id gpr__names 52 13 none]
+G r c none [parse gpr__part 39 14 none] [error_msg gpr__err 53 14 none]
+G r c none [parse gpr__part 39 14 none] [is_extending_all gpr__tree 293 13 none]
+G r c none [parse gpr__part 39 14 none] [project_declaration_of gpr__tree 349 13 none]
+G r c none [parse gpr__part 39 14 none] [extending_project_of gpr__tree 361 13 none]
+G r c none [parse gpr__part 39 14 none] [save_project_scan_state gpr__sinput 216 14 none]
+G r c none [parse gpr__part 39 14 none] [load_file gpr__sinput 75 13 none]
+G r c none [parse gpr__part 39 14 none] [save gpr__tree 118 14 none]
+G r c none [parse gpr__part 39 14 none] [initialize_scanner gpr__err__scanner 81 17 none]
+G r c none [parse gpr__part 39 14 none] [reset_state gpr__tree 126 14 none]
+G r c none [parse gpr__part 39 14 none] [scan gpr__tree 175 14 none]
+G r c none [parse gpr__part 39 14 none] [debug_increase_indent gpr 2797 14 none]
+G r c none [parse gpr__part 39 14 none] [get_directory gpr__osint 101 13 none]
+G r c none [parse gpr__part 39 14 none] [default_project_node gpr__tree 92 13 none]
+G r c none [parse gpr__part 39 14 none] [expect gpr__util 160 14 none]
+G r c none [parse gpr__part 39 14 none] [set_end_of_line gpr__tree 144 14 none]
+G r c none [parse gpr__part 39 14 none] [set_previous_line_node gpr__tree 134 14 none]
+G r c none [parse gpr__part 39 14 none] [set_is_not_last_in_list gpr__tree 796 14 none]
+G r c none [parse gpr__part 39 14 none] [set_directory_of gpr__tree 773 14 none]
+G r c none [parse gpr__part 39 14 none] [set_path_name_of gpr__tree 823 14 none]
+G r c none [parse gpr__part 39 14 none] [set_project_qualifier_of gpr__tree 861 14 none]
+G r c none [parse gpr__part 39 14 none] [set_location_of gpr__tree 719 14 none]
+G r c none [parse gpr__part 39 14 none] [get_name_string gpr__names 30 14 none]
+G r c none [parse gpr__part 39 14 none] [add_to_buffer gpr 2884 14 none]
+G r c none [parse gpr__part 39 14 none] [set_is_extending_all gpr__tree 790 14 none]
+G r c none [parse gpr__part 39 14 none] [set_name_of gpr__tree 698 14 none]
+G r c none [parse gpr__part 39 14 none] [location_of gpr__tree 220 13 none]
+G r c none [parse gpr__part 39 14 none] [set_display_name_of gpr__tree 705 14 none]
+G r c none [parse gpr__part 39 14 none] [present gpr__tree 80 13 none]
+G r c none [parse gpr__part 39 14 none] [next_with_clause_of gpr__tree 395 13 none]
+G r c none [parse gpr__part 39 14 none] [no gpr__tree 84 13 none]
+G r c none [parse gpr__part 39 14 none] [set_next_with_clause_of gpr__tree 899 14 none]
+G r c none [parse gpr__part 39 14 none] [set_string_value_of gpr__tree 830 14 none]
+G r c none [parse gpr__part 39 14 none] [set_project_node_of gpr__tree 889 14 none]
+G r c none [parse gpr__part 39 14 none] [name_of gpr__tree 201 13 none]
+G r c none [parse gpr__part 39 14 none] [set_first_with_clause_of gpr__tree 847 14 none]
+G r c none [parse gpr__part 39 14 none] [path_name_of gpr__tree 323 13 none]
+G r c none [parse gpr__part 39 14 none] [set_extended_project_path_of gpr__tree 882 14 none]
+G r c none [parse gpr__part 39 14 none] [get_name_string gpr__names 39 13 none]
+G r c none [parse gpr__part 39 14 none] [project_qualifier_of gpr__tree 355 13 none]
+G r c none [parse gpr__part 39 14 none] [first_with_clause_of gpr__tree 343 13 none]
+G r c none [parse gpr__part 39 14 none] [project_node_of gpr__tree 379 13 none]
+G r c none [parse gpr__part 39 14 none] [extended_project_of gpr__tree 408 13 none]
+G r c none [parse gpr__part 39 14 none] [set_parent_project_of gpr__tree 761 14 none]
+G r c none [parse gpr__part 39 14 none] [set_next_end_node gpr__tree 148 14 none]
+G r c none [parse gpr__part 39 14 none] [parse gpr__dect 31 14 none]
+G r c none [parse gpr__part 39 14 none] [set_project_declaration_of gpr__tree 854 14 none]
+G r c none [parse gpr__part 39 14 none] [set_extending_project_of gpr__tree 868 14 none]
+G r c none [parse gpr__part 39 14 none] [remove_next_end_node gpr__tree 153 14 none]
+G r c none [parse gpr__part 39 14 none] [set_previous_end_node gpr__tree 139 14 none]
+G r c none [parse gpr__part 39 14 none] [restore_project_scan_state gpr__sinput 222 14 none]
+G r c none [parse gpr__part 39 14 none] [there_are_unkept_comments gpr__tree 130 13 none]
+G r c none [parse gpr__part 39 14 none] [set_project_file_includes_unkept_comments gpr__tree 767 14 none]
+G r c none [parse gpr__part 39 14 none] [restore_and_free gpr__tree 122 14 none]
+G r c none [parse gpr__part 39 14 none] [debug_decrease_indent gpr 2799 14 none]
+G r c none [parse gpr__part 39 14 none] [set_name_buffer gpr__names 95 14 none]
+G r c none [parse gpr__part 39 14 none] [add_char_to_name_buffer gpr__names 82 14 none]
+G r c none [parse gpr__part 39 14 none] [get_name_string gpr__names 33 14 none]
+G r c none [parse gpr__part 39 14 none] [is_directory_separator gpr__osint 98 13 none]
+G r c none [parse gpr__part 39 14 none] [create_project gpr__tree 615 13 none]
+G r c none [parse gpr__part 39 14 none] [set_first_declarative_item_of gpr__tree 906 14 none]
+G r c none [parse gpr__part 39 14 none] [set_extended_project_of gpr__tree 914 14 none]
+G r c none [parse gpr__part 39 14 none] [set_current_item_node gpr__tree 921 14 none]
+G r c none [parse gpr__part 39 14 none] [set_expression_of gpr__tree 970 14 none]
+G r c none [parse gpr__part 39 14 none] [set_first_term gpr__tree 1007 14 none]
+G r c none [parse gpr__part 39 14 none] [set_current_term gpr__tree 1021 14 none]
+G r c none [parse gpr__part 39 14 none] [finalize gpr__err 49 14 none]
+G r c none [parse gpr__part 39 14 none] [write_line gpr__output 104 14 none]
+G r c none [parse gpr__part 39 14 none] [write_str gpr__output 97 14 none]
+G r c none [has_circular_dependencies gpr__part 145 13 none] [error_msg gpr__err 53 14 none]
+G r c none [read_project_qualifier gpr__part 152 14 none] [scan gpr__tree 175 14 none]
+G r c none [read_project_qualifier gpr__part 152 14 none] [error_msg gpr__err 53 14 none]
+G r c none [read_project_qualifier gpr__part 152 14 none] [set_project_qualifier_of gpr__tree 861 14 none]
+G r c none [check_extending_all_imports gpr__part 162 14 none] [is_extending_all gpr__tree 293 13 none]
+G r c none [check_extending_all_imports gpr__part 162 14 none] [first_with_clause_of gpr__tree 343 13 none]
+G r c none [check_extending_all_imports gpr__part 162 14 none] [present gpr__tree 80 13 none]
+G r c none [check_extending_all_imports gpr__part 162 14 none] [project_node_of gpr__tree 379 13 none]
+G r c none [check_extending_all_imports gpr__part 162 14 none] [name_of gpr__tree 201 13 none]
+G r c none [check_extending_all_imports gpr__part 162 14 none] [error_msg gpr__err 53 14 none]
+G r c none [check_extending_all_imports gpr__part 162 14 none] [next_with_clause_of gpr__tree 395 13 none]
+G r c none [check_aggregate_imports gpr__part 169 14 none] [project_qualifier_of gpr__tree 355 13 none]
+G r c none [check_aggregate_imports gpr__part 169 14 none] [first_with_clause_of gpr__tree 343 13 none]
+G r c none [check_aggregate_imports gpr__part 169 14 none] [present gpr__tree 80 13 none]
+G r c none [check_aggregate_imports gpr__part 169 14 none] [project_node_of gpr__tree 379 13 none]
+G r c none [check_aggregate_imports gpr__part 169 14 none] [path_name_of gpr__tree 323 13 none]
+G r c none [check_aggregate_imports gpr__part 169 14 none] [error_msg gpr__err 53 14 none]
+G r c none [check_aggregate_imports gpr__part 169 14 none] [next_with_clause_of gpr__tree 395 13 none]
+G r c none [check_import_aggregate gpr__part 175 14 none] [project_qualifier_of gpr__tree 355 13 none]
+G r c none [check_import_aggregate gpr__part 175 14 none] [first_with_clause_of gpr__tree 343 13 none]
+G r c none [check_import_aggregate gpr__part 175 14 none] [present gpr__tree 80 13 none]
+G r c none [check_import_aggregate gpr__part 175 14 none] [project_node_of gpr__tree 379 13 none]
+G r c none [check_import_aggregate gpr__part 175 14 none] [path_name_of gpr__tree 323 13 none]
+G r c none [check_import_aggregate gpr__part 175 14 none] [error_msg gpr__err 53 14 none]
+G r c none [check_import_aggregate gpr__part 175 14 none] [next_with_clause_of gpr__tree 395 13 none]
+G r c none [create_virtual_extending_project gpr__part 181 14 none] [name_of gpr__tree 201 13 none]
+G r c none [create_virtual_extending_project gpr__part 181 14 none] [get_name_string gpr__names 39 13 none]
+G r c none [create_virtual_extending_project gpr__part 181 14 none] [default_project_node gpr__tree 92 13 none]
+G r c none [create_virtual_extending_project gpr__part 181 14 none] [path_name_of gpr__tree 323 13 none]
+G r c none [create_virtual_extending_project gpr__part 181 14 none] [get_name_string gpr__names 33 14 none]
+G r c none [create_virtual_extending_project gpr__part 181 14 none] [is_directory_separator gpr__osint 98 13 none]
+G r c none [create_virtual_extending_project gpr__part 181 14 none] [name_find gpr__names 78 13 none]
+G r c none [create_virtual_extending_project gpr__part 181 14 none] [name_find gpr__names 75 13 none]
+G r c none [create_virtual_extending_project gpr__part 181 14 none] [create_project gpr__tree 615 13 none]
+G r c none [create_virtual_extending_project gpr__part 181 14 none] [project_declaration_of gpr__tree 349 13 none]
+G r c none [create_virtual_extending_project gpr__part 181 14 none] [set_name_of gpr__tree 698 14 none]
+G r c none [create_virtual_extending_project gpr__part 181 14 none] [set_path_name_of gpr__tree 823 14 none]
+G r c none [create_virtual_extending_project gpr__part 181 14 none] [set_project_node_of gpr__tree 889 14 none]
+G r c none [create_virtual_extending_project gpr__part 181 14 none] [first_with_clause_of gpr__tree 343 13 none]
+G r c none [create_virtual_extending_project gpr__part 181 14 none] [set_next_with_clause_of gpr__tree 899 14 none]
+G r c none [create_virtual_extending_project gpr__part 181 14 none] [set_first_with_clause_of gpr__tree 847 14 none]
+G r c none [create_virtual_extending_project gpr__part 181 14 none] [present gpr__tree 80 13 none]
+G r c none [create_virtual_extending_project gpr__part 181 14 none] [project_node_of gpr__tree 379 13 none]
+G r c none [create_virtual_extending_project gpr__part 181 14 none] [next_with_clause_of gpr__tree 395 13 none]
+G r c none [create_virtual_extending_project gpr__part 181 14 none] [location_of gpr__tree 220 13 none]
+G r c none [create_virtual_extending_project gpr__part 181 14 none] [set_location_of gpr__tree 719 14 none]
+G r c none [create_virtual_extending_project gpr__part 181 14 none] [set_extended_project_path_of gpr__tree 882 14 none]
+G r c none [create_virtual_extending_project gpr__part 181 14 none] [set_first_declarative_item_of gpr__tree 906 14 none]
+G r c none [create_virtual_extending_project gpr__part 181 14 none] [set_extended_project_of gpr__tree 914 14 none]
+G r c none [create_virtual_extending_project gpr__part 181 14 none] [set_current_item_node gpr__tree 921 14 none]
+G r c none [create_virtual_extending_project gpr__part 181 14 none] [set_expression_of gpr__tree 970 14 none]
+G r c none [create_virtual_extending_project gpr__part 181 14 none] [set_first_term gpr__tree 1007 14 none]
+G r c none [create_virtual_extending_project gpr__part 181 14 none] [set_current_term gpr__tree 1021 14 none]
+G r c none [look_for_virtual_projects_for gpr__part 194 14 none] [present gpr__tree 80 13 none]
+G r c none [look_for_virtual_projects_for gpr__part 194 14 none] [project_declaration_of gpr__tree 349 13 none]
+G r c none [look_for_virtual_projects_for gpr__part 194 14 none] [extended_project_of gpr__tree 408 13 none]
+G r c none [look_for_virtual_projects_for gpr__part 194 14 none] [is_extending_all gpr__tree 293 13 none]
+G r c none [look_for_virtual_projects_for gpr__part 194 14 none] [no gpr__tree 84 13 none]
+G r c none [look_for_virtual_projects_for gpr__part 194 14 none] [first_with_clause_of gpr__tree 343 13 none]
+G r c none [look_for_virtual_projects_for gpr__part 194 14 none] [project_node_of gpr__tree 379 13 none]
+G r c none [look_for_virtual_projects_for gpr__part 194 14 none] [default_project_node gpr__tree 92 13 none]
+G r c none [look_for_virtual_projects_for gpr__part 194 14 none] [name_of gpr__tree 201 13 none]
+G r c none [look_for_virtual_projects_for gpr__part 194 14 none] [set_name_of gpr__tree 698 14 none]
+G r c none [look_for_virtual_projects_for gpr__part 194 14 none] [path_name_of gpr__tree 323 13 none]
+G r c none [look_for_virtual_projects_for gpr__part 194 14 none] [set_path_name_of gpr__tree 823 14 none]
+G r c none [look_for_virtual_projects_for gpr__part 194 14 none] [set_project_node_of gpr__tree 889 14 none]
+G r c none [look_for_virtual_projects_for gpr__part 194 14 none] [set_next_with_clause_of gpr__tree 899 14 none]
+G r c none [look_for_virtual_projects_for gpr__part 194 14 none] [next_with_clause_of gpr__tree 395 13 none]
+G r c none [parse_single_project gpr__part 209 14 none] [get_name_string gpr__names 42 13 none]
+G r s saved_project_scan_state [parse_single_project gpr__part 209 14 none] [saved_project_scan_stateIP gpr__sinput 302 9 none]
+G r c none [parse_single_project gpr__part 209 14 none] [debug_output gpr 2791 14 none]
+G r c none [parse_single_project gpr__part 209 14 none] [canonical_case_file_name gpr__osint 174 14 none]
+G r c none [parse_single_project gpr__part 209 14 none] [name_find gpr__names 75 13 none]
+G r s comment_state [parse_single_project gpr__part 209 14 none] [comment_stateIP gpr__tree 1137 9 none]
+G r c none [parse_single_project gpr__part 209 14 none] [name_find gpr__names 78 13 none]
+G r c none [parse_single_project gpr__part 209 14 none] [get_path_name_id gpr__names 52 13 none]
+G r c none [parse_single_project gpr__part 209 14 none] [error_msg gpr__err 53 14 none]
+G r c none [parse_single_project gpr__part 209 14 none] [is_extending_all gpr__tree 293 13 none]
+G r c none [parse_single_project gpr__part 209 14 none] [project_declaration_of gpr__tree 349 13 none]
+G r c none [parse_single_project gpr__part 209 14 none] [extending_project_of gpr__tree 361 13 none]
+G r c none [parse_single_project gpr__part 209 14 none] [save_project_scan_state gpr__sinput 216 14 none]
+G r c none [parse_single_project gpr__part 209 14 none] [load_file gpr__sinput 75 13 none]
+G r c none [parse_single_project gpr__part 209 14 none] [save gpr__tree 118 14 none]
+G r c none [parse_single_project gpr__part 209 14 none] [initialize_scanner gpr__err__scanner 81 17 none]
+G r c none [parse_single_project gpr__part 209 14 none] [reset_state gpr__tree 126 14 none]
+G r c none [parse_single_project gpr__part 209 14 none] [scan gpr__tree 175 14 none]
+G r c none [parse_single_project gpr__part 209 14 none] [debug_increase_indent gpr 2797 14 none]
+G r c none [parse_single_project gpr__part 209 14 none] [get_directory gpr__osint 101 13 none]
+G r c none [parse_single_project gpr__part 209 14 none] [default_project_node gpr__tree 92 13 none]
+G r c none [parse_single_project gpr__part 209 14 none] [expect gpr__util 160 14 none]
+G r c none [parse_single_project gpr__part 209 14 none] [set_end_of_line gpr__tree 144 14 none]
+G r c none [parse_single_project gpr__part 209 14 none] [set_previous_line_node gpr__tree 134 14 none]
+G r c none [parse_single_project gpr__part 209 14 none] [set_is_not_last_in_list gpr__tree 796 14 none]
+G r c none [parse_single_project gpr__part 209 14 none] [set_directory_of gpr__tree 773 14 none]
+G r c none [parse_single_project gpr__part 209 14 none] [set_path_name_of gpr__tree 823 14 none]
+G r c none [parse_single_project gpr__part 209 14 none] [set_project_qualifier_of gpr__tree 861 14 none]
+G r c none [parse_single_project gpr__part 209 14 none] [set_location_of gpr__tree 719 14 none]
+G r c none [parse_single_project gpr__part 209 14 none] [get_name_string gpr__names 30 14 none]
+G r c none [parse_single_project gpr__part 209 14 none] [add_to_buffer gpr 2884 14 none]
+G r c none [parse_single_project gpr__part 209 14 none] [set_is_extending_all gpr__tree 790 14 none]
+G r c none [parse_single_project gpr__part 209 14 none] [set_name_of gpr__tree 698 14 none]
+G r c none [parse_single_project gpr__part 209 14 none] [location_of gpr__tree 220 13 none]
+G r c none [parse_single_project gpr__part 209 14 none] [set_display_name_of gpr__tree 705 14 none]
+G r c none [parse_single_project gpr__part 209 14 none] [present gpr__tree 80 13 none]
+G r c none [parse_single_project gpr__part 209 14 none] [next_with_clause_of gpr__tree 395 13 none]
+G r c none [parse_single_project gpr__part 209 14 none] [find_project gpr__env 229 14 none]
+G r c none [parse_single_project gpr__part 209 14 none] [no gpr__tree 84 13 none]
+G r c none [parse_single_project gpr__part 209 14 none] [set_next_with_clause_of gpr__tree 899 14 none]
+G r c none [parse_single_project gpr__part 209 14 none] [set_string_value_of gpr__tree 830 14 none]
+G r c none [parse_single_project gpr__part 209 14 none] [set_project_node_of gpr__tree 889 14 none]
+G r c none [parse_single_project gpr__part 209 14 none] [name_of gpr__tree 201 13 none]
+G r c none [parse_single_project gpr__part 209 14 none] [set_first_with_clause_of gpr__tree 847 14 none]
+G r c none [parse_single_project gpr__part 209 14 none] [path_name_of gpr__tree 323 13 none]
+G r c none [parse_single_project gpr__part 209 14 none] [set_extended_project_path_of gpr__tree 882 14 none]
+G r c none [parse_single_project gpr__part 209 14 none] [get_name_string gpr__names 39 13 none]
+G r c none [parse_single_project gpr__part 209 14 none] [project_qualifier_of gpr__tree 355 13 none]
+G r c none [parse_single_project gpr__part 209 14 none] [first_with_clause_of gpr__tree 343 13 none]
+G r c none [parse_single_project gpr__part 209 14 none] [project_node_of gpr__tree 379 13 none]
+G r c none [parse_single_project gpr__part 209 14 none] [extended_project_of gpr__tree 408 13 none]
+G r c none [parse_single_project gpr__part 209 14 none] [set_parent_project_of gpr__tree 761 14 none]
+G r c none [parse_single_project gpr__part 209 14 none] [set_next_end_node gpr__tree 148 14 none]
+G r c none [parse_single_project gpr__part 209 14 none] [parse gpr__dect 31 14 none]
+G r c none [parse_single_project gpr__part 209 14 none] [set_project_declaration_of gpr__tree 854 14 none]
+G r c none [parse_single_project gpr__part 209 14 none] [set_extending_project_of gpr__tree 868 14 none]
+G r c none [parse_single_project gpr__part 209 14 none] [remove_next_end_node gpr__tree 153 14 none]
+G r c none [parse_single_project gpr__part 209 14 none] [set_previous_end_node gpr__tree 139 14 none]
+G r c none [parse_single_project gpr__part 209 14 none] [restore_project_scan_state gpr__sinput 222 14 none]
+G r c none [parse_single_project gpr__part 209 14 none] [there_are_unkept_comments gpr__tree 130 13 none]
+G r c none [parse_single_project gpr__part 209 14 none] [set_project_file_includes_unkept_comments gpr__tree 767 14 none]
+G r c none [parse_single_project gpr__part 209 14 none] [restore_and_free gpr__tree 122 14 none]
+G r c none [parse_single_project gpr__part 209 14 none] [debug_decrease_indent gpr 2799 14 none]
+G r c none [parse_single_project gpr__part 209 14 none] [set_name_buffer gpr__names 95 14 none]
+G r c none [parse_single_project gpr__part 209 14 none] [add_char_to_name_buffer gpr__names 82 14 none]
+G r c none [pre_parse_context_clause gpr__part 237 14 none] [default_project_node gpr__tree 92 13 none]
+G r c none [pre_parse_context_clause gpr__part 237 14 none] [error_msg gpr__err 53 14 none]
+G r c none [pre_parse_context_clause gpr__part 237 14 none] [scan gpr__tree 175 14 none]
+G r c none [pre_parse_context_clause gpr__part 237 14 none] [expect gpr__util 160 14 none]
+G r c none [pre_parse_context_clause gpr__part 237 14 none] [set_end_of_line gpr__tree 144 14 none]
+G r c none [pre_parse_context_clause gpr__part 237 14 none] [set_previous_line_node gpr__tree 134 14 none]
+G r c none [pre_parse_context_clause gpr__part 237 14 none] [set_is_not_last_in_list gpr__tree 796 14 none]
+G r c none [pre_parse_context_clause gpr__part 237 14 none] [get_path_name_id gpr__names 52 13 none]
+G r c none [post_parse_context_clause gpr__part 251 14 none] [get_name_string gpr__names 42 13 none]
+G r c none [post_parse_context_clause gpr__part 251 14 none] [present gpr__tree 80 13 none]
+G r c none [post_parse_context_clause gpr__part 251 14 none] [next_with_clause_of gpr__tree 395 13 none]
+G r c none [post_parse_context_clause gpr__part 251 14 none] [find_project gpr__env 229 14 none]
+G r c none [post_parse_context_clause gpr__part 251 14 none] [error_msg gpr__err 53 14 none]
+G r c none [post_parse_context_clause gpr__part 251 14 none] [no gpr__tree 84 13 none]
+G r c none [post_parse_context_clause gpr__part 251 14 none] [set_next_with_clause_of gpr__tree 899 14 none]
+G r c none [post_parse_context_clause gpr__part 251 14 none] [set_string_value_of gpr__tree 830 14 none]
+G r c none [post_parse_context_clause gpr__part 251 14 none] [set_location_of gpr__tree 719 14 none]
+G r c none [post_parse_context_clause gpr__part 251 14 none] [canonical_case_file_name gpr__osint 174 14 none]
+G r c none [post_parse_context_clause gpr__part 251 14 none] [name_find gpr__names 78 13 none]
+G r s saved_project_scan_state [post_parse_context_clause gpr__part 251 14 none] [saved_project_scan_stateIP gpr__sinput 302 9 none]
+G r c none [post_parse_context_clause gpr__part 251 14 none] [debug_output gpr 2791 14 none]
+G r c none [post_parse_context_clause gpr__part 251 14 none] [name_find gpr__names 75 13 none]
+G r s comment_state [post_parse_context_clause gpr__part 251 14 none] [comment_stateIP gpr__tree 1137 9 none]
+G r c none [post_parse_context_clause gpr__part 251 14 none] [get_path_name_id gpr__names 52 13 none]
+G r c none [post_parse_context_clause gpr__part 251 14 none] [is_extending_all gpr__tree 293 13 none]
+G r c none [post_parse_context_clause gpr__part 251 14 none] [project_declaration_of gpr__tree 349 13 none]
+G r c none [post_parse_context_clause gpr__part 251 14 none] [extending_project_of gpr__tree 361 13 none]
+G r c none [post_parse_context_clause gpr__part 251 14 none] [save_project_scan_state gpr__sinput 216 14 none]
+G r c none [post_parse_context_clause gpr__part 251 14 none] [load_file gpr__sinput 75 13 none]
+G r c none [post_parse_context_clause gpr__part 251 14 none] [save gpr__tree 118 14 none]
+G r c none [post_parse_context_clause gpr__part 251 14 none] [initialize_scanner gpr__err__scanner 81 17 none]
+G r c none [post_parse_context_clause gpr__part 251 14 none] [reset_state gpr__tree 126 14 none]
+G r c none [post_parse_context_clause gpr__part 251 14 none] [scan gpr__tree 175 14 none]
+G r c none [post_parse_context_clause gpr__part 251 14 none] [debug_increase_indent gpr 2797 14 none]
+G r c none [post_parse_context_clause gpr__part 251 14 none] [get_directory gpr__osint 101 13 none]
+G r c none [post_parse_context_clause gpr__part 251 14 none] [default_project_node gpr__tree 92 13 none]
+G r c none [post_parse_context_clause gpr__part 251 14 none] [expect gpr__util 160 14 none]
+G r c none [post_parse_context_clause gpr__part 251 14 none] [set_end_of_line gpr__tree 144 14 none]
+G r c none [post_parse_context_clause gpr__part 251 14 none] [set_previous_line_node gpr__tree 134 14 none]
+G r c none [post_parse_context_clause gpr__part 251 14 none] [set_is_not_last_in_list gpr__tree 796 14 none]
+G r c none [post_parse_context_clause gpr__part 251 14 none] [set_directory_of gpr__tree 773 14 none]
+G r c none [post_parse_context_clause gpr__part 251 14 none] [set_path_name_of gpr__tree 823 14 none]
+G r c none [post_parse_context_clause gpr__part 251 14 none] [set_project_qualifier_of gpr__tree 861 14 none]
+G r c none [post_parse_context_clause gpr__part 251 14 none] [get_name_string gpr__names 30 14 none]
+G r c none [post_parse_context_clause gpr__part 251 14 none] [add_to_buffer gpr 2884 14 none]
+G r c none [post_parse_context_clause gpr__part 251 14 none] [set_is_extending_all gpr__tree 790 14 none]
+G r c none [post_parse_context_clause gpr__part 251 14 none] [set_name_of gpr__tree 698 14 none]
+G r c none [post_parse_context_clause gpr__part 251 14 none] [location_of gpr__tree 220 13 none]
+G r c none [post_parse_context_clause gpr__part 251 14 none] [set_display_name_of gpr__tree 705 14 none]
+G r c none [post_parse_context_clause gpr__part 251 14 none] [set_first_with_clause_of gpr__tree 847 14 none]
+G r c none [post_parse_context_clause gpr__part 251 14 none] [path_name_of gpr__tree 323 13 none]
+G r c none [post_parse_context_clause gpr__part 251 14 none] [set_extended_project_path_of gpr__tree 882 14 none]
+G r c none [post_parse_context_clause gpr__part 251 14 none] [get_name_string gpr__names 39 13 none]
+G r c none [post_parse_context_clause gpr__part 251 14 none] [project_qualifier_of gpr__tree 355 13 none]
+G r c none [post_parse_context_clause gpr__part 251 14 none] [first_with_clause_of gpr__tree 343 13 none]
+G r c none [post_parse_context_clause gpr__part 251 14 none] [project_node_of gpr__tree 379 13 none]
+G r c none [post_parse_context_clause gpr__part 251 14 none] [name_of gpr__tree 201 13 none]
+G r c none [post_parse_context_clause gpr__part 251 14 none] [extended_project_of gpr__tree 408 13 none]
+G r c none [post_parse_context_clause gpr__part 251 14 none] [set_parent_project_of gpr__tree 761 14 none]
+G r c none [post_parse_context_clause gpr__part 251 14 none] [set_next_end_node gpr__tree 148 14 none]
+G r c none [post_parse_context_clause gpr__part 251 14 none] [parse gpr__dect 31 14 none]
+G r c none [post_parse_context_clause gpr__part 251 14 none] [set_project_declaration_of gpr__tree 854 14 none]
+G r c none [post_parse_context_clause gpr__part 251 14 none] [set_extending_project_of gpr__tree 868 14 none]
+G r c none [post_parse_context_clause gpr__part 251 14 none] [remove_next_end_node gpr__tree 153 14 none]
+G r c none [post_parse_context_clause gpr__part 251 14 none] [set_previous_end_node gpr__tree 139 14 none]
+G r c none [post_parse_context_clause gpr__part 251 14 none] [restore_project_scan_state gpr__sinput 222 14 none]
+G r c none [post_parse_context_clause gpr__part 251 14 none] [there_are_unkept_comments gpr__tree 130 13 none]
+G r c none [post_parse_context_clause gpr__part 251 14 none] [set_project_file_includes_unkept_comments gpr__tree 767 14 none]
+G r c none [post_parse_context_clause gpr__part 251 14 none] [restore_and_free gpr__tree 122 14 none]
+G r c none [post_parse_context_clause gpr__part 251 14 none] [debug_decrease_indent gpr 2799 14 none]
+G r c none [post_parse_context_clause gpr__part 251 14 none] [set_name_buffer gpr__names 95 14 none]
+G r c none [post_parse_context_clause gpr__part 251 14 none] [add_char_to_name_buffer gpr__names 82 14 none]
+G r c none [post_parse_context_clause gpr__part 251 14 none] [set_project_node_of gpr__tree 889 14 none]
+G r c none [project_name_from gpr__part 275 13 none] [debug_output gpr 2791 14 none]
+G r c none [project_name_from gpr__part 275 13 none] [canonical_case_file_name gpr__osint 174 14 none]
+G r c none [project_name_from gpr__part 275 13 none] [name_find gpr__names 75 13 none]
+G r c none [copy_with_clause gpr__part 282 13 none] [default_project_node gpr__tree 92 13 none]
+G r c none [copy_with_clause gpr__part 282 13 none] [name_of gpr__tree 201 13 none]
+G r c none [copy_with_clause gpr__part 282 13 none] [set_name_of gpr__tree 698 14 none]
+G r c none [copy_with_clause gpr__part 282 13 none] [path_name_of gpr__tree 323 13 none]
+G r c none [copy_with_clause gpr__part 282 13 none] [set_path_name_of gpr__tree 823 14 none]
+G r c none [copy_with_clause gpr__part 282 13 none] [project_node_of gpr__tree 379 13 none]
+G r c none [copy_with_clause gpr__part 282 13 none] [set_project_node_of gpr__tree 889 14 none]
+G r c none [copy_with_clause gpr__part 282 13 none] [set_next_with_clause_of gpr__tree 899 14 none]
+G r c none [ultimate_extending gpr__part 289 14 none] [project_declaration_of gpr__tree 349 13 none]
+G r c none [ultimate_extending gpr__part 289 14 none] [extending_project_of gpr__tree 361 13 none]
+X 1 ada.ads
+16K9*Ada 20e8 74|25r6 25r35 26r6 26r35
+X 4 a-charac.ads
+16K13*Characters 18e19 74|25r10 25r39
+X 5 a-chahan.ads
+36K24*Handling 160e28 74|25w21 25r50
+46V13*Is_Letter{boolean} 74|2248s17
+54V13*Is_Alphanumeric{boolean} 74|2266s31 2275s16
+71V13*To_Lower{string} 74|2055s13 2240s38
+X 13 a-conhel.ads
+84R12 Reference_Control_Type<23|43R9>
+X 22 a-except.ads
+44K13*Exceptions 289e19 74|26w10 26r39
+62V13*Exception_Name{string} 74|754s22
+94V13*Exception_Information{string} 74|752s22
+X 25 a-iteint.ads
+24h9 Forward_Iterator
+32h9 Reversible_Iterator<24R9[17|84]>
+X 38 gnat.ads
+34K9*GNAT 57e9 74|28r6 28r37 29r6 50r32 68r25 87r33 98r32 111r34 122r34 135r37
+X 42 g-dynhta.ads
+105P12*Instance
+180P12*Instance<105P12[251[56|1982]]>
+190U17*Set 74|1460s53[56|1982] 1491s50[56|1982] 2086s44[56|1982]
+190p22 T{180P12[56|1982]} 74|2087r13[56|1982]
+190i43 K{56|243I9} 74|2088r13[56|1982]
+190r52 E{56|1952R12} 74|2089r13[56|1982]
+194U17*Reset<108p17> 74|585s41[56|1982]
+207V16*Get_First{56|1952R12} 74|1345s69[56|1982] 1736s68[56|1982]
+221V16*Get_Next{56|1952R12} 74|1503s46[56|1982] 1747s55[56|1982]
+X 43 g-dyntab.ads
+105I12*Table_Last_Type<integer>
+126A9*Table_Type(74|130R9)<56|62I9>
+128A12*Big_Table_Type{126A9[56|1943]}<56|145I9>
+142P9*Table_Ptr(128A12[54|62[74|68]])
+161R9*Instance
+162p7*Table{142P9[56|1943]} 74|2096r32[56|1943] 2155r32[56|1943]
+X 47 g-htable.ads
+46K14*HTable 60e16 74|28w11 28r42 98r37 111r39 122r39
+55k20*Simple_HTable 74|98r44 111r46 122r46
+X 49 g-os_lib.ads
+51K14*OS_Lib=51:36 74|50r37
+X 54 g-table.ads
+49+9 Table_Component_Type 74|69r7 88r7 136r7
+50I9 Table_Index_Type 74|70r7 89r7 137r7
+52*4 Table_Low_Bound{50I9} 74|71r7 90r7 138r7
+53i4 Table_Initial{positive} 74|72r7 91r7 139r7
+54i4 Table_Increment{natural} 74|73r7 92r7 140r7
+59k14*Table 152e15 74|29w11 68r30 87r38 135r42
+71I12*Table_Last_Type{43|105I12[62[74|135]]}
+78p4*Table{43|142P9[62[74|68]]} 74|786r16[68] 792r19[68] 931r32[68] 961r44[87]
+. 1023r45[87] 1029r63[87] 1274r34[87] 1277r26[87] 1285r41[87] 1287r33[87]
+. 1411r62[135] 1562r21[87] 1815r44[87] 1822r47[87]
+83U14*Init 74|584s21[87]
+91V13*Last{71I12[74|68]} 74|786s29[68] 789s37[68] 792s61[68] 795s39[68] 957s36[87]
+. 958s62[87] 1011s44[87] 1022s57[87] 1273s47[87] 1283s55[87] 1409s39[135]
+. 1562s42[87] 1812s39[87] 1816s47[87] 1819s65[87]
+97U14 Set_Last 74|1857s40[135]
+100U14*Increment_Last 74|785s16[68]
+103U14*Decrement_Last 74|1498s27[87] 1517s24[87] 2137s21[87]
+106U14*Append 74|1428s21[87] 1836s40[135]
+X 56 gpr.ads
+42K9*GPR 3025e8 73|27r6 27r20 29r9 48r34 77r5 74|31r6 31r23 32r6 32r23 33r6
+. 34r6 34r23 35r6 35r23 36r6 36r23 37r6 37r23 38r6 38r23 39r6 39r23 40r6
+. 40r23 41r6 41r23 42r6 43r6 43r23 45r14 103r21 116r21 127r21 573r34 588r10
+. 600r10 603r7 604r7 612r13 732r13 735r13 739r16 740r16 1993r10 2308r5
+62I9*Int<integer>
+65I12*Nat{62I9} 74|56r24 89r31 137r31
+71M9*Word
+86I9*Source_Ptr<62I9> 74|61r22 156r32 774r38 1196r32 1361r28 1690r19
+105I9*Source_File_Index<62I9> 74|1331r29
+108i4*No_Source_File{105I9} 74|1515r25
+130X4*Unrecoverable_Error 74|641r15
+142N4*Project_Node_High_Bound 74|101r21 715r28
+145I9*Project_Node_Id<integer> 73|41r31 74|63r22 83r29 100r21 102r21 115r21
+. 157r28 165r17 172r17 178r17 182r25 183r25 184r25 195r29 211r31 256r34 283r21
+. 285r21 285r45 290r20 302r21 304r21 304r45 306r34 325r25 326r25 327r25 356r33
+. 357r42 360r33 361r42 364r42 367r42 370r42 373r42 420r28 421r28 473r22 482r29
+. 486r21 489r21 492r18 495r18 501r40 566r31 680r27 681r27 682r27 711r21 712r21
+. 773r29 896r34 907r26 908r26 909r26 980r36 1105r17 1107r21 1108r21 1135r17
+. 1137r31 1165r17 1167r21 1168r21 1197r28 1311r31 1342r26 1355r27 1932r29
+. 1933r29 1988r32 2296r20 2298r14
+149i4*Empty_Project_Node{145I9} 74|421r47 486r40 489r40 492r37 495r37 592r18
+. 617r24 646r24 681r46 682r46 711r40 727r21 756r21 773r48 908r45 909r45 980r55
+. 1064r46 1068r54 1342r45 1355r46 1401r21 1420r27 1431r34 1516r21 1932r48
+. 1988r51 2303r27
+243I9*Name_Id<integer> 74|131r14 277r40 336r25 1002r22 1147r36 1177r36 1280r33
+. 1285r18 1348r34 1350r25 1659r38 1738r32 1761r21 1814r27 1821r30 1866r27
+. 1930r38 1935r29 2165r40
+244i4*No_Name{243I9} 74|131r25 1350r36 1526r35 1555r60 1666r43 1743r38 1754r35
+. 1911r29 2054r29 2082r53 2180r17 2220r20 2226r17 2234r17 2249r20 2259r29
+. 2268r26 2282r23
+270I9*File_Name_Type<243I9> 74|949r39 960r27 1533r30 1544r40
+284I9*Path_Name_Type<243I9> 74|60r22 81r29 82r29 124r21 126r21 132r14 147r29
+. 148r29 213r27 257r27 339r25 580r22 839r32 897r27 916r31 1014r47 1270r29
+. 1271r29 1313r27 1326r29 1327r29 1328r29 1329r29 1544r9 1778r16 1784r48
+289i4*No_Path{284I9} 74|125r21 132r32 606r25 941r40 1386r37 1793r51
+371E9*Project_Qualifier 383e25 74|1199r24
+372n7*Unspecified{371E9} 74|1199r45 1241r51 1250r28
+377n7*Standard{371E9} 74|1209r31
+379n7*Library{371E9} 74|1224r31
+380n7*Configuration{371E9} 74|1236r31 1247r28 1252r39
+381n7*Abstract_Project{371E9} 74|1145r60 1204r28 1442r64 1886r60 1889r60
+. 2005r57
+382n7*Aggregate{371E9} 74|1139r52 1171r53 1176r59 1213r31 1863r68
+383n7*Aggregate_Library{371E9} 74|1219r34
+411a4*Config_Project_File_Extension{string} 74|1672r44 2203r46
+412a4*Project_File_Extension{string} 74|1675r44 2198r52
+458n38*List{458E9} 74|366r72 369r61 372r55 375r70
+609I9*Header_Num<short_integer> 74|99r21 112r21 123r21
+616V13*Hash{609I9} 74|127r25
+1529n7*N_Project{1528E9} 74|1561r32
+1530n7*N_With_Clause{1528E9} 74|307r58 359r47 809r45 868r29 874r54
+1532n7*N_Declarative_Item{1528E9} 74|363r47
+1536n7*N_Attribute_Declaration{1528E9} 74|366r47
+1539n7*N_Expression{1528E9} 74|369r47
+1540n7*N_Term{1528E9} 74|372r47
+1541n7*N_Literal_String_List{1528E9} 74|375r47
+1601K12*Tree_Private_Part 1994e25 74|585r7 1344r33 1345r35 1357r11 1437r36
+. 1460r19 1491r16 1503r12 1735r32 1736r34 1747r21 2086r10
+1614i10*Directory{284I9} 74|2155m48
+1715m10*Checksum{71M9} 74|2096m48
+1952R12*Project_Name_And_Node 1972e17 74|1344r51 1735r50
+1953i10*Name{243I9} 74|1462r46 1493r43 1738r57 1749r49 2089m19
+1956i10*Node{145I9} 74|1468r60 1475m63 1497r48 1761r58 2090m19
+1959i10*Resolved_Path{284I9} 74|1439r37 2091m19
+1963b10*Extended{boolean} 74|1441r43 1459m43 1466r43 2092m19
+1966b10*From_Extended{boolean} 74|1450r50 1485r48 1490m40 2093m19
+1970e10*Proj_Qualifier{371E9} 74|1442r46 2094m19
+1974r7*No_Project_Name_And_Node{1952R12} 74|1437r54
+1982K15*Projects_Htable[42|179] 74|585r25 1345r53 1460r37 1491r34 1503r30
+. 1736r52 1747r39 2086r28
+1997r7*Project_Nodes{43|161R9[1943]} 74|2096m18 2155m18
+1998p7*Projects_HT{42|180P12[1982]} 74|585m56 1346r46 1461m30 1492m27 1503r64
+. 1737r45 1748r32 2087m26
+2000b7*Incomplete_With{boolean} 74|583m15 943m27 1796m30
+2006P9*Project_Node_Tree_Ref(1996R9) 73|40r27 74|154r28 164r17 171r17 177r17
+. 185r25 196r29 210r27 238r27 253r27 284r21 290r47 303r21 328r25 483r29 565r27
+. 764r27 893r27 1104r17 1134r17 1164r17 1194r28 1310r27 2296r47
+2628R9*Processing_Flags 2949e14 74|146r29 153r28 163r17 170r17 176r17 242r27
+. 768r27 1103r17 1133r17 1163r17 1193r28 1269r29
+2770a4*Virtual_Prefix{string} 74|332r24
+2778n32*Medium{2778E9} 74|1539r31
+2778n40*High{2778E9} 74|2173r30
+2785e4*Current_Verbosity{2778E9} 74|1539r10 2173r10
+2791U14*Debug_Output 74|2174s10
+2797U14*Debug_Increase_Indent 74|1540s10
+2799U14*Debug_Decrease_Indent 74|2150s7
+2803i4*Total_Errors_Detected{65I12} 74|726r10
+2884U14 Add_To_Buffer 74|1597s10 1607s10 2042s10 2048s10
+2942b7*Ignore_Missing_With{boolean} 74|942r29 1795r32
+2945b7*Incomplete_Withs{boolean} 74|944m29 1797m32
+X 59 gpr-com.ads
+30K13*Com 40e12 74|32w10 32r27 612r17
+32P9*Fail_Proc
+34p4*Fail{32P9} 74|612r21
+X 62 gpr-dect.ads
+29K21*Dect 60e13 74|33w10 1993r14
+31U14*Parse 74|1993s19
+32p7 In_Tree{79|34P12} 74|1994r13
+33i7 Declarations{56|145I9} 74|1995r13
+34i7 Current_Project{56|145I9} 74|1996r13
+35i7 Extends{56|145I9} 74|1997r13
+36p7 Packages_To_Check{101|88P12} 74|1998r13
+37b7 Is_Config_File{boolean} 74|1999r13
+38r7 Flags{56|2628R9} 74|2000r13
+X 63 gpr-env.ads
+31K13*Env 269e12 74|34w10 34r27 588r14
+167U14*Initialize_Default_Project_Path 74|588s18
+186V13*Is_Initialized{boolean} 74|587s14
+204U14*Get_Path 74|610s13
+204p52 Path{101|67P12} 74|610r41
+229U14*Find_Project 74|594s7 935s13 1787s16
+231a7 Project_File_Name{string} 74|595r21 937r16 1789r19
+232a7 Directory{string} 74|596r21 938r16 1790r19
+233i7 Path{56|284I9} 74|597r21 939r16 1791r19
+X 64 gpr-err.ads
+39K13*Err 114e12 74|35w10 35r27 600r14 603r11 604r11 732r17 735r17 739r20
+. 740r20
+45U14*Initialize 74|600s18 735s21 740s24
+49U14*Finalize 74|732s21 739s24
+53U14*Error_Msg 74|813s13 862s16 950s19 962s25 1118s16 1148s16 1178s16 1229s16
+. 1254s13 1279s13 1281s13 1290s19 1294s19 1416s16 1444s22 1451s19 1478s19
+. 1534s10 1619s13 1678s16 1757s19 1762s19 1804s22 1817s25 1823s28 1867s25
+. 1891s25 1975s16 2060s13 2076s13
+78K12*Scanner 112e15 74|603r15 604r15 1521r7 1521r49
+79n30*Project{79E12} 74|1521r57
+81U17*Initialize_Scanner 74|1521s15
+96U17*Set_End_Of_Line_As_Token 74|604s23
+100U17*Set_Comment_As_Token 74|603s23
+X 65 gpr-erroutc.ads
+32K13*Erroutc 358e16 74|36w10 36r27
+235i4*Error_Msg_Name_1{56|243I9} 74|1117m16 1147m16 1177m16 1280m13 1284m16
+. 1669m16 1756m19 1760m19 1802m22 1813m25 1820m28 1865m25 1973m16
+236i4*Error_Msg_Name_2{56|243I9} 74|1974m16
+238i4*Error_Msg_File_1{56|270I9} 74|949m19 959m25 1533m10
+X 67 gpr-names.ads
+25K13*Names 207e14 74|37w10 37r27
+27a4*Name_Buffer{string} 74|383r46 388m7 396m7 1018m25 1019m51 1019r51 1085m22
+. 1374m10 1377m10 1597r25 1644m10 1651r16 1652m16 1656m36 1656r36 1694m16
+. 1920r35 2042r25 2240m7 2248r28 2257r19 2258r22 2263r26 2265r19 2266r48
+. 2275r33 2285r16
+28i4*Name_Len{natural} 74|382r13 383r59 385m10 385r22 388r20 388r36 390m7
+. 390r19 395m7 396r25 1017m25 1018r43 1019r69 1084m22 1085r40 1373m10 1374r28
+. 1376m10 1377r28 1597r43 1643m10 1644r28 1650r28 1656r54 1693r27 1915m10
+. 1920r13 1920r48 1921m10 1921r22 1926r10 1927m10 1927r22 2042r43 2239m7
+. 2240r25 2255r35 2274r22 2275r46
+30U14*Get_Name_String 74|1596s10 1912s10 2041s10
+33U14*Get_Name_String 74|380s7
+39V13*Get_Name_String{string} 74|333s26 1782s39 2056s13 2061s24
+42V13*Get_Name_String{string} 74|912s34 937s37 974s37 1324s38 1790s40
+52V13*Get_Path_Name_Id{56|284I9} 74|877s29 1387s38
+75V13*Name_Find{56|243I9} 74|397s26 1645s29 1659s49 1698s52 1930s49 2279s23
+78V13*Name_Find{56|284I9} 74|391s26 1020s48 1086s66 1375s30 1378s33 2155s61
+82U14*Add_Char_To_Name_Buffer 74|2154s10
+95U14*Set_Name_Buffer 74|2153s10
+X 69 gpr-opt.ads
+29K13*Opt 293e12 74|31w10 31r27 977r39 1370r48 1380r13
+109b4*Follow_Links_For_Files{boolean} 74|977r43 1370r52 1380r17
+141p4*Implicit_With{101|67P12} 74|877r47 1553r31 1557r46
+X 70 gpr-osint.ads
+30K13*Osint 240e14 74|38w10 38r27
+43A9*Text_Buffer(character)<56|86I9>
+84A12*Big_Source_Buffer{43A9}<56|86I9>
+88P9*Source_Buffer_Ptr(84A12)
+98V13*Is_Directory_Separator{boolean} 74|383s22
+101V13*Get_Directory{56|270I9} 74|1544s25
+174U14*Canonical_Case_File_Name 74|1019s25 1656s10 2183s7
+X 72 gpr-output.ads
+33K13*Output 107e15 74|39w10 39r27
+97U14*Write_Str 74|753s10 754s10
+104U14*Write_Line 74|752s10 755s10
+X 73 gpr-part.ads
+29K13*Part 56|42k9 73|77l9 77e13 74|45b18 2308l9 2308t13
+31E9*Errout_Mode 34e22 43r27 74|568r27
+32n7*Always_Finalize{31E9} 43r42 74|568r42 731r15
+33n7*Finalize_If_Error{31E9} 74|737r15
+34n7*Never_Finalize{31E9} 74|599r29 743r15
+39U14*Parse 40>7 41<7 42>7 43>7 44>7 45>7 46>7 47>7 48=7 49>7 50>7 74|564b14
+. 757l8 757t13
+40p7 In_Tree{56|2006P9} 74|565b7 583r7 585r48 626r34 654r45 668r60 671r49
+. 671r59 672r13 685r59 687r58 690r68 692r65 695r61 699r61 704r65 717r41
+41i7 Project{56|145I9} 74|566b7 592m7 617m13 627m34 646m13 653r19 654r36
+. 666r30 668r51 671r40 685r50 717r25 727m10 738r20 756m10
+42a7 Project_File_Name{string} 74|567b7 595r42 614r18
+43e7 Errout_Handling{31E9} 74|568b7 599r10 730r12
+44p7 Packages_To_Check{101|88P12} 74|569b7 633r34
+45b7 Store_Comments{boolean} 74|570b7 603r45 604r49
+46a7 Current_Directory{string} 74|571b7 596r42 635r34
+47b7 Is_Config_File{boolean} 74|572b7 636r34
+48r7 Env{79|43R9} 74|573b7 587r30 589m13 589r13 594m21 594r21 610r23 637m34
+49a7 Target_Name{string} 74|574b7 589r31
+50b7 Implicit_Project{boolean} 74|575b7 638r34
+X 74 gpr-part.adb
+47p4 Buffer{101|67P12} 1597m54 1597r54 1607m30 1607r30 1644r41 2042m54 2042r54
+. 2048m30 2048r30 2055r23
+48i4 Buffer_Last{natural} 1582m7 1590m13 1597m62 1597r62 1607m38 1607r38
+. 1639r10 1643r22 1644r54 2024m7 2036m13 2042m62 2042r62 2048m38 2048r38
+. 2054r46 2055r36
+50e4 Dir_Sep=50:44{character} 2154r35 2212r45
+56I9 With_Id<56|62I9> 57r23 64r22 70r31 239r31 252r27 765r31 770r29 892r27
+. 905r29 1354r27
+57i4 No_With{56I9} 770r40 788r35 801r25 843r32 881r29 930r36
+59R9 With_Record 65e14 69r31 772r29 914r22
+60i7*Path{56|284I9} 839m16 877m13 937r67 949r68 1002r44
+61i7*Location{56|86I9} 840m16 878m13 952r35 963r70 1004r61
+62b7*Limited_With{boolean} 841m16 879m13 934r42 1078r54
+63i7*Node{56|145I9} 842m16 880m13 989r54 993r51
+64i7*Next{56I9} 792m47 843m16 881m13 932r46
+68K12 Withs[54|59] 785r10 786r10 786r23 789r31 792r13 792r55 795r33 931r26
+80R9 Names_And_Id 85e14 88r31
+81i7*Path_Name{56|284I9} 961r58 1285r57 1429m11 1816r53 1822r61
+82i7*Canonical_Path_Name{56|284I9} 1023r59 1277r40 1287r49 1430m11
+83i7*Id{56|145I9} 1029r77 1431m11 1562m48
+84b7*Limited_With{boolean} 1274r48 1432m11
+87K12 Project_Stack[54|59] 584r7 957r22 958r48 961r30 1011r30 1022r43 1023r31
+. 1029r49 1273r33 1274r20 1277r12 1283r41 1285r27 1287r19 1428r7 1498r13
+. 1517r10 1562r7 1562r28 1812r25 1815r30 1816r33 1819r51 1822r33 2137r7
+98K12 Virtual_Hash[95|70] 523r13 659r10 697r25 714r13 718r16
+111K12 Processed_Hash[95|70] 506r38 510r10 660r10 666r10
+122K12 Resolved_Paths[95|70] 1384r35 1392r16
+130R9 Name_And_Path 133e14 136r31 1411r27
+131i7*Name{56|243I9} 1413r19 1837m26
+132i7*Path{56|284I9} 1414r18 1838m26
+135K12 Extended_Projects[54|59] 1409r21 1411r44 1836r22 1857r22
+145V13 Has_Circular_Dependencies{boolean} 146>7 147>7 148>7 1268b13 1303l8
+. 1303t33 1398s10
+146r7 Flags{56|2628R9} 1269b7 1279r24 1281r24 1291r22 1294r30
+147i7 Normed_Path_Name{56|284I9} 1270b7 1280r42
+148i7 Canonical_Path_Name{56|284I9} 1271b7 1276r13 1288r18
+152U14 Read_Project_Qualifier 153>7 154>7 155>7 156<7 157>7 1192b14 1262l8
+. 1262t30 1566s7
+153r7 Flags{56|2628R9} 1193b7 1230r19 1254r24
+154p7 In_Tree{56|2006P9} 1194b7 1205r16 1210r19 1214r19 1220r22 1225r19 1237r19
+. 1260r45
+155b7 Is_Config_File{boolean} 1195b7 1228r20 1241r10 1251r13
+156i7 Qualifier_Location{56|86I9} 1196b7 1201m7 1257r24
+157i7 Project{56|145I9} 1197b7 1260r36
+162U14 Check_Extending_All_Imports 163>7 164>7 165>7 1102b14 1126l8 1126t35
+. 1904s7
+163r7 Flags{56|2628R9} 1103b7 1118r27
+164p7 In_Tree{56|2006P9} 1104b7 1111r41 1112r56 1114r55 1116r47 1117r55 1123r62
+165i7 Project{56|145I9} 1105b7 1111r32 1112r47
+169U14 Check_Aggregate_Imports 170>7 171>7 172>7 1132b14 1156l8 1156t31 1905s7
+170r7 Flags{56|2628R9} 1133b7 1148r27
+171p7 In_Tree{56|2006P9} 1134b7 1139r41 1140r56 1143r55 1145r48 1147r69 1153r62
+172i7 Project{56|145I9} 1135b7 1139r32 1140r47
+175U14 Check_Import_Aggregate 176>7 177>7 178>7 1162b14 1186l8 1186t30 1906s7
+176r7 Flags{56|2628R9} 1163b7 1179r19
+177p7 In_Tree{56|2006P9} 1164b7 1171r41 1172r56 1174r55 1176r48 1177r69 1183r62
+178i7 Project{56|145I9} 1165b7 1171r32 1172r47
+181U14 Create_Virtual_Extending_Project 182>7 183>7 184>7 185>7 324b14 467l8
+. 467t40 716s16
+182i7 For_Project{56|145I9} 325b7 333r52 439r50 445r62
+183i7 Main_Project{56|145I9} 326b7 380r38 414r54 415r33 437r49
+184i7 Extension_Withs{56|145I9} 327b7 420r47
+185p7 In_Tree{56|2006P9} 328b7 333r65 359r38 363r38 366r38 369r38 372r38
+. 375r38 380r52 400r28 405r71 410r33 411r38 412r41 414r23 414r68 415r47 426r50
+. 428r70 431r53 437r27 437r63 439r27 439r63 444r31 445r53 450r35 454r43 456r33
+. 460r47 464r43
+194U14 Look_For_Virtual_Projects_For 195>7 196>7 197>7 481b14 533s16 553s10
+. 558l8 558t37 669s10
+195i7 Proj{56|145I9} 482b7 506r19 506r58 510r30 512r49 516r46 523r31 528r47
+196p7 In_Tree{56|2006P9} 483b7 512r55 515r59 516r52 528r53 530r55 534r29
+. 543r49 546r62 554r23
+197b7 Potentially_Virtual{boolean} 484b7 522r13 534r38 554r32 673r13
+204E9 Extension_Origin 204e68 215r27 258r27 898r27 1315r27 1702r24 1829r33
+. 2100r21
+204n30 None{204E9} 631r34 1474r36 1702r44 1829r53 2093r54 2100r41
+204n36 Extending_Simple{204E9} 1714r28 2112r25
+204n54 Extending_All{204E9} 1484r36 1707r32 1708r28 1832r41 1833r37 2105r29
+. 2106r25
+209U14 Parse_Single_Project 210>7 211<7 212<7 213>7 214>7 215>7 216>7 217>7
+. 218>7 219>7 220>7 221=7 222>7 625s10 1039s22 1309b14 1840s22 2157l8 2157t28
+210p7 In_Tree{56|2006P9} 626r13 1040r25 1310b7 1346r38 1461r22 1468r66 1475r69
+. 1492r19 1503r56 1523r13 1549r31 1561r54 1563r34 1564r34 1567r21 1569r33
+. 1576r16 1577r36 1601r16 1611r16 1628r16 1632r44 1633r19 1646r32 1692r42
+. 1698r43 1718r37 1730r48 1737r37 1748r24 1759r44 1761r64 1764r62 1777r16
+. 1796r22 1841r25 1841r46 1862r65 1866r68 1870r50 1876r61 1877r56 1885r56
+. 1888r66 1900r19 1904r47 1905r43 1906r42 1934r62 1943r45 1952r61 1955r58
+. 1960r61 1961r24 1964r65 1968r48 1977r49 1994r34 2001r47 2004r61 2008r58
+. 2008r68 2019r16 2046r16 2049r16 2056r48 2061r59 2073r16 2087r18 2094r68
+. 2096r10 2116r34 2128r45 2143r21 2155r10
+211i7 Project{56|145I9} 627r13 1041r25 1311b7 1401m10 1420m16 1497m13 1516m10
+. 1560m7 1562r54 1563r25 1564r25 1567r66 1569r24 1577r27 1632r35 1646r23
+. 1692r33 1698r34 1730r39 1759r35 1764r53 1776r16 1842r25 1870r41 1877r47
+. 1885r47 1904r56 1905r52 1906r51 1934r53 1968r39 1977r40 1983r24 1984r31
+. 1985r26 1996r34 2001r38 2009r22 2056r39 2061r50 2072r33 2090r37 2094r59
+. 2096r39 2128r36 2142r21 2155r39
+212b7 Extends_All{boolean} 628r13 1042r25 1312b7 1364m7 1467m16 1631m13 1707r54
+. 1832r63 1843r25 1843m46 2105r51
+213i7 Path_Name_Id{56|284I9} 629r13 1043r25 1313b7 1324r55 1844r25
+214b7 Extended{boolean} 630r13 1044r25 1314b7 1440r16 1713r19 1845r25 2092r37
+. 2111r16
+215e7 From_Extended{204E9} 631r13 1045r25 1315b7 1474r19 1484r19 1707r16
+. 1832r25 1846r25 2093r37 2105r13
+216b7 In_Limited{boolean} 632r13 1046r25 1316b7 1432r34 1720r37 1847r25 1847r46
+. 2118r34
+217p7 Packages_To_Check{101|88P12} 633r13 1047r25 1317b7 1725r37 1848r25
+. 1848r46 1998r34 2123r34
+218i7 Depth{natural} 634r13 1048r25 1318b7 1726r37 1849r25 1849r46 2124r34
+219a7 Current_Dir{string} 635r13 1049r25 1319b7 1336r44 1369r48 1727r37 1850r25
+. 1850r46 2125r34 2153r27
+220b7 Is_Config_File{boolean} 636r13 1050r25 1320b7 1349r57 1525r14 1550r31
+. 1554r46 1567r30 1618r13 1665r20 1671r19 1728r37 1733r17 1851r25 1851r46
+. 1999r34 2126r34
+221r7 Env{79|43R9} 637r13 1051r25 1321b7 1399r13 1417r19 1445r25 1452r22
+. 1479r22 1534r21 1552r31 1567r10 1620r16 1679r19 1729m37 1758r22 1763r22
+. 1788m19 1788r19 1795r22 1797m22 1805r25 1817r36 1823r39 1852r25 1852m46
+. 1868r28 1892r28 1904r36 1905r32 1906r31 1975r27 2000r34 2060r24 2077r16
+. 2127m34
+222b7 Implicit_Project{boolean} 638r13 1322b7 1527r22 2152r10
+237U14 Pre_Parse_Context_Clause 238>7 239<7 240>7 241>7 242>7 763b14 885l8
+. 885t32 1548s7
+238p7 In_Tree{56|2006P9} 764b7 809r71 821r19 828r19 847r19 855r22 859r60
+. 868r55 874r34 1549r10
+239i7 Context_Clause{56I9} 765b7 789m13 801m7 1551r10
+240b7 Is_Config_File{boolean} 766b7 812r13 1550r10
+241b7 Add_Implicit_With{boolean} 767b7 872r10 1553r10
+242r7 Flags{56|2628R9} 768b7 814r16 862r27 1552r10
+251U14 Post_Parse_Context_Clause 252>7 253>7 254>7 255>7 256=7 257>7 258>7
+. 259>7 260>7 261>7 262>7 263=7 891b14 1096l8 1096t33 1717s13 2115s10
+252i7 Context_Clause{56I9} 892b7 905r40 1719r16 2117r13
+253p7 In_Tree{56|2006P9} 893b7 924r59 926r70 943r19 995r42 1001r22 1004r39
+. 1040r46 1054r71 1068r45 1076r41 1081r25 1082r50 1086r57 1089r64 1718r16
+. 2116r13
+254b7 In_Limited{boolean} 894b7 1010r23 1046r46 1720r16 2118r13
+255b7 Limited_Withs{boolean} 895b7 934r13 1010r37 1046r60 1721r16 2119r13
+256i7 Imported_Projects{56|145I9} 896b7 907r45 990m22 1064m25 1722r16 2120r13
+257i7 Project_Directory{56|284I9} 897b7 912r51 1723r16 2121r13
+258e7 From_Extended{204E9} 898b7 1045r46 1724r16 2122r13
+259p7 Packages_To_Check{101|88P12} 899b7 1047r46 1725r16 2123r13
+260i7 Depth{natural} 900b7 1048r46 1726r16 2124r13
+261a7 Current_Dir{string} 901b7 975r55 1049r46 1727r16 2125r13
+262b7 Is_Config_File{boolean} 902b7 1050r46 1728r16 2126r13
+263r7 Env{79|43R9} 903b7 936m16 936r16 942r19 944m19 951r22 963r28 1051m46
+. 1729r16 2127r13
+275V13 Project_Name_From{56|243I9} 276>7 277>7 1349s9 1556s42 2163b13 2289l8
+. 2289t25
+276a7 Path_Name{string} 2164b7 2167r32 2167r53
+277b7 Is_Config_File{boolean} 1349r39 2165b7 2197r18 2201r15
+282V13 Copy_With_Clause{56|145I9} 283>7 284>7 285>7 301b13 318l8 318t24 426s15
+. 543s18
+283i7 With_Clause{56|145I9} 302b7 310r18 312r23 314r26
+284p7 In_Tree{56|2006P9} 303b7 307r49 309r37 310r31 311r42 312r36 313r45
+. 314r39 315r49
+285i7 Next_Clause{56|145I9} 304b7 315r58
+289U14 Ultimate_Extending 290=7 290>37 1475s19 2295b14 2306l8 2306t26
+290i7 Prj{56|145I9} 2296b7 2302r37 2304m10
+290p37 In_Tree{56|2006P9} 2296b37 2302r42 2302r52
+306i7 New_With_Clause{56|145I9} 309r20 311r25 313r28 315r32 317r14
+331a7 Virtual_Name=332:39{string} 388r47 389r9 390r30 395r19 396r38
+336i7 Virtual_Name_Id{56|243I9} 397m7 401r28 410r42
+339i7 Virtual_Path_Id{56|284I9} 391m7 402r28 411r47
+356i7 Virtual_Project{56|145I9} 399m7 405r54 412r50 431r36 437r10 439r10
+357i7 With_Clause{56|145I9} 410r20 411r25 412r28 414r10 415r56
+360i7 Project_Declaration{56|145I9} 405m7 444r10 445r32
+361i7 Source_Dirs_Declaration{56|145I9} 444r40 450r10
+364i7 Source_Dirs_Attribute{56|145I9} 450r44 454r20 456r10
+367i7 Source_Dirs_Expression{56|145I9} 456r42 460r23
+370i7 Source_Dirs_Term{56|145I9} 460r56 464r25
+373i7 Source_Dirs_List{56|145I9} 464r52
+420i10 Org_With_Clause{56|145I9} 424r25 426r33 428m13 428r53
+421i10 New_With_Clause{56|145I9} 425m13 426r59 431r62
+473i4 Extension_Withs{56|145I9} 501r59 523r37 542m16 543r58 556m10 668m10
+486i7 Declaration{56|145I9} 512m10 514r22 515r46
+489i7 With_Clause{56|145I9} 528m10 529r25 530r42 543r36 546m13 546r49
+492i7 Imported{56|145I9} 530m13 532r25 534r19
+495i7 Extended{56|145I9} 515m13 522r46 554r13
+498b7 Extends_All{boolean} 516m13 537r16
+501i7 Saved_Extension_Withs{56|145I9} 556r29
+577b7 Dummy{boolean} 578r29 628m34
+580i7 Path_Name_Id{56|284I9} 597m42 606r10 629r34
+608p13 P{101|67P12} 610m49 610r49 616r18
+680i13 With_Clause{56|145I9} 685m13 686r28 687r45 704m16 704r52
+681i13 Imported{56|145I9} 687m16 689r28 690r58 694m25 696r39 697r46 699r51
+682i13 Declaration{56|145I9} 690m19 692r52 695r48 698m25
+711i13 Proj{56|145I9} 714m37 714r37 717r19 718m39 718r39
+712i13 Withs{56|145I9} 714m43 715r19 717r34 718m45
+748r12 X{22|53R9} 752r45 754r38
+770i7 Current_With_Clause{56I9} 788r13 792r26 795m10
+771b7 Limited_With{boolean} 810m10 820r13 841r32
+772r7 Current_With{59R9} 786r38 838m13 876m10
+773i7 Current_With_Node{56|145I9} 808m10 842r32 850r33 851r40 859r41 866m13
+. 873m10 880r29
+774i7 Start_Token{56|86I9} 878r29
+776U17 Append_Current_With 783b17 796l11 796t30 845s13 883s10
+802l7 With_Loop 823r18 870l16 870e25
+826l10 Comma_Loop 856r21 863r21 869l19 869e29
+905i7 Current_With_Clause{56I9} 930r13 931r39 932m10
+907i7 Current_Project{56|145I9} 922r19 924r42 926m13 926r53 983r39 985r26
+. 989m22 990r43 995r25 996m22 1000r22 1004r22 1061m22 1063r29 1068r28 1075r41
+. 1080r25 1086r40 1089r47
+908i7 Previous_Project{56|145I9} 983m19 1061r41
+909i7 Next_Project{56|145I9} 993m22 995r51 996r41
+911a7 Project_Directory_Path{string} 938r37
+914r7 Current_With{59R9} 931m10 932r33 934r29 937r54 949r55 952r22 963r57
+. 989r41 993r38 1002r31 1004r48 1078r41
+915b7 Extends_All{boolean} 1042m46 1054m22 1088r25
+916i7 Imported_Path_Name_Id{56|284I9} 939m37 941r16 974r54 1043r46
+958i26 Index<integer> 961r51
+972a19 Resolved_Path{string} 1017r37 1018r56 1084r34 1085r53
+980i19 Withed_Project{56|145I9} 1029m31 1038r26 1041m46 1054r55 1057r26 1077r41
+. 1082r34
+1014i25 Canonical_Path_Name{56|284I9} 1020m25 1024r30
+1022i29 Index<integer> 1023r52 1029r70
+1107i7 With_Clause{56|145I9} 1112m10 1113r25 1114r42 1116r34 1123m13 1123r49
+1108i7 Imported{56|145I9} 1114m13 1117r45
+1137i7 With_Clause{56|145I9} 1140m10 1142r25 1143r42 1153m13 1153r49
+1137i20 Imported{56|145I9} 1143m13 1145r38 1147r59
+1167i7 With_Clause{56|145I9} 1172m10 1173r25 1174r42 1183m13 1183r49
+1168i7 Imported{56|145I9} 1174m13 1176r38 1177r59
+1199e7 Proj_Qualifier{56|371E9} 1204m10 1209m13 1213m13 1219m16 1224m13 1236m13
+. 1241r34 1247m10 1250r10 1252r21 1260r54
+1273i11 Index<integer> 1274r41 1277r33
+1283i17 Current<integer> 1285r48 1287r40
+1324a7 Path_Name{string} 1335r26 1349r28 1510r34 1540r48
+1326i7 Normed_Path_Name{56|284I9} 1375m10 1399r24 1429r34 1544r56 1564r44
+1327i7 Canonical_Path_Name{56|284I9} 1378m10 1381r35 1384r55 1392r36 1399r42
+. 1430r34 1533r46
+1328i7 Resolved_Path_Name{56|284I9} 1381m13 1384m13 1386r16 1387m16 1392r57
+. 1414r26 1439r53 1838r34 2091r37
+1329i7 Project_Directory{56|284I9} 1543m7 1563r43 1723r37 1790r57 2121r34
+1330r7 Project_Scan_State{76|213R9} 1509m32 2133r35
+1331i7 Source_Index{56|105I9} 1510m7 1515r10 1521r35
+1333a7 Normed_Path{string} 1368r30 1373r22 1374r41
+1340b7 Extending{boolean} 1626m10 1771r10
+1342i7 Extended_Project{56|145I9} 1842m46 1860r31 1862r47 1866r50 1876r43
+. 1888r48 1940r25 1941r31 1943r27 1997r34 2003r22 2004r43 2008r40
+1344r7 A_Project_Name_And_Node{56|1952R12} 1437r9 1439r13 1441r19 1442r22
+. 1450r26 1459m19 1462r22 1463r22 1466r19 1468r36 1475m39 1475r39 1485r24
+. 1490m16 1493r19 1494r19 1497r24 1502m10
+1348i7 Name_From_Path{56|243I9} 1413r26 1526r18 1555r42 1558r45 1666r25 1667r41
+. 1837r34
+1350i7 Name_Of_Project{56|243I9} 1645m10 1646r41 1744r43 1911r10 1912r27
+. 1973r36 2054r10 2082r34 2088r18 2089r37
+1352b7 Duplicated{boolean} 1755m19 2082r14
+1354i7 First_With{56I9} 1551m31 1719r37 2117r34
+1355i7 Imported_Projects{56|145I9} 1722m37 1722r37 1730r57 2120m34 2120r34
+. 2128r54
+1359r7 Project_Comment_State{79|114R9} 1511m18 2148m30 2148r30
+1361i7 Qualifier_Location{56|86I9} 1567m46 1894r28
+1367a10 Canonical_Path{string} 1376r22 1377r41 1389r22
+1409i11 J<integer> 1411r69
+1411r13 NP{130R9} 1413r16 1414r15
+1650i14 Index{integer} 1651r29 1652r29
+1659i13 Expected_Name{56|243I9} 1667r24 1669r36
+1660p13 Extension{101|67P12} 1672m19 1675m19 1681r21
+1690i13 Loc{56|86I9} 1692m13 1694r50 1695m16 1695r23
+1693i17 J{integer} 1694r29
+1702e13 From_Ext{204E9} 1708m16 1714m16 1724r37
+1735r16 Name_And_Node{56|1952R12} 1738r43 1746m19 1749r35 1761r44
+1738i16 Project_Name{56|243I9} 1743r22 1744r27 1749m19 1754r19 1756r39
+1781a16 Original_Path_Name{string} 1789r40
+1784i16 Extended_Project_Path_Name_Id{56|284I9} 1791m40 1793r19 1844r46
+1819i29 Index<integer> 1822r54
+1829e22 From_Ext{204E9} 1833m25 1846r46
+1930i13 Parent_Name{56|243I9} 1943r56 1956r51 1974r36
+1931b13 Parent_Found{boolean} 1942m16 1949r39 1956m19 1957r43 1967r16
+1932i13 Parent_Node{56|145I9} 1941m16 1952m16 1954r48 1955r45 1958m19 1960r48
+. 1968r63
+1933i13 With_Clause{56|145I9} 1950r33 1952r48 1964m16 1964r52
+1935i13 Imp_Proj_Name{56|243I9} 1955m19 1956r35
+1949l13 Imported_Loop 1957r24 1965l22 1965e35
+1954l16 Extension_Loop 1962l25 1962e39
+1988i10 Project_Declaration{56|145I9} 1995m34 2001r56
+2100e10 From_Ext{204E9} 2106m13 2112m13 2122r34
+2167a7 Canonical{string} 2168r30 2174r50 2183m33 2183r33 2189r9 2196r29 2198r24
+. 2203r18 2211r24 2212r24 2240r48
+2168i7 First{natural} 2169r30 2179r10 2187r13 2189r20 2191m10 2191r19 2196r10
+. 2196r40 2198r35 2199r24 2203r29 2204r25 2208m13 2208r22 2209r21 2210r19
+. 2211r35 2212r35 2214m16 2214r25 2229m7 2229r16 2233r10 2239r26 2240r59
+2169i7 Last{natural} 2198r44 2203r38 2209m13 2233r18 2239r19 2240r68
+2170i7 Index{positive} 2242m7 2248r41 2253m16 2253r25 2255r26 2257r32 2258r35
+. 2263r39 2265r32 2266r61 2274r13 2285r29 2286m13 2286r22
+2298i7 Next{56|145I9} 2301m10 2303r20 2304r17
+X 75 gpr-scans.ads
+28K13*Scans 74|40w10 40r27 2096r60 75|291e14
+33n7*Tok_String_Literal{30E9} 74|830r21 832r25 1772r18 1774r21
+36n7*Tok_Identifier{30E9} 74|1207r21 1216r24 1584r18 1589r22 2030r18 2035r22
+50n7*Tok_Dot{30E9} 74|1606r29 2047r29
+57n7*Tok_Comma{30E9} 74|858r27
+73n7*Tok_Abstract{30E9} 74|1203r18
+76n7*Tok_All{30E9} 74|1630r21
+82n7*Tok_Is{30E9} 74|1982r15
+84n7*Tok_Limited{30E9} 74|807r46 810r34
+100n7*Tok_End{30E9} 74|2013r15 2018r18
+130n7*Tok_With{30E9} 74|807r21 822r21 823r42
+132n7*Tok_EOF{30E9} 74|2075r22
+133n7*Tok_Semicolon{30E9} 74|849r24 2066r15 2071r18
+137n7*Tok_Project{30E9} 74|1571r15 1575r18
+138n7*Tok_Extends{30E9} 74|1616r18
+192e4*Token{30E9} 74|807r13 807r38 810r26 823r33 832r16 849r16 858r19 1203r10
+. 1207r13 1216r16 1575r10 1589r13 1606r20 1616r10 1630r13 1774r13 2018r10
+. 2035r13 2047r20 2071r10 2075r13
+195i4*Token_Ptr{56|86I9} 74|774r52 817r16 840r32 862r66 1119r27 1149r27 1179r64
+. 1201r29 1233r19 1279r63 1281r55 1291r66 1294r46 1419r19 1447r25 1454r22
+. 1481r22 1536r21 1569r42 1577r45 1621r63 1682r19 1807r25 1817r66 1823r69
+. 2062r24 2078r60
+212m4*Checksum{56|71M9} 74|2096r66
+228i4*Token_Name{56|243I9} 74|839r48 1208r13 1212r16 1217r24 1223r16 1227r16
+. 1596r27 1778r32 1782r56 1802r42 2041r27
+X 76 gpr-sinput.ads
+61K13*Sinput 74|41w10 41r27 1694r35 76|339e15
+75V13*Load_File{56|105I9} 74|1510s23
+177p4*Source{70|88P9} 74|1694r42
+213R9*Saved_Project_Scan_State 74|1330r29 76|306e14
+216U14*Save_Project_Scan_State 74|1509s7
+222U14*Restore_Project_Scan_State 74|2133s7
+X 78 gpr-snames.ads
+27K13*Snames 74|42w10 454r52 1208r26 1212r29 1217r37 1223r29 1227r29 78|346e15
+117i4*Name_Aggregate{56|243I9} 74|1212r36
+140i4*Name_Configuration{56|243I9} 74|1227r36
+191i4*Name_Library{56|243I9} 74|1217r44 1223r36
+266i4*Name_Source_Dirs{56|243I9} 74|454r59
+292i4*Name_Standard{56|243I9} 74|1208r33
+X 79 gpr-tree.ads
+32K13*Tree 73|27w10 27r24 48r38 74|103r25 116r25 573r38 1359r31 1511r7 1522r7
+. 2141r7 2144r21 2148r7 79|1145e13
+43R9*Environment 73|48r43 74|221r34 263r34 573r43 903r34 1321r34 79|58e14
+50r7*Project_Path{63|160R9} 74|587r34 589m17 594m25 610r27 936m20 1788m23
+56r7*Flags{56|2628R9} 74|942r23 944m23 951r26 963r32 1399r17 1417r23 1445r29
+. 1452r26 1479r26 1534r25 1552r35 1567r14 1620r20 1679r23 1758r26 1763r26
+. 1795r26 1797m26 1805r29 1817r40 1823r43 1868r32 1892r32 1904r40 1905r36
+. 1906r35 1975r31 2000r38 2060r28 2077r20
+80V13*Present{boolean} 74|424s16 506s10 514s13 529s16 532s16 653s10 686s19
+. 689s19 692s22 922s10 924s12 1113s16 1142s16 1173s16 1860s22 1940s16 1950s24
+. 1954s39 2003s13
+84V13*No{boolean} 74|522s42 696s35 738s16 985s22 1038s22 1057s22 1063s25
+92V13*Default_Project_Node{56|145I9} 74|307s27 358s35 362s35 365s35 368s35
+. 371s35 374s35 809s12 867s15 874s12 1560s18
+93p7 In_Tree{34P12} 74|809r60 868r44 1561r43
+94e7 Of_Kind{56|1528E9} 74|809r34 868r18 874r43 1561r21
+100V13*Hash{56|609I9} 74|103r30 116r30
+114R9*Comment_State 74|1359r36 79|1143e14
+118U14*Save 74|1511s12
+122U14*Restore_And_Free 74|2148s12
+126U14*Reset_State 74|1522s12
+130V13*There_Are_Unkept_Comments{boolean} 74|2144s26
+134U14*Set_Previous_Line_Node 74|851s16 1984s7
+139U14*Set_Previous_End_Node 74|2072s10
+144U14*Set_End_Of_Line 74|850s16 1983s7
+148U14*Set_Next_End_Node 74|1985s7
+153U14*Remove_Next_End_Node 74|2014s7
+175U14*Scan 74|821s13 828s13 847s13 855s16 1205s10 1210s13 1214s13 1220s16
+. 1225s13 1237s13 1523s7 1576s10 1601s10 1611s10 1628s10 1633s13 1900s13
+. 2019s10 2046s10 2049s10 2073s10
+201V13*Name_Of{56|243I9} 74|310s9 333s43 1082s25 1117s36 1943s18 1955s36
+. 2056s30 2061s41
+220V13*Location_Of{56|86I9} 74|437s36 1692s20 1759s22 1764s40 1870s28 1977s27
+293V13*Is_Extending_All{boolean} 74|516s28 654s18 1054s37 1111s14 1116s16
+. 1468s18 1876s25
+323V13*Path_Name_Of{56|284I9} 74|312s9 380s24 439s36 1147s45 1177s45 1761s30
+. 1866s36
+343V13*First_With_Clause_Of{56|145I9} 74|414s32 528s25 668s29 685s28 1112s25
+. 1140s25 1172s25 1934s31
+349V13*Project_Declaration_Of{56|145I9} 74|405s30 512s25 671s16 690s34 699s27
+. 1960s24 2008s16 2302s13
+355V13*Project_Qualifier_Of{56|371E9} 74|1139s10 1145s16 1171s10 1176s16
+. 1862s25 1885s25 1888s26 2004s21 2094s37
+361V13*Extending_Project_Of{56|145I9} 74|2301s18
+379V13*Project_Node_Of{56|145I9} 74|314s9 530s25 687s28 1114s25 1143s25 1174s25
+. 1952s31
+395V13*Next_With_Clause_Of{56|145I9} 74|428s32 546s28 704s31 924s21 926s32
+. 1123s28 1153s28 1183s28 1964s31
+408V13*Extended_Project_Of{56|145I9} 74|515s25 670s13 692s31 695s27 1959s21
+615V13*Create_Project{56|145I9} 74|399s26
+616p7 In_Tree{34P12} 74|400r10
+617i7 Name{56|243I9} 74|401r10
+618i7 Full_Path{56|284I9} 74|402r10
+619b7 Is_Config_File{boolean} 74|403r10
+698U14*Set_Name_Of 74|309s7 410s7 454s7 1079s22 1646s10
+705U14*Set_Display_Name_Of 74|1698s13
+719U14*Set_Location_Of 74|436s7 1003s19 1569s7 1577s10
+761U14*Set_Parent_Project_Of 74|1968s16
+764i7 To{56|145I9} 74|1968r57
+767U14*Set_Project_File_Includes_Unkept_Comments 74|2141s12
+768i7 Node{56|145I9} 74|2142r10
+769p7 In_Tree{34P12} 74|2143r10
+770b7 To{boolean} 74|2144r10
+773U14*Set_Directory_Of 74|1563s7
+790U14*Set_Is_Extending_All 74|1089s25 1632s13 1877s25
+796U14*Set_Is_Not_Last_In_List 74|859s16
+823U14*Set_Path_Name_Of 74|311s7 411s7 1086s22 1564s7
+830U14*Set_String_Value_Of 74|999s19
+847U14*Set_First_With_Clause_Of 74|415s7 431s10 1730s13 2128s10
+854U14*Set_Project_Declaration_Of 74|2001s10
+861U14*Set_Project_Qualifier_Of 74|1260s10
+868U14*Set_Extending_Project_Of 74|2007s13
+871i7 To{56|145I9} 74|2009r16
+882U14*Set_Extended_Project_Path_Of 74|438s7 1775s13
+889U14*Set_Project_Node_Of 74|313s7 412s7 1074s22
+890i7 Node{56|145I9} 74|1075r25
+891p7 In_Tree{34P12} 74|1076r25
+892i7 To{56|145I9} 74|1077r25
+893b7 Limited_With{boolean} 74|1078r25
+899U14*Set_Next_With_Clause_Of 74|315s7 413s7 994s22 1067s25
+906U14*Set_First_Declarative_Item_Of 74|443s7
+914U14*Set_Extended_Project_Of 74|445s7
+921U14*Set_Current_Item_Node 74|449s7
+970U14*Set_Expression_Of 74|455s7
+1007U14*Set_First_Term 74|460s7
+1021U14*Set_Current_Term 74|464s7
+X 81 gpr-util.ads
+37K13*Util 74|43w10 43r27 81|946e13
+160U14*Expect 74|822s13 830s13 1571s7 1584s10 1772s10 1982s7 2013s7 2030s10
+. 2066s7
+X 85 system.ads
+67M9*Address
+X 95 s-htable.ads
+56I12 Header_Num 74|99r7 112r7 123r7
+59+12 Element 74|100r7 113r7 124r7
+62*7 No_Element{59+12} 74|101r7 114r7 125r7
+66+12 Key 74|102r7 115r7 126r7
+67V21 Hash{56I12} 74|103r7 116r7 127r7
+68V21 Equal{boolean} 74|104r7 117r7 128r7
+72U17*Set 74|510s25[111] 523s26[98] 666s25[111] 1392s31[122]
+76U17*Reset 74|659s23[98] 660s25[111]
+79V16*Get{boolean} 74|506s53[111] 1384s50[122]
+83U17*Remove 74|697s38[98]
+98U17*Get_First 74|714s26[98]
+105U17*Get_Next 74|718s29[98]
+X 99 s-memory.ads
+53V13*Alloc{85|67M9} 103i<c,__gnat_malloc>22
+68U14*Free 104i<c,__gnat_free>22
+76V13*Realloc{85|67M9} 105i<c,__gnat_realloc>22
+X 101 s-os_lib.ads
+67P12*String_Access{115|45P9} 74|47r18 608r17 1660r29
+69V14*"="=70:22{boolean} 74|1553r45
+88P12*String_List_Access{115|55P9} 73|44r27 74|217r27 259r27 569r27 899r27
+. 1317r27
+538V13*Normalize_Pathname{string} 74|973s34 1334s23 1367s46 1388s19
+540a7 Directory{string} 74|975r37 1336r26 1369r30
+541b7 Resolve_Links{boolean} 74|976r37 1337r26 1370r30 1390r22
+542b7 Case_Sensitive{boolean} 74|978r37 1338r26 1371r30 1391r22
+1096e4*Directory_Separator{character} 74|50r44
+X 115 s-string.ads
+45P9*String_Access(string)
+54A9*String_List(45P9)<integer>
+55P9*String_List_Access(54A9)
+

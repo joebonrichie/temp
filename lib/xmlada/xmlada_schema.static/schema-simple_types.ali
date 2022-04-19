@@ -1,0 +1,1829 @@
+V "GNAT Lib v2021"
+A -O2
+A -gnatA
+A -gnatwu
+A -gnatwa
+A -gnaty
+A -gnatQ
+A -gnatn
+A -mtune=generic
+A -march=x86-64
+P SS ZX
+
+RN
+RV NO_ALLOCATORS
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_ENUMERATION_MAPS
+RV NO_EXCEPTION_HANDLERS
+RV NO_EXCEPTION_PROPAGATION
+RV NO_EXCEPTIONS
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_LOCAL_ALLOCATORS
+RV NO_NESTED_FINALIZATION
+RV NO_RECURSION
+RV NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_UNCHECKED_DEALLOCATION
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_ATTRIBUTES
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLICIT_LOOPS
+RV NO_ELABORATION_CODE
+RV NO_OBSOLESCENT_FEATURES
+
+U schema.simple_types%b	schema-simple_types.adb	929fbd16 NE OO PK
+W ada%s			ada.ads			ada.ali
+W ada.exceptions%s	a-except.adb		a-except.ali
+W ada.strings%s		a-string.ads		a-string.ali
+W ada.strings.fixed%s	a-strfix.adb		a-strfix.ali
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+W ada.strings.unbounded%s  a-strunb.adb		a-strunb.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W ada.unchecked_deallocation%s
+W sax%s			sax.ads			sax.ali
+W sax.encodings%s	sax-encodings.ads	sax-encodings.ali
+Z sax.htable%s		sax-htable.adb		sax-htable.ali  ED
+W schema%s		schema.adb		schema.ali
+Z system.img_int%s	s-imgint.ads		s-imgint.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+Z system.soft_links%s	s-soflin.adb		s-soflin.ali
+Z system.standard_library%s  s-stalib.adb	s-stalib.ali
+Z system.val_int%s	s-valint.ads		s-valint.ali
+W unicode%s		unicode.adb		unicode.ali
+W unicode.names%s	unicode-names.ads	unicode-names.ali
+W unicode.names.basic_latin%s  unicode-names-basic_latin.ads  unicode-names-basic_latin.ali
+
+U schema.simple_types%s	schema-simple_types.ads	b963c63e BN EE OO PK
+W ada%s			ada.ads			ada.ali
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+Z ada.unchecked_conversion%s
+Z ada.unchecked_deallocation%s
+W gnat%s		gnat.ads		gnat.ali
+W gnat.dynamic_tables%s
+Z gnat.heap_sort_g%s
+W gnat.regpat%s		g-regpat.ads		g-regpat.ali
+Z interfaces%s		interfac.ads		interfac.ali
+W sax%s			sax.ads			sax.ali
+W sax.htable%s		sax-htable.adb		sax-htable.ali
+W sax.locators%s	sax-locators.adb	sax-locators.ali
+W sax.symbols%s		sax-symbols.adb		sax-symbols.ali
+W sax.utils%s		sax-utils.adb		sax-utils.ali
+W schema%s		schema.adb		schema.ali
+W schema.date_time%s	schema-date_time.adb	schema-date_time.ali
+W schema.decimal%s	schema-decimal.adb	schema-decimal.ali
+Z system%s		system.ads		system.ali
+W unicode%s		unicode.adb		unicode.ali
+W unicode.ces%s		unicode-ces.adb		unicode-ces.ali
+
+D ada.ads		20210520051131 76789da1 ada%s
+D a-charac.ads		20210520051128 2d3ec45b ada.characters%s
+D a-chlat1.ads		20210520051128 66457d31 ada.characters.latin_1%s
+D a-except.ads		20210520051128 946f3014 ada.exceptions%s
+D a-finali.ads		20210520051128 bf4f806b ada.finalization%s
+D a-ioexce.ads		20210520051128 e4a01f64 ada.io_exceptions%s
+D a-stream.ads		20210520051129 119b8fb3 ada.streams%s
+D a-string.ads		20210520051129 90ac6797 ada.strings%s
+D a-strfix.ads		20210520051129 aeacf44c ada.strings.fixed%s
+D a-strmap.ads		20210520051129 5a88892a ada.strings.maps%s
+D a-strsea.ads		20210520051129 b9bc90ba ada.strings.search%s
+D a-sttebu.ads		20210520051129 18209c64 ada.strings.text_buffers%s
+D a-strunb.ads		20210520051129 03325227 ada.strings.unbounded%s
+D a-strunb.adb		20210520051129 3b950306 ada.strings.unbounded%b
+D a-stuten.ads		20210520051129 808c40ad ada.strings.utf_encoding%s
+D a-tags.ads		20210520051130 9eaa38c6 ada.tags%s
+D a-textio.ads		20210520051130 aef4d56d ada.text_io%s
+D a-unccon.ads		20210520051130 0e9b276f ada.unchecked_conversion%s
+D a-uncdea.ads		20210520051130 c3a8ac65 ada.unchecked_deallocation%s
+D a-widcha.ads		20210520051130 a2b85d3d ada.wide_characters%s
+D a-wichun.ads		20210520051130 de294b78 ada.wide_characters.unicode%s
+D gnat.ads		20210520051132 b5988c27 gnat%s
+D g-dyntab.ads		20210520051131 21cef781 gnat.dynamic_tables%s
+D g-dyntab.adb		20210520051131 8cc056dd gnat.dynamic_tables%b
+D g-hesorg.ads		20210520051131 106922da gnat.heap_sort_g%s
+D g-hesorg.adb		20210520051131 b2b1bfd0 gnat.heap_sort_g%b
+D g-regpat.ads		20210520051131 b85d88ef gnat.regpat%s
+D g-tasloc.ads		20210520051131 9c49392e gnat.task_lock%s
+D interfac.ads		20210520051132 edec285f interfaces%s
+D i-cstrea.ads		20210520051132 e53d8b8e interfaces.c_streams%s
+D sax.ads		20210519052322 17965ec6 sax%s
+D sax-encodings.ads	20210519052322 22d791a3 sax.encodings%s
+D sax-htable.ads	20210519052322 2df615ad sax.htable%s
+D sax-htable.adb	20210519052322 8019e13f sax.htable%b
+D sax-locators.ads	20210519052322 c21ab44e sax.locators%s
+D sax-pointers.ads	20210519052322 d9877e85 sax.pointers%s
+D sax-symbols.ads	20210519052322 d3179de8 sax.symbols%s
+D sax-symbols.adb	20210519052322 d4150ebd sax.symbols%b
+D sax-utils.ads		20210519052322 214aab19 sax.utils%s
+D sax-utils.adb		20210519052322 b4529023 sax.utils%b
+D schema.ads		20210519052322 350cfe44 schema%s
+D schema.adb		20210519052322 719f4fa6 schema%b
+D schema-date_time.ads	20210519052322 27960bdd schema.date_time%s
+D schema-decimal.ads	20210519052322 7d99f7cb schema.decimal%s
+D schema-simple_types.ads  20210519052322 3ab774bb schema.simple_types%s
+D schema-simple_types.adb  20210519052322 7e80342c schema.simple_types%b
+D system.ads		20210520051135 a2da961d system%s
+D s-addima.ads		20210520051132 a1ec9d3a system.address_image%s
+D s-atocou.ads		20210520051132 b45c2d8d system.atomic_counters%s
+D s-carun8.ads		20210520051132 a903718d system.compare_array_unsigned_8%s
+D s-crtl.ads		20210520051132 0ebbdb71 system.crtl%s
+D s-exctab.ads		20210520051132 54135002 system.exception_table%s
+D s-ficobl.ads		20210520051132 078245e4 system.file_control_block%s
+D s-finmas.ads		20210520051132 1ab4dba8 system.finalization_masters%s
+D s-finroo.ads		20210520051132 4ff27390 system.finalization_root%s
+D s-imagei.ads		20210520051133 0d3f86a7 system.image_i%s
+D s-imgint.ads		20210520051133 bdb6f5ec system.img_int%s
+D s-memory.ads		20210520051133 597d6634 system.memory%s
+D s-parame.ads		20210520051134 4752c4cb system.parameters%s
+D s-pooglo.ads		20210520051134 ede33ef8 system.pool_global%s
+D s-putima.ads		20210520051134 4e095881 system.put_images%s
+D s-regpat.ads		20210520051134 825a9b7f system.regpat%s
+D s-secsta.ads		20210520051134 9b3ab94b system.secondary_stack%s
+D s-soflin.ads		20210520051134 a7318a92 system.soft_links%s
+D s-stache.ads		20210520051134 a37c21ec system.stack_checking%s
+D s-stalib.ads		20210520051134 472fbca8 system.standard_library%s
+D s-stalib.adb		20210520051134 977290bf system.standard_library%b
+D s-stoele.ads		20210520051134 2dc34a04 system.storage_elements%s
+D s-stoele.adb		20210520051134 ed88f8fb system.storage_elements%b
+D s-stopoo.ads		20210520051134 e9fa2dd8 system.storage_pools%s
+D s-stposu.ads		20210520051134 e251976f system.storage_pools.subpools%s
+D s-stratt.ads		20210520051134 7bdda3fa system.stream_attributes%s
+D s-tasloc.ads		20210520051134 618a376e system.task_lock%s
+D s-traent.ads		20210520051134 26a8d361 system.traceback_entries%s
+D s-unstyp.ads		20210520051134 2b077493 system.unsigned_types%s
+D s-utf_32.ads		20210520051134 24cf731d system.utf_32%s
+D s-valint.ads		20210520051134 e7fcadb7 system.val_int%s
+D s-valuns.ads		20210520051134 dac7b45d system.val_uns%s
+D s-valuei.ads		20210520051134 978dd0a6 system.value_i%s
+D s-valueu.ads		20210520051134 7b8fccf5 system.value_u%s
+D s-wchcon.ads		20210520051135 1b7d22d2 system.wch_con%s
+D unchconv.ads		20210520051135 ca2f9e18 unchecked_conversion%s
+D unchdeal.ads		20210520051135 214516a4 unchecked_deallocation%s
+D unicode.ads		20210519052322 a421878d unicode%s
+D unicode.adb		20210519052322 515a4003 unicode%b
+D unicode-ccs.ads	20210519052322 184e29de unicode.ccs%s
+D unicode-ces.ads	20210519052322 68f558ab unicode.ces%s
+D unicode-ces-utf32.ads	20210519052322 b5f035ac unicode.ces.utf32%s
+D unicode-ces-utf8.ads	20210519052322 dcbef85d unicode.ces.utf8%s
+D unicode-names.ads	20210519052322 fec77f75 unicode.names%s
+D unicode-names-basic_latin.ads  20210519052322 aa07d1b5 unicode.names.basic_latin%s
+G a e
+G c s s s [s schema__simple_types 36 1 none]
+G c Z s b [convert_regexp schema__simple_types 52 13 none]
+G c Z s b [free schema__simple_types 80 14 none]
+G c Z s s [Tfacets_maskBIP schema__simple_types 103 4 none]
+G c Z s s [simple_type_arrayIP schema__simple_types 89 9 none]
+G c Z s s [simple_type_descrIP schema__simple_types 105 9 none]
+G c Z s b [copy schema__simple_types 191 13 none]
+G c Z s s [table_typeIP schema__simple_types__simple_type_tables 126 9 194_4]
+G c Z s s [empty_table_array_ptr_to_table_ptr schema__simple_types__simple_type_tables 154 13 194_4]
+G c Z s s [is_empty schema__simple_types__simple_type_tables 185 13 194_4]
+G c Z s s [init schema__simple_types__simple_type_tables 188 14 194_4]
+G c Z s s [first schema__simple_types__simple_type_tables 194 13 194_4]
+G c Z s s [last schema__simple_types__simple_type_tables 198 13 194_4]
+G c Z s s [release schema__simple_types__simple_type_tables 203 14 194_4]
+G c Z s s [set_last schema__simple_types__simple_type_tables 215 14 194_4]
+G c Z s s [increment_last schema__simple_types__simple_type_tables 224 14 194_4]
+G c Z s s [decrement_last schema__simple_types__simple_type_tables 228 14 194_4]
+G c Z s s [append schema__simple_types__simple_type_tables 232 14 194_4]
+G c Z s s [append_all schema__simple_types__simple_type_tables 239 14 194_4]
+G c Z s s [set_item schema__simple_types__simple_type_tables 242 14 194_4]
+G c Z s s [move schema__simple_types__simple_type_tables 252 14 194_4]
+G c Z s s [allocate schema__simple_types__simple_type_tables 255 14 194_4]
+G c Z s s [table_privateIP schema__simple_types__simple_type_tables 282 9 194_4]
+G c Z s s [instanceIP schema__simple_types__simple_type_tables 161 9 194_4]
+G c Z s s [last_allocated schema__simple_types__simple_type_tables 45 13 194_4]
+G c Z s s [grow schema__simple_types__simple_type_tables 49 14 194_4]
+G c Z s s [enumeration_descrIP schema__simple_types 203 9 none]
+G c Z s s [table_typeIP schema__simple_types__enumeration_tables 126 9 208_4]
+G c Z s s [empty_table_array_ptr_to_table_ptr schema__simple_types__enumeration_tables 154 13 208_4]
+G c Z s s [is_empty schema__simple_types__enumeration_tables 185 13 208_4]
+G c Z s s [init schema__simple_types__enumeration_tables 188 14 208_4]
+G c Z s s [first schema__simple_types__enumeration_tables 194 13 208_4]
+G c Z s s [last schema__simple_types__enumeration_tables 198 13 208_4]
+G c Z s s [release schema__simple_types__enumeration_tables 203 14 208_4]
+G c Z s s [set_last schema__simple_types__enumeration_tables 215 14 208_4]
+G c Z s s [increment_last schema__simple_types__enumeration_tables 224 14 208_4]
+G c Z s s [decrement_last schema__simple_types__enumeration_tables 228 14 208_4]
+G c Z s s [append schema__simple_types__enumeration_tables 232 14 208_4]
+G c Z s s [append_all schema__simple_types__enumeration_tables 239 14 208_4]
+G c Z s s [set_item schema__simple_types__enumeration_tables 242 14 208_4]
+G c Z s s [move schema__simple_types__enumeration_tables 252 14 208_4]
+G c Z s s [allocate schema__simple_types__enumeration_tables 255 14 208_4]
+G c Z s s [table_privateIP schema__simple_types__enumeration_tables 282 9 208_4]
+G c Z s s [instanceIP schema__simple_types__enumeration_tables 161 9 208_4]
+G c Z s s [last_allocated schema__simple_types__enumeration_tables 45 13 208_4]
+G c Z s s [grow schema__simple_types__enumeration_tables 49 14 208_4]
+G c Z s b [get_key schema__simple_types 225 13 none]
+G c Z s s [reset schema__simple_types__symbol_htable 47 14 226_4]
+G c Z s s [set schema__simple_types__symbol_htable 50 14 226_4]
+G c Z s s [set_with_hash schema__simple_types__symbol_htable 51 14 226_4]
+G c Z s s [get schema__simple_types__symbol_htable 60 13 226_4]
+G c Z s s [get_ptr schema__simple_types__symbol_htable 61 13 226_4]
+G c Z s s [get_ptr_with_hash schema__simple_types__symbol_htable 62 13 226_4]
+G c Z s s [remove schema__simple_types__symbol_htable 69 14 226_4]
+G c Z s s [first schema__simple_types__symbol_htable 81 13 226_4]
+G c Z s s [next schema__simple_types__symbol_htable 86 14 226_4]
+G c Z s s [current schema__simple_types__symbol_htable 94 13 226_4]
+G c Z s s [iteratorIP schema__simple_types__symbol_htable 120 9 226_4]
+G c Z s s [first_itemIP schema__simple_types__symbol_htable 106 9 226_4]
+G c Z s s [item_arrayIP schema__simple_types__symbol_htable 112 9 226_4]
+G c Z s s [htableIP schema__simple_types__symbol_htable 116 9 226_4]
+G c Z s s [htable_itemIP schema__simple_types__symbol_htable 101 9 226_4]
+G c Z s s [unchecked_free schema__simple_types__symbol_htable 29 14 226_4]
+G c Z s b [free schema__simple_types 237 14 none]
+G c Z s b [validate_simple_type schema__simple_types 239 14 none]
+G c Z s b [equal schema__simple_types 255 14 none]
+G c Z s s [facet_valueIP schema__simple_types 269 9 none]
+G c Z s s [Tall_facetsBIP schema__simple_types 278 4 none]
+G c Z s b [add_facet schema__simple_types 284 14 none]
+G c Z s b [override schema__simple_types 293 14 none]
+G c Z s b [normalize_whitespace schema__simple_types 304 14 none]
+G c Z s s [pattern_facetIP schema__simple_types 74 9 none]
+G c Z s s [pattern_matcher_arrayIP schema__simple_types 78 9 none]
+G c Z b b [unchecked_free schema__simple_types 38 14 none]
+G c Z b b [unchecked_free schema__simple_types 40 14 none]
+G c Z b b [override_length_facets schema__simple_types 105 14 none]
+G c Z b b [validate_list_facets schema__simple_types 133 13 none]
+G c Z b b [check_id schema__simple_types 140 14 none]
+G c Z b b [hexbinary_get_length schema__simple_types 245 13 none]
+G c Z b b [base64binary_get_length schema__simple_types 247 13 none]
+G c Z b b [value schema__simple_types 251 14 none]
+G c Z b b [validate_string schema__simple_types 257 13 none]
+G c Z b b [validate_hexbinary_facetsR schema__simple_types__validate_hexbinary_facetsGP9615 261 13 none]
+G c Z b b [validate_hexbinary_facets schema__simple_types 261 13 none]
+G c Z b b [validate_base64binary_facetsR schema__simple_types__validate_base64binary_facetsGP9712 263 13 none]
+G c Z b b [validate_base64binary_facets schema__simple_types 263 13 none]
+G c Z b b [validate_nmtoken schema__simple_types 266 13 none]
+G c Z b b [validate_nmtokens schema__simple_types 271 13 none]
+G c Z b b [validate_name schema__simple_types 276 13 none]
+G c Z b b [validate_ncname schema__simple_types 281 13 none]
+G c Z b b [validate_ncnames schema__simple_types 286 13 none]
+G c Z b b [validate_language schema__simple_types 291 13 none]
+G c Z b b [validate_uri schema__simple_types 295 13 none]
+G c Z b b [validate_hexbinary schema__simple_types 299 13 none]
+G c Z b b [validate_notation schema__simple_types 303 13 none]
+G c Z b b [validate_base64binary schema__simple_types 308 13 none]
+G c Z b b [validate_qname schema__simple_types 312 13 none]
+G c Z b b [validate_boolean schema__simple_types 317 13 none]
+G c Z b b [validate_double schema__simple_types 321 13 none]
+G c Z b b [validate_decimal schema__simple_types 325 13 none]
+G c Z b b [validate_duration schema__simple_types 329 13 none]
+G c Z b b [validate_date_time schema__simple_types 333 13 none]
+G c Z b b [validate_date schema__simple_types 337 13 none]
+G c Z b b [validate_time schema__simple_types 341 13 none]
+G c Z b b [validate_gday schema__simple_types 345 13 none]
+G c Z b b [validate_gmonth_day schema__simple_types 349 13 none]
+G c Z b b [validate_gmonth schema__simple_types 353 13 none]
+G c Z b b [validate_gyear schema__simple_types 357 13 none]
+G c Z b b [validate_gyear_month schema__simple_types 361 13 none]
+G c Z b b [anchor schema__simple_types 367 13 none]
+G c Z b b [missing_end_anchor schema__simple_types 371 13 none]
+G c Z b b [missing_start_anchor schema__simple_types 372 13 none]
+G c Z b b [boolean_value schema__simple_types 375 14 none]
+G c Z b b [equal_booleanR schema__simple_types__equal_booleanGP14863 382 13 none]
+G c Z b b [equal_boolean schema__simple_types 382 13 none]
+G c Z b b [equal_floatR schema__simple_types__equal_floatGP15016 384 13 none]
+G c Z b b [equal_float schema__simple_types 384 13 none]
+G c Z b b [equal_decimalR schema__simple_types__equal_decimalGP15087 385 13 none]
+G c Z b b [equal_decimal schema__simple_types 385 13 none]
+G c Z b b [equal_durationR schema__simple_types__equal_durationGP15167 386 13 none]
+G c Z b b [equal_duration schema__simple_types 386 13 none]
+G c Z b b [equal_date_timeR schema__simple_types__equal_date_timeGP15232 387 13 none]
+G c Z b b [equal_date_time schema__simple_types 387 13 none]
+G c Z b b [equal_dateR schema__simple_types__equal_dateGP15298 388 13 none]
+G c Z b b [equal_date schema__simple_types 388 13 none]
+G c Z b b [equal_timeR schema__simple_types__equal_timeGP15359 389 13 none]
+G c Z b b [equal_time schema__simple_types 389 13 none]
+G c Z b b [equal_gdayR schema__simple_types__equal_gdayGP15420 390 13 none]
+G c Z b b [equal_gday schema__simple_types 390 13 none]
+G c Z b b [equal_gmonth_dayR schema__simple_types__equal_gmonth_dayGP15481 391 13 none]
+G c Z b b [equal_gmonth_day schema__simple_types 391 13 none]
+G c Z b b [equal_gmonthR schema__simple_types__equal_gmonthGP15548 392 13 none]
+G c Z b b [equal_gmonth schema__simple_types 392 13 none]
+G c Z b b [equal_gyearR schema__simple_types__equal_gyearGP15611 393 13 none]
+G c Z b b [equal_gyear schema__simple_types 393 13 none]
+G c Z b b [equal_gyear_monthR schema__simple_types__equal_gyear_monthGP15673 394 13 none]
+G c Z b b [equal_gyear_month schema__simple_types 394 13 none]
+G c Z b b [validate_double_facetsR schema__simple_types__validate_double_facetsGP58464 1523 14 none]
+G c Z b b [validate_double_facets schema__simple_types 1523 14 none]
+G c Z b b [validate_decimal_facetsR schema__simple_types__validate_decimal_facetsGP58535 1524 14 none]
+G c Z b b [validate_decimal_facets schema__simple_types 1524 14 none]
+G c Z b b [validate_duration_facetsR schema__simple_types__validate_duration_facetsGP58657 1526 14 none]
+G c Z b b [validate_duration_facets schema__simple_types 1526 14 none]
+G c Z b b [validate_date_time_facetsR schema__simple_types__validate_date_time_facetsGP58731 1527 14 none]
+G c Z b b [validate_date_time_facets schema__simple_types 1527 14 none]
+G c Z b b [validate_date_facetsR schema__simple_types__validate_date_facetsGP58807 1528 14 none]
+G c Z b b [validate_date_facets schema__simple_types 1528 14 none]
+G c Z b b [validate_time_facetsR schema__simple_types__validate_time_facetsGP58873 1529 14 none]
+G c Z b b [validate_time_facets schema__simple_types 1529 14 none]
+G c Z b b [validate_gday_facetsR schema__simple_types__validate_gday_facetsGP58939 1530 14 none]
+G c Z b b [validate_gday_facets schema__simple_types 1530 14 none]
+G c Z b b [validate_gmonth_day_facetsR schema__simple_types__validate_gmonth_day_facetsGP59005 1531 14 none]
+G c Z b b [validate_gmonth_day_facets schema__simple_types 1531 14 none]
+G c Z b b [validate_gmonth_facetsR schema__simple_types__validate_gmonth_facetsGP59083 1532 14 none]
+G c Z b b [validate_gmonth_facets schema__simple_types 1532 14 none]
+G c Z b b [validate_gyear_facetsR schema__simple_types__validate_gyear_facetsGP59153 1533 14 none]
+G c Z b b [validate_gyear_facets schema__simple_types 1533 14 none]
+G c Z b b [validate_gyear_month_facetsR schema__simple_types__validate_gyear_month_facetsGP59221 1534 14 none]
+G c Z b b [validate_gyear_month_facets schema__simple_types 1534 14 none]
+G c Z b b [override_decimal_facetsR schema__simple_types__override_decimal_facetsGP76147 2070 14 none]
+G c Z b b [override_decimal_facets schema__simple_types 2070 14 none]
+G c Z b b [override_float_facetsR schema__simple_types__override_float_facetsGP76248 2072 14 none]
+G c Z b b [override_float_facets schema__simple_types 2072 14 none]
+G c Z b b [override_duration_facetsR schema__simple_types__override_duration_facetsGP76325 2073 14 none]
+G c Z b b [override_duration_facets schema__simple_types 2073 14 none]
+G c Z b b [override_date_time_facetsR schema__simple_types__override_date_time_facetsGP76411 2075 14 none]
+G c Z b b [override_date_time_facets schema__simple_types 2075 14 none]
+G c Z b b [override_date_facetsR schema__simple_types__override_date_facetsGP76499 2077 14 none]
+G c Z b b [override_date_facets schema__simple_types 2077 14 none]
+G c Z b b [override_time_facetsR schema__simple_types__override_time_facetsGP76572 2078 14 none]
+G c Z b b [override_time_facets schema__simple_types 2078 14 none]
+G c Z b b [override_gday_facetsR schema__simple_types__override_gday_facetsGP76645 2079 14 none]
+G c Z b b [override_gday_facets schema__simple_types 2079 14 none]
+G c Z b b [override_gmonth_day_facetsR schema__simple_types__override_gmonth_day_facetsGP76718 2080 14 none]
+G c Z b b [override_gmonth_day_facets schema__simple_types 2080 14 none]
+G c Z b b [override_gmonth_facetsR schema__simple_types__override_gmonth_facetsGP76808 2082 14 none]
+G c Z b b [override_gmonth_facets schema__simple_types 2082 14 none]
+G c Z b b [override_gyear_facetsR schema__simple_types__override_gyear_facetsGP76885 2083 14 none]
+G c Z b b [override_gyear_facets schema__simple_types 2083 14 none]
+G c Z b b [override_gyear_month_facetsR schema__simple_types__override_gyear_month_facetsGP76960 2084 14 none]
+G c Z b b [override_gyear_month_facets schema__simple_types 2084 14 none]
+G r i none [s schema__simple_types 36 1 none] [htable sax 42 13 none]
+G r c none [set schema__simple_types__symbol_htable 50 14 226_4] [hash sax__symbols 61 13 none]
+G r c none [get schema__simple_types__symbol_htable 60 13 226_4] [hash sax__symbols 61 13 none]
+G r c none [get_ptr schema__simple_types__symbol_htable 61 13 226_4] [hash sax__symbols 61 13 none]
+G r c none [remove schema__simple_types__symbol_htable 69 14 226_4] [hash sax__symbols 61 13 none]
+G r i none [validate_simple_type schema__simple_types 239 14 none] [for_each_item sax__utils 164 14 none]
+G r c none [validate_simple_type schema__simple_types 239 14 none] [get sax__symbols 53 13 none]
+G r c none [validate_simple_type schema__simple_types 239 14 none] [find sax__utils 182 13 none]
+G r c none [validate_simple_type schema__simple_types 239 14 none] [is_white_space unicode 121 13 none]
+G r c none [validate_simple_type schema__simple_types 239 14 none] [debug_output schema 66 14 none]
+G r s xml_float [validate_simple_type schema__simple_types 239 14 none] [xml_floatIP schema__decimal 112 9 none]
+G r c none [validate_simple_type schema__simple_types 239 14 none] [value schema__decimal 101 13 none]
+G r c none [validate_simple_type schema__simple_types 239 14 none] [image schema__decimal 98 13 none]
+G r s arbitrary_precision_number [validate_simple_type schema__simple_types 239 14 none] [arbitrary_precision_numberIP schema__decimal 105 9 none]
+G r c none [validate_simple_type schema__simple_types 239 14 none] [value schema__decimal 49 14 none]
+G r c none [validate_simple_type schema__simple_types 239 14 none] [image schema__decimal 45 13 none]
+G r c none [validate_simple_type schema__simple_types 239 14 none] [Oeq schema__decimal 69 13 none]
+G r c none [validate_simple_type schema__simple_types 239 14 none] [value schema__date_time 113 14 none]
+G r c none [validate_simple_type schema__simple_types 239 14 none] [image schema__date_time 71 13 none]
+G r c none [validate_simple_type schema__simple_types 239 14 none] [Oeq schema__date_time 174 13 none]
+G r c none [validate_simple_type schema__simple_types 239 14 none] [value schema__date_time 99 14 none]
+G r c none [validate_simple_type schema__simple_types 239 14 none] [image schema__date_time 62 13 none]
+G r c none [validate_simple_type schema__simple_types 239 14 none] [Oeq schema__date_time 158 13 none]
+G r c none [validate_simple_type schema__simple_types 239 14 none] [value schema__date_time 118 14 none]
+G r c none [validate_simple_type schema__simple_types 239 14 none] [image schema__date_time 73 13 none]
+G r c none [validate_simple_type schema__simple_types 239 14 none] [Oeq schema__date_time 190 13 none]
+G r c none [validate_simple_type schema__simple_types 239 14 none] [value schema__date_time 133 14 none]
+G r c none [validate_simple_type schema__simple_types 239 14 none] [image schema__date_time 75 13 none]
+G r c none [validate_simple_type schema__simple_types 239 14 none] [Oeq schema__date_time 206 13 none]
+G r c none [validate_simple_type schema__simple_types 239 14 none] [value schema__date_time 128 14 none]
+G r c none [validate_simple_type schema__simple_types 239 14 none] [image schema__date_time 76 13 none]
+G r c none [validate_simple_type schema__simple_types 239 14 none] [Oeq schema__date_time 222 13 none]
+G r c none [validate_simple_type schema__simple_types 239 14 none] [value schema__date_time 143 14 none]
+G r c none [validate_simple_type schema__simple_types 239 14 none] [image schema__date_time 72 13 none]
+G r c none [validate_simple_type schema__simple_types 239 14 none] [Oeq schema__date_time 182 13 none]
+G r c none [validate_simple_type schema__simple_types 239 14 none] [value schema__date_time 80 14 none]
+G r c none [validate_simple_type schema__simple_types 239 14 none] [image schema__date_time 70 13 none]
+G r c none [validate_simple_type schema__simple_types 239 14 none] [Oeq schema__date_time 166 13 none]
+G r c none [validate_simple_type schema__simple_types 239 14 none] [value schema__date_time 123 14 none]
+G r c none [validate_simple_type schema__simple_types 239 14 none] [image schema__date_time 74 13 none]
+G r c none [validate_simple_type schema__simple_types 239 14 none] [Oeq schema__date_time 198 13 none]
+G r c none [validate_simple_type schema__simple_types 239 14 none] [value schema__date_time 138 14 none]
+G r c none [validate_simple_type schema__simple_types 239 14 none] [image schema__date_time 77 13 none]
+G r c none [validate_simple_type schema__simple_types 239 14 none] [Oeq schema__date_time 214 13 none]
+G r c none [validate_simple_type schema__simple_types 239 14 none] [is_valid_hexbinary sax__utils 129 13 none]
+G r c none [validate_simple_type schema__simple_types 239 14 none] [hash sax__symbols 61 13 none]
+G r c none [validate_simple_type schema__simple_types 239 14 none] [is_valid_base64binary sax__utils 133 13 none]
+G r c none [validate_simple_type schema__simple_types 239 14 none] [is_valid_language_name sax__utils 42 13 none]
+G r c none [validate_simple_type schema__simple_types 239 14 none] [is_valid_qname sax__utils 95 13 none]
+G r c none [validate_simple_type schema__simple_types 239 14 none] [is_valid_ncname sax__utils 81 13 none]
+G r c none [validate_simple_type schema__simple_types 239 14 none] [is_valid_ncnames sax__utils 89 13 none]
+G r c none [validate_simple_type schema__simple_types 239 14 none] [is_valid_name sax__utils 70 13 none]
+G r c none [validate_simple_type schema__simple_types 239 14 none] [is_valid_uri sax__utils 108 13 none]
+G r c none [validate_simple_type schema__simple_types 239 14 none] [is_valid_nmtoken sax__utils 60 13 none]
+G r c none [validate_simple_type schema__simple_types 239 14 none] [is_valid_nmtokens sax__utils 65 13 none]
+G r c none [validate_simple_type schema__simple_types 239 14 none] [value_no_exponent schema__decimal 60 14 none]
+G r c none [validate_simple_type schema__simple_types 239 14 none] [Olt schema__decimal 67 13 none]
+G r c none [validate_simple_type schema__simple_types 239 14 none] [Ole schema__decimal 68 13 none]
+G r c none [validate_simple_type schema__simple_types 239 14 none] [check_digits schema__decimal 74 13 none]
+G r c none [validate_simple_type schema__simple_types 239 14 none] [Olt schema__decimal 93 13 none]
+G r c none [validate_simple_type schema__simple_types 239 14 none] [Ole schema__decimal 92 13 none]
+G r c none [validate_simple_type schema__simple_types 239 14 none] [Olt schema__date_time 172 13 none]
+G r c none [validate_simple_type schema__simple_types 239 14 none] [Ole schema__date_time 173 13 none]
+G r c none [validate_simple_type schema__simple_types 239 14 none] [Olt schema__date_time 156 13 none]
+G r c none [validate_simple_type schema__simple_types 239 14 none] [Ole schema__date_time 157 13 none]
+G r c none [validate_simple_type schema__simple_types 239 14 none] [Olt schema__date_time 188 13 none]
+G r c none [validate_simple_type schema__simple_types 239 14 none] [Ole schema__date_time 189 13 none]
+G r c none [validate_simple_type schema__simple_types 239 14 none] [Olt schema__date_time 196 13 none]
+G r c none [validate_simple_type schema__simple_types 239 14 none] [Ole schema__date_time 197 13 none]
+G r c none [validate_simple_type schema__simple_types 239 14 none] [Olt schema__date_time 204 13 none]
+G r c none [validate_simple_type schema__simple_types 239 14 none] [Ole schema__date_time 205 13 none]
+G r c none [validate_simple_type schema__simple_types 239 14 none] [Olt schema__date_time 212 13 none]
+G r c none [validate_simple_type schema__simple_types 239 14 none] [Ole schema__date_time 213 13 none]
+G r c none [validate_simple_type schema__simple_types 239 14 none] [Olt schema__date_time 220 13 none]
+G r c none [validate_simple_type schema__simple_types 239 14 none] [Ole schema__date_time 221 13 none]
+G r c none [validate_simple_type schema__simple_types 239 14 none] [Olt schema__date_time 180 13 none]
+G r c none [validate_simple_type schema__simple_types 239 14 none] [Ole schema__date_time 181 13 none]
+G r c none [validate_simple_type schema__simple_types 239 14 none] [Olt schema__date_time 164 13 none]
+G r c none [validate_simple_type schema__simple_types 239 14 none] [Ole schema__date_time 165 13 none]
+G r c none [equal schema__simple_types 255 14 none] [get sax__symbols 53 13 none]
+G r c none [equal schema__simple_types 255 14 none] [find sax__utils 182 13 none]
+G r c none [equal schema__simple_types 255 14 none] [is_white_space unicode 121 13 none]
+G r c none [equal schema__simple_types 255 14 none] [debug_output schema 66 14 none]
+G r s xml_float [equal schema__simple_types 255 14 none] [xml_floatIP schema__decimal 112 9 none]
+G r c none [equal schema__simple_types 255 14 none] [value schema__decimal 101 13 none]
+G r c none [equal schema__simple_types 255 14 none] [image schema__decimal 98 13 none]
+G r s arbitrary_precision_number [equal schema__simple_types 255 14 none] [arbitrary_precision_numberIP schema__decimal 105 9 none]
+G r c none [equal schema__simple_types 255 14 none] [value schema__decimal 49 14 none]
+G r c none [equal schema__simple_types 255 14 none] [image schema__decimal 45 13 none]
+G r c none [equal schema__simple_types 255 14 none] [Oeq schema__decimal 69 13 none]
+G r c none [equal schema__simple_types 255 14 none] [value schema__date_time 113 14 none]
+G r c none [equal schema__simple_types 255 14 none] [image schema__date_time 71 13 none]
+G r c none [equal schema__simple_types 255 14 none] [Oeq schema__date_time 174 13 none]
+G r c none [equal schema__simple_types 255 14 none] [value schema__date_time 99 14 none]
+G r c none [equal schema__simple_types 255 14 none] [image schema__date_time 62 13 none]
+G r c none [equal schema__simple_types 255 14 none] [Oeq schema__date_time 158 13 none]
+G r c none [equal schema__simple_types 255 14 none] [value schema__date_time 118 14 none]
+G r c none [equal schema__simple_types 255 14 none] [image schema__date_time 73 13 none]
+G r c none [equal schema__simple_types 255 14 none] [Oeq schema__date_time 190 13 none]
+G r c none [equal schema__simple_types 255 14 none] [value schema__date_time 133 14 none]
+G r c none [equal schema__simple_types 255 14 none] [image schema__date_time 75 13 none]
+G r c none [equal schema__simple_types 255 14 none] [Oeq schema__date_time 206 13 none]
+G r c none [equal schema__simple_types 255 14 none] [value schema__date_time 128 14 none]
+G r c none [equal schema__simple_types 255 14 none] [image schema__date_time 76 13 none]
+G r c none [equal schema__simple_types 255 14 none] [Oeq schema__date_time 222 13 none]
+G r c none [equal schema__simple_types 255 14 none] [value schema__date_time 143 14 none]
+G r c none [equal schema__simple_types 255 14 none] [image schema__date_time 72 13 none]
+G r c none [equal schema__simple_types 255 14 none] [Oeq schema__date_time 182 13 none]
+G r c none [equal schema__simple_types 255 14 none] [value schema__date_time 80 14 none]
+G r c none [equal schema__simple_types 255 14 none] [image schema__date_time 70 13 none]
+G r c none [equal schema__simple_types 255 14 none] [Oeq schema__date_time 166 13 none]
+G r c none [equal schema__simple_types 255 14 none] [value schema__date_time 123 14 none]
+G r c none [equal schema__simple_types 255 14 none] [image schema__date_time 74 13 none]
+G r c none [equal schema__simple_types 255 14 none] [Oeq schema__date_time 198 13 none]
+G r c none [equal schema__simple_types 255 14 none] [value schema__date_time 138 14 none]
+G r c none [equal schema__simple_types 255 14 none] [image schema__date_time 77 13 none]
+G r c none [equal schema__simple_types 255 14 none] [Oeq schema__date_time 214 13 none]
+G r i none [equal schema__simple_types 255 14 none] [for_each_item sax__utils 164 14 none]
+G r c none [equal schema__simple_types 255 14 none] [is_valid_hexbinary sax__utils 129 13 none]
+G r c none [equal schema__simple_types 255 14 none] [hash sax__symbols 61 13 none]
+G r c none [equal schema__simple_types 255 14 none] [is_valid_base64binary sax__utils 133 13 none]
+G r c none [equal schema__simple_types 255 14 none] [is_valid_language_name sax__utils 42 13 none]
+G r c none [equal schema__simple_types 255 14 none] [is_valid_qname sax__utils 95 13 none]
+G r c none [equal schema__simple_types 255 14 none] [is_valid_ncname sax__utils 81 13 none]
+G r c none [equal schema__simple_types 255 14 none] [is_valid_ncnames sax__utils 89 13 none]
+G r c none [equal schema__simple_types 255 14 none] [is_valid_name sax__utils 70 13 none]
+G r c none [equal schema__simple_types 255 14 none] [is_valid_uri sax__utils 108 13 none]
+G r c none [equal schema__simple_types 255 14 none] [is_valid_nmtoken sax__utils 60 13 none]
+G r c none [equal schema__simple_types 255 14 none] [is_valid_nmtokens sax__utils 65 13 none]
+G r c none [equal schema__simple_types 255 14 none] [value_no_exponent schema__decimal 60 14 none]
+G r c none [equal schema__simple_types 255 14 none] [Olt schema__decimal 67 13 none]
+G r c none [equal schema__simple_types 255 14 none] [Ole schema__decimal 68 13 none]
+G r c none [equal schema__simple_types 255 14 none] [check_digits schema__decimal 74 13 none]
+G r c none [equal schema__simple_types 255 14 none] [Olt schema__decimal 93 13 none]
+G r c none [equal schema__simple_types 255 14 none] [Ole schema__decimal 92 13 none]
+G r c none [equal schema__simple_types 255 14 none] [Olt schema__date_time 172 13 none]
+G r c none [equal schema__simple_types 255 14 none] [Ole schema__date_time 173 13 none]
+G r c none [equal schema__simple_types 255 14 none] [Olt schema__date_time 156 13 none]
+G r c none [equal schema__simple_types 255 14 none] [Ole schema__date_time 157 13 none]
+G r c none [equal schema__simple_types 255 14 none] [Olt schema__date_time 188 13 none]
+G r c none [equal schema__simple_types 255 14 none] [Ole schema__date_time 189 13 none]
+G r c none [equal schema__simple_types 255 14 none] [Olt schema__date_time 196 13 none]
+G r c none [equal schema__simple_types 255 14 none] [Ole schema__date_time 197 13 none]
+G r c none [equal schema__simple_types 255 14 none] [Olt schema__date_time 204 13 none]
+G r c none [equal schema__simple_types 255 14 none] [Ole schema__date_time 205 13 none]
+G r c none [equal schema__simple_types 255 14 none] [Olt schema__date_time 212 13 none]
+G r c none [equal schema__simple_types 255 14 none] [Ole schema__date_time 213 13 none]
+G r c none [equal schema__simple_types 255 14 none] [Olt schema__date_time 220 13 none]
+G r c none [equal schema__simple_types 255 14 none] [Ole schema__date_time 221 13 none]
+G r c none [equal schema__simple_types 255 14 none] [Olt schema__date_time 180 13 none]
+G r c none [equal schema__simple_types 255 14 none] [Ole schema__date_time 181 13 none]
+G r c none [equal schema__simple_types 255 14 none] [Olt schema__date_time 164 13 none]
+G r c none [equal schema__simple_types 255 14 none] [Ole schema__date_time 165 13 none]
+G r s location [facet_valueIP schema__simple_types 269 9 none] [locationIP sax__locators 41 9 none]
+G r s location [Tall_facetsBIP schema__simple_types 278 4 none] [locationIP sax__locators 41 9 none]
+G r c none [add_facet schema__simple_types 284 14 none] [get sax__symbols 53 13 none]
+G r c none [add_facet schema__simple_types 284 14 none] [find sax__utils 182 13 none]
+G r c none [override schema__simple_types 293 14 none] [get sax__symbols 53 13 none]
+G r c none [override schema__simple_types 293 14 none] [find sax__utils 182 13 none]
+G r c none [override schema__simple_types 293 14 none] [debug_output schema 66 14 none]
+G r c none [override schema__simple_types 293 14 none] [value schema__decimal 101 13 none]
+G r c none [override schema__simple_types 293 14 none] [value schema__decimal 49 14 none]
+G r c none [override schema__simple_types 293 14 none] [value schema__date_time 113 14 none]
+G r c none [override schema__simple_types 293 14 none] [value schema__date_time 99 14 none]
+G r c none [override schema__simple_types 293 14 none] [value schema__date_time 118 14 none]
+G r c none [override schema__simple_types 293 14 none] [value schema__date_time 123 14 none]
+G r c none [override schema__simple_types 293 14 none] [value schema__date_time 133 14 none]
+G r c none [override schema__simple_types 293 14 none] [value schema__date_time 138 14 none]
+G r c none [override schema__simple_types 293 14 none] [value schema__date_time 128 14 none]
+G r c none [override schema__simple_types 293 14 none] [value schema__date_time 143 14 none]
+G r c none [override schema__simple_types 293 14 none] [value schema__date_time 80 14 none]
+G r c none [normalize_whitespace schema__simple_types 304 14 none] [is_white_space unicode 121 13 none]
+G r c none [override_length_facets schema__simple_types 105 14 none] [get sax__symbols 53 13 none]
+G r c none [override_length_facets schema__simple_types 105 14 none] [find sax__utils 182 13 none]
+G r c none [validate_list_facets schema__simple_types 133 13 none] [find sax__utils 182 13 none]
+G r c none [check_id schema__simple_types 140 14 none] [find sax__utils 182 13 none]
+G r c none [check_id schema__simple_types 140 14 none] [hash sax__symbols 61 13 none]
+G r c none [value schema__simple_types 251 14 none] [value schema__decimal 101 13 none]
+G r c none [value schema__simple_types 251 14 none] [find sax__utils 182 13 none]
+G r c none [validate_string schema__simple_types 257 13 none] [find sax__utils 182 13 none]
+G r c none [validate_hexbinary_facetsR schema__simple_types__validate_hexbinary_facetsGP9615 261 13 none] [find sax__utils 182 13 none]
+G r c none [validate_base64binary_facetsR schema__simple_types__validate_base64binary_facetsGP9712 263 13 none] [find sax__utils 182 13 none]
+G r c none [validate_nmtoken schema__simple_types 266 13 none] [is_valid_nmtoken sax__utils 60 13 none]
+G r c none [validate_nmtoken schema__simple_types 266 13 none] [find sax__utils 182 13 none]
+G r c none [validate_nmtokens schema__simple_types 271 13 none] [is_valid_nmtokens sax__utils 65 13 none]
+G r c none [validate_nmtokens schema__simple_types 271 13 none] [find sax__utils 182 13 none]
+G r c none [validate_name schema__simple_types 276 13 none] [is_valid_name sax__utils 70 13 none]
+G r c none [validate_name schema__simple_types 276 13 none] [find sax__utils 182 13 none]
+G r c none [validate_ncname schema__simple_types 281 13 none] [is_valid_ncname sax__utils 81 13 none]
+G r c none [validate_ncname schema__simple_types 281 13 none] [find sax__utils 182 13 none]
+G r c none [validate_ncnames schema__simple_types 286 13 none] [is_valid_ncnames sax__utils 89 13 none]
+G r c none [validate_ncnames schema__simple_types 286 13 none] [find sax__utils 182 13 none]
+G r c none [validate_language schema__simple_types 291 13 none] [is_valid_language_name sax__utils 42 13 none]
+G r c none [validate_language schema__simple_types 291 13 none] [find sax__utils 182 13 none]
+G r c none [validate_uri schema__simple_types 295 13 none] [is_valid_uri sax__utils 108 13 none]
+G r c none [validate_uri schema__simple_types 295 13 none] [find sax__utils 182 13 none]
+G r c none [validate_hexbinary schema__simple_types 299 13 none] [find sax__utils 182 13 none]
+G r c none [validate_hexbinary schema__simple_types 299 13 none] [is_valid_hexbinary sax__utils 129 13 none]
+G r c none [validate_notation schema__simple_types 303 13 none] [find sax__utils 182 13 none]
+G r c none [validate_notation schema__simple_types 303 13 none] [hash sax__symbols 61 13 none]
+G r c none [validate_base64binary schema__simple_types 308 13 none] [is_valid_base64binary sax__utils 133 13 none]
+G r c none [validate_base64binary schema__simple_types 308 13 none] [find sax__utils 182 13 none]
+G r c none [validate_qname schema__simple_types 312 13 none] [is_valid_qname sax__utils 95 13 none]
+G r c none [validate_qname schema__simple_types 312 13 none] [find sax__utils 182 13 none]
+G r c none [validate_boolean schema__simple_types 317 13 none] [find sax__utils 182 13 none]
+G r c none [validate_boolean schema__simple_types 317 13 none] [is_white_space unicode 121 13 none]
+G r s xml_float [validate_double schema__simple_types 321 13 none] [xml_floatIP schema__decimal 112 9 none]
+G r c none [validate_double schema__simple_types 321 13 none] [value schema__decimal 101 13 none]
+G r c none [validate_double schema__simple_types 321 13 none] [find sax__utils 182 13 none]
+G r c none [validate_double schema__simple_types 321 13 none] [Olt schema__decimal 93 13 none]
+G r c none [validate_double schema__simple_types 321 13 none] [image schema__decimal 98 13 none]
+G r c none [validate_double schema__simple_types 321 13 none] [Ole schema__decimal 92 13 none]
+G r s arbitrary_precision_number [validate_decimal schema__simple_types 325 13 none] [arbitrary_precision_numberIP schema__decimal 105 9 none]
+G r c none [validate_decimal schema__simple_types 325 13 none] [value_no_exponent schema__decimal 60 14 none]
+G r c none [validate_decimal schema__simple_types 325 13 none] [Olt schema__decimal 67 13 none]
+G r c none [validate_decimal schema__simple_types 325 13 none] [image schema__decimal 45 13 none]
+G r c none [validate_decimal schema__simple_types 325 13 none] [find sax__utils 182 13 none]
+G r c none [validate_decimal schema__simple_types 325 13 none] [Ole schema__decimal 68 13 none]
+G r c none [validate_decimal schema__simple_types 325 13 none] [check_digits schema__decimal 74 13 none]
+G r c none [validate_duration schema__simple_types 329 13 none] [value schema__date_time 80 14 none]
+G r c none [validate_duration schema__simple_types 329 13 none] [Olt schema__date_time 164 13 none]
+G r c none [validate_duration schema__simple_types 329 13 none] [image schema__date_time 70 13 none]
+G r c none [validate_duration schema__simple_types 329 13 none] [find sax__utils 182 13 none]
+G r c none [validate_duration schema__simple_types 329 13 none] [Ole schema__date_time 165 13 none]
+G r c none [validate_date_time schema__simple_types 333 13 none] [value schema__date_time 99 14 none]
+G r c none [validate_date_time schema__simple_types 333 13 none] [Olt schema__date_time 156 13 none]
+G r c none [validate_date_time schema__simple_types 333 13 none] [image schema__date_time 62 13 none]
+G r c none [validate_date_time schema__simple_types 333 13 none] [find sax__utils 182 13 none]
+G r c none [validate_date_time schema__simple_types 333 13 none] [Ole schema__date_time 157 13 none]
+G r c none [validate_date schema__simple_types 337 13 none] [value schema__date_time 143 14 none]
+G r c none [validate_date schema__simple_types 337 13 none] [Olt schema__date_time 180 13 none]
+G r c none [validate_date schema__simple_types 337 13 none] [image schema__date_time 72 13 none]
+G r c none [validate_date schema__simple_types 337 13 none] [find sax__utils 182 13 none]
+G r c none [validate_date schema__simple_types 337 13 none] [Ole schema__date_time 181 13 none]
+G r c none [validate_time schema__simple_types 341 13 none] [value schema__date_time 113 14 none]
+G r c none [validate_time schema__simple_types 341 13 none] [Olt schema__date_time 172 13 none]
+G r c none [validate_time schema__simple_types 341 13 none] [image schema__date_time 71 13 none]
+G r c none [validate_time schema__simple_types 341 13 none] [find sax__utils 182 13 none]
+G r c none [validate_time schema__simple_types 341 13 none] [Ole schema__date_time 173 13 none]
+G r c none [validate_gday schema__simple_types 345 13 none] [value schema__date_time 118 14 none]
+G r c none [validate_gday schema__simple_types 345 13 none] [Olt schema__date_time 188 13 none]
+G r c none [validate_gday schema__simple_types 345 13 none] [image schema__date_time 73 13 none]
+G r c none [validate_gday schema__simple_types 345 13 none] [find sax__utils 182 13 none]
+G r c none [validate_gday schema__simple_types 345 13 none] [Ole schema__date_time 189 13 none]
+G r c none [validate_gmonth_day schema__simple_types 349 13 none] [value schema__date_time 123 14 none]
+G r c none [validate_gmonth_day schema__simple_types 349 13 none] [Olt schema__date_time 196 13 none]
+G r c none [validate_gmonth_day schema__simple_types 349 13 none] [image schema__date_time 74 13 none]
+G r c none [validate_gmonth_day schema__simple_types 349 13 none] [find sax__utils 182 13 none]
+G r c none [validate_gmonth_day schema__simple_types 349 13 none] [Ole schema__date_time 197 13 none]
+G r c none [validate_gmonth schema__simple_types 353 13 none] [value schema__date_time 133 14 none]
+G r c none [validate_gmonth schema__simple_types 353 13 none] [Olt schema__date_time 204 13 none]
+G r c none [validate_gmonth schema__simple_types 353 13 none] [image schema__date_time 75 13 none]
+G r c none [validate_gmonth schema__simple_types 353 13 none] [find sax__utils 182 13 none]
+G r c none [validate_gmonth schema__simple_types 353 13 none] [Ole schema__date_time 205 13 none]
+G r c none [validate_gyear schema__simple_types 357 13 none] [value schema__date_time 128 14 none]
+G r c none [validate_gyear schema__simple_types 357 13 none] [Olt schema__date_time 220 13 none]
+G r c none [validate_gyear schema__simple_types 357 13 none] [image schema__date_time 76 13 none]
+G r c none [validate_gyear schema__simple_types 357 13 none] [find sax__utils 182 13 none]
+G r c none [validate_gyear schema__simple_types 357 13 none] [Ole schema__date_time 221 13 none]
+G r c none [validate_gyear_month schema__simple_types 361 13 none] [value schema__date_time 138 14 none]
+G r c none [validate_gyear_month schema__simple_types 361 13 none] [Olt schema__date_time 212 13 none]
+G r c none [validate_gyear_month schema__simple_types 361 13 none] [image schema__date_time 77 13 none]
+G r c none [validate_gyear_month schema__simple_types 361 13 none] [find sax__utils 182 13 none]
+G r c none [validate_gyear_month schema__simple_types 361 13 none] [Ole schema__date_time 213 13 none]
+G r c none [boolean_value schema__simple_types 375 14 none] [find sax__utils 182 13 none]
+G r c none [boolean_value schema__simple_types 375 14 none] [is_white_space unicode 121 13 none]
+G r c none [equal_booleanR schema__simple_types__equal_booleanGP14863 382 13 none] [get sax__symbols 53 13 none]
+G r c none [equal_booleanR schema__simple_types__equal_booleanGP14863 382 13 none] [find sax__utils 182 13 none]
+G r c none [equal_booleanR schema__simple_types__equal_booleanGP14863 382 13 none] [is_white_space unicode 121 13 none]
+G r c none [equal_booleanR schema__simple_types__equal_booleanGP14863 382 13 none] [debug_output schema 66 14 none]
+G r s xml_float [equal_floatR schema__simple_types__equal_floatGP15016 384 13 none] [xml_floatIP schema__decimal 112 9 none]
+G r c none [equal_floatR schema__simple_types__equal_floatGP15016 384 13 none] [get sax__symbols 53 13 none]
+G r c none [equal_floatR schema__simple_types__equal_floatGP15016 384 13 none] [value schema__decimal 101 13 none]
+G r c none [equal_floatR schema__simple_types__equal_floatGP15016 384 13 none] [find sax__utils 182 13 none]
+G r c none [equal_floatR schema__simple_types__equal_floatGP15016 384 13 none] [debug_output schema 66 14 none]
+G r c none [equal_floatR schema__simple_types__equal_floatGP15016 384 13 none] [image schema__decimal 98 13 none]
+G r s arbitrary_precision_number [equal_decimalR schema__simple_types__equal_decimalGP15087 385 13 none] [arbitrary_precision_numberIP schema__decimal 105 9 none]
+G r c none [equal_decimalR schema__simple_types__equal_decimalGP15087 385 13 none] [get sax__symbols 53 13 none]
+G r c none [equal_decimalR schema__simple_types__equal_decimalGP15087 385 13 none] [value schema__decimal 49 14 none]
+G r c none [equal_decimalR schema__simple_types__equal_decimalGP15087 385 13 none] [debug_output schema 66 14 none]
+G r c none [equal_decimalR schema__simple_types__equal_decimalGP15087 385 13 none] [image schema__decimal 45 13 none]
+G r c none [equal_decimalR schema__simple_types__equal_decimalGP15087 385 13 none] [Oeq schema__decimal 69 13 none]
+G r c none [equal_durationR schema__simple_types__equal_durationGP15167 386 13 none] [get sax__symbols 53 13 none]
+G r c none [equal_durationR schema__simple_types__equal_durationGP15167 386 13 none] [value schema__date_time 80 14 none]
+G r c none [equal_durationR schema__simple_types__equal_durationGP15167 386 13 none] [debug_output schema 66 14 none]
+G r c none [equal_durationR schema__simple_types__equal_durationGP15167 386 13 none] [image schema__date_time 70 13 none]
+G r c none [equal_durationR schema__simple_types__equal_durationGP15167 386 13 none] [Oeq schema__date_time 166 13 none]
+G r c none [equal_date_timeR schema__simple_types__equal_date_timeGP15232 387 13 none] [get sax__symbols 53 13 none]
+G r c none [equal_date_timeR schema__simple_types__equal_date_timeGP15232 387 13 none] [value schema__date_time 99 14 none]
+G r c none [equal_date_timeR schema__simple_types__equal_date_timeGP15232 387 13 none] [debug_output schema 66 14 none]
+G r c none [equal_date_timeR schema__simple_types__equal_date_timeGP15232 387 13 none] [image schema__date_time 62 13 none]
+G r c none [equal_date_timeR schema__simple_types__equal_date_timeGP15232 387 13 none] [Oeq schema__date_time 158 13 none]
+G r c none [equal_dateR schema__simple_types__equal_dateGP15298 388 13 none] [get sax__symbols 53 13 none]
+G r c none [equal_dateR schema__simple_types__equal_dateGP15298 388 13 none] [value schema__date_time 143 14 none]
+G r c none [equal_dateR schema__simple_types__equal_dateGP15298 388 13 none] [debug_output schema 66 14 none]
+G r c none [equal_dateR schema__simple_types__equal_dateGP15298 388 13 none] [image schema__date_time 72 13 none]
+G r c none [equal_dateR schema__simple_types__equal_dateGP15298 388 13 none] [Oeq schema__date_time 182 13 none]
+G r c none [equal_timeR schema__simple_types__equal_timeGP15359 389 13 none] [get sax__symbols 53 13 none]
+G r c none [equal_timeR schema__simple_types__equal_timeGP15359 389 13 none] [value schema__date_time 113 14 none]
+G r c none [equal_timeR schema__simple_types__equal_timeGP15359 389 13 none] [debug_output schema 66 14 none]
+G r c none [equal_timeR schema__simple_types__equal_timeGP15359 389 13 none] [image schema__date_time 71 13 none]
+G r c none [equal_timeR schema__simple_types__equal_timeGP15359 389 13 none] [Oeq schema__date_time 174 13 none]
+G r c none [equal_gdayR schema__simple_types__equal_gdayGP15420 390 13 none] [get sax__symbols 53 13 none]
+G r c none [equal_gdayR schema__simple_types__equal_gdayGP15420 390 13 none] [value schema__date_time 118 14 none]
+G r c none [equal_gdayR schema__simple_types__equal_gdayGP15420 390 13 none] [debug_output schema 66 14 none]
+G r c none [equal_gdayR schema__simple_types__equal_gdayGP15420 390 13 none] [image schema__date_time 73 13 none]
+G r c none [equal_gdayR schema__simple_types__equal_gdayGP15420 390 13 none] [Oeq schema__date_time 190 13 none]
+G r c none [equal_gmonth_dayR schema__simple_types__equal_gmonth_dayGP15481 391 13 none] [get sax__symbols 53 13 none]
+G r c none [equal_gmonth_dayR schema__simple_types__equal_gmonth_dayGP15481 391 13 none] [value schema__date_time 123 14 none]
+G r c none [equal_gmonth_dayR schema__simple_types__equal_gmonth_dayGP15481 391 13 none] [debug_output schema 66 14 none]
+G r c none [equal_gmonth_dayR schema__simple_types__equal_gmonth_dayGP15481 391 13 none] [image schema__date_time 74 13 none]
+G r c none [equal_gmonth_dayR schema__simple_types__equal_gmonth_dayGP15481 391 13 none] [Oeq schema__date_time 198 13 none]
+G r c none [equal_gmonthR schema__simple_types__equal_gmonthGP15548 392 13 none] [get sax__symbols 53 13 none]
+G r c none [equal_gmonthR schema__simple_types__equal_gmonthGP15548 392 13 none] [value schema__date_time 133 14 none]
+G r c none [equal_gmonthR schema__simple_types__equal_gmonthGP15548 392 13 none] [debug_output schema 66 14 none]
+G r c none [equal_gmonthR schema__simple_types__equal_gmonthGP15548 392 13 none] [image schema__date_time 75 13 none]
+G r c none [equal_gmonthR schema__simple_types__equal_gmonthGP15548 392 13 none] [Oeq schema__date_time 206 13 none]
+G r c none [equal_gyearR schema__simple_types__equal_gyearGP15611 393 13 none] [get sax__symbols 53 13 none]
+G r c none [equal_gyearR schema__simple_types__equal_gyearGP15611 393 13 none] [value schema__date_time 128 14 none]
+G r c none [equal_gyearR schema__simple_types__equal_gyearGP15611 393 13 none] [debug_output schema 66 14 none]
+G r c none [equal_gyearR schema__simple_types__equal_gyearGP15611 393 13 none] [image schema__date_time 76 13 none]
+G r c none [equal_gyearR schema__simple_types__equal_gyearGP15611 393 13 none] [Oeq schema__date_time 222 13 none]
+G r c none [equal_gyear_monthR schema__simple_types__equal_gyear_monthGP15673 394 13 none] [get sax__symbols 53 13 none]
+G r c none [equal_gyear_monthR schema__simple_types__equal_gyear_monthGP15673 394 13 none] [value schema__date_time 138 14 none]
+G r c none [equal_gyear_monthR schema__simple_types__equal_gyear_monthGP15673 394 13 none] [debug_output schema 66 14 none]
+G r c none [equal_gyear_monthR schema__simple_types__equal_gyear_monthGP15673 394 13 none] [image schema__date_time 77 13 none]
+G r c none [equal_gyear_monthR schema__simple_types__equal_gyear_monthGP15673 394 13 none] [Oeq schema__date_time 214 13 none]
+G r c none [validate_double_facetsR schema__simple_types__validate_double_facetsGP58464 1523 14 none] [value schema__decimal 101 13 none]
+G r c none [validate_double_facetsR schema__simple_types__validate_double_facetsGP58464 1523 14 none] [find sax__utils 182 13 none]
+G r c none [validate_double_facetsR schema__simple_types__validate_double_facetsGP58464 1523 14 none] [Olt schema__decimal 93 13 none]
+G r c none [validate_double_facetsR schema__simple_types__validate_double_facetsGP58464 1523 14 none] [image schema__decimal 98 13 none]
+G r c none [validate_double_facetsR schema__simple_types__validate_double_facetsGP58464 1523 14 none] [Ole schema__decimal 92 13 none]
+G r c none [validate_decimal_facetsR schema__simple_types__validate_decimal_facetsGP58535 1524 14 none] [value_no_exponent schema__decimal 60 14 none]
+G r c none [validate_decimal_facetsR schema__simple_types__validate_decimal_facetsGP58535 1524 14 none] [Olt schema__decimal 67 13 none]
+G r c none [validate_decimal_facetsR schema__simple_types__validate_decimal_facetsGP58535 1524 14 none] [image schema__decimal 45 13 none]
+G r c none [validate_decimal_facetsR schema__simple_types__validate_decimal_facetsGP58535 1524 14 none] [find sax__utils 182 13 none]
+G r c none [validate_decimal_facetsR schema__simple_types__validate_decimal_facetsGP58535 1524 14 none] [Ole schema__decimal 68 13 none]
+G r c none [validate_duration_facetsR schema__simple_types__validate_duration_facetsGP58657 1526 14 none] [value schema__date_time 80 14 none]
+G r c none [validate_duration_facetsR schema__simple_types__validate_duration_facetsGP58657 1526 14 none] [Olt schema__date_time 164 13 none]
+G r c none [validate_duration_facetsR schema__simple_types__validate_duration_facetsGP58657 1526 14 none] [image schema__date_time 70 13 none]
+G r c none [validate_duration_facetsR schema__simple_types__validate_duration_facetsGP58657 1526 14 none] [find sax__utils 182 13 none]
+G r c none [validate_duration_facetsR schema__simple_types__validate_duration_facetsGP58657 1526 14 none] [Ole schema__date_time 165 13 none]
+G r c none [validate_date_time_facetsR schema__simple_types__validate_date_time_facetsGP58731 1527 14 none] [value schema__date_time 99 14 none]
+G r c none [validate_date_time_facetsR schema__simple_types__validate_date_time_facetsGP58731 1527 14 none] [Olt schema__date_time 156 13 none]
+G r c none [validate_date_time_facetsR schema__simple_types__validate_date_time_facetsGP58731 1527 14 none] [image schema__date_time 62 13 none]
+G r c none [validate_date_time_facetsR schema__simple_types__validate_date_time_facetsGP58731 1527 14 none] [find sax__utils 182 13 none]
+G r c none [validate_date_time_facetsR schema__simple_types__validate_date_time_facetsGP58731 1527 14 none] [Ole schema__date_time 157 13 none]
+G r c none [validate_date_facetsR schema__simple_types__validate_date_facetsGP58807 1528 14 none] [value schema__date_time 143 14 none]
+G r c none [validate_date_facetsR schema__simple_types__validate_date_facetsGP58807 1528 14 none] [Olt schema__date_time 180 13 none]
+G r c none [validate_date_facetsR schema__simple_types__validate_date_facetsGP58807 1528 14 none] [image schema__date_time 72 13 none]
+G r c none [validate_date_facetsR schema__simple_types__validate_date_facetsGP58807 1528 14 none] [find sax__utils 182 13 none]
+G r c none [validate_date_facetsR schema__simple_types__validate_date_facetsGP58807 1528 14 none] [Ole schema__date_time 181 13 none]
+G r c none [validate_time_facetsR schema__simple_types__validate_time_facetsGP58873 1529 14 none] [value schema__date_time 113 14 none]
+G r c none [validate_time_facetsR schema__simple_types__validate_time_facetsGP58873 1529 14 none] [Olt schema__date_time 172 13 none]
+G r c none [validate_time_facetsR schema__simple_types__validate_time_facetsGP58873 1529 14 none] [image schema__date_time 71 13 none]
+G r c none [validate_time_facetsR schema__simple_types__validate_time_facetsGP58873 1529 14 none] [find sax__utils 182 13 none]
+G r c none [validate_time_facetsR schema__simple_types__validate_time_facetsGP58873 1529 14 none] [Ole schema__date_time 173 13 none]
+G r c none [validate_gday_facetsR schema__simple_types__validate_gday_facetsGP58939 1530 14 none] [value schema__date_time 118 14 none]
+G r c none [validate_gday_facetsR schema__simple_types__validate_gday_facetsGP58939 1530 14 none] [Olt schema__date_time 188 13 none]
+G r c none [validate_gday_facetsR schema__simple_types__validate_gday_facetsGP58939 1530 14 none] [image schema__date_time 73 13 none]
+G r c none [validate_gday_facetsR schema__simple_types__validate_gday_facetsGP58939 1530 14 none] [find sax__utils 182 13 none]
+G r c none [validate_gday_facetsR schema__simple_types__validate_gday_facetsGP58939 1530 14 none] [Ole schema__date_time 189 13 none]
+G r c none [validate_gmonth_day_facetsR schema__simple_types__validate_gmonth_day_facetsGP59005 1531 14 none] [value schema__date_time 123 14 none]
+G r c none [validate_gmonth_day_facetsR schema__simple_types__validate_gmonth_day_facetsGP59005 1531 14 none] [Olt schema__date_time 196 13 none]
+G r c none [validate_gmonth_day_facetsR schema__simple_types__validate_gmonth_day_facetsGP59005 1531 14 none] [image schema__date_time 74 13 none]
+G r c none [validate_gmonth_day_facetsR schema__simple_types__validate_gmonth_day_facetsGP59005 1531 14 none] [find sax__utils 182 13 none]
+G r c none [validate_gmonth_day_facetsR schema__simple_types__validate_gmonth_day_facetsGP59005 1531 14 none] [Ole schema__date_time 197 13 none]
+G r c none [validate_gmonth_facetsR schema__simple_types__validate_gmonth_facetsGP59083 1532 14 none] [value schema__date_time 133 14 none]
+G r c none [validate_gmonth_facetsR schema__simple_types__validate_gmonth_facetsGP59083 1532 14 none] [Olt schema__date_time 204 13 none]
+G r c none [validate_gmonth_facetsR schema__simple_types__validate_gmonth_facetsGP59083 1532 14 none] [image schema__date_time 75 13 none]
+G r c none [validate_gmonth_facetsR schema__simple_types__validate_gmonth_facetsGP59083 1532 14 none] [find sax__utils 182 13 none]
+G r c none [validate_gmonth_facetsR schema__simple_types__validate_gmonth_facetsGP59083 1532 14 none] [Ole schema__date_time 205 13 none]
+G r c none [validate_gyear_facetsR schema__simple_types__validate_gyear_facetsGP59153 1533 14 none] [value schema__date_time 128 14 none]
+G r c none [validate_gyear_facetsR schema__simple_types__validate_gyear_facetsGP59153 1533 14 none] [Olt schema__date_time 220 13 none]
+G r c none [validate_gyear_facetsR schema__simple_types__validate_gyear_facetsGP59153 1533 14 none] [image schema__date_time 76 13 none]
+G r c none [validate_gyear_facetsR schema__simple_types__validate_gyear_facetsGP59153 1533 14 none] [find sax__utils 182 13 none]
+G r c none [validate_gyear_facetsR schema__simple_types__validate_gyear_facetsGP59153 1533 14 none] [Ole schema__date_time 221 13 none]
+G r c none [validate_gyear_month_facetsR schema__simple_types__validate_gyear_month_facetsGP59221 1534 14 none] [value schema__date_time 138 14 none]
+G r c none [validate_gyear_month_facetsR schema__simple_types__validate_gyear_month_facetsGP59221 1534 14 none] [Olt schema__date_time 212 13 none]
+G r c none [validate_gyear_month_facetsR schema__simple_types__validate_gyear_month_facetsGP59221 1534 14 none] [image schema__date_time 77 13 none]
+G r c none [validate_gyear_month_facetsR schema__simple_types__validate_gyear_month_facetsGP59221 1534 14 none] [find sax__utils 182 13 none]
+G r c none [validate_gyear_month_facetsR schema__simple_types__validate_gyear_month_facetsGP59221 1534 14 none] [Ole schema__date_time 213 13 none]
+G r c none [override_decimal_facetsR schema__simple_types__override_decimal_facetsGP76147 2070 14 none] [get sax__symbols 53 13 none]
+G r c none [override_decimal_facetsR schema__simple_types__override_decimal_facetsGP76147 2070 14 none] [value schema__decimal 49 14 none]
+G r c none [override_float_facetsR schema__simple_types__override_float_facetsGP76248 2072 14 none] [get sax__symbols 53 13 none]
+G r c none [override_float_facetsR schema__simple_types__override_float_facetsGP76248 2072 14 none] [value schema__decimal 101 13 none]
+G r c none [override_float_facetsR schema__simple_types__override_float_facetsGP76248 2072 14 none] [find sax__utils 182 13 none]
+G r c none [override_duration_facetsR schema__simple_types__override_duration_facetsGP76325 2073 14 none] [get sax__symbols 53 13 none]
+G r c none [override_duration_facetsR schema__simple_types__override_duration_facetsGP76325 2073 14 none] [value schema__date_time 80 14 none]
+G r c none [override_date_time_facetsR schema__simple_types__override_date_time_facetsGP76411 2075 14 none] [get sax__symbols 53 13 none]
+G r c none [override_date_time_facetsR schema__simple_types__override_date_time_facetsGP76411 2075 14 none] [value schema__date_time 99 14 none]
+G r c none [override_date_facetsR schema__simple_types__override_date_facetsGP76499 2077 14 none] [get sax__symbols 53 13 none]
+G r c none [override_date_facetsR schema__simple_types__override_date_facetsGP76499 2077 14 none] [value schema__date_time 143 14 none]
+G r c none [override_time_facetsR schema__simple_types__override_time_facetsGP76572 2078 14 none] [get sax__symbols 53 13 none]
+G r c none [override_time_facetsR schema__simple_types__override_time_facetsGP76572 2078 14 none] [value schema__date_time 113 14 none]
+G r c none [override_gday_facetsR schema__simple_types__override_gday_facetsGP76645 2079 14 none] [get sax__symbols 53 13 none]
+G r c none [override_gday_facetsR schema__simple_types__override_gday_facetsGP76645 2079 14 none] [value schema__date_time 118 14 none]
+G r c none [override_gmonth_day_facetsR schema__simple_types__override_gmonth_day_facetsGP76718 2080 14 none] [get sax__symbols 53 13 none]
+G r c none [override_gmonth_day_facetsR schema__simple_types__override_gmonth_day_facetsGP76718 2080 14 none] [value schema__date_time 123 14 none]
+G r c none [override_gmonth_facetsR schema__simple_types__override_gmonth_facetsGP76808 2082 14 none] [get sax__symbols 53 13 none]
+G r c none [override_gmonth_facetsR schema__simple_types__override_gmonth_facetsGP76808 2082 14 none] [value schema__date_time 133 14 none]
+G r c none [override_gyear_facetsR schema__simple_types__override_gyear_facetsGP76885 2083 14 none] [get sax__symbols 53 13 none]
+G r c none [override_gyear_facetsR schema__simple_types__override_gyear_facetsGP76885 2083 14 none] [value schema__date_time 128 14 none]
+G r c none [override_gyear_month_facetsR schema__simple_types__override_gyear_month_facetsGP76960 2084 14 none] [get sax__symbols 53 13 none]
+G r c none [override_gyear_month_facetsR schema__simple_types__override_gyear_month_facetsGP76960 2084 14 none] [value schema__date_time 138 14 none]
+X 1 ada.ads
+16K9*Ada 20e8 46|26r6 27r6 27r37 28r6 28r37 29r6 29r37 38r36 40r36 1984r42
+. 2551r39
+X 4 a-except.ads
+44K13*Exceptions 289e19 46|27w10 27r41
+80U14*Raise_Exception 46|1785s13 1823s25 1831s28 1847s22 1877s19 1885s22
+84V13*Exception_Message{string} 46|2243s46
+X 8 a-string.ads
+16K13*Strings 35e16 46|28r10 28r41 29r10 29r41 1984r46
+33n37*Both{33E9} 46|1984r54
+X 9 a-strfix.ads
+43K21*Fixed 1398e22 46|28w18 28r49
+1097V13*Trim{string} 46|1984s19
+X 13 a-strunb.ads
+83K21*Unbounded 765e26 46|29w18 29r49
+88R9*Unbounded_String<5|43R9> 744e15 46|1771r16 1772r16
+91r4*Null_Unbounded_String{88R9} 46|1799r20
+117V13*To_String{string} 46|1901s22
+128U14*Append 46|1856s13
+136U14*Append 46|1814s25 1817s25 1820s25 1835s28 1839s25 1868s19 1871s19
+. 1874s19 1889s22 1893s19
+144U14*Append 46|1798s13 1805s19 1852s19 1897s13
+X 19 a-uncdea.ads
+20u15*Unchecked_Deallocation 46|26w10 38r40 40r40 2551r43
+X 22 gnat.ads
+34K9*GNAT 57e9 45|26r6 27r6 27r31 73r42 194r38 208r38 46|2165r16
+X 23 g-dyntab.ads
+53+9 Table_Component_Type 45|195r7 209r7
+54I9 Table_Index_Type 45|196r7 210r7
+56*4 Table_Low_Bound{54I9} 45|197r7 211r7
+57i4 Table_Initial{positive} 45|198r7 212r7
+58i4 Table_Increment{natural} 45|199r7 213r7
+61k14*Dynamic_Tables 293e24 45|26w11 194r43 208r43
+105I12*Table_Last_Type<integer>
+126A9*Table_Type(45|203R9)<45|41I9>
+128A12*Big_Table_Type{126A9[45|194]}<45|38I9>
+142P9*Table_Ptr(128A12[45|194])
+161R9*Instance 45|201r52[194] 241r42[208] 257r42[208] 287r48[208] 46|668r42[45|208]
+. 791r42[45|208] 1960r48[45|208]
+162p7*Table{142P9[45|194]} 46|678r54[45|194] 726r40[45|194] 734r43[45|194]
+. 801r54[45|194] 835r39[45|208] 841r37[45|208]
+198V13*Last{105I12[45|208]} 46|1991s52[45|208]
+232U14*Append 46|1989s10[45|208]
+X 27 g-regpat.ads
+72K14*Regpat=72:36 45|27w11 27r36 73r47 46|2165r21
+X 29 interfac.ads
+79M9*Unsigned_32
+X 31 sax.ads
+33K9*Sax 35e8 45|28r6 29r6 29r31 30r6 30r31 31r6 31r31 75r17 204r15 222r51
+. 225r27 225r54 226r33 227r24 228r24 229r24 231r24 232r24 262r23 270r15 270r37
+. 272r15 274r46 276r46 286r22 288r22 289r22 290r22 296r20 298r24 299r24 46|30r6
+. 30r37 46r23 62r23 79r23 94r23 106r23 135r17 191r23 259r17 268r23 273r23
+. 278r23 283r23 288r23 293r23 297r23 301r23 306r23 310r23 314r23 319r23 323r23
+. 327r23 331r23 335r23 339r23 343r23 347r23 351r23 355r23 359r23 363r23 400r51
+. 673r23 1032r14 1047r10 1064r23 1080r23 1099r23 1115r23 1131r23 1150r23
+. 1165r23 1181r23 1196r17 1214r23 1238r23 1261r23 1279r17 1424r23 1463r23
+. 1543r23 1562r23 1582r23 1602r23 1622r23 1642r23 1662r23 1682r23 1702r23
+. 1722r23 1742r23 1959r22 1961r22 1962r22 1963r22 2021r23 2048r23 2092r23
+. 2149r20 2151r24 2152r24
+X 32 sax-encodings.ads
+28K13*Encodings 160e18 46|30w10 30r41 1032r18 1047r14
+29r4*Encoding{87|139R9} 46|908r13 1032r28 1047r24 1200r10 1241r10 1297r13
+. 1300r16 1375r10 1382r13 1407r10 1782r10 2425r19 2454r19 2479r19
+102a4*True_Sequence{87|41A12} 46|1385r21 1386r39 1386r67 1388r27
+103a4*False_Sequence{87|41A12} 46|1391r21 1392r39 1393r11 1395r27
+X 33 sax-htable.ads
+29+9 Element 45|227r7
+32*4 Empty_Element{29+9} 45|228r7
+37+9 Key 45|229r7
+38V18 Get_Key{37+9} 45|230r7
+39V18 Hash{29|79M9} 45|231r7
+40V18 Equal{boolean} 45|232r7
+42k13*HTable 128e15 45|28w10 226r37
+44R9*HTable 45|233r54[226] 242r37[226] 258r37[226] 46|304r37[45|226] 669r37[45|226]
+. 792r37[45|226] 1212r37[45|226] 2552r24[45|226] 2573r40[45|226]
+47U14*Reset 46|2555s24[45|226]
+50U14*Set 46|2581s21[45|226]
+60V13*Get{37|41P9} 46|1224s24[45|226] 2575s27[45|226]
+X 35 sax-locators.ads
+33K13*Locators 103e17 45|29w10 29r35 272r19 276r50 290r26 299r28 46|1963r26
+. 2152r28
+41R9*Location 46e14 45|272r28 290r35 299r37 46|85r30 102r27 113r27 1963r35
+. 2027r30 2056r27 2099r27 2152r37
+47r4*No_Location{41R9} 45|276r59
+X 36 sax-pointers.ads
+59R12*Pointer<5|43R9>
+X 37 sax-symbols.ads
+33K13*Symbols 103e16 45|30w10 30r35 75r21 204r19 225r31 225r58 227r28 228r28
+. 229r28 231r28 232r28 262r27 270r19 270r41 274r50 288r26 289r26 298r28 46|673r27
+. 1961r26 1962r26 2151r28
+41P9*Symbol<87|43P9> 45|75r29 204r27 225r39 225r66 227r36 229r36 248r30 262r35
+. 270r27 288r34 289r34 298r36 46|49r56 57r43 69r27 77r43 84r30 92r43 101r27
+. 112r27 121r43 126r17 137r56 144r26 155r17 159r16 194r56 254r35 260r51 270r44
+. 275r44 280r44 285r44 290r44 294r57 298r57 302r57 307r57 311r57 316r44 320r57
+. 324r57 328r57 332r57 336r57 340r57 344r57 348r57 352r57 356r57 360r57 364r57
+. 379r21 673r35 679r15 798r30 1066r44 1082r44 1101r44 1117r44 1133r44 1151r57
+. 1167r44 1182r57 1197r51 1215r57 1217r15 1239r57 1262r57 1281r56 1356r21
+. 1425r57 1429r15 1446r35 1470r27 1544r57 1547r15 1563r57 1566r15 1583r57
+. 1586r15 1603r57 1606r15 1623r57 1626r15 1643r57 1646r15 1663r57 1666r15
+. 1683r57 1686r15 1703r57 1706r15 1723r57 1726r15 1743r57 1745r15 1961r34
+. 1962r34 1965r13 2026r30 2055r27 2098r27 2151r36 2154r38 2156r38 2174r13
+. 2541r27 2541r42 2568r26 2570r22
+43p4*No_Symbol{41P9} 45|228r36 270r49 274r58 46|162r19 171r19 206r17 238r14
+. 752r49 758r33 809r21 822r16 950r24 1001r30 1016r24 1220r19 1224r62 1315r17
+. 1345r14 1415r16 1432r19 1436r14 1455r16 1478r19 1753r19 1969r45 1991r41
+. 2029r18 2035r22 2247r22 2260r16 2295r24 2575r54 2582r16
+53V13*Get{87|43P9} 46|161s23 165s29 165s55 174s45 683s25 721s46 755s30 781s25
+. 925s21 1006s50 1967s10 1973s25 1974s29 1984s25 1986s10 1988s13 1992s13
+. 1994s13 1996s13 1998s13 2000s13 2002s13 2004s13 2006s13 2008s13 2032s22
+. 2105s16 2118s16 2131s16 2157s55 2170s18 2179s13 2181s16 2183s16 2188s30
+. 2232s31 2233s35 2299s25 2312s25
+61V13*Hash{29|79M9} 45|231r36
+64V14*"="{boolean} 45|232r37
+X 39 sax-utils.ads
+33K13*Utils 262e14 45|31w10 31r35 222r55 286r26 296r24 46|46r27 62r27 79r27
+. 94r27 106r27 135r21 191r27 259r21 268r27 273r27 278r27 283r27 288r27 293r27
+. 297r27 301r27 306r27 310r27 314r27 319r27 323r27 327r27 331r27 335r27 339r27
+. 343r27 347r27 351r27 355r27 359r27 363r27 400r55 1064r27 1080r27 1099r27
+. 1115r27 1131r27 1150r27 1165r27 1181r27 1196r21 1214r27 1238r27 1261r27
+. 1279r21 1424r27 1463r27 1543r27 1562r27 1582r27 1602r27 1622r27 1642r27
+. 1662r27 1682r27 1702r27 1722r27 1742r27 1959r26 2021r27 2048r27 2092r27
+. 2149r24
+35E9*XML_Versions 40e15 45|249r23 265r23 46|270r23 275r23 280r23 285r23 290r23
+. 316r23 676r23 799r23 1066r23 1082r23 1101r23 1117r23 1133r23 1167r23
+42V13*Is_Valid_Language_Name{boolean} 46|1153s14
+60V13*Is_Valid_Nmtoken{boolean} 46|1068s14
+65V13*Is_Valid_Nmtokens{boolean} 46|1084s14
+70V13*Is_Valid_Name{boolean} 46|1103s14
+81V13*Is_Valid_NCname{boolean} 46|1119s14
+89V13*Is_Valid_NCnames{boolean} 46|1135s14
+95V13*Is_Valid_QName{boolean} 46|1169s14
+108V13*Is_Valid_URI{boolean} 46|1184s14
+129V13*Is_Valid_HexBinary{boolean} 46|1246s14
+133V13*Is_Valid_Base64Binary{boolean} 46|1264s14
+164u14*For_Each_Item 46|819r44
+174R12*Symbol_Table{36|59R12[171]} 45|222r61 243r23 259r23 286r32 296r30
+. 46|46r33 54r39 62r33 74r39 79r33 89r39 94r33 106r33 118r39 125r17 135r27
+. 141r19 154r17 191r33 251r31 259r27 268r33 273r33 278r33 283r33 288r33 293r33
+. 297r33 301r33 306r33 310r33 314r33 319r33 323r33 327r33 331r33 335r33 339r33
+. 343r33 347r33 351r33 355r33 359r33 363r33 376r17 400r61 670r23 793r23 1064r33
+. 1080r33 1099r33 1115r33 1131r33 1150r33 1165r33 1181r33 1196r27 1214r33
+. 1238r33 1261r33 1279r27 1353r17 1424r33 1443r31 1463r33 1543r33 1562r33
+. 1582r33 1602r33 1622r33 1642r33 1662r33 1682r33 1702r33 1722r33 1742r33
+. 1959r32 2021r33 2048r33 2092r33 2149r30 2565r19
+182V13*Find{37|41P9} 46|211s20 220s20 230s20 402s16 404s16 406s16 408s16
+. 410s16 412s16 414s16 416s16 418s16 420s16 422s16 424s16 426s16 428s16 430s16
+. 541s43 766s36 845s25 863s21 875s21 882s28 891s28 895s28 911s25 922s25 1012s22
+. 1069s17 1085s17 1104s17 1120s17 1136s17 1154s17 1170s17 1185s17 1224s40
+. 1225s19 1242s17 1247s17 1265s17 1320s20 1329s20 1338s20 1365s19 1399s19
+. 1409s22 1452s22 1484s22 1494s22 1504s22 1514s22 1971s16 1983s14 2109s25
+. 2122s25 2135s25 2167s22 2187s22 2230s48 2243s25 2303s34 2316s34 2328s28
+. 2570s32 2576s22
+X 41 schema.ads
+27K9*Schema 83e11 45|32r6 32r31 33r6 33r31 36r9 305r20 311r5 46|34r14 2408r20
+. 2585r5
+32X4*XML_Not_Implemented 46|1786r16 1824r28 1832r31 1848r25 1878r22 1886r25
+. 2242r22
+66U14 Debug_Output 46|164s13 173s13 180s10 731s25 753s25 1005s25 2160s13
+77b4 Debug{boolean} 46|163r13 172r13 179r10 730r25 752r25 1004r25 2159r13
+X 43 schema-date_time.ads
+40K16*Date_Time 312e21 45|33w13 33r38
+42R9*Duration_T 282e14 45|183r63 46|386r53 1526r62 1565r15 2074r36
+43R9*Date_Time_T 306e14 45|151r63 46|387r53 1527r63 1585r15 2076r36
+44R9*Date_T 290e14 45|179r55 46|388r53 1528r58 1605r15 2077r65
+45R9*Time_T 298e14 45|147r55 46|389r53 1529r58 1625r15 2078r65
+46R9*GDay_T 247e14 45|156r55 46|390r53 1530r58 1645r15 2079r65
+47R9*GMonth_Day_T 253e14 45|160r64 46|391r53 1531r64 1665r15 2081r36
+48R9*GMonth_T 259e14 45|165r59 46|392r53 1532r60 1685r15 2082r67
+49R9*GYear_T 265e14 45|175r57 46|393r53 1533r59 1705r15 2083r66
+50R9*GYear_Month_T 271e14 45|171r15 46|394r53 1535r7 1725r15 2085r36
+52r4*No_Time_T{45R9} 45|147r65
+53r4*No_Duration{42R9} 45|184r15
+54r4*No_Date_Time{43R9} 45|152r15
+55r4*No_Date_T{44R9} 45|179r65
+56r4*No_GDay{46R9} 45|156r65
+57r4*No_Month_Day{47R9} 45|161r18
+58r4*No_Month{48R9} 45|166r15
+59r4*No_Year{49R9} 45|175r68
+60r4*No_Year_Month{50R9} 45|171r32
+62V13*Image{string} 46|58i21 123i21
+70V13*Image{string} 46|58i21 123i21
+71V13*Image{string} 46|58i21 123i21
+72V13*Image{string} 46|58i21 123i21
+73V13*Image{string} 46|58i21 123i21
+74V13*Image{string} 46|58i21 123i21
+75V13*Image{string} 46|58i21 123i21
+76V13*Image{string} 46|58i21 123i21
+77V13*Image{string} 46|58i21 123i21
+80U14*Value 46|54i22 89i22 118i22
+99U14*Value 46|54i22 89i22 118i22
+113U14*Value 46|54i22 89i22 118i22
+118U14*Value 46|54i22 89i22 118i22
+123U14*Value 46|54i22 89i22 118i22
+128U14*Value 46|54i22 89i22 118i22
+133U14*Value 46|54i22 89i22 118i22
+138U14*Value 46|54i22 89i22 118i22
+143U14*Value 46|54i22 89i22 118i22
+156V14*"<"{boolean} 46|59i22
+157V14*"<="{boolean} 46|60i22
+158V14*"="{boolean} 46|122i22
+164V14*"<"{boolean} 46|59i22
+165V14*"<="{boolean} 46|60i22
+166V14*"="{boolean} 46|122i22
+172V14*"<"{boolean} 46|59i22
+173V14*"<="{boolean} 46|60i22
+174V14*"="{boolean} 46|122i22
+180V14*"<"{boolean} 46|59i22
+181V14*"<="{boolean} 46|60i22
+182V14*"="{boolean} 46|122i22
+188V14*"<"{boolean} 46|59i22
+189V14*"<="{boolean} 46|60i22
+190V14*"="{boolean} 46|122i22
+196V14*"<"{boolean} 46|59i22
+197V14*"<="{boolean} 46|60i22
+198V14*"="{boolean} 46|122i22
+204V14*"<"{boolean} 46|59i22
+205V14*"<="{boolean} 46|60i22
+206V14*"="{boolean} 46|122i22
+212V14*"<"{boolean} 46|59i22
+213V14*"<="{boolean} 46|60i22
+214V14*"="{boolean} 46|122i22
+220V14*"<"{boolean} 46|59i22
+221V14*"<="{boolean} 46|60i22
+222V14*"="{boolean} 46|122i22
+X 44 schema-decimal.ads
+32K16*Decimal 123e19 45|32w13 32r38
+42R9*Arbitrary_Precision_Number 107e14 45|143r13 46|385r52 401r23 403r23
+. 405r29 407r36 409r27 411r27 413r26 415r26 417r28 419r28 421r27 423r27 425r35
+. 427r37 429r36 1525r7 1746r15 2071r36
+43r4*Undefined_Number{42R9} 45|143r43
+45V13*Image{87|41A12} 46|58i21 123i21
+49U14*Value 46|89i22 118i22
+57V13*Value{42R9} 46|402s9 404s9 406s9 408s9 410s9 412s9 414s9 416s9 418s9
+. 420s9 422s9 424s9 426s9 428s9 430s9
+60U14*Value_No_Exponent 46|1525r44
+67V14*"<"{boolean} 46|59i22
+68V14*"<="{boolean} 46|60i22
+69V14*"="{boolean} 46|122i22
+74V13*Check_Digits{37|41P9} 46|1757s14
+75r7 Symbols{39|174R12} 46|1758r10
+76r7 Num{42R9} 46|1759r10
+77i7 Fraction_Digits{integer} 46|1760r10
+77i24 Total_Digits{integer} 46|1761r10
+89R9*XML_Float 120e14 45|133r35 134r35 135r35 136r35 46|253r35 384r53 1445r35
+. 1523r60 1546r15 2072r66
+90r4*Unknown_Float{89R9} 45|133r48 134r48 135r48 136r48
+92V14*"<="{boolean} 46|60i22
+93V14*"<"{boolean} 46|59i22
+98V13*Image{string} 46|58i21 123i21
+101V13*Value{89R9} 46|1449s17
+X 45 schema-simple_types.ads
+36K16*Simple_Types 41|27k9 45|305r27 311l12 311e24 46|34b21 2408r27 2585l12
+. 2585t24
+38I9*Simple_Type_Index<integer> 39r36 89r58 119r31 196r31 246r23 261r23 46|672r23
+. 796r23
+39i4*No_Simple_Type_Index{38I9} 116r26 197r31 46|711r38 990r38
+41I9*Enumeration_Index<integer> 42r36 111r24 205r15 210r31 271r15 46|828r21
+42i4*No_Enumeration_Index{41I9} 111r50 205r36 211r31 271r36 275r46 46|831r27
+. 1975r16 1977r47 1987r45 1993r48 1995r48 1997r48 1999r48 2001r41 2003r45
+. 2005r45 2007r47 2009r50
+44N4*Max_Types_In_Union 115r45
+50E9*Whitespace_Restriction 50e64 110r24 305r40 46|2408r40
+50n36*Preserve{50E9} 189r47 46|461r25 466r49 507r49 511r49 515r49 519r49
+. 523r49 853r15 2180r34 2414r15
+50n46*Replace{50E9} 46|471r54 856r15 2182r34 2417r15
+50n55*Collapse{50E9} 110r50 46|475r50 479r44 499r52 503r54 538r54 868r15
+. 2184r34 2437r15
+52V13*Convert_Regexp{string} 53>7 46|1768b13 1902l8 1902t22 2157s39
+53a7 Regexp{87|41A12} 46|1769b7 1773r27 1782r25 1794r20 1801r26 1808r46 1828r35
+. 1829r36 1844r37 1845r30 1862r40 1882r29 1883r30
+57E9*Primitive_Simple_Type_Kind 71e7 106r14
+58n7*Primitive_Boolean{57E9} 106r44 129r15 46|481r43 684r15 963r15 2278r15
+58n26*Primitive_Double{57E9} 132r33 46|637r41 686r33 967r33 2281r33
+58n44*Primitive_Decimal{57E9} 138r15 46|533r37 536r54 551r45 558r44 565r48
+. 572r45 578r48 584r48 591r50 598r52 605r48 613r45 621r45 629r45 688r15 965r15
+. 2288r15
+59n7*Primitive_Float{57E9} 132r15 46|489r43 635r40 686r15 967r15 2281r15
+61n7*Primitive_String{57E9} 124r15 189r15 46|458r25 464r49 469r54 473r50
+. 682r15 934r15 2272r15
+61n25*Primitive_Any_URI{57E9} 46|525r43 957r15
+61n44*Primitive_QName{57E9} 46|483r40 944r15
+61n61*Primitive_ID{57E9} 46|505r49 948r15
+62n7*Primitive_Notation{57E9} 46|487r43 938r15
+62n27*Primitive_NMTOKEN{57E9} 46|491r43 959r15
+62n46*Primitive_Language{57E9} 46|477r49 942r15
+63n7*Primitive_NMTOKENS{57E9} 46|493r43 961r15
+63n27*Primitive_Name{57E9} 46|497r52 955r15
+63n43*Primitive_NCName{57E9} 46|501r54 509r49 517r49 946r15
+63n61*Primitive_NCNames{57E9} 46|513r49 521r49 953r15
+64n7*Primitive_Base64Binary{57E9} 46|530r47 940r15
+64n31*Primitive_HexBinary{57E9} 124r35 46|528r44 682r35 936r15 2272r35
+66n7*Primitive_Time{57E9} 145r15 46|639r39 690r15 969r15 2334r15
+66n23*Primitive_DateTime{57E9} 149r15 46|641r43 692r15 971r15 2341r15
+66n43*Primitive_GDay{57E9} 154r15 46|643r45 694r15 973r15 2348r15
+66n59*Primitive_GMonthDay{57E9} 158r15 46|645r45 704r15 975r15 2355r15
+67n7*Primitive_GMonth{57E9} 163r15 46|647r45 696r15 977r15 2362r15
+67n25*Primitive_GYearMonth{57E9} 168r15 46|650r31 706r15 979r15 2369r15
+67n47*Primitive_GYear{57E9} 173r15 46|652r40 698r15 981r15 2378r15
+67n64*Primitive_Date{57E9} 177r15 46|654r45 700r15 983r15 2385r15
+68n7*Primitive_Duration{57E9} 181r15 46|656r45 702r15 985r15 2392r15
+70n7*Primitive_Union{57E9} 114r15 46|709r15 988r15 2263r15
+70n24*Primitive_List{57E9} 118r15 46|780r15 1014r15 2266r15
+73P9*Pattern_Matcher_Access(62|383R9) 76r17 46|41r24 2154r53 2156r53
+74R9*Pattern_Facet 77e14 78r62 46|540r38
+75p7*Str{37|41P9} 46|541m36 925r44 2217m19 2227m28 2230m41 2232r55 2236r59
+. 2516m16 2516r45
+76p7*Pattern{73P9} 46|542m36 918r38 2218m19 2227m40 2234m57 2235m41 2517m16
+. 2517r66 2531m37
+78A9*Pattern_Matcher_Array(74R9)<integer> 79r52 46|39r7 539r58 2207r41 2211r25
+. 2226r41 2513r32
+79P9*Pattern_Matcher_Array_Access(78A9) 80r33 109r24 46|39r30 2175r13 2527r33
+80U14*Free 80=20 46|2244s16 2527b14 2535l8 2535t12
+80p20 Arr{79P9} 46|2527b20 2529r10 2530r19 2531r29 2533m26
+89A9*Simple_Type_Array(38I9)<integer> 115r21
+91E9*Facet_Enum 102e46 103r31 278r30 46|81r23 2023r23
+91n24*Facet_Whitespace{91E9} 46|432r50 459r26 546r38 851r22 1987r18 2177r18
+. 2178r25 2186r34 2192r23
+92n24*Facet_Enumeration{91E9} 46|826r22 1990r50 1991r18 2255r18 2256r40 2257r23
+93n24*Facet_Pattern{91E9} 46|545r38 903r22 1969r21 1970r21 1973r38 1977r21
+. 2166r34 2195r18 2196r25 2248r34 2252r23
+94n24*Facet_Min_Inclusive{91E9} 46|436r10 444r10 1482r16 1993r18 2064r37
+95n24*Facet_Max_Inclusive{91E9} 46|440r10 445r10 1502r16 1995r18 2060r37
+96n24*Facet_Min_Exclusive{91E9} 46|1492r16 1997r18 2066r37
+97n24*Facet_Max_Exclusive{91E9} 46|1512r16 1999r18 2062r37
+98n24*Facet_Length{91E9} 46|200r16 209r16 1309r22 1318r22 2001r18 2102r18
+. 2105r29 2106r19 2111r37
+99n24*Facet_Min_Length{91E9} 46|201r23 218r16 1310r29 1327r22 2003r18 2115r18
+. 2118r29 2119r19 2124r37
+100n24*Facet_Max_Length{91E9} 46|202r23 228r16 1311r29 1336r22 2005r18 2128r18
+. 2131r29 2132r19 2137r37
+101n24*Facet_Total_Digits{91E9} 46|2007r18 2296r27 2299r38 2300r35 2305r46
+102n24*Facet_Fraction_Digits{91E9} 46|435r10 439r10 443r10 544r38 2009r18
+. 2309r27 2312r38 2313r35 2319r46 2327r40
+103A9*Facets_Mask(boolean)<91E9> 108r24 46|48r23 64r23 82r30 96r30 108r30
+. 193r23 432r34 434r36 438r36 442r40 1465r23 2024r30 2050r30 2094r30
+105R9*Simple_Type_Descr 106d7 186e14 188r31 191r27 191r53 195r31 220r27 294r27
+. 46|134r17 258r17 267r23 272r23 277r23 282r23 287r23 292r23 296r23 300r23
+. 305r23 309r23 313r23 318r23 322r23 326r23 330r23 334r23 338r23 342r23 346r23
+. 350r23 354r23 358r23 362r23 678r15 801r15 1063r23 1079r23 1098r23 1114r23
+. 1130r23 1149r23 1164r23 1180r23 1195r17 1213r23 1237r23 1260r23 1278r17
+. 1423r23 1542r23 1561r23 1581r23 1601r23 1621r23 1641r23 1661r23 1681r23
+. 1701r23 1721r23 1741r23 2147r27 2509r27 2509r53 2510r16
+106e7*Kind{57E9} 113r12 189m7 46|458m11 464m35 469m40 473m36 477m35 481m35
+. 483m32 487m35 489m35 491m35 493m35 497m38 501m40 505m35 509m35 513m35 517m35
+. 521m35 525m35 528m36 530m39 533m29 536m29 551m20 558m20 565m23 572m20 578m23
+. 584m26 591m25 598m27 605m23 613m20 621m20 629m20 635m32 637m33 639m31 641m35
+. 643m37 645m37 647m37 650m23 652m32 654m37 656m37 681r18 933r18 2262r19
+108a7*Mask{103A9} 46|459m11 465m35 470m40 474m36 478m30 484m32 494m35 498m38
+. 502m40 506m35 510m35 514m35 518m35 522m35 526m35 544m29 554m20 559m20 568m23
+. 575m20 581m23 585m26 592m25 599m27 606m23 614m20 622m20 630m20 826r16 851r16
+. 903r16 1203r29 1251r29 1269r29 1309r16 1310r23 1311r23 1318r16 1327r16
+. 1336r16 1550r29 1569r29 1589r29 1609r29 1629r29 1649r29 1669r29 1689r29
+. 1709r29 1729r29 1749r29 2192m17 2252m17 2257m17 2268m40 2274m40 2283m40
+. 2290m40 2300m29 2313m29 2336m40 2343m40 2350m40 2357m40 2364m40 2371m40
+. 2380m40 2387m40 2394m40
+109p7*Pattern{79P9} 46|539m29 903r52 917r25 918r26 925r32 2206r26 2207m26
+. 2209r33 2210m26 2212r26 2216r23 2216r39 2225r26 2226m26 2229r35 2230r29
+. 2232r43 2234r45 2235r29 2236r47 2244m29 2512r16 2513m17 2513r61 2514r25
+. 2515r20 2516r33 2517r54
+110e7*Whitespace{50E9} 189m33 46|461m11 466m35 471m40 475m36 479m30 499m38
+. 503m40 507m35 511m35 515m35 519m35 523m35 538m29 726r64 735r48 852r21 2180m20
+. 2182m20 2184m20
+111i7*Enumeration{41I9} 46|828r48 2256m17
+115a13*Union{89A9} 46|710r28 711r25 726r53 733r36 735r37 747r48 765r50 989r28
+. 990r25 997r45
+119i13*List_Item{38I9} 46|812r39
+120i13*List_Length{natural} 46|1019r25 2269m23
+121i13*List_Min_Length{natural} 46|1019r44 2269m43
+122i13*List_Max_Length{natural} 46|1020r25 2270m23
+125i13*String_Length{natural} 46|1089r36 1140r36 1203r41 1252r15 1270r15
+. 2275m23
+126i13*String_Min_Length{natural} 46|1090r16 1141r16 1204r16 1252r36 1270r36
+. 2275m45
+127i13*String_Max_Length{natural} 46|1090r41 1141r41 1204r41 1252r61 1270r61
+. 2276m23
+133r13*Float_Min_Inclusive{44|89R9} 46|1550r41 2284m23
+134r13*Float_Max_Inclusive{44|89R9} 46|1551r43 2285m23
+135r13*Float_Min_Exclusive{44|89R9} 46|1551r16 2284m51
+136r13*Float_Max_Exclusive{44|89R9} 46|1552r16 2285m51
+139i13*Total_Digits{positive} 46|1761r35 2298m29 2324r34 2325r59
+140i13*Fraction_Digits{natural} 46|537m29 552m20 560m20 566m23 573m20 579m23
+. 586m26 593m25 600m27 607m23 615m20 623m20 631m20 1760r35 2311m29 2323r26
+. 2325r34
+141r13*Decimal_Min_Inclusive{44|42R9} 46|553m20 561m20 567m23 588m26 595m25
+. 602m27 609m23 617m20 625m20 633m20 1750r16 2291m23
+141r36*Decimal_Max_Inclusive{44|42R9} 46|562m20 574m20 580m23 587m26 594m25
+. 601m27 608m23 616m20 624m20 632m20 1751r16 2292m23
+142r13*Decimal_Min_Exclusive{44|42R9} 46|1750r45 2291m53
+142r36*Decimal_Max_Exclusive{44|42R9} 46|1751r45 2292m53
+146r13*Time_Min_Inclusive{43|45R9} 46|1630r16 2337m23
+146r33*Time_Min_Exclusive{43|45R9} 46|1630r42 2337m50
+147r13*Time_Max_Inclusive{43|45R9} 46|1631r16 2338m23
+147r33*Time_Max_Exclusive{43|45R9} 46|1631r42 2338m50
+150r13*DateTime_Min_Inclusive{43|43R9} 46|1590r16 2344m23
+150r37*DateTime_Min_Exclusive{43|43R9} 46|1590r46 2344m54
+151r13*DateTime_Max_Inclusive{43|43R9} 46|1591r16 2345m23
+151r37*DateTime_Max_Exclusive{43|43R9} 46|1591r46 2345m54
+155r13*GDay_Min_Inclusive{43|46R9} 46|1650r16 2351m23
+155r33*GDay_Min_Exclusive{43|46R9} 46|1650r42 2351m50
+156r13*GDay_Max_Inclusive{43|46R9} 46|1651r16 2352m23
+156r33*GDay_Max_Exclusive{43|46R9} 46|1651r42 2352m50
+159r13*GMonthDay_Min_Inclusive{43|47R9} 46|1670r16 2358m23
+159r38*GMonthDay_Min_Exclusive{43|47R9} 46|1670r47 2358m55
+160r13*GMonthDay_Max_Inclusive{43|47R9} 46|1671r16 2359m23
+160r38*GMonthDay_Max_Exclusive{43|47R9} 46|1671r47 2359m55
+164r13*GMonth_Min_Inclusive{43|48R9} 46|1690r16 2365m23
+164r35*GMonth_Min_Exclusive{43|48R9} 46|1690r44 2365m52
+165r13*GMonth_Max_Inclusive{43|48R9} 46|1691r16 2366m23
+165r35*GMonth_Max_Exclusive{43|48R9} 46|1691r44 2366m52
+169r13*GYearMonth_Min_Inclusive{43|50R9} 46|1730r16 2372m23
+169r39*GYearMonth_Min_Exclusive{43|50R9} 46|1730r48 2373m23
+170r13*GYearMonth_Max_Inclusive{43|50R9} 46|1731r16 2374m23
+170r39*GYearMonth_Max_Exclusive{43|50R9} 46|1731r48 2375m23
+174r13*GYear_Min_Inclusive{43|49R9} 46|1710r16 2381m23
+174r34*GYear_Min_Exclusive{43|49R9} 46|1710r43 2381m51
+175r13*GYear_Max_Inclusive{43|49R9} 46|1711r16 2382m23
+175r34*GYear_Max_Exclusive{43|49R9} 46|1711r43 2382m51
+178r13*Date_Min_Inclusive{43|44R9} 46|1610r16 2388m23
+178r33*Date_Min_Exclusive{43|44R9} 46|1610r42 2388m50
+179r13*Date_Max_Inclusive{43|44R9} 46|1611r16 2389m23
+179r33*Date_Max_Exclusive{43|44R9} 46|1611r42 2389m50
+182r13*Duration_Min_Inclusive{43|42R9} 46|1570r16 2395m23
+182r37*Duration_Min_Exclusive{43|42R9} 46|1570r46 2395m54
+183r13*Duration_Max_Inclusive{43|42R9} 46|1571r16 2396m23
+183r37*Duration_Max_Exclusive{43|42R9} 46|1571r46 2396m54
+188r4*Any_Simple_Type{105R9}
+191V13*Copy{105R9} 191>19 46|2509b13 2521l8 2521t12
+191r19 Descr{105R9} 46|2509b19 2510r37 2512r10 2513r55 2514r19 2516r27 2517r48
+194K12*Simple_Type_Tables[23|61] 201r33 46|36r8
+201R12*Simple_Type_Table{23|161R9[194]} 240r23 256r23 46|667r23 790r23
+203R9*Enumeration_Descr 206e14 209r31
+204p7*Value{37|41P9} 46|835r52 1989m33
+205i7*Next{41I9} 46|841r50 1990m33
+208K12*Enumeration_Tables[23|61] 241r23 257r23 287r29 46|36r28 668r23 791r23
+. 1960r29
+216+12 Type_Index 217r23 221r27 221r46 46|448r61 449r44 450r53 451r36 452r22
+. 453r11
+217*7 No_Type_Index{216+12} 46|462r30
+218V21 Register{216+12} 219>10 220>10 221>10 46|456s26 464s14 469s9 473s16
+. 477s12 481s12 483s12 487s12 489s12 491s12 493s12 497s15 501s17 505s12 509s12
+. 513s12 517s12 521s12 525s12 528s12 530s12 532s18 535s18 550s9 557s9 564s12
+. 571s9 577s12 583s15 590s14 597s16 604s12 612s9 620s9 628s9 635s12 637s12
+. 639s12 641s12 643s12 645s12 647s12 649s12 652s12 654s12 656s12
+219a10 Local{87|41A12}
+220r10 Descr{105R9}
+221*10 Restriction_Of{216+12}
+222u14*Register_Predefined_Types 222>41 46|400b14 660l8 660t33
+222r41 Symbols{39|174R12} 46|400b41 402r22 404r22 406r22 408r22 410r22 412r22
+. 414r22 416r22 418r22 420r22 422r22 424r22 426r22 428r22 430r22 541r49
+225V13*Get_Key{37|41P9} 225>22 230r24 46|2541b13 2544l8 2544t15
+225p22 Id{37|41P9} 46|2541b22 2543r14
+226K12*Symbol_Htable[33|42] 233r40 242r23 258r23 46|304r23 669r23 792r23
+. 1212r23 1224r10 2552r10 2555r10 2573r26 2575r13 2581r7
+233P9*Symbol_Htable_Access(33|44R9[226]) 237r42 244r30 260r30 46|142r26 671r30
+. 794r30 2550r42 2552r32 2566r26
+237U14*Free 237=20 46|2550b14 2558l8 2558t12
+237p20 Symbol_Table{233P9} 46|2550b20 2554r10 2555r31 2556m26
+239U14*Validate_Simple_Type 240>7 241>7 242>7 243>7 244=7 245>7 246>7 247>7
+. 248=7 249>7 46|740s22 789b14 810s13 991s19 1023l8 1023t28
+240r7 Simple_Types{201R12} 46|741r25 790b7 801r41 811r16 833r19 992r22 992r39
+241r7 Enumerations{23|161R9[208]} 46|742r25 791b7 811r30 833r33 835r26 841r24
+. 993r22 993r39
+242r7 Notations{33|44R9[226]} 46|743r25 792b7 811r44 833r47 939r41 995r22
+. 995r39
+243r7 Symbols{39|174R12} 46|744r25 793b7 811r55 833r58 845r31 863r27 875r27
+. 883r22 892r22 896r22 912r19 923r19 935r47 937r49 939r59 941r52 943r48 945r45
+. 947r46 949r46 951r26 954r47 956r45 958r43 960r47 962r48 964r47 966r47 968r46
+. 970r45 972r49 974r44 976r50 978r46 980r51 982r45 984r44 986r48 994r22 994r39
+. 1012r28 1018r26
+244p7 Id_Table{233P9} 46|745r25 794b7 811m64 833m67 951m35 996r22 996m39
+245b7 Insert_Id{boolean} 46|746r25 795b7 950r43
+246i7 Simple_Type{38I9} 46|747r25 796b7 801r61 812r16 834r19 997r22
+247a7 Ch{87|41A12} 46|748r25 797b7 813r16 836r26 857r22 858r19 859r26 860r26
+. 869r22 870r19 871r26 872r26 878r22 879r31 880r27 889r16 890r19 890r23 894r22
+. 894r26 906r19 907r25 908r28 918r59 919r37 920r43 935r56 937r58 939r68 941r61
+. 943r57 945r54 947r55 949r55 951r45 954r56 956r54 958r52 960r56 962r57 964r56
+. 966r56 968r55 970r54 972r58 974r53 976r59 978r55 980r60 982r54 984r53 986r57
+. 998r22 998r39 1015r34 1018r35
+248p7 Error{37|41P9} 46|749r25 798b7 809r13 814r16 814m33 822m7 845m16 862m19
+. 874m19 882m19 891m19 895m19 911m16 922m16 935m13 937m13 939m13 941m13 943m13
+. 945m13 947m13 949m13 950r16 951m49 954m13 956m13 958m13 960m13 962m13 964m13
+. 966m13 968m13 970m13 972m13 974m13 976m13 978m13 980m13 982m13 984m13 986m13
+. 999r22 999m39 1001r22 1006r55 1012m13 1016r16 1017m16
+249e7 XML_Version{39|35E9} 46|750r25 799b7 815r16 815r33 838r34 945r58 947r59
+. 949r59 954r60 956r58 960r60 962r61 1000r22 1000r39
+255U14*Equal 256>7 257>7 258>7 259>7 260=7 261>7 262>7 263>7 264<7 265>7
+. 46|666b14 759s25 783l8 783t13 832s16
+256r7 Simple_Types{201R12} 46|667b7 678r41 726r27 734r30 741r42 760r28 760r44
+257r7 Enumerations{23|161R9[208]} 46|668b7 742r42 761r28 761r44
+258r7 Notations{33|44R9[226]} 46|669b7 743r42 762r28 762r44
+259r7 Symbols{39|174R12} 46|670b7 685r40 687r38 689r40 691r37 693r42 695r37
+. 697r39 699r38 701r37 703r41 705r43 707r44 744r42 764r28 764r44 766r42
+260p7 Id_Table{233P9} 46|671b7 745m42 763r28 763m44
+261i7 Simple_Type{38I9} 46|672b7 678r61 765r28
+262p7 Ch1{37|41P9} 46|673b7 683r30 685r49 687r47 689r49 691r46 693r51 695r46
+. 697r48 699r47 701r46 703r50 705r52 707r53 721r51 766r28 781r30 835r19
+263a7 Ch2{87|41A12} 46|674b7 683r41 685r54 687r52 689r54 691r51 693r56 695r51
+. 697r53 699r52 701r51 703r55 705r57 707r58 767r28 767r36 781r41 836r19
+264b7 Is_Equal{boolean} 46|675b7 683m13 685m13 687m13 689m13 691m13 693m13
+. 695m13 697m13 699m13 701m13 703m13 705m13 707m13 768r28 768m44 770r28 778m13
+. 781m13 837r19
+265e7 XML_Version{39|35E9} 46|676b7 750r42 769r28 769r44 838r19
+269R9*Facet_Value 273e14 274r30 278r45
+270p7*Value{37|41P9} 46|1969r36 1973r53 2032r42 2105r43 2118r47 2131r47 2178r43
+. 2196r40 2299r58 2312r61
+271i7*Enum{41I9} 46|1990r69 2256r59
+272r7*Loc{35|41R9} 46|2036r41 2111r51 2124r55 2137r55 2166r49 2186r52 2248r49
+. 2305r66 2319r69 2327r63
+274r4*No_Facet_Value{269R9} 279r50 46|2029r55 2102r35 2115r39 2128r39 2177r39
+. 2195r36 2255r40 2296r50 2309r53
+278A9*All_Facets(269R9)<91E9> 279r25 285r29 295r20 46|80r23 95r23 107r23
+. 1958r29 2022r23 2049r23 2093r23 2148r20
+279a4*No_Facets{278A9}
+284U14*Add_Facet 285=7 286>7 287=7 288>7 289>7 290>7 46|1957b14 2014l8 2014t17
+285a7 Facets{278A9} 46|1958b7 1969r13 1970m13 1973r30 1977m13 1987m10 1990r42
+. 1991m10 1993m10 1995m10 1997m10 1999m10 2001m10 2003m10 2005m10 2007m10
+. 2009m10
+286r7 Symbols{39|174R12} 46|1959b7 1972r19 1984r10
+287r7 Enumerations{23|161R9[208]} 46|1960b7 1989m18 1991r58
+288p7 Facet_Name{37|41P9} 46|1961b7 1967r15 1986r15 1988r18 1992r18 1994r18
+. 1996r18 1998r18 2000r18 2002r18 2004r18 2006r18 2008r18
+289p7 Value{37|41P9} 46|1962b7 1974r34 1977r40 1984r30
+290r7 Loc{35|41R9} 46|1963b7 1975r38 1977r69 1987r67 1991r73 1993r70 1995r70
+. 1997r70 1999r70 2001r63 2003r67 2005r67 2007r69 2009r72
+293U14*Override 294=7 295>7 296>7 297>7 298<7 299<7 46|2146b14 2401l8 2401t16
+294r7 Simple{105R9} 46|2147b7 2180m13 2182m13 2184m13 2192m10 2206r19 2207m19
+. 2209r26 2210m19 2212r19 2216r16 2216r32 2225r19 2226m19 2229r28 2230r22
+. 2232r36 2234r38 2235r22 2236r40 2244m22 2244r22 2252m10 2256m10 2257m10
+. 2262r12 2268m33 2268r33 2269m16 2269r16 2269m36 2269r36 2270m16 2270r16
+. 2274m33 2274r33 2275m16 2275r16 2275m38 2275r38 2276m16 2276r16 2283m33
+. 2283r33 2284m16 2284r16 2284m44 2284r44 2285m16 2285r16 2285m44 2285r44
+. 2290m33 2290r33 2291m16 2291r16 2291m46 2291r46 2292m16 2292r16 2292m46
+. 2292r46 2298m22 2300m22 2311m22 2313m22 2323r19 2324r27 2325r27 2325r52
+. 2336m33 2336r33 2337m16 2337r16 2337m43 2337r43 2338m16 2338r16 2338m43
+. 2338r43 2343m33 2343r33 2344m16 2344r16 2344m47 2344r47 2345m16 2345r16
+. 2345m47 2345r47 2350m33 2350r33 2351m16 2351r16 2351m43 2351r43 2352m16
+. 2352r16 2352m43 2352r43 2357m33 2357r33 2358m16 2358r16 2358m48 2358r48
+. 2359m16 2359r16 2359m48 2359r48 2364m33 2364r33 2365m16 2365r16 2365m45
+. 2365r45 2366m16 2366r16 2366m45 2366r45 2371m33 2371r33 2372m16 2372r16
+. 2373m16 2373r16 2374m16 2374r16 2375m16 2375r16 2380m33 2380r33 2381m16
+. 2381r16 2381m44 2381r44 2382m16 2382r16 2382m44 2382r44 2387m33 2387r33
+. 2388m16 2388r16 2388m43 2388r43 2389m16 2389r16 2389m43 2389r43 2394m33
+. 2394r33 2395m16 2395r16 2395m47 2395r47 2396m16 2396r16 2396m47 2396r47
+295a7 Facets{278A9} 46|2148b7 2166r26 2177r10 2178r17 2186r26 2195r10 2196r17
+. 2248r26 2255r10 2256r32 2268r25 2274r25 2283r25 2290r25 2296r19 2299r30
+. 2305r38 2309r19 2312r30 2319r38 2327r32 2336r25 2343r25 2350r25 2357r25
+. 2364r25 2371r25 2380r25 2387r25 2394r25
+296r7 Symbols{39|174R12} 46|2149b7 2168r16 2187r28 2231r25 2243r31 2268r16
+. 2274r16 2283r16 2290r16 2304r28 2317r28 2329r22 2336r16 2343r16 2350r16
+. 2357r16 2364r16 2371r16 2380r16 2387r16 2394r16
+297b7 As_Restriction{boolean} 46|2150b7 2199r16
+298p7 Error{37|41P9} 46|2151b7 2167m13 2187m13 2243m16 2247r13 2260m7 2270m40
+. 2276m42 2286m16 2293m16 2295r16 2303m25 2316m25 2328m19 2339m16 2346m16
+. 2353m16 2360m16 2367m16 2376m16 2383m16 2390m16 2397m16
+299r7 Error_Loc{35|41R9} 46|2152b7 2166m13 2186m13 2248m13 2270m47 2276m49
+. 2286m23 2293m23 2305m25 2319m25 2327m19 2339m23 2346m23 2353m23 2360m23
+. 2367m23 2376m23 2383m23 2390m23 2397m23
+304U14*Normalize_Whitespace 305>7 306=7 307=7 46|724s22 2407b14 2503l8 2503t28
+305e7 Whitespace{50E9} 46|725r25 2408b7 2413r12
+306a7 Val{87|41A12} 46|727r25 2409b7 2419r35 2425r34 2430m22 2438r16 2444r45
+. 2454r34 2463r28 2464m19 2464r24 2464r52 2465r21 2466r42 2469r23 2470r30
+. 2479r34 2484m25 2490m22 2491r24
+307i7 Last{natural} 46|728r25 2410b7 2420r35 2423r29 2445r37 2447r40 2457r28
+. 2458m22 2464r37 2465r35 2466m19 2466r27 2477r29 2500m16
+X 46 schema-simple_types.adb
+38U14 Unchecked_Free[19|20] 2213s19 2533s10
+40U14 Unchecked_Free[19|20] 2234s22 2531s13
+44V21 Get_Length{natural} 44>33 204s15
+44a33 Ch{87|41A12}
+45v13 Validate_Length_Facets 46>7 47>7 48>7 49>7 49>15 49>27 190b13 239l8
+. 239t30 262r6 264r6 1199r39
+46r7 Symbols{39|174R12} 191b7 212r16 221r16 231r16
+47a7 Ch{87|41A12} 192b7 204r27
+48a7 Mask{45|103A9} 193b7 200r10 201r17 202r17 209r10 218r10 228r10
+49i7 Length{integer} 194b7 210r18 214r33
+49i15 Min_Length{integer} 194b15 219r17 223r33
+49i27 Max_Length{integer} 194b27 229r17 233r33
+53+12 T 56r43 58r34 59r35 60r36 65r23 66r23 67r23 68r23 70r27 1466r23 1467r23
+. 1468r23 1469r23 1471r27
+54U22 Value 54>29 55>29 56<29 57<29 1473s7 1525r35
+54r29 Symbols{39|174R12} 1474r10
+55a29 Ch{87|41A12} 1475r10
+56*29 Val{53+12} 1476r10
+57p29 Error{37|41P9} 1477r10
+58V21 Image{87|41A12} 58>28 1487s18 1497s18 1507s18 1517s18
+58*28 Val{53+12}
+59V22 "<"{boolean} 59>26 59>30 1483s17 1503s27
+59*26 T1{53+12}
+59*30 T2{53+12}
+60V22 "<="{boolean} 60>27 60>31 1493s17 1513s27
+60*27 T1{53+12}
+60*31 T2{53+12}
+61u14 Validate_Range 62>7 63>7 64>7 65>7 66>7 67>7 68>7 69<7 70<7 1462b14
+. 1521l8 1521t22 1523r44 1524r45 1526r46 1527r47 1528r42 1529r42 1530r42
+. 1531r48 1532r44 1533r43 1534r49
+62r7 Symbols{39|174R12} 1463b7 1474r22 1485r16 1495r16 1505r16 1515r16
+63a7 Ch{87|41A12} 1464b7 1475r22 1486r16 1496r16 1506r16 1516r16
+64a7 Mask{45|103A9} 1465b7 1482r10 1492r10 1502r10 1512r10
+65*7 Min_Inclusive{53+12} 1466b7 1483r19 1487r25
+66*7 Min_Exclusive{53+12} 1467b7 1493r20 1497r25
+67*7 Max_Inclusive{53+12} 1468b7 1503r13 1507r25
+68*7 Max_Exclusive{53+12} 1469b7 1513r13 1517r25
+69p7 Error{37|41P9} 1470b7 1477m22 1478r10 1484m13 1494m13 1504m13 1514m13
+70*7 Val{53+12} 1471b7 1476m22 1483r13 1493r13 1503r29 1513r30
+73+12 T 76r43 83r30 2025r30
+74U22 Value 74>29 75>29 76<29 77<29 2030s10
+74r29 Symbols{39|174R12}
+75a29 Ch{87|41A12} 2032r13
+76*29 Val{73+12} 2033r13
+77p29 Error{37|41P9} 2034r13
+78u14 Override_Single_Range_Facet 79>7 80>7 81>7 82=7 83=7 84=7 85=7 2020b14
+. 2041l8 2041t35 2058r36
+79r7 Symbols{39|174R12} 2021b7 2031r13
+80a7 Facets{45|278A9} 2022b7 2029r37 2032r27 2036r26
+81e7 Facet{45|91E9} 2023b7 2029r45 2032r35 2036r34 2038r19
+82a7 Mask{45|103A9} 2024b7 2038m13
+83*7 Val{73+12} 2025b7 2033m22
+84p7 Error{37|41P9} 2026b7 2029r10 2034m22 2035r13
+85r7 Error_Loc{35|41R9} 2027b7 2036m13
+88+12 T 91r43 97r30 98r30 99r30 100r30 2051r30 2052r30 2053r30 2054r30 2058r65
+89U22 Value 89>29 90>29 91<29 92<29 2058r68
+89r29 Symbols{39|174R12}
+90a29 Ch{87|41A12}
+91*29 Val{88+12}
+92p29 Error{37|41P9}
+93u14 Override_Range_Facets 94>7 95>7 96=7 97=7 98=7 99=7 100=7 101<7 102<7
+. 2047b14 2068l8 2068t29 2071r13 2072r43 2074r13 2076r13 2077r42 2078r42
+. 2079r42 2081r13 2082r44 2083r43 2085r13
+94r7 Symbols{39|174R12} 2048b7 2060r20 2062r20 2064r20 2066r20
+95a7 Facets{45|278A9} 2049b7 2060r29 2062r29 2064r29 2066r29
+96a7 Mask{45|103A9} 2050b7 2060m58 2062m58 2064m58 2066m58
+97*7 Min_Inclusive{88+12} 2051b7 2065m20
+98*7 Min_Exclusive{88+12} 2052b7 2067m20
+99*7 Max_Inclusive{88+12} 2053b7 2061m20
+100*7 Max_Exclusive{88+12} 2054b7 2063m20
+101p7 Error{37|41P9} 2055b7 2061m35 2063m35 2065m35 2067m35
+102r7 Error_Loc{35|41R9} 2056b7 2061m42 2063m42 2065m42 2067m42
+105U14 Override_Length_Facets 106>7 107>7 108=7 109=7 110=7 111=7 112<7 113<7
+. 2091b14 2140l8 2140t30 2267s13 2273s13
+106r7 Symbols{39|174R12} 2092b7 2110r19 2123r19 2136r19
+107a7 Facets{45|278A9} 2093b7 2102r10 2105r21 2111r29 2115r10 2118r21 2124r29
+. 2128r10 2131r21 2137r29
+108a7 Mask{45|103A9} 2094b7 2106m13 2119m13 2132m13
+109i7 Length{integer} 2095b7 2104m13
+110i7 Min_Length{integer} 2096b7 2117m13
+111i7 Max_Length{integer} 2097b7 2130m13
+112p7 Error{37|41P9} 2098b7 2109m16 2122m16 2135m16
+113r7 Error_Loc{35|41R9} 2099b7 2111m16 2124m16 2137m16
+117+12 T 120r43 122r35 123r33 158r16
+118U22 Value 118>29 119>29 120<29 121<29 161s7 170s7
+118r29 Symbols{39|174R12}
+119a29 Ch{87|41A12}
+120*29 Val{117+12}
+121p29 Error{37|41P9}
+122V22 "="{boolean} 122>26 122>30 183s17
+122*26 T1{117+12}
+122*30 T2{117+12}
+123V21 Image{string} 123>28 180s39 180s61 383r53
+123*28 T1{117+12}
+124v13 Generic_Equal 125>7 126>7 127>7 153b13 184l8 184t21 382r38 384r38
+. 385r37 386r38 387r38 388r38 389r38 390r38 391r38 392r38 393r38 394r38
+125r7 Symbols{39|174R12} 154b7 161r14 170r14
+126p7 Val1{37|41P9} 155b7 161r28 165r34
+127a7 Val2{87|41A12} 156b7 170r23 174r29
+133V13 Validate_List_Facets{37|41P9} 134>7 135>7 136>7 137>7 137>15 137>27
+. 1017s25 1088s14 1139s14 1277b13 1346l8 1346t28
+134r7 Descr{45|105R9} 1278b7 1309r10 1310r17 1311r17 1318r10 1327r10 1336r10
+135r7 Symbols{39|174R12} 1279b7 1321r16 1330r16 1339r16
+136a7 Ch{87|41A12} 1280b7 1313r32
+137i7 Length{integer} 1281b7 1319r18 1323r33
+137i15 Min_Length{integer} 1281b15 1328r17 1332r33
+137i27 Max_Length{integer} 1281b27 1337r17 1341r33
+140U14 Check_Id 141>7 142=7 143>7 144=7 951s16 2564b14 2583l8 2583t16
+141r7 Symbols{39|174R12} 2565b7 2570r38 2576r28
+142p7 Id_Table{45|233P9} 2566b7 2572r10 2573m10 2575r32 2581r26
+143a7 Value{87|41A12} 2567b7 2570r47 2576r47
+144p7 Error{37|41P9} 2568b7 2576m13 2582m7
+158*7 V1{117+12} 161m39 180r46 183r14
+158*11 V2{117+12} 170m29 180r68 183r19
+159p7 Error{37|41P9} 161m43 161r43 162r10 165r60 170m33 170r33 171r10 174r50
+196i7 L{integer} 204m10 210r13 219r13 229r13
+245V13 HexBinary_Get_Length{natural} 246>7 262r30 1029b13 1033l8 1033t28
+246a7 Value{87|41A12} 1030b7 1032r45
+247V13 Base64Binary_Get_Length{natural} 248>7 264r30 1039b13 1056l8 1056t31
+248a7 Value{87|41A12} 1040b7 1044r27 1046r22 1047r39
+251U14 Value 54i22 89i22 251>21 252>21 253<21 254<21 384r64 1443b14 1456l8
+. 1456t13
+251r21 Symbols{39|174R12} 1443b21 1452r28
+252a21 Ch{87|41A12} 1444b21 1449r24 1452r59
+253r21 Val{44|89R9} 1445b21 1449m10
+254p21 Error{37|41P9} 1446b21 1452m13 1455m7
+257V13 Validate_String{37|41P9} 258>7 259>7 260>7 935s23 1071s14 1106s14
+. 1122s14 1156s14 1172s14 1187s14 1194b13 1205l8 1205t23 1219s16
+258r7 Descr{45|105R9} 1195b7 1203r23 1203r35 1204r10 1204r35
+259r7 Symbols{39|174R12} 1196b7 1203r10
+260a7 Ch{87|41A12} 1197b7 1203r19
+261V13 Validate_HexBinary_Facets[45]{37|41P9} 190b13 1250s14
+263V13 Validate_Base64Binary_Facets[45]{37|41P9} 190b13 1268s14
+266V13 Validate_NMTOKEN{37|41P9} 267>7 268>7 269>7 270>7 960s22 1062b13 1072l8
+. 1072t24
+267r7 Descr{45|105R9} 1063b7 1071r31
+268r7 Symbols{39|174R12} 1064b7 1069r23 1071r38
+269a7 Ch{87|41A12} 1065b7 1068r32 1069r56 1071r47
+270e7 XML_Version{39|35E9} 1066b7 1068r36
+271V13 Validate_NMTOKENS{37|41P9} 272>7 273>7 274>7 275>7 962s22 1078b13
+. 1091l8 1091t25
+272r7 Descr{45|105R9} 1079b7 1089r10 1089r30 1090r10 1090r35
+273r7 Symbols{39|174R12} 1080b7 1085r23 1089r17
+274a7 Ch{87|41A12} 1081b7 1084r33 1085r57 1089r26
+275e7 XML_Version{39|35E9} 1082b7 1084r37
+276V13 Validate_Name{37|41P9} 277>7 278>7 279>7 280>7 956s23 1097b13 1107l8
+. 1107t21
+277r7 Descr{45|105R9} 1098b7 1106r31
+278r7 Symbols{39|174R12} 1099b7 1104r23 1106r38
+279a7 Ch{87|41A12} 1100b7 1103r29 1104r53 1106r47
+280e7 XML_Version{39|35E9} 1101b7 1103r33
+281V13 Validate_NCName{37|41P9} 282>7 283>7 284>7 285>7 947s22 949s22 1113b13
+. 1123l8 1123t23
+282r7 Descr{45|105R9} 1114b7 1122r31
+283r7 Symbols{39|174R12} 1115b7 1120r23 1122r38
+284a7 Ch{87|41A12} 1116b7 1119r31 1120r55 1122r47
+285e7 XML_Version{39|35E9} 1117b7 1119r35
+286V13 Validate_NCNames{37|41P9} 287>7 288>7 289>7 290>7 954s22 1129b13 1142l8
+. 1142t24
+287r7 Descr{45|105R9} 1130b7 1140r10 1140r30 1141r10 1141r35
+288r7 Symbols{39|174R12} 1131b7 1136r23 1140r17
+289a7 Ch{87|41A12} 1132b7 1135r32 1136r55 1140r26
+290e7 XML_Version{39|35E9} 1133b7 1135r36
+291V13 Validate_Language{37|41P9} 292>7 293>7 294>7 943s22 1148b13 1157l8
+. 1157t25
+292r7 Descr{45|105R9} 1149b7 1156r31
+293r7 Symbols{39|174R12} 1150b7 1154r23 1156r38
+294a7 Ch{87|41A12} 1151b7 1153r38 1154r57 1156r47
+295V13 Validate_URI{37|41P9} 296>7 297>7 298>7 958s22 1179b13 1188l8 1188t20
+296r7 Descr{45|105R9} 1180b7 1187r31
+297r7 Symbols{39|174R12} 1181b7 1185r23 1187r38
+298a7 Ch{87|41A12} 1182b7 1184r28 1185r55 1187r47
+299V13 Validate_HexBinary{37|41P9} 300>7 301>7 302>7 937s22 1236b13 1253l8
+. 1253t26
+300r7 Descr{45|105R9} 1237b7 1251r23 1252r9 1252r30 1252r55
+301r7 Symbols{39|174R12} 1238b7 1243r13 1247r23 1251r10
+302a7 Ch{87|41A12} 1239b7 1241r27 1246r34 1247r58 1251r19
+303V13 Validate_Notation{37|41P9} 304>7 305>7 306>7 307>7 939s22 1211b13
+. 1230l8 1230t25
+304r7 Notations{33|44R9[45|226]} 1212b7 1224r29
+305r7 Descr{45|105R9} 1213b7 1219r33
+306r7 Symbols{39|174R12} 1214b7 1219r40 1224r46 1226r13
+307a7 Ch{87|41A12} 1215b7 1219r49 1224r55 1226r38
+308V13 Validate_Base64Binary{37|41P9} 309>7 310>7 311>7 941s22 1259b13 1271l8
+. 1271t29
+309r7 Descr{45|105R9} 1260b7 1269r23 1270r9 1270r30 1270r55
+310r7 Symbols{39|174R12} 1261b7 1265r23 1269r10
+311a7 Ch{87|41A12} 1262b7 1264r37 1265r61 1269r19
+312V13 Validate_QName{37|41P9} 313>7 314>7 315>7 316>7 945s22 1163b13 1173l8
+. 1173t22
+313r7 Descr{45|105R9} 1164b7 1172r31
+314r7 Symbols{39|174R12} 1165b7 1170r23 1172r38
+315a7 Ch{87|41A12} 1166b7 1169r30 1170r54 1172r47
+316e7 XML_Version{39|35E9} 1167b7 1169r34
+317V13 Validate_Boolean{37|41P9} 318>7 319>7 320>7 964s22 1422b13 1437l8
+. 1437t24
+318r7 Descr{45|105R9} 1423b7 1427r28
+319r7 Symbols{39|174R12} 1424b7 1431r22
+320a7 Ch{87|41A12} 1425b7 1431r31
+321V13 Validate_Double{37|41P9} 322>7 323>7 324>7 968s22 1541b13 1554l8 1554t23
+322r7 Descr{45|105R9} 1542b7 1550r23 1550r35 1551r10 1551r37 1552r10
+323r7 Symbols{39|174R12} 1543b7 1550r10
+324a7 Ch{87|41A12} 1544b7 1550r19
+325V13 Validate_Decimal{37|41P9} 326>7 327>7 328>7 966s22 1740b13 1762l8
+. 1762t24
+326r7 Descr{45|105R9} 1741b7 1749r23 1750r10 1750r39 1751r10 1751r39 1760r29
+. 1761r29
+327r7 Symbols{39|174R12} 1742b7 1749r10 1758r29
+328a7 Ch{87|41A12} 1743b7 1749r19
+329V13 Validate_Duration{37|41P9} 330>7 331>7 332>7 986s22 1560b13 1574l8
+. 1574t25
+330r7 Descr{45|105R9} 1561b7 1569r23 1570r10 1570r40 1571r10 1571r40
+331r7 Symbols{39|174R12} 1562b7 1569r10
+332a7 Ch{87|41A12} 1563b7 1569r19
+333V13 Validate_Date_Time{37|41P9} 334>7 335>7 336>7 972s22 1580b13 1594l8
+. 1594t26
+334r7 Descr{45|105R9} 1581b7 1589r23 1590r10 1590r40 1591r10 1591r40
+335r7 Symbols{39|174R12} 1582b7 1589r10
+336a7 Ch{87|41A12} 1583b7 1589r19
+337V13 Validate_Date{37|41P9} 338>7 339>7 340>7 984s22 1600b13 1614l8 1614t21
+338r7 Descr{45|105R9} 1601b7 1609r23 1610r10 1610r36 1611r10 1611r36
+339r7 Symbols{39|174R12} 1602b7 1609r10
+340a7 Ch{87|41A12} 1603b7 1609r19
+341V13 Validate_Time{37|41P9} 342>7 343>7 344>7 970s23 1620b13 1634l8 1634t21
+342r7 Descr{45|105R9} 1621b7 1629r23 1630r10 1630r36 1631r10 1631r36
+343r7 Symbols{39|174R12} 1622b7 1629r10
+344a7 Ch{87|41A12} 1623b7 1629r19
+345V13 Validate_GDay{37|41P9} 346>7 347>7 348>7 974s22 1640b13 1654l8 1654t21
+346r7 Descr{45|105R9} 1641b7 1649r23 1650r10 1650r36 1651r10 1651r36
+347r7 Symbols{39|174R12} 1642b7 1649r10
+348a7 Ch{87|41A12} 1643b7 1649r19
+349V13 Validate_GMonth_Day{37|41P9} 350>7 351>7 352>7 976s22 1660b13 1674l8
+. 1674t27
+350r7 Descr{45|105R9} 1661b7 1669r23 1670r10 1670r41 1671r10 1671r41
+351r7 Symbols{39|174R12} 1662b7 1669r10
+352a7 Ch{87|41A12} 1663b7 1669r19
+353V13 Validate_GMonth{37|41P9} 354>7 355>7 356>7 978s22 1680b13 1694l8 1694t23
+354r7 Descr{45|105R9} 1681b7 1689r23 1690r10 1690r38 1691r10 1691r38
+355r7 Symbols{39|174R12} 1682b7 1689r10
+356a7 Ch{87|41A12} 1683b7 1689r19
+357V13 Validate_GYear{37|41P9} 358>7 359>7 360>7 982s22 1700b13 1714l8 1714t22
+358r7 Descr{45|105R9} 1701b7 1709r23 1710r10 1710r37 1711r10 1711r37
+359r7 Symbols{39|174R12} 1702b7 1709r10
+360a7 Ch{87|41A12} 1703b7 1709r19
+361V13 Validate_GYear_Month{37|41P9} 362>7 363>7 364>7 980s22 1720b13 1734l8
+. 1734t28
+362r7 Descr{45|105R9} 1721b7 1729r23 1730r10 1730r42 1731r10 1731r42
+363r7 Symbols{39|174R12} 1722b7 1729r10
+364a7 Ch{87|41A12} 1723b7 1729r19
+367V13 Anchor{string} 367>21 1901s14 1938b13 1951l8 1951t14
+367a21 Str{string} 1938b21 1939r57 1940r55 1943r24 1945r23 1947r17 1949r17
+371V13 Missing_End_Anchor{boolean} 371>33 1908b13 1918l8 1918t26 1940s35
+371a33 Str{string} 1908b33 1912r14 1914r12 1914r17 1915r22 1915r27 1916r31
+. 1917r40 1917r45
+372V13 Missing_Start_Anchor{boolean} 372>35 1924b13 1932l8 1932t28 1939s35
+372a35 Str{string} 1924b35 1927r14 1928r22 1928r27 1929r30 1929r35 1930r30
+. 1930r35 1931r30 1931r35
+375U14 Boolean_Value 376>7 377>7 378<7 379<7 382r62 1352b14 1416l8 1416t21
+. 1431s7
+376r7 Symbols{39|174R12} 1353b7 1365r25 1400r13 1410r16
+377a7 Ch{87|41A12} 1354b7 1364r10 1371r16 1373r22 1375r25 1381r22 1382r28
+. 1385r49 1386r18 1391r50 1392r18 1400r61 1406r22 1407r25 1410r64
+378b7 Val{boolean} 1355b7 1362m7 1380m10 1389m10 1396m10
+379p7 Error{37|41P9} 1356b7 1365m10 1399m10 1409m13 1415m7
+382V13 Equal_Boolean[124]{boolean} 153b13 685s25
+384V13 Equal_Float[124]{boolean} 153b13 687s25
+385V13 Equal_Decimal[124]{boolean} 153b13 689s25
+386V13 Equal_Duration[124]{boolean} 153b13 703s25
+387V13 Equal_Date_Time[124]{boolean} 153b13 693s25
+388V13 Equal_Date[124]{boolean} 153b13 701s25
+389V13 Equal_Time[124]{boolean} 153b13 691s25
+390V13 Equal_GDay[124]{boolean} 153b13 695s25
+391V13 Equal_GMonth_Day[124]{boolean} 153b13 705s25
+392V13 Equal_GMonth[124]{boolean} 153b13 697s25
+393V13 Equal_GYear[124]{boolean} 153b13 699s25
+394V13 Equal_GYear_Month[124]{boolean} 153b13 707s25
+401r7 Zero{44|42R9} 553r45 561r45 574r45 617r45 625r45 633r45
+403r7 One{44|42R9} 567r48
+405r7 Minus_One{44|42R9} 580r48
+407r7 Max_Unsigned_Long{44|42R9} 562r45
+409r7 Max_Long{44|42R9} 587r51
+411r7 Min_Long{44|42R9} 588r51
+413r7 Max_Int{44|42R9} 594r50
+415r7 Min_Int{44|42R9} 595r50
+417r7 Max_Short{44|42R9} 601r52
+419r7 Min_Short{44|42R9} 602r52
+421r7 Max_Byte{44|42R9} 608r48
+423r7 Min_Byte{44|42R9} 609r48
+425r7 Max_Unsigned_Int{44|42R9} 616r45
+427r7 Max_Unsigned_Short{44|42R9} 624r45
+429r7 Max_Unsigned_Byte{44|42R9} 632r45
+432a7 Whitespace_Mask{45|103A9} 465r49 470r54 474r50 478r44 484r40 494r43
+. 498r52 502r54 506r49 510r49 514r49 518r49 522r49 526r43
+434a7 Fraction_Min_Mask{45|103A9} 554r45 568r48
+438a7 Fraction_Max_Mask{45|103A9} 575r45 581r48
+442a7 Fraction_Min_Max_Mask{45|103A9} 559r44 585r48 592r50 599r52 606r48
+. 614r45 622r45 630r45
+448*7 Any_Simple_Type{45|216+12} 456m7 467r54 482r22 486r22 488r22 490r22
+. 496r9 516r50 524r50 527r50 529r51 531r54 534r28 636r22 638r22 640r22 642r22
+. 644r22 646r22 648r22 651r22 653r22 655r22 657r22
+448*24 Decimal{45|216+12} 532m7 548r44
+448*33 Integer{45|216+12} 535m7 555r50 576r50 589r56
+448*42 Long{45|216+12} 583m7 596r55
+448*48 Int{45|216+12} 590m7 603r57
+448*53 Short{45|216+12} 597m7 610r53
+449*7 Non_Positive_Int{45|216+12} 570m7 582r53
+449*25 Non_Negative_Int{45|216+12} 549m7 563r50 569r53
+450*7 Unsigned_Long{45|216+12} 556m7 618r50
+450*22 Unsigned_Int{45|216+12} 611m7 626r50
+450*36 Unsigned_Short{45|216+12} 619m7 634r50
+451*7 Str{45|216+12} 464m7 472r55
+451*12 Normalized_Str{45|216+12} 468m7 476r51
+451*28 Token{45|216+12} 473m7 480r45 492r22 500r53
+452*7 Name{45|216+12} 497m7 504r55
+452*13 NCName{45|216+12} 501m7 508r50 512r50 520r50
+453*7 T{45|216+12} 454r28 477m7 481m7 483m7 487m7 489m7 491m7 493m7 505m7
+. 509m7 513m7 517m7 521m7 525m7 528m7 530m7 564m7 577m7 604m7 627m7 635m7
+. 637m7 639m7 641m7 643m7 645m7 647m7 649m7 652m7 654m7 656m7
+678r7 Descr{45|105R9} 681r12 710r22 711r19 726r47 733r30 735r31 747r42 765r44
+679p7 Error{37|41P9} 749m42 749r42 752r40 755r35 758r25
+710i17 S{integer} 711r32 726r60 733r43 735r44 747r55 765r57
+721a22 Norm{87|41A12} 722r40 727m39 727r39 737r30 737r36 748r42 748r48 766r51
+. 766r57
+722i22 Last{integer} 728m39 728r39 737r50 748r62 766r71
+801r7 Descr{45|105R9} 812r33 826r10 828r42 851r10 852r15 903r10 903r46 917r19
+. 918r20 925r26 933r12 935r40 937r42 939r52 941r45 943r41 945r38 947r39 949r39
+. 954r40 956r38 958r36 960r40 962r41 964r40 966r40 968r39 970r38 972r42 974r37
+. 976r43 978r39 980r44 982r38 984r37 986r41 989r22 990r19 997r39 1018r19
+. 1019r19 1019r38 1020r19
+802i7 Index{integer} 906m10 907r16 908m32 908r32
+803m7 Char{84|114M9} 908m39 909r16
+804a7 Matched{62|342A9} 918m64 919r16 920r23
+806U17 Validate_List_Item 806>37 807b17 817l11 817t29 819r59
+806a37 Str{87|41A12} 807b37 813r33
+819U17 Validate_List_Items[39|164] 40|1176b14 46|1015s13
+828i13 Enum{45|41I9} 831r19 835r46 841m16 841r44
+829b13 Found{boolean} 837m31 839r26 844r20
+857i17 C{integer} 858r23 859r30 860r30
+869i17 C{integer} 870r23 871r30 872r30 878r26 879r27 880r31
+917i14 P{integer} 918r35 925r41
+989i17 S{integer} 990r32 997r52 1005r67
+1042i7 Length{natural} 1052m13 1052r23 1055r14
+1043m7 C{84|114M9} 1047m53 1048r13 1049r21 1050r21
+1044i7 Index{positive} 1046r13 1047m46 1047r46
+1199V16 Internal_Facets[45]{37|41P9} 190b13 1202s14
+1217p7 Error{37|41P9} 1219m7 1220r10 1221r17 1225m10 1229r14
+1283V16 List_Get_Length{natural} 1284>10 1285b16 1305l11 1305t26 1313s15
+1284a10 Value{87|41A12} 1286b10 1290r30 1292r13 1296r25 1297r28 1300r31
+1288i10 Length{natural} 1299m16 1299r26 1304r17
+1289m10 C{84|114M9} 1297m42 1298r19 1300m45
+1290i10 Index{natural} 1296r16 1297m35 1297r35 1300m38 1300r38
+1307i7 L{natural} 1313m10 1319r13 1328r13 1337r13
+1358i7 First{integer} 1371m7 1373r13 1374r19 1375m29 1375r29 1381r13 1382m32
+. 1382r32 1388m10 1395m10 1406r13 1407m29 1407r29
+1359i7 Index{integer} 1374m10 1385r13 1386r22 1386r31 1388r19 1391r13 1392r22
+. 1392r31 1395r19
+1360m7 C{84|114M9} 1375m36 1376r40 1379r10 1379r28 1380r17 1382m39 1407m36
+. 1408r33
+1428b7 Val{boolean} 1431m35
+1429p7 Error{37|41P9} 1431m40 1431r40 1432r10 1433r17
+1523U14 Validate_Double_Facets[61] 1462b14 1549s7
+1524U14 Validate_Decimal_Facets[61] 1462b14 1748s7
+1526U14 Validate_Duration_Facets[61] 1462b14 1568s7
+1527U14 Validate_Date_Time_Facets[61] 1462b14 1588s7
+1528U14 Validate_Date_Facets[61] 1462b14 1608s7
+1529U14 Validate_Time_Facets[61] 1462b14 1628s7
+1530U14 Validate_GDay_Facets[61] 1462b14 1648s7
+1531U14 Validate_GMonth_Day_Facets[61] 1462b14 1668s7
+1532U14 Validate_GMonth_Facets[61] 1462b14 1688s7
+1533U14 Validate_GYear_Facets[61] 1462b14 1708s7
+1534U14 Validate_GYear_Month_Facets[61] 1462b14 1728s7
+1546r7 Val{44|89R9} 1552m44
+1547p7 Error{37|41P9} 1552m37 1552r37 1553r14
+1565r7 Val{43|42R9} 1572m17
+1566p7 Error{37|41P9} 1572m10 1572r10 1573r14
+1585r7 Val{43|43R9} 1592m17
+1586p7 Error{37|41P9} 1592m10 1592r10 1593r14
+1605r7 Val{43|44R9} 1612m17
+1606p7 Error{37|41P9} 1612m10 1612r10 1613r14
+1625r7 Val{43|45R9} 1632m17
+1626p7 Error{37|41P9} 1632m10 1632r10 1633r14
+1645r7 Val{43|46R9} 1652m17
+1646p7 Error{37|41P9} 1652m10 1652r10 1653r14
+1665r7 Val{43|47R9} 1672m17
+1666p7 Error{37|41P9} 1672m10 1672r10 1673r14
+1685r7 Val{43|48R9} 1692m17
+1686p7 Error{37|41P9} 1692m10 1692r10 1693r14
+1705r7 Val{43|49R9} 1712m17
+1706p7 Error{37|41P9} 1712m10 1712r10 1713r14
+1725r7 Val{43|50R9} 1732m17
+1726p7 Error{37|41P9} 1732m10 1732r10 1733r14
+1745p7 Error{37|41P9} 1752m9 1752r9 1753r10 1754r17
+1746r7 Val{44|42R9} 1752m16 1759r29
+1771r7 Result{13|88R9} 1798m21 1798r21 1856m21 1856r21 1868m27 1868r27 1871m27
+. 1871r27 1874m27 1874r27 1889m30 1889r30 1893m27 1893r27 1897m21 1897r21
+. 1901r33
+1772r7 Tmp{13|88R9} 1799m13 1805m27 1805r27 1814m33 1814r33 1817m33 1817r33
+. 1820m33 1820r33 1835m36 1835r36 1839m33 1839r33 1852m27 1852r27 1856r29
+1773i7 Pos{integer} 1782m33 1782r33 1794r13 1801r19 1808r39 1828r28 1829r44
+. 1844r30 1845r38 1862r33 1882r22 1883r38
+1774e7 C{character} 1795m10 1797r13 1798r29 1802m16 1804r19 1805r32 1808r22
+. 1809m19 1811r24 1825r64 1835r47 1839r44 1843r22 1852r32 1862r16 1863m13
+. 1865r18 1879r58 1889r44 1893r41 1897r29
+1776V16 Next_Char{character} 1779b16 1791l11 1791t20 1795s15 1802s21 1809s24
+. 1863s18
+1780m10 Char{84|114M9} 1782m38 1784r13 1790r41
+1939b7 Start{boolean} 1942r10 1944r13
+1940b7 Last{boolean} 1942r20 1946r13
+1965p7 Val{37|41P9} 1983m7 1987r40 1989r42 1993r43 1995r43 1997r43 1999r43
+. 2001r36 2003r40 2005r40 2007r42 2009r45
+2058U17 Do_Override[78] 2020b14[2079] 2060s7 2062s7 2064s7 2066s7
+2070U14 Override_Decimal_Facets[93] 2047b14 2289s13
+2072U14 Override_Float_Facets[93] 2047b14 2282s13
+2073U14 Override_Duration_Facets[93] 2047b14 2393s13
+2075U14 Override_Date_Time_Facets[93] 2047b14 2342s13
+2077U14 Override_Date_Facets[93] 2047b14 2386s13
+2078U14 Override_Time_Facets[93] 2047b14 2335s13
+2079U14 Override_GDay_Facets[93] 2047b14 2349s13
+2080U14 Override_GMonth_Day_Facets[93] 2047b14 2356s13
+2082U14 Override_GMonth_Facets[93] 2047b14 2363s13
+2083U14 Override_GYear_Facets[93] 2047b14 2379s13
+2084U14 Override_GYear_Month_Facets[93] 2047b14 2370s13
+2154V16 Compile_Regexp{45|73P9} 2154>32 2156b16 2172l11 2172t25 2218s30 2227s51
+. 2236s24
+2154p32 Str{37|41P9} 2156b32 2157r60 2170r23
+2157a10 Convert{string} 2160r52 2163r47 2170r54
+2174p7 Val{37|41P9} 2178m10 2179r18 2181r21 2183r21 2188r35 2196m10 2217r30
+. 2218r46 2227r35 2227r67 2233r40
+2175p7 Tmp{45|79P9} 2209m19 2211r48 2211r61 2212r35 2212r49 2213m35 2213r35
+2229i23 P{integer} 2230r38 2232r52 2234r54 2235r38 2236r56
+2242r18 E{4|53R9} 2243r65
+2419i16 Idx{natural} 2423r22 2424r28 2425m39 2425r39
+2420i16 First{natural} 2424m19 2430r27
+2421m16 C{84|114M9} 2425m44 2427r38
+2443m16 C{84|114M9} 2454m44 2455r49 2479m44 2482r38
+2444i16 Idx{natural} 2453r28 2454m39 2454r39 2457r22 2469m16 2477r22 2478r26
+. 2479m39 2479r39 2490r54 2491r36 2492r49
+2444i21 Idx_Output{natural} 2470m16 2484r30 2485r39 2486m25 2486r39 2490r27
+. 2490r41 2492m22 2492r36 2493r36
+2445i16 First{natural} 2453m19 2463r19 2464r44 2465r26 2466r34
+2446i16 Tmp{natural} 2478m19 2490r60 2491r29 2492r55
+2447i16 Last_Space{natural} 2485m25 2493m22 2500r24
+2448b16 Prev_Is_Whitespace{boolean} 2483r29 2487m25 2494m22
+2510r7 Result{45|105R9} 2513m10 2515r13 2520r14
+2514i14 P{integer} 2515r29 2516r42 2517r63
+2530i14 A{integer} 2531r34
+2551U17 Unchecked_Free[19|20] 2556s10
+2570p7 Val{37|41P9} 2575r46 2581r40
+X 47 system.ads
+67M9*Address
+X 58 s-memory.ads
+53V13*Alloc{47|67M9} 103i<c,__gnat_malloc>22
+68U14*Free 104i<c,__gnat_free>22
+76V13*Realloc{47|67M9} 105i<c,__gnat_realloc>22
+X 62 s-regpat.ads
+271X4*Expression_Error 46|2165r28
+338i7*First{natural} 46|919r28
+339i7*Last{natural} 46|920r35
+342A9*Match_Array(337R9)<integer> 46|804r17
+383R9*Pattern_Matcher 45|73r54 46|41r7 542r51 2163r21 2517r31 62|644e14
+389V13*Compile{383R9} 46|543s41 2163s38
+574U14*Match 46|918s13
+X 67 s-stalib.adb
+89U14 Break_Start 90i<c,__gnat_break_start>22
+X 84 unicode.ads
+111K9*Unicode 45|34r6 34r31 53r16 247r23 263r23 306r27 46|31w6 31r37 32r6
+. 32r37 47r23 63r23 136r17 143r19 192r23 246r15 248r15 260r17 269r23 274r23
+. 279r23 284r23 289r23 294r23 298r23 302r23 307r23 311r23 315r23 320r23 324r23
+. 328r23 332r23 336r23 340r23 344r23 348r23 352r23 356r23 360r23 364r23 674r23
+. 797r23 1030r15 1040r15 1065r23 1081r23 1100r23 1116r23 1132r23 1151r23
+. 1166r23 1182r23 1197r17 1215r23 1239r23 1262r23 1280r17 1284r18 1286r18
+. 1298r23 1425r23 1464r23 1544r23 1563r23 1583r23 1603r23 1623r23 1643r23
+. 1663r23 1683r23 1703r23 1723r23 1743r23 1769r16 2409r27 2567r19 84|157e12
+114M9*Unicode_Char 46|803r15 1043r11 1289r19 1360r15 1780r19 2421r24 2443r26
+121V13*Is_White_Space{boolean} 46|1376s24 1408s17 2427s22 2455s33 2482s22
+X 87 unicode-ces.ads
+35K17*CES 45|34w14 34r39 53r24 247r31 263r31 306r35 46|47r31 63r31 136r25
+. 143r27 192r31 246r23 248r23 260r25 269r31 274r31 279r31 284r31 289r31 294r31
+. 298r31 302r31 307r31 311r31 315r31 320r31 324r31 328r31 332r31 336r31 340r31
+. 344r31 348r31 352r31 356r31 360r31 364r31 674r31 797r31 1030r23 1040r23
+. 1065r31 1081r31 1100r31 1116r31 1132r31 1151r31 1166r31 1182r31 1197r25
+. 1215r31 1239r31 1262r31 1280r25 1284r26 1286r26 1425r31 1464r31 1544r31
+. 1563r31 1583r31 1603r31 1623r31 1643r31 1663r31 1683r31 1703r31 1723r31
+. 1743r31 1769r24 2409r35 2567r27 87|171e16
+41A12*Byte_Sequence{string}<integer> 45|53r28 219r27 247r35 263r35 306r39
+. 46|44r38 47r35 55r39 58r44 63r35 75r39 90r39 119r39 127r17 136r29 143r31
+. 156r17 192r35 246r27 248r27 252r31 260r29 269r35 274r35 279r35 284r35 289r35
+. 294r35 298r35 302r35 307r35 311r35 315r35 320r35 324r35 328r35 332r35 336r35
+. 340r35 344r35 348r35 352r35 356r35 360r35 364r35 377r17 674r35 721r29 797r35
+. 806r43 807r43 1030r27 1040r27 1065r35 1081r35 1100r35 1116r35 1132r35 1151r35
+. 1166r35 1182r35 1197r29 1215r35 1239r35 1262r35 1280r29 1284r30 1286r30
+. 1354r17 1425r35 1444r31 1464r35 1544r35 1563r35 1583r35 1603r35 1623r35
+. 1643r35 1663r35 1683r35 1703r35 1723r35 1743r35 1769r28 2409r39 2567r31
+43P9*Cst_Byte_Sequence_Access(41A12)
+111P9*Read_Function
+136P9*Length_Function(integer)
+141p7*Read{111P9} 46|908r22 1047r33 1297r22 1300r25 1375r19 1382r22 1407r19
+. 1782r19 2425r28 2454r28 2479r28
+144p7*Length{136P9} 46|1032r37 1200r19 1241r19
+X 90 unicode-names.ads
+6K17*Names 46|32r14 32r45 1298r31 90|8e18
+X 91 unicode-names-basic_latin.ads
+4K23*Basic_Latin 46|32w20 32r51 1298r37 91|210e30
+112m4*Space{84|114M9} 46|1298r49
+129m4*Digit_Zero{84|114M9} 46|1379r14
+130m4*Digit_One{84|114M9} 46|1379r32 1380r21
+

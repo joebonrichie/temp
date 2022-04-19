@@ -1,0 +1,211 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GNATColl Core Components &#8212; GNATColl 2021 documentation</title>
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="1. Introduction to the GNAT Component Collection" href="intro.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="intro.html" title="1. Introduction to the GNAT Component Collection"
+             accesskey="N">next</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">GNATColl 2021 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">GNATColl Core Components</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="gnatcoll-core-components">
+<h1>GNATColl Core Components<a class="headerlink" href="#gnatcoll-core-components" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">1. Introduction to the GNAT Component Collection</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="intro.html#bug-reports">1.1. Bug reports</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="building.html">2. Building GNATColl</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="building.html#configuring-the-build-environment">2.1. Configuring the build environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="building.html#id3">2.2. Building GNATColl</a></li>
+<li class="toctree-l2"><a class="reference internal" href="building.html#installing-gnatcoll">2.3. Installing GNATColl</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="scripting.html">3. <strong>Scripts</strong>: Embedding script languages</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="scripting.html#supported-languages">3.1. Supported languages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="scripting.html#the-shell-language">3.1.1. The Shell language</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scripting.html#classes-exported-to-all-languages">3.1.2. Classes exported to all languages</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="scripting.html#scripts-api">3.2. Scripts API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="scripting.html#initializing-the-scripting-module">3.2.1. Initializing the scripting module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scripting.html#creating-interactive-consoles">3.2.2. Creating interactive consoles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scripting.html#exporting-classes-and-methods">3.2.3. Exporting classes and methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scripting.html#executing-startup-scripts">3.2.4. Executing startup scripts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scripting.html#multithreading-applications-and-scripts">3.2.5. Multithreading applications and scripts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scripting.html#id16">3.2.6. Debugging scripts</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="traces.html">4. <strong>Traces</strong>: Logging information</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="traces.html#configuring-traces">4.1. Configuring traces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traces.html#using-the-traces-module">4.2. Using the traces module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="traces.html#logging-unexpected-exceptions">4.2.1. Logging unexpected exceptions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="traces.html#checking-whether-the-handle-is-active">4.2.2. Checking whether the handle is active</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="traces.html#log-decorators">4.3. Log decorators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traces.html#defining-custom-stream-types">4.4. Defining custom stream types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traces.html#logging-to-syslog">4.5. Logging to syslog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traces.html#dynamically-disabling-features">4.6. Dynamically disabling features</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="strings.html">5. <strong>Strings</strong>: high-performance strings</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="strings.html#small-string-optimization">5.1. Small string optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="strings.html#character-types">5.2. Character types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="strings.html#configuring-the-size-of-small-strings">5.3. Configuring the size of small strings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="strings.html#task-safety">5.4. Task safety</a></li>
+<li class="toctree-l2"><a class="reference internal" href="strings.html#copy-on-write">5.5. Copy on write</a></li>
+<li class="toctree-l2"><a class="reference internal" href="strings.html#growth-strategy">5.6. Growth strategy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="strings.html#substrings">5.7. Substrings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="strings.html#api">5.8. API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="memory.html">6. <strong>Memory</strong>: Monitoring memory usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mmap.html">7. <strong>Mmap</strong>: Reading and Writing Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="boyer_moore.html">8. <strong>Boyer-Moore</strong>: Searching strings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="filling.html">9. <strong>Paragraph filling</strong>: formatting text</a></li>
+<li class="toctree-l1"><a class="reference internal" href="templates.html">10. <strong>Templates</strong>: generating text</a></li>
+<li class="toctree-l1"><a class="reference internal" href="email.html">11. <strong>Email</strong>: Processing email messages</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="email.html#message-formats">11.1. Message formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="email.html#parsing-messages">11.2. Parsing messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="email.html#parsing-mailboxes">11.3. Parsing mailboxes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="email.html#creating-messages">11.4. Creating messages</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ravenscar.html">12. <strong>Ravenscar</strong>: patterns for multitasking</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ravenscar.html#tasks">12.1. Tasks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ravenscar.html#servers">12.2. Servers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ravenscar.html#timers">12.3. Timers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="storage_pools.html">13. <strong>Storage Pools</strong>: controlling memory management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vfs.html">14. <strong>VFS</strong>: Manipulating Files</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="vfs.html#filesystems-abstraction">14.1. Filesystems abstraction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="vfs.html#file-names-encoding">14.1.1. file names encoding</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="vfs.html#remote-filesystems">14.2. Remote filesystems</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="vfs.html#filesystem-factory">14.2.1. Filesystem factory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vfs.html#transport-layer">14.2.2. Transport layer</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="vfs.html#virtual-files">14.3. Virtual files</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tribooleans.html">15. <strong>Tribooleans</strong>: Three state logic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="geometry.html">16. <strong>Geometry</strong>: primitive geometric operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="projects.html">17. <strong>Projects</strong>: manipulating gpr files</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="projects.html#defining-a-project-with-user-defined-packages-and-reading-them">17.1. Defining a project with user-defined packages and reading them</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="refcount.html">18. <strong>Refcount</strong>: Reference counting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">19. <strong>Config</strong>: Parsing configuration files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pools.html">20. <strong>Pools</strong>: Controlling access to resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="json.html">21. <strong>JSON</strong>: handling JSON data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="json.html#api-overview">21.1. API overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="json.html#examples">21.2. Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="terminals.html">22. <strong>Terminal</strong>: controlling the console</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="terminals.html#colors">22.1. Colors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="terminals.html#cursors">22.2. Cursors</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="promises.html">23. <strong>Promises</strong>: deferring work</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+</ul>
+<p>This document may be copied, in whole or in part, in any form or by any
+means, as is or with alterations, provided that (1) alterations are clearly
+marked as alterations and (2) this copyright notice is included
+unmodified in any copy.</p>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="#">
+              <img class="logo" src="_static/adacore_transparent.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="#">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">GNATColl Core Components</a></li>
+<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+</ul>
+
+  <h4>Next topic</h4>
+  <p class="topless"><a href="intro.html"
+                        title="next chapter"><span class="section-number">1. </span>Introduction to the GNAT Component Collection</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="intro.html" title="1. Introduction to the GNAT Component Collection"
+             >next</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">GNATColl 2021 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">GNATColl Core Components</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2007-2021, AdaCore.
+    </div>
+  </body>
+</html>

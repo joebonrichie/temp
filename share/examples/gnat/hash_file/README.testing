@@ -1,0 +1,28 @@
+		       G N A T   E X A M P L E S
+		       =========================
+
+
+In order to compile the examples, make sure that the 'gnatmake' command is
+in your path. 
+
+Invocation
+----------
+
+In order to build the executables provided in this example, you need to
+use the "hash_file.gpr" project file. On the command-line, do a:
+
+  $ gnatmake -Phash_file
+
+In GPS, click on "Build", then "Make" and then "hash_file" is compiled, you
+can also simply press the F4 key.
+
+Features tested
+---------------
+
+* The hash_file example shows how to compute any several secure hash
+  functions supported by the GNAT runtime library (MD5, SHA-1, and
+  SHA-2 variants with length 224, 256, 384, and 512 bits) over a file.
+
+  A single generic implementation is provided, which is instantiated
+  for each of these hash functions, producing one executable for each.
+  The name of the file to be hashed is passed on the command line.

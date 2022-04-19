@@ -1,0 +1,17 @@
+    <!-- OPTIONS -->
+
+    <action name="&prefix;_options" category="">
+        <shell>
+            Editor.edit "&example_root;/gnat/options/src/demo2.adb"
+        </shell>
+        <shell>
+            Editor.edit "&example_root;/gnat/options/README.testing"
+        </shell>
+    </action>
+
+    <submenu before="About">
+        <title>&menu;</title>
+        <menu action="&prefix;_options">
+            <title>GNAT &prefix;/Various Options</title>
+        </menu>
+    </submenu>

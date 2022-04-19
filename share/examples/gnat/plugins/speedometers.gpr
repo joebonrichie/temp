@@ -1,0 +1,10 @@
+with "base";
+project speedometers is
+   for Source_Files use ("speedometer.ads", "speedometer.adb");
+   for Object_Dir use "ospeedo";
+   for Library_Dir use "lspeedo";
+   for Library_Name use "plugin_speedo";
+   for Library_Kind use "dynamic";
+   for Library_Interface use ("speedometer");
+   package Compiler renames Base.Compiler;
+end speedometers;

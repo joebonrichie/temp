@@ -1,0 +1,24 @@
+    <!-- AMAZING -->
+
+    <action name="&prefix;_amazing" category="">
+        <shell>
+            Project.load "&example_root;/gnat/amazing/amazing.gpr"
+        </shell>
+        <shell>
+            Editor.edit "mice.adb"
+        </shell>
+        <shell>
+            Editor.edit "mouse.adb"
+        </shell>
+        <shell>
+            Editor.edit "README.testing"
+        </shell>
+    </action>
+
+    <submenu before="About">
+        <title>&menu;</title>
+        <menu action="&prefix;_amazing">
+            <title>GNAT &prefix;/Maze generation and solving</title>
+        </menu>
+    </submenu>
+

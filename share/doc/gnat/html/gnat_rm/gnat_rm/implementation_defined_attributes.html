@@ -1,0 +1,1469 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>4. Implementation Defined Attributes &#8212; GNAT Reference Manual 2021 documentation</title>
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="5. Standard and Implementation Defined Restrictions" href="standard_and_implementation_defined_restrictions.html" />
+    <link rel="prev" title="3. Implementation Defined Aspects" href="implementation_defined_aspects.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="standard_and_implementation_defined_restrictions.html" title="5. Standard and Implementation Defined Restrictions"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="implementation_defined_aspects.html" title="3. Implementation Defined Aspects"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../gnat_rm.html">GNAT Reference Manual 2021 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">4. </span>Implementation Defined Attributes</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="implementation-defined-attributes">
+<span id="id1"></span><h1><span class="section-number">4. </span>Implementation Defined Attributes<a class="headerlink" href="#implementation-defined-attributes" title="Permalink to this headline">¶</a></h1>
+<p>Ada defines (throughout the Ada reference manual,
+summarized in Annex K),
+a set of attributes that provide useful additional functionality in all
+areas of the language.  These language defined attributes are implemented
+in GNAT and work as described in the Ada Reference Manual.</p>
+<p>In addition, Ada allows implementations to define additional
+attributes whose meaning is defined by the implementation.  GNAT provides
+a number of these implementation-dependent attributes which can be used
+to extend and enhance the functionality of the compiler.  This section of
+the GNAT reference manual describes these additional attributes.  It also
+describes additional implementation-dependent features of standard
+language-defined attributes.</p>
+<p>Note that any program using these attributes may not be portable to
+other compilers (although GNAT implements this set of attributes on all
+platforms).  Therefore if portability to other compilers is an important
+consideration, you should minimize the use of these attributes.</p>
+<div class="section" id="attribute-abort-signal">
+<h2><span class="section-number">4.1. </span>Attribute Abort_Signal<a class="headerlink" href="#attribute-abort-signal" title="Permalink to this headline">¶</a></h2>
+<p id="index-0"><code class="docutils literal notranslate"><span class="pre">Standard'Abort_Signal</span></code> (<code class="docutils literal notranslate"><span class="pre">Standard</span></code> is the only allowed
+prefix) provides the entity for the special exception used to signal
+task abort or asynchronous transfer of control.  Normally this attribute
+should only be used in the tasking runtime (it is highly peculiar, and
+completely outside the normal semantics of Ada, for a user program to
+intercept the abort exception).</p>
+</div>
+<div class="section" id="attribute-address-size">
+<h2><span class="section-number">4.2. </span>Attribute Address_Size<a class="headerlink" href="#attribute-address-size" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="index-1"></span><p id="index-2"><code class="docutils literal notranslate"><span class="pre">Standard'Address_Size</span></code> (<code class="docutils literal notranslate"><span class="pre">Standard</span></code> is the only allowed
+prefix) is a static constant giving the number of bits in an
+<code class="docutils literal notranslate"><span class="pre">Address</span></code>. It is the same value as System.Address’Size,
+but has the advantage of being static, while a direct
+reference to System.Address’Size is nonstatic because Address
+is a private type.</p>
+</div>
+<div class="section" id="attribute-asm-input">
+<h2><span class="section-number">4.3. </span>Attribute Asm_Input<a class="headerlink" href="#attribute-asm-input" title="Permalink to this headline">¶</a></h2>
+<p id="index-3">The <code class="docutils literal notranslate"><span class="pre">Asm_Input</span></code> attribute denotes a function that takes two
+parameters.  The first is a string, the second is an expression of the
+type designated by the prefix.  The first (string) argument is required
+to be a static expression, and is the constraint for the parameter,
+(e.g., what kind of register is required).  The second argument is the
+value to be used as the input argument.  The possible values for the
+constant are the same as those used in the RTL, and are dependent on
+the configuration file used to built the GCC back end.
+<a class="reference internal" href="implementation_of_specific_ada_features.html#machine-code-insertions"><span class="std std-ref">Machine Code Insertions</span></a></p>
+</div>
+<div class="section" id="attribute-asm-output">
+<h2><span class="section-number">4.4. </span>Attribute Asm_Output<a class="headerlink" href="#attribute-asm-output" title="Permalink to this headline">¶</a></h2>
+<p id="index-4">The <code class="docutils literal notranslate"><span class="pre">Asm_Output</span></code> attribute denotes a function that takes two
+parameters.  The first is a string, the second is the name of a variable
+of the type designated by the attribute prefix.  The first (string)
+argument is required to be a static expression and designates the
+constraint for the parameter (e.g., what kind of register is
+required).  The second argument is the variable to be updated with the
+result.  The possible values for constraint are the same as those used in
+the RTL, and are dependent on the configuration file used to build the
+GCC back end.  If there are no output operands, then this argument may
+either be omitted, or explicitly given as <code class="docutils literal notranslate"><span class="pre">No_Output_Operands</span></code>.
+<a class="reference internal" href="implementation_of_specific_ada_features.html#machine-code-insertions"><span class="std std-ref">Machine Code Insertions</span></a></p>
+</div>
+<div class="section" id="attribute-atomic-always-lock-free">
+<h2><span class="section-number">4.5. </span>Attribute Atomic_Always_Lock_Free<a class="headerlink" href="#attribute-atomic-always-lock-free" title="Permalink to this headline">¶</a></h2>
+<p id="index-5">The prefix of the <code class="docutils literal notranslate"><span class="pre">Atomic_Always_Lock_Free</span></code> attribute is a type.
+The result is a Boolean value which is True if the type has discriminants,
+and False otherwise.  The result indicate whether atomic operations are
+supported by the target for the given type.</p>
+</div>
+<div class="section" id="attribute-bit">
+<h2><span class="section-number">4.6. </span>Attribute Bit<a class="headerlink" href="#attribute-bit" title="Permalink to this headline">¶</a></h2>
+<p id="index-6"><code class="docutils literal notranslate"><span class="pre">obj'Bit</span></code>, where <code class="docutils literal notranslate"><span class="pre">obj</span></code> is any object, yields the bit
+offset within the storage unit (byte) that contains the first bit of
+storage allocated for the object.  The value of this attribute is of the
+type <em>universal_integer</em> and is always a nonnegative number smaller
+than <code class="docutils literal notranslate"><span class="pre">System.Storage_Unit</span></code>.</p>
+<p>For an object that is a variable or a constant allocated in a register,
+the value is zero.  (The use of this attribute does not force the
+allocation of a variable to memory).</p>
+<p>For an object that is a formal parameter, this attribute applies
+to either the matching actual parameter or to a copy of the
+matching actual parameter.</p>
+<p>For an access object the value is zero.  Note that
+<code class="docutils literal notranslate"><span class="pre">obj.all'Bit</span></code> is subject to an <code class="docutils literal notranslate"><span class="pre">Access_Check</span></code> for the
+designated object.  Similarly for a record component
+<code class="docutils literal notranslate"><span class="pre">X.C'Bit</span></code> is subject to a discriminant check and
+<code class="docutils literal notranslate"><span class="pre">X(I).Bit</span></code> and <code class="docutils literal notranslate"><span class="pre">X(I1..I2)'Bit</span></code>
+are subject to index checks.</p>
+<p>This attribute is designed to be compatible with the DEC Ada 83 definition
+and implementation of the <code class="docutils literal notranslate"><span class="pre">Bit</span></code> attribute.</p>
+</div>
+<div class="section" id="attribute-bit-position">
+<h2><span class="section-number">4.7. </span>Attribute Bit_Position<a class="headerlink" href="#attribute-bit-position" title="Permalink to this headline">¶</a></h2>
+<p id="index-7"><code class="docutils literal notranslate"><span class="pre">R.C'Bit_Position</span></code>, where <code class="docutils literal notranslate"><span class="pre">R</span></code> is a record object and <code class="docutils literal notranslate"><span class="pre">C</span></code> is one
+of the fields of the record type, yields the bit
+offset within the record contains the first bit of
+storage allocated for the object.  The value of this attribute is of the
+type <em>universal_integer</em>.  The value depends only on the field
+<code class="docutils literal notranslate"><span class="pre">C</span></code> and is independent of the alignment of
+the containing record <code class="docutils literal notranslate"><span class="pre">R</span></code>.</p>
+</div>
+<div class="section" id="attribute-code-address">
+<h2><span class="section-number">4.8. </span>Attribute Code_Address<a class="headerlink" href="#attribute-code-address" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="index-8"></span><span class="target" id="index-9"></span><p id="index-10">The <code class="docutils literal notranslate"><span class="pre">'Address</span></code>
+attribute may be applied to subprograms in Ada 95 and Ada 2005, but the
+intended effect seems to be to provide
+an address value which can be used to call the subprogram by means of
+an address clause as in the following example:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="k">procedure </span><span class="nf">K</span> <span class="kr">is</span><span class="p"> </span><span class="o">...</span>
+
+<span class="k">procedure </span><span class="nf">L</span><span class="p">;</span>
+<span class="kr">for</span><span class="p"> </span><span class="n">L</span><span class="na">&#39;Address</span> <span class="kr">use</span><span class="p"> </span><span class="n">K</span><span class="na">&#39;Address</span><span class="p">;</span>
+<span class="kr">pragma</span><span class="p"> </span><span class="n">Import</span> <span class="o">(</span><span class="n">Ada</span><span class="p">,</span> <span class="n">L</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>A call to <code class="docutils literal notranslate"><span class="pre">L</span></code> is then expected to result in a call to <code class="docutils literal notranslate"><span class="pre">K</span></code>.
+In Ada 83, where there were no access-to-subprogram values, this was
+a common work-around for getting the effect of an indirect call.
+GNAT implements the above use of <code class="docutils literal notranslate"><span class="pre">Address</span></code> and the technique
+illustrated by the example code works correctly.</p>
+<p>However, for some purposes, it is useful to have the address of the start
+of the generated code for the subprogram.  On some architectures, this is
+not necessarily the same as the <code class="docutils literal notranslate"><span class="pre">Address</span></code> value described above.
+For example, the <code class="docutils literal notranslate"><span class="pre">Address</span></code> value may reference a subprogram
+descriptor rather than the subprogram itself.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">'Code_Address</span></code> attribute, which can only be applied to
+subprogram entities, always returns the address of the start of the
+generated code of the specified subprogram, which may or may not be
+the same value as is returned by the corresponding <code class="docutils literal notranslate"><span class="pre">'Address</span></code>
+attribute.</p>
+</div>
+<div class="section" id="attribute-compiler-version">
+<h2><span class="section-number">4.9. </span>Attribute Compiler_Version<a class="headerlink" href="#attribute-compiler-version" title="Permalink to this headline">¶</a></h2>
+<p id="index-11"><code class="docutils literal notranslate"><span class="pre">Standard'Compiler_Version</span></code> (<code class="docutils literal notranslate"><span class="pre">Standard</span></code> is the only allowed
+prefix) yields a static string identifying the version of the compiler
+being used to compile the unit containing the attribute reference.</p>
+</div>
+<div class="section" id="attribute-constrained">
+<h2><span class="section-number">4.10. </span>Attribute Constrained<a class="headerlink" href="#attribute-constrained" title="Permalink to this headline">¶</a></h2>
+<p id="index-12">In addition to the usage of this attribute in the Ada RM, GNAT
+also permits the use of the <code class="docutils literal notranslate"><span class="pre">'Constrained</span></code> attribute
+in a generic template
+for any type, including types without discriminants. The value of this
+attribute in the generic instance when applied to a scalar type or a
+record type without discriminants is always <code class="docutils literal notranslate"><span class="pre">True</span></code>. This usage is
+compatible with older Ada compilers, including notably DEC Ada.</p>
+</div>
+<div class="section" id="attribute-default-bit-order">
+<h2><span class="section-number">4.11. </span>Attribute Default_Bit_Order<a class="headerlink" href="#attribute-default-bit-order" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="index-13"></span><span class="target" id="index-14"></span><p id="index-15"><code class="docutils literal notranslate"><span class="pre">Standard'Default_Bit_Order</span></code> (<code class="docutils literal notranslate"><span class="pre">Standard</span></code> is the only
+allowed prefix), provides the value <code class="docutils literal notranslate"><span class="pre">System.Default_Bit_Order</span></code>
+as a <code class="docutils literal notranslate"><span class="pre">Pos</span></code> value (0 for <code class="docutils literal notranslate"><span class="pre">High_Order_First</span></code>, 1 for
+<code class="docutils literal notranslate"><span class="pre">Low_Order_First</span></code>).  This is used to construct the definition of
+<code class="docutils literal notranslate"><span class="pre">Default_Bit_Order</span></code> in package <code class="docutils literal notranslate"><span class="pre">System</span></code>.</p>
+</div>
+<div class="section" id="attribute-default-scalar-storage-order">
+<h2><span class="section-number">4.12. </span>Attribute Default_Scalar_Storage_Order<a class="headerlink" href="#attribute-default-scalar-storage-order" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="index-16"></span><span class="target" id="index-17"></span><p id="index-18"><code class="docutils literal notranslate"><span class="pre">Standard'Default_Scalar_Storage_Order</span></code> (<code class="docutils literal notranslate"><span class="pre">Standard</span></code> is the only
+allowed prefix), provides the current value of the default scalar storage
+order (as specified using pragma <code class="docutils literal notranslate"><span class="pre">Default_Scalar_Storage_Order</span></code>, or
+equal to <code class="docutils literal notranslate"><span class="pre">Default_Bit_Order</span></code> if unspecified) as a
+<code class="docutils literal notranslate"><span class="pre">System.Bit_Order</span></code> value. This is a static attribute.</p>
+</div>
+<div class="section" id="attribute-deref">
+<h2><span class="section-number">4.13. </span>Attribute Deref<a class="headerlink" href="#attribute-deref" title="Permalink to this headline">¶</a></h2>
+<p id="index-19">The attribute <code class="docutils literal notranslate"><span class="pre">typ'Deref(expr)</span></code> where <code class="docutils literal notranslate"><span class="pre">expr</span></code> is of type <code class="docutils literal notranslate"><span class="pre">System.Address</span></code> yields
+the variable of type <code class="docutils literal notranslate"><span class="pre">typ</span></code> that is located at the given address. It is similar
+to <code class="docutils literal notranslate"><span class="pre">(totyp</span> <span class="pre">(expr).all)</span></code>, where <code class="docutils literal notranslate"><span class="pre">totyp</span></code> is an unchecked conversion from address to
+a named access-to-<cite>typ</cite> type, except that it yields a variable, so it can be
+used on the left side of an assignment.</p>
+</div>
+<div class="section" id="attribute-descriptor-size">
+<h2><span class="section-number">4.14. </span>Attribute Descriptor_Size<a class="headerlink" href="#attribute-descriptor-size" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="index-20"></span><span class="target" id="index-21"></span><p id="index-22">Nonstatic attribute <code class="docutils literal notranslate"><span class="pre">Descriptor_Size</span></code> returns the size in bits of the
+descriptor allocated for a type.  The result is non-zero only for unconstrained
+array types and the returned value is of type universal integer.  In GNAT, an
+array descriptor contains bounds information and is located immediately before
+the first element of the array.</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kr">type</span><span class="p"> </span><span class="n">Unconstr_Array</span> <span class="kr">is</span><span class="p"> </span><span class="kr">array</span><span class="p"> </span><span class="o">(</span><span class="n">Short_Short_Integer</span> <span class="kr">range</span><span class="p"> </span><span class="o">&lt;&gt;)</span> <span class="kr">of</span><span class="p"> </span><span class="n">Positive</span><span class="p">;</span>
+<span class="n">Put_Line</span> <span class="o">(</span><span class="s">&quot;Descriptor size = &quot;</span> <span class="o">&amp;</span> <span class="n">Unconstr_Array</span><span class="na">&#39;Descriptor_Size&#39;Img</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The attribute takes into account any padding due to the alignment of the
+component type. In the example above, the descriptor contains two values
+of type <code class="docutils literal notranslate"><span class="pre">Short_Short_Integer</span></code> representing the low and high bound. But,
+since <code class="docutils literal notranslate"><span class="pre">Positive</span></code> has an alignment of 4, the size of the descriptor is
+<code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">*</span> <span class="pre">Short_Short_Integer'Size</span></code> rounded up to the next multiple of 32,
+which yields a size of 32 bits, i.e. including 16 bits of padding.</p>
+</div>
+<div class="section" id="attribute-elaborated">
+<h2><span class="section-number">4.15. </span>Attribute Elaborated<a class="headerlink" href="#attribute-elaborated" title="Permalink to this headline">¶</a></h2>
+<p id="index-23">The prefix of the <code class="docutils literal notranslate"><span class="pre">'Elaborated</span></code> attribute must be a unit name.  The
+value is a Boolean which indicates whether or not the given unit has been
+elaborated.  This attribute is primarily intended for internal use by the
+generated code for dynamic elaboration checking, but it can also be used
+in user programs.  The value will always be True once elaboration of all
+units has been completed.  An exception is for units which need no
+elaboration, the value is always False for such units.</p>
+</div>
+<div class="section" id="attribute-elab-body">
+<h2><span class="section-number">4.16. </span>Attribute Elab_Body<a class="headerlink" href="#attribute-elab-body" title="Permalink to this headline">¶</a></h2>
+<p id="index-24">This attribute can only be applied to a program unit name.  It returns
+the entity for the corresponding elaboration procedure for elaborating
+the body of the referenced unit.  This is used in the main generated
+elaboration procedure by the binder and is not normally used in any
+other context.  However, there may be specialized situations in which it
+is useful to be able to call this elaboration procedure from Ada code,
+e.g., if it is necessary to do selective re-elaboration to fix some
+error.</p>
+</div>
+<div class="section" id="attribute-elab-spec">
+<h2><span class="section-number">4.17. </span>Attribute Elab_Spec<a class="headerlink" href="#attribute-elab-spec" title="Permalink to this headline">¶</a></h2>
+<p id="index-25">This attribute can only be applied to a program unit name.  It returns
+the entity for the corresponding elaboration procedure for elaborating
+the spec of the referenced unit.  This is used in the main
+generated elaboration procedure by the binder and is not normally used
+in any other context.  However, there may be specialized situations in
+which it is useful to be able to call this elaboration procedure from
+Ada code, e.g., if it is necessary to do selective re-elaboration to fix
+some error.</p>
+</div>
+<div class="section" id="attribute-elab-subp-body">
+<h2><span class="section-number">4.18. </span>Attribute Elab_Subp_Body<a class="headerlink" href="#attribute-elab-subp-body" title="Permalink to this headline">¶</a></h2>
+<p id="index-26">This attribute can only be applied to a library level subprogram
+name and is only allowed in CodePeer mode. It returns the entity
+for the corresponding elaboration procedure for elaborating the body
+of the referenced subprogram unit. This is used in the main generated
+elaboration procedure by the binder in CodePeer mode only and is unrecognized
+otherwise.</p>
+</div>
+<div class="section" id="attribute-emax">
+<h2><span class="section-number">4.19. </span>Attribute Emax<a class="headerlink" href="#attribute-emax" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="index-27"></span><p id="index-28">The <code class="docutils literal notranslate"><span class="pre">Emax</span></code> attribute is provided for compatibility with Ada 83.  See
+the Ada 83 reference manual for an exact description of the semantics of
+this attribute.</p>
+</div>
+<div class="section" id="attribute-enabled">
+<h2><span class="section-number">4.20. </span>Attribute Enabled<a class="headerlink" href="#attribute-enabled" title="Permalink to this headline">¶</a></h2>
+<p id="index-29">The <code class="docutils literal notranslate"><span class="pre">Enabled</span></code> attribute allows an application program to check at compile
+time to see if the designated check is currently enabled. The prefix is a
+simple identifier, referencing any predefined check name (other than
+<code class="docutils literal notranslate"><span class="pre">All_Checks</span></code>) or a check name introduced by pragma Check_Name. If
+no argument is given for the attribute, the check is for the general state
+of the check, if an argument is given, then it is an entity name, and the
+check indicates whether an <code class="docutils literal notranslate"><span class="pre">Suppress</span></code> or <code class="docutils literal notranslate"><span class="pre">Unsuppress</span></code> has been
+given naming the entity (if not, then the argument is ignored).</p>
+<p>Note that instantiations inherit the check status at the point of the
+instantiation, so a useful idiom is to have a library package that
+introduces a check name with <code class="docutils literal notranslate"><span class="pre">pragma</span> <span class="pre">Check_Name</span></code>, and then contains
+generic packages or subprograms which use the <code class="docutils literal notranslate"><span class="pre">Enabled</span></code> attribute
+to see if the check is enabled. A user of this package can then issue
+a <code class="docutils literal notranslate"><span class="pre">pragma</span> <span class="pre">Suppress</span></code> or <code class="docutils literal notranslate"><span class="pre">pragma</span> <span class="pre">Unsuppress</span></code> before instantiating
+the package or subprogram, controlling whether the check will be present.</p>
+</div>
+<div class="section" id="attribute-enum-rep">
+<h2><span class="section-number">4.21. </span>Attribute Enum_Rep<a class="headerlink" href="#attribute-enum-rep" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="index-30"></span><p id="index-31">Note that this attribute is now standard in Ada 202x and is available
+as an implementation defined attribute for earlier Ada versions.</p>
+<p>For every enumeration subtype <code class="docutils literal notranslate"><span class="pre">S</span></code>, <code class="docutils literal notranslate"><span class="pre">S'Enum_Rep</span></code> denotes a
+function with the following spec:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="k">function </span><span class="nf">S</span><span class="na">&#39;Enum_Rep</span> <span class="o">(</span><span class="n">Arg</span> <span class="o">:</span> <span class="n">S</span><span class="na">&#39;Base</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="o">&lt;</span><span class="n">Universal_Integer</span><span class="o">&gt;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>It is also allowable to apply <code class="docutils literal notranslate"><span class="pre">Enum_Rep</span></code> directly to an object of an
+enumeration type or to a non-overloaded enumeration
+literal.  In this case <code class="docutils literal notranslate"><span class="pre">S'Enum_Rep</span></code> is equivalent to
+<code class="docutils literal notranslate"><span class="pre">typ'Enum_Rep(S)</span></code> where <code class="docutils literal notranslate"><span class="pre">typ</span></code> is the type of the
+enumeration literal or object.</p>
+<p>The function returns the representation value for the given enumeration
+value.  This will be equal to value of the <code class="docutils literal notranslate"><span class="pre">Pos</span></code> attribute in the
+absence of an enumeration representation clause.  This is a static
+attribute (i.e., the result is static if the argument is static).</p>
+<p><code class="docutils literal notranslate"><span class="pre">S'Enum_Rep</span></code> can also be used with integer types and objects,
+in which case it simply returns the integer value.  The reason for this
+is to allow it to be used for <code class="docutils literal notranslate"><span class="pre">(&lt;&gt;)</span></code> discrete formal arguments in
+a generic unit that can be instantiated with either enumeration types
+or integer types.  Note that if <code class="docutils literal notranslate"><span class="pre">Enum_Rep</span></code> is used on a modular
+type whose upper bound exceeds the upper bound of the largest signed
+integer type, and the argument is a variable, so that the universal
+integer calculation is done at run time, then the call to <code class="docutils literal notranslate"><span class="pre">Enum_Rep</span></code>
+may raise <code class="docutils literal notranslate"><span class="pre">Constraint_Error</span></code>.</p>
+</div>
+<div class="section" id="attribute-enum-val">
+<h2><span class="section-number">4.22. </span>Attribute Enum_Val<a class="headerlink" href="#attribute-enum-val" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="index-32"></span><p id="index-33">Note that this attribute is now standard in Ada 202x and is available
+as an implementation defined attribute for earlier Ada versions.</p>
+<p>For every enumeration subtype <code class="docutils literal notranslate"><span class="pre">S</span></code>, <code class="docutils literal notranslate"><span class="pre">S'Enum_Val</span></code> denotes a
+function with the following spec:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="k">function </span><span class="nf">S</span><span class="na">&#39;Enum_Val</span> <span class="o">(</span><span class="n">Arg</span> <span class="o">:</span> <span class="o">&lt;</span><span class="n">Universal_Integer</span><span class="o">&gt;)</span> <span class="kr">return</span><span class="p"> </span><span class="n">S</span><span class="na">&#39;Base</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The function returns the enumeration value whose representation matches the
+argument, or raises Constraint_Error if no enumeration literal of the type
+has the matching value.
+This will be equal to value of the <code class="docutils literal notranslate"><span class="pre">Val</span></code> attribute in the
+absence of an enumeration representation clause.  This is a static
+attribute (i.e., the result is static if the argument is static).</p>
+</div>
+<div class="section" id="attribute-epsilon">
+<h2><span class="section-number">4.23. </span>Attribute Epsilon<a class="headerlink" href="#attribute-epsilon" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="index-34"></span><p id="index-35">The <code class="docutils literal notranslate"><span class="pre">Epsilon</span></code> attribute is provided for compatibility with Ada 83.  See
+the Ada 83 reference manual for an exact description of the semantics of
+this attribute.</p>
+</div>
+<div class="section" id="attribute-fast-math">
+<h2><span class="section-number">4.24. </span>Attribute Fast_Math<a class="headerlink" href="#attribute-fast-math" title="Permalink to this headline">¶</a></h2>
+<p id="index-36"><code class="docutils literal notranslate"><span class="pre">Standard'Fast_Math</span></code> (<code class="docutils literal notranslate"><span class="pre">Standard</span></code> is the only allowed
+prefix) yields a static Boolean value that is True if pragma
+<code class="docutils literal notranslate"><span class="pre">Fast_Math</span></code> is active, and False otherwise.</p>
+</div>
+<div class="section" id="attribute-finalization-size">
+<h2><span class="section-number">4.25. </span>Attribute Finalization_Size<a class="headerlink" href="#attribute-finalization-size" title="Permalink to this headline">¶</a></h2>
+<p id="index-37">The prefix of attribute <code class="docutils literal notranslate"><span class="pre">Finalization_Size</span></code> must be an object or
+a non-class-wide type. This attribute returns the size of any hidden data
+reserved by the compiler to handle finalization-related actions. The type of
+the attribute is <em>universal_integer</em>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Finalization_Size</span></code> yields a value of zero for a type with no controlled
+parts, an object whose type has no controlled parts, or an object of a
+class-wide type whose tag denotes a type with no controlled parts.</p>
+<p>Note that only heap-allocated objects contain finalization data.</p>
+</div>
+<div class="section" id="attribute-fixed-value">
+<h2><span class="section-number">4.26. </span>Attribute Fixed_Value<a class="headerlink" href="#attribute-fixed-value" title="Permalink to this headline">¶</a></h2>
+<p id="index-38">For every fixed-point type <code class="docutils literal notranslate"><span class="pre">S</span></code>, <code class="docutils literal notranslate"><span class="pre">S'Fixed_Value</span></code> denotes a
+function with the following specification:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="k">function </span><span class="nf">S</span><span class="na">&#39;Fixed_Value</span> <span class="o">(</span><span class="n">Arg</span> <span class="o">:</span> <span class="o">&lt;</span><span class="n">Universal_Integer</span><span class="o">&gt;)</span> <span class="kr">return</span><span class="p"> </span><span class="n">S</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The value returned is the fixed-point value <code class="docutils literal notranslate"><span class="pre">V</span></code> such that:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">V</span> <span class="o">=</span> <span class="n">Arg</span> <span class="o">*</span> <span class="n">S</span><span class="s1">&#39;Small</span>
+</pre></div>
+</div>
+<p>The effect is thus similar to first converting the argument to the
+integer type used to represent <code class="docutils literal notranslate"><span class="pre">S</span></code>, and then doing an unchecked
+conversion to the fixed-point type.  The difference is
+that there are full range checks, to ensure that the result is in range.
+This attribute is primarily intended for use in implementation of the
+input-output functions for fixed-point values.</p>
+</div>
+<div class="section" id="attribute-from-any">
+<h2><span class="section-number">4.27. </span>Attribute From_Any<a class="headerlink" href="#attribute-from-any" title="Permalink to this headline">¶</a></h2>
+<p id="index-39">This internal attribute is used for the generation of remote subprogram
+stubs in the context of the Distributed Systems Annex.</p>
+</div>
+<div class="section" id="attribute-has-access-values">
+<h2><span class="section-number">4.28. </span>Attribute Has_Access_Values<a class="headerlink" href="#attribute-has-access-values" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="index-40"></span><p id="index-41">The prefix of the <code class="docutils literal notranslate"><span class="pre">Has_Access_Values</span></code> attribute is a type.  The result
+is a Boolean value which is True if the is an access type, or is a composite
+type with a component (at any nesting depth) that is an access type, and is
+False otherwise.
+The intended use of this attribute is in conjunction with generic
+definitions.  If the attribute is applied to a generic private type, it
+indicates whether or not the corresponding actual type has access values.</p>
+</div>
+<div class="section" id="attribute-has-discriminants">
+<h2><span class="section-number">4.29. </span>Attribute Has_Discriminants<a class="headerlink" href="#attribute-has-discriminants" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="index-42"></span><p id="index-43">The prefix of the <code class="docutils literal notranslate"><span class="pre">Has_Discriminants</span></code> attribute is a type.  The result
+is a Boolean value which is True if the type has discriminants, and False
+otherwise.  The intended use of this attribute is in conjunction with generic
+definitions.  If the attribute is applied to a generic private type, it
+indicates whether or not the corresponding actual type has discriminants.</p>
+</div>
+<div class="section" id="attribute-has-tagged-values">
+<h2><span class="section-number">4.30. </span>Attribute Has_Tagged_Values<a class="headerlink" href="#attribute-has-tagged-values" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="index-44"></span><p id="index-45">The prefix of the <code class="docutils literal notranslate"><span class="pre">Has_Tagged_Values</span></code> attribute is a type. The result is a
+Boolean value which is True if the type is a composite type (array or record)
+that is either a tagged type or has a subcomponent that is tagged, and is False
+otherwise. The intended use of this attribute is in conjunction with generic
+definitions. If the attribute is applied to a generic private type, it
+indicates whether or not the corresponding actual type has access values.</p>
+</div>
+<div class="section" id="attribute-img">
+<h2><span class="section-number">4.31. </span>Attribute Img<a class="headerlink" href="#attribute-img" title="Permalink to this headline">¶</a></h2>
+<p id="index-46">The <code class="docutils literal notranslate"><span class="pre">Img</span></code> attribute differs from <code class="docutils literal notranslate"><span class="pre">Image</span></code> in that, while both can be
+applied directly to an object, <code class="docutils literal notranslate"><span class="pre">Img</span></code> cannot be applied to types.</p>
+<p>Example usage of the attribute:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="n">Put_Line</span> <span class="o">(</span><span class="s">&quot;X = &quot;</span> <span class="o">&amp;</span> <span class="n">X</span><span class="na">&#39;Img</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>which has the same meaning as the more verbose:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="n">Put_Line</span> <span class="o">(</span><span class="s">&quot;X = &quot;</span> <span class="o">&amp;</span> <span class="n">T</span><span class="na">&#39;Image</span> <span class="o">(</span><span class="n">X</span><span class="o">))</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">T</span></code> is the (sub)type of the object <code class="docutils literal notranslate"><span class="pre">X</span></code>.</p>
+<p>Note that technically, in analogy to <code class="docutils literal notranslate"><span class="pre">Image</span></code>,
+<code class="docutils literal notranslate"><span class="pre">X'Img</span></code> returns a parameterless function
+that returns the appropriate string when called. This means that
+<code class="docutils literal notranslate"><span class="pre">X'Img</span></code> can be renamed as a function-returning-string, or used
+in an instantiation as a function parameter.</p>
+</div>
+<div class="section" id="attribute-initialized">
+<h2><span class="section-number">4.32. </span>Attribute Initialized<a class="headerlink" href="#attribute-initialized" title="Permalink to this headline">¶</a></h2>
+<p id="index-47">For the syntax and semantics of this attribute, see the SPARK 2014 Reference
+Manual, section 6.10.</p>
+</div>
+<div class="section" id="attribute-integer-value">
+<h2><span class="section-number">4.33. </span>Attribute Integer_Value<a class="headerlink" href="#attribute-integer-value" title="Permalink to this headline">¶</a></h2>
+<p id="index-48">For every integer type <code class="docutils literal notranslate"><span class="pre">S</span></code>, <code class="docutils literal notranslate"><span class="pre">S'Integer_Value</span></code> denotes a
+function with the following spec:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="k">function </span><span class="nf">S</span><span class="na">&#39;Integer_Value</span> <span class="o">(</span><span class="n">Arg</span> <span class="o">:</span> <span class="o">&lt;</span><span class="n">Universal_Fixed</span><span class="o">&gt;)</span> <span class="kr">return</span><span class="p"> </span><span class="n">S</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The value returned is the integer value <code class="docutils literal notranslate"><span class="pre">V</span></code>, such that:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Arg</span> <span class="o">=</span> <span class="n">V</span> <span class="o">*</span> <span class="n">T</span><span class="s1">&#39;Small</span>
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">T</span></code> is the type of <code class="docutils literal notranslate"><span class="pre">Arg</span></code>.
+The effect is thus similar to first doing an unchecked conversion from
+the fixed-point type to its corresponding implementation type, and then
+converting the result to the target integer type.  The difference is
+that there are full range checks, to ensure that the result is in range.
+This attribute is primarily intended for use in implementation of the
+standard input-output functions for fixed-point values.</p>
+</div>
+<div class="section" id="attribute-invalid-value">
+<h2><span class="section-number">4.34. </span>Attribute Invalid_Value<a class="headerlink" href="#attribute-invalid-value" title="Permalink to this headline">¶</a></h2>
+<p id="index-49">For every scalar type S, S’Invalid_Value returns an undefined value of the
+type. If possible this value is an invalid representation for the type. The
+value returned is identical to the value used to initialize an otherwise
+uninitialized value of the type if pragma Initialize_Scalars is used,
+including the ability to modify the value with the binder -Sxx flag and
+relevant environment variables at run time.</p>
+</div>
+<div class="section" id="attribute-iterable">
+<h2><span class="section-number">4.35. </span>Attribute Iterable<a class="headerlink" href="#attribute-iterable" title="Permalink to this headline">¶</a></h2>
+<p id="index-50">Equivalent to Aspect Iterable.</p>
+</div>
+<div class="section" id="attribute-large">
+<h2><span class="section-number">4.36. </span>Attribute Large<a class="headerlink" href="#attribute-large" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="index-51"></span><p id="index-52">The <code class="docutils literal notranslate"><span class="pre">Large</span></code> attribute is provided for compatibility with Ada 83.  See
+the Ada 83 reference manual for an exact description of the semantics of
+this attribute.</p>
+</div>
+<div class="section" id="attribute-library-level">
+<h2><span class="section-number">4.37. </span>Attribute Library_Level<a class="headerlink" href="#attribute-library-level" title="Permalink to this headline">¶</a></h2>
+<p id="index-53"><code class="docutils literal notranslate"><span class="pre">P'Library_Level</span></code>, where P is an entity name,
+returns a Boolean value which is True if the entity is declared
+at the library level, and False otherwise. Note that within a
+generic instantition, the name of the generic unit denotes the
+instance, which means that this attribute can be used to test
+if a generic is instantiated at the library level, as shown
+in this example:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kr">generic</span><span class="p"></span>
+  <span class="o">...</span>
+<span class="k">package </span><span class="nf">Gen</span> <span class="kr">is</span><span class="p"></span>
+  <span class="kr">pragma</span><span class="p"> </span><span class="n">Compile_Time_Error</span>
+    <span class="o">(</span><span class="kr">not</span><span class="p"> </span><span class="n">Gen</span><span class="o">&#39;</span><span class="n">Library_Level</span><span class="p">,</span>
+     <span class="s">&quot;Gen can only be instantiated at library level&quot;</span><span class="o">)</span><span class="p">;</span>
+  <span class="o">...</span>
+<span class="k">end </span><span class="nf">Gen</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="attribute-lock-free">
+<h2><span class="section-number">4.38. </span>Attribute Lock_Free<a class="headerlink" href="#attribute-lock-free" title="Permalink to this headline">¶</a></h2>
+<p id="index-54"><code class="docutils literal notranslate"><span class="pre">P'Lock_Free</span></code>, where P is a protected object, returns True if a
+pragma <code class="docutils literal notranslate"><span class="pre">Lock_Free</span></code> applies to P.</p>
+</div>
+<div class="section" id="attribute-loop-entry">
+<h2><span class="section-number">4.39. </span>Attribute Loop_Entry<a class="headerlink" href="#attribute-loop-entry" title="Permalink to this headline">¶</a></h2>
+<p id="index-55">Syntax:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="s1">&#39;Loop_Entry [(loop_name)]</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">Loop_Entry</span></code> attribute is used to refer to the value that an
+expression had upon entry to a given loop in much the same way that the
+<code class="docutils literal notranslate"><span class="pre">Old</span></code> attribute in a subprogram postcondition can be used to refer
+to the value an expression had upon entry to the subprogram. The
+relevant loop is either identified by the given loop name, or it is the
+innermost enclosing loop when no loop name is given.</p>
+<p>A <code class="docutils literal notranslate"><span class="pre">Loop_Entry</span></code> attribute can only occur within a
+<code class="docutils literal notranslate"><span class="pre">Loop_Variant</span></code> or <code class="docutils literal notranslate"><span class="pre">Loop_Invariant</span></code> pragma. A common use of
+<code class="docutils literal notranslate"><span class="pre">Loop_Entry</span></code> is to compare the current value of objects with their
+initial value at loop entry, in a <code class="docutils literal notranslate"><span class="pre">Loop_Invariant</span></code> pragma.</p>
+<p>The effect of using <code class="docutils literal notranslate"><span class="pre">X'Loop_Entry</span></code> is the same as declaring
+a constant initialized with the initial value of <code class="docutils literal notranslate"><span class="pre">X</span></code> at loop
+entry. This copy is not performed if the loop is not entered, or if the
+corresponding pragmas are ignored or disabled.</p>
+</div>
+<div class="section" id="attribute-machine-size">
+<h2><span class="section-number">4.40. </span>Attribute Machine_Size<a class="headerlink" href="#attribute-machine-size" title="Permalink to this headline">¶</a></h2>
+<p id="index-56">This attribute is identical to the <code class="docutils literal notranslate"><span class="pre">Object_Size</span></code> attribute.  It is
+provided for compatibility with the DEC Ada 83 attribute of this name.</p>
+</div>
+<div class="section" id="attribute-mantissa">
+<h2><span class="section-number">4.41. </span>Attribute Mantissa<a class="headerlink" href="#attribute-mantissa" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="index-57"></span><p id="index-58">The <code class="docutils literal notranslate"><span class="pre">Mantissa</span></code> attribute is provided for compatibility with Ada 83.  See
+the Ada 83 reference manual for an exact description of the semantics of
+this attribute.</p>
+</div>
+<div class="section" id="attribute-maximum-alignment">
+<span id="id2"></span><h2><span class="section-number">4.42. </span>Attribute Maximum_Alignment<a class="headerlink" href="#attribute-maximum-alignment" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="index-59"></span><p id="index-60"><code class="docutils literal notranslate"><span class="pre">Standard'Maximum_Alignment</span></code> (<code class="docutils literal notranslate"><span class="pre">Standard</span></code> is the only
+allowed prefix) provides the maximum useful alignment value for the
+target.  This is a static value that can be used to specify the alignment
+for an object, guaranteeing that it is properly aligned in all
+cases.</p>
+</div>
+<div class="section" id="attribute-max-integer-size">
+<h2><span class="section-number">4.43. </span>Attribute Max_Integer_Size<a class="headerlink" href="#attribute-max-integer-size" title="Permalink to this headline">¶</a></h2>
+<p id="index-61"><code class="docutils literal notranslate"><span class="pre">Standard'Max_Integer_Size</span></code> (<code class="docutils literal notranslate"><span class="pre">Standard</span></code> is the only allowed
+prefix) provides the size of the largest supported integer type for
+the target. The result is a static constant.</p>
+</div>
+<div class="section" id="attribute-mechanism-code">
+<h2><span class="section-number">4.44. </span>Attribute Mechanism_Code<a class="headerlink" href="#attribute-mechanism-code" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="index-62"></span><span class="target" id="index-63"></span><p id="index-64"><code class="docutils literal notranslate"><span class="pre">func'Mechanism_Code</span></code> yields an integer code for the
+mechanism used for the result of function <code class="docutils literal notranslate"><span class="pre">func</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">subprog'Mechanism_Code</span> <span class="pre">(n)</span></code> yields the mechanism
+used for formal parameter number <em>n</em> (a static integer value, with 1
+meaning the first parameter) of subprogram <code class="docutils literal notranslate"><span class="pre">subprog</span></code>.  The code returned is:</p>
+<dl class="simple">
+<dt><em>1</em></dt><dd><p>by copy (value)</p>
+</dd>
+<dt><em>2</em></dt><dd><p>by reference</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="attribute-null-parameter">
+<h2><span class="section-number">4.45. </span>Attribute Null_Parameter<a class="headerlink" href="#attribute-null-parameter" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="index-65"></span><p id="index-66">A reference <code class="docutils literal notranslate"><span class="pre">T'Null_Parameter</span></code> denotes an imaginary object of
+type or subtype <code class="docutils literal notranslate"><span class="pre">T</span></code> allocated at machine address zero.  The attribute
+is allowed only as the default expression of a formal parameter, or as
+an actual expression of a subprogram call.  In either case, the
+subprogram must be imported.</p>
+<p>The identity of the object is represented by the address zero in the
+argument list, independent of the passing mechanism (explicit or
+default).</p>
+<p>This capability is needed to specify that a zero address should be
+passed for a record or other composite object passed by reference.
+There is no way of indicating this without the <code class="docutils literal notranslate"><span class="pre">Null_Parameter</span></code>
+attribute.</p>
+</div>
+<div class="section" id="attribute-object-size">
+<span id="id3"></span><h2><span class="section-number">4.46. </span>Attribute Object_Size<a class="headerlink" href="#attribute-object-size" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="index-67"></span><p id="index-68">The size of an object is not necessarily the same as the size of the type
+of an object.  This is because by default object sizes are increased to be
+a multiple of the alignment of the object.  For example,
+<code class="docutils literal notranslate"><span class="pre">Natural'Size</span></code> is
+31, but by default objects of type <code class="docutils literal notranslate"><span class="pre">Natural</span></code> will have a size of 32 bits.
+Similarly, a record containing an integer and a character:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kr">type</span><span class="p"> </span><span class="n">Rec</span> <span class="kr">is</span><span class="p"> </span><span class="kr">record</span><span class="p"></span>
+   <span class="n">I</span> <span class="o">:</span> <span class="n">Integer</span><span class="p">;</span>
+   <span class="n">C</span> <span class="o">:</span> <span class="n">Character</span><span class="p">;</span>
+<span class="k">end record</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>will have a size of 40 (that is <code class="docutils literal notranslate"><span class="pre">Rec'Size</span></code> will be 40).  The
+alignment will be 4, because of the
+integer field, and so the default size of record objects for this type
+will be 64 (8 bytes).</p>
+<p>If the alignment of the above record is specified to be 1, then the
+object size will be 40 (5 bytes). This is true by default, and also
+an object size of 40 can be explicitly specified in this case.</p>
+<p>A consequence of this capability is that different object sizes can be
+given to subtypes that would otherwise be considered in Ada to be
+statically matching.  But it makes no sense to consider such subtypes
+as statically matching.  Consequently, GNAT adds a rule
+to the static matching rules that requires object sizes to match.
+Consider this example:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span> <span class="mi">1</span><span class="o">.</span> <span class="k">procedure </span><span class="nf">BadAVConvert</span> <span class="kr">is</span><span class="p"></span>
+ <span class="mi">2</span><span class="o">.</span>    <span class="kr">type</span><span class="p"> </span><span class="n">R</span> <span class="kr">is</span><span class="p"> </span><span class="kr">new</span><span class="p"> </span><span class="n">Integer</span><span class="p">;</span>
+ <span class="mi">3</span><span class="o">.</span>    <span class="kr">subtype</span><span class="p"> </span><span class="n">R1</span> <span class="kr">is</span><span class="p"> </span><span class="n">R</span> <span class="kr">range</span><span class="p"> </span><span class="mi">1</span> <span class="o">..</span> <span class="mi">10</span><span class="p">;</span>
+ <span class="mi">4</span><span class="o">.</span>    <span class="kr">subtype</span><span class="p"> </span><span class="n">R2</span> <span class="kr">is</span><span class="p"> </span><span class="n">R</span> <span class="kr">range</span><span class="p"> </span><span class="mi">1</span> <span class="o">..</span> <span class="mi">10</span><span class="p">;</span>
+ <span class="mi">5</span><span class="o">.</span>    <span class="kr">for</span><span class="p"> </span><span class="n">R1</span><span class="na">&#39;Object_Size</span> <span class="kr">use</span><span class="p"> </span><span class="mi">8</span><span class="p">;</span>
+ <span class="mi">6</span><span class="o">.</span>    <span class="kr">for</span><span class="p"> </span><span class="n">R2</span><span class="na">&#39;Object_Size</span> <span class="kr">use</span><span class="p"> </span><span class="mi">16</span><span class="p">;</span>
+ <span class="mi">7</span><span class="o">.</span>    <span class="kr">type</span><span class="p"> </span><span class="n">R1P</span> <span class="kr">is</span><span class="p"> </span><span class="kr">access</span><span class="p"> </span><span class="kr">all</span><span class="p"> </span><span class="n">R1</span><span class="p">;</span>
+ <span class="mi">8</span><span class="o">.</span>    <span class="kr">type</span><span class="p"> </span><span class="n">R2P</span> <span class="kr">is</span><span class="p"> </span><span class="kr">access</span><span class="p"> </span><span class="kr">all</span><span class="p"> </span><span class="n">R2</span><span class="p">;</span>
+ <span class="mi">9</span><span class="o">.</span>    <span class="n">R1PV</span> <span class="o">:</span> <span class="n">R1P</span> <span class="o">:=</span> <span class="kr">new</span><span class="p"> </span><span class="n">R1</span><span class="o">&#39;(</span><span class="mi">4</span><span class="o">)</span><span class="p">;</span>
+<span class="mi">10</span><span class="o">.</span>    <span class="n">R2PV</span> <span class="o">:</span> <span class="n">R2P</span><span class="p">;</span>
+<span class="mi">11</span><span class="o">.</span> <span class="kr">begin</span><span class="p"></span>
+<span class="mi">12</span><span class="o">.</span>    <span class="n">R2PV</span> <span class="o">:=</span> <span class="n">R2P</span> <span class="o">(</span><span class="n">R1PV</span><span class="o">)</span><span class="p">;</span>
+               <span class="o">|</span>
+       <span class="o">&gt;&gt;&gt;</span> <span class="n">target</span> <span class="n">designated</span> <span class="kr">subtype</span><span class="p"> </span><span class="kr">not</span><span class="p"> </span><span class="n">compatible</span> <span class="kr">with</span><span class="p"></span>
+           <span class="kr">type</span><span class="p"> </span><span class="s">&quot;R1&quot;</span> <span class="n">defined</span> <span class="kr">at</span><span class="p"> </span><span class="n">line</span> <span class="mi">3</span>
+
+<span class="mi">13</span><span class="o">.</span> <span class="kr">end</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>In the absence of lines 5 and 6,
+types <code class="docutils literal notranslate"><span class="pre">R1</span></code> and <code class="docutils literal notranslate"><span class="pre">R2</span></code> statically match and
+hence the conversion on line 12 is legal. But since lines 5 and 6
+cause the object sizes to differ, GNAT considers that types
+<code class="docutils literal notranslate"><span class="pre">R1</span></code> and <code class="docutils literal notranslate"><span class="pre">R2</span></code> are not statically matching, and line 12
+generates the diagnostic shown above.</p>
+<p>Similar additional checks are performed in other contexts requiring
+statically matching subtypes.</p>
+</div>
+<div class="section" id="attribute-old">
+<h2><span class="section-number">4.47. </span>Attribute Old<a class="headerlink" href="#attribute-old" title="Permalink to this headline">¶</a></h2>
+<p id="index-69">In addition to the usage of <code class="docutils literal notranslate"><span class="pre">Old</span></code> defined in the Ada 2012 RM (usage
+within <code class="docutils literal notranslate"><span class="pre">Post</span></code> aspect), GNAT also permits the use of this attribute
+in implementation defined pragmas <code class="docutils literal notranslate"><span class="pre">Postcondition</span></code>,
+<code class="docutils literal notranslate"><span class="pre">Contract_Cases</span></code> and <code class="docutils literal notranslate"><span class="pre">Test_Case</span></code>. Also usages of
+<code class="docutils literal notranslate"><span class="pre">Old</span></code> which would be illegal according to the Ada 2012 RM
+definition are allowed under control of
+implementation defined pragma <code class="docutils literal notranslate"><span class="pre">Unevaluated_Use_Of_Old</span></code>.</p>
+</div>
+<div class="section" id="attribute-passed-by-reference">
+<h2><span class="section-number">4.48. </span>Attribute Passed_By_Reference<a class="headerlink" href="#attribute-passed-by-reference" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="index-70"></span><p id="index-71"><code class="docutils literal notranslate"><span class="pre">typ'Passed_By_Reference</span></code> for any subtype <cite>typ</cite> returns
+a value of type <code class="docutils literal notranslate"><span class="pre">Boolean</span></code> value that is <code class="docutils literal notranslate"><span class="pre">True</span></code> if the type is
+normally passed by reference and <code class="docutils literal notranslate"><span class="pre">False</span></code> if the type is normally
+passed by copy in calls.  For scalar types, the result is always <code class="docutils literal notranslate"><span class="pre">False</span></code>
+and is static.  For non-scalar types, the result is nonstatic.</p>
+</div>
+<div class="section" id="attribute-pool-address">
+<h2><span class="section-number">4.49. </span>Attribute Pool_Address<a class="headerlink" href="#attribute-pool-address" title="Permalink to this headline">¶</a></h2>
+<p id="index-72"><code class="docutils literal notranslate"><span class="pre">X'Pool_Address</span></code> for any object <code class="docutils literal notranslate"><span class="pre">X</span></code> returns the address
+of X within its storage pool. This is the same as
+<code class="docutils literal notranslate"><span class="pre">X'Address</span></code>, except that for an unconstrained array whose
+bounds are allocated just before the first component,
+<code class="docutils literal notranslate"><span class="pre">X'Pool_Address</span></code> returns the address of those bounds,
+whereas <code class="docutils literal notranslate"><span class="pre">X'Address</span></code> returns the address of the first
+component.</p>
+<p>Here, we are interpreting ‘storage pool’ broadly to mean
+<code class="docutils literal notranslate"><span class="pre">wherever</span> <span class="pre">the</span> <span class="pre">object</span> <span class="pre">is</span> <span class="pre">allocated</span></code>, which could be a
+user-defined storage pool,
+the global heap, on the stack, or in a static memory area.
+For an object created by <code class="docutils literal notranslate"><span class="pre">new</span></code>, <code class="docutils literal notranslate"><span class="pre">Ptr.all'Pool_Address</span></code> is
+what is passed to <code class="docutils literal notranslate"><span class="pre">Allocate</span></code> and returned from <code class="docutils literal notranslate"><span class="pre">Deallocate</span></code>.</p>
+</div>
+<div class="section" id="attribute-range-length">
+<h2><span class="section-number">4.50. </span>Attribute Range_Length<a class="headerlink" href="#attribute-range-length" title="Permalink to this headline">¶</a></h2>
+<p id="index-73"><code class="docutils literal notranslate"><span class="pre">typ'Range_Length</span></code> for any discrete type <cite>typ</cite> yields
+the number of values represented by the subtype (zero for a null
+range).  The result is static for static subtypes.  <code class="docutils literal notranslate"><span class="pre">Range_Length</span></code>
+applied to the index subtype of a one dimensional array always gives the
+same result as <code class="docutils literal notranslate"><span class="pre">Length</span></code> applied to the array itself.</p>
+</div>
+<div class="section" id="attribute-restriction-set">
+<h2><span class="section-number">4.51. </span>Attribute Restriction_Set<a class="headerlink" href="#attribute-restriction-set" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="index-74"></span><p id="index-75">This attribute allows compile time testing of restrictions that
+are currently in effect. It is primarily intended for specializing
+code in the run-time based on restrictions that are active (e.g.
+don’t need to save fpt registers if restriction No_Floating_Point
+is known to be in effect), but can be used anywhere.</p>
+<p>There are two forms:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="n">System</span><span class="o">&#39;</span><span class="n">Restriction_Set</span> <span class="o">(</span><span class="n">partition_boolean_restriction_NAME</span><span class="o">)</span>
+<span class="n">System</span><span class="o">&#39;</span><span class="n">Restriction_Set</span> <span class="o">(</span><span class="n">No_Dependence</span> <span class="o">=&gt;</span> <span class="n">library_unit_NAME</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>In the case of the first form, the only restriction names
+allowed are parameterless restrictions that are checked
+for consistency at bind time. For a complete list see the
+subtype <code class="docutils literal notranslate"><span class="pre">System.Rident.Partition_Boolean_Restrictions</span></code>.</p>
+<p>The result returned is True if the restriction is known to
+be in effect, and False if the restriction is known not to
+be in effect. An important guarantee is that the value of
+a Restriction_Set attribute is known to be consistent throughout
+all the code of a partition.</p>
+<p>This is trivially achieved if the entire partition is compiled
+with a consistent set of restriction pragmas. However, the
+compilation model does not require this. It is possible to
+compile one set of units with one set of pragmas, and another
+set of units with another set of pragmas. It is even possible
+to compile a spec with one set of pragmas, and then WITH the
+same spec with a different set of pragmas. Inconsistencies
+in the actual use of the restriction are checked at bind time.</p>
+<p>In order to achieve the guarantee of consistency for the
+Restriction_Set pragma, we consider that a use of the pragma
+that yields False is equivalent to a violation of the
+restriction.</p>
+<p>So for example if you write</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kr">if</span><span class="p"> </span><span class="n">System</span><span class="o">&#39;</span><span class="n">Restriction_Set</span> <span class="o">(</span><span class="n">No_Floating_Point</span><span class="o">)</span> <span class="kr">then</span><span class="p"></span>
+   <span class="o">...</span>
+<span class="kr">else</span><span class="p"></span>
+   <span class="o">...</span>
+<span class="k">end if</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>And the result is False, so that the else branch is executed,
+you can assume that this restriction is not set for any unit
+in the partition. This is checked by considering this use of
+the restriction pragma to be a violation of the restriction
+No_Floating_Point. This means that no other unit can attempt
+to set this restriction (if some unit does attempt to set it,
+the binder will refuse to bind the partition).</p>
+<p>Technical note: The restriction name and the unit name are
+intepreted entirely syntactically, as in the corresponding
+Restrictions pragma, they are not analyzed semantically,
+so they do not have a type.</p>
+</div>
+<div class="section" id="attribute-result">
+<h2><span class="section-number">4.52. </span>Attribute Result<a class="headerlink" href="#attribute-result" title="Permalink to this headline">¶</a></h2>
+<p id="index-76"><code class="docutils literal notranslate"><span class="pre">function'Result</span></code> can only be used with in a Postcondition pragma
+for a function. The prefix must be the name of the corresponding function. This
+is used to refer to the result of the function in the postcondition expression.
+For a further discussion of the use of this attribute and examples of its use,
+see the description of pragma Postcondition.</p>
+</div>
+<div class="section" id="attribute-safe-emax">
+<h2><span class="section-number">4.53. </span>Attribute Safe_Emax<a class="headerlink" href="#attribute-safe-emax" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="index-77"></span><p id="index-78">The <code class="docutils literal notranslate"><span class="pre">Safe_Emax</span></code> attribute is provided for compatibility with Ada 83.  See
+the Ada 83 reference manual for an exact description of the semantics of
+this attribute.</p>
+</div>
+<div class="section" id="attribute-safe-large">
+<h2><span class="section-number">4.54. </span>Attribute Safe_Large<a class="headerlink" href="#attribute-safe-large" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="index-79"></span><p id="index-80">The <code class="docutils literal notranslate"><span class="pre">Safe_Large</span></code> attribute is provided for compatibility with Ada 83.  See
+the Ada 83 reference manual for an exact description of the semantics of
+this attribute.</p>
+</div>
+<div class="section" id="attribute-safe-small">
+<h2><span class="section-number">4.55. </span>Attribute Safe_Small<a class="headerlink" href="#attribute-safe-small" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="index-81"></span><p id="index-82">The <code class="docutils literal notranslate"><span class="pre">Safe_Small</span></code> attribute is provided for compatibility with Ada 83.  See
+the Ada 83 reference manual for an exact description of the semantics of
+this attribute.</p>
+</div>
+<div class="section" id="attribute-scalar-storage-order">
+<span id="id4"></span><h2><span class="section-number">4.56. </span>Attribute Scalar_Storage_Order<a class="headerlink" href="#attribute-scalar-storage-order" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="index-83"></span><span class="target" id="index-84"></span><p id="index-85">For every array or record type <code class="docutils literal notranslate"><span class="pre">S</span></code>, the representation attribute
+<code class="docutils literal notranslate"><span class="pre">Scalar_Storage_Order</span></code> denotes the order in which storage elements
+that make up scalar components are ordered within S. The value given must
+be a static expression of type System.Bit_Order. The following is an example
+of the use of this feature:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="c">--  Component type definitions</span>
+
+<span class="kr">subtype</span><span class="p"> </span><span class="n">Yr_Type</span> <span class="kr">is</span><span class="p"> </span><span class="n">Natural</span> <span class="kr">range</span><span class="p"> </span><span class="mi">0</span> <span class="o">..</span> <span class="mi">127</span><span class="p">;</span>
+<span class="kr">subtype</span><span class="p"> </span><span class="n">Mo_Type</span> <span class="kr">is</span><span class="p"> </span><span class="n">Natural</span> <span class="kr">range</span><span class="p"> </span><span class="mi">1</span> <span class="o">..</span> <span class="mi">12</span><span class="p">;</span>
+<span class="kr">subtype</span><span class="p"> </span><span class="n">Da_Type</span> <span class="kr">is</span><span class="p"> </span><span class="n">Natural</span> <span class="kr">range</span><span class="p"> </span><span class="mi">1</span> <span class="o">..</span> <span class="mi">31</span><span class="p">;</span>
+
+<span class="c">--  Record declaration</span>
+
+<span class="kr">type</span><span class="p"> </span><span class="n">Date</span> <span class="kr">is</span><span class="p"> </span><span class="kr">record</span><span class="p"></span>
+   <span class="n">Years_Since_1980</span> <span class="o">:</span> <span class="n">Yr_Type</span><span class="p">;</span>
+   <span class="n">Month</span>            <span class="o">:</span> <span class="n">Mo_Type</span><span class="p">;</span>
+   <span class="n">Day_Of_Month</span>     <span class="o">:</span> <span class="n">Da_Type</span><span class="p">;</span>
+<span class="k">end record</span><span class="p">;</span>
+
+<span class="c">--  Record representation clause</span>
+
+<span class="kr">for</span><span class="p"> </span><span class="n">Date</span> <span class="kr">use</span><span class="p"> </span><span class="kr">record</span><span class="p"></span>
+   <span class="n">Years_Since_1980</span> <span class="kr">at</span><span class="p"> </span><span class="mi">0</span> <span class="kr">range</span><span class="p"> </span><span class="mi">0</span>  <span class="o">..</span>  <span class="mi">6</span><span class="p">;</span>
+   <span class="n">Month</span>            <span class="kr">at</span><span class="p"> </span><span class="mi">0</span> <span class="kr">range</span><span class="p"> </span><span class="mi">7</span>  <span class="o">..</span> <span class="mi">10</span><span class="p">;</span>
+   <span class="n">Day_Of_Month</span>     <span class="kr">at</span><span class="p"> </span><span class="mi">0</span> <span class="kr">range</span><span class="p"> </span><span class="mi">11</span> <span class="o">..</span> <span class="mi">15</span><span class="p">;</span>
+<span class="k">end record</span><span class="p">;</span>
+
+<span class="c">--  Attribute definition clauses</span>
+
+<span class="kr">for</span><span class="p"> </span><span class="n">Date</span><span class="na">&#39;Bit_Order</span> <span class="kr">use</span><span class="p"> </span><span class="n">System.High_Order_First</span><span class="p">;</span>
+<span class="kr">for</span><span class="p"> </span><span class="n">Date</span><span class="na">&#39;Scalar_Storage_Order</span> <span class="kr">use</span><span class="p"> </span><span class="n">System.High_Order_First</span><span class="p">;</span>
+<span class="c">--  If Scalar_Storage_Order is specified, it must be consistent with</span>
+<span class="c">--  Bit_Order, so it&#39;s best to always define the latter explicitly if</span>
+<span class="c">--  the former is used.</span>
+</pre></div>
+</div>
+<p>Other properties are as for the standard representation attribute <code class="docutils literal notranslate"><span class="pre">Bit_Order</span></code>
+defined by Ada RM 13.5.3(4). The default is <code class="docutils literal notranslate"><span class="pre">System.Default_Bit_Order</span></code>.</p>
+<p>For a record type <code class="docutils literal notranslate"><span class="pre">T</span></code>, if <code class="docutils literal notranslate"><span class="pre">T'Scalar_Storage_Order</span></code> is
+specified explicitly, it shall be equal to <code class="docutils literal notranslate"><span class="pre">T'Bit_Order</span></code>. Note:
+this means that if a <code class="docutils literal notranslate"><span class="pre">Scalar_Storage_Order</span></code> attribute definition
+clause is not confirming, then the type’s <code class="docutils literal notranslate"><span class="pre">Bit_Order</span></code> shall be
+specified explicitly and set to the same value.</p>
+<p>Derived types inherit an explicitly set scalar storage order from their parent
+types. This may be overridden for the derived type by giving an explicit scalar
+storage order for it. However, for a record extension, the derived type must
+have the same scalar storage order as the parent type.</p>
+<p>A component of a record type that is itself a record or an array and that does
+not start and end on a byte boundary must have have the same scalar storage
+order as the record type. A component of a bit-packed array type that is itself
+a record or an array must have the same scalar storage order as the array type.</p>
+<p>No component of a type that has an explicit <code class="docutils literal notranslate"><span class="pre">Scalar_Storage_Order</span></code>
+attribute definition may be aliased.</p>
+<p>A confirming <code class="docutils literal notranslate"><span class="pre">Scalar_Storage_Order</span></code> attribute definition clause (i.e.
+with a value equal to <code class="docutils literal notranslate"><span class="pre">System.Default_Bit_Order</span></code>) has no effect.</p>
+<p>If the opposite storage order is specified, then whenever the value of
+a scalar component of an object of type <code class="docutils literal notranslate"><span class="pre">S</span></code> is read, the storage
+elements of the enclosing machine scalar are first reversed (before
+retrieving the component value, possibly applying some shift and mask
+operatings on the enclosing machine scalar), and the opposite operation
+is done for writes.</p>
+<p>In that case, the restrictions set forth in 13.5.1(10.3/2) for scalar components
+are relaxed. Instead, the following rules apply:</p>
+<ul class="simple">
+<li><p>the underlying storage elements are those at positions
+<code class="docutils literal notranslate"><span class="pre">(position</span> <span class="pre">+</span> <span class="pre">first_bit</span> <span class="pre">/</span> <span class="pre">storage_element_size)</span> <span class="pre">..</span> <span class="pre">(position</span> <span class="pre">+</span> <span class="pre">(last_bit</span> <span class="pre">+</span> <span class="pre">storage_element_size</span> <span class="pre">-</span> <span class="pre">1)</span> <span class="pre">/</span> <span class="pre">storage_element_size)</span></code></p></li>
+<li><p>the sequence of underlying storage elements shall have
+a size no greater than the largest machine scalar</p></li>
+<li><p>the enclosing machine scalar is defined as the smallest machine
+scalar starting at a position no greater than
+<code class="docutils literal notranslate"><span class="pre">position</span> <span class="pre">+</span> <span class="pre">first_bit</span> <span class="pre">/</span> <span class="pre">storage_element_size</span></code> and covering
+storage elements at least up to <code class="docutils literal notranslate"><span class="pre">position</span> <span class="pre">+</span> <span class="pre">(last_bit</span> <span class="pre">+</span> <span class="pre">storage_element_size</span> <span class="pre">-</span> <span class="pre">1)</span> <span class="pre">/</span> <span class="pre">storage_element_size`</span></code></p></li>
+<li><p>the position of the component is interpreted relative to that machine
+scalar.</p></li>
+</ul>
+<p>If no scalar storage order is specified for a type (either directly, or by
+inheritance in the case of a derived type), then the default is normally
+the native ordering of the target, but this default can be overridden using
+pragma <code class="docutils literal notranslate"><span class="pre">Default_Scalar_Storage_Order</span></code>.</p>
+<p>If a component of <code class="docutils literal notranslate"><span class="pre">T</span></code> is itself of a record or array type, the specfied
+<code class="docutils literal notranslate"><span class="pre">Scalar_Storage_Order</span></code> does <em>not</em> apply to that nested type: an explicit
+attribute definition clause must be provided for the component type as well
+if desired.</p>
+<p>Note that the scalar storage order only affects the in-memory data
+representation. It has no effect on the representation used by stream
+attributes.</p>
+<p>Note that debuggers may be unable to display the correct value of scalar
+components of a type for which the opposite storage order is specified.</p>
+</div>
+<div class="section" id="attribute-simple-storage-pool">
+<span id="id5"></span><h2><span class="section-number">4.57. </span>Attribute Simple_Storage_Pool<a class="headerlink" href="#attribute-simple-storage-pool" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="index-86"></span><span class="target" id="index-87"></span><p id="index-88">For every nonformal, nonderived access-to-object type <code class="docutils literal notranslate"><span class="pre">Acc</span></code>, the
+representation attribute <code class="docutils literal notranslate"><span class="pre">Simple_Storage_Pool</span></code> may be specified
+via an attribute_definition_clause (or by specifying the equivalent aspect):</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="n">My_Pool</span> <span class="o">:</span> <span class="n">My_Simple_Storage_Pool_Type</span><span class="p">;</span>
+
+<span class="kr">type</span><span class="p"> </span><span class="n">Acc</span> <span class="kr">is</span><span class="p"> </span><span class="kr">access</span><span class="p"> </span><span class="n">My_Data_Type</span><span class="p">;</span>
+
+<span class="kr">for</span><span class="p"> </span><span class="n">Acc</span><span class="na">&#39;Simple_Storage_Pool</span> <span class="kr">use</span><span class="p"> </span><span class="n">My_Pool</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The name given in an attribute_definition_clause for the
+<code class="docutils literal notranslate"><span class="pre">Simple_Storage_Pool</span></code> attribute shall denote a variable of
+a ‘simple storage pool type’ (see pragma <cite>Simple_Storage_Pool_Type</cite>).</p>
+<p>The use of this attribute is only allowed for a prefix denoting a type
+for which it has been specified. The type of the attribute is the type
+of the variable specified as the simple storage pool of the access type,
+and the attribute denotes that variable.</p>
+<p>It is illegal to specify both <code class="docutils literal notranslate"><span class="pre">Storage_Pool</span></code> and <code class="docutils literal notranslate"><span class="pre">Simple_Storage_Pool</span></code>
+for the same access type.</p>
+<p>If the <code class="docutils literal notranslate"><span class="pre">Simple_Storage_Pool</span></code> attribute has been specified for an access
+type, then applying the <code class="docutils literal notranslate"><span class="pre">Storage_Pool</span></code> attribute to the type is flagged
+with a warning and its evaluation raises the exception <code class="docutils literal notranslate"><span class="pre">Program_Error</span></code>.</p>
+<p>If the Simple_Storage_Pool attribute has been specified for an access
+type <code class="docutils literal notranslate"><span class="pre">S</span></code>, then the evaluation of the attribute <code class="docutils literal notranslate"><span class="pre">S'Storage_Size</span></code>
+returns the result of calling <code class="docutils literal notranslate"><span class="pre">Storage_Size</span> <span class="pre">(S'Simple_Storage_Pool)</span></code>,
+which is intended to indicate the number of storage elements reserved for
+the simple storage pool. If the Storage_Size function has not been defined
+for the simple storage pool type, then this attribute returns zero.</p>
+<p>If an access type <code class="docutils literal notranslate"><span class="pre">S</span></code> has a specified simple storage pool of type
+<code class="docutils literal notranslate"><span class="pre">SSP</span></code>, then the evaluation of an allocator for that access type calls
+the primitive <code class="docutils literal notranslate"><span class="pre">Allocate</span></code> procedure for type <code class="docutils literal notranslate"><span class="pre">SSP</span></code>, passing
+<code class="docutils literal notranslate"><span class="pre">S'Simple_Storage_Pool</span></code> as the pool parameter. The detailed
+semantics of such allocators is the same as those defined for allocators
+in section 13.11 of the <cite>Ada Reference Manual</cite>, with the term
+<em>simple storage pool</em> substituted for <em>storage pool</em>.</p>
+<p>If an access type <code class="docutils literal notranslate"><span class="pre">S</span></code> has a specified simple storage pool of type
+<code class="docutils literal notranslate"><span class="pre">SSP</span></code>, then a call to an instance of the <code class="docutils literal notranslate"><span class="pre">Ada.Unchecked_Deallocation</span></code>
+for that access type invokes the primitive <code class="docutils literal notranslate"><span class="pre">Deallocate</span></code> procedure
+for type <code class="docutils literal notranslate"><span class="pre">SSP</span></code>, passing <code class="docutils literal notranslate"><span class="pre">S'Simple_Storage_Pool</span></code> as the pool
+parameter. The detailed semantics of such unchecked deallocations is the same
+as defined in section 13.11.2 of the Ada Reference Manual, except that the
+term <em>simple storage pool</em> is substituted for <em>storage pool</em>.</p>
+</div>
+<div class="section" id="attribute-small">
+<h2><span class="section-number">4.58. </span>Attribute Small<a class="headerlink" href="#attribute-small" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="index-89"></span><p id="index-90">The <code class="docutils literal notranslate"><span class="pre">Small</span></code> attribute is defined in Ada 95 (and Ada 2005) only for
+fixed-point types.
+GNAT also allows this attribute to be applied to floating-point types
+for compatibility with Ada 83.  See
+the Ada 83 reference manual for an exact description of the semantics of
+this attribute when applied to floating-point types.</p>
+</div>
+<div class="section" id="attribute-small-denominator">
+<h2><span class="section-number">4.59. </span>Attribute Small_Denominator<a class="headerlink" href="#attribute-small-denominator" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="index-91"></span><p id="index-92"><code class="docutils literal notranslate"><span class="pre">typ'Small_Denominator</span></code> for any fixed-point subtype <cite>typ</cite> yields the
+denominator in the representation of <code class="docutils literal notranslate"><span class="pre">typ'Small</span></code> as a rational number
+with coprime factors (i.e. as an irreducible fraction).</p>
+</div>
+<div class="section" id="attribute-small-numerator">
+<h2><span class="section-number">4.60. </span>Attribute Small_Numerator<a class="headerlink" href="#attribute-small-numerator" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="index-93"></span><p id="index-94"><code class="docutils literal notranslate"><span class="pre">typ'Small_Numerator</span></code> for any fixed-point subtype <cite>typ</cite> yields the
+numerator in the representation of <code class="docutils literal notranslate"><span class="pre">typ'Small</span></code> as a rational number
+with coprime factors (i.e. as an irreducible fraction).</p>
+</div>
+<div class="section" id="attribute-storage-unit">
+<h2><span class="section-number">4.61. </span>Attribute Storage_Unit<a class="headerlink" href="#attribute-storage-unit" title="Permalink to this headline">¶</a></h2>
+<p id="index-95"><code class="docutils literal notranslate"><span class="pre">Standard'Storage_Unit</span></code> (<code class="docutils literal notranslate"><span class="pre">Standard</span></code> is the only allowed
+prefix) provides the same value as <code class="docutils literal notranslate"><span class="pre">System.Storage_Unit</span></code>.</p>
+</div>
+<div class="section" id="attribute-stub-type">
+<h2><span class="section-number">4.62. </span>Attribute Stub_Type<a class="headerlink" href="#attribute-stub-type" title="Permalink to this headline">¶</a></h2>
+<p id="index-96">The GNAT implementation of remote access-to-classwide types is
+organized as described in AARM section E.4 (20.t): a value of an RACW type
+(designating a remote object) is represented as a normal access
+value, pointing to a “stub” object which in turn contains the
+necessary information to contact the designated remote object. A
+call on any dispatching operation of such a stub object does the
+remote call, if necessary, using the information in the stub object
+to locate the target partition, etc.</p>
+<p>For a prefix <code class="docutils literal notranslate"><span class="pre">T</span></code> that denotes a remote access-to-classwide type,
+<code class="docutils literal notranslate"><span class="pre">T'Stub_Type</span></code> denotes the type of the corresponding stub objects.</p>
+<p>By construction, the layout of <code class="docutils literal notranslate"><span class="pre">T'Stub_Type</span></code> is identical to that of
+type <code class="docutils literal notranslate"><span class="pre">RACW_Stub_Type</span></code> declared in the internal implementation-defined
+unit <code class="docutils literal notranslate"><span class="pre">System.Partition_Interface</span></code>. Use of this attribute will create
+an implicit dependency on this unit.</p>
+</div>
+<div class="section" id="attribute-system-allocator-alignment">
+<h2><span class="section-number">4.63. </span>Attribute System_Allocator_Alignment<a class="headerlink" href="#attribute-system-allocator-alignment" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="index-97"></span><p id="index-98"><code class="docutils literal notranslate"><span class="pre">Standard'System_Allocator_Alignment</span></code> (<code class="docutils literal notranslate"><span class="pre">Standard</span></code> is the only
+allowed prefix) provides the observable guaranted to be honored by
+the system allocator (malloc). This is a static value that can be used
+in user storage pools based on malloc either to reject allocation
+with alignment too large or to enable a realignment circuitry if the
+alignment request is larger than this value.</p>
+</div>
+<div class="section" id="attribute-target-name">
+<h2><span class="section-number">4.64. </span>Attribute Target_Name<a class="headerlink" href="#attribute-target-name" title="Permalink to this headline">¶</a></h2>
+<p id="index-99"><code class="docutils literal notranslate"><span class="pre">Standard'Target_Name</span></code> (<code class="docutils literal notranslate"><span class="pre">Standard</span></code> is the only allowed
+prefix) provides a static string value that identifies the target
+for the current compilation. For GCC implementations, this is the
+standard gcc target name without the terminating slash (for
+example, GNAT 5.0 on windows yields “i586-pc-mingw32msv”).</p>
+</div>
+<div class="section" id="attribute-to-address">
+<h2><span class="section-number">4.65. </span>Attribute To_Address<a class="headerlink" href="#attribute-to-address" title="Permalink to this headline">¶</a></h2>
+<p id="index-100">The <code class="docutils literal notranslate"><span class="pre">System'To_Address</span></code>
+(<code class="docutils literal notranslate"><span class="pre">System</span></code> is the only allowed prefix)
+denotes a function identical to
+<code class="docutils literal notranslate"><span class="pre">System.Storage_Elements.To_Address</span></code> except that
+it is a static attribute.  This means that if its argument is
+a static expression, then the result of the attribute is a
+static expression.  This means that such an expression can be
+used in contexts (e.g., preelaborable packages) which require a
+static expression and where the function call could not be used
+(since the function call is always nonstatic, even if its
+argument is static). The argument must be in the range
+-(2**(m-1)) .. 2**m-1, where m is the memory size
+(typically 32 or 64). Negative values are intepreted in a
+modular manner (e.g., -1 means the same as 16#FFFF_FFFF# on
+a 32 bits machine).</p>
+</div>
+<div class="section" id="attribute-to-any">
+<h2><span class="section-number">4.66. </span>Attribute To_Any<a class="headerlink" href="#attribute-to-any" title="Permalink to this headline">¶</a></h2>
+<p id="index-101">This internal attribute is used for the generation of remote subprogram
+stubs in the context of the Distributed Systems Annex.</p>
+</div>
+<div class="section" id="attribute-type-class">
+<h2><span class="section-number">4.67. </span>Attribute Type_Class<a class="headerlink" href="#attribute-type-class" title="Permalink to this headline">¶</a></h2>
+<p id="index-102"><code class="docutils literal notranslate"><span class="pre">typ'Type_Class</span></code> for any type or subtype <cite>typ</cite> yields
+the value of the type class for the full type of <cite>typ</cite>.  If
+<cite>typ</cite> is a generic formal type, the value is the value for the
+corresponding actual subtype.  The value of this attribute is of type
+<code class="docutils literal notranslate"><span class="pre">System.Aux_DEC.Type_Class</span></code>, which has the following definition:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kr">type</span><span class="p"> </span><span class="n">Type_Class</span> <span class="kr">is</span><span class="p"></span>
+  <span class="o">(</span><span class="n">Type_Class_Enumeration</span><span class="p">,</span>
+   <span class="n">Type_Class_Integer</span><span class="p">,</span>
+   <span class="n">Type_Class_Fixed_Point</span><span class="p">,</span>
+   <span class="n">Type_Class_Floating_Point</span><span class="p">,</span>
+   <span class="n">Type_Class_Array</span><span class="p">,</span>
+   <span class="n">Type_Class_Record</span><span class="p">,</span>
+   <span class="n">Type_Class_Access</span><span class="p">,</span>
+   <span class="n">Type_Class_Task</span><span class="p">,</span>
+   <span class="n">Type_Class_Address</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Protected types yield the value <code class="docutils literal notranslate"><span class="pre">Type_Class_Task</span></code>, which thus
+applies to all concurrent types.  This attribute is designed to
+be compatible with the DEC Ada 83 attribute of the same name.</p>
+</div>
+<div class="section" id="attribute-type-key">
+<h2><span class="section-number">4.68. </span>Attribute Type_Key<a class="headerlink" href="#attribute-type-key" title="Permalink to this headline">¶</a></h2>
+<p id="index-103">The <code class="docutils literal notranslate"><span class="pre">Type_Key</span></code> attribute is applicable to a type or subtype and
+yields a value of type Standard.String containing encoded information
+about the type or subtype. This provides improved compatibility with
+other implementations that support this attribute.</p>
+</div>
+<div class="section" id="attribute-typecode">
+<h2><span class="section-number">4.69. </span>Attribute TypeCode<a class="headerlink" href="#attribute-typecode" title="Permalink to this headline">¶</a></h2>
+<p id="index-104">This internal attribute is used for the generation of remote subprogram
+stubs in the context of the Distributed Systems Annex.</p>
+</div>
+<div class="section" id="attribute-unconstrained-array">
+<h2><span class="section-number">4.70. </span>Attribute Unconstrained_Array<a class="headerlink" href="#attribute-unconstrained-array" title="Permalink to this headline">¶</a></h2>
+<p id="index-105">The <code class="docutils literal notranslate"><span class="pre">Unconstrained_Array</span></code> attribute can be used with a prefix that
+denotes any type or subtype. It is a static attribute that yields
+<code class="docutils literal notranslate"><span class="pre">True</span></code> if the prefix designates an unconstrained array,
+and <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise. In a generic instance, the result is
+still static, and yields the result of applying this test to the
+generic actual.</p>
+</div>
+<div class="section" id="attribute-universal-literal-string">
+<h2><span class="section-number">4.71. </span>Attribute Universal_Literal_String<a class="headerlink" href="#attribute-universal-literal-string" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="index-106"></span><p id="index-107">The prefix of <code class="docutils literal notranslate"><span class="pre">Universal_Literal_String</span></code> must be a named
+number.  The static result is the string consisting of the characters of
+the number as defined in the original source.  This allows the user
+program to access the actual text of named numbers without intermediate
+conversions and without the need to enclose the strings in quotes (which
+would preclude their use as numbers).</p>
+<p>For example, the following program prints the first 50 digits of pi:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kr">with</span><span class="p"> </span><span class="n">Text_IO</span><span class="p">; </span><span class="kr">use</span><span class="nn"> Text_IO;</span><span class="p"></span>
+<span class="kr">with</span><span class="nn"> Ada.Numerics;</span>
+<span class="k">procedure </span><span class="nf">Pi</span> <span class="kr">is</span><span class="p"></span>
+<span class="kr">begin</span><span class="p"></span>
+   <span class="n">Put</span> <span class="o">(</span><span class="n">Ada.Numerics.Pi</span><span class="na">&#39;Universal_Literal_String</span><span class="o">)</span><span class="p">;</span>
+<span class="kr">end</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="attribute-unrestricted-access">
+<h2><span class="section-number">4.72. </span>Attribute Unrestricted_Access<a class="headerlink" href="#attribute-unrestricted-access" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="index-108"></span><p id="index-109">The <code class="docutils literal notranslate"><span class="pre">Unrestricted_Access</span></code> attribute is similar to <code class="docutils literal notranslate"><span class="pre">Access</span></code>
+except that all accessibility and aliased view checks are omitted.  This
+is a user-beware attribute.</p>
+<p>For objects, it is similar to <code class="docutils literal notranslate"><span class="pre">Address</span></code>, for which it is a
+desirable replacement where the value desired is an access type.
+In other words, its effect is similar to first applying the
+<code class="docutils literal notranslate"><span class="pre">Address</span></code> attribute and then doing an unchecked conversion to a
+desired access type.</p>
+<p>For subprograms, <code class="docutils literal notranslate"><span class="pre">P'Unrestricted_Access</span></code> may be used where
+<code class="docutils literal notranslate"><span class="pre">P'Access</span></code> would be illegal, to construct a value of a
+less-nested named access type that designates a more-nested
+subprogram. This value may be used in indirect calls, so long as the
+more-nested subprogram still exists; once the subprogram containing it
+has returned, such calls are erroneous. For example:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="k">package body </span><span class="nf">P</span> <span class="kr">is</span><span class="p"></span>
+
+   <span class="kr">type</span><span class="p"> </span><span class="n">Less_Nested</span> <span class="kr">is</span><span class="p"> </span><span class="kr">not</span><span class="p"> </span><span class="kr">null</span><span class="p"> </span><span class="kr">access</span><span class="p"> </span><span class="kr">procedure</span><span class="p">;</span>
+   <span class="n">Global</span> <span class="o">:</span> <span class="n">Less_Nested</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">P1</span> <span class="kr">is</span><span class="p"></span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="n">Global.all</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">P1</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">P2</span> <span class="kr">is</span><span class="p"></span>
+      <span class="n">Local_Var</span> <span class="o">:</span> <span class="n">Integer</span><span class="p">;</span>
+
+      <span class="k">procedure </span><span class="nf">More_Nested</span> <span class="kr">is</span><span class="p"></span>
+      <span class="kr">begin</span><span class="p"></span>
+         <span class="o">...</span> <span class="n">Local_Var</span> <span class="o">...</span>
+      <span class="k">end </span><span class="nf">More_Nested</span><span class="p">;</span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="n">Global</span> <span class="o">:=</span> <span class="n">More_Nested</span><span class="na">&#39;Unrestricted_Access</span><span class="p">;</span>
+      <span class="n">P1</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">P2</span><span class="p">;</span>
+
+<span class="k">end </span><span class="nf">P</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>When P1 is called from P2, the call via Global is OK, but if P1 were
+called after P2 returns, it would be an erroneous use of a dangling
+pointer.</p>
+<p>For objects, it is possible to use <code class="docutils literal notranslate"><span class="pre">Unrestricted_Access</span></code> for any
+type. However, if the result is of an access-to-unconstrained array
+subtype, then the resulting pointer has the same scope as the context
+of the attribute, and must not be returned to some enclosing scope.
+For instance, if a function uses <code class="docutils literal notranslate"><span class="pre">Unrestricted_Access</span></code> to create
+an access-to-unconstrained-array and returns that value to the caller,
+the result will involve dangling pointers. In addition, it is only
+valid to create pointers to unconstrained arrays using this attribute
+if the pointer has the normal default ‘fat’ representation where a
+pointer has two components, one points to the array and one points to
+the bounds. If a size clause is used to force ‘thin’ representation
+for a pointer to unconstrained where there is only space for a single
+pointer, then the resulting pointer is not usable.</p>
+<p>In the simple case where a direct use of Unrestricted_Access attempts
+to make a thin pointer for a non-aliased object, the compiler will
+reject the use as illegal, as shown in the following example:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kr">with</span><span class="p"> </span><span class="n">System</span><span class="p">; </span><span class="kr">use</span><span class="nn"> System;</span>
+<span class="k">procedure </span><span class="nf">SliceUA2</span> <span class="kr">is</span><span class="p"></span>
+   <span class="kr">type</span><span class="p"> </span><span class="n">A</span> <span class="kr">is</span><span class="p"> </span><span class="kr">access</span><span class="p"> </span><span class="kr">all</span><span class="p"> </span><span class="n">String</span><span class="p">;</span>
+   <span class="kr">for</span><span class="p"> </span><span class="n">A</span><span class="na">&#39;Size</span> <span class="kr">use</span><span class="p"> </span><span class="n">Standard</span><span class="na">&#39;Address_Size</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">P</span> <span class="o">(</span><span class="n">Arg</span> <span class="o">:</span> <span class="n">A</span><span class="o">)</span> <span class="kr">is</span><span class="p"></span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="kr">null</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">P</span><span class="p">;</span>
+
+   <span class="n">X</span> <span class="o">:</span> <span class="n">String</span> <span class="o">:=</span> <span class="s">&quot;hello world!&quot;</span><span class="p">;</span>
+   <span class="n">X2</span> <span class="o">:</span> <span class="kr">aliased</span><span class="p"> </span><span class="n">String</span> <span class="o">:=</span> <span class="s">&quot;hello world!&quot;</span><span class="p">;</span>
+
+   <span class="n">AV</span> <span class="o">:</span> <span class="n">A</span> <span class="o">:=</span> <span class="n">X</span><span class="na">&#39;Unrestricted_Access</span><span class="p">;</span>    <span class="c">-- ERROR</span>
+             <span class="o">|</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">illegal</span> <span class="kr">use</span><span class="p"> </span><span class="kr">of</span><span class="p"> </span><span class="n">Unrestricted_Access</span> <span class="n">attribute</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">attempt</span> <span class="n">to</span> <span class="n">generate</span> <span class="n">thin</span> <span class="n">pointer</span> <span class="n">to</span> <span class="n">unaliased</span> <span class="n">object</span>
+
+<span class="kr">begin</span><span class="p"></span>
+   <span class="n">P</span> <span class="o">(</span><span class="n">X</span><span class="na">&#39;Unrestricted_Access</span><span class="o">)</span><span class="p">;</span>          <span class="c">-- ERROR</span>
+      <span class="o">|</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">illegal</span> <span class="kr">use</span><span class="p"> </span><span class="kr">of</span><span class="p"> </span><span class="n">Unrestricted_Access</span> <span class="n">attribute</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">attempt</span> <span class="n">to</span> <span class="n">generate</span> <span class="n">thin</span> <span class="n">pointer</span> <span class="n">to</span> <span class="n">unaliased</span> <span class="n">object</span>
+
+   <span class="n">P</span> <span class="o">(</span><span class="n">X</span><span class="o">(</span><span class="mi">7</span> <span class="o">..</span> <span class="mi">12</span><span class="o">)</span><span class="na">&#39;Unrestricted_Access</span><span class="o">)</span><span class="p">;</span> <span class="c">-- ERROR</span>
+      <span class="o">|</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">illegal</span> <span class="kr">use</span><span class="p"> </span><span class="kr">of</span><span class="p"> </span><span class="n">Unrestricted_Access</span> <span class="n">attribute</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">attempt</span> <span class="n">to</span> <span class="n">generate</span> <span class="n">thin</span> <span class="n">pointer</span> <span class="n">to</span> <span class="n">unaliased</span> <span class="n">object</span>
+
+   <span class="n">P</span> <span class="o">(</span><span class="n">X2</span><span class="na">&#39;Unrestricted_Access</span><span class="o">)</span><span class="p">;</span>         <span class="c">-- OK</span>
+<span class="kr">end</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>but other cases cannot be detected by the compiler, and are
+considered to be erroneous. Consider the following example:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kr">with</span><span class="p"> </span><span class="n">System</span><span class="p">; </span><span class="kr">use</span><span class="nn"> System;</span><span class="p"></span>
+<span class="kr">with</span><span class="nn"> System;</span> <span class="kr">use</span><span class="p"> </span><span class="n">System</span><span class="p">;</span>
+<span class="k">procedure </span><span class="nf">SliceUA</span> <span class="kr">is</span><span class="p"></span>
+   <span class="kr">type</span><span class="p"> </span><span class="n">AF</span> <span class="kr">is</span><span class="p"> </span><span class="kr">access</span><span class="p"> </span><span class="kr">all</span><span class="p"> </span><span class="n">String</span><span class="p">;</span>
+
+   <span class="kr">type</span><span class="p"> </span><span class="n">A</span> <span class="kr">is</span><span class="p"> </span><span class="kr">access</span><span class="p"> </span><span class="kr">all</span><span class="p"> </span><span class="n">String</span><span class="p">;</span>
+   <span class="kr">for</span><span class="p"> </span><span class="n">A</span><span class="na">&#39;Size</span> <span class="kr">use</span><span class="p"> </span><span class="n">Standard</span><span class="na">&#39;Address_Size</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">P</span> <span class="o">(</span><span class="n">Arg</span> <span class="o">:</span> <span class="n">A</span><span class="o">)</span> <span class="kr">is</span><span class="p"></span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="kr">if</span><span class="p"> </span><span class="n">Arg</span><span class="na">&#39;Length</span> <span class="o">/=</span> <span class="mi">6</span> <span class="kr">then</span><span class="p"></span>
+         <span class="kr">raise</span><span class="p"> </span><span class="n">Program_Error</span><span class="p">;</span>
+      <span class="k">end if</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">P</span><span class="p">;</span>
+
+   <span class="n">X</span> <span class="o">:</span> <span class="n">String</span> <span class="o">:=</span> <span class="s">&quot;hello world!&quot;</span><span class="p">;</span>
+   <span class="n">Y</span> <span class="o">:</span> <span class="n">AF</span> <span class="o">:=</span> <span class="n">X</span> <span class="o">(</span><span class="mi">7</span> <span class="o">..</span> <span class="mi">12</span><span class="o">)</span><span class="na">&#39;Unrestricted_Access</span><span class="p">;</span>
+
+<span class="kr">begin</span><span class="p"></span>
+   <span class="n">P</span> <span class="o">(</span><span class="n">A</span> <span class="o">(</span><span class="n">Y</span><span class="o">))</span><span class="p">;</span>
+<span class="kr">end</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>A normal unconstrained array value
+or a constrained array object marked as aliased has the bounds in memory
+just before the array, so a thin pointer can retrieve both the data and
+the bounds.  But in this case, the non-aliased object <code class="docutils literal notranslate"><span class="pre">X</span></code> does not have the
+bounds before the string.  If the size clause for type <code class="docutils literal notranslate"><span class="pre">A</span></code>
+were not present, then the pointer
+would be a fat pointer, where one component is a pointer to the bounds,
+and all would be well.  But with the size clause present, the conversion from
+fat pointer to thin pointer in the call loses the bounds, and so this
+is erroneous, and the program likely raises a <code class="docutils literal notranslate"><span class="pre">Program_Error</span></code> exception.</p>
+<p>In general, it is advisable to completely
+avoid mixing the use of thin pointers and the use of
+<code class="docutils literal notranslate"><span class="pre">Unrestricted_Access</span></code> where the designated type is an
+unconstrained array.  The use of thin pointers should be restricted to
+cases of porting legacy code that implicitly assumes the size of pointers,
+and such code should not in any case be using this attribute.</p>
+<p>Another erroneous situation arises if the attribute is
+applied to a constant. The resulting pointer can be used to access the
+constant, but the effect of trying to modify a constant in this manner
+is not well-defined. Consider this example:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="n">P</span> <span class="o">:</span> <span class="kr">constant</span><span class="p"> </span><span class="n">Integer</span> <span class="o">:=</span> <span class="mi">4</span><span class="p">;</span>
+<span class="kr">type</span><span class="p"> </span><span class="n">R</span> <span class="kr">is</span><span class="p"> </span><span class="kr">access</span><span class="p"> </span><span class="kr">all</span><span class="p"> </span><span class="n">Integer</span><span class="p">;</span>
+<span class="n">RV</span> <span class="o">:</span> <span class="n">R</span> <span class="o">:=</span> <span class="n">P</span><span class="na">&#39;Unrestricted_Access</span><span class="p">;</span>
+<span class="o">..</span>
+<span class="n">RV.all</span> <span class="o">:=</span> <span class="mi">3</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Here we attempt to modify the constant P from 4 to 3, but the compiler may
+or may not notice this attempt, and subsequent references to P may yield
+either the value 3 or the value 4 or the assignment may blow up if the
+compiler decides to put P in read-only memory. One particular case where
+<code class="docutils literal notranslate"><span class="pre">Unrestricted_Access</span></code> can be used in this way is to modify the
+value of an <code class="docutils literal notranslate"><span class="pre">in</span></code> parameter:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="k">procedure </span><span class="nf">K</span> <span class="o">(</span><span class="n">S</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="n">String</span><span class="o">)</span> <span class="kr">is</span><span class="p"></span>
+   <span class="kr">type</span><span class="p"> </span><span class="n">R</span> <span class="kr">is</span><span class="p"> </span><span class="kr">access</span><span class="p"> </span><span class="kr">all</span><span class="p"> </span><span class="n">Character</span><span class="p">;</span>
+   <span class="n">RV</span> <span class="o">:</span> <span class="n">R</span> <span class="o">:=</span> <span class="n">S</span> <span class="o">(</span><span class="mi">3</span><span class="o">)</span><span class="na">&#39;Unrestricted_Access</span><span class="p">;</span>
+<span class="kr">begin</span><span class="p"></span>
+   <span class="n">RV.all</span> <span class="o">:=</span> <span class="sc">&#39;a&#39;</span><span class="p">;</span>
+<span class="kr">end</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>In general this is a risky approach. It may appear to “work” but such uses of
+<code class="docutils literal notranslate"><span class="pre">Unrestricted_Access</span></code> are potentially non-portable, even from one version
+of GNAT to another, so are best avoided if possible.</p>
+</div>
+<div class="section" id="attribute-update">
+<h2><span class="section-number">4.73. </span>Attribute Update<a class="headerlink" href="#attribute-update" title="Permalink to this headline">¶</a></h2>
+<p id="index-110">The <code class="docutils literal notranslate"><span class="pre">Update</span></code> attribute creates a copy of an array or record value
+with one or more modified components. The syntax is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PREFIX</span><span class="s1">&#39;Update ( RECORD_COMPONENT_ASSOCIATION_LIST )</span>
+<span class="n">PREFIX</span><span class="s1">&#39;Update ( ARRAY_COMPONENT_ASSOCIATION {, ARRAY_COMPONENT_ASSOCIATION } )</span>
+<span class="n">PREFIX</span><span class="s1">&#39;Update ( MULTIDIMENSIONAL_ARRAY_COMPONENT_ASSOCIATION</span>
+                <span class="p">{,</span> <span class="n">MULTIDIMENSIONAL_ARRAY_COMPONENT_ASSOCIATION</span> <span class="p">}</span> <span class="p">)</span>
+
+<span class="n">MULTIDIMENSIONAL_ARRAY_COMPONENT_ASSOCIATION</span> <span class="p">:</span><span class="o">:=</span> <span class="n">INDEX_EXPRESSION_LIST_LIST</span> <span class="o">=&gt;</span> <span class="n">EXPRESSION</span>
+<span class="n">INDEX_EXPRESSION_LIST_LIST</span>                   <span class="p">:</span><span class="o">:=</span> <span class="n">INDEX_EXPRESSION_LIST</span> <span class="p">{</span><span class="o">|</span> <span class="n">INDEX_EXPRESSION_LIST</span> <span class="p">}</span>
+<span class="n">INDEX_EXPRESSION_LIST</span>                        <span class="p">:</span><span class="o">:=</span> <span class="p">(</span> <span class="n">EXPRESSION</span> <span class="p">{,</span> <span class="n">EXPRESSION</span> <span class="p">}</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">PREFIX</span></code> is the name of an array or record object, the
+association list in parentheses does not contain an <code class="docutils literal notranslate"><span class="pre">others</span></code>
+choice and the box symbol <code class="docutils literal notranslate"><span class="pre">&lt;&gt;</span></code> may not appear in any
+expression. The effect is to yield a copy of the array or record value
+which is unchanged apart from the components mentioned in the
+association list, which are changed to the indicated value. The
+original value of the array or record value is not affected. For
+example:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kr">type</span><span class="p"> </span><span class="n">Arr</span> <span class="kr">is</span><span class="p"> </span><span class="kr">Array</span><span class="p"> </span><span class="o">(</span><span class="mi">1</span> <span class="o">..</span> <span class="mi">5</span><span class="o">)</span> <span class="kr">of</span><span class="p"> </span><span class="n">Integer</span><span class="p">;</span>
+<span class="o">...</span>
+<span class="n">Avar1</span> <span class="o">:</span> <span class="n">Arr</span> <span class="o">:=</span> <span class="o">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="o">)</span><span class="p">;</span>
+<span class="n">Avar2</span> <span class="o">:</span> <span class="n">Arr</span> <span class="o">:=</span> <span class="n">Avar1</span><span class="na">&#39;Update</span> <span class="o">(</span><span class="mi">2</span> <span class="o">=&gt;</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">3</span> <span class="o">..</span> <span class="mi">4</span> <span class="o">=&gt;</span> <span class="mi">20</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>yields a value for <code class="docutils literal notranslate"><span class="pre">Avar2</span></code> of 1,10,20,20,5 with <code class="docutils literal notranslate"><span class="pre">Avar1</span></code>
+begin unmodified. Similarly:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kr">type</span><span class="p"> </span><span class="n">Rec</span> <span class="kr">is</span><span class="p"> </span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span> <span class="o">:</span> <span class="n">Integer</span><span class="p">;</span>
+<span class="o">...</span>
+<span class="n">Rvar1</span> <span class="o">:</span> <span class="n">Rec</span> <span class="o">:=</span> <span class="o">(</span><span class="n">A</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span> <span class="n">B</span> <span class="o">=&gt;</span> <span class="mi">2</span><span class="p">,</span> <span class="n">C</span> <span class="o">=&gt;</span> <span class="mi">3</span><span class="o">)</span><span class="p">;</span>
+<span class="n">Rvar2</span> <span class="o">:</span> <span class="n">Rec</span> <span class="o">:=</span> <span class="n">Rvar1</span><span class="na">&#39;Update</span> <span class="o">(</span><span class="n">B</span> <span class="o">=&gt;</span> <span class="mi">20</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>yields a value for <code class="docutils literal notranslate"><span class="pre">Rvar2</span></code> of (A =&gt; 1, B =&gt; 20, C =&gt; 3),
+with <code class="docutils literal notranslate"><span class="pre">Rvar1</span></code> being unmodifed.
+Note that the value of the attribute reference is computed
+completely before it is used. This means that if you write:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="n">Avar1</span> <span class="o">:=</span> <span class="n">Avar1</span><span class="na">&#39;Update</span> <span class="o">(</span><span class="mi">1</span> <span class="o">=&gt;</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">2</span> <span class="o">=&gt;</span> <span class="n">Function_Call</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>then the value of <code class="docutils literal notranslate"><span class="pre">Avar1</span></code> is not modified if <code class="docutils literal notranslate"><span class="pre">Function_Call</span></code>
+raises an exception, unlike the effect of a series of direct assignments
+to elements of <code class="docutils literal notranslate"><span class="pre">Avar1</span></code>. In general this requires that
+two extra complete copies of the object are required, which should be
+kept in mind when considering efficiency.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">Update</span></code> attribute cannot be applied to prefixes of a limited
+type, and cannot reference discriminants in the case of a record type.
+The accessibility level of an Update attribute result object is defined
+as for an aggregate.</p>
+<p>In the record case, no component can be mentioned more than once. In
+the array case, two overlapping ranges can appear in the association list,
+in which case the modifications are processed left to right.</p>
+<p>Multi-dimensional arrays can be modified, as shown by this example:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">:</span> <span class="kr">array</span><span class="p"> </span><span class="o">(</span><span class="mi">1</span> <span class="o">..</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1</span> <span class="o">..</span> <span class="mi">10</span><span class="o">)</span> <span class="kr">of</span><span class="p"> </span><span class="n">Integer</span><span class="p">;</span>
+<span class="o">..</span>
+<span class="n">A</span> <span class="o">:=</span> <span class="n">A</span><span class="na">&#39;Update</span> <span class="o">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="o">)</span> <span class="o">=&gt;</span> <span class="mi">20</span><span class="p">,</span> <span class="o">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="o">)</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>which changes element (1,2) to 20 and (3,4) to 30.</p>
+</div>
+<div class="section" id="attribute-valid-image">
+<h2><span class="section-number">4.74. </span>Attribute Valid_Image<a class="headerlink" href="#attribute-valid-image" title="Permalink to this headline">¶</a></h2>
+<p id="index-111">The <code class="docutils literal notranslate"><span class="pre">'Valid_Image</span></code> attribute is defined for enumeration types other than
+those in package Standard. This attribute is a function that takes
+a String, and returns Boolean. <code class="docutils literal notranslate"><span class="pre">T'Valid_Image</span> <span class="pre">(S)</span></code> returns True
+if and only if <code class="docutils literal notranslate"><span class="pre">T'Value</span> <span class="pre">(S)</span></code> would not raise Constraint_Error.</p>
+</div>
+<div class="section" id="attribute-valid-scalars">
+<h2><span class="section-number">4.75. </span>Attribute Valid_Scalars<a class="headerlink" href="#attribute-valid-scalars" title="Permalink to this headline">¶</a></h2>
+<p id="index-112">The <code class="docutils literal notranslate"><span class="pre">'Valid_Scalars</span></code> attribute is intended to make it easier to check the
+validity of scalar subcomponents of composite objects. The attribute is defined
+for any prefix <code class="docutils literal notranslate"><span class="pre">P</span></code> which denotes an object. Prefix <code class="docutils literal notranslate"><span class="pre">P</span></code> can be any type
+except for tagged private or <code class="docutils literal notranslate"><span class="pre">Unchecked_Union</span></code> types. The value of the
+attribute is of type <code class="docutils literal notranslate"><span class="pre">Boolean</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">P'Valid_Scalars</span></code> yields <code class="docutils literal notranslate"><span class="pre">True</span></code> if and only if the evaluation of
+<code class="docutils literal notranslate"><span class="pre">C'Valid</span></code> yields <code class="docutils literal notranslate"><span class="pre">True</span></code> for every scalar subcomponent <code class="docutils literal notranslate"><span class="pre">C</span></code> of <code class="docutils literal notranslate"><span class="pre">P</span></code>, or if
+<code class="docutils literal notranslate"><span class="pre">P</span></code> has no scalar subcomponents. Attribute <code class="docutils literal notranslate"><span class="pre">'Valid_Scalars</span></code> is equivalent
+to attribute <code class="docutils literal notranslate"><span class="pre">'Valid</span></code> for scalar types.</p>
+<p>It is not specified in what order the subcomponents are checked, nor whether
+any more are checked after any one of them is determined to be invalid. If the
+prefix <code class="docutils literal notranslate"><span class="pre">P</span></code> is of a class-wide type <code class="docutils literal notranslate"><span class="pre">T'Class</span></code> (where <code class="docutils literal notranslate"><span class="pre">T</span></code> is the associated
+specific type), or if the prefix <code class="docutils literal notranslate"><span class="pre">P</span></code> is of a specific tagged type <code class="docutils literal notranslate"><span class="pre">T</span></code>, then
+only the subcomponents of <code class="docutils literal notranslate"><span class="pre">T</span></code> are checked; in other words, components of
+extensions of <code class="docutils literal notranslate"><span class="pre">T</span></code> are not checked even if <code class="docutils literal notranslate"><span class="pre">T'Class</span> <span class="pre">(P)'Tag</span> <span class="pre">/=</span> <span class="pre">T'Tag</span></code>.</p>
+<p>The compiler will issue a warning if it can be determined at compile time that
+the prefix of the attribute has no scalar subcomponents.</p>
+<p>Note: <code class="docutils literal notranslate"><span class="pre">Valid_Scalars</span></code> can generate a lot of code, especially in the case of
+a large variant record. If the attribute is called in many places in the same
+program applied to objects of the same type, it can reduce program size to
+write a function with a single use of the attribute, and then call that
+function from multiple places.</p>
+</div>
+<div class="section" id="attribute-vads-size">
+<h2><span class="section-number">4.76. </span>Attribute VADS_Size<a class="headerlink" href="#attribute-vads-size" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="index-113"></span><p id="index-114">The <code class="docutils literal notranslate"><span class="pre">'VADS_Size</span></code> attribute is intended to make it easier to port
+legacy code which relies on the semantics of <code class="docutils literal notranslate"><span class="pre">'Size</span></code> as implemented
+by the VADS Ada 83 compiler.  GNAT makes a best effort at duplicating the
+same semantic interpretation.  In particular, <code class="docutils literal notranslate"><span class="pre">'VADS_Size</span></code> applied
+to a predefined or other primitive type with no Size clause yields the
+Object_Size (for example, <code class="docutils literal notranslate"><span class="pre">Natural'Size</span></code> is 32 rather than 31 on
+typical machines).  In addition <code class="docutils literal notranslate"><span class="pre">'VADS_Size</span></code> applied to an object
+gives the result that would be obtained by applying the attribute to
+the corresponding type.</p>
+</div>
+<div class="section" id="attribute-value-size">
+<span id="id6"></span><h2><span class="section-number">4.77. </span>Attribute Value_Size<a class="headerlink" href="#attribute-value-size" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="index-115"></span><p id="index-116"><code class="docutils literal notranslate"><span class="pre">type'Value_Size</span></code> is the number of bits required to represent
+a value of the given subtype.  It is the same as <code class="docutils literal notranslate"><span class="pre">type'Size</span></code>,
+but, unlike <code class="docutils literal notranslate"><span class="pre">Size</span></code>, may be set for non-first subtypes.</p>
+</div>
+<div class="section" id="attribute-wchar-t-size">
+<h2><span class="section-number">4.78. </span>Attribute Wchar_T_Size<a class="headerlink" href="#attribute-wchar-t-size" title="Permalink to this headline">¶</a></h2>
+<p id="index-117"><code class="docutils literal notranslate"><span class="pre">Standard'Wchar_T_Size</span></code> (<code class="docutils literal notranslate"><span class="pre">Standard</span></code> is the only allowed
+prefix) provides the size in bits of the C <code class="docutils literal notranslate"><span class="pre">wchar_t</span></code> type
+primarily for constructing the definition of this type in
+package <code class="docutils literal notranslate"><span class="pre">Interfaces.C</span></code>. The result is a static constant.</p>
+</div>
+<div class="section" id="attribute-word-size">
+<h2><span class="section-number">4.79. </span>Attribute Word_Size<a class="headerlink" href="#attribute-word-size" title="Permalink to this headline">¶</a></h2>
+<p id="index-118"><code class="docutils literal notranslate"><span class="pre">Standard'Word_Size</span></code> (<code class="docutils literal notranslate"><span class="pre">Standard</span></code> is the only allowed
+prefix) provides the value <code class="docutils literal notranslate"><span class="pre">System.Word_Size</span></code>. The result is
+a static constant.</p>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../gnat_rm.html">
+              <img class="logo" src="../_static/adacore_transparent.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="../gnat_rm.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">4. Implementation Defined Attributes</a><ul>
+<li><a class="reference internal" href="#attribute-abort-signal">4.1. Attribute Abort_Signal</a></li>
+<li><a class="reference internal" href="#attribute-address-size">4.2. Attribute Address_Size</a></li>
+<li><a class="reference internal" href="#attribute-asm-input">4.3. Attribute Asm_Input</a></li>
+<li><a class="reference internal" href="#attribute-asm-output">4.4. Attribute Asm_Output</a></li>
+<li><a class="reference internal" href="#attribute-atomic-always-lock-free">4.5. Attribute Atomic_Always_Lock_Free</a></li>
+<li><a class="reference internal" href="#attribute-bit">4.6. Attribute Bit</a></li>
+<li><a class="reference internal" href="#attribute-bit-position">4.7. Attribute Bit_Position</a></li>
+<li><a class="reference internal" href="#attribute-code-address">4.8. Attribute Code_Address</a></li>
+<li><a class="reference internal" href="#attribute-compiler-version">4.9. Attribute Compiler_Version</a></li>
+<li><a class="reference internal" href="#attribute-constrained">4.10. Attribute Constrained</a></li>
+<li><a class="reference internal" href="#attribute-default-bit-order">4.11. Attribute Default_Bit_Order</a></li>
+<li><a class="reference internal" href="#attribute-default-scalar-storage-order">4.12. Attribute Default_Scalar_Storage_Order</a></li>
+<li><a class="reference internal" href="#attribute-deref">4.13. Attribute Deref</a></li>
+<li><a class="reference internal" href="#attribute-descriptor-size">4.14. Attribute Descriptor_Size</a></li>
+<li><a class="reference internal" href="#attribute-elaborated">4.15. Attribute Elaborated</a></li>
+<li><a class="reference internal" href="#attribute-elab-body">4.16. Attribute Elab_Body</a></li>
+<li><a class="reference internal" href="#attribute-elab-spec">4.17. Attribute Elab_Spec</a></li>
+<li><a class="reference internal" href="#attribute-elab-subp-body">4.18. Attribute Elab_Subp_Body</a></li>
+<li><a class="reference internal" href="#attribute-emax">4.19. Attribute Emax</a></li>
+<li><a class="reference internal" href="#attribute-enabled">4.20. Attribute Enabled</a></li>
+<li><a class="reference internal" href="#attribute-enum-rep">4.21. Attribute Enum_Rep</a></li>
+<li><a class="reference internal" href="#attribute-enum-val">4.22. Attribute Enum_Val</a></li>
+<li><a class="reference internal" href="#attribute-epsilon">4.23. Attribute Epsilon</a></li>
+<li><a class="reference internal" href="#attribute-fast-math">4.24. Attribute Fast_Math</a></li>
+<li><a class="reference internal" href="#attribute-finalization-size">4.25. Attribute Finalization_Size</a></li>
+<li><a class="reference internal" href="#attribute-fixed-value">4.26. Attribute Fixed_Value</a></li>
+<li><a class="reference internal" href="#attribute-from-any">4.27. Attribute From_Any</a></li>
+<li><a class="reference internal" href="#attribute-has-access-values">4.28. Attribute Has_Access_Values</a></li>
+<li><a class="reference internal" href="#attribute-has-discriminants">4.29. Attribute Has_Discriminants</a></li>
+<li><a class="reference internal" href="#attribute-has-tagged-values">4.30. Attribute Has_Tagged_Values</a></li>
+<li><a class="reference internal" href="#attribute-img">4.31. Attribute Img</a></li>
+<li><a class="reference internal" href="#attribute-initialized">4.32. Attribute Initialized</a></li>
+<li><a class="reference internal" href="#attribute-integer-value">4.33. Attribute Integer_Value</a></li>
+<li><a class="reference internal" href="#attribute-invalid-value">4.34. Attribute Invalid_Value</a></li>
+<li><a class="reference internal" href="#attribute-iterable">4.35. Attribute Iterable</a></li>
+<li><a class="reference internal" href="#attribute-large">4.36. Attribute Large</a></li>
+<li><a class="reference internal" href="#attribute-library-level">4.37. Attribute Library_Level</a></li>
+<li><a class="reference internal" href="#attribute-lock-free">4.38. Attribute Lock_Free</a></li>
+<li><a class="reference internal" href="#attribute-loop-entry">4.39. Attribute Loop_Entry</a></li>
+<li><a class="reference internal" href="#attribute-machine-size">4.40. Attribute Machine_Size</a></li>
+<li><a class="reference internal" href="#attribute-mantissa">4.41. Attribute Mantissa</a></li>
+<li><a class="reference internal" href="#attribute-maximum-alignment">4.42. Attribute Maximum_Alignment</a></li>
+<li><a class="reference internal" href="#attribute-max-integer-size">4.43. Attribute Max_Integer_Size</a></li>
+<li><a class="reference internal" href="#attribute-mechanism-code">4.44. Attribute Mechanism_Code</a></li>
+<li><a class="reference internal" href="#attribute-null-parameter">4.45. Attribute Null_Parameter</a></li>
+<li><a class="reference internal" href="#attribute-object-size">4.46. Attribute Object_Size</a></li>
+<li><a class="reference internal" href="#attribute-old">4.47. Attribute Old</a></li>
+<li><a class="reference internal" href="#attribute-passed-by-reference">4.48. Attribute Passed_By_Reference</a></li>
+<li><a class="reference internal" href="#attribute-pool-address">4.49. Attribute Pool_Address</a></li>
+<li><a class="reference internal" href="#attribute-range-length">4.50. Attribute Range_Length</a></li>
+<li><a class="reference internal" href="#attribute-restriction-set">4.51. Attribute Restriction_Set</a></li>
+<li><a class="reference internal" href="#attribute-result">4.52. Attribute Result</a></li>
+<li><a class="reference internal" href="#attribute-safe-emax">4.53. Attribute Safe_Emax</a></li>
+<li><a class="reference internal" href="#attribute-safe-large">4.54. Attribute Safe_Large</a></li>
+<li><a class="reference internal" href="#attribute-safe-small">4.55. Attribute Safe_Small</a></li>
+<li><a class="reference internal" href="#attribute-scalar-storage-order">4.56. Attribute Scalar_Storage_Order</a></li>
+<li><a class="reference internal" href="#attribute-simple-storage-pool">4.57. Attribute Simple_Storage_Pool</a></li>
+<li><a class="reference internal" href="#attribute-small">4.58. Attribute Small</a></li>
+<li><a class="reference internal" href="#attribute-small-denominator">4.59. Attribute Small_Denominator</a></li>
+<li><a class="reference internal" href="#attribute-small-numerator">4.60. Attribute Small_Numerator</a></li>
+<li><a class="reference internal" href="#attribute-storage-unit">4.61. Attribute Storage_Unit</a></li>
+<li><a class="reference internal" href="#attribute-stub-type">4.62. Attribute Stub_Type</a></li>
+<li><a class="reference internal" href="#attribute-system-allocator-alignment">4.63. Attribute System_Allocator_Alignment</a></li>
+<li><a class="reference internal" href="#attribute-target-name">4.64. Attribute Target_Name</a></li>
+<li><a class="reference internal" href="#attribute-to-address">4.65. Attribute To_Address</a></li>
+<li><a class="reference internal" href="#attribute-to-any">4.66. Attribute To_Any</a></li>
+<li><a class="reference internal" href="#attribute-type-class">4.67. Attribute Type_Class</a></li>
+<li><a class="reference internal" href="#attribute-type-key">4.68. Attribute Type_Key</a></li>
+<li><a class="reference internal" href="#attribute-typecode">4.69. Attribute TypeCode</a></li>
+<li><a class="reference internal" href="#attribute-unconstrained-array">4.70. Attribute Unconstrained_Array</a></li>
+<li><a class="reference internal" href="#attribute-universal-literal-string">4.71. Attribute Universal_Literal_String</a></li>
+<li><a class="reference internal" href="#attribute-unrestricted-access">4.72. Attribute Unrestricted_Access</a></li>
+<li><a class="reference internal" href="#attribute-update">4.73. Attribute Update</a></li>
+<li><a class="reference internal" href="#attribute-valid-image">4.74. Attribute Valid_Image</a></li>
+<li><a class="reference internal" href="#attribute-valid-scalars">4.75. Attribute Valid_Scalars</a></li>
+<li><a class="reference internal" href="#attribute-vads-size">4.76. Attribute VADS_Size</a></li>
+<li><a class="reference internal" href="#attribute-value-size">4.77. Attribute Value_Size</a></li>
+<li><a class="reference internal" href="#attribute-wchar-t-size">4.78. Attribute Wchar_T_Size</a></li>
+<li><a class="reference internal" href="#attribute-word-size">4.79. Attribute Word_Size</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="implementation_defined_aspects.html"
+                        title="previous chapter"><span class="section-number">3. </span>Implementation Defined Aspects</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="standard_and_implementation_defined_restrictions.html"
+                        title="next chapter"><span class="section-number">5. </span>Standard and Implementation Defined Restrictions</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/gnat_rm/implementation_defined_attributes.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="standard_and_implementation_defined_restrictions.html" title="5. Standard and Implementation Defined Restrictions"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="implementation_defined_aspects.html" title="3. Implementation Defined Aspects"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../gnat_rm.html">GNAT Reference Manual 2021 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">4. </span>Implementation Defined Attributes</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2008-2021, Free Software Foundation.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
+    </div>
+  </body>
+</html>

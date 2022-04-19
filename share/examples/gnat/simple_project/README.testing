@@ -1,0 +1,20 @@
+		       G N A T   E X A M P L E S
+		       =========================
+
+The gnat project facility is intended to specify in a simple, understandable,
+separate file a full set of gnatmake and/or other tools switches, for the sake
+of readability.
+
+The project files must have the .gpr extension. The syntax of the project
+files is Ada-like, and you can have a look at the fully commented simple.gpr
+file to get a first idea of how it works.
+
+Compiling a project is very simple, you just have to specify by mean of the
+'-P' switch which project file has to be used:
+
+  $ gprbuild -P simple.gpr
+
+In the case shown in this example, it is roughly equivalent to running:
+ 
+  $ gnatmake -Iinclude -Isrc -D obj -O1 -o ./diners diners
+

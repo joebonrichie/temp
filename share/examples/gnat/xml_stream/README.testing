@@ -1,0 +1,28 @@
+		       G N A T   E X A M P L E S
+		       =========================
+
+
+In order to compile the examples, make sure that the 'gprbuild' command is
+in your path. 
+
+Invocation
+----------
+
+In order to build the executables provided in this example, you need to
+use the "xml_stream.gpr" project file. On the command-line, do a:
+
+  $ gprbuild -P xml_stream
+
+In GPS, click on "Build", then "Make" and then "xml_stream" is compiled, you
+can also simply press the F4 key.
+
+Features tested
+---------------
+
+* The xml_stream example uses the new Ada.Tags.Generic_Dispatching_Constructor
+  package. This package provides the ability to control finely the way object
+  tags are read from a stream.
+
+  In this example two objects derived from the root object are streamed on
+  disk using an XML representation. Those objects are then read back from
+  the disk and dynamically constructed using Generic_Dispatching_Constructor.

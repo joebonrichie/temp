@@ -1,0 +1,10 @@
+with "base";
+project clocks is
+   for Source_Files use ("clock.ads", "clock.adb");
+   for Object_Dir use "oclock";
+   for Library_Dir use "lclock";
+   for Library_Name use "plugin_clock";
+   for Library_Kind use "dynamic";
+   for Library_Interface use ("clock");
+   package Compiler renames Base.Compiler;
+end clocks;

@@ -1,0 +1,36 @@
+V "GNAT Lib v2021"
+A -nostdinc
+A -O2
+A -gnatA
+A --RTS=/it/sbx/a2c2/x86_64-linux/recompilablerts_bootstrap-c/pkg/lib/gcc/x86_64-pc-linux-gnu/10.3.1/rts-zfp/
+A -gnatg
+A -fno-delete-null-pointer-checks
+A -gnatp
+A -gnatn2
+A -fcallgraph-info=su,da
+A -ffunction-sections
+A -fdata-sections
+A -mtune=generic
+A -march=x86-64
+P ZX
+
+RN
+RV NO_IO
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U text_io%s		text_io.ads		de7a8daa NE OL
+W ada%s			ada.ads			ada.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+
+D ada.ads		20210520110340 76789da1 ada%s
+D a-textio.ads		20210520110340 ffc84532 ada.text_io%s
+D system.ads		20210520110340 410ea14a system%s
+D text_io.ads		20210520110340 21b2c898 text_io%s
+G a e
+X 1 ada.ads
+16K9*Ada 20e8 4|22r6 24r25
+X 2 a-textio.ads
+36K13*Text_IO 52e16 4|22w10 24r29
+X 4 text_io.ads
+24K9*Text_IO=24:29
+

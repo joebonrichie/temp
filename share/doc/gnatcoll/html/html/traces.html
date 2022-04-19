@@ -1,0 +1,610 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>4. Traces: Logging information &#8212; GNATColl 2021 documentation</title>
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="5. Strings: high-performance strings" href="strings.html" />
+    <link rel="prev" title="3. Scripts: Embedding script languages" href="scripting.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="strings.html" title="5. Strings: high-performance strings"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="scripting.html" title="3. Scripts: Embedding script languages"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">GNATColl 2021 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">4. </span><strong>Traces</strong>: Logging information</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="traces-logging-information">
+<span id="logging-information"></span><h1><span class="section-number">4. </span><strong>Traces</strong>: Logging information<a class="headerlink" href="#traces-logging-information" title="Permalink to this headline">¶</a></h1>
+<p>Most applications need to log various kinds of information: error messages,
+information messages or debug messages among others. These logs can be
+displayed and stored in a number of places: standard output, a file, the
+system logger, an application-specific database table,…</p>
+<p>The package <code class="file docutils literal notranslate"><span class="pre">GNATCOLL.Traces</span></code> addresses the various needs, except for the
+application-specific database, which of course is specific to your business
+and needs various custom fields in any case, which cannot be easily provided
+through a general interface.</p>
+<p>This module is organized around two tagged types (used through access types,
+in fact, so the latter are mentioned below as a shortcut):</p>
+<dl class="simple">
+<dt><em>Trace_Handle</em></dt><dd><p>This type defines a handle (similar to a file descriptor in other contexts)
+which is latter used to output messages. An application will generally
+define several handles, which can be enabled or disabled separately, therefore
+limiting the amount of logging.</p>
+</dd>
+<dt><em>Trace_Stream</em></dt><dd><p>Streams are the ultimate types responsible for the output of the messages.
+One or more handles are associated with each stream. The latter can be a file,
+the standard output, a graphical window, a socket,… New types of streams
+can easily be defined in your application.</p>
+</dd>
+</dl>
+<div class="section" id="configuring-traces">
+<span id="id1"></span><h2><span class="section-number">4.1. </span>Configuring traces<a class="headerlink" href="#configuring-traces" title="Permalink to this headline">¶</a></h2>
+<p>As mentioned above, an application will generally create several
+<cite>Trace_Handle</cite> (typically one per module in the application). When
+new features are added to the application, the developers will generally
+need to add lots of traces to help investigate problems once the application
+is installed at a customer’s site. The problem here is that each module
+might output a lot of information, thus confusing the logs; this also does
+not help debugging.</p>
+<p>The <cite>GNATCOLL.Traces</cite> package allows the user to configure which handles
+should actually generate logs, and which should just be silent and not
+generate anything. Depending on the part of the application that needs to
+be investigated, one can therefore enable a set of handles or another, to
+be able to concentrate on that part of the application.</p>
+<p>This configuration is done at two levels:</p>
+<ul class="simple">
+<li><p>either in the source code itself, where some <cite>trace_handle</cite>
+might be disabled or enabled by default. This will be described in more
+details in later sections.</p></li>
+<li><p>or in a configuration file which is read at runtime, and overrides
+the defaults set in the source code.</p></li>
+</ul>
+<p>The configuration file is found in one of three places, in the following
+order:</p>
+<ul>
+<li><p>The file name is specified in the source code in the call to
+<cite>Parse_Config_File</cite>.</p>
+</li>
+<li id="index-0"><p>If no file name was specified in that call, the environment variable
+<cite>ADA_DEBUG_FILE</cite> might point to a configuration file.</p>
+</li>
+<li id="index-1"><p>If the above two attempts did not find a suitable configuration file,
+the current directory is searched for a file called <cite>.gnatdebug</cite>.
+Finally, the user’s home directory will also be searched for that file.</p></li>
+</ul>
+<p>In all cases, the format of the configuration file is the same. Its goal is
+to associate the name of a <cite>trace_handle</cite> with the name of a
+<cite>trace_stream</cite> on which it should be displayed.</p>
+<p>Streams are identified by a name. You can provide additional streams by
+creating a new tagged object (<a class="reference internal" href="#defining-custom-stream-types"><span class="std std-ref">Defining custom stream types</span></a>). Here are
+the various possibilities to reference a stream:</p>
+<dl class="simple">
+<dt><em>“name”</em></dt><dd><p>where name is a string made of letters, digits and slash (‘/’) characters.
+This is the name of a file to which the traces should be redirected. The
+previous contents of the file is discarded. If the name of the file is a
+relative path, it is relative to the location of the configuration file, not
+necessarily to the current directory when the file is parsed.
+In the file name, <cite>$$</cite> is automatically replaced by the process number.
+<cite>$D</cite> is automatically replaced by the current date. <cite>$T</cite> is automatically
+replaced by the current date and time. Other patterns of the form <cite>$name</cite>,
+<cite>${name}</cite>, or <cite>$(name)</cite> are substituted with the value of the named environment
+variable, if it exists. If “&gt;&gt;” is used instead of “&gt;” to redirect to that
+stream, the file is appended to, instead of truncated.</p>
+</dd>
+<dt><em>“&amp;1”</em></dt><dd><p>This syntax is similar to the one used on Unix shells, and indicates that
+the output should be displayed on the standard output for the application.
+If the application is graphical, and in particular on Windows platforms, it
+is possible that there is no standard output!</p>
+</dd>
+<dt><em>“&amp;2”</em></dt><dd><p>Similar to the previous one, but the output is sent to standard error.</p>
+</dd>
+<dt><em>“&amp;syslog”</em></dt><dd><p><a class="reference internal" href="#logging-to-syslog"><span class="std std-ref">Logging to syslog</span></a>.</p>
+</dd>
+</dl>
+<p>Comments in a configuration file must be on a line of their own, and start
+with <cite>–</cite>. Empty lines are ignored. The rest of the lines represent
+configurations, as in:</p>
+<ul>
+<li><p>If a line contains the single character <cite>“+”</cite>, it activates all
+<cite>trace_handle</cite> by default. This means the rest of the configuration
+file should disable those handles that are not needed. The default is that
+all handles are disabled by default, and the configuration file should
+activate the ones it needs. The Ada source code can change the default
+status of each handles, as well</p></li>
+<li><p>If the line starts with the character <cite>“&gt;”</cite>, followed by a
+stream name (as defined above), this becomes the default stream. All handles
+will be displayed on that stream, unless otherwise specified. If the stream
+does not exist, it defaults to standard output.</p></li>
+<li><p>Otherwise, the first token on the line is the name of a handle.
+If that is the only element on the line, the handle is activated, and will
+be displayed on the default stream.</p>
+<p>Otherwise, the next element on the line should be a <cite>“=”</cite> sign,
+followed by either <cite>“yes”</cite> or <cite>“no”</cite>, depending on whether the
+handle should resp. be enabled or disabled.</p>
+<p>Finally, the rest of the line can optionally contain the <cite>“&gt;”</cite>
+character followed by the name of the stream to which the handle should
+be directed.</p>
+<p>There is are two special cases for the names on this line: they can
+start with either <cite>“*.”</cite> or <cite>“.*”</cite> to indicate the settings apply to a
+whole set of handles. See the example below.</p>
+</li>
+</ul>
+<p>Here is a short example of a configuration file. It activates all handles
+by default, and defines four handles: two of them are directed to the
+default stream (standard error), the third one to a file on the disk,
+and the last one to the system logger syslog (if your system supports it,
+otherwise to the default stream, ie standard error):</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="o">+</span>
+<span class="o">&gt;&amp;</span><span class="mi">2</span>
+<span class="n">MODULE1</span>
+<span class="n">MODULE2</span><span class="o">=</span><span class="n">yes</span>
+<span class="n">SYSLOG</span><span class="o">=</span><span class="n">yes</span> <span class="o">&gt;&amp;</span><span class="n">syslog</span><span class="p">:</span><span class="n">local0</span><span class="p">:</span><span class="n">info</span>
+<span class="n">FILE</span><span class="o">=</span><span class="n">yes</span> <span class="o">&gt;/</span><span class="n">tmp</span><span class="o">/</span><span class="n">file</span>
+
+<span class="c1">--  decorators (see below)</span>
+<span class="n">DEBUG</span><span class="p">.</span><span class="n">COLORS</span><span class="o">=</span><span class="n">yes</span>
+
+<span class="c1">--  Applies to FIRST.EXCEPTIONS, LAST.EXCEPTIONS,...</span>
+<span class="c1">--  and forces them to be displayed on stdout</span>
+<span class="o">*</span><span class="p">.</span><span class="n">EXCEPTIONS</span><span class="o">=</span><span class="n">yes</span> <span class="o">&gt;</span> <span class="n">stdout</span>
+
+<span class="c1">--  Applies to MODULE1, MODULE1.FIRST,... This can be used to</span>
+<span class="c1">--  disable a whole hierarchy of modules.</span>
+<span class="c1">--  As always, the latest config overrides earlier ones, so the</span>
+<span class="c1">--  module MODULE1.EXCEPTIONS would be disabled as well.</span>
+
+<span class="n">MODULE1</span><span class="p">.</span><span class="o">*=</span><span class="n">no</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-the-traces-module">
+<span id="id2"></span><h2><span class="section-number">4.2. </span>Using the traces module<a class="headerlink" href="#using-the-traces-module" title="Permalink to this headline">¶</a></h2>
+<p>If you need or want to parse an external configuration file as described
+in the first section, the code that initializes your application should
+contain a call to <cite>GNATCOLL.Traces.Parse_Config_File</cite>. As documented,
+this takes in parameter the name of the configuration file to parse. When
+none is specified, the algorithm specified in the previous section will be
+used to find an appropriate configuration:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="n">GNATCOLL</span><span class="p">.</span><span class="n">Traces</span><span class="p">.</span><span class="n">Parse_Config_File</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The code, as written, will end up looking for a file <code class="file docutils literal notranslate"><span class="pre">.gnatdebug</span></code> in
+the current directory.</p>
+<p>The function <code class="code docutils literal notranslate"><span class="pre">Parse_Config_File</span></code> must be called to indicate that
+you want to activate the traces. It must also end up finding a configuration
+file. If it does not, then none of the other functions will ever output
+anything. This is to make sure your application does not start printing extra
+output just because you happen to use an external library that uses
+<code class="code docutils literal notranslate"><span class="pre">GNATCOLL.Traces</span></code>. It also ensures that your application will not
+try to write to <code class="code docutils literal notranslate"><span class="pre">stdout</span></code> unless you think it is appropriate (since
+<code class="code docutils literal notranslate"><span class="pre">stdout</span></code> might not even exist in fact).</p>
+<p>You then need to declare each of the <cite>trace_handle</cite> (or <cite>logger</cite>) that your
+application will use. The same handle can be declared several times, so
+the recommended approach is to declare locally in each package body the
+handles it will need, even if several bodies actually need the same
+handle. That helps to know which traces to activate when debugging a
+package, and limits the dependencies of packages on a shared package
+somewhere that would contain the declaration of all shared handles.</p>
+<span class="target" id="index-2"></span><dl id="index-3">
+<dt>Function Trace_Handle Create Name Default Stream Factory Finalize</dt><dd><p>This function creates (or return an existing) a <cite>trace_handle</cite> with
+the specified <cite>Name</cite>. Its default activation status can also be
+specified (through <cite>Default</cite>), although the default behavior is to
+get it from the configuration file. If a handle is created several times,
+only the first call that is executed can define the default activation
+status, the following calls will have no effect.</p>
+<p><cite>Stream</cite> is the name of the stream to which it should be directed.
+Here as well, it is generally better to leave things to the configuration
+file, although in some cases you might want to force a specific behavior.</p>
+<p><cite>Factory</cite> is used to create your own child types of <cite>trace_handle</cite>
+(<a class="reference internal" href="#log-decorators"><span class="std std-ref">Log decorators</span></a>).</p>
+</dd>
+</dl>
+<p>Here is an example with two package bodies that define their own handles,
+which are later used for output:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kd">package</span> <span class="kd">body</span> <span class="nc">Pkg1</span> <span class="kr">is</span>
+   <span class="no">Me</span> <span class="p">:</span> <span class="kr">constant</span> <span class="n">Trace_Handle</span> <span class="p">:=</span> <span class="n">Create</span> <span class="p">(</span><span class="s">&quot;PKG1&quot;</span><span class="p">);</span>
+   <span class="no">Log</span> <span class="p">:</span> <span class="kr">constant</span> <span class="n">Trace_Handle</span> <span class="p">:=</span> <span class="n">Create</span> <span class="p">(</span><span class="s">&quot;LOG&quot;</span><span class="p">,</span> <span class="n">Stream</span> <span class="p">=&gt;</span> <span class="s">&quot;@syslog&quot;</span><span class="p">);</span>
+<span class="kr">end</span> <span class="nf">Pkg1</span><span class="p">;</span>
+
+<span class="kd">package</span> <span class="kd">body</span> <span class="nc">Pkg2</span> <span class="kr">is</span>
+   <span class="no">Me</span> <span class="p">:</span> <span class="kr">constant</span> <span class="n">Trace_Handle</span> <span class="p">:=</span> <span class="n">Create</span> <span class="p">(</span><span class="s">&quot;PKG2&quot;</span><span class="p">);</span>
+   <span class="no">Log</span> <span class="p">:</span> <span class="kr">constant</span> <span class="n">Trace_Handle</span> <span class="p">:=</span> <span class="n">Create</span> <span class="p">(</span><span class="s">&quot;LOG&quot;</span><span class="p">,</span> <span class="n">Stream</span> <span class="p">=&gt;</span> <span class="s">&quot;@syslog&quot;</span><span class="p">);</span>
+<span class="kr">end</span> <span class="nf">Pkg2</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Once the handles have been declared, output is a matter of calling the
+<cite>GNATCOLL.Traces.Trace</cite> procedure, as in the following sample:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="n">Trace</span> <span class="p">(</span><span class="n">Me</span><span class="p">,</span> <span class="s">&quot;I am here&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>An additional subprogram can be used to test for assertions (pre-conditions
+or post-conditions in your program), and output a message whether the
+assertion is met or not:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="n">Assert</span> <span class="p">(</span><span class="n">Me</span><span class="p">,</span> <span class="n">A</span> <span class="o">=</span> <span class="n">B</span><span class="p">,</span> <span class="s">&quot;A is not equal to B&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>If the output of the stream is done in color, a failed assertion is
+displayed with a red background to make it more obvious.</p>
+<div class="section" id="logging-unexpected-exceptions">
+<h3><span class="section-number">4.2.1. </span>Logging unexpected exceptions<a class="headerlink" href="#logging-unexpected-exceptions" title="Permalink to this headline">¶</a></h3>
+<p>A special version of <cite>Trace</cite> is provided, which takes an
+<cite>Exception_Occurrence</cite> as argument, and prints its message and backtrace
+into the corresponding log stream.</p>
+<p>This procedure will in general be used for unexcepted exceptions. Since
+such exceptions should be handled by developers, it is possible to
+configure <cite>GNATCOLL.TRACES</cite> to use special streams for those.</p>
+<p><cite>Trace (Me, E)</cite> will therefore not used <cite>Me</cite> itself as the log handle,
+but will create (on the fly, the first time) a new handle with the same
+base name and and <cite>.EXCEPTIONS</cite> suffix. Therefore, you could put the
+following in your configuration file:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span># Redirect all exceptions to stdout
+*.EXCEPTIONS=yes &gt;&amp; stdout
+</pre></div>
+</div>
+<p>and then the following code will output the exception trace to stdout:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kd">procedure</span> <span class="nf">Proc</span> <span class="kr">is</span>
+   <span class="n">Me</span> <span class="p">:</span> <span class="n">Create</span> <span class="p">(</span><span class="s">&quot;MYMODULE&quot;</span><span class="p">);</span>
+<span class="kr">begin</span>
+   <span class="p">...</span>
+<span class="kr">exception</span>
+   <span class="kr">when</span> <span class="n">E</span> <span class="p">:</span> <span class="kr">others</span> <span class="p">=&gt;</span>
+      <span class="n">Trace</span> <span class="p">(</span><span class="n">Me</span><span class="p">,</span> <span class="n">E</span><span class="p">,</span> <span class="n">Msg</span> <span class="p">=&gt;</span> <span class="s">&quot;unexcepted exception:&quot;</span><span class="p">);</span>
+<span class="kr">end</span> <span class="nf">Proc</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="checking-whether-the-handle-is-active">
+<h3><span class="section-number">4.2.2. </span>Checking whether the handle is active<a class="headerlink" href="#checking-whether-the-handle-is-active" title="Permalink to this headline">¶</a></h3>
+<p>As we noted before, handles can be disabled. In that case, your application
+should not spend time preparing the output string, since that would be
+wasted time. In particular, using the standard Ada string concatenation
+operator requires allocating temporary memory. It is therefore recommended,
+when the string to display is complex, to first test whether the handle is
+active. This is done with the following code:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kr">if</span> <span class="n">Active</span> <span class="p">(</span><span class="n">Me</span><span class="p">)</span> <span class="kr">then</span>
+   <span class="n">Trace</span> <span class="p">(</span><span class="n">Me</span><span class="p">,</span> <span class="n">A</span> <span class="o">&amp;</span> <span class="n">B</span> <span class="o">&amp;</span> <span class="n">C</span> <span class="o">&amp;</span> <span class="n">D</span> <span class="o">&amp;</span> <span class="n">E</span><span class="p">);</span>
+<span class="kr">end</span> <span class="kr">if</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="log-decorators">
+<span id="id3"></span><h2><span class="section-number">4.3. </span>Log decorators<a class="headerlink" href="#log-decorators" title="Permalink to this headline">¶</a></h2>
+<p id="index-4">Speaking of color, a number of decorators are defined by
+<cite>GNATCOLL.Traces</cite>. Their goal is not to be used for outputting information,
+but to configure what extra information should be output with all log
+messages. They are activated through the same configuration file as the
+traces, with the same syntax (i.e either <cite>“=yes”</cite> or <cite>“=no”</cite>).</p>
+<p>Here is an exhaustive list:</p>
+<dl class="simple">
+<dt><em>DEBUG.ABSOLUTE_TIME</em></dt><dd><p>If this decorator is activated in the configuration file, the absolute time
+when Trace is called is automatically added to the output, when the
+streams supports it (in particular, this has no effect for syslog, which
+already does this on its own).</p>
+</dd>
+<dt><em>DEBUG.MICRO_TIME</em></dt><dd><p>If active, the time displayed by DEBUG.ABSOLUTE_TIME will use a microseconds
+precision, instead of milliseconds.</p>
+</dd>
+<dt><em>DEBUG.ELAPSED_TIME</em></dt><dd><p>If this decorator is activated, then the elapsed time since the last call to
+Trace for the same handle is also displayed.</p>
+</dd>
+<dt><em>DEBUG.STACK_TRACE</em></dt><dd><p>If this decorator is activated, then the stack trace is also displayed. It can
+be converted to a symbolic stack trace through the use of the external
+application <cite>addr2line</cite>, but that would be too costly to do this
+automatically for each message.</p>
+</dd>
+<dt><em>DEBUG.LOCATION</em></dt><dd><p>If this decorator is activated, the location of the call to Trace is
+automatically displayed. This is a <a class="reference external" href="file:line:column">file:line:column</a> information. This
+works even when the executable wasn’t compiled with debug information</p>
+</dd>
+<dt><em>DEBUG.ENCLOSING_ENTITY</em></dt><dd><p>Activate this decorator to automatically display the name of the subprogram
+that contains the call to <cite>Trace</cite>.</p>
+</dd>
+<dt><em>DEBUG.COLORS</em></dt><dd><p>If this decorator is activated, the messages will use colors for the various
+fields, if the stream supports it (syslog doesn’t).</p>
+</dd>
+<dt><em>DEBUG.COUNT</em></dt><dd><p>This decorator displays two additional numbers on each line: the first is
+the number of times this handle was used so far in the application, the second
+is the total number of traces emitted so far. These numbers can for instance
+be used to set conditional breakpoints on a specific trace (break on
+<cite>gnat.traces.log</cite> or <cite>gnat.traces.trace</cite> and check the value of
+<cite>Handle.Count</cite>. It can also be used to refer to a specific line in some
+comment file.</p>
+</dd>
+<dt><em>DEBUG.MEMORY</em></dt><dd><p>Every time a message is output, display the amount of memory currently in
+use by the application.</p>
+</dd>
+<dt><em>DEBUG.SPLIT_LINES</em></dt><dd><p>When this is enabled, messages are split at each newline character. Each line
+then starts with the name of the logger, indentation level and so on. This
+might result in more readable output, but is slightly slower.</p>
+</dd>
+<dt><em>DEBUG.FINALIZE_TRACES</em></dt><dd><p>This handle is activated by default, and indicates whether
+<cite>GNATCOLL.Traces.Finalize</cite> should have any effect. This can be set to False
+when debugging, to ensure that traces are available during the finalization
+of your application.</p>
+</dd>
+</dl>
+<p>Here is an example of output where several decorators were activated. In this
+example, the output is folded on several lines, but in reality everything is
+output on a single line:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span>[MODULE] 6/247 User Message (2007-07-03 13:12:53.46)
+   (elapsed: 2ms)(loc: gnatcoll-traces.adb:224)
+   (entity:GNATCOLL.Traces.Log)
+   (callstack: 40FD9902 082FCFDD 082FE8DF )
+</pre></div>
+</div>
+<p>Depending on your application, there are lots of other possible decorators
+that could be useful (for instance the current thread, or the name of the
+executable when you have several of them,…). Since <cite>GNATCOLL.Traces</cite>
+cannot provide all possible decorators, it provides support, through tagged
+types, so that you can create your own decorators.</p>
+<p>This needs you to override the <cite>Trace_Handle_Record</cite> tagged type. Since
+this type is created through calls to <cite>GNATCOLL.Traces.Create</cite>. This is done
+by providing an additional <cite>Factory</cite> parameter to <cite>Create</cite>; this is
+a function that allocates and returns the new handle.</p>
+<p>Then you can override either (or both) of the primitive operations
+<cite>Pre_Decorator</cite> and <cite>Post_Decorator</cite>. The following example creates
+a new type of handles, and prints a constant string just after the module
+name:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kd">type</span> <span class="kt">My_Handle</span> <span class="kr">is</span> <span class="kr">new</span> <span class="n">Trace_Handle_Record</span> <span class="kr">with</span> <span class="kr">null record</span><span class="p">;</span>
+<span class="kd">procedure</span>  <span class="nf">Pre_Decorator</span>
+  <span class="p">(</span><span class="nv">Handle</span>  <span class="p">: </span><span class="nv">in</span> <span class="nv">out</span> <span class="nv">My_Handle</span><span class="p">;</span>
+   <span class="nv">Stream</span>  <span class="p">: </span><span class="nv">in</span> <span class="nv">out</span> <span class="nv">Trace_Stream_Record</span><span class="p">&#39;</span><span class="na">Class</span><span class="p">;</span>
+   <span class="nv">Message</span> <span class="p">: </span><span class="nv">String</span><span class="p">)</span> <span class="kr">is</span>
+<span class="kr">begin</span>
+   <span class="n">Put</span> <span class="p">(</span><span class="n">Stream</span><span class="p">,</span> <span class="s">&quot;TEST&quot;</span><span class="p">);</span>
+   <span class="n">Pre_Decorator</span> <span class="p">(</span><span class="n">Trace_Handle_Record</span> <span class="p">(</span><span class="n">Handle</span><span class="p">),</span> <span class="n">Stream</span><span class="p">,</span> <span class="n">Message</span><span class="p">);</span>
+<span class="kr">end</span><span class="o">**</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nf">Factory</span> <span class="nf">return</span> <span class="nf">Trace_Handle</span> <span class="kr">is</span>
+<span class="kr">begin</span>
+   <span class="kr">return</span> <span class="kr">new</span> <span class="n">My_Handle</span><span class="p">;</span>
+<span class="kr">end</span><span class="p">;</span>
+
+<span class="n">Me</span> <span class="p">:</span> <span class="n">Trace_Handle</span> <span class="p">:=</span> <span class="n">Create</span> <span class="p">(</span><span class="s">&quot;MODULE&quot;</span><span class="p">,</span> <span class="n">Factory</span> <span class="p">=&gt;</span> <span class="n">Factory</span><span class="p">&#39;</span><span class="na">Access</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>As we will see below (<a class="reference internal" href="#dynamically-disabling-features"><span class="std std-ref">Dynamically disabling features</span></a>), you can also
+make all or part of your decorators conditional and configurable through
+the same configuration file as the trace handles themselves.</p>
+</div>
+<div class="section" id="defining-custom-stream-types">
+<span id="id4"></span><h2><span class="section-number">4.4. </span>Defining custom stream types<a class="headerlink" href="#defining-custom-stream-types" title="Permalink to this headline">¶</a></h2>
+<p>We noted above that several predefined types of streams exist, to output to
+a file,
+to standard output or to standard error. Depending on your specific needs,
+you might want to output to other media. For instance, in a graphical
+application, you could have a window that shows the traces (perhaps in
+addition to filing them in a file, since otherwise the window would
+disappear along with its contents if the application crashes); or you could
+write to a socket (or even a CORBA ORB) to communicate with another
+application which is charge of monitoring your application.</p>
+<p>You do not need the code below if you simply want to have a new stream in
+your application (for instance using one for logging Info messages, one for
+Error messages, and so on). In this case, the function <cite>Create</cite> is all
+you need.</p>
+<p><cite>GNATCOLL.Traces</cite> provides the type <cite>Trace_Stream_Record</cite>, which can
+be overridden to redirect the traces to your own streams.</p>
+<p>Let’s assume for now that you have defined a new type of stream (called
+<cite>“mystream”</cite>). To keep the example simple, we will assume this stream
+also redirects to a file. For flexibility, however, you want to let the user
+configure the file name from the traces configuration file. Here is an
+example of a configuration file that sets the default stream to a file
+called <code class="file docutils literal notranslate"><span class="pre">foo</span></code>, and redirects a specific handle to another file called
+<code class="file docutils literal notranslate"><span class="pre">bar</span></code>. Note how the same syntax that was used for standard output and
+standard error is also reused (ie the stream name starts with the <cite>“&amp;”</cite>
+symbol, to avoid confusion with standard file names):</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&amp;</span><span class="n">mystream</span><span class="p">:</span><span class="n">foo</span>
+<span class="n">MODULE</span><span class="o">=</span><span class="n">yes</span> <span class="o">&gt;&amp;</span><span class="n">mystream</span><span class="p">:</span><span class="n">bar</span>
+</pre></div>
+</div>
+<p>You need of course to do a bit of coding in Ada to create the stream. This
+is done by creating a new child of <cite>Trace_Stream_Record</cite>, and override
+the primitive operation <cite>Put</cite>.</p>
+<p>The whole output message is given as a single parameter to <cite>Put</cite>:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kd">type</span> <span class="kt">My_Stream</span> <span class="kr">is</span> <span class="kr">new</span> <span class="n">Trace_Stream_Record</span> <span class="kr">with</span> <span class="kr">record</span>
+   <span class="n">File</span> <span class="p">:</span> <span class="kr">access</span> <span class="kt">File_Type</span><span class="p">;</span>
+<span class="kr">end record</span><span class="p">;</span>
+
+<span class="kd">procedure</span> <span class="nf">Put</span>
+  <span class="p">(</span><span class="nv">Stream</span> <span class="p">: </span><span class="nv">in</span> <span class="nv">out</span> <span class="nv">My_Stream</span><span class="p">;</span> <span class="nv">Str</span> <span class="p">: </span><span class="nv">Msg_Strings</span><span class="p">.</span><span class="nv">XString</span><span class="p">)</span>
+<span class="kr">is</span>
+   <span class="n">S</span> <span class="p">:</span> <span class="n">Msg_Strings</span><span class="p">.</span><span class="n">Unconstrained_String_Access</span><span class="p">;</span>
+   <span class="n">L</span> <span class="p">:</span> <span class="kt">Natural</span><span class="p">;</span>
+<span class="kr">begin</span>
+   <span class="n">Str</span><span class="p">.</span><span class="n">Get_String</span> <span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="n">L</span><span class="p">);</span>
+   <span class="n">Put</span> <span class="p">(</span><span class="n">Stream</span><span class="p">.</span><span class="n">File</span><span class="p">.</span><span class="kr">all</span><span class="p">,</span> <span class="kt">String</span> <span class="p">(</span><span class="n">S</span> <span class="p">(</span><span class="mi">1</span> <span class="p">..</span> <span class="n">L</span><span class="p">)));</span>
+<span class="kr">end</span> <span class="nf">Put</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The above code did not open the file itself, as you might have noticed,
+nor did it register the name <cite>“mystream”</cite> so that it can be used in
+the configuration file. All this is done by creating a factory, ie a
+function in charge of creating the new stream.</p>
+<p>A factory is also a tagged object (so that you can store custom information
+in it), with a single primitive operation, <cite>New_Stream</cite>, in charge of
+creating and initializing a new stream.
+This operation receives
+in parameter the argument specified by the user in the configuration file
+(after the <cite>“:”</cite> character, if any), and must return a newly
+allocated stream. This function is also never called twice with the
+same argument, since <cite>GNATCOLL.Traces</cite> automatically reuses an existing
+stream when one with the same name and arguments already exists:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kd">type</span> <span class="kt">My_Stream_Factory</span> <span class="kr">is</span> <span class="kr">new</span> <span class="n">Stream_Factory</span> <span class="kr">with</span> <span class="kr">null record</span><span class="p">;</span>
+
+<span class="kr">overriding</span> <span class="kd">function</span> <span class="nf">New_Stream</span>
+   <span class="p">(</span><span class="nv">Self</span> <span class="p">: </span><span class="nv">My_Stream_Factory</span><span class="p">;</span> <span class="nv">Args</span> <span class="p">: </span><span class="nv">String</span><span class="p">)</span> <span class="kr">return</span> <span class="n">Trace_Stream</span>
+<span class="kr">is</span>
+   <span class="n">Str</span> <span class="p">:</span> <span class="kr">access</span> <span class="n">My_Stream</span> <span class="p">:=</span> <span class="kr">new</span> <span class="n">My_Stream</span><span class="p">;</span>
+<span class="kr">begin</span>
+   <span class="n">Str</span><span class="p">.</span><span class="n">File</span> <span class="p">:=</span> <span class="kr">new</span> <span class="kt">File_Type</span><span class="p">;</span>
+   <span class="n">Open</span> <span class="p">(</span><span class="n">Str</span><span class="p">.</span><span class="n">File</span><span class="p">,</span> <span class="n">Out_File</span><span class="p">,</span> <span class="n">Args</span><span class="p">);</span>
+   <span class="kr">return</span> <span class="n">Str</span><span class="p">;</span>
+<span class="kr">end</span> <span class="nf">Factory</span><span class="p">;</span>
+
+<span class="n">Fact</span> <span class="p">:</span> <span class="kr">access</span> <span class="n">My_Stream_Factory</span> <span class="p">:=</span> <span class="kr">new</span> <span class="n">My_Stream_Factory</span><span class="p">;</span>
+<span class="n">Register_Stream_Factory</span> <span class="p">(</span><span class="s">&quot;mystream&quot;</span><span class="p">,</span> <span class="n">Fact</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="logging-to-syslog">
+<span id="id5"></span><h2><span class="section-number">4.5. </span>Logging to syslog<a class="headerlink" href="#logging-to-syslog" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="index-5"></span><p id="index-6">Among the predefined streams, GNATColl gives access to the system
+logger <cite>syslog</cite>. This is a standard utility on all Unix systems, but is
+not available on other systems. When you compile GNATColl, you should
+specify the switch <cite>–enable-syslog</cite> to configure to activate the
+support. If either this switch wasn’t specified, or configure could not find
+the relevant header files anyway, then support for <cite>syslog</cite> will not
+be available. In this case, the package <cite>GNATCOLL.Traces.Syslog</cite> is still
+available, but contains a single function that does nothing. If your
+configuration files redirect some trace handles to <cite>“syslog”</cite>, they will
+instead be redirect to the default stream or to standard output.</p>
+<p>Activating support for syslog requires the following call in your application:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="n">GNATCOLL</span><span class="p">.</span><span class="n">Traces</span><span class="p">.</span><span class="n">Syslog</span><span class="p">.</span><span class="n">Register_Syslog_Stream</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>This procedure is always available, whether your system supports or not
+syslog, and will simply do nothing if it doesn’t support syslog. This means
+that you do not need to have conditional code in your application to handle
+that, and you can let GNATColl take care of this.</p>
+<p>After the above call, trace handles can be redirected to a stream named
+<cite>“syslog”</cite>.</p>
+<p>The package <cite>GNATCOLL.Traces.Syslog</cite> also contains a low-level interface
+to syslog, which, although fully functional, you should probably not use,
+since that would make your code system-dependent.</p>
+<p>Syslog itself dispatches its output based on two criteria: the
+<cite>facility</cite>, which indicates what application emitted the message,
+and where it should be filed, and the <cite>level</cite> which indicates the
+urgency level of the message. Both of these criteria can be specified in
+the <cite>GNATCOLL.Traces</cite> configuration file, as follows:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="n">MODULE</span><span class="o">=</span><span class="n">yes</span> <span class="o">&gt;&amp;</span><span class="n">syslog</span><span class="p">:</span><span class="n">user</span><span class="p">:</span><span class="n">error</span>
+</pre></div>
+</div>
+<p>The above configuration will redirect to a facility called <cite>user</cite>,
+with an urgency level <cite>error</cite>. See the enumeration types in
+<code class="file docutils literal notranslate"><span class="pre">gnatcoll-traces-syslog.ads</span></code> for more information on valid facilities
+and levels.</p>
+</div>
+<div class="section" id="dynamically-disabling-features">
+<span id="id6"></span><h2><span class="section-number">4.6. </span>Dynamically disabling features<a class="headerlink" href="#dynamically-disabling-features" title="Permalink to this headline">¶</a></h2>
+<p>Although the trace handles are primarily meant for outputting messages,
+they can be used in another context. The goal is to take advantage of
+the external configuration file, without reimplementing a similar
+feature in your application. Since the configuration file can be used to
+activated or de-activated a handle dynamically, you can then have
+conditional sections in your application that depends on that handle,
+as in the following example:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="n">CONDITIONAL</span><span class="o">=</span><span class="n">yes</span>
+</pre></div>
+</div>
+<p>and in the Ada code:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kd">package</span> <span class="nc">Pkg</span> <span class="kr">is</span>
+   <span class="no">Me</span> <span class="p">:</span> <span class="kr">constant</span> <span class="n">Trace_Handle</span> <span class="p">:=</span> <span class="n">Create</span> <span class="p">(</span><span class="s">&quot;CONDITIONAL&quot;</span><span class="p">);</span>
+<span class="kr">begin</span>
+   <span class="kr">if</span> <span class="n">Active</span> <span class="p">(</span><span class="n">Me</span><span class="p">)</span> <span class="kr">then</span>
+      <span class="p">...</span> <span class="n">conditional</span> <span class="n">code</span>
+   <span class="kr">end</span> <span class="kr">if</span><span class="p">;</span>
+<span class="kr">end</span> <span class="nf">Pkg</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>In particular, this can be used if you write your own decorators, as
+explained above.</p>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/adacore_transparent.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">4. <strong>Traces</strong>: Logging information</a><ul>
+<li><a class="reference internal" href="#configuring-traces">4.1. Configuring traces</a></li>
+<li><a class="reference internal" href="#using-the-traces-module">4.2. Using the traces module</a><ul>
+<li><a class="reference internal" href="#logging-unexpected-exceptions">4.2.1. Logging unexpected exceptions</a></li>
+<li><a class="reference internal" href="#checking-whether-the-handle-is-active">4.2.2. Checking whether the handle is active</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#log-decorators">4.3. Log decorators</a></li>
+<li><a class="reference internal" href="#defining-custom-stream-types">4.4. Defining custom stream types</a></li>
+<li><a class="reference internal" href="#logging-to-syslog">4.5. Logging to syslog</a></li>
+<li><a class="reference internal" href="#dynamically-disabling-features">4.6. Dynamically disabling features</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="scripting.html"
+                        title="previous chapter"><span class="section-number">3. </span><strong>Scripts</strong>: Embedding script languages</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="strings.html"
+                        title="next chapter"><span class="section-number">5. </span><strong>Strings</strong>: high-performance strings</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="strings.html" title="5. Strings: high-performance strings"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="scripting.html" title="3. Scripts: Embedding script languages"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">GNATColl 2021 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">4. </span><strong>Traces</strong>: Logging information</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2007-2021, AdaCore.
+    </div>
+  </body>
+</html>

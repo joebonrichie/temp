@@ -1,0 +1,1394 @@
+V "GNAT Lib v2021"
+A -O2
+A -gnatA
+A -gnatn
+A -gnatwa
+A -gnatwC
+A -gnatwJ
+A -mtune=generic
+A -march=x86-64
+P SS ZX
+
+RN
+RV NO_ACCESS_SUBPROGRAMS
+RV NO_ALLOCATORS
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_DISPATCH
+RV NO_DISPATCHING_CALLS
+RV NO_ENUMERATION_MAPS
+RV NO_EXCEPTION_HANDLERS
+RV NO_EXCEPTION_PROPAGATION
+RV NO_EXCEPTIONS
+RV NO_FINALIZATION
+RV NO_IO
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_LOCAL_ALLOCATORS
+RV NO_LOCAL_PROTECTED_OBJECTS
+RV NO_NESTED_FINALIZATION
+RV NO_PROTECTED_TYPE_ALLOCATORS
+RV NO_RECURSION
+RV NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_STREAMS
+RV NO_UNCHECKED_ACCESS
+RV NO_UNCHECKED_DEALLOCATION
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_ATTRIBUTES
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLICIT_ALIASING
+RV NO_IMPLICIT_LOOPS
+RV NO_ELABORATION_CODE
+RV NO_OBSOLESCENT_FEATURES
+
+U gnatcoll.opt_parse%b	gnatcoll-opt_parse.adb	ab9a13ab OO PF PK IU
+W ada%s			ada.ads			ada.ali
+W ada.characters%s	a-charac.ads		a-charac.ali
+W ada.characters.handling%s  a-chahan.adb	a-chahan.ali
+W ada.command_line%s	a-comlin.adb		a-comlin.ali
+W ada.containers%s	a-contai.ads		a-contai.ali
+Z ada.containers.generic_array_sort%s
+Z ada.containers.helpers%s  a-conhel.adb	a-conhel.ali
+W ada.exceptions%s	a-except.adb		a-except.ali
+Z ada.finalization%s	a-finali.ads		a-finali.ali
+Z ada.iterator_interfaces%s
+Z ada.streams%s		a-stream.adb		a-stream.ali
+W ada.strings%s		a-string.ads		a-string.ali
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+W ada.unchecked_deallocation%s
+W gnat%s		gnat.ads		gnat.ali
+W gnat.os_lib%s		g-os_lib.ads		g-os_lib.ali
+W gnatcoll%s		gnatcoll.ads		gnatcoll.ali
+Z gnatcoll.refcount%s	gnatcoll-refcount.adb	gnatcoll-refcount.ali  AD
+Z gnatcoll.refcount%b	gnatcoll-refcount.adb	gnatcoll-refcount.ali  AD
+W gnatcoll.vfs%s	gnatcoll-vfs.adb	gnatcoll-vfs.ali
+Z system%s		system.ads		system.ali
+Z system.exception_table%s  s-exctab.adb	s-exctab.ali
+Z system.finalization_masters%s  s-finmas.adb	s-finmas.ali
+Z system.put_images%s	s-putima.adb		s-putima.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+Z system.soft_links%s	s-soflin.adb		s-soflin.ali
+Z system.standard_library%s  s-stalib.adb	s-stalib.ali
+Z system.storage_elements%s  s-stoele.adb	s-stoele.ali
+Z system.storage_pools%s  s-stopoo.adb		s-stopoo.ali
+Z system.storage_pools.subpools%s  s-stposu.adb	s-stposu.ali
+Z system.stream_attributes%s  s-stratt.adb	s-stratt.ali
+Z system.strings.stream_ops%s  s-ststop.adb	s-ststop.ali
+Z system.val_int%s	s-valint.ads		s-valint.ali
+
+U gnatcoll.opt_parse%s	gnatcoll-opt_parse.ads	175e9508 BN EE OO PF PK IU
+W ada%s			ada.ads			ada.ali
+Z ada.calendar.delays%s	a-caldel.adb		a-caldel.ali
+W ada.containers%s	a-contai.ads		a-contai.ali
+Z ada.containers.generic_array_sort%s
+Z ada.containers.helpers%s  a-conhel.adb	a-conhel.ali
+W ada.containers.vectors%s
+Z ada.exceptions%s	a-except.adb		a-except.ali
+W ada.finalization%s	a-finali.ads		a-finali.ali
+Z ada.iterator_interfaces%s
+Z ada.streams%s		a-stream.adb		a-stream.ali
+W ada.strings%s		a-string.ads		a-string.ali
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+W ada.strings.unbounded%s  a-strunb.adb		a-strunb.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
+Z ada.unchecked_deallocation%s
+W gnatcoll%s		gnatcoll.ads		gnatcoll.ali
+W gnatcoll.locks%s	gnatcoll-locks.adb	gnatcoll-locks.ali
+W gnatcoll.refcount%s	gnatcoll-refcount.adb	gnatcoll-refcount.ali
+W gnatcoll.strings%s	gnatcoll-strings.ads	gnatcoll-strings.ali
+W system%s		system.ads		system.ali
+W system.aux_dec%s	s-auxdec.adb		s-auxdec.ali
+Z system.exception_table%s  s-exctab.adb	s-exctab.ali
+Z system.finalization_masters%s  s-finmas.adb	s-finmas.ali
+Z system.pool_global%s	s-pooglo.adb		s-pooglo.ali
+Z system.put_images%s	s-putima.adb		s-putima.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+Z system.soft_links%s	s-soflin.adb		s-soflin.ali
+Z system.standard_library%s  s-stalib.adb	s-stalib.ali
+Z system.storage_elements%s  s-stoele.adb	s-stoele.ali
+Z system.storage_pools%s  s-stopoo.adb		s-stopoo.ali
+Z system.storage_pools.subpools%s  s-stposu.adb	s-stposu.ali
+Z system.stream_attributes%s  s-stratt.adb	s-stratt.ali
+Z system.strings.stream_ops%s  s-ststop.adb	s-ststop.ali
+
+D ada.ads		20210520051131 76789da1 ada%s
+D a-calend.ads		20210520051128 474d9720 ada.calendar%s
+D a-caldel.ads		20210520051128 9f20b83d ada.calendar.delays%s
+D a-charac.ads		20210520051128 2d3ec45b ada.characters%s
+D a-chahan.ads		20210520051128 0ce1b450 ada.characters.handling%s
+D a-chlat1.ads		20210520051128 66457d31 ada.characters.latin_1%s
+D a-comlin.ads		20210520051128 4aa66568 ada.command_line%s
+D a-contai.ads		20210520051128 61e5e089 ada.containers%s
+D a-cgarso.ads		20210520051128 9129bfa8 ada.containers.generic_array_sort%s
+D a-conhel.ads		20210520051128 20298884 ada.containers.helpers%s
+D a-conhel.adb		20210520051128 fe7a6827 ada.containers.helpers%b
+D a-convec.ads		20210520051128 5d39d84a ada.containers.vectors%s
+D a-convec.adb		20210520051128 8dbd1ef5 ada.containers.vectors%b
+D a-except.ads		20210520051128 946f3014 ada.exceptions%s
+D a-finali.ads		20210520051128 bf4f806b ada.finalization%s
+D a-ioexce.ads		20210520051128 e4a01f64 ada.io_exceptions%s
+D a-iteint.ads		20210520051128 49a8bee2 ada.iterator_interfaces%s
+D a-stream.ads		20210520051129 119b8fb3 ada.streams%s
+D a-string.ads		20210520051129 90ac6797 ada.strings%s
+D a-strmap.ads		20210520051129 5a88892a ada.strings.maps%s
+D a-sttebu.ads		20210520051129 18209c64 ada.strings.text_buffers%s
+D a-strunb.ads		20210520051129 03325227 ada.strings.unbounded%s
+D a-stuten.ads		20210520051129 808c40ad ada.strings.utf_encoding%s
+D a-tags.ads		20210520051130 9eaa38c6 ada.tags%s
+D a-textio.ads		20210520051130 aef4d56d ada.text_io%s
+D a-unccon.ads		20210520051130 0e9b276f ada.unchecked_conversion%s
+D a-uncdea.ads		20210520051130 c3a8ac65 ada.unchecked_deallocation%s
+D gnat.ads		20210520051132 b5988c27 gnat%s
+D g-os_lib.ads		20210520051131 0db74523 gnat.os_lib%s
+D g-semaph.ads		20210520051127 9996864a gnat.semaphores%s
+D g-string.ads		20210520051131 c6abc540 gnat.strings%s
+D gnatcoll.ads		20210519051041 6a5da479 gnatcoll%s
+D gnatcoll-atomic.ads	20210519051041 a760a918 gnatcoll.atomic%s
+D gnatcoll-atomic.adb	20210519051041 d76879ba gnatcoll.atomic%b
+D gnatcoll-io.ads	20210519051041 40b00e79 gnatcoll.io%s
+D gnatcoll-io-native.ads  20210519051041 60c7703b gnatcoll.io.native%s
+D gnatcoll-locks.ads	20210519051041 812505b2 gnatcoll.locks%s
+D gnatcoll-opt_parse.ads  20210519051041 50dbb415 gnatcoll.opt_parse%s
+D gnatcoll-opt_parse.adb  20210519051041 577e084f gnatcoll.opt_parse%b
+D gnatcoll-path.ads	20210519051041 44783065 gnatcoll.path%s
+D gnatcoll-refcount.ads	20210519051041 b4dda25c gnatcoll.refcount%s
+D gnatcoll-refcount.adb	20210519051041 a6de40a2 gnatcoll.refcount%b
+D gnatcoll-storage_pools.ads  20210519051041 f82e283b gnatcoll.storage_pools%s
+D gnatcoll-storage_pools-headers.ads  20210519051041 968b2c2e gnatcoll.storage_pools.headers%s
+D gnatcoll-storage_pools-headers.adb  20210519051041 6a903f89 gnatcoll.storage_pools.headers%b
+D gnatcoll-strings.ads	20210519051041 014a3fb6 gnatcoll.strings%s
+D gnatcoll-strings.ads	20210519051041 014a3fb6 gnatcoll.strings%s
+D gnatcoll-strings_impl.ads  20210519051041 660cba3c gnatcoll.strings_impl%s
+D gnatcoll-strings_impl.adb  20210519051041 4bac4314 gnatcoll.strings_impl%b
+D gnatcoll-vfs.ads	20210519051041 1efc72f6 gnatcoll.vfs%s
+D gnatcoll-vfs_types.ads  20210519051041 14be4a8d gnatcoll.vfs_types%s
+D interfac.ads		20210520051132 edec285f interfaces%s
+D i-c.ads		20210520051132 d9beded9 interfaces.c%s
+D i-cstrin.ads		20210520051132 341d0ddf interfaces.c.strings%s
+D i-cstrea.ads		20210520051132 e53d8b8e interfaces.c_streams%s
+D system.ads		20210520051135 a2da961d system%s
+D s-atacco.ads		20210520051132 4c36d12f system.address_to_access_conversions%s
+D s-atocou.ads		20210520051132 b45c2d8d system.atomic_counters%s
+D s-atocou.adb		20210520051132 b65612c0 system.atomic_counters%b
+D s-auxdec.ads		20210520051132 f82e173a system.aux_dec%s
+D s-carun8.ads		20210520051132 a903718d system.compare_array_unsigned_8%s
+D s-crtl.ads		20210520051132 0ebbdb71 system.crtl%s
+D s-exctab.ads		20210520051132 54135002 system.exception_table%s
+D s-exctab.adb		20210520051132 c756f391 system.exception_table%b
+D s-ficobl.ads		20210520051132 078245e4 system.file_control_block%s
+D s-finmas.ads		20210520051132 1ab4dba8 system.finalization_masters%s
+D s-finroo.ads		20210520051132 4ff27390 system.finalization_root%s
+D s-imagei.ads		20210520051133 0d3f86a7 system.image_i%s
+D s-imgint.ads		20210520051133 bdb6f5ec system.img_int%s
+D s-linux.ads		20210520051127 ed0b8aee system.linux%s
+D s-memory.ads		20210520051133 597d6634 system.memory%s
+D s-multip.ads		20210520051133 38ac9f73 system.multiprocessors%s
+D s-oscons.ads		20210520095158 e3a42aec system.os_constants%s
+D s-osinte.ads		20210520051127 222ac181 system.os_interface%s
+D s-os_lib.ads		20210520051133 93b69309 system.os_lib%s
+D s-parame.ads		20210520051134 4752c4cb system.parameters%s
+D s-pooglo.ads		20210520051134 ede33ef8 system.pool_global%s
+D s-putima.ads		20210520051134 4e095881 system.put_images%s
+D s-secsta.ads		20210520051134 9b3ab94b system.secondary_stack%s
+D s-soflin.ads		20210520051134 a7318a92 system.soft_links%s
+D s-stache.ads		20210520051134 a37c21ec system.stack_checking%s
+D s-stausa.ads		20210520051134 017a0a05 system.stack_usage%s
+D s-stalib.ads		20210520051134 472fbca8 system.standard_library%s
+D s-stalib.adb		20210520051134 977290bf system.standard_library%b
+D s-stoele.ads		20210520051134 2dc34a04 system.storage_elements%s
+D s-stoele.adb		20210520051134 ed88f8fb system.storage_elements%b
+D s-stopoo.ads		20210520051134 e9fa2dd8 system.storage_pools%s
+D s-stposu.ads		20210520051134 e251976f system.storage_pools.subpools%s
+D s-stratt.ads		20210520051134 7bdda3fa system.stream_attributes%s
+D s-stratt.adb		20210520051134 fc996108 system.stream_attributes%b
+D s-statxd.ads		20210520051134 b54789f6 system.stream_attributes.xdr%s
+D s-strhas.ads		20210520051134 269cd894 system.string_hash%s
+D s-strhas.adb		20210520051134 2e038444 system.string_hash%b
+D s-string.ads		20210520051134 8fe54fb7 system.strings%s
+D s-ststop.ads		20210520051134 5fbf1b38 system.strings.stream_ops%s
+D s-tasinf.ads		20210520051127 2b3f8252 system.task_info%s
+D s-taspri.ads		20210520051127 4ec891e7 system.task_primitives%s
+D s-taskin.ads		20210520051127 88fba9ad system.tasking%s
+D s-taprob.ads		20210520051127 acd6094d system.tasking.protected_objects%s
+D s-tpoben.ads		20210520051127 60ad3dae system.tasking.protected_objects.entries%s
+D s-traent.ads		20210520051134 26a8d361 system.traceback_entries%s
+D s-unstyp.ads		20210520051134 2b077493 system.unsigned_types%s
+D s-valint.ads		20210520051134 e7fcadb7 system.val_int%s
+D s-valuns.ads		20210520051134 dac7b45d system.val_uns%s
+D s-valuei.ads		20210520051134 978dd0a6 system.value_i%s
+D s-valueu.ads		20210520051134 7b8fccf5 system.value_u%s
+D s-wchcon.ads		20210520051135 1b7d22d2 system.wch_con%s
+D unchconv.ads		20210520051135 ca2f9e18 unchecked_conversion%s
+G a e
+G c b b b [b gnatcoll__opt_parse 34 1 none]
+G c s s s [s gnatcoll__opt_parse 41 1 none]
+G c Z s b [parse gnatcoll__opt_parse 131 13 none]
+G c Z s b [parse gnatcoll__opt_parse 136 13 none]
+G c Z s b [create_argument_parser gnatcoll__opt_parse 142 13 none]
+G c Z s b [help gnatcoll__opt_parse 146 13 none]
+G c Z s b [convert gnatcoll__opt_parse 162 13 none]
+G c Z s s [has_element gnatcoll__opt_parse__xstring_vectors 115 13 395_4]
+G c Z s s [empty gnatcoll__opt_parse__xstring_vectors 125 13 395_4]
+G c Z s s [Oeq gnatcoll__opt_parse__xstring_vectors 127 24 395_4]
+G c Z s s [to_vector gnatcoll__opt_parse__xstring_vectors 136 13 395_4]
+G c Z s s [to_vector gnatcoll__opt_parse__xstring_vectors 139 13 395_4]
+G c Z s s [Oconcat gnatcoll__opt_parse__xstring_vectors 145 13 395_4]
+G c Z s s [Oconcat gnatcoll__opt_parse__xstring_vectors 149 13 395_4]
+G c Z s s [Oconcat gnatcoll__opt_parse__xstring_vectors 153 13 395_4]
+G c Z s s [Oconcat gnatcoll__opt_parse__xstring_vectors 157 13 395_4]
+G c Z s s [capacity gnatcoll__opt_parse__xstring_vectors 161 13 395_4]
+G c Z s s [reserve_capacity gnatcoll__opt_parse__xstring_vectors 164 14 395_4]
+G c Z s s [length gnatcoll__opt_parse__xstring_vectors 175 13 395_4]
+G c Z s s [set_length gnatcoll__opt_parse__xstring_vectors 178 14 395_4]
+G c Z s s [is_empty gnatcoll__opt_parse__xstring_vectors 187 13 395_4]
+G c Z s s [clear gnatcoll__opt_parse__xstring_vectors 190 14 395_4]
+G c Z s s [to_cursor gnatcoll__opt_parse__xstring_vectors 194 13 395_4]
+G c Z s s [to_index gnatcoll__opt_parse__xstring_vectors 201 13 395_4]
+G c Z s s [element gnatcoll__opt_parse__xstring_vectors 206 13 395_4]
+G c Z s s [element gnatcoll__opt_parse__xstring_vectors 213 13 395_4]
+G c Z s s [replace_element gnatcoll__opt_parse__xstring_vectors 217 14 395_4]
+G c Z s s [replace_element gnatcoll__opt_parse__xstring_vectors 228 14 395_4]
+G c Z s s [query_element gnatcoll__opt_parse__xstring_vectors 239 14 395_4]
+G c Z s s [query_element gnatcoll__opt_parse__xstring_vectors 250 14 395_4]
+G c Z s s [update_element gnatcoll__opt_parse__xstring_vectors 259 14 395_4]
+G c Z s s [update_element gnatcoll__opt_parse__xstring_vectors 276 14 395_4]
+G c Z s s [constant_reference gnatcoll__opt_parse__xstring_vectors 303 13 395_4]
+G c Z s s [reference gnatcoll__opt_parse__xstring_vectors 308 13 395_4]
+G c Z s s [constant_reference gnatcoll__opt_parse__xstring_vectors 313 13 395_4]
+G c Z s s [reference gnatcoll__opt_parse__xstring_vectors 318 13 395_4]
+G c Z s s [assign gnatcoll__opt_parse__xstring_vectors 323 14 395_4]
+G c Z s s [copy gnatcoll__opt_parse__xstring_vectors 325 13 395_4]
+G c Z s s [move gnatcoll__opt_parse__xstring_vectors 327 14 395_4]
+G c Z s s [new_vector gnatcoll__opt_parse__xstring_vectors 333 13 395_4]
+G c Z s s [insert_vector gnatcoll__opt_parse__xstring_vectors 337 14 395_4]
+G c Z s s [insert_vector gnatcoll__opt_parse__xstring_vectors 361 14 395_4]
+G c Z s s [insert_vector gnatcoll__opt_parse__xstring_vectors 378 14 395_4]
+G c Z s s [insert gnatcoll__opt_parse__xstring_vectors 396 14 395_4]
+G c Z s s [insert gnatcoll__opt_parse__xstring_vectors 404 14 395_4]
+G c Z s s [insert gnatcoll__opt_parse__xstring_vectors 412 14 395_4]
+G c Z s s [insert gnatcoll__opt_parse__xstring_vectors 421 14 395_4]
+G c Z s s [insert gnatcoll__opt_parse__xstring_vectors 438 14 395_4]
+G c Z s s [prepend_vector gnatcoll__opt_parse__xstring_vectors 449 14 395_4]
+G c Z s s [prepend gnatcoll__opt_parse__xstring_vectors 459 14 395_4]
+G c Z s s [append_vector gnatcoll__opt_parse__xstring_vectors 466 14 395_4]
+G c Z s s [append gnatcoll__opt_parse__xstring_vectors 476 14 395_4]
+G c Z s s [append gnatcoll__opt_parse__xstring_vectors 483 14 395_4]
+G c Z s s [insert_space gnatcoll__opt_parse__xstring_vectors 486 14 395_4]
+G c Z s s [insert_space gnatcoll__opt_parse__xstring_vectors 503 14 395_4]
+G c Z s s [delete gnatcoll__opt_parse__xstring_vectors 514 14 395_4]
+G c Z s s [delete gnatcoll__opt_parse__xstring_vectors 524 14 395_4]
+G c Z s s [delete_first gnatcoll__opt_parse__xstring_vectors 533 14 395_4]
+G c Z s s [delete_last gnatcoll__opt_parse__xstring_vectors 538 14 395_4]
+G c Z s s [reverse_elements gnatcoll__opt_parse__xstring_vectors 546 14 395_4]
+G c Z s s [swap gnatcoll__opt_parse__xstring_vectors 549 14 395_4]
+G c Z s s [swap gnatcoll__opt_parse__xstring_vectors 554 14 395_4]
+G c Z s s [first_index gnatcoll__opt_parse__xstring_vectors 560 13 395_4]
+G c Z s s [first gnatcoll__opt_parse__xstring_vectors 563 13 395_4]
+G c Z s s [first_element gnatcoll__opt_parse__xstring_vectors 567 13 395_4]
+G c Z s s [last_index gnatcoll__opt_parse__xstring_vectors 570 13 395_4]
+G c Z s s [last gnatcoll__opt_parse__xstring_vectors 574 13 395_4]
+G c Z s s [last_element gnatcoll__opt_parse__xstring_vectors 578 13 395_4]
+G c Z s s [next gnatcoll__opt_parse__xstring_vectors 581 13 395_4]
+G c Z s s [next gnatcoll__opt_parse__xstring_vectors 587 14 395_4]
+G c Z s s [previous gnatcoll__opt_parse__xstring_vectors 590 13 395_4]
+G c Z s s [previous gnatcoll__opt_parse__xstring_vectors 596 14 395_4]
+G c Z s s [find_index gnatcoll__opt_parse__xstring_vectors 599 13 395_4]
+G c Z s s [find gnatcoll__opt_parse__xstring_vectors 609 13 395_4]
+G c Z s s [reverse_find_index gnatcoll__opt_parse__xstring_vectors 623 13 395_4]
+G c Z s s [reverse_find gnatcoll__opt_parse__xstring_vectors 635 13 395_4]
+G c Z s s [contains gnatcoll__opt_parse__xstring_vectors 649 13 395_4]
+G c Z s s [iterate gnatcoll__opt_parse__xstring_vectors 654 14 395_4]
+G c Z s s [reverse_iterate gnatcoll__opt_parse__xstring_vectors 662 14 395_4]
+G c Z s s [iterate gnatcoll__opt_parse__xstring_vectors 669 13 395_4]
+G c Z s s [iterate gnatcoll__opt_parse__xstring_vectors 672 13 395_4]
+G c Z s s [adjust gnatcoll__opt_parse__xstring_vectors__implementation 90 28 726_4_395_4]
+G c Z s s [finalize gnatcoll__opt_parse__xstring_vectors__implementation 93 28 726_4_395_4]
+G c Z s s [zero_counts gnatcoll__opt_parse__xstring_vectors__implementation 96 17 726_4_395_4]
+G c Z s s [busy gnatcoll__opt_parse__xstring_vectors__implementation 100 17 726_4_395_4]
+G c Z s s [unbusy gnatcoll__opt_parse__xstring_vectors__implementation 104 17 726_4_395_4]
+G c Z s s [lock gnatcoll__opt_parse__xstring_vectors__implementation 108 17 726_4_395_4]
+G c Z s s [unlock gnatcoll__opt_parse__xstring_vectors__implementation 112 17 726_4_395_4]
+G c Z s s [tc_check gnatcoll__opt_parse__xstring_vectors__implementation 116 17 726_4_395_4]
+G c Z s s [te_check gnatcoll__opt_parse__xstring_vectors__implementation 120 17 726_4_395_4]
+G c Z s s [initialize gnatcoll__opt_parse__xstring_vectors__implementation 139 28 726_4_395_4]
+G c Z s s [finalize gnatcoll__opt_parse__xstring_vectors__implementation 140 28 726_4_395_4]
+G c Z s s [initialize gnatcoll__opt_parse__xstring_vectors__implementation 145 28 726_4_395_4]
+G c Z s s [finalize gnatcoll__opt_parse__xstring_vectors__implementation 146 28 726_4_395_4]
+G c Z s s [reference_control_typeDA gnatcoll__opt_parse__xstring_vectors__implementation 84 12 726_4_395_4]
+G c Z s s [reference_control_typeDF gnatcoll__opt_parse__xstring_vectors__implementation 84 12 726_4_395_4]
+G c Z s s [reference_control_typeIP gnatcoll__opt_parse__xstring_vectors__implementation 84 12 726_4_395_4]
+G c Z s s [with_busyDF gnatcoll__opt_parse__xstring_vectors__implementation 136 12 726_4_395_4]
+G c Z s s [with_busyIP gnatcoll__opt_parse__xstring_vectors__implementation 136 12 726_4_395_4]
+G c Z s s [with_lockDF gnatcoll__opt_parse__xstring_vectors__implementation 142 12 726_4_395_4]
+G c Z s s [with_lockIP gnatcoll__opt_parse__xstring_vectors__implementation 142 12 726_4_395_4]
+G c Z s s [put_image gnatcoll__opt_parse__xstring_vectors 747 14 395_4]
+G c Z s s [adjust gnatcoll__opt_parse__xstring_vectors 750 25 395_4]
+G c Z s s [finalize gnatcoll__opt_parse__xstring_vectors 751 25 395_4]
+G c Z s s [write gnatcoll__opt_parse__xstring_vectors 753 14 395_4]
+G c Z s s [read gnatcoll__opt_parse__xstring_vectors 759 14 395_4]
+G c Z s s [read gnatcoll__opt_parse__xstring_vectors 773 14 395_4]
+G c Z s s [write gnatcoll__opt_parse__xstring_vectors 779 14 395_4]
+G c Z s s [write gnatcoll__opt_parse__xstring_vectors 798 14 395_4]
+G c Z s s [read gnatcoll__opt_parse__xstring_vectors 804 14 395_4]
+G c Z s s [write gnatcoll__opt_parse__xstring_vectors 820 14 395_4]
+G c Z s s [read gnatcoll__opt_parse__xstring_vectors 826 14 395_4]
+G c Z s s [pseudo_reference gnatcoll__opt_parse__xstring_vectors 837 13 395_4]
+G c Z s s [get_element_access gnatcoll__opt_parse__xstring_vectors 846 13 395_4]
+G c Z s s [cursorIP gnatcoll__opt_parse__xstring_vectors 768 9 395_4]
+G c Z s s [vectorDA gnatcoll__opt_parse__xstring_vectors 741 9 395_4]
+G c Z s s [vectorDF gnatcoll__opt_parse__xstring_vectors 741 9 395_4]
+G c Z s s [vectorIP gnatcoll__opt_parse__xstring_vectors 741 9 395_4]
+G c Z s s [constant_reference_typeDI gnatcoll__opt_parse__xstring_vectors 788 9 395_4]
+G c Z s s [constant_reference_typeDA gnatcoll__opt_parse__xstring_vectors 788 9 395_4]
+G c Z s s [constant_reference_typeDF gnatcoll__opt_parse__xstring_vectors 788 9 395_4]
+G c Z s s [constant_reference_typeIP gnatcoll__opt_parse__xstring_vectors 788 9 395_4]
+G c Z s s [reference_typeDI gnatcoll__opt_parse__xstring_vectors 810 9 395_4]
+G c Z s s [reference_typeDA gnatcoll__opt_parse__xstring_vectors 810 9 395_4]
+G c Z s s [reference_typeDF gnatcoll__opt_parse__xstring_vectors 810 9 395_4]
+G c Z s s [reference_typeIP gnatcoll__opt_parse__xstring_vectors 810 9 395_4]
+G c Z s s [finalize gnatcoll__opt_parse__xstring_vectors 862 25 395_4]
+G c Z s s [first gnatcoll__opt_parse__xstring_vectors 864 24 395_4]
+G c Z s s [last gnatcoll__opt_parse__xstring_vectors 865 24 395_4]
+G c Z s s [next gnatcoll__opt_parse__xstring_vectors 867 24 395_4]
+G c Z s s [previous gnatcoll__opt_parse__xstring_vectors 871 24 395_4]
+G c Z s s [elements_arrayIP gnatcoll__opt_parse__xstring_vectors 729 9 395_4]
+G c Z s s [elements_arrayDI gnatcoll__opt_parse__xstring_vectors 729 9 395_4]
+G c Z s s [elements_arrayDA gnatcoll__opt_parse__xstring_vectors 729 9 395_4]
+G c Z s s [elements_arrayDF gnatcoll__opt_parse__xstring_vectors 729 9 395_4]
+G c Z s s [elements_typeDI gnatcoll__opt_parse__xstring_vectors 732 9 395_4]
+G c Z s s [elements_typeDF gnatcoll__opt_parse__xstring_vectors 732 9 395_4]
+G c Z s s [elements_typeIP gnatcoll__opt_parse__xstring_vectors 732 9 395_4]
+G c Z s s [iteratorDF gnatcoll__opt_parse__xstring_vectors 854 9 395_4]
+G c Z s s [iteratorIP gnatcoll__opt_parse__xstring_vectors 854 9 395_4]
+G c Z s s [free gnatcoll__opt_parse__xstring_vectors 44 14 395_4]
+G c Z s s [append_slow_path gnatcoll__opt_parse__xstring_vectors 47 14 395_4]
+G c Z s b [parse gnatcoll__opt_parse 429 13 none]
+G c Z s s [help_name gnatcoll__opt_parse 442 13 none]
+G c Z s s [does_accumulate gnatcoll__opt_parse 448 13 none]
+G c Z s s [has_element gnatcoll__opt_parse__parsers_vectors 115 13 455_4]
+G c Z s s [empty gnatcoll__opt_parse__parsers_vectors 125 13 455_4]
+G c Z s s [Oeq gnatcoll__opt_parse__parsers_vectors 127 24 455_4]
+G c Z s s [to_vector gnatcoll__opt_parse__parsers_vectors 136 13 455_4]
+G c Z s s [to_vector gnatcoll__opt_parse__parsers_vectors 139 13 455_4]
+G c Z s s [Oconcat gnatcoll__opt_parse__parsers_vectors 145 13 455_4]
+G c Z s s [Oconcat gnatcoll__opt_parse__parsers_vectors 149 13 455_4]
+G c Z s s [Oconcat gnatcoll__opt_parse__parsers_vectors 153 13 455_4]
+G c Z s s [Oconcat gnatcoll__opt_parse__parsers_vectors 157 13 455_4]
+G c Z s s [capacity gnatcoll__opt_parse__parsers_vectors 161 13 455_4]
+G c Z s s [reserve_capacity gnatcoll__opt_parse__parsers_vectors 164 14 455_4]
+G c Z s s [length gnatcoll__opt_parse__parsers_vectors 175 13 455_4]
+G c Z s s [set_length gnatcoll__opt_parse__parsers_vectors 178 14 455_4]
+G c Z s s [is_empty gnatcoll__opt_parse__parsers_vectors 187 13 455_4]
+G c Z s s [clear gnatcoll__opt_parse__parsers_vectors 190 14 455_4]
+G c Z s s [to_cursor gnatcoll__opt_parse__parsers_vectors 194 13 455_4]
+G c Z s s [to_index gnatcoll__opt_parse__parsers_vectors 201 13 455_4]
+G c Z s s [element gnatcoll__opt_parse__parsers_vectors 206 13 455_4]
+G c Z s s [element gnatcoll__opt_parse__parsers_vectors 213 13 455_4]
+G c Z s s [replace_element gnatcoll__opt_parse__parsers_vectors 217 14 455_4]
+G c Z s s [replace_element gnatcoll__opt_parse__parsers_vectors 228 14 455_4]
+G c Z s s [query_element gnatcoll__opt_parse__parsers_vectors 239 14 455_4]
+G c Z s s [query_element gnatcoll__opt_parse__parsers_vectors 250 14 455_4]
+G c Z s s [update_element gnatcoll__opt_parse__parsers_vectors 259 14 455_4]
+G c Z s s [update_element gnatcoll__opt_parse__parsers_vectors 276 14 455_4]
+G c Z s s [constant_reference gnatcoll__opt_parse__parsers_vectors 303 13 455_4]
+G c Z s s [reference gnatcoll__opt_parse__parsers_vectors 308 13 455_4]
+G c Z s s [constant_reference gnatcoll__opt_parse__parsers_vectors 313 13 455_4]
+G c Z s s [reference gnatcoll__opt_parse__parsers_vectors 318 13 455_4]
+G c Z s s [assign gnatcoll__opt_parse__parsers_vectors 323 14 455_4]
+G c Z s s [copy gnatcoll__opt_parse__parsers_vectors 325 13 455_4]
+G c Z s s [move gnatcoll__opt_parse__parsers_vectors 327 14 455_4]
+G c Z s s [new_vector gnatcoll__opt_parse__parsers_vectors 333 13 455_4]
+G c Z s s [insert_vector gnatcoll__opt_parse__parsers_vectors 337 14 455_4]
+G c Z s s [insert_vector gnatcoll__opt_parse__parsers_vectors 361 14 455_4]
+G c Z s s [insert_vector gnatcoll__opt_parse__parsers_vectors 378 14 455_4]
+G c Z s s [insert gnatcoll__opt_parse__parsers_vectors 396 14 455_4]
+G c Z s s [insert gnatcoll__opt_parse__parsers_vectors 404 14 455_4]
+G c Z s s [insert gnatcoll__opt_parse__parsers_vectors 412 14 455_4]
+G c Z s s [insert gnatcoll__opt_parse__parsers_vectors 421 14 455_4]
+G c Z s s [insert gnatcoll__opt_parse__parsers_vectors 438 14 455_4]
+G c Z s s [prepend_vector gnatcoll__opt_parse__parsers_vectors 449 14 455_4]
+G c Z s s [prepend gnatcoll__opt_parse__parsers_vectors 459 14 455_4]
+G c Z s s [append_vector gnatcoll__opt_parse__parsers_vectors 466 14 455_4]
+G c Z s s [append gnatcoll__opt_parse__parsers_vectors 476 14 455_4]
+G c Z s s [append gnatcoll__opt_parse__parsers_vectors 483 14 455_4]
+G c Z s s [insert_space gnatcoll__opt_parse__parsers_vectors 486 14 455_4]
+G c Z s s [insert_space gnatcoll__opt_parse__parsers_vectors 503 14 455_4]
+G c Z s s [delete gnatcoll__opt_parse__parsers_vectors 514 14 455_4]
+G c Z s s [delete gnatcoll__opt_parse__parsers_vectors 524 14 455_4]
+G c Z s s [delete_first gnatcoll__opt_parse__parsers_vectors 533 14 455_4]
+G c Z s s [delete_last gnatcoll__opt_parse__parsers_vectors 538 14 455_4]
+G c Z s s [reverse_elements gnatcoll__opt_parse__parsers_vectors 546 14 455_4]
+G c Z s s [swap gnatcoll__opt_parse__parsers_vectors 549 14 455_4]
+G c Z s s [swap gnatcoll__opt_parse__parsers_vectors 554 14 455_4]
+G c Z s s [first_index gnatcoll__opt_parse__parsers_vectors 560 13 455_4]
+G c Z s s [first gnatcoll__opt_parse__parsers_vectors 563 13 455_4]
+G c Z s s [first_element gnatcoll__opt_parse__parsers_vectors 567 13 455_4]
+G c Z s s [last_index gnatcoll__opt_parse__parsers_vectors 570 13 455_4]
+G c Z s s [last gnatcoll__opt_parse__parsers_vectors 574 13 455_4]
+G c Z s s [last_element gnatcoll__opt_parse__parsers_vectors 578 13 455_4]
+G c Z s s [next gnatcoll__opt_parse__parsers_vectors 581 13 455_4]
+G c Z s s [next gnatcoll__opt_parse__parsers_vectors 587 14 455_4]
+G c Z s s [previous gnatcoll__opt_parse__parsers_vectors 590 13 455_4]
+G c Z s s [previous gnatcoll__opt_parse__parsers_vectors 596 14 455_4]
+G c Z s s [find_index gnatcoll__opt_parse__parsers_vectors 599 13 455_4]
+G c Z s s [find gnatcoll__opt_parse__parsers_vectors 609 13 455_4]
+G c Z s s [reverse_find_index gnatcoll__opt_parse__parsers_vectors 623 13 455_4]
+G c Z s s [reverse_find gnatcoll__opt_parse__parsers_vectors 635 13 455_4]
+G c Z s s [contains gnatcoll__opt_parse__parsers_vectors 649 13 455_4]
+G c Z s s [iterate gnatcoll__opt_parse__parsers_vectors 654 14 455_4]
+G c Z s s [reverse_iterate gnatcoll__opt_parse__parsers_vectors 662 14 455_4]
+G c Z s s [iterate gnatcoll__opt_parse__parsers_vectors 669 13 455_4]
+G c Z s s [iterate gnatcoll__opt_parse__parsers_vectors 672 13 455_4]
+G c Z s s [adjust gnatcoll__opt_parse__parsers_vectors__implementation 90 28 726_4_455_4]
+G c Z s s [finalize gnatcoll__opt_parse__parsers_vectors__implementation 93 28 726_4_455_4]
+G c Z s s [zero_counts gnatcoll__opt_parse__parsers_vectors__implementation 96 17 726_4_455_4]
+G c Z s s [busy gnatcoll__opt_parse__parsers_vectors__implementation 100 17 726_4_455_4]
+G c Z s s [unbusy gnatcoll__opt_parse__parsers_vectors__implementation 104 17 726_4_455_4]
+G c Z s s [lock gnatcoll__opt_parse__parsers_vectors__implementation 108 17 726_4_455_4]
+G c Z s s [unlock gnatcoll__opt_parse__parsers_vectors__implementation 112 17 726_4_455_4]
+G c Z s s [tc_check gnatcoll__opt_parse__parsers_vectors__implementation 116 17 726_4_455_4]
+G c Z s s [te_check gnatcoll__opt_parse__parsers_vectors__implementation 120 17 726_4_455_4]
+G c Z s s [initialize gnatcoll__opt_parse__parsers_vectors__implementation 139 28 726_4_455_4]
+G c Z s s [finalize gnatcoll__opt_parse__parsers_vectors__implementation 140 28 726_4_455_4]
+G c Z s s [initialize gnatcoll__opt_parse__parsers_vectors__implementation 145 28 726_4_455_4]
+G c Z s s [finalize gnatcoll__opt_parse__parsers_vectors__implementation 146 28 726_4_455_4]
+G c Z s s [reference_control_typeDA gnatcoll__opt_parse__parsers_vectors__implementation 84 12 726_4_455_4]
+G c Z s s [reference_control_typeDF gnatcoll__opt_parse__parsers_vectors__implementation 84 12 726_4_455_4]
+G c Z s s [reference_control_typeIP gnatcoll__opt_parse__parsers_vectors__implementation 84 12 726_4_455_4]
+G c Z s s [with_busyDF gnatcoll__opt_parse__parsers_vectors__implementation 136 12 726_4_455_4]
+G c Z s s [with_busyIP gnatcoll__opt_parse__parsers_vectors__implementation 136 12 726_4_455_4]
+G c Z s s [with_lockDF gnatcoll__opt_parse__parsers_vectors__implementation 142 12 726_4_455_4]
+G c Z s s [with_lockIP gnatcoll__opt_parse__parsers_vectors__implementation 142 12 726_4_455_4]
+G c Z s s [put_image gnatcoll__opt_parse__parsers_vectors 747 14 455_4]
+G c Z s s [adjust gnatcoll__opt_parse__parsers_vectors 750 25 455_4]
+G c Z s s [finalize gnatcoll__opt_parse__parsers_vectors 751 25 455_4]
+G c Z s s [write gnatcoll__opt_parse__parsers_vectors 753 14 455_4]
+G c Z s s [read gnatcoll__opt_parse__parsers_vectors 759 14 455_4]
+G c Z s s [read gnatcoll__opt_parse__parsers_vectors 773 14 455_4]
+G c Z s s [write gnatcoll__opt_parse__parsers_vectors 779 14 455_4]
+G c Z s s [write gnatcoll__opt_parse__parsers_vectors 798 14 455_4]
+G c Z s s [read gnatcoll__opt_parse__parsers_vectors 804 14 455_4]
+G c Z s s [write gnatcoll__opt_parse__parsers_vectors 820 14 455_4]
+G c Z s s [read gnatcoll__opt_parse__parsers_vectors 826 14 455_4]
+G c Z s s [pseudo_reference gnatcoll__opt_parse__parsers_vectors 837 13 455_4]
+G c Z s s [get_element_access gnatcoll__opt_parse__parsers_vectors 846 13 455_4]
+G c Z s s [cursorIP gnatcoll__opt_parse__parsers_vectors 768 9 455_4]
+G c Z s s [vectorDA gnatcoll__opt_parse__parsers_vectors 741 9 455_4]
+G c Z s s [vectorDF gnatcoll__opt_parse__parsers_vectors 741 9 455_4]
+G c Z s s [vectorIP gnatcoll__opt_parse__parsers_vectors 741 9 455_4]
+G c Z s s [constant_reference_typeDI gnatcoll__opt_parse__parsers_vectors 788 9 455_4]
+G c Z s s [constant_reference_typeDA gnatcoll__opt_parse__parsers_vectors 788 9 455_4]
+G c Z s s [constant_reference_typeDF gnatcoll__opt_parse__parsers_vectors 788 9 455_4]
+G c Z s s [constant_reference_typeIP gnatcoll__opt_parse__parsers_vectors 788 9 455_4]
+G c Z s s [reference_typeDI gnatcoll__opt_parse__parsers_vectors 810 9 455_4]
+G c Z s s [reference_typeDA gnatcoll__opt_parse__parsers_vectors 810 9 455_4]
+G c Z s s [reference_typeDF gnatcoll__opt_parse__parsers_vectors 810 9 455_4]
+G c Z s s [reference_typeIP gnatcoll__opt_parse__parsers_vectors 810 9 455_4]
+G c Z s s [finalize gnatcoll__opt_parse__parsers_vectors 862 25 455_4]
+G c Z s s [first gnatcoll__opt_parse__parsers_vectors 864 24 455_4]
+G c Z s s [last gnatcoll__opt_parse__parsers_vectors 865 24 455_4]
+G c Z s s [next gnatcoll__opt_parse__parsers_vectors 867 24 455_4]
+G c Z s s [previous gnatcoll__opt_parse__parsers_vectors 871 24 455_4]
+G c Z s s [elements_arrayIP gnatcoll__opt_parse__parsers_vectors 729 9 455_4]
+G c Z s s [elements_typeIP gnatcoll__opt_parse__parsers_vectors 732 9 455_4]
+G c Z s s [iteratorDF gnatcoll__opt_parse__parsers_vectors 854 9 455_4]
+G c Z s s [iteratorIP gnatcoll__opt_parse__parsers_vectors 854 9 455_4]
+G c Z s s [free gnatcoll__opt_parse__parsers_vectors 44 14 455_4]
+G c Z s s [append_slow_path gnatcoll__opt_parse__parsers_vectors 47 14 455_4]
+G c Z s b [get_result gnatcoll__opt_parse 482 13 none]
+G c Z s b [has_result gnatcoll__opt_parse 486 13 none]
+G c Z s b [release gnatcoll__opt_parse 502 14 none]
+G c Z s s [parsed_arguments_typeIP gnatcoll__opt_parse 497 9 none]
+G c Z s s [header_of gnatcoll__opt_parse__parsed_arguments_shared_ptrs__pools 143 19 136_7_504_4]
+G c Z s s [free gnatcoll__opt_parse__parsed_arguments_shared_ptrs__pools 149 20 136_7_504_4]
+G c Z s s [set gnatcoll__opt_parse__parsed_arguments_shared_ptrs 139 17 504_4]
+G c Z s s [from_element gnatcoll__opt_parse__parsed_arguments_shared_ptrs 144 17 504_4]
+G c Z s s [unchecked_get gnatcoll__opt_parse__parsed_arguments_shared_ptrs 232 16 504_4]
+G c Z s s [get gnatcoll__opt_parse__parsed_arguments_shared_ptrs 242 16 504_4]
+G c Z s s [process gnatcoll__opt_parse__parsed_arguments_shared_ptrs 252 17 504_4]
+G c Z s s [is_null gnatcoll__opt_parse__parsed_arguments_shared_ptrs 275 16 504_4]
+G c Z s s [Oeq gnatcoll__opt_parse__parsed_arguments_shared_ptrs 279 27 504_4]
+G c Z s s [weak gnatcoll__opt_parse__parsed_arguments_shared_ptrs 284 16 504_4]
+G c Z s s [set gnatcoll__opt_parse__parsed_arguments_shared_ptrs 285 17 504_4]
+G c Z s s [was_freed gnatcoll__opt_parse__parsed_arguments_shared_ptrs 294 16 504_4]
+G c Z s s [get_refcount gnatcoll__opt_parse__parsed_arguments_shared_ptrs 297 16 504_4]
+G c Z s s [adjust gnatcoll__opt_parse__parsed_arguments_shared_ptrs 306 28 504_4]
+G c Z s s [finalize gnatcoll__opt_parse__parsed_arguments_shared_ptrs 308 28 504_4]
+G c Z s s [adjust gnatcoll__opt_parse__parsed_arguments_shared_ptrs 314 28 504_4]
+G c Z s s [finalize gnatcoll__opt_parse__parsed_arguments_shared_ptrs 316 28 504_4]
+G c Z s s [refDA gnatcoll__opt_parse__parsed_arguments_shared_ptrs 302 12 504_4]
+G c Z s s [refDF gnatcoll__opt_parse__parsed_arguments_shared_ptrs 302 12 504_4]
+G c Z s s [refIP gnatcoll__opt_parse__parsed_arguments_shared_ptrs 302 12 504_4]
+G c Z s s [weak_refDA gnatcoll__opt_parse__parsed_arguments_shared_ptrs 310 12 504_4]
+G c Z s s [weak_refDF gnatcoll__opt_parse__parsed_arguments_shared_ptrs 310 12 504_4]
+G c Z s s [weak_refIP gnatcoll__opt_parse__parsed_arguments_shared_ptrs 310 12 504_4]
+G c Z s s [reference_typeIP gnatcoll__opt_parse__parsed_arguments_shared_ptrs 169 12 504_4]
+G c Z s s [unchecked_free gnatcoll__opt_parse__parsed_arguments_shared_ptrs 149 17 504_4]
+G c Z s s [convert gnatcoll__opt_parse__parsed_arguments_shared_ptrs 153 16 504_4]
+G c Z s s [convert gnatcoll__opt_parse__parsed_arguments_shared_ptrs 155 16 504_4]
+G c Z s s [parsed_argumentsDI gnatcoll__opt_parse 508 9 none]
+G c Z s s [parsed_argumentsDA gnatcoll__opt_parse 508 9 none]
+G c Z s s [parsed_argumentsDF gnatcoll__opt_parse 508 9 none]
+G c Z s s [parsed_argumentsIP gnatcoll__opt_parse 508 9 none]
+G c Z s b [finalize gnatcoll__opt_parse 520 25 none]
+G c Z s s [argument_parserDF gnatcoll__opt_parse 516 9 none]
+G c Z s s [argument_parserIP gnatcoll__opt_parse 516 9 none]
+G c Z s s [argument_parser_dataDI gnatcoll__opt_parse 460 9 none]
+G c Z s s [argument_parser_dataDF gnatcoll__opt_parse 460 9 none]
+G c Z s s [argument_parser_dataIP gnatcoll__opt_parse 460 9 none]
+G c Z s s [parser_typeDA gnatcoll__opt_parse 397 9 none]
+G c Z s s [parser_typeDF gnatcoll__opt_parse 397 9 none]
+G c Z s s [parser_typeDI gnatcoll__opt_parse 397 9 none]
+G c Z s s [parser_typeIP gnatcoll__opt_parse 397 9 none]
+G c Z s s [parser_resultDA gnatcoll__opt_parse 472 9 none]
+G c Z s s [parser_resultDF gnatcoll__opt_parse 472 9 none]
+G c Z s s [parser_resultIP gnatcoll__opt_parse 472 9 none]
+G c Z s s [parser_result_arrayIP gnatcoll__opt_parse 490 9 none]
+G c Z b b [get_arguments gnatcoll__opt_parse 44 13 none]
+G c Z b b [parse_one_option gnatcoll__opt_parse 46 13 none]
+G c Z b b [append_text gnatcoll__opt_parse 74 14 none]
+G c Z b b [set_next_start_column gnatcoll__opt_parse 81 14 none]
+G c Z b b [set_column gnatcoll__opt_parse 86 14 none]
+G c Z b b [append_line gnatcoll__opt_parse 94 13 none]
+G c Z b b [append_line gnatcoll__opt_parse 98 14 none]
+G c Z b b [current_line gnatcoll__opt_parse 106 13 none]
+G c Z b b [render gnatcoll__opt_parse 113 13 none]
+G c Z b b [usage gnatcoll__opt_parse 130 24 none]
+G c Z b b [help_name gnatcoll__opt_parse 135 24 none]
+G c Z b b [parse_args gnatcoll__opt_parse 140 24 none]
+G c Z b b [release gnatcoll__opt_parse 146 25 none]
+G c Z b b [flag_parserDA gnatcoll__opt_parse 122 9 none]
+G c Z b b [flag_parserDF gnatcoll__opt_parse 122 9 none]
+G c Z b b [flag_parserDI gnatcoll__opt_parse 122 9 none]
+G c Z b b [flag_parserIP gnatcoll__opt_parse 122 9 none]
+G c Z b b [text_wrapperDA gnatcoll__opt_parse 56 9 none]
+G c Z b b [text_wrapperDF gnatcoll__opt_parse 56 9 none]
+G c Z b b [text_wrapperDI gnatcoll__opt_parse 56 9 none]
+G c Z b b [text_wrapperIP gnatcoll__opt_parse 56 9 none]
+G c Z b b [flag_parser_resultDA gnatcoll__opt_parse 126 9 none]
+G c Z b b [flag_parser_resultDF gnatcoll__opt_parse 126 9 none]
+G c Z b b [flag_parser_resultIP gnatcoll__opt_parse 126 9 none]
+G c Z b b [help_flag_parserDA gnatcoll__opt_parse 148 9 none]
+G c Z b b [help_flag_parserDF gnatcoll__opt_parse 148 9 none]
+G c Z b b [help_flag_parserDI gnatcoll__opt_parse 148 9 none]
+G c Z b b [help_flag_parserIP gnatcoll__opt_parse 148 9 none]
+G r c none [b gnatcoll__opt_parse 34 1 none] [to_xstring gnatcoll__strings 446 16 31_1]
+G r i none [s gnatcoll__opt_parse 41 1 none] [typed gnatcoll__refcount__headers 136 15 90_4]
+G r i none [s gnatcoll__opt_parse 41 1 none] [shared_pointers gnatcoll__refcount 117 12 none]
+G r c none [s gnatcoll__opt_parse 41 1 none] [address_header_of gnatcoll__refcount__headers 60 16 90_4]
+G r c none [s gnatcoll__opt_parse 41 1 none] [convert gnatcoll__refcount__headers 57 16 90_4]
+G r c none [s gnatcoll__opt_parse 41 1 none] [inc_ref gnatcoll__refcount 47 13 none]
+G r c none [parse gnatcoll__opt_parse 131 13 none] [address_header_of gnatcoll__refcount__headers 60 16 90_4]
+G r c none [parse gnatcoll__opt_parse 131 13 none] [convert gnatcoll__refcount__headers 57 16 90_4]
+G r c none [parse gnatcoll__opt_parse 131 13 none] [decrement gnatcoll__atomic 70 13 none]
+G r c none [parse gnatcoll__opt_parse 131 13 none] [sync_bool_compare_and_swap_counter gnatcoll__atomic 117 13 none]
+G r c none [parse gnatcoll__opt_parse 131 13 none] [finalize gnatcoll__refcount 63 14 none]
+G r k xstring_array [parse gnatcoll__opt_parse 131 13 none] [xstring_arrayDF gnatcoll__strings 340 12 31_1]
+G r c none [parse gnatcoll__opt_parse 131 13 none] [inc_ref gnatcoll__refcount 47 13 none]
+G r j xstring_array [parse gnatcoll__opt_parse 131 13 none] [xstring_arrayDA gnatcoll__strings 340 12 31_1]
+G r s xstring_array [parse gnatcoll__opt_parse 131 13 none] [xstring_arrayIP gnatcoll__strings 340 12 31_1]
+G r c none [parse gnatcoll__opt_parse 131 13 none] [to_xstring gnatcoll__strings 446 16 31_1]
+G r e xstring [parse gnatcoll__opt_parse 131 13 none] [finalize gnatcoll__strings 1052 28 31_1]
+G r s scoped_lock [parse gnatcoll__opt_parse 131 13 none] [scoped_lockIP gnatcoll__locks 85 9 none]
+G r f scoped_lock [parse gnatcoll__opt_parse 131 13 none] [initialize gnatcoll__locks 88 25 none]
+G r c none [parse gnatcoll__opt_parse 131 13 none] [to_string gnatcoll__strings 626 16 31_1]
+G r c none [parse gnatcoll__opt_parse 131 13 none] [split gnatcoll__strings 793 16 31_1]
+G r s xstring [parse gnatcoll__opt_parse 131 13 none] [xstringIP gnatcoll__strings 1048 12 31_1]
+G r c none [parse gnatcoll__opt_parse 131 13 none] [append gnatcoll__strings 450 17 31_1]
+G r c none [parse gnatcoll__opt_parse 131 13 none] [length gnatcoll__strings 346 16 31_1]
+G r c none [parse gnatcoll__opt_parse 131 13 none] [append gnatcoll__strings 452 17 31_1]
+G r c none [parse gnatcoll__opt_parse 131 13 none] [append gnatcoll__strings 451 17 31_1]
+G r j xstring_array [parse gnatcoll__opt_parse 136 13 none] [xstring_arrayDA gnatcoll__strings 340 12 31_1]
+G r s xstring_array [parse gnatcoll__opt_parse 136 13 none] [xstring_arrayIP gnatcoll__strings 340 12 31_1]
+G r c none [parse gnatcoll__opt_parse 136 13 none] [to_xstring gnatcoll__strings 446 16 31_1]
+G r e xstring [parse gnatcoll__opt_parse 136 13 none] [finalize gnatcoll__strings 1052 28 31_1]
+G r k xstring_array [parse gnatcoll__opt_parse 136 13 none] [xstring_arrayDF gnatcoll__strings 340 12 31_1]
+G r c none [parse gnatcoll__opt_parse 136 13 none] [address_header_of gnatcoll__refcount__headers 60 16 90_4]
+G r c none [parse gnatcoll__opt_parse 136 13 none] [convert gnatcoll__refcount__headers 57 16 90_4]
+G r c none [parse gnatcoll__opt_parse 136 13 none] [decrement gnatcoll__atomic 70 13 none]
+G r c none [parse gnatcoll__opt_parse 136 13 none] [sync_bool_compare_and_swap_counter gnatcoll__atomic 117 13 none]
+G r c none [parse gnatcoll__opt_parse 136 13 none] [finalize gnatcoll__refcount 63 14 none]
+G r s scoped_lock [parse gnatcoll__opt_parse 136 13 none] [scoped_lockIP gnatcoll__locks 85 9 none]
+G r f scoped_lock [parse gnatcoll__opt_parse 136 13 none] [initialize gnatcoll__locks 88 25 none]
+G r c none [parse gnatcoll__opt_parse 136 13 none] [inc_ref gnatcoll__refcount 47 13 none]
+G r c none [parse gnatcoll__opt_parse 136 13 none] [to_string gnatcoll__strings 626 16 31_1]
+G r c none [parse gnatcoll__opt_parse 136 13 none] [split gnatcoll__strings 793 16 31_1]
+G r s xstring [parse gnatcoll__opt_parse 136 13 none] [xstringIP gnatcoll__strings 1048 12 31_1]
+G r c none [parse gnatcoll__opt_parse 136 13 none] [append gnatcoll__strings 450 17 31_1]
+G r c none [parse gnatcoll__opt_parse 136 13 none] [length gnatcoll__strings 346 16 31_1]
+G r c none [parse gnatcoll__opt_parse 136 13 none] [append gnatcoll__strings 452 17 31_1]
+G r c none [parse gnatcoll__opt_parse 136 13 none] [append gnatcoll__strings 451 17 31_1]
+G r c none [create_argument_parser gnatcoll__opt_parse 142 13 none] [create gnatcoll__vfs 141 13 none]
+G r c none [create_argument_parser gnatcoll__opt_parse 142 13 none] [base_name gnatcoll__vfs 214 13 none]
+G r e virtual_file [create_argument_parser gnatcoll__opt_parse 142 13 none] [finalize gnatcoll__vfs 630 25 none]
+G r c none [create_argument_parser gnatcoll__opt_parse 142 13 none] [to_xstring gnatcoll__strings 446 16 31_1]
+G r d xstring [create_argument_parser gnatcoll__opt_parse 142 13 none] [adjust gnatcoll__strings 1051 28 31_1]
+G r e xstring [create_argument_parser gnatcoll__opt_parse 142 13 none] [finalize gnatcoll__strings 1052 28 31_1]
+G r c none [create_argument_parser gnatcoll__opt_parse 142 13 none] [address_header_of gnatcoll__refcount__headers 60 16 90_4]
+G r c none [create_argument_parser gnatcoll__opt_parse 142 13 none] [convert gnatcoll__refcount__headers 57 16 90_4]
+G r c none [create_argument_parser gnatcoll__opt_parse 142 13 none] [inc_ref gnatcoll__refcount 47 13 none]
+G r c none [help gnatcoll__opt_parse 146 13 none] [to_string gnatcoll__strings 626 16 31_1]
+G r c none [help gnatcoll__opt_parse 146 13 none] [to_xstring gnatcoll__strings 446 16 31_1]
+G r c none [help gnatcoll__opt_parse 146 13 none] [split gnatcoll__strings 793 16 31_1]
+G r j xstring_array [help gnatcoll__opt_parse 146 13 none] [xstring_arrayDA gnatcoll__strings 340 12 31_1]
+G r k xstring_array [help gnatcoll__opt_parse 146 13 none] [xstring_arrayDF gnatcoll__strings 340 12 31_1]
+G r e xstring [help gnatcoll__opt_parse 146 13 none] [finalize gnatcoll__strings 1052 28 31_1]
+G r s xstring [help gnatcoll__opt_parse 146 13 none] [xstringIP gnatcoll__strings 1048 12 31_1]
+G r c none [help gnatcoll__opt_parse 146 13 none] [append gnatcoll__strings 450 17 31_1]
+G r c none [help gnatcoll__opt_parse 146 13 none] [length gnatcoll__strings 346 16 31_1]
+G r c none [help gnatcoll__opt_parse 146 13 none] [append gnatcoll__strings 452 17 31_1]
+G r c none [help gnatcoll__opt_parse 146 13 none] [append gnatcoll__strings 451 17 31_1]
+G r s scoped_lock [parse gnatcoll__opt_parse 429 13 none] [scoped_lockIP gnatcoll__locks 85 9 none]
+G r f scoped_lock [parse gnatcoll__opt_parse 429 13 none] [initialize gnatcoll__locks 88 25 none]
+G r c none [parse gnatcoll__opt_parse 429 13 none] [address_header_of gnatcoll__refcount__headers 60 16 90_4]
+G r c none [parse gnatcoll__opt_parse 429 13 none] [convert gnatcoll__refcount__headers 57 16 90_4]
+G r c none [parse gnatcoll__opt_parse 429 13 none] [inc_ref gnatcoll__refcount 47 13 none]
+G r c none [parse gnatcoll__opt_parse 429 13 none] [decrement gnatcoll__atomic 70 13 none]
+G r c none [parse gnatcoll__opt_parse 429 13 none] [sync_bool_compare_and_swap_counter gnatcoll__atomic 117 13 none]
+G r c none [parse gnatcoll__opt_parse 429 13 none] [finalize gnatcoll__refcount 63 14 none]
+G r k xstring_array [parse gnatcoll__opt_parse 429 13 none] [xstring_arrayDF gnatcoll__strings 340 12 31_1]
+G r c none [help_name gnatcoll__opt_parse 442 13 none] [to_string gnatcoll__strings 626 16 31_1]
+G r s scoped_lock [get_result gnatcoll__opt_parse 482 13 none] [scoped_lockIP gnatcoll__locks 85 9 none]
+G r f scoped_lock [get_result gnatcoll__opt_parse 482 13 none] [initialize gnatcoll__locks 88 25 none]
+G r c none [get_result gnatcoll__opt_parse 482 13 none] [address_header_of gnatcoll__refcount__headers 60 16 90_4]
+G r c none [get_result gnatcoll__opt_parse 482 13 none] [convert gnatcoll__refcount__headers 57 16 90_4]
+G r c none [get_result gnatcoll__opt_parse 482 13 none] [inc_ref gnatcoll__refcount 47 13 none]
+G r c none [get_result gnatcoll__opt_parse 482 13 none] [decrement gnatcoll__atomic 70 13 none]
+G r c none [get_result gnatcoll__opt_parse 482 13 none] [sync_bool_compare_and_swap_counter gnatcoll__atomic 117 13 none]
+G r c none [get_result gnatcoll__opt_parse 482 13 none] [finalize gnatcoll__refcount 63 14 none]
+G r k xstring_array [get_result gnatcoll__opt_parse 482 13 none] [xstring_arrayDF gnatcoll__strings 340 12 31_1]
+G r s scoped_lock [has_result gnatcoll__opt_parse 486 13 none] [scoped_lockIP gnatcoll__locks 85 9 none]
+G r f scoped_lock [has_result gnatcoll__opt_parse 486 13 none] [initialize gnatcoll__locks 88 25 none]
+G r c none [has_result gnatcoll__opt_parse 486 13 none] [address_header_of gnatcoll__refcount__headers 60 16 90_4]
+G r c none [has_result gnatcoll__opt_parse 486 13 none] [convert gnatcoll__refcount__headers 57 16 90_4]
+G r c none [has_result gnatcoll__opt_parse 486 13 none] [inc_ref gnatcoll__refcount 47 13 none]
+G r c none [has_result gnatcoll__opt_parse 486 13 none] [decrement gnatcoll__atomic 70 13 none]
+G r c none [has_result gnatcoll__opt_parse 486 13 none] [sync_bool_compare_and_swap_counter gnatcoll__atomic 117 13 none]
+G r c none [has_result gnatcoll__opt_parse 486 13 none] [finalize gnatcoll__refcount 63 14 none]
+G r k xstring_array [has_result gnatcoll__opt_parse 486 13 none] [xstring_arrayDF gnatcoll__strings 340 12 31_1]
+G r k xstring_array [release gnatcoll__opt_parse 502 14 none] [xstring_arrayDF gnatcoll__strings 340 12 31_1]
+G r c none [header_of gnatcoll__opt_parse__parsed_arguments_shared_ptrs__pools 143 19 136_7_504_4] [address_header_of gnatcoll__refcount__headers 60 16 90_4]
+G r c none [header_of gnatcoll__opt_parse__parsed_arguments_shared_ptrs__pools 143 19 136_7_504_4] [convert gnatcoll__refcount__headers 57 16 90_4]
+G r c none [set gnatcoll__opt_parse__parsed_arguments_shared_ptrs 139 17 504_4] [address_header_of gnatcoll__refcount__headers 60 16 90_4]
+G r c none [set gnatcoll__opt_parse__parsed_arguments_shared_ptrs 139 17 504_4] [convert gnatcoll__refcount__headers 57 16 90_4]
+G r c none [set gnatcoll__opt_parse__parsed_arguments_shared_ptrs 139 17 504_4] [decrement gnatcoll__atomic 70 13 none]
+G r c none [set gnatcoll__opt_parse__parsed_arguments_shared_ptrs 139 17 504_4] [sync_bool_compare_and_swap_counter gnatcoll__atomic 117 13 none]
+G r c none [set gnatcoll__opt_parse__parsed_arguments_shared_ptrs 139 17 504_4] [finalize gnatcoll__refcount 63 14 none]
+G r k xstring_array [set gnatcoll__opt_parse__parsed_arguments_shared_ptrs 139 17 504_4] [xstring_arrayDF gnatcoll__strings 340 12 31_1]
+G r c none [from_element gnatcoll__opt_parse__parsed_arguments_shared_ptrs 144 17 504_4] [address_header_of gnatcoll__refcount__headers 60 16 90_4]
+G r c none [from_element gnatcoll__opt_parse__parsed_arguments_shared_ptrs 144 17 504_4] [convert gnatcoll__refcount__headers 57 16 90_4]
+G r c none [from_element gnatcoll__opt_parse__parsed_arguments_shared_ptrs 144 17 504_4] [decrement gnatcoll__atomic 70 13 none]
+G r c none [from_element gnatcoll__opt_parse__parsed_arguments_shared_ptrs 144 17 504_4] [sync_bool_compare_and_swap_counter gnatcoll__atomic 117 13 none]
+G r c none [from_element gnatcoll__opt_parse__parsed_arguments_shared_ptrs 144 17 504_4] [finalize gnatcoll__refcount 63 14 none]
+G r k xstring_array [from_element gnatcoll__opt_parse__parsed_arguments_shared_ptrs 144 17 504_4] [xstring_arrayDF gnatcoll__strings 340 12 31_1]
+G r c none [from_element gnatcoll__opt_parse__parsed_arguments_shared_ptrs 144 17 504_4] [inc_ref gnatcoll__refcount 47 13 none]
+G r c none [weak gnatcoll__opt_parse__parsed_arguments_shared_ptrs 284 16 504_4] [inc_ref gnatcoll__refcount 55 14 none]
+G r c none [weak gnatcoll__opt_parse__parsed_arguments_shared_ptrs 284 16 504_4] [address_header_of gnatcoll__refcount__headers 60 16 90_4]
+G r c none [weak gnatcoll__opt_parse__parsed_arguments_shared_ptrs 284 16 504_4] [convert gnatcoll__refcount__headers 57 16 90_4]
+G r c none [weak gnatcoll__opt_parse__parsed_arguments_shared_ptrs 284 16 504_4] [sync_bool_compare_and_swap gnatcoll__refcount 66 13 none]
+G r c none [weak gnatcoll__opt_parse__parsed_arguments_shared_ptrs 284 16 504_4] [unchecked_free gnatcoll__refcount 58 14 none]
+G r c none [set gnatcoll__opt_parse__parsed_arguments_shared_ptrs 285 17 504_4] [address_header_of gnatcoll__refcount__headers 60 16 90_4]
+G r c none [set gnatcoll__opt_parse__parsed_arguments_shared_ptrs 285 17 504_4] [convert gnatcoll__refcount__headers 57 16 90_4]
+G r c none [set gnatcoll__opt_parse__parsed_arguments_shared_ptrs 285 17 504_4] [decrement gnatcoll__atomic 70 13 none]
+G r c none [set gnatcoll__opt_parse__parsed_arguments_shared_ptrs 285 17 504_4] [sync_bool_compare_and_swap_counter gnatcoll__atomic 117 13 none]
+G r c none [set gnatcoll__opt_parse__parsed_arguments_shared_ptrs 285 17 504_4] [finalize gnatcoll__refcount 63 14 none]
+G r k xstring_array [set gnatcoll__opt_parse__parsed_arguments_shared_ptrs 285 17 504_4] [xstring_arrayDF gnatcoll__strings 340 12 31_1]
+G r c none [set gnatcoll__opt_parse__parsed_arguments_shared_ptrs 285 17 504_4] [sync_add_and_fetch gnatcoll__atomic 43 13 none]
+G r c none [set gnatcoll__opt_parse__parsed_arguments_shared_ptrs 285 17 504_4] [inc_ref gnatcoll__refcount 51 13 none]
+G r c none [set gnatcoll__opt_parse__parsed_arguments_shared_ptrs 285 17 504_4] [sync_sub_and_fetch gnatcoll__atomic 52 13 none]
+G r c none [get_refcount gnatcoll__opt_parse__parsed_arguments_shared_ptrs 297 16 504_4] [address_header_of gnatcoll__refcount__headers 60 16 90_4]
+G r c none [get_refcount gnatcoll__opt_parse__parsed_arguments_shared_ptrs 297 16 504_4] [convert gnatcoll__refcount__headers 57 16 90_4]
+G r c none [adjust gnatcoll__opt_parse__parsed_arguments_shared_ptrs 306 28 504_4] [address_header_of gnatcoll__refcount__headers 60 16 90_4]
+G r c none [adjust gnatcoll__opt_parse__parsed_arguments_shared_ptrs 306 28 504_4] [convert gnatcoll__refcount__headers 57 16 90_4]
+G r c none [adjust gnatcoll__opt_parse__parsed_arguments_shared_ptrs 306 28 504_4] [inc_ref gnatcoll__refcount 47 13 none]
+G r c none [finalize gnatcoll__opt_parse__parsed_arguments_shared_ptrs 308 28 504_4] [address_header_of gnatcoll__refcount__headers 60 16 90_4]
+G r c none [finalize gnatcoll__opt_parse__parsed_arguments_shared_ptrs 308 28 504_4] [convert gnatcoll__refcount__headers 57 16 90_4]
+G r c none [finalize gnatcoll__opt_parse__parsed_arguments_shared_ptrs 308 28 504_4] [decrement gnatcoll__atomic 70 13 none]
+G r c none [finalize gnatcoll__opt_parse__parsed_arguments_shared_ptrs 308 28 504_4] [sync_bool_compare_and_swap_counter gnatcoll__atomic 117 13 none]
+G r c none [finalize gnatcoll__opt_parse__parsed_arguments_shared_ptrs 308 28 504_4] [finalize gnatcoll__refcount 63 14 none]
+G r k xstring_array [finalize gnatcoll__opt_parse__parsed_arguments_shared_ptrs 308 28 504_4] [xstring_arrayDF gnatcoll__strings 340 12 31_1]
+G r c none [adjust gnatcoll__opt_parse__parsed_arguments_shared_ptrs 314 28 504_4] [inc_ref gnatcoll__refcount 55 14 none]
+G r c none [finalize gnatcoll__opt_parse__parsed_arguments_shared_ptrs 316 28 504_4] [finalize gnatcoll__refcount 63 14 none]
+G r c none [refDA gnatcoll__opt_parse__parsed_arguments_shared_ptrs 302 12 504_4] [address_header_of gnatcoll__refcount__headers 60 16 90_4]
+G r c none [refDA gnatcoll__opt_parse__parsed_arguments_shared_ptrs 302 12 504_4] [convert gnatcoll__refcount__headers 57 16 90_4]
+G r c none [refDA gnatcoll__opt_parse__parsed_arguments_shared_ptrs 302 12 504_4] [inc_ref gnatcoll__refcount 47 13 none]
+G r c none [refDF gnatcoll__opt_parse__parsed_arguments_shared_ptrs 302 12 504_4] [address_header_of gnatcoll__refcount__headers 60 16 90_4]
+G r c none [refDF gnatcoll__opt_parse__parsed_arguments_shared_ptrs 302 12 504_4] [convert gnatcoll__refcount__headers 57 16 90_4]
+G r c none [refDF gnatcoll__opt_parse__parsed_arguments_shared_ptrs 302 12 504_4] [decrement gnatcoll__atomic 70 13 none]
+G r c none [refDF gnatcoll__opt_parse__parsed_arguments_shared_ptrs 302 12 504_4] [sync_bool_compare_and_swap_counter gnatcoll__atomic 117 13 none]
+G r c none [refDF gnatcoll__opt_parse__parsed_arguments_shared_ptrs 302 12 504_4] [finalize gnatcoll__refcount 63 14 none]
+G r k xstring_array [refDF gnatcoll__opt_parse__parsed_arguments_shared_ptrs 302 12 504_4] [xstring_arrayDF gnatcoll__strings 340 12 31_1]
+G r c none [weak_refDA gnatcoll__opt_parse__parsed_arguments_shared_ptrs 310 12 504_4] [inc_ref gnatcoll__refcount 55 14 none]
+G r c none [weak_refDF gnatcoll__opt_parse__parsed_arguments_shared_ptrs 310 12 504_4] [finalize gnatcoll__refcount 63 14 none]
+G r c none [parsed_argumentsDA gnatcoll__opt_parse 508 9 none] [address_header_of gnatcoll__refcount__headers 60 16 90_4]
+G r c none [parsed_argumentsDA gnatcoll__opt_parse 508 9 none] [convert gnatcoll__refcount__headers 57 16 90_4]
+G r c none [parsed_argumentsDA gnatcoll__opt_parse 508 9 none] [inc_ref gnatcoll__refcount 47 13 none]
+G r c none [parsed_argumentsDF gnatcoll__opt_parse 508 9 none] [address_header_of gnatcoll__refcount__headers 60 16 90_4]
+G r c none [parsed_argumentsDF gnatcoll__opt_parse 508 9 none] [convert gnatcoll__refcount__headers 57 16 90_4]
+G r c none [parsed_argumentsDF gnatcoll__opt_parse 508 9 none] [decrement gnatcoll__atomic 70 13 none]
+G r c none [parsed_argumentsDF gnatcoll__opt_parse 508 9 none] [sync_bool_compare_and_swap_counter gnatcoll__atomic 117 13 none]
+G r c none [parsed_argumentsDF gnatcoll__opt_parse 508 9 none] [finalize gnatcoll__refcount 63 14 none]
+G r k xstring_array [parsed_argumentsDF gnatcoll__opt_parse 508 9 none] [xstring_arrayDF gnatcoll__strings 340 12 31_1]
+G r c none [parsed_argumentsIP gnatcoll__opt_parse 508 9 none] [address_header_of gnatcoll__refcount__headers 60 16 90_4]
+G r c none [parsed_argumentsIP gnatcoll__opt_parse 508 9 none] [convert gnatcoll__refcount__headers 57 16 90_4]
+G r c none [parsed_argumentsIP gnatcoll__opt_parse 508 9 none] [inc_ref gnatcoll__refcount 47 13 none]
+G r c none [parsed_argumentsIP gnatcoll__opt_parse 508 9 none] [decrement gnatcoll__atomic 70 13 none]
+G r c none [parsed_argumentsIP gnatcoll__opt_parse 508 9 none] [sync_bool_compare_and_swap_counter gnatcoll__atomic 117 13 none]
+G r c none [parsed_argumentsIP gnatcoll__opt_parse 508 9 none] [finalize gnatcoll__refcount 63 14 none]
+G r k xstring_array [parsed_argumentsIP gnatcoll__opt_parse 508 9 none] [xstring_arrayDF gnatcoll__strings 340 12 31_1]
+G r e xstring [finalize gnatcoll__opt_parse 520 25 none] [finalize gnatcoll__strings 1052 28 31_1]
+G r c none [finalize gnatcoll__opt_parse 520 25 none] [address_header_of gnatcoll__refcount__headers 60 16 90_4]
+G r c none [finalize gnatcoll__opt_parse 520 25 none] [convert gnatcoll__refcount__headers 57 16 90_4]
+G r c none [finalize gnatcoll__opt_parse 520 25 none] [decrement gnatcoll__atomic 70 13 none]
+G r c none [finalize gnatcoll__opt_parse 520 25 none] [sync_bool_compare_and_swap_counter gnatcoll__atomic 117 13 none]
+G r c none [finalize gnatcoll__opt_parse 520 25 none] [finalize gnatcoll__refcount 63 14 none]
+G r k xstring_array [finalize gnatcoll__opt_parse 520 25 none] [xstring_arrayDF gnatcoll__strings 340 12 31_1]
+G r e xstring [argument_parserDF gnatcoll__opt_parse 516 9 none] [finalize gnatcoll__strings 1052 28 31_1]
+G r c none [argument_parserDF gnatcoll__opt_parse 516 9 none] [address_header_of gnatcoll__refcount__headers 60 16 90_4]
+G r c none [argument_parserDF gnatcoll__opt_parse 516 9 none] [convert gnatcoll__refcount__headers 57 16 90_4]
+G r c none [argument_parserDF gnatcoll__opt_parse 516 9 none] [decrement gnatcoll__atomic 70 13 none]
+G r c none [argument_parserDF gnatcoll__opt_parse 516 9 none] [sync_bool_compare_and_swap_counter gnatcoll__atomic 117 13 none]
+G r c none [argument_parserDF gnatcoll__opt_parse 516 9 none] [finalize gnatcoll__refcount 63 14 none]
+G r k xstring_array [argument_parserDF gnatcoll__opt_parse 516 9 none] [xstring_arrayDF gnatcoll__strings 340 12 31_1]
+G r c none [argument_parser_dataDF gnatcoll__opt_parse 460 9 none] [address_header_of gnatcoll__refcount__headers 60 16 90_4]
+G r c none [argument_parser_dataDF gnatcoll__opt_parse 460 9 none] [convert gnatcoll__refcount__headers 57 16 90_4]
+G r c none [argument_parser_dataDF gnatcoll__opt_parse 460 9 none] [decrement gnatcoll__atomic 70 13 none]
+G r c none [argument_parser_dataDF gnatcoll__opt_parse 460 9 none] [sync_bool_compare_and_swap_counter gnatcoll__atomic 117 13 none]
+G r c none [argument_parser_dataDF gnatcoll__opt_parse 460 9 none] [finalize gnatcoll__refcount 63 14 none]
+G r k xstring_array [argument_parser_dataDF gnatcoll__opt_parse 460 9 none] [xstring_arrayDF gnatcoll__strings 340 12 31_1]
+G r e xstring [argument_parser_dataDF gnatcoll__opt_parse 460 9 none] [finalize gnatcoll__strings 1052 28 31_1]
+G r s xstring [argument_parser_dataIP gnatcoll__opt_parse 460 9 none] [xstringIP gnatcoll__strings 1048 12 31_1]
+G r c none [argument_parser_dataIP gnatcoll__opt_parse 460 9 none] [address_header_of gnatcoll__refcount__headers 60 16 90_4]
+G r c none [argument_parser_dataIP gnatcoll__opt_parse 460 9 none] [convert gnatcoll__refcount__headers 57 16 90_4]
+G r c none [argument_parser_dataIP gnatcoll__opt_parse 460 9 none] [inc_ref gnatcoll__refcount 47 13 none]
+G r c none [argument_parser_dataIP gnatcoll__opt_parse 460 9 none] [decrement gnatcoll__atomic 70 13 none]
+G r c none [argument_parser_dataIP gnatcoll__opt_parse 460 9 none] [sync_bool_compare_and_swap_counter gnatcoll__atomic 117 13 none]
+G r c none [argument_parser_dataIP gnatcoll__opt_parse 460 9 none] [finalize gnatcoll__refcount 63 14 none]
+G r k xstring_array [argument_parser_dataIP gnatcoll__opt_parse 460 9 none] [xstring_arrayDF gnatcoll__strings 340 12 31_1]
+G r e xstring [argument_parser_dataIP gnatcoll__opt_parse 460 9 none] [finalize gnatcoll__strings 1052 28 31_1]
+G r d xstring [parser_typeDA gnatcoll__opt_parse 397 9 none] [adjust gnatcoll__strings 1051 28 31_1]
+G r e xstring [parser_typeDF gnatcoll__opt_parse 397 9 none] [finalize gnatcoll__strings 1052 28 31_1]
+G r s xstring [parser_typeIP gnatcoll__opt_parse 397 9 none] [xstringIP gnatcoll__strings 1048 12 31_1]
+G r j xstring_array [get_arguments gnatcoll__opt_parse 44 13 none] [xstring_arrayDA gnatcoll__strings 340 12 31_1]
+G r s xstring_array [get_arguments gnatcoll__opt_parse 44 13 none] [xstring_arrayIP gnatcoll__strings 340 12 31_1]
+G r c none [get_arguments gnatcoll__opt_parse 44 13 none] [to_xstring gnatcoll__strings 446 16 31_1]
+G r e xstring [get_arguments gnatcoll__opt_parse 44 13 none] [finalize gnatcoll__strings 1052 28 31_1]
+G r c none [parse_one_option gnatcoll__opt_parse 46 13 none] [Oeq gnatcoll__strings 527 16 31_1]
+G r d xstring [parse_one_option gnatcoll__opt_parse 46 13 none] [adjust gnatcoll__strings 1051 28 31_1]
+G r c none [parse_one_option gnatcoll__opt_parse 46 13 none] [starts_with gnatcoll__strings 676 16 31_1]
+G r c none [parse_one_option gnatcoll__opt_parse 46 13 none] [length gnatcoll__strings 346 16 31_1]
+G r c none [parse_one_option gnatcoll__opt_parse 46 13 none] [slice gnatcoll__strings 760 16 31_1]
+G r c none [parse_one_option gnatcoll__opt_parse 46 13 none] [to_xstring gnatcoll__strings 446 16 31_1]
+G r c none [append_text gnatcoll__opt_parse 74 14 none] [to_xstring gnatcoll__strings 446 16 31_1]
+G r c none [append_text gnatcoll__opt_parse 74 14 none] [split gnatcoll__strings 793 16 31_1]
+G r j xstring_array [append_text gnatcoll__opt_parse 74 14 none] [xstring_arrayDA gnatcoll__strings 340 12 31_1]
+G r k xstring_array [append_text gnatcoll__opt_parse 74 14 none] [xstring_arrayDF gnatcoll__strings 340 12 31_1]
+G r e xstring [append_text gnatcoll__opt_parse 74 14 none] [finalize gnatcoll__strings 1052 28 31_1]
+G r c none [append_text gnatcoll__opt_parse 74 14 none] [to_string gnatcoll__strings 626 16 31_1]
+G r s xstring [append_text gnatcoll__opt_parse 74 14 none] [xstringIP gnatcoll__strings 1048 12 31_1]
+G r c none [append_text gnatcoll__opt_parse 74 14 none] [append gnatcoll__strings 450 17 31_1]
+G r c none [append_text gnatcoll__opt_parse 74 14 none] [length gnatcoll__strings 346 16 31_1]
+G r s xstring [set_next_start_column gnatcoll__opt_parse 81 14 none] [xstringIP gnatcoll__strings 1048 12 31_1]
+G r c none [set_next_start_column gnatcoll__opt_parse 81 14 none] [append gnatcoll__strings 450 17 31_1]
+G r c none [set_next_start_column gnatcoll__opt_parse 81 14 none] [length gnatcoll__strings 346 16 31_1]
+G r s xstring [set_column gnatcoll__opt_parse 86 14 none] [xstringIP gnatcoll__strings 1048 12 31_1]
+G r c none [set_column gnatcoll__opt_parse 86 14 none] [append gnatcoll__strings 450 17 31_1]
+G r c none [set_column gnatcoll__opt_parse 86 14 none] [length gnatcoll__strings 346 16 31_1]
+G r c none [set_column gnatcoll__opt_parse 86 14 none] [to_xstring gnatcoll__strings 446 16 31_1]
+G r c none [set_column gnatcoll__opt_parse 86 14 none] [split gnatcoll__strings 793 16 31_1]
+G r j xstring_array [set_column gnatcoll__opt_parse 86 14 none] [xstring_arrayDA gnatcoll__strings 340 12 31_1]
+G r k xstring_array [set_column gnatcoll__opt_parse 86 14 none] [xstring_arrayDF gnatcoll__strings 340 12 31_1]
+G r e xstring [set_column gnatcoll__opt_parse 86 14 none] [finalize gnatcoll__strings 1052 28 31_1]
+G r c none [set_column gnatcoll__opt_parse 86 14 none] [to_string gnatcoll__strings 626 16 31_1]
+G r s xstring [append_line gnatcoll__opt_parse 94 13 none] [xstringIP gnatcoll__strings 1048 12 31_1]
+G r c none [append_line gnatcoll__opt_parse 94 13 none] [append gnatcoll__strings 450 17 31_1]
+G r c none [append_line gnatcoll__opt_parse 98 14 none] [to_xstring gnatcoll__strings 446 16 31_1]
+G r c none [append_line gnatcoll__opt_parse 98 14 none] [split gnatcoll__strings 793 16 31_1]
+G r j xstring_array [append_line gnatcoll__opt_parse 98 14 none] [xstring_arrayDA gnatcoll__strings 340 12 31_1]
+G r k xstring_array [append_line gnatcoll__opt_parse 98 14 none] [xstring_arrayDF gnatcoll__strings 340 12 31_1]
+G r e xstring [append_line gnatcoll__opt_parse 98 14 none] [finalize gnatcoll__strings 1052 28 31_1]
+G r c none [append_line gnatcoll__opt_parse 98 14 none] [to_string gnatcoll__strings 626 16 31_1]
+G r s xstring [append_line gnatcoll__opt_parse 98 14 none] [xstringIP gnatcoll__strings 1048 12 31_1]
+G r c none [append_line gnatcoll__opt_parse 98 14 none] [append gnatcoll__strings 450 17 31_1]
+G r c none [append_line gnatcoll__opt_parse 98 14 none] [length gnatcoll__strings 346 16 31_1]
+G r s xstring [current_line gnatcoll__opt_parse 106 13 none] [xstringIP gnatcoll__strings 1048 12 31_1]
+G r c none [current_line gnatcoll__opt_parse 106 13 none] [append gnatcoll__strings 450 17 31_1]
+G r s xstring [render gnatcoll__opt_parse 113 13 none] [xstringIP gnatcoll__strings 1048 12 31_1]
+G r c none [render gnatcoll__opt_parse 113 13 none] [append gnatcoll__strings 452 17 31_1]
+G r c none [render gnatcoll__opt_parse 113 13 none] [append gnatcoll__strings 451 17 31_1]
+G r c none [render gnatcoll__opt_parse 113 13 none] [to_string gnatcoll__strings 626 16 31_1]
+G r c none [usage gnatcoll__opt_parse 130 24 none] [Oeq gnatcoll__strings 527 16 31_1]
+G r c none [usage gnatcoll__opt_parse 130 24 none] [to_string gnatcoll__strings 626 16 31_1]
+G r c none [help_name gnatcoll__opt_parse 135 24 none] [to_string gnatcoll__strings 626 16 31_1]
+G r c none [parse_args gnatcoll__opt_parse 140 24 none] [Oeq gnatcoll__strings 528 16 31_1]
+G r d xstring [flag_parserDA gnatcoll__opt_parse 122 9 none] [adjust gnatcoll__strings 1051 28 31_1]
+G r e xstring [flag_parserDF gnatcoll__opt_parse 122 9 none] [finalize gnatcoll__strings 1052 28 31_1]
+G r s xstring [flag_parserIP gnatcoll__opt_parse 122 9 none] [xstringIP gnatcoll__strings 1048 12 31_1]
+G r e xstring [flag_parserIP gnatcoll__opt_parse 122 9 none] [finalize gnatcoll__strings 1052 28 31_1]
+G r d xstring [help_flag_parserDA gnatcoll__opt_parse 148 9 none] [adjust gnatcoll__strings 1051 28 31_1]
+G r e xstring [help_flag_parserDF gnatcoll__opt_parse 148 9 none] [finalize gnatcoll__strings 1052 28 31_1]
+G r s xstring [help_flag_parserIP gnatcoll__opt_parse 148 9 none] [xstringIP gnatcoll__strings 1048 12 31_1]
+G r e xstring [help_flag_parserIP gnatcoll__opt_parse 148 9 none] [finalize gnatcoll__strings 1052 28 31_1]
+X 1 ada.ads
+16K9*Ada 20e8 38|24r6 25r6 25r33 37r14 395r35 456r11 516r32 39|24r6 25r6
+. 25r23 26r6 26r35 27r6 28r6 36r29 430r24 450r24 472r26 599r32 933r14 1097r45
+. 1218r29 1220r29 1222r29 1240r29 1243r29
+X 4 a-charac.ads
+16K13*Characters 18e19 39|26r10 26r39
+X 5 a-chahan.ads
+36K24*Handling 160e28 39|26w21 26r50
+67V13*To_Lower{character} 48|283i21
+68V13*To_Upper{character} 48|285i21
+72V13*To_Upper{string} 39|785s13 942s13 943s19
+X 7 a-comlin.ads
+36K13*Command_Line 144e21 39|24w10 36r33 1097r49
+39V13*Argument_Count{natural} 39|295s46
+52V13*Argument{string} 39|298s35
+62V13*Command_Name{string} 39|1097s62
+X 8 a-contai.ads
+16K13*Containers 28e19 38|37r18 395r39 456r15 39|933r18
+19M9*Hash_Type
+X 12 a-convec.ads
+74k24*Vectors 875e27 38|37w29 395r50 456r26 39|933r29
+81I12*Extended_Index{integer}
+91R9*Vector<15|43R9> 38|458r45[455] 39|57r35[38|395] 960r35[932]
+122r4 Empty_Vector{91R9[39|932]} 39|1035r55[932] 1066r41[932]
+187V13*Is_Empty{boolean} 39|109s21[38|395]
+299R9*Reference_Type 39|91r43[38|395] 211r66[38|395]
+318V13*Reference{299R9[38|395]} 39|110s45[38|395]
+483U14*Append 39|215s18[38|395] 607s46[38|455] 608s34[38|455] 692s46[38|455]
+. 693s34[38|455] 766s35[38|455] 767s34[38|455] 869s35[38|455] 870s34[38|455]
+. 1040s53[932] 1079s35[38|455] 1080s34[38|455] 1111s35[38|455] 1112s34[38|455]
+570V13*Last_Index{81I12[38|395]} 39|110s67[38|395] 405s43[38|455] 609s51[38|455]
+. 694s51[38|455] 768s51[38|455] 871s51[38|455] 992s59[932] 1081s51[38|455]
+. 1113s68[38|455]
+X 14 a-except.ads
+44K13*Exceptions 289e19 39|27w10 430r28 450r28 472r30
+84V13*Exception_Message{string} 39|430s39 450s39 472s41
+X 15 a-finali.ads
+40K13*Finalization 68e21 38|24w10 516r36
+50H9*Limited_Controlled<67|40R9> 66e55 38|516r49
+X 19 a-string.ads
+16K13*Strings 35e16 38|25r10 25r37
+X 22 a-strunb.ads
+83K21*Unbounded 765e26 38|25w18 25r45
+88R9*Unbounded_String<15|43R9> 744e15 38|160r28
+104V13*To_Unbounded_String{88R9} 38|160r53
+X 24 a-tags.ads
+652V13 CW_Membership{boolean} 39|418s40
+X 25 a-textio.ads
+58K13*Text_IO 725e16 39|25w10 25r27
+506U14*Put_Line 39|363s13 396s10 419s25
+X 27 a-uncdea.ads
+20u15*Unchecked_Deallocation 39|28w10 599r36 1218r33 1220r33 1222r33 1240r33
+. 1243r33
+X 28 gnat.ads
+34K9*GNAT 57e9 39|30r6 476r10
+X 29 g-os_lib.ads
+51K14*OS_Lib=51:36 39|30w11 476r15
+X 32 gnatcoll.ads
+24K9*GNATCOLL 27e13 38|35r6 35r28 38r14 39r14 41r9 390r8 505r11 522r5 39|32r6
+. 34r14 1250r5
+X 37 gnatcoll-locks.ads
+30K18*Locks 90e19 38|39w23 390r17
+32W12*Mutual_Exclusion{30|74W19} 38|468r23
+38R9*Scoped_Lock<15|50R9> 86e63 39|316r15
+X 38 gnatcoll-opt_parse.ads
+41K18*Opt_Parse 32|24k9 38|392E9 522l14 522e23 39|34b23 1250l14 1250t23
+115R9*Argument_Parser<15|50R9> 15|53P14 38|131p13 132r26 136p13 137r26 142p13
+. 143r58 146p13 146r26 180r23 218r23 247r23 271r23 306r23 342r23 516c9 518e14
+. 520P25 520r49 39|351r26 373r26 1090r58 1100r23 1121r26 1239r49 67|42p14
+119R9*Parsed_Arguments 128r35 139r23 210r17 241r17 265r17 299r17 334r17 377r17
+. 424r23 433r23 464r47 484r14 488r14 508c9 511e14 513r35 39|144r23 310r14
+. 319r22 341r14 375r23 488r23 513r26 542r17 560r26 627r26 655r17 669r26 706r23
+. 748r17 796r26 821r17 845r26 922r17 954r26 981r17 1013r26
+125a4*No_Arguments{48|340A12[47|31]} 133r36 138r36 39|290r23 352r36 374r36
+128r4*No_Parsed_Arguments{119R9} 210r37 241r37 265r37 299r37 334r37 377r37
+. 465r12 513c4 39|321r20 327r25 355r38 356r38 542r37 655r37 748r37 821r37
+. 922r37 981r37
+131V13*Parse{boolean} 132=7 133>7 39|350b13 366l8 366t13
+132r7 Self{115R9} 39|351b7 355r10 356r10 360m12 360r12 360r35 363r29
+133a7 Arguments{48|340A12[47|31]} 39|352b7 360r24
+136V13*Parse{boolean} 137=7 138>7 139<7 39|360s17 372b13 478l8 478t13
+137r7 Self{115R9} 39|373b7 405r21 409r28 419r35 435r28 462r21
+138a7 Arguments{48|340A12[47|31]} 39|374b7 386r64
+139r7 Result{119R9} 39|375b7 401m7 401r7 413m67 413r67 439m67 439r67 463r60
+142V13*Create_Argument_Parser{115R9} 143>7 143>22 39|1089b13 1115l8 1115t30
+143a7 Help{string} 39|1090b7 1102r39
+143a22 Command_Name{string} 39|1090b22 1093r14 1098r16
+146V13*Help{string} 146>19 39|363s23 419s40 1121b13 1164l8 1164t12
+146r19 Self{115R9} 39|1121b19 1126r38 1131r21 1140r25 1146r21 1156r21
+156V13*Convert=157:44{48|311R12[47|31]}
+157a7 Arg{48|307A15[47|31]}
+159V13*Convert=160:53{22|88R9}
+160a7 Arg{string}
+162V13*Convert{integer} 162>22 39|1170b13 1176l8 1176t15
+162a22 Arg{string} 39|1170b22 1172r29 1175r69
+164X4*Opt_Parse_Error 39|328r19 427r25 447r25 471r16 887r19 1175r16 1195r19
+171X4*Disabled_Error 39|550r21 659r21
+180r7 Parser{115R9} 39|531r24 607r10 608r10 609r27
+183a7 Name{string} 39|517r11 517r25 529r25
+187a7 Help{string} 39|530r25
+190b7 Allow_Empty{boolean} 39|533r24 548r16
+193+12 Arg_Type 196r51 205r57
+196V21 Convert{193+12} 196>30 39|580s25
+196a30 Arg{string}
+200b7 Enabled{boolean} 39|544r13 606r10
+204k12*Parse_Positional_Arg_List 180z7 183z7 187z7 190z7 193z12 196z21 200z7
+. 212l8 212e33 39|502b17 611l8 611t33
+205A12*Result_Array(193+12)<integer> 207r29 210r65 39|503r46 542r65 577r17
+. 587r36 600r13
+207a7*No_Results{205A12} 39|547r21
+209V16*Get{205A12} 210>10 39|541b16
+210r10 Args{119R9} 39|545r36 546r55
+218r7 Parser{115R9} 39|644r22 692r10 693r10 694r27
+221a7 Name{string} 39|631r11 642r23
+225a7 Help{string} 39|643r23
+228+12 Arg_Type 231r51 241r65 39|634r19 655r65 677r32
+231V21 Convert{228+12} 231>30 39|677s44
+231a30 Arg{string}
+235b7 Enabled{boolean} 39|657r13 691r10
+239k12*Parse_Positional_Arg 218z7 221z7 225z7 228z12 231z21 235z7 242l8 242e28
+. 39|617b17 696l8 696t28
+240V16*Get{228+12} 241>10 39|654b16
+241r10 Args{119R9} 39|658r49
+247r7 Parser{115R9} 39|737r22 766r10 767r10 768r27
+250a7 Short{string} 39|736r23
+254a7 Long{string} 39|733r23 733r34 735r23
+257a7 Help{string} 39|734r23
+260b7 Enabled{boolean} 39|750r17 765r10
+263k12*Parse_Flag 247z7 250z7 254z7 257z7 260z7 266l8 266e18 39|730b17 770l8
+. 770t18
+264V16*Get{boolean} 265>10 39|747b16 762l11 762t14
+265r10 Args{119R9} 39|748b10 754r67
+271r7 Parser{115R9} 39|810r24 869r10 870r10 871r27 912r10
+274a7 Short{string} 39|784r28 784r58 790r24 849r30 913r10
+278a7 Long{string} 39|784r17 785r23 785r34 790r10 808r25 808r36 849r37 914r10
+281a7 Help{string} 39|809r25 915r10
+284+12 Arg_Type 287r51 291r21 299r65 39|799r19 821r65 916r10
+287V21 Convert{284+12} 287>30 39|857s52 918r10
+287a30 Arg{string}
+291*7 Default_Val{284+12} 39|824r20 832r23 917r10
+294b7 Enabled{boolean} 39|823r17 868r10 919r10
+297k12*Parse_Option 271z7 274z7 278z7 281z7 284z12 287z21 291z7 294z7 300l8
+. 300e20 39|776b17 873l8 873t20 911r38
+298V16*Get{284+12} 299>10 39|820b16 835l11 835t14 923r31[911]
+299r10 Args{119R9} 39|821b10 827r67
+306r7 Parser{115R9} 39|912r25
+309a7 Short{string} 39|913r25
+313a7 Long{string} 39|914r25
+316a7 Help{string} 39|905r9 906r15 906r21
+319E12 Arg_Type 322r21 330r10 334r65 39|876r46 882r46 884r17 895r18 895r32
+. 897r19 898r19 916r25 922r65
+322*7 Default_Val{319E12} 39|909r23 917r25
+325b7 Enabled{boolean} 39|919r25
+328k12*Parse_Enum_Option 306z7 309z7 313z7 316z7 319z12 322z7 325z7 335l8
+. 335e25 39|875b17 924l8 924t25
+333V16*Get{319E12} 334>10 39|921b16
+334r10 Args{119R9} 39|922b10
+342r7 Parser{115R9} 39|970r20 1079r10 1080r10 1081r27
+345a7 Short{string} 39|941r28 941r58 948r24 1027r36 1047r57
+349a7 Long{string} 39|941r17 942r23 942r34 943r29 943r40 948r10 968r21 968r32
+. 1027r43 1047r28
+352a7 Help{string} 39|969r21
+355b7 Accumulate{boolean} 39|957r56 1023r13
+361+12 Arg_Type 364r51 372r57 39|933r48
+364V21 Convert{361+12} 364>30 39|1040s61 1071s54
+364a30 Arg{string}
+368b7 Enabled{boolean} 39|983r17 1078r10
+371k12*Parse_Option_List 342z7 345z7 349z7 352z7 355z7 361z12 364z21 368z7
+. 378l8 378e25 39|930b17 1083l8 1083t25
+372A12*Result_Array(361+12)<integer> 374r29 377r65 39|981r65 991r25
+374a7*No_Results{372A12} 39|1000r23
+376V16*Get{372A12} 377>10 39|980b16 1003l11 1003t14
+377r10 Args{119R9} 39|981b10 987r67
+392R9 Argument_Parser_Data 393r51 460c9 470e14 39|1102r16 1241r10
+393P9 Argument_Parser_Data_Access(392R9) 410r16 517r14 39|1241r32
+395K12 XString_Vectors[12|74] 39|57r19 91r27 211r50
+397H9 Parser_Type 411e14 420p13 421r23 430r23 437p13 438r14 442p13 443r14
+. 448p13 449r14 453r37 483r14 487r14 39|122r28 309r14 340r14 485r23 505r46
+. 619r41 778r33 935r38 1244r10
+398r7*Name{48|311R12[47|31]} 445r23 39|429r51 449r51 464r61 529m12 642m10
+. 733m10 808m12 968m10 1104m13
+401r7*Help{48|311R12[47|31]} 39|530m12 643m10 734m10 809m12 969m10 1105m13
+. 1150r35 1160r35
+404i7*Position{positive} 39|331r49 589r45 609m15 683r42 694m15 717r42 768m15
+. 859r45 871m15 1018r47 1081m15 1113m32
+407b7*Opt{boolean} 39|463r24 533m12 646m10 738m10 811m12 971m10 1107m13
+410p7*Parser{393P9} 39|316r33 322r31 531m12 644m10 737m10 810m12 970m10 1108m13
+413I12 Parser_Return{integer} 417r28 424r48 433r48 39|50r25 144r48 412r39
+. 438r39 488r48 513r51 560r51 562r17 595r17 627r51 669r51 687r17 706r48 720r17
+. 796r51 845r51 847r20 954r51 1013r51 1015r17 1025r26 1074r17 1186r25
+417i4 Error_Return{413I12} 39|415r34 441r34 492r17 562r34 572r20 573r20 673r20
+. 722r17 852r24 1015r34 1029r30 1048r20 1059r20 1060r20 1208r21
+420y13 Parse_Args{413I12} 421=7 422>7 423>7 424=7 39|495R19
+421r7 Self{397R9}
+422a7 Args{48|340A12[47|31]}
+423i7 Pos{positive}
+424r7 Result{119R9}
+429V13 Parse{413I12} 430=7 431>7 432>7 433=7 39|413s32 439s32 484b13 496l8
+. 496t13
+430c7 Self<397R9> 39|485b7 491r10 491r48 495m14 495r14
+431a7 Args{48|340A12[47|31]} 39|486b7 495r31
+432i7 Pos{positive} 39|487b7 495r37
+433r7 Result{119R9} 39|488b7 491r27 495m42 495r42
+437y13 Usage{string} 438>7 39|1132R34
+438r7 Self{397R9}
+442V13 Help_Name{string} 443>7 39|1147R34 1157R34
+443r7 Self{397R9} 445r18
+448V13 Does_Accumulate{boolean} 449>7 39|491R53
+449r7 Self{397R9}
+453P9 Parser_Access(397R9) 456r45 466r47 39|535r23 648r23 741r23 814r23 974r27
+. 1244r29
+455K12 Parsers_Vectors[12|74] 458r29
+458R12*Parser_Vector{12|91R9[455]} 462r47 463r47
+461r7*Help{48|311R12[47|31]} 39|1140r35
+461r13*Command_Name{48|311R12[47|31]} 39|1126r48
+462r7*Positional_Args_Parsers{458R12} 39|435r38 607m22 692m22 1146r31
+462r32*Opts_Parsers{458R12} 39|409r38 766m22 869m22 1079m22 1111m22 1156r31
+463r7*All_Parsers{458R12} 39|405r31 462r31 608m22 609r39 693m22 694r39 767m22
+. 768r39 870m22 871r39 1080m22 1081r39 1112m22 1113r56 1131r31
+464r7*Default_Result{119R9} 39|322r38 355r20 356m20 360m45
+466p7*Help_Flag{453P9} 39|1103m22 1111r55 1112r54 1113r22 1246m23
+468w7*Mutex{37|32W12} 39|316m40
+472H9 Parser_Result 474e14 476p14 476r39 480r44 39|126r35 519r35 633r35 798r35
+. 959r35 1219r10
+473i7*Start_Pos{positive} 39|585m19 679m16 713m16 855m39 1033m27 1064m13
+473i18*End_Pos{positive} 39|586m19 680m16 714m16 856m39 1034m27 1065m13
+476x14 Release 476=23 39|1228R15
+476r23 Result{472R9}
+480P9 Parser_Result_Access(472R9) 484r39 491r36 39|310r39 712r28 754r26 827r26
+. 987r26 1017r17 1219r31
+482V13 Get_Result{480P9} 483>7 484>7 39|308b13 333l8 333t18 343s19 546s43
+. 658s37 754s55 827s55 987s55
+483c7 Self<397R9> 39|309b7 316r28 322r26 331r44
+484r7 Args{119R9} 39|310b7 321r13 324r26
+486V13 Has_Result{boolean} 487>7 488>7 39|339b13 344l8 344t18 463s48 491s15
+. 545s24
+487c7 Self<397R9> 39|340b7 343r14
+488r7 Args{119R9} 39|341b7 343r31
+490A9 Parser_Result_Array(480P9)<integer> 493r50 39|404r29 1221r10
+493P9 Parser_Result_Array_Access(490A9) 499r18 39|1221r31
+495P9 XString_Array_Access(48|340A12[47|31]) 498r18 39|1223r25
+497R9 Parsed_Arguments_Type 500e14 502r37 506r7 39|402r10 1217r37
+498p7*Raw_Args{495P9} 39|403m13 1225m18
+499p7*Results{493P9} 39|331r35 404m13 589r31 683r28 717r28 859r31 1018r33
+. 1226r21 1232m18
+502U14 Release 502=23 506r41 39|1217b14 1233l8 1233t15
+502r23 Self{497R9} 39|1217b23 1225m13 1225r13 1226r16 1232m13 1232r13
+504K12 Parsed_Arguments_Shared_Ptrs[41|117] 509r13 510r12 514r14
+509r7*Ref{41|123R12[504]} 514m7 39|331r27 401m14 589r23 683r20 717r20 859r23
+. 1018r25
+517p7*Data{393P9} 39|355r15 356r15 360r40 405r26 409r33 435r33 462r26 531r31
+. 607r17 608r17 609r34 644r29 692r17 693r17 694r34 737r29 766r17 767r17 768r34
+. 810r31 869r17 870r17 871r34 970r27 1079r17 1080r17 1081r34 1101m17 1103r17
+. 1108r32 1111r17 1111r50 1112r17 1112r49 1113r17 1113r51 1126r43 1131r26
+. 1140r30 1146r26 1156r26 1246r18 1247m18
+520U25 Finalize<15|54p14> 520=35 39|1239b25 1248l8 1248t16
+520r35 Self{115R9} 39|1239b35 1246r13 1247m13 1247r13
+X 39 gnatcoll-opt_parse.adb
+36K12 Cmd_Line=36:33 295r37 298r26
+38V14 "+"=39:45{48|311R12[47|31]} 241s59 298s25 529s24 530s24 642s22 643s22
+. 733s22 734s22 735s22 736s22 808s24 809s24 968s20 969s20 1047s27 1047s56
+. 1093s9 1102s38 1104s25 1105s25 1109s25 1110s25 1209s17
+39a7 Self{48|307A15[47|31]}
+41V14 "+"=42:45{48|307A15[47|31]} 203s14 248s35 429s39 449s39 456s41 464s53
+. 580s34 677s53 857s61 1040s70 1071s63 1126s37 1140s24 1150s27 1160s27
+42r7 Self{48|311R12[47|31]}
+44V13 Get_Arguments{48|340A12[47|31]} 44>28 288b13 302l8 302t21 386s49
+44a28 Arguments{48|340A12[47|31]} 288b28 290r10 291r17
+46V13 Parse_One_Option{48|311R12[47|31]} 47>7 47>14 48>7 49>7 50<7 849s12
+. 1027s18 1182b13 1211l8 1211t24
+47a7 Short{string} 1183b7 1192r18 1192r52 1204r13 1204r58 1206r35
+47a14 Long{string} 1183b14 1191r22 1200r37 1202r35
+48a7 Args{48|340A12[47|31]} 1184b7 1191r9 1192r39 1194r23 1198r17 1200r13
+. 1202r17 1202r50 1204r34 1206r17 1206r51
+49i7 Pos{positive} 1185b7 1191r15 1192r45 1194r13 1197r21 1198r23 1200r19
+. 1201r21 1202r23 1202r56 1204r40 1205r21 1206r23 1206r57
+50i7 New_Pos{38|413I12} 1186b7 1197m10 1201m10 1205m10 1208m10
+56R9 Text_Wrapper 60e14 75r26 82r21 86r40 95r29 99r27 107r29 113r28 155r47
+. 179r21 196r28 211r29 234r26 275r21 1122r13
+57r7*Lines{12|91R9[38|395]} 109r15 110m39 110r61 199r22 215m12
+58i7*Wrap_Col{natural} 255r54
+59i7*Start_Col{natural} 220r18 222r34 278m15 280m15
+63I12 Col_Type{integer} 66r27 69r22 82r41 86r60 101r20 157r40 179r41 275r41
+. 278r28
+66i4 Current_Col{63I12} 277r16 1127r34
+69i4 No_Col{63I12} 101r32 157r52 163r23
+74U14 Append_Text 75=7 76>7 77>7 160s15 187s15 233b14 245s19 248s16 268l8
+. 268t19 1126s11 1129s11 1132s14 1133s14 1140s11 1147s14 1157s14
+75r7 Self{56R9} 234b7 245m32 248m29 253m48 253r48 255r49 262m61 262r61
+76a7 Text{string} 235b7 241r60 255r34 256r33 264r30
+77b7 Cut{boolean} 236b7 239r10
+81U14 Set_Next_Start_Column 82=7 82>35 164s15 182s12 274b14 282l8 282t29
+. 1127s11
+82r7 Self{56R9} 275b7 278m10 278m38 278r38 280m10
+82i35 Col{63I12} 275b35 277r10 280r28
+86U14 Set_Column 86=26 86>54 178b14 190l8 190t18 1148s14 1158s14
+86r26 Self{56R9} 179b7 182m7 182r7 184m10 184r10 185m10 185r10 187m10 187r10
+. 188m25 188r25
+86i54 Col{63I12} 179b35 182r35 184r37 188r19
+91R12 XString_Ref{12|299R9[38|395]} 95r50 107r50 168r18 218r23 253r33 262r33
+94V13 Append_Line{91R12} 95=7 110s17 168s38 210b13 227l8 227t19 262s48
+95r7 Self{56R9} 211b7 215m7 215r7 218m38 218r38 220r13 222r29
+98U14 Append_Line 99=7 100>7 101>7 155b14 172l8 172t19 185s15 1136s11 1137s11
+. 1141s11 1142s11 1144s11 1150s14 1153s11 1154s11 1160s14
+99r7 Self{56R9} 155b27 160m10 160r10 164m10 164r10 168m33 168r33
+100a7 Text{string} 156b27 159r10 160r28
+101i7 Col_After{63I12} 157b27 163r10 164r38 1136r24 1144r49 1150r41 1153r24
+. 1154r47 1160r41
+106V13 Current_Line{91R12} 107=7 184s15 188s30 218s43 253s53 278s43
+107r7 Self{56R9} 109r10 110m12 110r12 110m34 110r34 110r56
+113V13 Render{string} 113>21 196b13 204l8 204t14 1163s18
+113r21 Self{56R9} 196b21 199r17
+122R9 Flag_Parser<38|397R9> 38|448p13 39|124e14 130P24 131r14 135P24 136r14
+. 140P24 141r23 148r33 703r23 732r26 732r41
+123r7*Short{48|311R12[47|31]} 133r17 133r63 138r54 709r59 736m10 1109m13
+123r14*Long{48|311R12[47|31]} 132r30 138r23 709r28 735m10 1110m13
+126R9 Flag_Parser_Result<38|472R9> 128e14 146P25 146r48 712r56 757r23
+127b7*Result{boolean} 715m16 757r50
+130V24 Usage{string}<38|437p13> 131>7
+131r7 Self{122R9} 132r25 133r12 133r58
+135V24 Help_Name{string}<38|442p13> 136>7
+136r7 Self{122R9} 138r18 138r49
+140V24 Parse_Args{38|413I12}<38|420p13> 141=7 142>7 143>7 144=7 702b24 724l8
+. 724t18
+141r7 Self{122R9} 703b7 709r23 709r54 717r37
+142a7 Args{48|340A12[47|31]} 704b7 709r10 709r41
+143i7 Pos{positive} 705b7 709r16 709r47 713r29 714r29 720r32
+144r7 Result{38|119R9} 706b7 717r13
+146U25 Release<38|476p14> 146=34
+146r34 Self{126R9}
+148R9 Help_Flag_Parser<122R9> 38|448p13 39|130P24 135P24 140P24 148e61 418r43
+. 1103r39
+168r10 Dummy{91R12}
+197r7 Res{48|311R12[47|31]} 200m10 200r10 201m10 201r10 203r15
+199r11 El{48|311R12[47|31]} 200r22
+213r7 Ret{48|311R12[47|31]} 215r26
+218r10 L{91R12} 222r13 225r17
+241a13 Cut_Text{48|340A12[47|31]} 243r22 248r37
+243i17 I{integer} 244r19 248r47
+253r13 Cur_Line{91R12} 255r16 256r16
+262r13 Cur_Line{91R12} 264r13
+295a10 Args{48|340A12[47|31]} 297r19 298m13 300r17
+297i14 I{integer} 298r19 298r45
+316r7 Dummy{37|38R9}
+319r10 Real_Args{38|119R9} 322m13 322r13 324m13 324r13 327r13 331r17
+359b14 Ret{boolean} 362r17
+377X7 Exit_Parsing 420r31 475r12
+385i7 Current_Arg{positive} 407r13 413r54 416m22 439r54 442m22 456r57
+386a7 Cmd_Line_Args{48|340A12[47|31]} 403r44 407r28 413r39 439r39 456r42
+388U17 Handle_Failure 388>33 394b17 398l11 398t25 428s19 448s19 455s10 464s13
+. 472s10
+388a33 Error_Msg{string} 394b33 397r43
+409p14 Opt_Parser{38|453P9} 413r21 418r25 429r40
+412i19 P_Return{38|413I12} 415r22 416r47
+427r21 E{14|53R9} 430r58
+435p14 Pos_Parser{38|453P9} 439r21 449r40
+438i19 P_Return{38|413I12} 441r22 442r47
+447r21 E{14|53R9} 450r58
+459L12 Next_Iter 423r27 443r27
+462p11 Parser{38|453P9} 463r17 463r41 464r54
+471r12 E{14|53R9} 472r60
+503P12 Result_Array_Access(38|205A12) 520r20 600r27
+505R12 Positional_Arg_List_Parser<38|397R9> 38|442p13 448p13 39|507e17 509P27
+. 510r26 515P27 516r17 527r26 528r9 557r26
+509V27 Parse_Args{38|413I12}<38|420p13> 510=10 511>10 512>10 513=10 556b27
+. 596l11 596t21
+510r10 Self{505R12} 557b10 589r40
+511a10 Args{48|340A12[47|31]} 558b10 564r26 565r16 565r47 580r35
+512i10 Pos{positive} 559b10 564r19 577r43 580r45 585r32
+513r10 Result{38|119R9} 560b10 589r16
+515V27 Usage{string}<38|437p13> 516>10
+516r10 Self{505R12}
+519R12 Internal_Result<38|472R9> 521e17 523r49 525P28 525r51 546r21 584r61
+. 598r51
+520p10 Results{503P12} 546r66 587m19 602m21
+523P12 Internal_Result_Access(519R12) 584r31
+525U28 Release<38|476p14> 525=37 598b28 603l11 603t18
+525r37 Self{519R12} 598b37 602m16 602r16
+527r7 Self_Val{505R12} 535m40 535r40
+535p7 Self{38|453P9} 545r19 546r38 607r54 608r42 609r10
+562i10 Last{38|413I12} 569m13 572r13 577r36 586r32 595r32
+564i14 I{integer} 565r22 565r53 569r21
+577a13 R{38|205A12} 579r22 580m16 587r50
+579i17 I{integer} 580r19 580r41
+584p16 Res{523P12} 590r19
+599U20 Free[27|20] 602s10
+619R12 Positional_Arg_Parser<38|397R9> 38|442p13 448p13 39|621e17 623P27
+. 624r26 629P27 630r17 641r26 666r26
+623V27 Parse_Args{38|413I12}<38|420p13> 624=10 625>10 626>10 627=10 665b27
+. 688l11 688t21
+624r10 Self{619R12} 666b10 683r37
+625a10 Args{48|340A12[47|31]} 667b10 672r13 672r46 677r54
+626i10 Pos{positive} 668b10 672r19 672r52 677r60 679r29 680r29 687r32
+627r10 Result{38|119R9} 669b10 683r13
+629V27 Usage{string}<38|437p13> 630>10
+630r10 Self{619R12}
+633R12 Internal_Result<38|472R9> 635e17 637r49 639P28 639r51 658r15 678r62
+634*10 Result{38|228+12} 658r60 681m16
+637P12 Internal_Result_Access(633R12) 678r32
+639U28 Release<38|476p14> 639=37
+639r37 Self{633R12}
+641r7 Self_Val{619R12} 648m40 648r40
+648p7 Self{38|453P9} 658r32 692r54 693r42 694r10
+677*13 Res{38|228+12} 681r29
+678p13 Int_Res{637P12} 684r16
+712p13 Res{38|480P9} 717r55
+732r7 Self_Val{122R9} 741m40 741r40
+741p7 Self{38|453P9} 754r50 766r43 767r42 768r10
+754p13 R{38|480P9} 756r16 757r43
+778R12 Option_Parser<38|397R9> 38|448p13 39|780e17 782P27 783r17 787P27 788r18
+. 792P27 793r26 806r26 807r9 842r26
+782V27 Usage{string}<38|437p13> 783>10
+783r10 Self{778R12}
+787V27 Help_Name{string}<38|442p13> 788>10
+788r10 Dummy{778R12}
+792V27 Parse_Args{38|413I12}<38|420p13> 793=10 794>10 795>10 796=10 841b27
+. 865l11 865t21
+793r10 Self{778R12} 842b10 859r40
+794a10 Args{48|340A12[47|31]} 843b10 849r43
+795i10 Pos{positive} 844b10 849r49 855r52 856r52
+796r10 Result{38|119R9} 845b10 859r16
+798R12 Internal_Result<38|472R9> 800e17 802r49 804P17 804r40 830r23 855r22
+799*10 Result{38|284+12} 830r47 857m39
+802P12 Internal_Result_Access(798R12) 854r31
+804U17 Release<38|476p14> 804=26
+804r26 Self{798R12}
+806r7 Self_Val{778R12} 814m40 814r40
+814p7 Self{38|453P9} 827r50 869r43 870r42 871r10
+827p13 R{38|480P9} 829r16 830r40
+847i10 New_Pos{38|413I12} 849m54 849r54 852r13 864r17
+848r10 Raw{48|311R12[47|31]} 857r62
+854p16 Res{802P12} 860r19
+876V16 Convert{38|319E12} 876>25 882b16 889l11 889t18 918r25
+876a25 Arg{string} 882b25 884r33 888r57
+891V16 Alternatives{string} 893b16 902l11 902t23 908s11
+894a10 Alts{48|340A12[47|31]} 898m13 901r52
+897*14 V{38|319E12} 898r33 898r56
+904a7 Enriched_Help{string} 915r25
+911K15 Internal_Option[38|297] 923r15
+932K15 Result_Vectors[12|74] 960r20 1035r40 1066r26
+935R12 Option_List_Parser<38|397R9> 937e17 939P27 940r17 945P27 946r18 950P27
+. 951r26 956P27 957r17 967r26 1010r26
+939V27 Usage{string}<38|437p13> 940>10
+940r10 Self{935R12}
+945V27 Help_Name{string}<38|442p13> 946>10
+946r10 Dummy{935R12}
+950V27 Parse_Args{38|413I12}<38|420p13> 951=10 952>10 953>10 954=10 1009b27
+. 1075l11 1075t21
+951r10 Self{935R12} 1010b10 1018r42
+952a10 Args{48|340A12[47|31]} 1011b10 1027r49 1047r13 1047r42 1051r30 1052r16
+. 1052r47 1071r64
+953i10 Pos{positive} 1012b10 1027r55 1033r40 1034r40 1047r19 1047r48 1051r19
+. 1064r26 1070r31 1071r74
+954r10 Result{38|119R9} 1013b10 1018r18
+956V27 Does_Accumulate{boolean}<38|448p13> 957>10
+957r10 Self{935R12}
+959R12 Internal_Result<38|472R9> 961e17 963r49 965P17 965r40 992r27 995r33
+. 1032r28 1040r19 1063r21 1071r13
+960r10 Results{12|91R9[932]} 992r51 995r57 1035m27 1040m45 1066m13 1071m39
+963P12 Internal_Result_Access(959R12) 1020r16
+965U17 Release<38|476p14> 965=26
+965r26 Self{959R12}
+967r7 Self_Val{935R12} 974m44 974r44
+974p7 Self{38|453P9} 987r50 1079r43 1080r42 1081r10
+987p13 R{38|480P9} 989r16 992r44 995r50
+991a19 Res{38|372A12} 994r28 995m22 997r26
+994i23 I{integer} 995r27 995r66
+1015i10 Last{38|413I12} 1056m13 1059r13 1065r26 1070r24 1074r32
+1017p10 Res{38|480P9} 1030r22 1037r22 1040r36 1068r10 1071r30
+1020p10 Tmp{963P12} 1031m22 1037r29 1063m10 1068r17
+1025i16 New_Pos{38|413I12} 1027m60 1027r60 1029r19 1043r23
+1026r16 Raw{48|311R12[47|31]} 1040r71
+1051i14 I{integer} 1052r22 1052r53 1056r21
+1070i14 I{integer} 1071r48 1071r70
+1092r7 XCommand_Name{48|311R12[47|31]} 1102r45
+1100r14 Parser{38|115R9} 1101m10 1103r10 1108r25 1111r10 1111r43 1112r10
+. 1112r42 1113r10 1113r44
+1122r7 Ret{56R9} 1126m7 1126r7 1127m7 1127r7 1129m7 1129r7 1132m10 1132r10
+. 1133m10 1133r10 1136m7 1136r7 1137m7 1137r7 1140m7 1140r7 1141m7 1141r7
+. 1142m7 1142r7 1144m7 1144r7 1147m10 1147r10 1148m10 1148r10 1150m10 1150r10
+. 1153m7 1153r7 1154m7 1154r7 1157m10 1157r10 1158m10 1158r10 1160m10 1160r10
+. 1163r14
+1131p11 Parser{38|453P9} 1132r27
+1146p11 Parser{38|453P9} 1147r27 1150r28
+1156p11 Parser{38|453P9} 1157r27 1160r28
+1218U17 Free[27|20] 1230s10
+1220U17 Free[27|20] 1232s7
+1222U17 Free[27|20] 1225s7
+1226p11 R=1226:11{38|480P9} 1227r13 1228r13 1230r16
+1240U17 Free[27|20] 1247s7
+1243U17 Free[27|20] 1246s7
+X 41 gnatcoll-refcount.ads
+62K18*Refcount 38|38w23 505r20 41|404e22
+105U22 Release 38|506r30
+111b7 Atomic_Counters{boolean} 38|506r50
+117k12*Shared_Pointers 38|505r29 41|322e23
+123R12*Ref<15|43R9> 38|509r42[504]
+124r7*Null_Ref{123R12[38|504]} 38|510r41[504] 514r43[504]
+139U17*Set 39|401s18[38|504]
+169R12*Reference_Type
+242V16*Get{169R12[38|504]} 39|331s31[38|504] 589s27[38|504] 683s24[38|504]
+. 717s24[38|504] 859s27[38|504] 1018s29[38|504]
+X 47 gnatcoll-strings.ads
+31K18*Strings[48|302] 38|35w15 35r37
+X 48 gnatcoll-strings_impl.ads
+307A15*Char_String{string}<integer>
+311R12*XString<15|43R9> 38|157r28[47|31] 395r69[47|31] 398r14[47|31] 401r14[47|31]
+. 461r47[47|31] 39|39r29[47|31] 42r14[47|31] 50r47[47|31] 123r21[47|31] 197r13[47|31]
+. 213r13[47|31] 241r50[47|31] 848r29[47|31] 1026r35[47|31] 1092r32[47|31]
+. 1186r47[47|31]
+340A12*XString_Array(311R12[47|31])<integer> 38|125r28[47|31] 133r19[47|31]
+. 138r19[47|31] 422r16[47|31] 431r16[47|31] 495r44[47|31] 39|44r40[47|31]
+. 44r62[47|31] 48r21[47|31] 142r16[47|31] 241r33[47|31] 288r40[47|31] 288r62[47|31]
+. 295r17[47|31] 352r19[47|31] 374r19[47|31] 386r32[47|31] 403r29[47|31] 486r16[47|31]
+. 511r19[47|31] 558r19[47|31] 625r19[47|31] 667r19[47|31] 704r16[47|31] 794r19[47|31]
+. 843r19[47|31] 894r17[47|31] 952r19[47|31] 1011r19[47|31] 1184r21[47|31]
+. 1223r10[47|31]
+346V16*Length{natural} 39|184s28[47|31] 188s43[47|31] 255s25[47|31] 278s56[47|31]
+. 1202s61[47|31] 1206s62[47|31]
+446V16*To_XString{311R12[47|31]} 38|157r44[47|31] 39|39r45[47|31] 898s44[47|31]
+. 901s28[47|31] 909s11[47|31]
+450U17*Append 39|222s15[47|31] 256s25[47|31] 264s22[47|31]
+451U17*Append 39|201s14[47|31]
+452U17*Append 39|200s14[47|31]
+527V17*"="{boolean} 39|133s23[47|31] 1191s20[47|31] 1192s50[47|31]
+528V17*"="{boolean} 12|65i19[47|31] 39|709s21[47|31] 709s52[47|31]
+626V16*To_String{307A15[47|31]} 38|445s7[47|31] 39|42r45[47|31] 132s14[47|31]
+. 133s47[47|31] 138s7[47|31] 138s38[47|31] 901s17[47|31] 909s51[47|31]
+656V16*To_Lower{311R12[47|31]} 39|898s65[47|31] 909s42[47|31]
+676V16*Starts_With{boolean} 39|565s25[47|31] 565s56[47|31] 672s24[47|31]
+. 672s57[47|31] 1052s25[47|31] 1052s56[47|31] 1200s24[47|31] 1204s45[47|31]
+760V16*Slice{311R12[47|31]} 39|1202s28[47|31] 1206s28[47|31]
+793V16*Split{340A12[47|31]} 39|241s66[47|31]
+882V16*Join{311R12[47|31]} 39|901s46[47|31]
+X 49 gnatcoll-strings_impl.adb
+1495V19 H[92|60]{8|19M9} 93|44b13[47|31]
+1511V19 H[92|60]{8|19M9} 93|44b13[47|31]
+X 50 gnatcoll-vfs.ads
+62K18*VFS 39|32w15 1095r14 1096r17 1097r22 50|673e17
+68A9*Filesystem_String<string>(character)<integer> 39|1097r26
+141V13*Create{97R9} 39|1096s21
+214V13*Base_Name{68A9} 39|1095s18
+X 56 system.ads
+37K9*System 38|33r6 33r26 56|154e11
+67M9*Address
+X 60 s-auxdec.ads
+40K16*Aux_DEC 38|33w13 33r33 60|658e19
+73n7*Type_Class_Enumeration{72E9} 38|330r33
+X 71 s-memory.ads
+53V13*Alloc{56|67M9} 103i<c,__gnat_malloc>22
+68U14*Free 104i<c,__gnat_free>22
+76V13*Realloc{56|67M9} 105i<c,__gnat_realloc>22
+X 75 s-os_lib.ads
+1062U14*OS_Exit 39|476s22
+X 82 s-stausa.ads
+208U14*Initialize 209i<c,__gnat_stack_usage_initialize>22
+273U14*Output_Results 277i<c,__gnat_stack_usage_output_results>22
+X 84 s-stalib.adb
+89U14 Break_Start 90i<c,__gnat_break_start>22
+

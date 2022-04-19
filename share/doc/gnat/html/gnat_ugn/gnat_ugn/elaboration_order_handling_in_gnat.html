@@ -1,0 +1,1371 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Elaboration Order Handling in GNAT &#8212; GNAT User&#39;s Guide for Native Platforms 2021 documentation</title>
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Inline Assembler" href="inline_assembler.html" />
+    <link rel="prev" title="Example of Binder Output File" href="example_of_binder_output.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="inline_assembler.html" title="Inline Assembler"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="example_of_binder_output.html" title="Example of Binder Output File"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../gnat_ugn.html">GNAT User&#39;s Guide for Native Platforms 2021 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Elaboration Order Handling in GNAT</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="elaboration-order-handling-in-gnat">
+<span id="id1"></span><h1>Elaboration Order Handling in GNAT<a class="headerlink" href="#elaboration-order-handling-in-gnat" title="Permalink to this headline">¶</a></h1>
+<span class="target" id="index-0"></span><p id="index-1">This appendix describes the handling of elaboration code in Ada and GNAT, and
+discusses how the order of elaboration of program units can be controlled in
+GNAT, either automatically or with explicit programming features.</p>
+<div class="section" id="elaboration-code">
+<span id="id2"></span><h2>Elaboration Code<a class="headerlink" href="#elaboration-code" title="Permalink to this headline">¶</a></h2>
+<p>Ada defines the term <em>execution</em> as the process by which a construct achieves
+its run-time effect. This process is also referred to as <strong>elaboration</strong> for
+declarations and <em>evaluation</em> for expressions.</p>
+<p>The execution model in Ada allows for certain sections of an Ada program to be
+executed prior to execution of the program itself, primarily with the intent of
+initializing data. These sections are referred to as <strong>elaboration code</strong>.
+Elaboration code is executed as follows:</p>
+<ul class="simple">
+<li><p>All partitions of an Ada program are executed in parallel with one another,
+possibly in a separate address space, and possibly on a separate computer.</p></li>
+<li><p>The execution of a partition involves running the environment task for that
+partition.</p></li>
+<li><p>The environment task executes all elaboration code (if available) for all
+units within that partition. This code is said to be executed at
+<strong>elaboration time</strong>.</p></li>
+<li><p>The environment task executes the Ada program (if available) for that
+partition.</p></li>
+</ul>
+<p>In addition to the Ada terminology, this appendix defines the following terms:</p>
+<ul>
+<li><p><em>Invocation</em></p>
+<p>The act of calling a subprogram, instantiating a generic, or activating a
+task.</p>
+</li>
+<li><p><em>Scenario</em></p>
+<p>A construct that is elaborated or invoked by elaboration code is referred to
+as an <em>elaboration scenario</em> or simply a <strong>scenario</strong>. GNAT recognizes the
+following scenarios:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">'Access</span></code> of entries, operators, and subprograms</p></li>
+<li><p>Activation of tasks</p></li>
+<li><p>Calls to entries, operators, and subprograms</p></li>
+<li><p>Instantiations of generic templates</p></li>
+</ul>
+</li>
+<li><p><em>Target</em></p>
+<p>A construct elaborated by a scenario is referred to as <em>elaboration target</em>
+or simply <strong>target</strong>. GNAT recognizes the following targets:</p>
+<ul class="simple">
+<li><p>For <code class="docutils literal notranslate"><span class="pre">'Access</span></code> of entries, operators, and subprograms, the target is the
+entry, operator, or subprogram being aliased.</p></li>
+<li><p>For activation of tasks, the target is the task body</p></li>
+<li><p>For calls to entries, operators, and subprograms, the target is the entry,
+operator, or subprogram being invoked.</p></li>
+<li><p>For instantiations of generic templates, the target is the generic template
+being instantiated.</p></li>
+</ul>
+</li>
+</ul>
+<p>Elaboration code may appear in two distinct contexts:</p>
+<ul>
+<li><p><em>Library level</em></p>
+<p>A scenario appears at the library level when it is encapsulated by a package
+[body] compilation unit, ignoring any other package [body] declarations in
+between.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">Server</span><span class="p">;</span>
+<span class="n">package</span> <span class="n">Client</span> <span class="ow">is</span>
+   <span class="n">procedure</span> <span class="n">Proc</span><span class="p">;</span>
+
+   <span class="n">package</span> <span class="n">Nested</span> <span class="ow">is</span>
+      <span class="n">Val</span> <span class="p">:</span> <span class="o">...</span> <span class="o">:=</span> <span class="n">Server</span><span class="o">.</span><span class="n">Func</span><span class="p">;</span>
+   <span class="n">end</span> <span class="n">Nested</span><span class="p">;</span>
+<span class="n">end</span> <span class="n">Client</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>In the example above, the call to <code class="docutils literal notranslate"><span class="pre">Server.Func</span></code> is an elaboration scenario
+because it appears at the library level of package <code class="docutils literal notranslate"><span class="pre">Client</span></code>. Note that the
+declaration of package <code class="docutils literal notranslate"><span class="pre">Nested</span></code> is ignored according to the definition
+given above. As a result, the call to <code class="docutils literal notranslate"><span class="pre">Server.Func</span></code> will be invoked when
+the spec of unit <code class="docutils literal notranslate"><span class="pre">Client</span></code> is elaborated.</p>
+</li>
+<li><p><em>Package body statements</em></p>
+<p>A scenario appears within the statement sequence of a package body when it is
+bounded by the region starting from the <code class="docutils literal notranslate"><span class="pre">begin</span></code> keyword of the package body
+and ending at the <code class="docutils literal notranslate"><span class="pre">end</span></code> keyword of the package body.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">package</span> <span class="n">body</span> <span class="n">Client</span> <span class="ow">is</span>
+   <span class="n">procedure</span> <span class="n">Proc</span> <span class="ow">is</span>
+   <span class="n">begin</span>
+      <span class="o">...</span>
+   <span class="n">end</span> <span class="n">Proc</span><span class="p">;</span>
+<span class="n">begin</span>
+   <span class="n">Proc</span><span class="p">;</span>
+<span class="n">end</span> <span class="n">Client</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>In the example above, the call to <code class="docutils literal notranslate"><span class="pre">Proc</span></code> is an elaboration scenario because
+it appears within the statement sequence of package body <code class="docutils literal notranslate"><span class="pre">Client</span></code>. As a
+result, the call to <code class="docutils literal notranslate"><span class="pre">Proc</span></code> will be invoked when the body of <code class="docutils literal notranslate"><span class="pre">Client</span></code> is
+elaborated.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="elaboration-order">
+<span id="id3"></span><h2>Elaboration Order<a class="headerlink" href="#elaboration-order" title="Permalink to this headline">¶</a></h2>
+<p>The sequence by which the elaboration code of all units within a partition is
+executed is referred to as <strong>elaboration order</strong>.</p>
+<p>Within a single unit, elaboration code is executed in sequential order.</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">package</span> <span class="n">body</span> <span class="n">Client</span> <span class="ow">is</span>
+   <span class="n">Result</span> <span class="p">:</span> <span class="o">...</span> <span class="o">:=</span> <span class="n">Server</span><span class="o">.</span><span class="n">Func</span><span class="p">;</span>
+
+   <span class="n">procedure</span> <span class="n">Proc</span> <span class="ow">is</span>
+      <span class="n">package</span> <span class="n">Inst</span> <span class="ow">is</span> <span class="n">new</span> <span class="n">Server</span><span class="o">.</span><span class="n">Gen</span><span class="p">;</span>
+   <span class="n">begin</span>
+      <span class="n">Inst</span><span class="o">.</span><span class="n">Eval</span> <span class="p">(</span><span class="n">Result</span><span class="p">);</span>
+   <span class="n">end</span> <span class="n">Proc</span><span class="p">;</span>
+<span class="n">begin</span>
+   <span class="n">Proc</span><span class="p">;</span>
+<span class="n">end</span> <span class="n">Client</span><span class="p">;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>In the example above, the elaboration order within package body <code class="docutils literal notranslate"><span class="pre">Client</span></code> is
+as follows:</p>
+<ol class="arabic simple">
+<li><p>The object declaration of <code class="docutils literal notranslate"><span class="pre">Result</span></code> is elaborated.</p>
+<ul class="simple">
+<li><p>Function <code class="docutils literal notranslate"><span class="pre">Server.Func</span></code> is invoked.</p></li>
+</ul>
+</li>
+<li><p>The subprogram body of <code class="docutils literal notranslate"><span class="pre">Proc</span></code> is elaborated.</p></li>
+<li><p>Procedure <code class="docutils literal notranslate"><span class="pre">Proc</span></code> is invoked.</p>
+<ul class="simple">
+<li><p>Generic unit <code class="docutils literal notranslate"><span class="pre">Server.Gen</span></code> is instantiated as <code class="docutils literal notranslate"><span class="pre">Inst</span></code>.</p></li>
+<li><p>Instance <code class="docutils literal notranslate"><span class="pre">Inst</span></code> is elaborated.</p></li>
+<li><p>Procedure <code class="docutils literal notranslate"><span class="pre">Inst.Eval</span></code> is invoked.</p></li>
+</ul>
+</li>
+</ol>
+<p>The elaboration order of all units within a partition depends on the following
+factors:</p>
+<ul class="simple">
+<li><p><em>with</em>ed units</p></li>
+<li><p>parent units</p></li>
+<li><p>purity of units</p></li>
+<li><p>preelaborability of units</p></li>
+<li><p>presence of elaboration-control pragmas</p></li>
+<li><p>invocations performed in elaboration code</p></li>
+</ul>
+<p>A program may have several elaboration orders depending on its structure.</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">package</span> <span class="n">Server</span> <span class="ow">is</span>
+   <span class="n">function</span> <span class="n">Func</span> <span class="p">(</span><span class="n">Index</span> <span class="p">:</span> <span class="n">Integer</span><span class="p">)</span> <span class="k">return</span> <span class="n">Integer</span><span class="p">;</span>
+<span class="n">end</span> <span class="n">Server</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">package</span> <span class="n">body</span> <span class="n">Server</span> <span class="ow">is</span>
+   <span class="n">Results</span> <span class="p">:</span> <span class="n">array</span> <span class="p">(</span><span class="mi">1</span> <span class="o">..</span> <span class="mi">5</span><span class="p">)</span> <span class="n">of</span> <span class="n">Integer</span> <span class="o">:=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
+
+   <span class="n">function</span> <span class="n">Func</span> <span class="p">(</span><span class="n">Index</span> <span class="p">:</span> <span class="n">Integer</span><span class="p">)</span> <span class="k">return</span> <span class="n">Integer</span> <span class="ow">is</span>
+   <span class="n">begin</span>
+      <span class="k">return</span> <span class="n">Results</span> <span class="p">(</span><span class="n">Index</span><span class="p">);</span>
+   <span class="n">end</span> <span class="n">Func</span><span class="p">;</span>
+<span class="n">end</span> <span class="n">Server</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">Server</span><span class="p">;</span>
+<span class="n">package</span> <span class="n">Client</span> <span class="ow">is</span>
+   <span class="n">Val</span> <span class="p">:</span> <span class="n">constant</span> <span class="n">Integer</span> <span class="o">:=</span> <span class="n">Server</span><span class="o">.</span><span class="n">Func</span> <span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+<span class="n">end</span> <span class="n">Client</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">Client</span><span class="p">;</span>
+<span class="n">procedure</span> <span class="n">Main</span> <span class="ow">is</span> <span class="n">begin</span> <span class="n">null</span><span class="p">;</span> <span class="n">end</span> <span class="n">Main</span><span class="p">;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>The following elaboration order exhibits a fundamental problem referred to as
+<em>access-before-elaboration</em> or simply <strong>ABE</strong>.</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">spec</span> <span class="n">of</span> <span class="n">Server</span>
+<span class="n">spec</span> <span class="n">of</span> <span class="n">Client</span>
+<span class="n">body</span> <span class="n">of</span> <span class="n">Server</span>
+<span class="n">body</span> <span class="n">of</span> <span class="n">Main</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>The elaboration of <code class="docutils literal notranslate"><span class="pre">Server</span></code>’s spec materializes function <code class="docutils literal notranslate"><span class="pre">Func</span></code>, making it
+callable. The elaboration of <code class="docutils literal notranslate"><span class="pre">Client</span></code>’s spec elaborates the declaration of
+<code class="docutils literal notranslate"><span class="pre">Val</span></code>. This invokes function <code class="docutils literal notranslate"><span class="pre">Server.Func</span></code>, however the body of
+<code class="docutils literal notranslate"><span class="pre">Server.Func</span></code> has not been elaborated yet because <code class="docutils literal notranslate"><span class="pre">Server</span></code>’s body comes
+after <code class="docutils literal notranslate"><span class="pre">Client</span></code>’s spec in the elaboration order. As a result, the value of
+constant <code class="docutils literal notranslate"><span class="pre">Val</span></code> is now undefined.</p>
+<p>Without any guarantees from the language, an undetected ABE problem may hinder
+proper initialization of data, which in turn may lead to undefined behavior at
+run time. To prevent such ABE problems, Ada employs dynamic checks in the same
+vein as index or null exclusion checks. A failed ABE check raises exception
+<code class="docutils literal notranslate"><span class="pre">Program_Error</span></code>.</p>
+<p>The following elaboration order avoids the ABE problem and the program can be
+successfully elaborated.</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">spec</span> <span class="n">of</span> <span class="n">Server</span>
+<span class="n">body</span> <span class="n">of</span> <span class="n">Server</span>
+<span class="n">spec</span> <span class="n">of</span> <span class="n">Client</span>
+<span class="n">body</span> <span class="n">of</span> <span class="n">Main</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>Ada states that a total elaboration order must exist, but it does not define
+what this order is. A compiler is thus tasked with choosing a suitable
+elaboration order which satisfies the dependencies imposed by <em>with</em> clauses,
+unit categorization, elaboration-control pragmas, and invocations performed in
+elaboration code. Ideally an order that avoids ABE problems should be chosen,
+however a compiler may not always find such an order due to complications with
+respect to control and data flow.</p>
+</div>
+<div class="section" id="checking-the-elaboration-order">
+<span id="id4"></span><h2>Checking the Elaboration Order<a class="headerlink" href="#checking-the-elaboration-order" title="Permalink to this headline">¶</a></h2>
+<p>To avoid placing the entire elaboration-order burden on the programmer, Ada
+provides three lines of defense:</p>
+<ul>
+<li><p><em>Static semantics</em></p>
+<p>Static semantic rules restrict the possible choice of elaboration order. For
+instance, if unit Client <em>with</em>s unit Server, then the spec of Server is
+always elaborated prior to Client. The same principle applies to child units
+- the spec of a parent unit is always elaborated prior to the child unit.</p>
+</li>
+<li><p><em>Dynamic semantics</em></p>
+<p>Dynamic checks are performed at run time, to ensure that a target is
+elaborated prior to a scenario that invokes it, thus avoiding ABE problems.
+A failed run-time check raises exception <code class="docutils literal notranslate"><span class="pre">Program_Error</span></code>. The following
+restrictions apply:</p>
+<ul>
+<li><p><em>Restrictions on calls</em></p>
+<p>An entry, operator, or subprogram can be called from elaboration code only
+when the corresponding body has been elaborated.</p>
+</li>
+<li><p><em>Restrictions on instantiations</em></p>
+<p>A generic unit can be instantiated by elaboration code only when the
+corresponding body has been elaborated.</p>
+</li>
+<li><p><em>Restrictions on task activation</em></p>
+<p>A task can be activated by elaboration code only when the body of the
+associated task type has been elaborated.</p>
+</li>
+</ul>
+<p>The restrictions above can be summarized by the following rule:</p>
+<p><em>If a target has a body, then this body must be elaborated prior to the
+scenario that invokes the target.</em></p>
+</li>
+<li><p><em>Elaboration control</em></p>
+<p>Pragmas are provided for the programmer to specify the desired elaboration
+order.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="controlling-the-elaboration-order-in-ada">
+<span id="id5"></span><h2>Controlling the Elaboration Order in Ada<a class="headerlink" href="#controlling-the-elaboration-order-in-ada" title="Permalink to this headline">¶</a></h2>
+<p>Ada provides several idioms and pragmas to aid the programmer with specifying
+the desired elaboration order and avoiding ABE problems altogether.</p>
+<ul>
+<li><p><em>Packages without a body</em></p>
+<p>A library package which does not require a completing body does not suffer
+from ABE problems.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">package</span> <span class="n">Pack</span> <span class="ow">is</span>
+   <span class="n">generic</span>
+      <span class="nb">type</span> <span class="n">Element</span> <span class="ow">is</span> <span class="n">private</span><span class="p">;</span>
+   <span class="n">package</span> <span class="n">Containers</span> <span class="ow">is</span>
+      <span class="nb">type</span> <span class="n">Element_Array</span> <span class="ow">is</span> <span class="n">array</span> <span class="p">(</span><span class="mi">1</span> <span class="o">..</span> <span class="mi">10</span><span class="p">)</span> <span class="n">of</span> <span class="n">Element</span><span class="p">;</span>
+   <span class="n">end</span> <span class="n">Containers</span><span class="p">;</span>
+<span class="n">end</span> <span class="n">Pack</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>In the example above, package <code class="docutils literal notranslate"><span class="pre">Pack</span></code> does not require a body because it
+does not contain any constructs which require completion in a body. As a
+result, generic <code class="docutils literal notranslate"><span class="pre">Pack.Containers</span></code> can be instantiated without encountering
+any ABE problems.</p>
+</li>
+</ul>
+<ul id="index-2">
+<li><p><em>pragma Pure</em></p>
+<p>Pragma <code class="docutils literal notranslate"><span class="pre">Pure</span></code> places sufficient restrictions on a unit to guarantee that no
+scenario within the unit can result in an ABE problem.</p>
+</li>
+</ul>
+<ul id="index-3">
+<li><p><em>pragma Preelaborate</em></p>
+<p>Pragma <code class="docutils literal notranslate"><span class="pre">Preelaborate</span></code> is slightly less restrictive than pragma <code class="docutils literal notranslate"><span class="pre">Pure</span></code>,
+but still strong enough to prevent ABE problems within a unit.</p>
+</li>
+</ul>
+<ul id="index-4">
+<li><p><em>pragma Elaborate_Body</em></p>
+<p>Pragma <code class="docutils literal notranslate"><span class="pre">Elaborate_Body</span></code> requires that the body of a unit is elaborated
+immediately after its spec. This restriction guarantees that no client
+scenario can invoke a server target before the target body has been
+elaborated because the spec and body are effectively “glued” together.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">package</span> <span class="n">Server</span> <span class="ow">is</span>
+   <span class="n">pragma</span> <span class="n">Elaborate_Body</span><span class="p">;</span>
+
+   <span class="n">function</span> <span class="n">Func</span> <span class="k">return</span> <span class="n">Integer</span><span class="p">;</span>
+<span class="n">end</span> <span class="n">Server</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">package</span> <span class="n">body</span> <span class="n">Server</span> <span class="ow">is</span>
+   <span class="n">function</span> <span class="n">Func</span> <span class="k">return</span> <span class="n">Integer</span> <span class="ow">is</span>
+   <span class="n">begin</span>
+      <span class="o">...</span>
+   <span class="n">end</span> <span class="n">Func</span><span class="p">;</span>
+<span class="n">end</span> <span class="n">Server</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">Server</span><span class="p">;</span>
+<span class="n">package</span> <span class="n">Client</span> <span class="ow">is</span>
+   <span class="n">Val</span> <span class="p">:</span> <span class="n">constant</span> <span class="n">Integer</span> <span class="o">:=</span> <span class="n">Server</span><span class="o">.</span><span class="n">Func</span><span class="p">;</span>
+<span class="n">end</span> <span class="n">Client</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>In the example above, pragma <code class="docutils literal notranslate"><span class="pre">Elaborate_Body</span></code> guarantees the following
+elaboration order:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">spec</span> <span class="n">of</span> <span class="n">Server</span>
+<span class="n">body</span> <span class="n">of</span> <span class="n">Server</span>
+<span class="n">spec</span> <span class="n">of</span> <span class="n">Client</span>
+</pre></div>
+</div>
+<p>because the spec of <code class="docutils literal notranslate"><span class="pre">Server</span></code> must be elaborated prior to <code class="docutils literal notranslate"><span class="pre">Client</span></code> by
+virtue of the <em>with</em> clause, and in addition the body of <code class="docutils literal notranslate"><span class="pre">Server</span></code> must be
+elaborated immediately after the spec of <code class="docutils literal notranslate"><span class="pre">Server</span></code>.</p>
+<p>Removing pragma <code class="docutils literal notranslate"><span class="pre">Elaborate_Body</span></code> could result in the following incorrect
+elaboration order:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">spec</span> <span class="n">of</span> <span class="n">Server</span>
+<span class="n">spec</span> <span class="n">of</span> <span class="n">Client</span>
+<span class="n">body</span> <span class="n">of</span> <span class="n">Server</span>
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">Client</span></code> invokes <code class="docutils literal notranslate"><span class="pre">Server.Func</span></code>, but the body of <code class="docutils literal notranslate"><span class="pre">Server.Func</span></code> has
+not been elaborated yet.</p>
+</li>
+</ul>
+<p>The pragmas outlined above allow a server unit to guarantee safe elaboration
+use by client units. Thus it is a good rule to mark units as <code class="docutils literal notranslate"><span class="pre">Pure</span></code> or
+<code class="docutils literal notranslate"><span class="pre">Preelaborate</span></code>, and if this is not possible, mark them as <code class="docutils literal notranslate"><span class="pre">Elaborate_Body</span></code>.</p>
+<p>There are however situations where <code class="docutils literal notranslate"><span class="pre">Pure</span></code>, <code class="docutils literal notranslate"><span class="pre">Preelaborate</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">Elaborate_Body</span></code> are not applicable. Ada provides another set of pragmas for
+use by client units to help ensure the elaboration safety of server units they
+depend on.</p>
+<ul id="index-5">
+<li><p><em>pragma Elaborate (Unit)</em></p>
+<p>Pragma <code class="docutils literal notranslate"><span class="pre">Elaborate</span></code> can be placed in the context clauses of a unit, after a
+<em>with</em> clause. It guarantees that both the spec and body of its argument will
+be elaborated prior to the unit with the pragma. Note that other unrelated
+units may be elaborated in between the spec and the body.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">package</span> <span class="n">Server</span> <span class="ow">is</span>
+   <span class="n">function</span> <span class="n">Func</span> <span class="k">return</span> <span class="n">Integer</span><span class="p">;</span>
+<span class="n">end</span> <span class="n">Server</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">package</span> <span class="n">body</span> <span class="n">Server</span> <span class="ow">is</span>
+   <span class="n">function</span> <span class="n">Func</span> <span class="k">return</span> <span class="n">Integer</span> <span class="ow">is</span>
+   <span class="n">begin</span>
+      <span class="o">...</span>
+   <span class="n">end</span> <span class="n">Func</span><span class="p">;</span>
+<span class="n">end</span> <span class="n">Server</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">Server</span><span class="p">;</span>
+<span class="n">pragma</span> <span class="n">Elaborate</span> <span class="p">(</span><span class="n">Server</span><span class="p">);</span>
+<span class="n">package</span> <span class="n">Client</span> <span class="ow">is</span>
+   <span class="n">Val</span> <span class="p">:</span> <span class="n">constant</span> <span class="n">Integer</span> <span class="o">:=</span> <span class="n">Server</span><span class="o">.</span><span class="n">Func</span><span class="p">;</span>
+<span class="n">end</span> <span class="n">Client</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>In the example above, pragma <code class="docutils literal notranslate"><span class="pre">Elaborate</span></code> guarantees the following
+elaboration order:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">spec</span> <span class="n">of</span> <span class="n">Server</span>
+<span class="n">body</span> <span class="n">of</span> <span class="n">Server</span>
+<span class="n">spec</span> <span class="n">of</span> <span class="n">Client</span>
+</pre></div>
+</div>
+<p>Removing pragma <code class="docutils literal notranslate"><span class="pre">Elaborate</span></code> could result in the following incorrect
+elaboration order:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">spec</span> <span class="n">of</span> <span class="n">Server</span>
+<span class="n">spec</span> <span class="n">of</span> <span class="n">Client</span>
+<span class="n">body</span> <span class="n">of</span> <span class="n">Server</span>
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">Client</span></code> invokes <code class="docutils literal notranslate"><span class="pre">Server.Func</span></code>, but the body of <code class="docutils literal notranslate"><span class="pre">Server.Func</span></code>
+has not been elaborated yet.</p>
+</li>
+</ul>
+<ul id="index-6">
+<li><p><em>pragma Elaborate_All (Unit)</em></p>
+<p>Pragma <code class="docutils literal notranslate"><span class="pre">Elaborate_All</span></code> is placed in the context clauses of a unit, after
+a <em>with</em> clause. It guarantees that both the spec and body of its argument
+will be elaborated prior to the unit with the pragma, as well as all units
+<em>with</em>ed by the spec and body of the argument, recursively. Note that other
+unrelated units may be elaborated in between the spec and the body.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">package</span> <span class="n">Math</span> <span class="ow">is</span>
+   <span class="n">function</span> <span class="n">Factorial</span> <span class="p">(</span><span class="n">Val</span> <span class="p">:</span> <span class="n">Natural</span><span class="p">)</span> <span class="k">return</span> <span class="n">Natural</span><span class="p">;</span>
+<span class="n">end</span> <span class="n">Math</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">package</span> <span class="n">body</span> <span class="n">Math</span> <span class="ow">is</span>
+   <span class="n">function</span> <span class="n">Factorial</span> <span class="p">(</span><span class="n">Val</span> <span class="p">:</span> <span class="n">Natural</span><span class="p">)</span> <span class="k">return</span> <span class="n">Natural</span> <span class="ow">is</span>
+   <span class="n">begin</span>
+      <span class="o">...</span><span class="p">;</span>
+   <span class="n">end</span> <span class="n">Factorial</span><span class="p">;</span>
+<span class="n">end</span> <span class="n">Math</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">package</span> <span class="n">Computer</span> <span class="ow">is</span>
+   <span class="nb">type</span> <span class="n">Operation_Kind</span> <span class="ow">is</span> <span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">Op_Factorial</span><span class="p">);</span>
+
+   <span class="n">function</span> <span class="n">Compute</span>
+     <span class="p">(</span><span class="n">Val</span> <span class="p">:</span> <span class="n">Natural</span><span class="p">;</span>
+      <span class="n">Op</span>  <span class="p">:</span> <span class="n">Operation_Kind</span><span class="p">)</span> <span class="k">return</span> <span class="n">Natural</span><span class="p">;</span>
+<span class="n">end</span> <span class="n">Computer</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">Math</span><span class="p">;</span>
+<span class="n">package</span> <span class="n">body</span> <span class="n">Computer</span> <span class="ow">is</span>
+   <span class="n">function</span> <span class="n">Compute</span>
+     <span class="p">(</span><span class="n">Val</span> <span class="p">:</span> <span class="n">Natural</span><span class="p">;</span>
+      <span class="n">Op</span>  <span class="p">:</span> <span class="n">Operation_Kind</span><span class="p">)</span> <span class="k">return</span> <span class="n">Natural</span>
+   <span class="ow">is</span>
+      <span class="k">if</span> <span class="n">Op</span> <span class="o">=</span> <span class="n">Op_Factorial</span> <span class="n">then</span>
+         <span class="k">return</span> <span class="n">Math</span><span class="o">.</span><span class="n">Factorial</span> <span class="p">(</span><span class="n">Val</span><span class="p">);</span>
+      <span class="n">end</span> <span class="k">if</span><span class="p">;</span>
+
+      <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+   <span class="n">end</span> <span class="n">Compute</span><span class="p">;</span>
+<span class="n">end</span> <span class="n">Computer</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">Computer</span><span class="p">;</span>
+<span class="n">pragma</span> <span class="n">Elaborate_All</span> <span class="p">(</span><span class="n">Computer</span><span class="p">);</span>
+<span class="n">package</span> <span class="n">Client</span> <span class="ow">is</span>
+   <span class="n">Val</span> <span class="p">:</span> <span class="n">constant</span> <span class="n">Natural</span> <span class="o">:=</span>
+           <span class="n">Computer</span><span class="o">.</span><span class="n">Compute</span> <span class="p">(</span><span class="mi">123</span><span class="p">,</span> <span class="n">Computer</span><span class="o">.</span><span class="n">Op_Factorial</span><span class="p">);</span>
+<span class="n">end</span> <span class="n">Client</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>In the example above, pragma <code class="docutils literal notranslate"><span class="pre">Elaborate_All</span></code> can result in the following
+elaboration order:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">spec</span> <span class="n">of</span> <span class="n">Math</span>
+<span class="n">body</span> <span class="n">of</span> <span class="n">Math</span>
+<span class="n">spec</span> <span class="n">of</span> <span class="n">Computer</span>
+<span class="n">body</span> <span class="n">of</span> <span class="n">Computer</span>
+<span class="n">spec</span> <span class="n">of</span> <span class="n">Client</span>
+</pre></div>
+</div>
+<p>Note that there are several allowable suborders for the specs and bodies of
+<code class="docutils literal notranslate"><span class="pre">Math</span></code> and <code class="docutils literal notranslate"><span class="pre">Computer</span></code>, but the point is that these specs and bodies will
+be elaborated prior to <code class="docutils literal notranslate"><span class="pre">Client</span></code>.</p>
+<p>Removing pragma <code class="docutils literal notranslate"><span class="pre">Elaborate_All</span></code> could result in the following incorrect
+elaboration order:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">spec</span> <span class="n">of</span> <span class="n">Math</span>
+<span class="n">spec</span> <span class="n">of</span> <span class="n">Computer</span>
+<span class="n">body</span> <span class="n">of</span> <span class="n">Computer</span>
+<span class="n">spec</span> <span class="n">of</span> <span class="n">Client</span>
+<span class="n">body</span> <span class="n">of</span> <span class="n">Math</span>
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">Client</span></code> invokes <code class="docutils literal notranslate"><span class="pre">Computer.Compute</span></code>, which in turn invokes
+<code class="docutils literal notranslate"><span class="pre">Math.Factorial</span></code>, but the body of <code class="docutils literal notranslate"><span class="pre">Math.Factorial</span></code> has not been
+elaborated yet.</p>
+</li>
+</ul>
+<p>All pragmas shown above can be summarized by the following rule:</p>
+<p><em>If a client unit elaborates a server target directly or indirectly, then if
+the server unit requires a body and does not have pragma Pure, Preelaborate,
+or Elaborate_Body, then the client unit should have pragma Elaborate or
+Elaborate_All for the server unit.</em></p>
+<p>If the rule outlined above is not followed, then a program may fall in one of
+the following states:</p>
+<ul>
+<li><p><em>No elaboration order exists</em></p>
+<p>In this case a compiler must diagnose the situation, and refuse to build an
+executable program.</p>
+</li>
+<li><p><em>One or more incorrect elaboration orders exist</em></p>
+<p>In this case a compiler can build an executable program, but
+<code class="docutils literal notranslate"><span class="pre">Program_Error</span></code> will be raised when the program is run.</p>
+</li>
+<li><p><em>Several elaboration orders exist, some correct, some incorrect</em></p>
+<p>In this case the programmer has not controlled the elaboration order. As a
+result, a compiler may or may not pick one of the correct orders, and the
+program may or may not raise <code class="docutils literal notranslate"><span class="pre">Program_Error</span></code> when it is run. This is the
+worst possible state because the program may fail on another compiler, or
+even another version of the same compiler.</p>
+</li>
+<li><p><em>One or more correct orders exist</em></p>
+<p>In this case a compiler can build an executable program, and the program is
+run successfully. This state may be guaranteed by following the outlined
+rules, or may be the result of good program architecture.</p>
+</li>
+</ul>
+<p>Note that one additional advantage of using <code class="docutils literal notranslate"><span class="pre">Elaborate</span></code> and <code class="docutils literal notranslate"><span class="pre">Elaborate_All</span></code>
+is that the program continues to stay in the last state (one or more correct
+orders exist) even if maintenance changes the bodies of targets.</p>
+</div>
+<div class="section" id="controlling-the-elaboration-order-in-gnat">
+<span id="id6"></span><h2>Controlling the Elaboration Order in GNAT<a class="headerlink" href="#controlling-the-elaboration-order-in-gnat" title="Permalink to this headline">¶</a></h2>
+<p>In addition to Ada semantics and rules synthesized from them, GNAT offers
+three elaboration models to aid the programmer with specifying the correct
+elaboration order and to diagnose elaboration problems.</p>
+<ul id="index-7">
+<li><p><em>Dynamic elaboration model</em></p>
+<p>This is the most permissive of the three elaboration models and emulates the
+behavior specified by the Ada Reference Manual. When the dynamic model is in
+effect, GNAT makes the following assumptions:</p>
+<ul class="simple">
+<li><p>All code within all units in a partition is considered to be elaboration
+code.</p></li>
+<li><p>Some of the invocations in elaboration code may not take place at run time
+due to conditional execution.</p></li>
+</ul>
+<p>GNAT performs extensive diagnostics on a unit-by-unit basis for all scenarios
+that invoke internal targets. In addition, GNAT generates run-time checks for
+all external targets and for all scenarios that may exhibit ABE problems.</p>
+<p>The elaboration order is obtained by honoring all <em>with</em> clauses, purity and
+preelaborability of units, and elaboration-control pragmas. The dynamic model
+attempts to take all invocations in elaboration code into account. If an
+invocation leads to a circularity, GNAT ignores the invocation based on the
+assumptions stated above. An order obtained using the dynamic model may fail
+an ABE check at run time when GNAT ignored an invocation.</p>
+<p>The dynamic model is enabled with compiler switch <code class="switch docutils literal notranslate"><span class="pre">-gnatE</span></code>.</p>
+</li>
+</ul>
+<ul id="index-8">
+<li><p><em>Static elaboration model</em></p>
+<p>This is the middle ground of the three models. When the static model is in
+effect, GNAT makes the following assumptions:</p>
+<ul class="simple">
+<li><p>Only code at the library level and in package body statements within all
+units in a partition is considered to be elaboration code.</p></li>
+<li><p>All invocations in elaboration will take place at run time, regardless of
+conditional execution.</p></li>
+</ul>
+<p>GNAT performs extensive diagnostics on a unit-by-unit basis for all scenarios
+that invoke internal targets. In addition, GNAT generates run-time checks for
+all external targets and for all scenarios that may exhibit ABE problems.</p>
+<p>The elaboration order is obtained by honoring all <em>with</em> clauses, purity and
+preelaborability of units, presence of elaboration-control pragmas, and all
+invocations in elaboration code. An order obtained using the static model is
+guaranteed to be ABE problem-free, excluding dispatching calls and
+access-to-subprogram types.</p>
+<p>The static model is the default model in GNAT.</p>
+</li>
+</ul>
+<ul id="index-9">
+<li><p><em>SPARK elaboration model</em></p>
+<p>This is the most conservative of the three models and enforces the SPARK
+rules of elaboration as defined in the SPARK Reference Manual, section 7.7.
+The SPARK model is in effect only when a scenario and a target reside in a
+region subject to <code class="docutils literal notranslate"><span class="pre">SPARK_Mode</span> <span class="pre">On</span></code>, otherwise the dynamic or static model
+is in effect.</p>
+<p>The SPARK model is enabled with compiler switch <code class="switch docutils literal notranslate"><span class="pre">-gnatd.v</span></code>.</p>
+</li>
+</ul>
+<ul id="index-10">
+<li><p><em>Legacy elaboration models</em></p>
+<p>In addition to the three elaboration models outlined above, GNAT provides the
+following legacy models:</p>
+<ul class="simple">
+<li><p><cite>Legacy elaboration-checking model</cite> available in pre-18.x versions of GNAT.
+This model is enabled with compiler switch <code class="switch docutils literal notranslate"><span class="pre">-gnatH</span></code>.</p></li>
+<li><p><cite>Legacy elaboration-order model</cite> available in pre-20.x versions of GNAT.
+This model is enabled with binder switch <code class="switch docutils literal notranslate"><span class="pre">-H</span></code>.</p></li>
+</ul>
+</li>
+</ul>
+<p id="index-11">The dynamic, legacy, and static models can be relaxed using compiler switch
+<code class="switch docutils literal notranslate"><span class="pre">-gnatJ</span></code>, making them more permissive. Note that in this mode, GNAT
+may not diagnose certain elaboration issues or install run-time checks.</p>
+</div>
+<div class="section" id="mixing-elaboration-models">
+<span id="id7"></span><h2>Mixing Elaboration Models<a class="headerlink" href="#mixing-elaboration-models" title="Permalink to this headline">¶</a></h2>
+<p>It is possible to mix units compiled with a different elaboration model,
+however the following rules must be observed:</p>
+<ul class="simple">
+<li><p>A client unit compiled with the dynamic model can only <em>with</em> a server unit
+that meets at least one of the following criteria:</p>
+<ul>
+<li><p>The server unit is compiled with the dynamic model.</p></li>
+<li><p>The server unit is a GNAT implementation unit from the <code class="docutils literal notranslate"><span class="pre">Ada</span></code>, <code class="docutils literal notranslate"><span class="pre">GNAT</span></code>,
+<code class="docutils literal notranslate"><span class="pre">Interfaces</span></code>, or <code class="docutils literal notranslate"><span class="pre">System</span></code> hierarchies.</p></li>
+<li><p>The server unit has pragma <code class="docutils literal notranslate"><span class="pre">Pure</span></code> or <code class="docutils literal notranslate"><span class="pre">Preelaborate</span></code>.</p></li>
+<li><p>The client unit has an explicit <code class="docutils literal notranslate"><span class="pre">Elaborate_All</span></code> pragma for the server
+unit.</p></li>
+</ul>
+</li>
+</ul>
+<p>These rules ensure that elaboration checks are not omitted. If the rules are
+violated, the binder emits a warning:</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">warning</span><span class="p">:</span> <span class="s2">&quot;x.ads&quot;</span> <span class="n">has</span> <span class="n">dynamic</span> <span class="n">elaboration</span> <span class="n">checks</span> <span class="ow">and</span> <span class="k">with</span><span class="s1">&#39;s</span>
+<span class="n">warning</span><span class="p">:</span>   <span class="s2">&quot;y.ads&quot;</span> <span class="n">which</span> <span class="n">has</span> <span class="n">static</span> <span class="n">elaboration</span> <span class="n">checks</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>The warnings can be suppressed by binder switch <code class="switch docutils literal notranslate"><span class="pre">-ws</span></code>.</p>
+</div>
+<div class="section" id="abe-diagnostics">
+<span id="id8"></span><h2>ABE Diagnostics<a class="headerlink" href="#abe-diagnostics" title="Permalink to this headline">¶</a></h2>
+<p>GNAT performs extensive diagnostics on a unit-by-unit basis for all scenarios
+that invoke internal targets, regardless of whether the dynamic, SPARK, or
+static model is in effect.</p>
+<p>Note that GNAT emits warnings rather than hard errors whenever it encounters an
+elaboration problem. This is because the elaboration model in effect may be too
+conservative, or a particular scenario may not be invoked due conditional
+execution. The warnings can be suppressed selectively with <code class="docutils literal notranslate"><span class="pre">pragma</span> <span class="pre">Warnings</span>
+<span class="pre">(Off)</span></code> or globally with compiler switch <code class="switch docutils literal notranslate"><span class="pre">-gnatwL</span></code>.</p>
+<p>A <em>guaranteed ABE</em> arises when the body of a target is not elaborated early
+enough, and causes <em>all</em> scenarios that directly invoke the target to fail.</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">package</span> <span class="n">body</span> <span class="n">Guaranteed_ABE</span> <span class="ow">is</span>
+   <span class="n">function</span> <span class="n">ABE</span> <span class="k">return</span> <span class="n">Integer</span><span class="p">;</span>
+
+   <span class="n">Val</span> <span class="p">:</span> <span class="n">constant</span> <span class="n">Integer</span> <span class="o">:=</span> <span class="n">ABE</span><span class="p">;</span>
+
+   <span class="n">function</span> <span class="n">ABE</span> <span class="k">return</span> <span class="n">Integer</span> <span class="ow">is</span>
+   <span class="n">begin</span>
+     <span class="o">...</span>
+   <span class="n">end</span> <span class="n">ABE</span><span class="p">;</span>
+<span class="n">end</span> <span class="n">Guaranteed_ABE</span><span class="p">;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>In the example above, the elaboration of <code class="docutils literal notranslate"><span class="pre">Guaranteed_ABE</span></code>’s body elaborates
+the declaration of <code class="docutils literal notranslate"><span class="pre">Val</span></code>. This invokes function <code class="docutils literal notranslate"><span class="pre">ABE</span></code>, however the body of
+<code class="docutils literal notranslate"><span class="pre">ABE</span></code> has not been elaborated yet. GNAT emits the following diagnostic:</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">4.</span>    <span class="n">Val</span> <span class="p">:</span> <span class="n">constant</span> <span class="n">Integer</span> <span class="o">:=</span> <span class="n">ABE</span><span class="p">;</span>
+                                <span class="o">|</span>
+   <span class="o">&gt;&gt;&gt;</span> <span class="n">warning</span><span class="p">:</span> <span class="n">cannot</span> <span class="n">call</span> <span class="s2">&quot;ABE&quot;</span> <span class="n">before</span> <span class="n">body</span> <span class="n">seen</span>
+   <span class="o">&gt;&gt;&gt;</span> <span class="n">warning</span><span class="p">:</span> <span class="n">Program_Error</span> <span class="n">will</span> <span class="n">be</span> <span class="n">raised</span> <span class="n">at</span> <span class="n">run</span> <span class="n">time</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>A <em>conditional ABE</em> arises when the body of a target is not elaborated early
+enough, and causes <em>some</em> scenarios that directly invoke the target to fail.</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="mf">1.</span> <span class="n">package</span> <span class="n">body</span> <span class="n">Conditional_ABE</span> <span class="ow">is</span>
+ <span class="mf">2.</span>    <span class="n">procedure</span> <span class="n">Force_Body</span> <span class="ow">is</span> <span class="n">null</span><span class="p">;</span>
+ <span class="mf">3.</span>
+ <span class="mf">4.</span>    <span class="n">generic</span>
+ <span class="mf">5.</span>       <span class="k">with</span> <span class="n">function</span> <span class="n">Func</span> <span class="k">return</span> <span class="n">Integer</span><span class="p">;</span>
+ <span class="mf">6.</span>    <span class="n">package</span> <span class="n">Gen</span> <span class="ow">is</span>
+ <span class="mf">7.</span>       <span class="n">Val</span> <span class="p">:</span> <span class="n">constant</span> <span class="n">Integer</span> <span class="o">:=</span> <span class="n">Func</span><span class="p">;</span>
+ <span class="mf">8.</span>    <span class="n">end</span> <span class="n">Gen</span><span class="p">;</span>
+ <span class="mf">9.</span>
+<span class="mf">10.</span>    <span class="n">function</span> <span class="n">ABE</span> <span class="k">return</span> <span class="n">Integer</span><span class="p">;</span>
+<span class="mf">11.</span>
+<span class="mf">12.</span>    <span class="n">function</span> <span class="n">Cause_ABE</span> <span class="k">return</span> <span class="n">Boolean</span> <span class="ow">is</span>
+<span class="mf">13.</span>       <span class="n">package</span> <span class="n">Inst</span> <span class="ow">is</span> <span class="n">new</span> <span class="n">Gen</span> <span class="p">(</span><span class="n">ABE</span><span class="p">);</span>
+<span class="mf">14.</span>    <span class="n">begin</span>
+<span class="mf">15.</span>       <span class="o">...</span>
+<span class="mf">16.</span>    <span class="n">end</span> <span class="n">Cause_ABE</span><span class="p">;</span>
+<span class="mf">17.</span>
+<span class="mf">18.</span>    <span class="n">Val</span> <span class="p">:</span> <span class="n">constant</span> <span class="n">Boolean</span> <span class="o">:=</span> <span class="n">Cause_ABE</span><span class="p">;</span>
+<span class="mf">19.</span>
+<span class="mf">20.</span>    <span class="n">function</span> <span class="n">ABE</span> <span class="k">return</span> <span class="n">Integer</span> <span class="ow">is</span>
+<span class="mf">21.</span>    <span class="n">begin</span>
+<span class="mf">22.</span>       <span class="o">...</span>
+<span class="mf">23.</span>    <span class="n">end</span> <span class="n">ABE</span><span class="p">;</span>
+<span class="mf">24.</span>
+<span class="mf">25.</span>    <span class="n">Safe</span> <span class="p">:</span> <span class="n">constant</span> <span class="n">Boolean</span> <span class="o">:=</span> <span class="n">Cause_ABE</span><span class="p">;</span>
+<span class="mf">26.</span> <span class="n">end</span> <span class="n">Conditional_ABE</span><span class="p">;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>In the example above, the elaboration of package body <code class="docutils literal notranslate"><span class="pre">Conditional_ABE</span></code>
+elaborates the declaration of <code class="docutils literal notranslate"><span class="pre">Val</span></code>. This invokes function <code class="docutils literal notranslate"><span class="pre">Cause_ABE</span></code>,
+which instantiates generic unit <code class="docutils literal notranslate"><span class="pre">Gen</span></code> as <code class="docutils literal notranslate"><span class="pre">Inst</span></code>. The elaboration of
+<code class="docutils literal notranslate"><span class="pre">Inst</span></code> invokes function <code class="docutils literal notranslate"><span class="pre">ABE</span></code>, however the body of <code class="docutils literal notranslate"><span class="pre">ABE</span></code> has not been
+elaborated yet. GNAT emits the following diagnostic:</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">13.</span>       <span class="n">package</span> <span class="n">Inst</span> <span class="ow">is</span> <span class="n">new</span> <span class="n">Gen</span> <span class="p">(</span><span class="n">ABE</span><span class="p">);</span>
+          <span class="o">|</span>
+    <span class="o">&gt;&gt;&gt;</span> <span class="n">warning</span><span class="p">:</span> <span class="ow">in</span> <span class="n">instantiation</span> <span class="n">at</span> <span class="n">line</span> <span class="mi">7</span>
+    <span class="o">&gt;&gt;&gt;</span> <span class="n">warning</span><span class="p">:</span> <span class="n">cannot</span> <span class="n">call</span> <span class="s2">&quot;ABE&quot;</span> <span class="n">before</span> <span class="n">body</span> <span class="n">seen</span>
+    <span class="o">&gt;&gt;&gt;</span> <span class="n">warning</span><span class="p">:</span> <span class="n">Program_Error</span> <span class="n">may</span> <span class="n">be</span> <span class="n">raised</span> <span class="n">at</span> <span class="n">run</span> <span class="n">time</span>
+    <span class="o">&gt;&gt;&gt;</span> <span class="n">warning</span><span class="p">:</span>   <span class="n">body</span> <span class="n">of</span> <span class="n">unit</span> <span class="s2">&quot;Conditional_ABE&quot;</span> <span class="n">elaborated</span>
+    <span class="o">&gt;&gt;&gt;</span> <span class="n">warning</span><span class="p">:</span>   <span class="n">function</span> <span class="s2">&quot;Cause_ABE&quot;</span> <span class="n">called</span> <span class="n">at</span> <span class="n">line</span> <span class="mi">18</span>
+    <span class="o">&gt;&gt;&gt;</span> <span class="n">warning</span><span class="p">:</span>   <span class="n">function</span> <span class="s2">&quot;ABE&quot;</span> <span class="n">called</span> <span class="n">at</span> <span class="n">line</span> <span class="mi">7</span><span class="p">,</span> <span class="n">instance</span> <span class="n">at</span> <span class="n">line</span> <span class="mi">13</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>Note that the same ABE problem does not occur with the elaboration of
+declaration <code class="docutils literal notranslate"><span class="pre">Safe</span></code> because the body of function <code class="docutils literal notranslate"><span class="pre">ABE</span></code> has already been
+elaborated at that point.</p>
+</div>
+<div class="section" id="spark-diagnostics">
+<span id="id9"></span><h2>SPARK Diagnostics<a class="headerlink" href="#spark-diagnostics" title="Permalink to this headline">¶</a></h2>
+<p>GNAT enforces the SPARK rules of elaboration as defined in the SPARK Reference
+Manual section 7.7 when compiler switch <code class="switch docutils literal notranslate"><span class="pre">-gnatd.v</span></code> is in effect. Note
+that GNAT emits hard errors whenever it encounters a violation of the SPARK
+rules.</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">1.</span> <span class="k">with</span> <span class="n">Server</span><span class="p">;</span>
+<span class="mf">2.</span> <span class="n">package</span> <span class="n">body</span> <span class="n">SPARK_Diagnostics</span> <span class="k">with</span> <span class="n">SPARK_Mode</span> <span class="ow">is</span>
+<span class="mf">3.</span>    <span class="n">Val</span> <span class="p">:</span> <span class="n">constant</span> <span class="n">Integer</span> <span class="o">:=</span> <span class="n">Server</span><span class="o">.</span><span class="n">Func</span><span class="p">;</span>
+                                      <span class="o">|</span>
+   <span class="o">&gt;&gt;&gt;</span> <span class="n">call</span> <span class="n">to</span> <span class="s2">&quot;Func&quot;</span> <span class="n">during</span> <span class="n">elaboration</span> <span class="ow">in</span> <span class="n">SPARK</span>
+   <span class="o">&gt;&gt;&gt;</span> <span class="n">unit</span> <span class="s2">&quot;SPARK_Diagnostics&quot;</span> <span class="n">requires</span> <span class="n">pragma</span> <span class="s2">&quot;Elaborate_All&quot;</span> <span class="k">for</span> <span class="s2">&quot;Server&quot;</span>
+   <span class="o">&gt;&gt;&gt;</span>   <span class="n">body</span> <span class="n">of</span> <span class="n">unit</span> <span class="s2">&quot;SPARK_Model&quot;</span> <span class="n">elaborated</span>
+   <span class="o">&gt;&gt;&gt;</span>   <span class="n">function</span> <span class="s2">&quot;Func&quot;</span> <span class="n">called</span> <span class="n">at</span> <span class="n">line</span> <span class="mi">3</span>
+
+<span class="mf">4.</span> <span class="n">end</span> <span class="n">SPARK_Diagnostics</span><span class="p">;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="elaboration-circularities">
+<span id="id10"></span><h2>Elaboration Circularities<a class="headerlink" href="#elaboration-circularities" title="Permalink to this headline">¶</a></h2>
+<p>An <strong>elaboration circularity</strong> occurs whenever the elaboration of a set of
+units enters a deadlocked state, where each unit is waiting for another unit
+to be elaborated. This situation may be the result of improper use of <em>with</em>
+clauses, elaboration-control pragmas, or invocations in elaboration code.</p>
+<p>The following example exhibits an elaboration circularity.</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">B</span><span class="p">;</span> <span class="n">pragma</span> <span class="n">Elaborate</span> <span class="p">(</span><span class="n">B</span><span class="p">);</span>
+<span class="n">package</span> <span class="n">A</span> <span class="ow">is</span>
+<span class="n">end</span> <span class="n">A</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">package</span> <span class="n">B</span> <span class="ow">is</span>
+   <span class="n">procedure</span> <span class="n">Force_Body</span><span class="p">;</span>
+<span class="n">end</span> <span class="n">B</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">C</span><span class="p">;</span>
+<span class="n">package</span> <span class="n">body</span> <span class="n">B</span> <span class="ow">is</span>
+   <span class="n">procedure</span> <span class="n">Force_Body</span> <span class="ow">is</span> <span class="n">null</span><span class="p">;</span>
+
+   <span class="n">Elab</span> <span class="p">:</span> <span class="n">constant</span> <span class="n">Integer</span> <span class="o">:=</span> <span class="n">C</span><span class="o">.</span><span class="n">Func</span><span class="p">;</span>
+<span class="n">end</span> <span class="n">B</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">package</span> <span class="n">C</span> <span class="ow">is</span>
+   <span class="n">function</span> <span class="n">Func</span> <span class="k">return</span> <span class="n">Integer</span><span class="p">;</span>
+<span class="n">end</span> <span class="n">C</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">A</span><span class="p">;</span>
+<span class="n">package</span> <span class="n">body</span> <span class="n">C</span> <span class="ow">is</span>
+   <span class="n">function</span> <span class="n">Func</span> <span class="k">return</span> <span class="n">Integer</span> <span class="ow">is</span>
+   <span class="n">begin</span>
+      <span class="o">...</span>
+   <span class="n">end</span> <span class="n">Func</span><span class="p">;</span>
+<span class="n">end</span> <span class="n">C</span><span class="p">;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>The binder emits the following diagnostic:</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">error</span><span class="p">:</span> <span class="n">Elaboration</span> <span class="n">circularity</span> <span class="n">detected</span>
+<span class="n">info</span><span class="p">:</span>
+<span class="n">info</span><span class="p">:</span>    <span class="n">Reason</span><span class="p">:</span>
+<span class="n">info</span><span class="p">:</span>
+<span class="n">info</span><span class="p">:</span>      <span class="n">unit</span> <span class="s2">&quot;a (spec)&quot;</span> <span class="n">depends</span> <span class="n">on</span> <span class="n">its</span> <span class="n">own</span> <span class="n">elaboration</span>
+<span class="n">info</span><span class="p">:</span>
+<span class="n">info</span><span class="p">:</span>    <span class="n">Circularity</span><span class="p">:</span>
+<span class="n">info</span><span class="p">:</span>
+<span class="n">info</span><span class="p">:</span>      <span class="n">unit</span> <span class="s2">&quot;a (spec)&quot;</span> <span class="n">has</span> <span class="k">with</span> <span class="n">clause</span> <span class="ow">and</span> <span class="n">pragma</span> <span class="n">Elaborate</span> <span class="k">for</span> <span class="n">unit</span> <span class="s2">&quot;b (spec)&quot;</span>
+<span class="n">info</span><span class="p">:</span>      <span class="n">unit</span> <span class="s2">&quot;b (body)&quot;</span> <span class="ow">is</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">closure</span> <span class="n">of</span> <span class="n">pragma</span> <span class="n">Elaborate</span>
+<span class="n">info</span><span class="p">:</span>      <span class="n">unit</span> <span class="s2">&quot;b (body)&quot;</span> <span class="n">invokes</span> <span class="n">a</span> <span class="n">construct</span> <span class="n">of</span> <span class="n">unit</span> <span class="s2">&quot;c (body)&quot;</span> <span class="n">at</span> <span class="n">elaboration</span> <span class="n">time</span>
+<span class="n">info</span><span class="p">:</span>      <span class="n">unit</span> <span class="s2">&quot;c (body)&quot;</span> <span class="n">has</span> <span class="k">with</span> <span class="n">clause</span> <span class="k">for</span> <span class="n">unit</span> <span class="s2">&quot;a (spec)&quot;</span>
+<span class="n">info</span><span class="p">:</span>
+<span class="n">info</span><span class="p">:</span>    <span class="n">Suggestions</span><span class="p">:</span>
+<span class="n">info</span><span class="p">:</span>
+<span class="n">info</span><span class="p">:</span>      <span class="n">remove</span> <span class="n">pragma</span> <span class="n">Elaborate</span> <span class="k">for</span> <span class="n">unit</span> <span class="s2">&quot;b (body)&quot;</span> <span class="ow">in</span> <span class="n">unit</span> <span class="s2">&quot;a (spec)&quot;</span>
+<span class="n">info</span><span class="p">:</span>      <span class="n">use</span> <span class="n">the</span> <span class="n">dynamic</span> <span class="n">elaboration</span> <span class="n">model</span> <span class="p">(</span><span class="n">compiler</span> <span class="n">switch</span> <span class="o">-</span><span class="n">gnatE</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>The diagnostic consist of the following sections:</p>
+<ul>
+<li><p>Reason</p>
+<p>This section provides a short explanation describing why the set of units
+could not be ordered.</p>
+</li>
+<li><p>Circularity</p>
+<p>This section enumerates the units comprising the deadlocked set, along with
+their interdependencies.</p>
+</li>
+<li><p>Suggestions</p>
+<p>This section enumerates various tactics for eliminating the circularity.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="resolving-elaboration-circularities">
+<span id="id11"></span><h2>Resolving Elaboration Circularities<a class="headerlink" href="#resolving-elaboration-circularities" title="Permalink to this headline">¶</a></h2>
+<p>The most desirable option from the point of view of long-term maintenance is to
+rearrange the program so that the elaboration problems are avoided. One useful
+technique is to place the elaboration code into separate child packages.
+Another is to move some of the initialization code to explicitly invoked
+subprograms, where the program controls the order of initialization explicitly.
+Although this is the most desirable option, it may be impractical and involve
+too much modification, especially in the case of complex legacy code.</p>
+<p>When faced with an elaboration circularity, the programmer should also consider
+the tactics given in the suggestions section of the circularity diagnostic.
+Depending on the units involved in the circularity, their <em>with</em> clauses,
+purity, preelaborability, presence of elaboration-control pragmas and
+invocations at elaboration time, the binder may suggest one or more of the
+following tactics to eliminate the circularity:</p>
+<ul>
+<li><p>Pragma Elaborate elimination</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">remove</span> <span class="n">pragma</span> <span class="n">Elaborate</span> <span class="k">for</span> <span class="n">unit</span> <span class="s2">&quot;...&quot;</span> <span class="ow">in</span> <span class="n">unit</span> <span class="s2">&quot;...&quot;</span>
+</pre></div>
+</div>
+<p>This tactic is suggested when the binder has determined that pragma
+<code class="docutils literal notranslate"><span class="pre">Elaborate</span></code>:</p>
+<ul class="simple">
+<li><p>Prevents a set of units from being elaborated.</p></li>
+<li><p>The removal of the pragma will not eliminate the semantic effects of the
+pragma. In other words, the argument of the pragma will still be elaborated
+prior to the unit containing the pragma.</p></li>
+<li><p>The removal of the pragma will enable the successful ordering of the units.</p></li>
+</ul>
+<p>The programmer should remove the pragma as advised, and rebuild the program.</p>
+</li>
+<li><p>Pragma Elaborate_All elimination</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">remove</span> <span class="n">pragma</span> <span class="n">Elaborate_All</span> <span class="k">for</span> <span class="n">unit</span> <span class="s2">&quot;...&quot;</span> <span class="ow">in</span> <span class="n">unit</span> <span class="s2">&quot;...&quot;</span>
+</pre></div>
+</div>
+<p>This tactic is suggested when the binder has determined that pragma
+<code class="docutils literal notranslate"><span class="pre">Elaborate_All</span></code>:</p>
+<ul class="simple">
+<li><p>Prevents a set of units from being elaborated.</p></li>
+<li><p>The removal of the pragma will not eliminate the semantic effects of the
+pragma. In other words, the argument of the pragma along with its <em>with</em>
+closure will still be elaborated prior to the unit containing the pragma.</p></li>
+<li><p>The removal of the pragma will enable the successful ordering of the units.</p></li>
+</ul>
+<p>The programmer should remove the pragma as advised, and rebuild the program.</p>
+</li>
+<li><p>Pragma Elaborate_All downgrade</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">change</span> <span class="n">pragma</span> <span class="n">Elaborate_All</span> <span class="k">for</span> <span class="n">unit</span> <span class="s2">&quot;...&quot;</span> <span class="n">to</span> <span class="n">Elaborate</span> <span class="ow">in</span> <span class="n">unit</span> <span class="s2">&quot;...&quot;</span>
+</pre></div>
+</div>
+<p>This tactic is always suggested with the pragma <code class="docutils literal notranslate"><span class="pre">Elaborate_All</span></code> elimination
+tactic. It offers a different alernative of guaranteeing that the argument of
+the pragma will still be elaborated prior to the unit containing the pragma.</p>
+<p>The programmer should update the pragma as advised, and rebuild the program.</p>
+</li>
+<li><p>Pragma Elaborate_Body elimination</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">remove</span> <span class="n">pragma</span> <span class="n">Elaborate_Body</span> <span class="ow">in</span> <span class="n">unit</span> <span class="s2">&quot;...&quot;</span>
+</pre></div>
+</div>
+<p>This tactic is suggested when the binder has determined that pragma
+<code class="docutils literal notranslate"><span class="pre">Elaborate_Body</span></code>:</p>
+<ul class="simple">
+<li><p>Prevents a set of units from being elaborated.</p></li>
+<li><p>The removal of the pragma will enable the successful ordering of the units.</p></li>
+</ul>
+<p>Note that the binder cannot determine whether the pragma is required for
+other purposes, such as guaranteeing the initialization of a variable
+declared in the spec by elaboration code in the body.</p>
+<p>The programmer should remove the pragma as advised, and rebuild the program.</p>
+</li>
+<li><p>Use of pragma Restrictions</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">use</span> <span class="n">pragma</span> <span class="n">Restrictions</span> <span class="p">(</span><span class="n">No_Entry_Calls_In_Elaboration_Code</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This tactic is suggested when the binder has determined that a task
+activation at elaboration time:</p>
+<ul class="simple">
+<li><p>Prevents a set of units from being elaborated.</p></li>
+</ul>
+<p>Note that the binder cannot determine with certainty whether the task will
+block at elaboration time.</p>
+<p>The programmer should create a configuration file, place the pragma within,
+update the general compilation arguments, and rebuild the program.</p>
+</li>
+<li><p>Use of dynamic elaboration model</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">use</span> <span class="n">the</span> <span class="n">dynamic</span> <span class="n">elaboration</span> <span class="n">model</span> <span class="p">(</span><span class="n">compiler</span> <span class="n">switch</span> <span class="o">-</span><span class="n">gnatE</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This tactic is suggested when the binder has determined that an invocation at
+elaboration time:</p>
+<ul class="simple">
+<li><p>Prevents a set of units from being elaborated.</p></li>
+<li><p>The use of the dynamic model will enable the successful ordering of the
+units.</p></li>
+</ul>
+<p>The programmer has two options:</p>
+<ul class="simple">
+<li><p>Determine the units involved in the invocation using the detailed
+invocation information, and add compiler switch <code class="switch docutils literal notranslate"><span class="pre">-gnatE</span></code> to the
+compilation arguments of selected files only. This approach will yield
+safer elaboration orders compared to the other option because it will
+minimize the opportunities presented to the dynamic model for ignoring
+invocations.</p></li>
+<li><p>Add compiler switch <code class="switch docutils literal notranslate"><span class="pre">-gnatE</span></code> to the general compilation arguments.</p></li>
+</ul>
+</li>
+<li><p>Use of detailed invocation information</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">use</span> <span class="n">detailed</span> <span class="n">invocation</span> <span class="n">information</span> <span class="p">(</span><span class="n">compiler</span> <span class="n">switch</span> <span class="o">-</span><span class="n">gnatd_F</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This tactic is always suggested with the use of the dynamic model tactic. It
+causes the circularity section of the circularity diagnostic to describe the
+flow of elaboration code from a unit to a unit, enumerating all such paths in
+the process.</p>
+<p>The programmer should analyze this information to determine which units
+should be compiled with the dynamic model.</p>
+</li>
+<li><p>Forced-dependency elimination</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">remove</span> <span class="n">the</span> <span class="n">dependency</span> <span class="n">of</span> <span class="n">unit</span> <span class="s2">&quot;...&quot;</span> <span class="n">on</span> <span class="n">unit</span> <span class="s2">&quot;...&quot;</span> <span class="kn">from</span> <span class="nn">the</span> <span class="n">argument</span> <span class="n">of</span> <span class="n">switch</span> <span class="o">-</span><span class="n">f</span>
+</pre></div>
+</div>
+<p>This tactic is suggested when the binder has determined that a dependency
+present in the forced-elaboration-order file indicated by binder switch
+<code class="switch docutils literal notranslate"><span class="pre">-f</span></code>:</p>
+<ul class="simple">
+<li><p>Prevents a set of units from being elaborated.</p></li>
+<li><p>The removal of the dependency will enable the successful ordering of the
+units.</p></li>
+</ul>
+<p>The programmer should edit the forced-elaboration-order file, remove the
+dependency, and rebind the program.</p>
+</li>
+<li><p>All forced-dependency elimination</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">remove</span> <span class="n">switch</span> <span class="o">-</span><span class="n">f</span>
+</pre></div>
+</div>
+<p>This tactic is suggested in case editing the forced-elaboration-order file is
+not an option.</p>
+<p>The programmer should remove binder switch <code class="switch docutils literal notranslate"><span class="pre">-f</span></code> from the binder
+arguments, and rebind.</p>
+</li>
+<li><p>Multiple-circularities diagnostic</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">diagnose</span> <span class="nb">all</span> <span class="n">circularities</span> <span class="p">(</span><span class="n">binder</span> <span class="n">switch</span> <span class="o">-</span><span class="n">d_C</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>By default, the binder will diagnose only the highest-precedence circularity.
+If the program contains multiple circularities, the binder will suggest the
+use of binder switch <code class="switch docutils literal notranslate"><span class="pre">-d_C</span></code> in order to obtain the diagnostics of all
+circularities.</p>
+<p>The programmer should add binder switch <code class="switch docutils literal notranslate"><span class="pre">-d_C</span></code> to the binder
+arguments, and rebind.</p>
+</li>
+</ul>
+<p>If none of the tactics suggested by the binder eliminate the elaboration
+circularity, the programmer should consider using one of the legacy elaboration
+models, in the following order:</p>
+<ul class="simple">
+<li><p>Use the pre-20.x legacy elaboration-order model, with binder switch
+<code class="switch docutils literal notranslate"><span class="pre">-H</span></code>.</p></li>
+<li><p>Use both pre-18.x and pre-20.x legacy elaboration models, with compiler
+switch <code class="switch docutils literal notranslate"><span class="pre">-gnatH</span></code> and binder switch <code class="switch docutils literal notranslate"><span class="pre">-H</span></code>.</p></li>
+<li><p>Use the relaxed static-elaboration model, with compiler switches
+<code class="switch docutils literal notranslate"><span class="pre">-gnatH</span></code> <code class="switch docutils literal notranslate"><span class="pre">-gnatJ</span></code> and binder switch <code class="switch docutils literal notranslate"><span class="pre">-H</span></code>.</p></li>
+<li><p>Use the relaxed dynamic-elaboration model, with compiler switches
+<code class="switch docutils literal notranslate"><span class="pre">-gnatH</span></code> <code class="switch docutils literal notranslate"><span class="pre">-gnatJ</span></code> <code class="switch docutils literal notranslate"><span class="pre">-gnatE</span></code> and binder switch
+<code class="switch docutils literal notranslate"><span class="pre">-H</span></code>.</p></li>
+</ul>
+</div>
+<div class="section" id="elaboration-related-compiler-switches">
+<span id="id12"></span><h2>Elaboration-related Compiler Switches<a class="headerlink" href="#elaboration-related-compiler-switches" title="Permalink to this headline">¶</a></h2>
+<p>GNAT has several switches that affect the elaboration model and consequently
+the elaboration order chosen by the binder.</p>
+<dl id="index-12">
+<dt><code class="switch docutils literal notranslate"><span class="pre">-gnatE</span></code></dt><dd><p>Dynamic elaboration checking mode enabled</p>
+<p>When this switch is in effect, GNAT activates the dynamic model.</p>
+</dd>
+</dl>
+<dl id="index-13">
+<dt><code class="switch docutils literal notranslate"><span class="pre">-gnatel</span></code></dt><dd><p>Turn on info messages on generated Elaborate[_All] pragmas</p>
+<p>This switch is only applicable to the pre-20.x legacy elaboration models.
+The post-20.x elaboration model no longer relies on implicitly generated
+<code class="docutils literal notranslate"><span class="pre">Elaborate</span></code> and <code class="docutils literal notranslate"><span class="pre">Elaborate_All</span></code> pragmas to order units.</p>
+<p>When this switch is in effect, GNAT will emit the following supplementary
+information depending on the elaboration model in effect.</p>
+<ul>
+<li><p><em>Dynamic model</em></p>
+<p>GNAT will indicate missing <code class="docutils literal notranslate"><span class="pre">Elaborate</span></code> and <code class="docutils literal notranslate"><span class="pre">Elaborate_All</span></code> pragmas for
+all library-level scenarios within the partition.</p>
+</li>
+<li><p><em>Static model</em></p>
+<p>GNAT will indicate all scenarios invoked during elaboration. In addition,
+it will provide detailed traceback when an implicit <code class="docutils literal notranslate"><span class="pre">Elaborate</span></code> or
+<code class="docutils literal notranslate"><span class="pre">Elaborate_All</span></code> pragma is generated.</p>
+</li>
+<li><p><em>SPARK model</em></p>
+<p>GNAT will indicate how an elaboration requirement is met by the context of
+a unit. This diagnostic requires compiler switch <code class="switch docutils literal notranslate"><span class="pre">-gnatd.v</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">1.</span> <span class="k">with</span> <span class="n">Server</span><span class="p">;</span> <span class="n">pragma</span> <span class="n">Elaborate_All</span> <span class="p">(</span><span class="n">Server</span><span class="p">);</span>
+<span class="mf">2.</span> <span class="n">package</span> <span class="n">Client</span> <span class="k">with</span> <span class="n">SPARK_Mode</span> <span class="ow">is</span>
+<span class="mf">3.</span>    <span class="n">Val</span> <span class="p">:</span> <span class="n">constant</span> <span class="n">Integer</span> <span class="o">:=</span> <span class="n">Server</span><span class="o">.</span><span class="n">Func</span><span class="p">;</span>
+                                      <span class="o">|</span>
+   <span class="o">&gt;&gt;&gt;</span> <span class="n">info</span><span class="p">:</span> <span class="n">call</span> <span class="n">to</span> <span class="s2">&quot;Func&quot;</span> <span class="n">during</span> <span class="n">elaboration</span> <span class="ow">in</span> <span class="n">SPARK</span>
+   <span class="o">&gt;&gt;&gt;</span> <span class="n">info</span><span class="p">:</span> <span class="s2">&quot;Elaborate_All&quot;</span> <span class="n">requirement</span> <span class="k">for</span> <span class="n">unit</span> <span class="s2">&quot;Server&quot;</span> <span class="n">met</span> <span class="n">by</span> <span class="n">pragma</span> <span class="n">at</span> <span class="n">line</span> <span class="mi">1</span>
+
+<span class="mf">4.</span> <span class="n">end</span> <span class="n">Client</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</dd>
+</dl>
+<dl id="index-14">
+<dt><code class="switch docutils literal notranslate"><span class="pre">-gnatH</span></code></dt><dd><p>Legacy elaboration checking mode enabled</p>
+<p>When this switch is in effect, GNAT will utilize the pre-18.x elaboration
+model.</p>
+</dd>
+</dl>
+<dl id="index-15">
+<dt><code class="switch docutils literal notranslate"><span class="pre">-gnatJ</span></code></dt><dd><p>Relaxed elaboration checking mode enabled</p>
+<p>When this switch is in effect, GNAT will not process certain scenarios,
+resulting in a more permissive elaboration model. Note that this may
+eliminate some diagnostics and run-time checks.</p>
+</dd>
+</dl>
+<dl id="index-16">
+<dt><code class="switch docutils literal notranslate"><span class="pre">-gnatw.f</span></code></dt><dd><p>Turn on warnings for suspicious Subp’Access</p>
+<p>When this switch is in effect, GNAT will treat <code class="docutils literal notranslate"><span class="pre">'Access</span></code> of an entry,
+operator, or subprogram as a potential call to the target and issue warnings:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="mf">1.</span> <span class="n">package</span> <span class="n">body</span> <span class="n">Attribute_Call</span> <span class="ow">is</span>
+ <span class="mf">2.</span>    <span class="n">function</span> <span class="n">Func</span> <span class="k">return</span> <span class="n">Integer</span><span class="p">;</span>
+ <span class="mf">3.</span>    <span class="nb">type</span> <span class="n">Func_Ptr</span> <span class="ow">is</span> <span class="n">access</span> <span class="n">function</span> <span class="k">return</span> <span class="n">Integer</span><span class="p">;</span>
+ <span class="mf">4.</span>
+ <span class="mf">5.</span>    <span class="n">Ptr</span> <span class="p">:</span> <span class="n">constant</span> <span class="n">Func_Ptr</span> <span class="o">:=</span> <span class="n">Func</span><span class="s1">&#39;Access;</span>
+                                      <span class="o">|</span>
+    <span class="o">&gt;&gt;&gt;</span> <span class="n">warning</span><span class="p">:</span> <span class="s2">&quot;Access&quot;</span> <span class="n">attribute</span> <span class="n">of</span> <span class="s2">&quot;Func&quot;</span> <span class="n">before</span> <span class="n">body</span> <span class="n">seen</span>
+    <span class="o">&gt;&gt;&gt;</span> <span class="n">warning</span><span class="p">:</span> <span class="n">possible</span> <span class="n">Program_Error</span> <span class="n">on</span> <span class="n">later</span> <span class="n">references</span>
+    <span class="o">&gt;&gt;&gt;</span> <span class="n">warning</span><span class="p">:</span>   <span class="n">body</span> <span class="n">of</span> <span class="n">unit</span> <span class="s2">&quot;Attribute_Call&quot;</span> <span class="n">elaborated</span>
+    <span class="o">&gt;&gt;&gt;</span> <span class="n">warning</span><span class="p">:</span>   <span class="s2">&quot;Access&quot;</span> <span class="n">of</span> <span class="s2">&quot;Func&quot;</span> <span class="n">taken</span> <span class="n">at</span> <span class="n">line</span> <span class="mi">5</span>
+
+ <span class="mf">6.</span>
+ <span class="mf">7.</span>    <span class="n">function</span> <span class="n">Func</span> <span class="k">return</span> <span class="n">Integer</span> <span class="ow">is</span>
+ <span class="mf">8.</span>    <span class="n">begin</span>
+ <span class="mf">9.</span>       <span class="o">...</span>
+<span class="mf">10.</span>    <span class="n">end</span> <span class="n">Func</span><span class="p">;</span>
+<span class="mf">11.</span> <span class="n">end</span> <span class="n">Attribute_Call</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>In the example above, the elaboration of declaration <code class="docutils literal notranslate"><span class="pre">Ptr</span></code> is assigned
+<code class="docutils literal notranslate"><span class="pre">Func'Access</span></code> before the body of <code class="docutils literal notranslate"><span class="pre">Func</span></code> has been elaborated.</p>
+</dd>
+</dl>
+<dl id="index-17">
+<dt><code class="switch docutils literal notranslate"><span class="pre">-gnatwl</span></code></dt><dd><p>Turn on warnings for elaboration problems</p>
+<p>When this switch is in effect, GNAT emits diagnostics in the form of warnings
+concerning various elaboration problems. The warnings are enabled by default.
+The switch is provided in case all warnings are suppressed, but elaboration
+warnings are still desired.</p>
+</dd>
+<dt><code class="switch docutils literal notranslate"><span class="pre">-gnatwL</span></code></dt><dd><p>Turn off warnings for elaboration problems</p>
+<p>When this switch is in effect, GNAT no longer emits any diagnostics in the
+form of warnings. Selective suppression of elaboration problems is possible
+using <code class="docutils literal notranslate"><span class="pre">pragma</span> <span class="pre">Warnings</span> <span class="pre">(Off)</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="mf">1.</span> <span class="n">package</span> <span class="n">body</span> <span class="n">Selective_Suppression</span> <span class="ow">is</span>
+ <span class="mf">2.</span>    <span class="n">function</span> <span class="n">ABE</span> <span class="k">return</span> <span class="n">Integer</span><span class="p">;</span>
+ <span class="mf">3.</span>
+ <span class="mf">4.</span>    <span class="n">Val_1</span> <span class="p">:</span> <span class="n">constant</span> <span class="n">Integer</span> <span class="o">:=</span> <span class="n">ABE</span><span class="p">;</span>
+                                   <span class="o">|</span>
+    <span class="o">&gt;&gt;&gt;</span> <span class="n">warning</span><span class="p">:</span> <span class="n">cannot</span> <span class="n">call</span> <span class="s2">&quot;ABE&quot;</span> <span class="n">before</span> <span class="n">body</span> <span class="n">seen</span>
+    <span class="o">&gt;&gt;&gt;</span> <span class="n">warning</span><span class="p">:</span> <span class="n">Program_Error</span> <span class="n">will</span> <span class="n">be</span> <span class="n">raised</span> <span class="n">at</span> <span class="n">run</span> <span class="n">time</span>
+
+ <span class="mf">5.</span>
+ <span class="mf">6.</span>    <span class="n">pragma</span> <span class="n">Warnings</span> <span class="p">(</span><span class="n">Off</span><span class="p">);</span>
+ <span class="mf">7.</span>    <span class="n">Val_2</span> <span class="p">:</span> <span class="n">constant</span> <span class="n">Integer</span> <span class="o">:=</span> <span class="n">ABE</span><span class="p">;</span>
+ <span class="mf">8.</span>    <span class="n">pragma</span> <span class="n">Warnings</span> <span class="p">(</span><span class="n">On</span><span class="p">);</span>
+ <span class="mf">9.</span>
+<span class="mf">10.</span>    <span class="n">function</span> <span class="n">ABE</span> <span class="k">return</span> <span class="n">Integer</span> <span class="ow">is</span>
+<span class="mf">11.</span>    <span class="n">begin</span>
+<span class="mf">12.</span>       <span class="o">...</span>
+<span class="mf">13.</span>    <span class="n">end</span> <span class="n">ABE</span><span class="p">;</span>
+<span class="mf">14.</span> <span class="n">end</span> <span class="n">Selective_Suppression</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Note that suppressing elaboration warnings does not eliminate run-time
+checks. The example above will still fail at run time with an ABE.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="summary-of-procedures-for-elaboration-control">
+<span id="id13"></span><h2>Summary of Procedures for Elaboration Control<a class="headerlink" href="#summary-of-procedures-for-elaboration-control" title="Permalink to this headline">¶</a></h2>
+<p>A programmer should first compile the program with the default options, using
+none of the binder or compiler switches. If the binder succeeds in finding an
+elaboration order, then apart from possible cases involing dispatching calls
+and access-to-subprogram types, the program is free of elaboration errors.</p>
+<p>If it is important for the program to be portable to compilers other than GNAT,
+then the programmer should use compiler switch <code class="switch docutils literal notranslate"><span class="pre">-gnatel</span></code> and consider
+the messages about missing or implicitly created <code class="docutils literal notranslate"><span class="pre">Elaborate</span></code> and
+<code class="docutils literal notranslate"><span class="pre">Elaborate_All</span></code> pragmas.</p>
+<p>If the binder reports an elaboration circularity, the programmer has several
+options:</p>
+<ul class="simple">
+<li><p>Ensure that elaboration warnings are enabled. This will allow the static
+model to output trace information of elaboration issues. The trace
+information could shed light on previously unforeseen dependencies, as well
+as their origins. Elaboration warnings are enabled with compiler switch
+<code class="switch docutils literal notranslate"><span class="pre">-gnatwl</span></code>.</p></li>
+<li><p>Cosider the tactics given in the suggestions section of the circularity
+diagnostic.</p></li>
+<li><p>If none of the steps outlined above resolve the circularity, use a more
+permissive elaboration model, in the following order:</p>
+<ul>
+<li><p>Use the pre-20.x legacy elaboration-order model, with binder switch
+<code class="switch docutils literal notranslate"><span class="pre">-H</span></code>.</p></li>
+<li><p>Use both pre-18.x and pre-20.x legacy elaboration models, with compiler
+switch <code class="switch docutils literal notranslate"><span class="pre">-gnatH</span></code> and binder switch <code class="switch docutils literal notranslate"><span class="pre">-H</span></code>.</p></li>
+<li><p>Use the relaxed static elaboration model, with compiler switches
+<code class="switch docutils literal notranslate"><span class="pre">-gnatH</span></code> <code class="switch docutils literal notranslate"><span class="pre">-gnatJ</span></code> and binder switch <code class="switch docutils literal notranslate"><span class="pre">-H</span></code>.</p></li>
+<li><p>Use the relaxed dynamic elaboration model, with compiler switches
+<code class="switch docutils literal notranslate"><span class="pre">-gnatH</span></code> <code class="switch docutils literal notranslate"><span class="pre">-gnatJ</span></code> <code class="switch docutils literal notranslate"><span class="pre">-gnatE</span></code> and binder switch
+<code class="switch docutils literal notranslate"><span class="pre">-H</span></code>.</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="inspecting-the-chosen-elaboration-order">
+<span id="id14"></span><h2>Inspecting the Chosen Elaboration Order<a class="headerlink" href="#inspecting-the-chosen-elaboration-order" title="Permalink to this headline">¶</a></h2>
+<p>To see the elaboration order chosen by the binder, inspect the contents of file
+<cite>b~xxx.adb</cite>. On certain targets, this file appears as <cite>b_xxx.adb</cite>. The
+elaboration order appears as a sequence of calls to <code class="docutils literal notranslate"><span class="pre">Elab_Body</span></code> and
+<code class="docutils literal notranslate"><span class="pre">Elab_Spec</span></code>, interspersed with assignments to <cite>Exxx</cite> which indicates that a
+particular unit is elaborated. For example:</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">System</span><span class="o">.</span><span class="n">Soft_Links</span><span class="s1">&#39;Elab_Body;</span>
+<span class="n">E14</span> <span class="o">:=</span> <span class="kc">True</span><span class="p">;</span>
+<span class="n">System</span><span class="o">.</span><span class="n">Secondary_Stack</span><span class="s1">&#39;Elab_Body;</span>
+<span class="n">E18</span> <span class="o">:=</span> <span class="kc">True</span><span class="p">;</span>
+<span class="n">System</span><span class="o">.</span><span class="n">Exception_Table</span><span class="s1">&#39;Elab_Body;</span>
+<span class="n">E24</span> <span class="o">:=</span> <span class="kc">True</span><span class="p">;</span>
+<span class="n">Ada</span><span class="o">.</span><span class="n">Io_Exceptions</span><span class="s1">&#39;Elab_Spec;</span>
+<span class="n">E67</span> <span class="o">:=</span> <span class="kc">True</span><span class="p">;</span>
+<span class="n">Ada</span><span class="o">.</span><span class="n">Tags</span><span class="s1">&#39;Elab_Spec;</span>
+<span class="n">Ada</span><span class="o">.</span><span class="n">Streams</span><span class="s1">&#39;Elab_Spec;</span>
+<span class="n">E43</span> <span class="o">:=</span> <span class="kc">True</span><span class="p">;</span>
+<span class="n">Interfaces</span><span class="o">.</span><span class="n">C</span><span class="s1">&#39;Elab_Spec;</span>
+<span class="n">E69</span> <span class="o">:=</span> <span class="kc">True</span><span class="p">;</span>
+<span class="n">System</span><span class="o">.</span><span class="n">Finalization_Root</span><span class="s1">&#39;Elab_Spec;</span>
+<span class="n">E60</span> <span class="o">:=</span> <span class="kc">True</span><span class="p">;</span>
+<span class="n">System</span><span class="o">.</span><span class="n">Os_Lib</span><span class="s1">&#39;Elab_Body;</span>
+<span class="n">E71</span> <span class="o">:=</span> <span class="kc">True</span><span class="p">;</span>
+<span class="n">System</span><span class="o">.</span><span class="n">Finalization_Implementation</span><span class="s1">&#39;Elab_Spec;</span>
+<span class="n">System</span><span class="o">.</span><span class="n">Finalization_Implementation</span><span class="s1">&#39;Elab_Body;</span>
+<span class="n">E62</span> <span class="o">:=</span> <span class="kc">True</span><span class="p">;</span>
+<span class="n">Ada</span><span class="o">.</span><span class="n">Finalization</span><span class="s1">&#39;Elab_Spec;</span>
+<span class="n">E58</span> <span class="o">:=</span> <span class="kc">True</span><span class="p">;</span>
+<span class="n">Ada</span><span class="o">.</span><span class="n">Finalization</span><span class="o">.</span><span class="n">List_Controller</span><span class="s1">&#39;Elab_Spec;</span>
+<span class="n">E76</span> <span class="o">:=</span> <span class="kc">True</span><span class="p">;</span>
+<span class="n">System</span><span class="o">.</span><span class="n">File_Control_Block</span><span class="s1">&#39;Elab_Spec;</span>
+<span class="n">E74</span> <span class="o">:=</span> <span class="kc">True</span><span class="p">;</span>
+<span class="n">System</span><span class="o">.</span><span class="n">File_Io</span><span class="s1">&#39;Elab_Body;</span>
+<span class="n">E56</span> <span class="o">:=</span> <span class="kc">True</span><span class="p">;</span>
+<span class="n">Ada</span><span class="o">.</span><span class="n">Tags</span><span class="s1">&#39;Elab_Body;</span>
+<span class="n">E45</span> <span class="o">:=</span> <span class="kc">True</span><span class="p">;</span>
+<span class="n">Ada</span><span class="o">.</span><span class="n">Text_Io</span><span class="s1">&#39;Elab_Spec;</span>
+<span class="n">Ada</span><span class="o">.</span><span class="n">Text_Io</span><span class="s1">&#39;Elab_Body;</span>
+<span class="n">E07</span> <span class="o">:=</span> <span class="kc">True</span><span class="p">;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>Note also binder switch <code class="switch docutils literal notranslate"><span class="pre">-l</span></code>, which outputs the chosen elaboration
+order and provides a more readable form of the above:</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ada</span> <span class="p">(</span><span class="n">spec</span><span class="p">)</span>
+<span class="n">interfaces</span> <span class="p">(</span><span class="n">spec</span><span class="p">)</span>
+<span class="n">system</span> <span class="p">(</span><span class="n">spec</span><span class="p">)</span>
+<span class="n">system</span><span class="o">.</span><span class="n">case_util</span> <span class="p">(</span><span class="n">spec</span><span class="p">)</span>
+<span class="n">system</span><span class="o">.</span><span class="n">case_util</span> <span class="p">(</span><span class="n">body</span><span class="p">)</span>
+<span class="n">system</span><span class="o">.</span><span class="n">concat_2</span> <span class="p">(</span><span class="n">spec</span><span class="p">)</span>
+<span class="n">system</span><span class="o">.</span><span class="n">concat_2</span> <span class="p">(</span><span class="n">body</span><span class="p">)</span>
+<span class="n">system</span><span class="o">.</span><span class="n">concat_3</span> <span class="p">(</span><span class="n">spec</span><span class="p">)</span>
+<span class="n">system</span><span class="o">.</span><span class="n">concat_3</span> <span class="p">(</span><span class="n">body</span><span class="p">)</span>
+<span class="n">system</span><span class="o">.</span><span class="n">htable</span> <span class="p">(</span><span class="n">spec</span><span class="p">)</span>
+<span class="n">system</span><span class="o">.</span><span class="n">parameters</span> <span class="p">(</span><span class="n">spec</span><span class="p">)</span>
+<span class="n">system</span><span class="o">.</span><span class="n">parameters</span> <span class="p">(</span><span class="n">body</span><span class="p">)</span>
+<span class="n">system</span><span class="o">.</span><span class="n">crtl</span> <span class="p">(</span><span class="n">spec</span><span class="p">)</span>
+<span class="n">interfaces</span><span class="o">.</span><span class="n">c_streams</span> <span class="p">(</span><span class="n">spec</span><span class="p">)</span>
+<span class="n">interfaces</span><span class="o">.</span><span class="n">c_streams</span> <span class="p">(</span><span class="n">body</span><span class="p">)</span>
+<span class="n">system</span><span class="o">.</span><span class="n">restrictions</span> <span class="p">(</span><span class="n">spec</span><span class="p">)</span>
+<span class="n">system</span><span class="o">.</span><span class="n">restrictions</span> <span class="p">(</span><span class="n">body</span><span class="p">)</span>
+<span class="n">system</span><span class="o">.</span><span class="n">standard_library</span> <span class="p">(</span><span class="n">spec</span><span class="p">)</span>
+<span class="n">system</span><span class="o">.</span><span class="n">exceptions</span> <span class="p">(</span><span class="n">spec</span><span class="p">)</span>
+<span class="n">system</span><span class="o">.</span><span class="n">exceptions</span> <span class="p">(</span><span class="n">body</span><span class="p">)</span>
+<span class="n">system</span><span class="o">.</span><span class="n">storage_elements</span> <span class="p">(</span><span class="n">spec</span><span class="p">)</span>
+<span class="n">system</span><span class="o">.</span><span class="n">storage_elements</span> <span class="p">(</span><span class="n">body</span><span class="p">)</span>
+<span class="n">system</span><span class="o">.</span><span class="n">secondary_stack</span> <span class="p">(</span><span class="n">spec</span><span class="p">)</span>
+<span class="n">system</span><span class="o">.</span><span class="n">stack_checking</span> <span class="p">(</span><span class="n">spec</span><span class="p">)</span>
+<span class="n">system</span><span class="o">.</span><span class="n">stack_checking</span> <span class="p">(</span><span class="n">body</span><span class="p">)</span>
+<span class="n">system</span><span class="o">.</span><span class="n">string_hash</span> <span class="p">(</span><span class="n">spec</span><span class="p">)</span>
+<span class="n">system</span><span class="o">.</span><span class="n">string_hash</span> <span class="p">(</span><span class="n">body</span><span class="p">)</span>
+<span class="n">system</span><span class="o">.</span><span class="n">htable</span> <span class="p">(</span><span class="n">body</span><span class="p">)</span>
+<span class="n">system</span><span class="o">.</span><span class="n">strings</span> <span class="p">(</span><span class="n">spec</span><span class="p">)</span>
+<span class="n">system</span><span class="o">.</span><span class="n">strings</span> <span class="p">(</span><span class="n">body</span><span class="p">)</span>
+<span class="n">system</span><span class="o">.</span><span class="n">traceback</span> <span class="p">(</span><span class="n">spec</span><span class="p">)</span>
+<span class="n">system</span><span class="o">.</span><span class="n">traceback</span> <span class="p">(</span><span class="n">body</span><span class="p">)</span>
+<span class="n">system</span><span class="o">.</span><span class="n">traceback_entries</span> <span class="p">(</span><span class="n">spec</span><span class="p">)</span>
+<span class="n">system</span><span class="o">.</span><span class="n">traceback_entries</span> <span class="p">(</span><span class="n">body</span><span class="p">)</span>
+<span class="n">ada</span><span class="o">.</span><span class="n">exceptions</span> <span class="p">(</span><span class="n">spec</span><span class="p">)</span>
+<span class="n">ada</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">last_chance_handler</span> <span class="p">(</span><span class="n">spec</span><span class="p">)</span>
+<span class="n">system</span><span class="o">.</span><span class="n">soft_links</span> <span class="p">(</span><span class="n">spec</span><span class="p">)</span>
+<span class="n">system</span><span class="o">.</span><span class="n">soft_links</span> <span class="p">(</span><span class="n">body</span><span class="p">)</span>
+<span class="n">ada</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">last_chance_handler</span> <span class="p">(</span><span class="n">body</span><span class="p">)</span>
+<span class="n">system</span><span class="o">.</span><span class="n">secondary_stack</span> <span class="p">(</span><span class="n">body</span><span class="p">)</span>
+<span class="n">system</span><span class="o">.</span><span class="n">exception_table</span> <span class="p">(</span><span class="n">spec</span><span class="p">)</span>
+<span class="n">system</span><span class="o">.</span><span class="n">exception_table</span> <span class="p">(</span><span class="n">body</span><span class="p">)</span>
+<span class="n">ada</span><span class="o">.</span><span class="n">io_exceptions</span> <span class="p">(</span><span class="n">spec</span><span class="p">)</span>
+<span class="n">ada</span><span class="o">.</span><span class="n">tags</span> <span class="p">(</span><span class="n">spec</span><span class="p">)</span>
+<span class="n">ada</span><span class="o">.</span><span class="n">streams</span> <span class="p">(</span><span class="n">spec</span><span class="p">)</span>
+<span class="n">interfaces</span><span class="o">.</span><span class="n">c</span> <span class="p">(</span><span class="n">spec</span><span class="p">)</span>
+<span class="n">interfaces</span><span class="o">.</span><span class="n">c</span> <span class="p">(</span><span class="n">body</span><span class="p">)</span>
+<span class="n">system</span><span class="o">.</span><span class="n">finalization_root</span> <span class="p">(</span><span class="n">spec</span><span class="p">)</span>
+<span class="n">system</span><span class="o">.</span><span class="n">finalization_root</span> <span class="p">(</span><span class="n">body</span><span class="p">)</span>
+<span class="n">system</span><span class="o">.</span><span class="n">memory</span> <span class="p">(</span><span class="n">spec</span><span class="p">)</span>
+<span class="n">system</span><span class="o">.</span><span class="n">memory</span> <span class="p">(</span><span class="n">body</span><span class="p">)</span>
+<span class="n">system</span><span class="o">.</span><span class="n">standard_library</span> <span class="p">(</span><span class="n">body</span><span class="p">)</span>
+<span class="n">system</span><span class="o">.</span><span class="n">os_lib</span> <span class="p">(</span><span class="n">spec</span><span class="p">)</span>
+<span class="n">system</span><span class="o">.</span><span class="n">os_lib</span> <span class="p">(</span><span class="n">body</span><span class="p">)</span>
+<span class="n">system</span><span class="o">.</span><span class="n">unsigned_types</span> <span class="p">(</span><span class="n">spec</span><span class="p">)</span>
+<span class="n">system</span><span class="o">.</span><span class="n">stream_attributes</span> <span class="p">(</span><span class="n">spec</span><span class="p">)</span>
+<span class="n">system</span><span class="o">.</span><span class="n">stream_attributes</span> <span class="p">(</span><span class="n">body</span><span class="p">)</span>
+<span class="n">system</span><span class="o">.</span><span class="n">finalization_implementation</span> <span class="p">(</span><span class="n">spec</span><span class="p">)</span>
+<span class="n">system</span><span class="o">.</span><span class="n">finalization_implementation</span> <span class="p">(</span><span class="n">body</span><span class="p">)</span>
+<span class="n">ada</span><span class="o">.</span><span class="n">finalization</span> <span class="p">(</span><span class="n">spec</span><span class="p">)</span>
+<span class="n">ada</span><span class="o">.</span><span class="n">finalization</span> <span class="p">(</span><span class="n">body</span><span class="p">)</span>
+<span class="n">ada</span><span class="o">.</span><span class="n">finalization</span><span class="o">.</span><span class="n">list_controller</span> <span class="p">(</span><span class="n">spec</span><span class="p">)</span>
+<span class="n">ada</span><span class="o">.</span><span class="n">finalization</span><span class="o">.</span><span class="n">list_controller</span> <span class="p">(</span><span class="n">body</span><span class="p">)</span>
+<span class="n">system</span><span class="o">.</span><span class="n">file_control_block</span> <span class="p">(</span><span class="n">spec</span><span class="p">)</span>
+<span class="n">system</span><span class="o">.</span><span class="n">file_io</span> <span class="p">(</span><span class="n">spec</span><span class="p">)</span>
+<span class="n">system</span><span class="o">.</span><span class="n">file_io</span> <span class="p">(</span><span class="n">body</span><span class="p">)</span>
+<span class="n">system</span><span class="o">.</span><span class="n">val_uns</span> <span class="p">(</span><span class="n">spec</span><span class="p">)</span>
+<span class="n">system</span><span class="o">.</span><span class="n">val_util</span> <span class="p">(</span><span class="n">spec</span><span class="p">)</span>
+<span class="n">system</span><span class="o">.</span><span class="n">val_util</span> <span class="p">(</span><span class="n">body</span><span class="p">)</span>
+<span class="n">system</span><span class="o">.</span><span class="n">val_uns</span> <span class="p">(</span><span class="n">body</span><span class="p">)</span>
+<span class="n">system</span><span class="o">.</span><span class="n">wch_con</span> <span class="p">(</span><span class="n">spec</span><span class="p">)</span>
+<span class="n">system</span><span class="o">.</span><span class="n">wch_con</span> <span class="p">(</span><span class="n">body</span><span class="p">)</span>
+<span class="n">system</span><span class="o">.</span><span class="n">wch_cnv</span> <span class="p">(</span><span class="n">spec</span><span class="p">)</span>
+<span class="n">system</span><span class="o">.</span><span class="n">wch_jis</span> <span class="p">(</span><span class="n">spec</span><span class="p">)</span>
+<span class="n">system</span><span class="o">.</span><span class="n">wch_jis</span> <span class="p">(</span><span class="n">body</span><span class="p">)</span>
+<span class="n">system</span><span class="o">.</span><span class="n">wch_cnv</span> <span class="p">(</span><span class="n">body</span><span class="p">)</span>
+<span class="n">system</span><span class="o">.</span><span class="n">wch_stw</span> <span class="p">(</span><span class="n">spec</span><span class="p">)</span>
+<span class="n">system</span><span class="o">.</span><span class="n">wch_stw</span> <span class="p">(</span><span class="n">body</span><span class="p">)</span>
+<span class="n">ada</span><span class="o">.</span><span class="n">tags</span> <span class="p">(</span><span class="n">body</span><span class="p">)</span>
+<span class="n">ada</span><span class="o">.</span><span class="n">exceptions</span> <span class="p">(</span><span class="n">body</span><span class="p">)</span>
+<span class="n">ada</span><span class="o">.</span><span class="n">text_io</span> <span class="p">(</span><span class="n">spec</span><span class="p">)</span>
+<span class="n">ada</span><span class="o">.</span><span class="n">text_io</span> <span class="p">(</span><span class="n">body</span><span class="p">)</span>
+<span class="n">text_io</span> <span class="p">(</span><span class="n">spec</span><span class="p">)</span>
+<span class="n">gdbstr</span> <span class="p">(</span><span class="n">body</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../gnat_ugn.html">
+              <img class="logo" src="../_static/adacore_transparent.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="../gnat_ugn.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Elaboration Order Handling in GNAT</a><ul>
+<li><a class="reference internal" href="#elaboration-code">Elaboration Code</a></li>
+<li><a class="reference internal" href="#elaboration-order">Elaboration Order</a></li>
+<li><a class="reference internal" href="#checking-the-elaboration-order">Checking the Elaboration Order</a></li>
+<li><a class="reference internal" href="#controlling-the-elaboration-order-in-ada">Controlling the Elaboration Order in Ada</a></li>
+<li><a class="reference internal" href="#controlling-the-elaboration-order-in-gnat">Controlling the Elaboration Order in GNAT</a></li>
+<li><a class="reference internal" href="#mixing-elaboration-models">Mixing Elaboration Models</a></li>
+<li><a class="reference internal" href="#abe-diagnostics">ABE Diagnostics</a></li>
+<li><a class="reference internal" href="#spark-diagnostics">SPARK Diagnostics</a></li>
+<li><a class="reference internal" href="#elaboration-circularities">Elaboration Circularities</a></li>
+<li><a class="reference internal" href="#resolving-elaboration-circularities">Resolving Elaboration Circularities</a></li>
+<li><a class="reference internal" href="#elaboration-related-compiler-switches">Elaboration-related Compiler Switches</a></li>
+<li><a class="reference internal" href="#summary-of-procedures-for-elaboration-control">Summary of Procedures for Elaboration Control</a></li>
+<li><a class="reference internal" href="#inspecting-the-chosen-elaboration-order">Inspecting the Chosen Elaboration Order</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="example_of_binder_output.html"
+                        title="previous chapter">Example of Binder Output File</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="inline_assembler.html"
+                        title="next chapter">Inline Assembler</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/gnat_ugn/elaboration_order_handling_in_gnat.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="inline_assembler.html" title="Inline Assembler"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="example_of_binder_output.html" title="Example of Binder Output File"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../gnat_ugn.html">GNAT User&#39;s Guide for Native Platforms 2021 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Elaboration Order Handling in GNAT</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2008-2021, Free Software Foundation.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
+    </div>
+  </body>
+</html>

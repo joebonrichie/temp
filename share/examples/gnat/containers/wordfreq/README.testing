@@ -1,0 +1,34 @@
+		       G N A T   E X A M P L E S
+		       =========================
+
+
+In order to compile the examples, make sure that the 'gprbuild' command is
+in your path. 
+
+Invocation
+----------
+
+In order to build the two executables provided in this example, you need to
+use the "wordfreq.gpr" project file. On the command-line, do a:
+
+  $ gprbuild -Pwordfreq
+
+In GPS, click on "Build", then "Make" and then "wordfreq".
+
+Features tested
+---------------
+
+Hashed map
+Array sort
+
+Description of example
+----------------------
+
+This is another word counting program, very similer to the wordcount example.
+As with that other program, wordfreq scans the input for words, using
+conditional insertion to add words to the map, and using Update_Element to
+increment the count.
+
+The only real difference here is that we use an array object to store the map
+cursors.  We use the same passive iterator to populate the array, and then sort
+the array using an instantiation of Generic_Array_Sort.

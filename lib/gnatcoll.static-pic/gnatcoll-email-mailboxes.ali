@@ -1,0 +1,1068 @@
+V "GNAT Lib v2021"
+A -O2
+A -gnatA
+A -fPIC
+A -gnatn
+A -gnatwa
+A -gnatwC
+A -gnatwJ
+A -mtune=generic
+A -march=x86-64
+P SS ZX
+
+RN
+RV NO_ACCESS_SUBPROGRAMS
+RV NO_ALLOCATORS
+RV NO_CALENDAR
+RV NO_DELAY
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_DISPATCH
+RV NO_DISPATCHING_CALLS
+RV NO_EXCEPTION_HANDLERS
+RV NO_EXCEPTION_PROPAGATION
+RV NO_EXCEPTIONS
+RV NO_FINALIZATION
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_LOCAL_ALLOCATORS
+RV NO_NESTED_FINALIZATION
+RV NO_RECURSION
+RV NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_STREAMS
+RV NO_UNCHECKED_ACCESS
+RV NO_UNCHECKED_DEALLOCATION
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_ATTRIBUTES
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLICIT_ALIASING
+RV NO_IMPLICIT_LOOPS
+RV NO_ELABORATION_CODE
+RV NO_OBSOLESCENT_FEATURES
+
+U gnatcoll.email.mailboxes%b  gnatcoll-email-mailboxes.adb  1d6f4925 OO PF PK IU
+W ada%s			ada.ads			ada.ali
+W ada.calendar%s	a-calend.adb		a-calend.ali
+W ada.containers%s	a-contai.ads		a-contai.ali
+Z ada.containers.hash_tables%s  a-cohata.ads	a-cohata.ali
+Z ada.containers.hash_tables.generic_keys%s
+Z ada.containers.hash_tables.generic_operations%s
+Z ada.containers.helpers%s  a-conhel.adb	a-conhel.ali
+W ada.containers.indefinite_hashed_maps%s
+Z ada.containers.prime_numbers%s  a-coprnu.adb	a-coprnu.ali
+Z ada.exceptions%s	a-except.adb		a-except.ali
+Z ada.finalization%s	a-finali.ads		a-finali.ali
+W ada.io_exceptions%s	a-ioexce.ads		a-ioexce.ali
+Z ada.iterator_interfaces%s
+Z ada.streams%s		a-stream.adb		a-stream.ali
+W ada.strings%s		a-string.ads		a-string.ali
+W ada.strings.hash%s	a-strhas.adb		a-strhas.ali
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W ada.unchecked_deallocation%s
+W gnat%s		gnat.ads		gnat.ali
+W gnat.strings%s	g-string.ads		g-string.ali
+W gnatcoll%s		gnatcoll.ads		gnatcoll.ali
+W gnatcoll.boyer_moore%s  gnatcoll-boyer_moore.adb  gnatcoll-boyer_moore.ali  AD
+W gnatcoll.email%s	gnatcoll-email.adb	gnatcoll-email.ali
+W gnatcoll.email.parser%s  gnatcoll-email-parser.adb  gnatcoll-email-parser.ali
+W gnatcoll.email.utils%s  gnatcoll-email-utils.adb  gnatcoll-email-utils.ali
+W gnatcoll.mmap%s	gnatcoll-mmap.adb	gnatcoll-mmap.ali
+W gnatcoll.vfs%s	gnatcoll-vfs.adb	gnatcoll-vfs.ali
+Z system%s		system.ads		system.ali
+Z system.finalization_masters%s  s-finmas.adb	s-finmas.ali
+Z system.img_int%s	s-imgint.ads		s-imgint.ali
+Z system.pool_global%s	s-pooglo.adb		s-pooglo.ali
+Z system.put_images%s	s-putima.adb		s-putima.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+Z system.soft_links%s	s-soflin.adb		s-soflin.ali
+Z system.standard_library%s  s-stalib.adb	s-stalib.ali
+Z system.storage_elements%s  s-stoele.adb	s-stoele.ali
+Z system.storage_pools%s  s-stopoo.adb		s-stopoo.ali
+Z system.storage_pools.subpools%s  s-stposu.adb	s-stposu.ali
+Z system.stream_attributes%s  s-stratt.adb	s-stratt.ali
+Z system.strings.stream_ops%s  s-ststop.adb	s-ststop.ali
+
+U gnatcoll.email.mailboxes%s  gnatcoll-email-mailboxes.ads  050d68f6 EE OO PF PK IU
+W ada%s			ada.ads			ada.ali
+W ada.containers%s	a-contai.ads		a-contai.ali
+W ada.containers.doubly_linked_lists%s
+Z ada.containers.helpers%s  a-conhel.adb	a-conhel.ali
+W ada.containers.indefinite_doubly_linked_lists%s
+Z ada.exceptions%s	a-except.adb		a-except.ali
+W ada.finalization%s	a-finali.ads		a-finali.ali
+Z ada.iterator_interfaces%s
+Z ada.streams%s		a-stream.adb		a-stream.ali
+W ada.strings%s		a-string.ads		a-string.ali
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
+Z ada.unchecked_deallocation%s
+W gnat%s		gnat.ads		gnat.ali
+W gnat.strings%s	g-string.ads		g-string.ali
+W gnatcoll%s		gnatcoll.ads		gnatcoll.ali
+W gnatcoll.email%s	gnatcoll-email.adb	gnatcoll-email.ali
+W gnatcoll.email.parser%s  gnatcoll-email-parser.adb  gnatcoll-email-parser.ali
+W gnatcoll.vfs%s	gnatcoll-vfs.adb	gnatcoll-vfs.ali
+Z system%s		system.ads		system.ali
+Z system.finalization_masters%s  s-finmas.adb	s-finmas.ali
+Z system.pool_global%s	s-pooglo.adb		s-pooglo.ali
+Z system.put_images%s	s-putima.adb		s-putima.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+Z system.soft_links%s	s-soflin.adb		s-soflin.ali
+Z system.standard_library%s  s-stalib.adb	s-stalib.ali
+Z system.storage_elements%s  s-stoele.adb	s-stoele.ali
+Z system.storage_pools%s  s-stopoo.adb		s-stopoo.ali
+Z system.storage_pools.subpools%s  s-stposu.adb	s-stposu.ali
+Z system.stream_attributes%s  s-stratt.adb	s-stratt.ali
+Z system.strings.stream_ops%s  s-ststop.adb	s-ststop.ali
+
+D ada.ads		20210520051131 76789da1 ada%s
+D a-calend.ads		20210520051128 474d9720 ada.calendar%s
+D a-calend.adb		20210520051128 dfcd352e ada.calendar%b
+D a-charac.ads		20210520051128 2d3ec45b ada.characters%s
+D a-chahan.ads		20210520051128 0ce1b450 ada.characters.handling%s
+D a-chlat1.ads		20210520051128 66457d31 ada.characters.latin_1%s
+D a-contai.ads		20210520051128 61e5e089 ada.containers%s
+D a-cdlili.ads		20210520051128 ad05d077 ada.containers.doubly_linked_lists%s
+D a-cdlili.adb		20210520051128 e29ee816 ada.containers.doubly_linked_lists%b
+D a-cohata.ads		20210520051128 bc432d0e ada.containers.hash_tables%s
+D a-chtgke.ads		20210520051128 20177f7b ada.containers.hash_tables.generic_keys%s
+D a-chtgke.adb		20210520051128 fdf2dddc ada.containers.hash_tables.generic_keys%b
+D a-chtgop.ads		20210520051128 11c5978a ada.containers.hash_tables.generic_operations%s
+D a-chtgop.adb		20210520051128 c3ccdc4f ada.containers.hash_tables.generic_operations%b
+D a-cohase.ads		20210520051128 99ffee14 ada.containers.hashed_sets%s
+D a-conhel.ads		20210520051128 20298884 ada.containers.helpers%s
+D a-conhel.adb		20210520051128 fe7a6827 ada.containers.helpers%b
+D a-cidlli.ads		20210520051128 c4257f13 ada.containers.indefinite_doubly_linked_lists%s
+D a-cidlli.adb		20210520051128 83e7f5b5 ada.containers.indefinite_doubly_linked_lists%b
+D a-cihama.ads		20210520051128 76287ea1 ada.containers.indefinite_hashed_maps%s
+D a-cihama.adb		20210520051128 e0ec62b4 ada.containers.indefinite_hashed_maps%b
+D a-coprnu.ads		20210520051128 0cdf1864 ada.containers.prime_numbers%s
+D a-except.ads		20210520051128 946f3014 ada.exceptions%s
+D a-finali.ads		20210520051128 bf4f806b ada.finalization%s
+D a-ioexce.ads		20210520051128 e4a01f64 ada.io_exceptions%s
+D a-iteint.ads		20210520051128 49a8bee2 ada.iterator_interfaces%s
+D a-stream.ads		20210520051129 119b8fb3 ada.streams%s
+D a-string.ads		20210520051129 90ac6797 ada.strings%s
+D a-strhas.ads		20210520051129 c71c2a52 ada.strings.hash%s
+D a-strmap.ads		20210520051129 5a88892a ada.strings.maps%s
+D a-strsea.ads		20210520051129 b9bc90ba ada.strings.search%s
+D a-sttebu.ads		20210520051129 18209c64 ada.strings.text_buffers%s
+D a-strunb.ads		20210520051129 03325227 ada.strings.unbounded%s
+D a-strunb.adb		20210520051129 3b950306 ada.strings.unbounded%b
+D a-stuten.ads		20210520051129 808c40ad ada.strings.utf_encoding%s
+D a-tags.ads		20210520051130 9eaa38c6 ada.tags%s
+D a-unccon.ads		20210520051130 0e9b276f ada.unchecked_conversion%s
+D a-uncdea.ads		20210520051130 c3a8ac65 ada.unchecked_deallocation%s
+D gnat.ads		20210520051132 b5988c27 gnat%s
+D g-os_lib.ads		20210520051131 0db74523 gnat.os_lib%s
+D g-string.ads		20210520051131 c6abc540 gnat.strings%s
+D gnatcoll.ads		20210519051041 6a5da479 gnatcoll%s
+D gnatcoll-atomic.ads	20210519051041 a760a918 gnatcoll.atomic%s
+D gnatcoll-atomic.adb	20210519051041 d76879ba gnatcoll.atomic%b
+D gnatcoll-boyer_moore.ads  20210519051041 ba0e6942 gnatcoll.boyer_moore%s
+D gnatcoll-email.ads	20210519051041 52ae8de1 gnatcoll.email%s
+D gnatcoll-email-mailboxes.ads  20210519051041 c76cd6b2 gnatcoll.email.mailboxes%s
+D gnatcoll-email-mailboxes.adb  20210519051041 e5fcf4c2 gnatcoll.email.mailboxes%b
+D gnatcoll-email-parser.ads  20210519051041 9ef7ab1c gnatcoll.email.parser%s
+D gnatcoll-email-utils.ads  20210519051041 76732bc8 gnatcoll.email.utils%s
+D gnatcoll-io.ads	20210519051041 40b00e79 gnatcoll.io%s
+D gnatcoll-io-native.ads  20210519051041 60c7703b gnatcoll.io.native%s
+D gnatcoll-mmap.ads	20210519051041 645345a7 gnatcoll.mmap%s
+D gnatcoll-path.ads	20210519051041 44783065 gnatcoll.path%s
+D gnatcoll-refcount.ads	20210519051041 b4dda25c gnatcoll.refcount%s
+D gnatcoll-storage_pools.ads  20210519051041 f82e283b gnatcoll.storage_pools%s
+D gnatcoll-storage_pools-headers.ads  20210519051041 968b2c2e gnatcoll.storage_pools.headers%s
+D gnatcoll-strings.ads	20210519051041 014a3fb6 gnatcoll.strings%s
+D gnatcoll-strings.ads	20210519051041 014a3fb6 gnatcoll.strings%s
+D gnatcoll-strings_impl.ads  20210519051041 660cba3c gnatcoll.strings_impl%s
+D gnatcoll-strings_impl.adb  20210519051041 4bac4314 gnatcoll.strings_impl%b
+D gnatcoll-vfs.ads	20210519051041 1efc72f6 gnatcoll.vfs%s
+D gnatcoll-vfs_types.ads  20210519051041 14be4a8d gnatcoll.vfs_types%s
+D interfac.ads		20210520051132 edec285f interfaces%s
+D i-c.ads		20210520051132 d9beded9 interfaces.c%s
+D i-cstrin.ads		20210520051132 341d0ddf interfaces.c.strings%s
+D system.ads		20210520051135 a2da961d system%s
+D s-atocou.ads		20210520051132 b45c2d8d system.atomic_counters%s
+D s-atocou.adb		20210520051132 b65612c0 system.atomic_counters%b
+D s-carun8.ads		20210520051132 a903718d system.compare_array_unsigned_8%s
+D s-exctab.ads		20210520051132 54135002 system.exception_table%s
+D s-finmas.ads		20210520051132 1ab4dba8 system.finalization_masters%s
+D s-finroo.ads		20210520051132 4ff27390 system.finalization_root%s
+D s-imagei.ads		20210520051133 0d3f86a7 system.image_i%s
+D s-imgint.ads		20210520051133 bdb6f5ec system.img_int%s
+D s-memory.ads		20210520051133 597d6634 system.memory%s
+D s-os_lib.ads		20210520051133 93b69309 system.os_lib%s
+D s-osprim.ads		20210520051133 07fd65f6 system.os_primitives%s
+D s-parame.ads		20210520051134 4752c4cb system.parameters%s
+D s-pooglo.ads		20210520051134 ede33ef8 system.pool_global%s
+D s-putima.ads		20210520051134 4e095881 system.put_images%s
+D s-secsta.ads		20210520051134 9b3ab94b system.secondary_stack%s
+D s-soflin.ads		20210520051134 a7318a92 system.soft_links%s
+D s-stache.ads		20210520051134 a37c21ec system.stack_checking%s
+D s-stalib.ads		20210520051134 472fbca8 system.standard_library%s
+D s-stalib.adb		20210520051134 977290bf system.standard_library%b
+D s-stoele.ads		20210520051134 2dc34a04 system.storage_elements%s
+D s-stoele.adb		20210520051134 ed88f8fb system.storage_elements%b
+D s-stopoo.ads		20210520051134 e9fa2dd8 system.storage_pools%s
+D s-stposu.ads		20210520051134 e251976f system.storage_pools.subpools%s
+D s-stratt.ads		20210520051134 7bdda3fa system.stream_attributes%s
+D s-stratt.adb		20210520051134 fc996108 system.stream_attributes%b
+D s-statxd.ads		20210520051134 b54789f6 system.stream_attributes.xdr%s
+D s-strhas.ads		20210520051134 269cd894 system.string_hash%s
+D s-strhas.adb		20210520051134 2e038444 system.string_hash%b
+D s-string.ads		20210520051134 8fe54fb7 system.strings%s
+D s-ststop.ads		20210520051134 5fbf1b38 system.strings.stream_ops%s
+D s-traent.ads		20210520051134 26a8d361 system.traceback_entries%s
+D s-unstyp.ads		20210520051134 2b077493 system.unsigned_types%s
+D unchconv.ads		20210520051135 ca2f9e18 unchecked_conversion%s
+G a e
+G c b b b [b gnatcoll__email__mailboxes 36 1 none]
+G c Z s b [set_parser gnatcoll__email__mailboxes 74 14 none]
+G c Z s b [first gnatcoll__email__mailboxes 107 24 none]
+G c Z s b [free_string gnatcoll__email__mailboxes 113 14 none]
+G c Z s b [open gnatcoll__email__mailboxes 115 14 none]
+G c Z s b [open gnatcoll__email__mailboxes 127 14 none]
+G c Z s b [has_element gnatcoll__email__mailboxes 134 24 none]
+G c Z s b [next gnatcoll__email__mailboxes 135 25 none]
+G c Z s b [get_message gnatcoll__email__mailboxes 138 25 none]
+G c Z s b [store gnatcoll__email__mailboxes 156 14 none]
+G c Z s b [store gnatcoll__email__mailboxes 160 14 none]
+G c Z s b [append gnatcoll__email__mailboxes 170 14 none]
+G c Z s b [thread_messages gnatcoll__email__mailboxes 175 14 none]
+G c Z s b [remove_threads gnatcoll__email__mailboxes 179 14 none]
+G c Z s b [is_threaded gnatcoll__email__mailboxes 183 13 none]
+G c Z s b [sort_by_date gnatcoll__email__mailboxes 186 14 none]
+G c Z s b [first gnatcoll__email__mailboxes 193 24 none]
+G c Z s b [first gnatcoll__email__mailboxes 194 13 none]
+G c Z s b [first_in_thread gnatcoll__email__mailboxes 207 13 none]
+G c Z s b [next gnatcoll__email__mailboxes 222 25 none]
+G c Z s b [get_message gnatcoll__email__mailboxes 227 25 none]
+G c Z s b [get_thread_level gnatcoll__email__mailboxes 231 13 none]
+G c Z s b [has_element gnatcoll__email__mailboxes 237 24 none]
+G c Z s s [cursorDA gnatcoll__email__mailboxes 246 9 none]
+G c Z s s [cursorDF gnatcoll__email__mailboxes 246 9 none]
+G c Z s s [cursorIP gnatcoll__email__mailboxes 246 9 none]
+G c Z s b [finalize gnatcoll__email__mailboxes 258 25 none]
+G c Z s s [mailboxDF gnatcoll__email__mailboxes 242 9 none]
+G c Z s s [mailboxIP gnatcoll__email__mailboxes 242 9 none]
+G c Z s b [finalize gnatcoll__email__mailboxes 267 25 none]
+G c Z s s [abstract_message_infoDA gnatcoll__email__mailboxes 270 9 none]
+G c Z s s [abstract_message_infoDF gnatcoll__email__mailboxes 270 9 none]
+G c Z s s [abstract_message_infoDI gnatcoll__email__mailboxes 270 9 none]
+G c Z s s [abstract_message_infoIP gnatcoll__email__mailboxes 270 9 none]
+G c Z s s [empty gnatcoll__email__mailboxes__message_info_list 69 13 273_4]
+G c Z s s [has_element gnatcoll__email__mailboxes__message_info_list 74 13 273_4]
+G c Z s s [Oeq gnatcoll__email__mailboxes__message_info_list 79 13 273_4]
+G c Z s s [length gnatcoll__email__mailboxes__message_info_list 81 13 273_4]
+G c Z s s [is_empty gnatcoll__email__mailboxes__message_info_list 83 13 273_4]
+G c Z s s [clear gnatcoll__email__mailboxes__message_info_list 85 14 273_4]
+G c Z s s [element gnatcoll__email__mailboxes__message_info_list 87 13 273_4]
+G c Z s s [replace_element gnatcoll__email__mailboxes__message_info_list 89 14 273_4]
+G c Z s s [query_element gnatcoll__email__mailboxes__message_info_list 94 14 273_4]
+G c Z s s [update_element gnatcoll__email__mailboxes__message_info_list 98 14 273_4]
+G c Z s s [constant_reference gnatcoll__email__mailboxes__message_info_list 113 13 273_4]
+G c Z s s [reference gnatcoll__email__mailboxes__message_info_list 118 13 273_4]
+G c Z s s [assign gnatcoll__email__mailboxes__message_info_list 123 14 273_4]
+G c Z s s [copy gnatcoll__email__mailboxes__message_info_list 125 13 273_4]
+G c Z s s [move gnatcoll__email__mailboxes__message_info_list 127 14 273_4]
+G c Z s s [insert gnatcoll__email__mailboxes__message_info_list 131 14 273_4]
+G c Z s s [insert gnatcoll__email__mailboxes__message_info_list 137 14 273_4]
+G c Z s s [prepend gnatcoll__email__mailboxes__message_info_list 144 14 273_4]
+G c Z s s [append gnatcoll__email__mailboxes__message_info_list 149 14 273_4]
+G c Z s s [append gnatcoll__email__mailboxes__message_info_list 154 14 273_4]
+G c Z s s [delete gnatcoll__email__mailboxes__message_info_list 158 14 273_4]
+G c Z s s [delete_first gnatcoll__email__mailboxes__message_info_list 163 14 273_4]
+G c Z s s [delete_last gnatcoll__email__mailboxes__message_info_list 167 14 273_4]
+G c Z s s [reverse_elements gnatcoll__email__mailboxes__message_info_list 171 14 273_4]
+G c Z s s [swap gnatcoll__email__mailboxes__message_info_list 173 14 273_4]
+G c Z s s [swap_links gnatcoll__email__mailboxes__message_info_list 175 14 273_4]
+G c Z s s [splice gnatcoll__email__mailboxes__message_info_list 177 14 273_4]
+G c Z s s [splice gnatcoll__email__mailboxes__message_info_list 182 14 273_4]
+G c Z s s [splice gnatcoll__email__mailboxes__message_info_list 188 14 273_4]
+G c Z s s [first gnatcoll__email__mailboxes__message_info_list 193 13 273_4]
+G c Z s s [first_element gnatcoll__email__mailboxes__message_info_list 195 13 273_4]
+G c Z s s [last gnatcoll__email__mailboxes__message_info_list 197 13 273_4]
+G c Z s s [last_element gnatcoll__email__mailboxes__message_info_list 199 13 273_4]
+G c Z s s [next gnatcoll__email__mailboxes__message_info_list 201 13 273_4]
+G c Z s s [next gnatcoll__email__mailboxes__message_info_list 203 14 273_4]
+G c Z s s [previous gnatcoll__email__mailboxes__message_info_list 205 13 273_4]
+G c Z s s [previous gnatcoll__email__mailboxes__message_info_list 207 14 273_4]
+G c Z s s [find gnatcoll__email__mailboxes__message_info_list 209 13 273_4]
+G c Z s s [reverse_find gnatcoll__email__mailboxes__message_info_list 214 13 273_4]
+G c Z s s [contains gnatcoll__email__mailboxes__message_info_list 219 13 273_4]
+G c Z s s [iterate gnatcoll__email__mailboxes__message_info_list 223 14 273_4]
+G c Z s s [reverse_iterate gnatcoll__email__mailboxes__message_info_list 227 14 273_4]
+G c Z s s [iterate gnatcoll__email__mailboxes__message_info_list 231 13 273_4]
+G c Z s s [iterate gnatcoll__email__mailboxes__message_info_list 235 13 273_4]
+G c Z s s [adjust gnatcoll__email__mailboxes__message_info_list__implementation 90 28 258_4_273_4]
+G c Z s s [finalize gnatcoll__email__mailboxes__message_info_list__implementation 93 28 258_4_273_4]
+G c Z s s [zero_counts gnatcoll__email__mailboxes__message_info_list__implementation 96 17 258_4_273_4]
+G c Z s s [busy gnatcoll__email__mailboxes__message_info_list__implementation 100 17 258_4_273_4]
+G c Z s s [unbusy gnatcoll__email__mailboxes__message_info_list__implementation 104 17 258_4_273_4]
+G c Z s s [lock gnatcoll__email__mailboxes__message_info_list__implementation 108 17 258_4_273_4]
+G c Z s s [unlock gnatcoll__email__mailboxes__message_info_list__implementation 112 17 258_4_273_4]
+G c Z s s [tc_check gnatcoll__email__mailboxes__message_info_list__implementation 116 17 258_4_273_4]
+G c Z s s [te_check gnatcoll__email__mailboxes__message_info_list__implementation 120 17 258_4_273_4]
+G c Z s s [initialize gnatcoll__email__mailboxes__message_info_list__implementation 139 28 258_4_273_4]
+G c Z s s [finalize gnatcoll__email__mailboxes__message_info_list__implementation 140 28 258_4_273_4]
+G c Z s s [initialize gnatcoll__email__mailboxes__message_info_list__implementation 145 28 258_4_273_4]
+G c Z s s [finalize gnatcoll__email__mailboxes__message_info_list__implementation 146 28 258_4_273_4]
+G c Z s s [reference_control_typeDA gnatcoll__email__mailboxes__message_info_list__implementation 84 12 258_4_273_4]
+G c Z s s [reference_control_typeDF gnatcoll__email__mailboxes__message_info_list__implementation 84 12 258_4_273_4]
+G c Z s s [reference_control_typeIP gnatcoll__email__mailboxes__message_info_list__implementation 84 12 258_4_273_4]
+G c Z s s [with_busyDF gnatcoll__email__mailboxes__message_info_list__implementation 136 12 258_4_273_4]
+G c Z s s [with_busyIP gnatcoll__email__mailboxes__message_info_list__implementation 136 12 258_4_273_4]
+G c Z s s [with_lockDF gnatcoll__email__mailboxes__message_info_list__implementation 142 12 258_4_273_4]
+G c Z s s [with_lockIP gnatcoll__email__mailboxes__message_info_list__implementation 142 12 258_4_273_4]
+G c Z s s [put_image gnatcoll__email__mailboxes__message_info_list 284 14 273_4]
+G c Z s s [adjust gnatcoll__email__mailboxes__message_info_list 287 25 273_4]
+G c Z s s [read gnatcoll__email__mailboxes__message_info_list 291 14 273_4]
+G c Z s s [write gnatcoll__email__mailboxes__message_info_list 297 14 273_4]
+G c Z s s [read gnatcoll__email__mailboxes__message_info_list 312 14 273_4]
+G c Z s s [write gnatcoll__email__mailboxes__message_info_list 318 14 273_4]
+G c Z s s [write gnatcoll__email__mailboxes__message_info_list 337 14 273_4]
+G c Z s s [read gnatcoll__email__mailboxes__message_info_list 343 14 273_4]
+G c Z s s [write gnatcoll__email__mailboxes__message_info_list 359 14 273_4]
+G c Z s s [read gnatcoll__email__mailboxes__message_info_list 365 14 273_4]
+G c Z s s [pseudo_reference gnatcoll__email__mailboxes__message_info_list 376 13 273_4]
+G c Z s s [get_element_access gnatcoll__email__mailboxes__message_info_list 383 13 273_4]
+G c Z s s [listDA gnatcoll__email__mailboxes__message_info_list 276 9 273_4]
+G c Z s s [listDF gnatcoll__email__mailboxes__message_info_list 276 9 273_4]
+G c Z s s [listIP gnatcoll__email__mailboxes__message_info_list 276 9 273_4]
+G c Z s s [cursorIP gnatcoll__email__mailboxes__message_info_list 306 9 273_4]
+G c Z s s [constant_reference_typeDI gnatcoll__email__mailboxes__message_info_list 327 9 273_4]
+G c Z s s [constant_reference_typeDA gnatcoll__email__mailboxes__message_info_list 327 9 273_4]
+G c Z s s [constant_reference_typeDF gnatcoll__email__mailboxes__message_info_list 327 9 273_4]
+G c Z s s [constant_reference_typeIP gnatcoll__email__mailboxes__message_info_list 327 9 273_4]
+G c Z s s [reference_typeDI gnatcoll__email__mailboxes__message_info_list 349 9 273_4]
+G c Z s s [reference_typeDA gnatcoll__email__mailboxes__message_info_list 349 9 273_4]
+G c Z s s [reference_typeDF gnatcoll__email__mailboxes__message_info_list 349 9 273_4]
+G c Z s s [reference_typeIP gnatcoll__email__mailboxes__message_info_list 349 9 273_4]
+G c Z s s [finalize gnatcoll__email__mailboxes__message_info_list 400 25 273_4]
+G c Z s s [first gnatcoll__email__mailboxes__message_info_list 402 24 273_4]
+G c Z s s [last gnatcoll__email__mailboxes__message_info_list 403 24 273_4]
+G c Z s s [next gnatcoll__email__mailboxes__message_info_list 405 24 273_4]
+G c Z s s [previous gnatcoll__email__mailboxes__message_info_list 409 24 273_4]
+G c Z s s [node_typeIP gnatcoll__email__mailboxes__message_info_list 266 9 273_4]
+G c Z s s [iteratorDF gnatcoll__email__mailboxes__message_info_list 392 9 273_4]
+G c Z s s [iteratorIP gnatcoll__email__mailboxes__message_info_list 392 9 273_4]
+G c Z s s [free gnatcoll__email__mailboxes__message_info_list 43 14 273_4]
+G c Z s s [free gnatcoll__email__mailboxes__message_info_list 50 14 273_4]
+G c Z s s [insert_internal gnatcoll__email__mailboxes__message_info_list 52 14 273_4]
+G c Z s s [splice_internal gnatcoll__email__mailboxes__message_info_list 57 14 273_4]
+G c Z s s [splice_internal gnatcoll__email__mailboxes__message_info_list 62 14 273_4]
+G c Z s s [vet gnatcoll__email__mailboxes__message_info_list 68 13 273_4]
+G c Z s s [empty gnatcoll__email__mailboxes__cursor_list 70 13 288_4]
+G c Z s s [has_element gnatcoll__email__mailboxes__cursor_list 75 13 288_4]
+G c Z s s [Oeq gnatcoll__email__mailboxes__cursor_list 80 13 288_4]
+G c Z s s [length gnatcoll__email__mailboxes__cursor_list 82 13 288_4]
+G c Z s s [is_empty gnatcoll__email__mailboxes__cursor_list 84 13 288_4]
+G c Z s s [clear gnatcoll__email__mailboxes__cursor_list 86 14 288_4]
+G c Z s s [element gnatcoll__email__mailboxes__cursor_list 88 13 288_4]
+G c Z s s [replace_element gnatcoll__email__mailboxes__cursor_list 90 14 288_4]
+G c Z s s [query_element gnatcoll__email__mailboxes__cursor_list 95 14 288_4]
+G c Z s s [update_element gnatcoll__email__mailboxes__cursor_list 99 14 288_4]
+G c Z s s [constant_reference gnatcoll__email__mailboxes__cursor_list 114 13 288_4]
+G c Z s s [reference gnatcoll__email__mailboxes__cursor_list 119 13 288_4]
+G c Z s s [assign gnatcoll__email__mailboxes__cursor_list 124 14 288_4]
+G c Z s s [copy gnatcoll__email__mailboxes__cursor_list 126 13 288_4]
+G c Z s s [move gnatcoll__email__mailboxes__cursor_list 128 14 288_4]
+G c Z s s [insert gnatcoll__email__mailboxes__cursor_list 132 14 288_4]
+G c Z s s [insert gnatcoll__email__mailboxes__cursor_list 138 14 288_4]
+G c Z s s [insert gnatcoll__email__mailboxes__cursor_list 145 14 288_4]
+G c Z s s [prepend gnatcoll__email__mailboxes__cursor_list 151 14 288_4]
+G c Z s s [append gnatcoll__email__mailboxes__cursor_list 156 14 288_4]
+G c Z s s [append gnatcoll__email__mailboxes__cursor_list 161 14 288_4]
+G c Z s s [delete gnatcoll__email__mailboxes__cursor_list 165 14 288_4]
+G c Z s s [delete_first gnatcoll__email__mailboxes__cursor_list 170 14 288_4]
+G c Z s s [delete_last gnatcoll__email__mailboxes__cursor_list 174 14 288_4]
+G c Z s s [reverse_elements gnatcoll__email__mailboxes__cursor_list 178 14 288_4]
+G c Z s s [iterate gnatcoll__email__mailboxes__cursor_list 180 13 288_4]
+G c Z s s [iterate gnatcoll__email__mailboxes__cursor_list 183 13 288_4]
+G c Z s s [swap gnatcoll__email__mailboxes__cursor_list 186 14 288_4]
+G c Z s s [swap_links gnatcoll__email__mailboxes__cursor_list 190 14 288_4]
+G c Z s s [splice gnatcoll__email__mailboxes__cursor_list 194 14 288_4]
+G c Z s s [splice gnatcoll__email__mailboxes__cursor_list 199 14 288_4]
+G c Z s s [splice gnatcoll__email__mailboxes__cursor_list 205 14 288_4]
+G c Z s s [first gnatcoll__email__mailboxes__cursor_list 210 13 288_4]
+G c Z s s [first_element gnatcoll__email__mailboxes__cursor_list 212 13 288_4]
+G c Z s s [last gnatcoll__email__mailboxes__cursor_list 214 13 288_4]
+G c Z s s [last_element gnatcoll__email__mailboxes__cursor_list 216 13 288_4]
+G c Z s s [next gnatcoll__email__mailboxes__cursor_list 218 13 288_4]
+G c Z s s [next gnatcoll__email__mailboxes__cursor_list 220 14 288_4]
+G c Z s s [previous gnatcoll__email__mailboxes__cursor_list 222 13 288_4]
+G c Z s s [previous gnatcoll__email__mailboxes__cursor_list 224 14 288_4]
+G c Z s s [find gnatcoll__email__mailboxes__cursor_list 226 13 288_4]
+G c Z s s [reverse_find gnatcoll__email__mailboxes__cursor_list 231 13 288_4]
+G c Z s s [contains gnatcoll__email__mailboxes__cursor_list 236 13 288_4]
+G c Z s s [iterate gnatcoll__email__mailboxes__cursor_list 240 14 288_4]
+G c Z s s [reverse_iterate gnatcoll__email__mailboxes__cursor_list 244 14 288_4]
+G c Z s s [adjust gnatcoll__email__mailboxes__cursor_list__implementation 90 28 266_4_288_4]
+G c Z s s [finalize gnatcoll__email__mailboxes__cursor_list__implementation 93 28 266_4_288_4]
+G c Z s s [zero_counts gnatcoll__email__mailboxes__cursor_list__implementation 96 17 266_4_288_4]
+G c Z s s [busy gnatcoll__email__mailboxes__cursor_list__implementation 100 17 266_4_288_4]
+G c Z s s [unbusy gnatcoll__email__mailboxes__cursor_list__implementation 104 17 266_4_288_4]
+G c Z s s [lock gnatcoll__email__mailboxes__cursor_list__implementation 108 17 266_4_288_4]
+G c Z s s [unlock gnatcoll__email__mailboxes__cursor_list__implementation 112 17 266_4_288_4]
+G c Z s s [tc_check gnatcoll__email__mailboxes__cursor_list__implementation 116 17 266_4_288_4]
+G c Z s s [te_check gnatcoll__email__mailboxes__cursor_list__implementation 120 17 266_4_288_4]
+G c Z s s [initialize gnatcoll__email__mailboxes__cursor_list__implementation 139 28 266_4_288_4]
+G c Z s s [finalize gnatcoll__email__mailboxes__cursor_list__implementation 140 28 266_4_288_4]
+G c Z s s [initialize gnatcoll__email__mailboxes__cursor_list__implementation 145 28 266_4_288_4]
+G c Z s s [finalize gnatcoll__email__mailboxes__cursor_list__implementation 146 28 266_4_288_4]
+G c Z s s [reference_control_typeDA gnatcoll__email__mailboxes__cursor_list__implementation 84 12 266_4_288_4]
+G c Z s s [reference_control_typeDF gnatcoll__email__mailboxes__cursor_list__implementation 84 12 266_4_288_4]
+G c Z s s [reference_control_typeIP gnatcoll__email__mailboxes__cursor_list__implementation 84 12 266_4_288_4]
+G c Z s s [with_busyDF gnatcoll__email__mailboxes__cursor_list__implementation 136 12 266_4_288_4]
+G c Z s s [with_busyIP gnatcoll__email__mailboxes__cursor_list__implementation 136 12 266_4_288_4]
+G c Z s s [with_lockDF gnatcoll__email__mailboxes__cursor_list__implementation 142 12 266_4_288_4]
+G c Z s s [with_lockIP gnatcoll__email__mailboxes__cursor_list__implementation 142 12 266_4_288_4]
+G c Z s s [put_image gnatcoll__email__mailboxes__cursor_list 290 14 288_4]
+G c Z s s [adjust gnatcoll__email__mailboxes__cursor_list 293 25 288_4]
+G c Z s s [read gnatcoll__email__mailboxes__cursor_list 297 14 288_4]
+G c Z s s [write gnatcoll__email__mailboxes__cursor_list 303 14 288_4]
+G c Z s s [read gnatcoll__email__mailboxes__cursor_list 318 14 288_4]
+G c Z s s [write gnatcoll__email__mailboxes__cursor_list 324 14 288_4]
+G c Z s s [write gnatcoll__email__mailboxes__cursor_list 343 14 288_4]
+G c Z s s [read gnatcoll__email__mailboxes__cursor_list 349 14 288_4]
+G c Z s s [write gnatcoll__email__mailboxes__cursor_list 365 14 288_4]
+G c Z s s [read gnatcoll__email__mailboxes__cursor_list 371 14 288_4]
+G c Z s s [pseudo_reference gnatcoll__email__mailboxes__cursor_list 382 13 288_4]
+G c Z s s [get_element_access gnatcoll__email__mailboxes__cursor_list 392 13 288_4]
+G c Z s s [listDA gnatcoll__email__mailboxes__cursor_list 282 9 288_4]
+G c Z s s [listDF gnatcoll__email__mailboxes__cursor_list 282 9 288_4]
+G c Z s s [listIP gnatcoll__email__mailboxes__cursor_list 282 9 288_4]
+G c Z s s [cursorIP gnatcoll__email__mailboxes__cursor_list 312 9 288_4]
+G c Z s s [constant_reference_typeDI gnatcoll__email__mailboxes__cursor_list 333 9 288_4]
+G c Z s s [constant_reference_typeDA gnatcoll__email__mailboxes__cursor_list 333 9 288_4]
+G c Z s s [constant_reference_typeDF gnatcoll__email__mailboxes__cursor_list 333 9 288_4]
+G c Z s s [constant_reference_typeIP gnatcoll__email__mailboxes__cursor_list 333 9 288_4]
+G c Z s s [reference_typeDI gnatcoll__email__mailboxes__cursor_list 355 9 288_4]
+G c Z s s [reference_typeDA gnatcoll__email__mailboxes__cursor_list 355 9 288_4]
+G c Z s s [reference_typeDF gnatcoll__email__mailboxes__cursor_list 355 9 288_4]
+G c Z s s [reference_typeIP gnatcoll__email__mailboxes__cursor_list 355 9 288_4]
+G c Z s s [finalize gnatcoll__email__mailboxes__cursor_list 409 25 288_4]
+G c Z s s [first gnatcoll__email__mailboxes__cursor_list 411 24 288_4]
+G c Z s s [last gnatcoll__email__mailboxes__cursor_list 412 24 288_4]
+G c Z s s [next gnatcoll__email__mailboxes__cursor_list 414 24 288_4]
+G c Z s s [previous gnatcoll__email__mailboxes__cursor_list 418 24 288_4]
+G c Z s s [node_typeIP gnatcoll__email__mailboxes__cursor_list 272 9 288_4]
+G c Z s s [iteratorDF gnatcoll__email__mailboxes__cursor_list 401 9 288_4]
+G c Z s s [iteratorIP gnatcoll__email__mailboxes__cursor_list 401 9 288_4]
+G c Z s s [free gnatcoll__email__mailboxes__cursor_list 47 14 288_4]
+G c Z s s [insert_internal gnatcoll__email__mailboxes__cursor_list 49 14 288_4]
+G c Z s s [splice_internal gnatcoll__email__mailboxes__cursor_list 54 14 288_4]
+G c Z s s [splice_internal gnatcoll__email__mailboxes__cursor_list 59 14 288_4]
+G c Z s s [vet gnatcoll__email__mailboxes__cursor_list 65 13 288_4]
+G c Z s s [mboxDF gnatcoll__email__mailboxes 261 9 none]
+G c Z s s [mboxIP gnatcoll__email__mailboxes 261 9 none]
+G c Z s s [mbox_cursorDA gnatcoll__email__mailboxes 250 9 none]
+G c Z s s [mbox_cursorDF gnatcoll__email__mailboxes 250 9 none]
+G c Z s s [mbox_cursorDI gnatcoll__email__mailboxes 250 9 none]
+G c Z s s [mbox_cursorIP gnatcoll__email__mailboxes 250 9 none]
+G c Z s s [stored_mailboxDF gnatcoll__email__mailboxes 282 9 none]
+G c Z s s [stored_mailboxDI gnatcoll__email__mailboxes 282 9 none]
+G c Z s s [stored_mailboxIP gnatcoll__email__mailboxes 282 9 none]
+G c Z s s [stored_mailbox_cursorDA gnatcoll__email__mailboxes 291 9 none]
+G c Z s s [stored_mailbox_cursorDF gnatcoll__email__mailboxes 291 9 none]
+G c Z s s [stored_mailbox_cursorDI gnatcoll__email__mailboxes 291 9 none]
+G c Z s s [stored_mailbox_cursorIP gnatcoll__email__mailboxes 291 9 none]
+G c Z s s [message_infoDA gnatcoll__email__mailboxes 276 9 none]
+G c Z s s [message_infoDF gnatcoll__email__mailboxes 276 9 none]
+G c Z s s [message_infoDI gnatcoll__email__mailboxes 276 9 none]
+G c Z s s [message_infoIP gnatcoll__email__mailboxes 276 9 none]
+G c Z b b [internal_search_start gnatcoll__email__mailboxes 43 14 none]
+G c Z b b [earlier_than gnatcoll__email__mailboxes 52 13 none]
+G c Z b b [empty gnatcoll__email__mailboxes__container_hash 73 13 64_4]
+G c Z b b [has_element gnatcoll__email__mailboxes__container_hash 79 13 64_4]
+G c Z b b [Oeq gnatcoll__email__mailboxes__container_hash 85 24 64_4]
+G c Z b b [capacity gnatcoll__email__mailboxes__container_hash 96 13 64_4]
+G c Z b b [reserve_capacity gnatcoll__email__mailboxes__container_hash 100 14 64_4]
+G c Z b b [length gnatcoll__email__mailboxes__container_hash 110 13 64_4]
+G c Z b b [is_empty gnatcoll__email__mailboxes__container_hash 113 13 64_4]
+G c Z b b [clear gnatcoll__email__mailboxes__container_hash 116 14 64_4]
+G c Z b b [key gnatcoll__email__mailboxes__container_hash 119 13 64_4]
+G c Z b b [element gnatcoll__email__mailboxes__container_hash 122 13 64_4]
+G c Z b b [replace_element gnatcoll__email__mailboxes__container_hash 125 14 64_4]
+G c Z b b [query_element gnatcoll__email__mailboxes__container_hash 131 14 64_4]
+G c Z b b [update_element gnatcoll__email__mailboxes__container_hash 138 14 64_4]
+G c Z b b [constant_reference gnatcoll__email__mailboxes__container_hash 155 13 64_4]
+G c Z b b [reference gnatcoll__email__mailboxes__container_hash 160 13 64_4]
+G c Z b b [constant_reference gnatcoll__email__mailboxes__container_hash 165 13 64_4]
+G c Z b b [reference gnatcoll__email__mailboxes__container_hash 170 13 64_4]
+G c Z b b [assign gnatcoll__email__mailboxes__container_hash 175 14 64_4]
+G c Z b b [copy gnatcoll__email__mailboxes__container_hash 177 13 64_4]
+G c Z b b [move gnatcoll__email__mailboxes__container_hash 179 14 64_4]
+G c Z b b [insert gnatcoll__email__mailboxes__container_hash 183 14 64_4]
+G c Z b b [insert gnatcoll__email__mailboxes__container_hash 201 14 64_4]
+G c Z b b [include gnatcoll__email__mailboxes__container_hash 212 14 64_4]
+G c Z b b [replace gnatcoll__email__mailboxes__container_hash 223 14 64_4]
+G c Z b b [exclude gnatcoll__email__mailboxes__container_hash 234 14 64_4]
+G c Z b b [delete gnatcoll__email__mailboxes__container_hash 243 14 64_4]
+G c Z b b [delete gnatcoll__email__mailboxes__container_hash 251 14 64_4]
+G c Z b b [first gnatcoll__email__mailboxes__container_hash 257 13 64_4]
+G c Z b b [next gnatcoll__email__mailboxes__container_hash 261 13 64_4]
+G c Z b b [next gnatcoll__email__mailboxes__container_hash 269 14 64_4]
+G c Z b b [find gnatcoll__email__mailboxes__container_hash 272 13 64_4]
+G c Z b b [contains gnatcoll__email__mailboxes__container_hash 278 13 64_4]
+G c Z b b [element gnatcoll__email__mailboxes__container_hash 281 13 64_4]
+G c Z b b [equivalent_keys gnatcoll__email__mailboxes__container_hash 284 13 64_4]
+G c Z b b [equivalent_keys gnatcoll__email__mailboxes__container_hash 288 13 64_4]
+G c Z b b [equivalent_keys gnatcoll__email__mailboxes__container_hash 292 13 64_4]
+G c Z b b [iterate gnatcoll__email__mailboxes__container_hash 296 14 64_4]
+G c Z b b [iterate gnatcoll__email__mailboxes__container_hash 301 13 64_4]
+G c Z b b [node_typeIP gnatcoll__email__mailboxes__container_hash 325 9 64_4]
+G c Z b b [adjust gnatcoll__email__mailboxes__container_hash__ht_types__implementation 90 28 58_7_331_4_64_4]
+G c Z b b [finalize gnatcoll__email__mailboxes__container_hash__ht_types__implementation 93 28 58_7_331_4_64_4]
+G c Z b b [zero_counts gnatcoll__email__mailboxes__container_hash__ht_types__implementation 96 17 58_7_331_4_64_4]
+G c Z b b [busy gnatcoll__email__mailboxes__container_hash__ht_types__implementation 100 17 58_7_331_4_64_4]
+G c Z b b [unbusy gnatcoll__email__mailboxes__container_hash__ht_types__implementation 104 17 58_7_331_4_64_4]
+G c Z b b [lock gnatcoll__email__mailboxes__container_hash__ht_types__implementation 108 17 58_7_331_4_64_4]
+G c Z b b [unlock gnatcoll__email__mailboxes__container_hash__ht_types__implementation 112 17 58_7_331_4_64_4]
+G c Z b b [tc_check gnatcoll__email__mailboxes__container_hash__ht_types__implementation 116 17 58_7_331_4_64_4]
+G c Z b b [te_check gnatcoll__email__mailboxes__container_hash__ht_types__implementation 120 17 58_7_331_4_64_4]
+G c Z b b [initialize gnatcoll__email__mailboxes__container_hash__ht_types__implementation 139 28 58_7_331_4_64_4]
+G c Z b b [finalize gnatcoll__email__mailboxes__container_hash__ht_types__implementation 140 28 58_7_331_4_64_4]
+G c Z b b [initialize gnatcoll__email__mailboxes__container_hash__ht_types__implementation 145 28 58_7_331_4_64_4]
+G c Z b b [finalize gnatcoll__email__mailboxes__container_hash__ht_types__implementation 146 28 58_7_331_4_64_4]
+G c Z b b [reference_control_typeDA gnatcoll__email__mailboxes__container_hash__ht_types__implementation 84 12 58_7_331_4_64_4]
+G c Z b b [reference_control_typeDF gnatcoll__email__mailboxes__container_hash__ht_types__implementation 84 12 58_7_331_4_64_4]
+G c Z b b [reference_control_typeIP gnatcoll__email__mailboxes__container_hash__ht_types__implementation 84 12 58_7_331_4_64_4]
+G c Z b b [with_busyDF gnatcoll__email__mailboxes__container_hash__ht_types__implementation 136 12 58_7_331_4_64_4]
+G c Z b b [with_busyIP gnatcoll__email__mailboxes__container_hash__ht_types__implementation 136 12 58_7_331_4_64_4]
+G c Z b b [with_lockDF gnatcoll__email__mailboxes__container_hash__ht_types__implementation 142 12 58_7_331_4_64_4]
+G c Z b b [with_lockIP gnatcoll__email__mailboxes__container_hash__ht_types__implementation 142 12 58_7_331_4_64_4]
+G c Z b b [buckets_typeIP gnatcoll__email__mailboxes__container_hash__ht_types 46 12 331_4_64_4]
+G c Z b b [hash_table_typeDA gnatcoll__email__mailboxes__container_hash__ht_types 52 12 331_4_64_4]
+G c Z b b [hash_table_typeDF gnatcoll__email__mailboxes__container_hash__ht_types 52 12 331_4_64_4]
+G c Z b b [hash_table_typeIP gnatcoll__email__mailboxes__container_hash__ht_types 52 12 331_4_64_4]
+G c Z b b [put_image gnatcoll__email__mailboxes__container_hash 338 14 64_4]
+G c Z b b [adjust gnatcoll__email__mailboxes__container_hash 341 25 64_4]
+G c Z b b [finalize gnatcoll__email__mailboxes__container_hash 343 25 64_4]
+G c Z b b [write gnatcoll__email__mailboxes__container_hash 349 14 64_4]
+G c Z b b [read gnatcoll__email__mailboxes__container_hash 355 14 64_4]
+G c Z b b [write gnatcoll__email__mailboxes__container_hash 384 14 64_4]
+G c Z b b [read gnatcoll__email__mailboxes__container_hash 390 14 64_4]
+G c Z b b [write gnatcoll__email__mailboxes__container_hash 409 14 64_4]
+G c Z b b [read gnatcoll__email__mailboxes__container_hash 415 14 64_4]
+G c Z b b [write gnatcoll__email__mailboxes__container_hash 431 14 64_4]
+G c Z b b [read gnatcoll__email__mailboxes__container_hash 437 14 64_4]
+G c Z b b [pseudo_reference gnatcoll__email__mailboxes__container_hash 448 13 64_4]
+G c Z b b [get_element_access gnatcoll__email__mailboxes__container_hash 455 13 64_4]
+G c Z b b [mapDA gnatcoll__email__mailboxes__container_hash 334 9 64_4]
+G c Z b b [mapDF gnatcoll__email__mailboxes__container_hash 334 9 64_4]
+G c Z b b [mapIP gnatcoll__email__mailboxes__container_hash 334 9 64_4]
+G c Z b b [cursorIP gnatcoll__email__mailboxes__container_hash 364 9 64_4]
+G c Z b b [constant_reference_typeDI gnatcoll__email__mailboxes__container_hash 399 9 64_4]
+G c Z b b [constant_reference_typeDA gnatcoll__email__mailboxes__container_hash 399 9 64_4]
+G c Z b b [constant_reference_typeDF gnatcoll__email__mailboxes__container_hash 399 9 64_4]
+G c Z b b [constant_reference_typeIP gnatcoll__email__mailboxes__container_hash 399 9 64_4]
+G c Z b b [reference_typeDI gnatcoll__email__mailboxes__container_hash 421 9 64_4]
+G c Z b b [reference_typeDA gnatcoll__email__mailboxes__container_hash 421 9 64_4]
+G c Z b b [reference_typeDF gnatcoll__email__mailboxes__container_hash 421 9 64_4]
+G c Z b b [reference_typeIP gnatcoll__email__mailboxes__container_hash 421 9 64_4]
+G c Z b b [finalize gnatcoll__email__mailboxes__container_hash 471 25 64_4]
+G c Z b b [first gnatcoll__email__mailboxes__container_hash 473 24 64_4]
+G c Z b b [next gnatcoll__email__mailboxes__container_hash 475 24 64_4]
+G c Z b b [iteratorDF gnatcoll__email__mailboxes__container_hash 464 9 64_4]
+G c Z b b [iteratorIP gnatcoll__email__mailboxes__container_hash 464 9 64_4]
+G c Z b b [free_key gnatcoll__email__mailboxes__container_hash 51 14 64_4]
+G c Z b b [free_element gnatcoll__email__mailboxes__container_hash 54 14 64_4]
+G c Z b b [copy_node gnatcoll__email__mailboxes__container_hash 61 13 64_4]
+G c Z b b [equivalent_key_node gnatcoll__email__mailboxes__container_hash 64 13 64_4]
+G c Z b b [find_equal_key gnatcoll__email__mailboxes__container_hash 69 13 64_4]
+G c Z b b [free gnatcoll__email__mailboxes__container_hash 73 14 64_4]
+G c Z b b [hash_node gnatcoll__email__mailboxes__container_hash 76 13 64_4]
+G c Z b b [next gnatcoll__email__mailboxes__container_hash 79 13 64_4]
+G c Z b b [read_node gnatcoll__email__mailboxes__container_hash 82 13 64_4]
+G c Z b b [set_next gnatcoll__email__mailboxes__container_hash 85 14 64_4]
+G c Z b b [vet gnatcoll__email__mailboxes__container_hash 88 13 64_4]
+G c Z b b [write_node gnatcoll__email__mailboxes__container_hash 90 14 64_4]
+G c Z b b [free_hash_table gnatcoll__email__mailboxes__container_hash__ht_ops 57 14 98_4_64_4]
+G c Z b b [index gnatcoll__email__mailboxes__container_hash__ht_ops 61 13 98_4_64_4]
+G c Z b b [index gnatcoll__email__mailboxes__container_hash__ht_ops 67 13 98_4_64_4]
+G c Z b b [checked_index gnatcoll__email__mailboxes__container_hash__ht_ops 74 13 98_4_64_4]
+G c Z b b [checked_index gnatcoll__email__mailboxes__container_hash__ht_ops 81 13 98_4_64_4]
+G c Z b b [adjust gnatcoll__email__mailboxes__container_hash__ht_ops 86 14 98_4_64_4]
+G c Z b b [finalize gnatcoll__email__mailboxes__container_hash__ht_ops 92 14 98_4_64_4]
+G c Z b b [clear gnatcoll__email__mailboxes__container_hash__ht_ops 108 14 98_4_64_4]
+G c Z b b [move gnatcoll__email__mailboxes__container_hash__ht_ops 114 14 98_4_64_4]
+G c Z b b [capacity gnatcoll__email__mailboxes__container_hash__ht_ops 120 13 98_4_64_4]
+G c Z b b [reserve_capacity gnatcoll__email__mailboxes__container_hash__ht_ops 123 14 98_4_64_4]
+G c Z b b [delete_node_at_index gnatcoll__email__mailboxes__container_hash__ht_ops 132 14 98_4_64_4]
+G c Z b b [delete_node_sans_free gnatcoll__email__mailboxes__container_hash__ht_ops 141 14 98_4_64_4]
+G c Z b b [first gnatcoll__email__mailboxes__container_hash__ht_ops 146 13 98_4_64_4]
+G c Z b b [first gnatcoll__email__mailboxes__container_hash__ht_ops 148 13 98_4_64_4]
+G c Z b b [next gnatcoll__email__mailboxes__container_hash__ht_ops 155 13 98_4_64_4]
+G c Z b b [next gnatcoll__email__mailboxes__container_hash__ht_ops 158 13 98_4_64_4]
+G c Z b b [new_buckets gnatcoll__email__mailboxes__container_hash__ht_ops 205 13 98_4_64_4]
+G c Z b b [free_buckets gnatcoll__email__mailboxes__container_hash__ht_ops 209 14 98_4_64_4]
+G c Z b b [index gnatcoll__email__mailboxes__container_hash__key_ops 56 13 106_4_64_4]
+G c Z b b [checked_index gnatcoll__email__mailboxes__container_hash__key_ops 62 13 106_4_64_4]
+G c Z b b [checked_equivalent_keys gnatcoll__email__mailboxes__container_hash__key_ops 69 13 106_4_64_4]
+G c Z b b [delete_key_sans_free gnatcoll__email__mailboxes__container_hash__key_ops 76 14 106_4_64_4]
+G c Z b b [find gnatcoll__email__mailboxes__container_hash__key_ops 84 13 106_4_64_4]
+G c Z b b [is_equalR gnatcoll__email__mailboxes__container_hash__is_equalGP4718 118 13 64_4]
+G c Z b b [is_equal gnatcoll__email__mailboxes__container_hash 118 13 64_4]
+G c Z b b [read_nodesR gnatcoll__email__mailboxes__container_hash__read_nodesGP27064 1005 14 64_4]
+G c Z b b [read_nodes gnatcoll__email__mailboxes__container_hash 1005 14 64_4]
+G c Z b b [write_nodesR gnatcoll__email__mailboxes__container_hash__write_nodesGP36107 1365 14 64_4]
+G c Z b b [write_nodes gnatcoll__email__mailboxes__container_hash 1365 14 64_4]
+G c Z b b [containerDI gnatcoll__email__mailboxes 58 9 none]
+G c Z b b [containerDA gnatcoll__email__mailboxes 58 9 none]
+G c Z b b [containerDF gnatcoll__email__mailboxes 58 9 none]
+G c Z b b [containerIP gnatcoll__email__mailboxes 58 9 none]
+G c Z b b [unchecked_free gnatcoll__email__mailboxes 71 14 none]
+G c Z b b [is_sorted gnatcoll__email__mailboxes__pkg_sort_by_date 244 16 87_4]
+G c Z b b [sort gnatcoll__email__mailboxes__pkg_sort_by_date 246 17 87_4]
+G c Z b b [merge gnatcoll__email__mailboxes__pkg_sort_by_date 248 17 87_4]
+G r c none [b gnatcoll__email__mailboxes 36 1 none] [compile gnatcoll__boyer_moore 40 14 none]
+G r s pattern [b gnatcoll__email__mailboxes 36 1 none] [patternIP gnatcoll__boyer_moore 68 9 none]
+G r d message [first gnatcoll__email__mailboxes 107 24 none] [adjust gnatcoll__email 646 14 none]
+G r e message [first gnatcoll__email__mailboxes 107 24 none] [finalize gnatcoll__email 647 14 none]
+G r c none [open gnatcoll__email__mailboxes 127 14 none] [read_file gnatcoll__vfs 448 13 none]
+G r c none [open gnatcoll__email__mailboxes 127 14 none] [display_full_name gnatcoll__vfs 261 13 none]
+G r c none [next gnatcoll__email__mailboxes 135 25 none] [to_str_access gnatcoll__mmap__short 286 16 323_4]
+G r c none [next gnatcoll__email__mailboxes 135 25 none] [search gnatcoll__boyer_moore 53 13 none]
+G r c none [get_message gnatcoll__email__mailboxes 138 25 none] [to_str_access gnatcoll__mmap__short 286 16 323_4]
+G r s message [store gnatcoll__email__mailboxes 156 14 none] [messageIP gnatcoll__email 639 9 none]
+G r d message [store gnatcoll__email__mailboxes 156 14 none] [adjust gnatcoll__email 646 14 none]
+G r e message [store gnatcoll__email__mailboxes 156 14 none] [finalize gnatcoll__email 647 14 none]
+G r s message [store gnatcoll__email__mailboxes 160 14 none] [messageIP gnatcoll__email 639 9 none]
+G r d message [store gnatcoll__email__mailboxes 160 14 none] [adjust gnatcoll__email 646 14 none]
+G r e message [store gnatcoll__email__mailboxes 160 14 none] [finalize gnatcoll__email 647 14 none]
+G r d message [append gnatcoll__email__mailboxes 170 14 none] [adjust gnatcoll__email 646 14 none]
+G r e message [append gnatcoll__email__mailboxes 170 14 none] [finalize gnatcoll__email 647 14 none]
+G r s message [thread_messages gnatcoll__email__mailboxes 175 14 none] [messageIP gnatcoll__email 639 9 none]
+G r e message [thread_messages gnatcoll__email__mailboxes 175 14 none] [finalize gnatcoll__email 647 14 none]
+G r c none [thread_messages gnatcoll__email__mailboxes 175 14 none] [get_message_id gnatcoll__email 361 13 none]
+G r c none [thread_messages gnatcoll__email__mailboxes 175 14 none] [get_header gnatcoll__email 342 13 none]
+G r c none [thread_messages gnatcoll__email__mailboxes 175 14 none] [get_value gnatcoll__email 176 13 none]
+G r c none [thread_messages gnatcoll__email__mailboxes 175 14 none] [flatten gnatcoll__email__utils 264 14 none]
+G r c none [thread_messages gnatcoll__email__mailboxes 175 14 none] [next_occurrence gnatcoll__email 682 13 none]
+G r e header [thread_messages gnatcoll__email__mailboxes 175 14 none] [finalize gnatcoll__email 626 14 none]
+G r s message [remove_threads gnatcoll__email__mailboxes 179 14 none] [messageIP gnatcoll__email 639 9 none]
+G r e message [remove_threads gnatcoll__email__mailboxes 179 14 none] [finalize gnatcoll__email 647 14 none]
+G r d message [remove_threads gnatcoll__email__mailboxes 179 14 none] [adjust gnatcoll__email 646 14 none]
+G r e message [sort_by_date gnatcoll__email__mailboxes 186 14 none] [finalize gnatcoll__email 647 14 none]
+G r s message [next gnatcoll__email__mailboxes 222 25 none] [messageIP gnatcoll__email 639 9 none]
+G r e message [next gnatcoll__email__mailboxes 222 25 none] [finalize gnatcoll__email 647 14 none]
+G r e message [get_message gnatcoll__email__mailboxes 227 25 none] [finalize gnatcoll__email 647 14 none]
+G r d message [abstract_message_infoDA gnatcoll__email__mailboxes 270 9 none] [adjust gnatcoll__email 646 14 none]
+G r e message [abstract_message_infoDF gnatcoll__email__mailboxes 270 9 none] [finalize gnatcoll__email 647 14 none]
+G r s message [abstract_message_infoIP gnatcoll__email__mailboxes 270 9 none] [messageIP gnatcoll__email 639 9 none]
+G r d message [mbox_cursorDA gnatcoll__email__mailboxes 250 9 none] [adjust gnatcoll__email 646 14 none]
+G r e message [mbox_cursorDF gnatcoll__email__mailboxes 250 9 none] [finalize gnatcoll__email 647 14 none]
+G r s message [mbox_cursorIP gnatcoll__email__mailboxes 250 9 none] [messageIP gnatcoll__email 639 9 none]
+G r e message [mbox_cursorIP gnatcoll__email__mailboxes 250 9 none] [finalize gnatcoll__email 647 14 none]
+G r d message [message_infoDA gnatcoll__email__mailboxes 276 9 none] [adjust gnatcoll__email 646 14 none]
+G r e message [message_infoDF gnatcoll__email__mailboxes 276 9 none] [finalize gnatcoll__email 647 14 none]
+G r s message [message_infoIP gnatcoll__email__mailboxes 276 9 none] [messageIP gnatcoll__email 639 9 none]
+G r e message [message_infoIP gnatcoll__email__mailboxes 276 9 none] [finalize gnatcoll__email 647 14 none]
+G r c none [internal_search_start gnatcoll__email__mailboxes 43 14 none] [search gnatcoll__boyer_moore 53 13 none]
+G r c none [earlier_than gnatcoll__email__mailboxes 52 13 none] [get_date gnatcoll__email 367 13 none]
+G r d message [containerDA gnatcoll__email__mailboxes 58 9 none] [adjust gnatcoll__email 646 14 none]
+G r e message [containerDF gnatcoll__email__mailboxes 58 9 none] [finalize gnatcoll__email 647 14 none]
+G r s message [containerIP gnatcoll__email__mailboxes 58 9 none] [messageIP gnatcoll__email 639 9 none]
+G r e message [containerIP gnatcoll__email__mailboxes 58 9 none] [finalize gnatcoll__email 647 14 none]
+X 1 ada.ads
+16K9*Ada 20e8 47|26r6 27r6 28r6 242r33 274r6 288r31 48|24r6 24r33 25r6 26r6
+. 27r6 28r6 64r34 67r26 71r36 135r16
+X 2 a-calend.ads
+36K13*Calendar 413e17 48|24w10 24r37
+42I9*Time<226I9> 48|81r24 82r24
+120V14*"<"{boolean} 48|84s20
+226I9 Time_Rep<long_long_integer>
+X 5 a-chahan.ads
+67V13*To_Lower{character} 60|283i21
+68V13*To_Upper{character} 60|285i21
+X 7 a-contai.ads
+16K13*Containers 28e19 47|26r10 27r10 274r10 288r35 48|25r10 64r38
+19M9*Hash_Type
+X 8 a-cdlili.ads
+47k24*Doubly_Linked_Lists 422e39 47|27w21 288r46
+54R9*List<24|43R9> 47|292r34[288]
+65R9*Cursor
+68r4*Empty_List{54R9[47|288]} 48|423r38[47|288] 439r35[47|288] 547r44[47|288]
+84V13*Is_Empty{boolean} 48|429s22[47|288] 452s18[47|288] 467s10[47|288] 481s10[47|288]
+. 509s14[47|288] 539s29[47|288]
+88V13*Element{18|64R9[47|273]} 48|430s31[47|288] 435s13[47|288] 470s19[47|288]
+. 510s19[47|288] 535s39[47|288] 546s36[47|288]
+99U14*Update_Element 48|530s13[47|288] 541s19[47|288]
+161U14*Append 48|402s10[47|288] 421s13[47|288] 519s19[47|288]
+174U14*Delete_Last 48|538s19[47|288]
+214V13*Last{65R9[47|288]} 48|430s40[47|288] 435s22[47|288] 470s28[47|288]
+. 510s28[47|288] 531s30[47|288] 535s48[47|288] 542s36[47|288] 546s45[47|288]
+X 16 a-conhel.ads
+84R12 Reference_Control_Type<24|43R9>
+X 18 a-cidlli.ads
+47k24*Indefinite_Doubly_Linked_Lists 413e50 47|26w21 274r21
+54R9*List<24|43R9> 47|277r36[273] 283r37[273] 48|563r39[47|273] 588r61[47|273]
+. 597r61[47|273] 654r48[47|273] 821r48[47|273]
+64R9*Cursor 47|289r25[273] 48|465r33[47|273] 499r33[47|273] 501r60[47|273]
+. 503r60[47|273] 598r32[47|273] 866r39[47|273]
+67r4*Empty_List{54R9[47|273]} 48|376r66[47|273] 572r66[47|273]
+74V13*Has_Element{boolean} 48|420s13[47|273] 430s18[47|273] 535s26[47|273]
+. 546s23[47|273] 602s16[47|273] 881s16[47|273]
+79V14*"="{boolean} 47|289r52[273]
+83V13*Is_Empty{boolean} 48|401s14[47|273] 514s39[47|273] 603s20[47|273]
+85U14*Clear 48|944s10[47|273]
+87V13*Element{47|270C9} 48|471s31[47|273] 511s33[47|273] 603s44[47|273] 882s20[47|273]
+. 906s29[47|273]
+94U14*Query_Element 48|434s10[47|273] 523s16[47|273]
+98U14*Update_Element 48|604s16[47|273] 859s16[47|273]
+127U14*Move 48|576s13[47|273]
+128r7 Target{54R9[47|273]} 48|576r19[47|273]
+129r7 Source{54R9[47|273]} 48|576r46[47|273]
+154U14*Append 48|374s7[47|273] 569s19[47|273] 846s13[47|273]
+193V13*First{64R9[47|273]} 48|402s29[47|273] 420s26[47|273] 421s32[47|273]
+. 519s41[47|273] 601s15[47|273] 880s15[47|273]
+197V13*Last{64R9[47|273]} 48|860s27[47|273]
+203U14*Next 48|505s10[47|273] 607s13[47|273] 927s13[47|273]
+241V22 "<"{boolean} 48|88r8[47|273]
+242k12*Generic_Sorting 48|87r54[47|273]
+246U17 Sort 48|600s27[87] 615s30[87]
+X 20 a-cihama.ads
+42+9 Key_Type 48|65r7
+43+9 Element_Type 48|66r7
+45V18 Hash{7|19M9} 48|67r7
+46V18 Equivalent_Keys{boolean} 48|68r7
+49k24*Indefinite_Hashed_Maps 479e42 48|25w21 64r49
+56R9*Map<24|43R9> 48|627r28[64]
+66R9*Cursor 48|766r33[64] 870r36[64]
+79V13*Has_Element{boolean} 48|770s13[64] 947s16[64] 960s16[64]
+122V13*Element{48|57P9} 48|771s21[64] 948s16[64] 951s33[64] 961s25[64]
+201U14*Insert 48|774s13[64]
+257V13*First{66R9[48|64]} 48|946s18[64] 959s18[64]
+269U14*Next 48|955s13[64] 963s13[64]
+272V13*Find{66R9[48|64]} 48|769s18[64]
+X 24 a-finali.ads
+40K13*Finalization 68e21 47|28w10 242r37
+50H9*Limited_Controlled<73|40R9> 66e55 47|242r50
+53U14*Initialize<73|44p14>
+X 25 a-ioexce.ads
+18K13*IO_Exceptions 30e22 48|26w10 135r20
+23X4*Name_Error 48|135r34
+X 28 a-string.ads
+16K13*Strings 35e16 48|27r10 67r30
+X 29 a-strhas.ads
+20V22*Hash{7|19M9} 48|27w18 67r38
+X 33 a-strunb.ads
+88R9*Unbounded_String<24|43R9> 744e15 48|794r18
+117V13*To_String{string} 48|802s42
+X 36 a-tags.ads
+652V13 CW_Membership{boolean} 48|191s13 192s58 227s10 228s55 229s19 242s20
+. 270s14 420s33 421s39 471s17 511s19 519s48 594s22 603s30 856s22
+X 38 a-uncdea.ads
+20u15*Unchecked_Deallocation 48|28w10 71r40
+X 39 gnat.ads
+34K9*GNAT 57e9 47|30r6 110r52 113r40 262r29 48|34r6 34r33 94r40 96r7 120r24
+X 41 g-string.ads
+38K14*Strings=38:37 47|30w11 110r57 113r45 262r34 48|34w11 34r38 94r45 96r12
+. 120r29
+X 42 gnatcoll.ads
+24K9*GNATCOLL 27e13 47|29r6 31r6 33r9 129r18 299r5 48|29r6 29r33 30r6 30r33
+. 31r6 31r33 32r6 32r33 33r6 33r33 36r14 39r19 192r23 228r20 990r5
+X 45 gnatcoll-boyer_moore.ads
+32K18*Boyer_Moore 74e25 48|29w15 29r42 39r28
+34R9*Pattern 73e14 48|39r40
+40U14*Compile 48|989s4
+53V13*Search{integer} 48|300s15
+X 46 gnatcoll-email.ads
+34K18*Email 42|24k9 46|708e19 47|29r15 33r18 76r37 159r36 163r36 247r36 299r14
+. 48|30r15 30r42 31r15 31r42 36r23 105r37 338r36 351r36 990r14
+84V14*"="{boolean} 15|50i19
+91R9*Header<24|43R9> 623e14 48|638r24 792r24
+92r4*Null_Header{91R9} 48|798r18
+176V13*Get_Value{8|54R9[51]} 48|799s22
+206R9*Message<24|43R9> 641e14 47|61r70 88r18 141r18 170r58 230r18 254r21
+. 271r18 48|59r16 174r18 354r13 372r58 462r18 564r21 867r21
+207r4*Null_Message{206R9} 48|151r24 180r26 188r17 218r23 247r32 360r20 468r17
+. 568r26 830r24 898r38
+342V13*Get_Header{91R9} 48|913s31 922s31
+361V13*Get_Message_Id{string} 48|886s40
+367V13*Get_Date{2|42I9} 48|81s32 82s32
+682V13 Next_Occurrence{integer} 48|806s28 807s27
+X 47 gnatcoll-email-mailboxes.ads
+33K24*Mailboxes 46|34k18 47|242E9 299l20 299e29 48|36b29 990l20 990t29
+41H9*Mailbox<24|50R9> 24|53P14 47|71p13 71r27 87r14 95r48 102r21 137r14 140r14
+. 148r31 158r24 162r24 224r14 229r14 242c9 244e14 258P25 258r49 259r34 261r21
+. 282r31 48|173r14 207r14 313r49 337r24 350r24 461r14 494r14 73|42p14
+61P9*Message_Factory 61>46 61<60 76r18 159r17 163r17 247r17 48|105r18 338r17
+. 351r17
+61a46 Str{string}
+61r60 Msg{46|206R9}
+68H9*Cursor 71r43 74p14 75r25 81p13 81r33 85p14 86r21 95p14 95r34 107r51
+. 133r28 164r17 190r38 193r61 246c9 248e14 250r28 291r38 48|104r25 143r51
+. 146r16 147r13 352r17 355r14 384r61
+71y13*First{68C9} 71>20 48|341R34
+71r20 Self{41R9}
+74U14*Set_Parser 75=7 76>7 48|103b14 109l8 109t18 357R7
+75r7 Self{68R9} 48|104b7 108m7
+76p7 Factory{61P9} 48|105b7 108r23
+81y13*Has_Element{boolean} 81>26 48|358R13
+81r26 Self{68R9}
+85x14*Get_Message 86=7 87>7 88<7 48|359R10
+86r7 Self{68R9}
+87c7 Box<41R9>
+88r7 Msg{46|206R9}
+95x14*Next 95=20 95>42 48|153R10 364R10
+95r20 Self{68R9}
+95c42 Box<41R9>
+102R9*Mbox<41R9> 24|53P14 47|107P24 107r38 115p14 116r25 127p14 128r25 261c9
+. 265e14 267P25 267r49 48|44r16 116r25 129r25 143r38 191r13 192r58 227r10
+. 228r55 229r19 242r16 270r10 287r16 323r49 73|42p14
+107V24*First{68C9}<71p13> 107>31 48|143b24 156l8 156t13
+107r31 Self{102R9} 48|143b31 148r24 149r24 153r21
+110P9*Destructor 110=41 118r18 263r29 48|118r18
+110p41 S{96|45P9}
+113U14*Free_String 113=27 118r32 48|94b14 97l8 97t19 118r37 133r26
+113p27 Str{96|45P9} 48|94b27 96m26
+115U14*Open 116=7 117^7 118>7 48|115b14 122l8 122t12
+116r7 Self{102R9} 48|116b7 120m7 121m7
+117p7 Fp(string) 48|117b7 120r52
+118p7 On_Close{110P9} 48|118b7 121r24
+127U14*Open 128=7 129>7 48|128b14 137l8 137t12
+128r7 Self{102R9} 48|129b7 132m7 133m7 134r10
+129r7 Filename{62|97R9} 48|130b7 132r37 135r50
+133R9*Mbox_Cursor<68R9> 74p14 134P24 134r44 135P25 136r21 138P25 139r21 250c9
+. 256e14 48|146r32 162r44 172r21 206r21
+134V24*Has_Element{boolean}<81p13> 134>37 48|162b24 165l8 165t19
+134r37 Self{133R9} 48|162b37 164r14 164r27
+135U25*Next<95p14> 136=7 137>7 48|205b25 280l8 280t12
+136r7 Self{133R9} 48|206b7 218m7 222r10 222r23 223m10 223r23 238r10 240m13
+. 243r41 244m16 244r16 245r16 246m16 247m16 250m16 250r29 253m13 260r10 260r23
+. 264m7 264r21 268m7 268r20 271r26 271r39 272m10 272r10 274r10 276m10 276r23
+. 278m10 278r23
+137c7 Box<41R9> 48|207b7 227r16 228r61 229r25 242r28 270r22
+138U25*Get_Message<85p14> 139=7 140>7 141<7 48|171b25 199l8 199t19
+139r7 Self{133R9} 48|172b7 180r10 181r17 185r13 185r25 186r17 195r10 196r29
+. 196r43 196m56 196r56 197r17
+140c7 Box<41R9> 48|173b7 191r19 192r64
+141r7 Msg{46|206R9} 48|174b7 181m10 188m10 197m10
+148R9*Stored_Mailbox<41R9> 24|53P14 47|156p14 157r21 160p14 161r21 170p14
+. 170r36 175p14 175r45 179p14 179r46 183p13 183r33 186p14 186r42 193P24 193r38
+. 194p13 195r14 207p13 208r14 258P25 282c9 286e14 48|336r21 349r21 372r36
+. 384r38 394r14 412r14 557r46 587r42 626r45 981r33 73|42p14
+156U14*Store 157<7 158=7 159>7 48|335b14 342l8 342t13
+157r7 Self{148R9} 48|336b7 341m14
+158c7 Box<41R9> 48|337b7 341m20 341r41
+159p7 Factory{61P9} 48|338b7 341r25
+160U14*Store 161<7 162=7 163>7 164>7 48|341s7 348b14 366l8 366t13
+161r7 Self{148R9} 48|349b7 361m21
+162c7 Box<41R9> 48|350b7 359r29 364r22
+163p7 Factory{61P9} 48|351b7 357r25
+164c7 From<68R9> 48|352b7 355r30
+170U14*Append 170=22 170>52 48|361s13 372b14 378l8 378t14
+170r22 Self{148R9} 48|372b22 375m10 375r10 377m7
+170r52 Msg{46|206R9} 48|372b52 376r31
+175U14*Thread_Messages 175=31 48|626b14 975l8 975t23
+175r31 Self{148R9} 48|626b31 879r14 880r22 944m17 944r17 950m33 950r33 966m10
+. 968r15 971m16 972m30
+179U14*Remove_Threads 179=30 48|557b14 581l8 581t22
+179r30 Stored{148R9} 48|557b30 559r10 562r22 567r35 574r28 576m29 576r29
+. 577m13 578m13
+183V13*Is_Threaded{boolean} 183>26 48|981b13 984l8 984t19
+183r26 Self{148R9} 48|981b26 983r14
+186U14*Sort_By_Date 186=28 48|587b14 620l8 620t20 972s16
+186r28 Self{148R9} 48|587b28 611r10 612r13 613m25 613r25 615m36 615r36 618m10
+190R9*Stored_Mailbox_Cursor<68R9> 74p14 196r14 208r39 209r14 222P25 223r21
+. 227P25 228r21 231p13 231r38 237P24 238r14 291c9 295e14 48|395r14 397r11
+. 412r39 413r14 415r11 449r14 460r21 479r38 493r21 561r21
+193V24*First{68C9}<71p13> 193>31 48|384b24 387l8 387t13
+193r31 Self{148R9} 48|384b31 386r21
+194V13*First{190C9} 195>7 195>30 48|386s14 393b13 405l8 405t13 562s15
+195r7 Self{148R9} 48|394b7 401r24 402r36
+195b30 Recurse{boolean} 48|386r27 394b30 399r20 562r30
+207V13*First_In_Thread{190C9} 208>7 208>30 48|411b13 442l8 442t23
+208r7 Self{148R9} 48|412b7 428r10
+208c30 Parent<190R9> 48|412b30 429r32 430r46 433r28 435r28
+222U25*Next<95p14> 223=7 224>7 48|492b25 551l8 551t12 574R16
+223r7 Self{190R9} 48|493b7 509r24 510r34 514r13 519m27 519r27 522m16 522r37
+. 531m16 531r16 531r36 534r16 535r54 538m32 538r32 539r39 540m19 540r40 542m22
+. 542r22 542r42 546r51 547m16
+224c7 Box<41R9> 48|494b7 496r28
+227U25*Get_Message<85p14> 228=7 229>7 230<7 48|459b25 473l8 473t19 567R16
+228r7 Self{190R9} 48|460b7 467r20 470r34
+229c7 Box<41R9> 48|461b7 464r28
+230r7 Msg{46|206R9} 48|462b7 468m10 471m10
+231V13*Get_Thread_Level{positive} 231>31 48|479b13 486l8 486t24
+231r31 Iter{190R9} 48|479b31 481r20 484r17
+237V24*Has_Element{boolean}<81p13> 238>7 48|448b24 453l8 453t19 566R19
+238r7 Self{190R9} 48|449b7 452r28
+247p7*Factory{61P9} 48|108m12 186r22 195r15
+251i7 Start{integer} 48|149m13 196r34 264m12 268r25
+251i14 Stop{integer} 48|150m13 164r19 185r18 196r48 222r15 223m15 238r15
+. 240m18 244m21 245r21 246m21 250m21 250r34 253m18 260r15 264r26 268m12 271r31
+. 272m15 274r15 276m15 278m15 278r28
+252i7 Max{integer} 48|148m13 164r32 185r30 222r28 223r28 243r46 260r28 271r44
+. 276r28
+254r7 Current{46|206R9} 48|151m13 180r15 181r22 196m61 197r22 218m12 247m21
+258U25 Finalize<24|54p14> 258=35 48|313b25 317l8 317t16
+258r35 Self{41R9} 48|313b35 314r28
+262p7 Fp{96|45P9} 48|120m12 132m12 134r15 148r29 149r29 191r24 192r69 227r21
+. 228r66 229r30 325r46 326m30 327m15
+263p7 On_Close{110P9} 48|121m12 133m12 325r15 326r15
+264b7 Previous_Line_Empty{boolean}
+267U25 Finalize<258p25> 267=35 48|323b25 329l8 329t16
+267r35 Self{102R9} 48|323b35 325r10 325r41 326r10 326m25 326r25 327m10
+270H9 Abstract_Message_Info 272e14 275r9 276r29 48|53r21 79r21 417r32 418r32
+. 516r41 517r41 589r42 592r42 852r49 853r49
+271r7*Msg{46|206R9} 48|81r47 82r48 376m24 471r48 571m36 845m15 882r32 906r41
+273K12 Message_Info_List[18|47] 277r18 283r19 289r7 289r33 48|37r8 87r36
+. 376r48 465r15 499r15 501r42 503r42 563r21 572r48 588r43 597r43 598r14 654r30
+. 821r30 866r21
+276R9 Message_Info<270R9> 278e14 48|376r10 420r33 421r39 471r17 498r15 511r19
+. 519r48 571r22 594r22 603r30 826r14 856r22
+277r7*Children{18|54R9[273]} 48|376m36 420r50 421r56 514r51 519r65 572m36
+. 594m42 603r57 856m40
+280E9 Sort_Order 280e45 284r19
+280n24 Sort_None{280E9} 284r33 48|377r25 578r33 969r18 971r34
+280n35 Sort_Date{280E9} 48|611r28 618r28 970r18
+283r7 Messages{18|54R9[273]} 48|375m15 401r29 402r41 576m36 613m30 615m41
+. 880r27 944m22 950m38
+284e7 Sorted_By{280E9} 48|377m12 578m20 611r15 618m15 968r20 971m21
+285b7 Threaded{boolean} 48|428r15 559r17 577m20 612r18 879r19 966m15 983r19
+288K12 Cursor_List[8|47] 292r22 48|37r27 423r26 439r23 547r32
+292r7 Cursors{8|54R9[288]} 48|402m20 421m23 423m15 429r39 430r53 435r35 439m12
+. 452r33 467r25 470r39 481r25 509r29 510r39 519m32 531m21 531r41 535r59 538m37
+. 539r44 542m27 542r47 546r56 547m21
+293b7 Recurse{boolean} 48|399m9 432m12 514r18 534r21
+294i7 Thread_Level{integer} 48|400m9 433m12 433r35 484r22 522m21 522r42 540m24
+. 540r45
+X 48 gnatcoll-email-mailboxes.adb
+39r4 From_Pattern{45|34R9} 300r23 989m13 989r13
+43U14 Internal_Search_Start 44>7 45>7 46=7 241s13 269s7 286b14 307l8 307t29
+44c7 Self<47|102R9> 287b7 291r28
+45a7 Buffer{string} 288b7 300r37 300r53
+46i7 From{integer} 289b7 300m7 300r45 301r10 305m10 305r18
+52V13 Earlier_Than{boolean} 53>7 53>13 78b13 85l8 85t20 88r14
+53c7 Left<47|270R9> 79b7 81r42
+53c13 Right<47|270R9> 79b13 82r42
+56R9 Container 57r36 58c9 63e14 72r7 773r25
+57P9 Container_Access(56R9) 60r16 61r16 62r16 66r26 72r18 630r31 637r31 643r24
+. 644r24 655r23 659r37 667r37 668r14 669r15 700r24 701r24 704r14 764r31 767r18
+. 791r31 822r23 825r14 868r21 869r21
+59r7*Msg{46|206R9} 830r18 845r27 898r31 906m22
+60p7*Parent{57P9} 710r18 726r18 727r21 728r21 730r26 739m18 743m15 778r26
+. 948r31
+61p7*Child{57P9} 668r36 680r21 727r28 728m28 730r33 745r28 746m28 748r33
+. 831r21 837r23 847r23
+62p7*Next{57P9} 687r25 690r20 728r42 731r24 732r24 733m24 733r37 736r26 740m18
+. 749r24 750r26 752m18 756m15 840r23 862r20
+64K12 Container_Hash[20|49] 69r8 627r13 766r18 870r21
+71U14 Unchecked_Free[38|20] 962s13
+81i7 Date1{2|42I9} 84r14
+82i7 Date2{2|42I9} 84r22
+87K12 Pkg_Sort_By_Date[18|242] 600r10 615r13
+146c10 Cur<47|68R9> 153m16 153r16 154r17
+176p7 Buffer{53|335P12} 192m13 196r21
+209p7 Buffer{53|335P12} 228m10 239r21 243r24 271r18
+210i7 First{integer} 229m10 239r29 240r26 243r32 253r26
+212i7 Skip_Separating_Newline{integer} 250r41 253r34 264r33 278r35
+354r7 Msg{46|206R9} 359m34 360r13 361r27
+355c7 Curs<47|68R9> 357m19 357r19 358r26 359m23 359r23 364m16 364r16
+397r7 L{47|190R9} 399m7 400m7 402m18 402r18 404r14
+415r7 L{47|190R9} 421m21 421r21 423m13 432m10 433m10 437r17 439m10 440r17
+417U17 Get_First 417>28 418b17 425l11 425t20 436r13
+417c28 M<47|270R9> 418b28 420r47 421r53
+465r7 Saved{18|64R9[47|273]} 470m10 471r40
+498r7 M{47|276R9} 511m10 514r49
+499r7 Saved{18|64R9[47|273]} 510m10 511r42 523r31
+501U17 Move_To_Next 501=31 503b17 506l11 506t23 532r16 543r22
+501r31 C{18|64R9[47|273]} 503b31 505m16
+516U26 Get_First 516>37 517b26 520l20 520t29 523r38
+516c37 M<47|270R9> 517b37 519r62
+561c13 Iter<47|190R9> 566r32 567m29 567r29 574m22 574r22
+563r13 Tmp{18|54R9[47|273]} 570m22 570r22 576m56 576r56
+564r13 Msg{46|206R9} 567m43 568r19 571r43
+588U17 Sort_Level 588=29 594s10 597b17 609l11 609t21 613s13
+588r29 List{18|54R9[47|273]} 597b29 600m33 601r22 604m32
+589U17 Sort_Info 589=28 592b17 595l11 595t20 604r41
+589c28 Info<47|270R9> 592b28 594m36 594r36
+598r10 C{18|64R9[47|273]} 601m10 602r29 603r53 604r38 607m19 607r19
+627r7 Ids{20|56R9[64]} 769r24 774m21 774r21 946r25 959r25
+629U17 Store_Parent_Of 630=10 630>49 763b17 784l11 784t26 808s19 890s16 900s19
+630p10 Parent_Cont{57P9} 764b10 777r13 780r57 783m10 808r36 890r33 901r22
+630a49 Id{string} 764b49 769r29 774r26 809r36 891r33 902r22
+636U17 Set_Parent_For_All_Ids 637=10 638>10 790b17 814l11 814t33 911s13 920s13
+637p10 Parent_Cont{57P9} 791b10 808m51 912r16 921r16
+638r10 H{46|91R9} 792b10 798r13 799r33 913r16 922r16
+642U17 Set_Parent_Of 643>10 644>10 645>10 699b17 757l11 757t24 780s13 924s13
+643p10 Cont{57P9} 700b10 706r54 710r13 717r27 718r47 726r13 727r16 727r36
+. 728r16 728r37 730r21 732r31 733r32 739r13 740r13 743r10 746r37 752r26 756r10
+. 780r28
+644p10 Parent_Cont{57P9} 701b10 706r13 706r40 717r33 718r34 743r25 744r13
+. 745r16 746r16 748r21 780r42 925r26
+645b10 Override{boolean} 702b10 710r46 925r54
+653U17 Put_Threads_In_Message 654=10 655>10 656>10 820b17 839s16 855s19 864l11
+. 864t33 949s16
+654r10 Parent{18|54R9[47|273]} 821b10 839m40 846m21 860m19 860r33 950r19
+655p10 Root{57P9} 822b10 830r13 831r16 837r18 845r22 847r18 951r19
+656b10 Root_Level{boolean} 823b10 839r51 952r19
+659V16 Is_Reachable{boolean} 659>30 659>33 667b16 683s19 693l11 693t23 717s13
+. 718s20
+659p30 A{57P9} 667b30 668r34 671r13
+659p33 B{57P9} 667b33 671r17 676r20 683r37
+668p10 C{57P9} 675r16 676r16 680r19 690m13 690r18
+669p10 C2{57P9} 680m13 682r19 683r33 687m16 687r22
+704p10 C{57P9} 730m16 731r22 732r22 733r22 736m19 736r24 748m16 749r22 750m19
+. 750r24 752r16
+766r10 Id_C{20|66R9[64]} 769m10 770r26 771r30
+767p10 Cont{57P9} 771m13 773m13 774r30 778r21 780r36 783r25
+794r10 Flat{33|88R9} 799m37 802r53
+795i10 Index{natural} 804m16 805r22 806m19 806r51 807r50 809r48 810m19
+796i10 Stop{natural} 807m19 809r61 810r28
+802a16 StrA{string} 804r25 805r31 806r45 806r60 807r44 807r63 809r42
+825p10 C{57P9} 837m13 838r19 839r48 840m16 840r21 847m13 850r16 856r50 862m13
+. 862r18
+826r10 M{47|276R9} 845m13 846r29
+852U26 Add_Child 852=37 853b26 857l20 857t29 860r42
+852c37 MI<47|270R9> 853b37 856m36 856r36
+866r7 C{18|64R9[47|273]} 880m10 881r29 882r29 906r38 927m19 927r19
+867r7 Msg{46|206R9} 882m13 886r56 913r43 922r43
+868p7 Msg_Cont{57P9} 888m16 890m48 890r48 898r22 899m19 901m37 901r37 906r13
+. 925r16 961m13 962m29 962r29
+869p7 Parent_Cont{57P9} 910m13 912m31 912r31 921m31 921r31 925r41
+870r7 Id_C{20|66R9[64]} 946m10 947r29 948r25 951r42 955m19 955r19 959m10
+. 960r29 961r34 963m19 963r19
+872i7 Dummy_Id{natural} 902r57 903m19 903r31
+886a16 Id{string} 891r48 902r37
+X 49 gnatcoll-email-parser.ads
+29K24*Parser 47|29w21 76r43 159r42 163r42 247r42 48|30w21 30r48 105r43 338r42
+. 351r42 49|90e26
+31U14*Parse 47|76r50 159r49 163r49 247r49 48|105r50 338r49 351r49
+X 50 gnatcoll-email-utils.ads
+30K24*Utils 48|31w21 31r48 50|280e25
+264U14*Flatten 48|799s13
+X 53 gnatcoll-mmap.ads
+90K18*Mmap 48|32w15 32r42 192r32 228r29 53|401e18
+274A15*Unconstrained_String{string}<integer>
+275P12*Str_Access(274A15[323])
+286V16*To_Str_Access{275P12[323]} 48|192s43[53|323] 228s40[53|323]
+323K12*Short[267] 48|192r37 228r34
+335P12*Str_Access{275P12[323]} 48|176r16 209r16
+X 61 gnatcoll-strings_impl.adb
+1495V19 H[94|60]{7|19M9} 95|44b13[59|31]
+1511V19 H[94|60]{7|19M9} 95|44b13[59|31]
+X 62 gnatcoll-vfs.ads
+62K18*VFS 47|31w15 129r27 48|33w15 33r42 62|673e17
+97R9*Virtual_File<24|43R9> 47|129r31 48|130r18 62|627e14
+261V13*Display_Full_Name{string} 48|135s59
+448V13*Read_File{96|45P9} 48|132s26
+X 67 system.ads
+67M9*Address
+X 73 s-finroo.ads
+42U14*Adjust
+X 76 s-memory.ads
+53V13*Alloc{67|67M9} 103i<c,__gnat_malloc>22
+68U14*Free 104i<c,__gnat_free>22
+76V13*Realloc{67|67M9} 105i<c,__gnat_realloc>22
+X 86 s-stalib.adb
+89U14 Break_Start 90i<c,__gnat_break_start>22
+X 96 s-string.ads
+45P9*String_Access(string) 47|110r65 113r53 262r42 48|94r53 120r37
+49U14*Free[38|20] 48|96s20
+

@@ -1,0 +1,549 @@
+V "GNAT Lib v2021"
+A -O2
+A -gnatA
+A -fPIC
+A -gnat2012
+A -gnatwc
+A -gnatwf
+A -gnatwi
+A -gnatwj
+A -gnatwk
+A -gnatwm
+A -gnatwr
+A -gnatwu
+A -gnatwv
+A -gnaty3
+A -gnatya
+A -gnatyb
+A -gnatyB
+A -gnatyc
+A -gnatyd
+A -gnatye
+A -gnatyf
+A -gnatyh
+A -gnatyi
+A -gnatyI
+A -gnatyk
+A -gnatyl
+A -gnatym
+A -gnatyn
+A -gnatyo
+A -gnatyO
+A -gnatyp
+A -gnatyr
+A -gnatys
+A -gnatyt
+A -gnatyx
+A -gnatn
+A -mtune=generic
+A -march=x86-64
+P SS ZX
+
+RN
+RV NO_EXCEPTION_HANDLERS
+RV NO_EXCEPTION_PROPAGATION
+RV NO_EXCEPTIONS
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_LOCAL_ALLOCATORS
+RV NO_NESTED_FINALIZATION
+RV NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_ELABORATION_CODE
+
+U aws.hotplug%b		aws-hotplug.adb		0769b08f NE OO PK IU
+Z ada.exceptions%s	a-except.adb		a-except.ali
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W aws%s			aws.ads			aws.ali
+W aws.client%s		aws-client.adb		aws-client.ali
+W aws.parameters%s	aws-parameters.adb	aws-parameters.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+Z system.soft_links%s	s-soflin.adb		s-soflin.ali
+Z system.standard_library%s  s-stalib.adb	s-stalib.ali
+
+U aws.hotplug%s		aws-hotplug.ads		71886b56 EE OO PF PK IU
+W ada%s			ada.ads			ada.ali
+W ada.containers%s	a-contai.ads		a-contai.ali
+Z ada.containers.generic_array_sort%s
+Z ada.containers.helpers%s  a-conhel.adb	a-conhel.ali
+W ada.containers.vectors%s
+Z ada.exceptions%s	a-except.adb		a-except.ali
+Z ada.finalization%s	a-finali.ads		a-finali.ali
+Z ada.iterator_interfaces%s
+Z ada.streams%s		a-stream.adb		a-stream.ali
+W ada.strings%s		a-string.ads		a-string.ali
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+W ada.strings.unbounded%s  a-strunb.adb		a-strunb.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
+Z ada.unchecked_deallocation%s
+W aws%s			aws.ads			aws.ali
+W aws.response%s	aws-response.adb	aws-response.ali
+W aws.status%s		aws-status.adb		aws-status.ali
+W gnat%s		gnat.ads		gnat.ali
+W gnat.regexp%s		g-regexp.ads		g-regexp.ali
+Z system%s		system.ads		system.ali
+Z system.exception_table%s  s-exctab.adb	s-exctab.ali
+Z system.finalization_masters%s  s-finmas.adb	s-finmas.ali
+Z system.pool_global%s	s-pooglo.adb		s-pooglo.ali
+Z system.put_images%s	s-putima.adb		s-putima.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+Z system.soft_links%s	s-soflin.adb		s-soflin.ali
+Z system.standard_library%s  s-stalib.adb	s-stalib.ali
+Z system.storage_elements%s  s-stoele.adb	s-stoele.ali
+Z system.storage_pools%s  s-stopoo.adb		s-stopoo.ali
+Z system.storage_pools.subpools%s  s-stposu.adb	s-stposu.ali
+Z system.stream_attributes%s  s-stratt.adb	s-stratt.ali
+Z system.strings.stream_ops%s  s-ststop.adb	s-ststop.ali
+
+D ada.ads		20210520051131 76789da1 ada%s
+D a-calend.ads		20210520051128 474d9720 ada.calendar%s
+D a-charac.ads		20210520051128 2d3ec45b ada.characters%s
+D a-chahan.ads		20210520051128 0ce1b450 ada.characters.handling%s
+D a-chlat1.ads		20210520051128 66457d31 ada.characters.latin_1%s
+D a-contai.ads		20210520051128 61e5e089 ada.containers%s
+D a-cgarso.ads		20210520051128 9129bfa8 ada.containers.generic_array_sort%s
+D a-cohata.ads		20210520051128 bc432d0e ada.containers.hash_tables%s
+D a-conhel.ads		20210520051128 20298884 ada.containers.helpers%s
+D a-conhel.adb		20210520051128 fe7a6827 ada.containers.helpers%b
+D a-cihama.ads		20210520051128 76287ea1 ada.containers.indefinite_hashed_maps%s
+D a-cihase.ads		20210520051128 18093f96 ada.containers.indefinite_hashed_sets%s
+D a-coinho.ads		20210520051128 f2039f43 ada.containers.indefinite_holders%s
+D a-ciorma.ads		20210520051128 3aa5dad0 ada.containers.indefinite_ordered_maps%s
+D a-coinve.ads		20210520051128 0843f47c ada.containers.indefinite_vectors%s
+D a-crbltr.ads		20210520051128 d3d16ba4 ada.containers.red_black_trees%s
+D a-convec.ads		20210520051128 5d39d84a ada.containers.vectors%s
+D a-convec.adb		20210520051128 8dbd1ef5 ada.containers.vectors%b
+D a-direct.ads		20210520051128 078228da ada.directories%s
+D a-envvar.ads		20210520051128 00080416 ada.environment_variables%s
+D a-except.ads		20210520051128 946f3014 ada.exceptions%s
+D a-finali.ads		20210520051128 bf4f806b ada.finalization%s
+D a-ioexce.ads		20210520051128 e4a01f64 ada.io_exceptions%s
+D a-iteint.ads		20210520051128 49a8bee2 ada.iterator_interfaces%s
+D a-reatim.ads		20210520051127 0240fc73 ada.real_time%s
+D a-stream.ads		20210520051129 119b8fb3 ada.streams%s
+D a-string.ads		20210520051129 90ac6797 ada.strings%s
+D a-strfix.ads		20210520051129 aeacf44c ada.strings.fixed%s
+D a-strhas.ads		20210520051129 c71c2a52 ada.strings.hash%s
+D a-strmap.ads		20210520051129 5a88892a ada.strings.maps%s
+D a-stmaco.ads		20210520051129 1c0e5368 ada.strings.maps.constants%s
+D a-strsea.ads		20210520051129 b9bc90ba ada.strings.search%s
+D a-sttebu.ads		20210520051129 18209c64 ada.strings.text_buffers%s
+D a-strunb.ads		20210520051129 03325227 ada.strings.unbounded%s
+D a-strunb.adb		20210520051129 3b950306 ada.strings.unbounded%b
+D a-stuten.ads		20210520051129 808c40ad ada.strings.utf_encoding%s
+D a-tags.ads		20210520051130 9eaa38c6 ada.tags%s
+D a-taside.ads		20210520051127 00e3a3f6 ada.task_identification%s
+D a-unccon.ads		20210520051130 0e9b276f ada.unchecked_conversion%s
+D a-uncdea.ads		20210520051130 c3a8ac65 ada.unchecked_deallocation%s
+D aws.ads		20210520114206 82646736 aws%s
+D aws-attachments.ads	20210519051431 2270236e aws.attachments%s
+D aws-client.ads	20210519051431 93f0cf40 aws.client%s
+D aws-config.ads	20210519051431 17e5b2cd aws.config%s
+D aws-containers.ads	20210519051431 c7ab8288 aws.containers%s
+D aws-containers-key_value.ads  20210519051431 f3f917f0 aws.containers.key_value%s
+D aws-containers-memory_streams.ads  20210519051431 ea28c859 aws.containers.memory_streams%s
+D aws-containers-string_vectors.ads  20210519051431 b5692847 aws.containers.string_vectors%s
+D aws-containers-tables.ads  20210519051431 00be04da aws.containers.tables%s
+D aws-default.ads	20210519051431 9ec982b1 aws.default%s
+D aws-digest.ads	20210519051431 f05850e0 aws.digest%s
+D aws-headers.ads	20210519051431 25633780 aws.headers%s
+D aws-headers-values.ads  20210519051431 e73ab651 aws.headers.values%s
+D aws-hotplug.ads	20210519051431 25dc94f6 aws.hotplug%s
+D aws-hotplug.adb	20210519051431 4e0f4fa8 aws.hotplug%b
+D aws-messages.ads	20210519051431 7cd16bc6 aws.messages%s
+D aws-mime.ads		20210519051431 796c9a32 aws.mime%s
+D aws-net.ads		20210519051431 4147ea12 aws.net%s
+D aws-net-ssl.ads	20210519051431 52fbd46f aws.net.ssl%s
+D aws-net-ssl-certificate.ads  20210519051431 4eafed25 aws.net.ssl.certificate%s
+D aws-net-std.ads	20210519051431 fb394f55 aws.net.std%s
+D aws-parameters.ads	20210519051431 ff4aa491 aws.parameters%s
+D aws-resources.ads	20210519051431 407ba395 aws.resources%s
+D aws-resources-streams.ads  20210519051431 95c86167 aws.resources.streams%s
+D aws-resources-streams-memory.ads  20210519051431 eb23d323 aws.resources.streams.memory%s
+D aws-resources-streams-memory-zlib.ads  20210519051431 964b70a5 aws.resources.streams.memory.zlib%s
+D aws-response.ads	20210519051431 907d00d3 aws.response%s
+D aws-session.ads	20210519051431 7ee0b17c aws.session%s
+D aws-status.ads	20210519051431 715df1ae aws.status%s
+D aws-status.adb	20210519051431 fbda0349 aws.status%b
+D aws-translator.ads	20210519051431 098e71c4 aws.translator%s
+D aws-url.ads		20210519051431 32548484 aws.url%s
+D aws-utils.ads		20210519051431 840ea1d3 aws.utils%s
+D gnat.ads		20210520051132 b5988c27 gnat%s
+D g-bytswa.ads		20210520051131 a4d21639 gnat.byte_swapping%s
+D g-md5.ads		20210520051131 bb55398e gnat.md5%s
+D g-regexp.ads		20210520051131 691be386 gnat.regexp%s
+D g-sechas.ads		20210520051131 302163b5 gnat.secure_hashes%s
+D g-sehamd.ads		20210520051131 75201584 gnat.secure_hashes.md5%s
+D g-shsh32.ads		20210520051131 671c9849 gnat.secure_hashes.sha2_32%s
+D g-shshco.ads		20210520051131 1144502c gnat.secure_hashes.sha2_common%s
+D g-sha256.ads		20210520051131 c083f050 gnat.sha256%s
+D interfac.ads		20210520051132 edec285f interfaces%s
+D i-c.ads		20210520051132 d9beded9 interfaces.c%s
+D memory_streams.ads	20210519051430 bf3b9ce5 memory_streams%s
+D ssl.ads		20210519051431 3abd0079 ssl%s
+D ssl-thin__dummy.ads	20210519051430 eb2eedfc ssl.thin%s
+D system.ads		20210520051135 a2da961d system%s
+D s-atacco.ads		20210520051132 4c36d12f system.address_to_access_conversions%s
+D s-atocou.ads		20210520051132 b45c2d8d system.atomic_counters%s
+D s-atocou.adb		20210520051132 b65612c0 system.atomic_counters%b
+D s-carun8.ads		20210520051132 a903718d system.compare_array_unsigned_8%s
+D s-exctab.ads		20210520051132 54135002 system.exception_table%s
+D s-exctab.adb		20210520051132 c756f391 system.exception_table%b
+D s-finmas.ads		20210520051132 1ab4dba8 system.finalization_masters%s
+D s-finroo.ads		20210520051132 4ff27390 system.finalization_root%s
+D s-linux.ads		20210520051127 ed0b8aee system.linux%s
+D s-memory.ads		20210520051133 597d6634 system.memory%s
+D s-multip.ads		20210520051133 38ac9f73 system.multiprocessors%s
+D s-oscons.ads		20210520095158 e3a42aec system.os_constants%s
+D s-osinte.ads		20210520051127 222ac181 system.os_interface%s
+D s-parame.ads		20210520051134 4752c4cb system.parameters%s
+D s-pooglo.ads		20210520051134 ede33ef8 system.pool_global%s
+D s-powflt.ads		20210520051134 46f7a1b9 system.powten_flt%s
+D s-putima.ads		20210520051134 4e095881 system.put_images%s
+D s-regexp.ads		20210520051134 9c7d27a7 system.regexp%s
+D s-secsta.ads		20210520051134 9b3ab94b system.secondary_stack%s
+D s-soflin.ads		20210520051134 a7318a92 system.soft_links%s
+D s-stache.ads		20210520051134 a37c21ec system.stack_checking%s
+D s-stausa.ads		20210520051134 017a0a05 system.stack_usage%s
+D s-stalib.ads		20210520051134 472fbca8 system.standard_library%s
+D s-stalib.adb		20210520051134 977290bf system.standard_library%b
+D s-stoele.ads		20210520051134 2dc34a04 system.storage_elements%s
+D s-stoele.adb		20210520051134 ed88f8fb system.storage_elements%b
+D s-stopoo.ads		20210520051134 e9fa2dd8 system.storage_pools%s
+D s-stposu.ads		20210520051134 e251976f system.storage_pools.subpools%s
+D s-stratt.ads		20210520051134 7bdda3fa system.stream_attributes%s
+D s-stratt.adb		20210520051134 fc996108 system.stream_attributes%b
+D s-statxd.ads		20210520051134 b54789f6 system.stream_attributes.xdr%s
+D s-string.ads		20210520051134 8fe54fb7 system.strings%s
+D s-ststop.ads		20210520051134 5fbf1b38 system.strings.stream_ops%s
+D s-tasinf.ads		20210520051127 2b3f8252 system.task_info%s
+D s-taspri.ads		20210520051127 4ec891e7 system.task_primitives%s
+D s-taprop.ads		20210520051127 6eefbe12 system.task_primitives.operations%s
+D s-taskin.ads		20210520051127 88fba9ad system.tasking%s
+D s-taprob.ads		20210520051127 acd6094d system.tasking.protected_objects%s
+D s-tpoben.ads		20210520051127 60ad3dae system.tasking.protected_objects.entries%s
+D s-tassta.ads		20210520051127 cca55c94 system.tasking.stages%s
+D s-traent.ads		20210520051134 26a8d361 system.traceback_entries%s
+D s-unstyp.ads		20210520051134 2b077493 system.unsigned_types%s
+D s-vaenu8.ads		20210520051134 b7b91426 system.val_enum_8%s
+D s-valflt.ads		20210520051134 d738ba7d system.val_flt%s
+D s-valrea.ads		20210520051134 8ddc6624 system.val_real%s
+D s-valuen.ads		20210520051134 72b74993 system.value_n%s
+D templates_parser.ads	20210519053215 1cb5e754 templates_parser%s
+D templates_parser-utils.ads  20210519053215 8849593d templates_parser.utils%s
+D templates_parser_tasking.ads  20210519053215 4c0209f0 templates_parser_tasking%s
+D unchconv.ads		20210520051135 ca2f9e18 unchecked_conversion%s
+D zlib.ads		20210519051430 0714e1ed zlib%s
+G a e
+G c Z s b [set_mode aws__hotplug 50 14 none]
+G c Z s b [register aws__hotplug 53 14 none]
+G c Z s b [unregister aws__hotplug 60 14 none]
+G c Z s b [apply aws__hotplug 66 14 none]
+G c Z s b [move_up aws__hotplug 76 14 none]
+G c Z s b [move_down aws__hotplug 82 14 none]
+G c Z s b [equal_data aws__hotplug 98 13 none]
+G c Z s s [filter_dataDI aws__hotplug 92 9 none]
+G c Z s s [filter_dataDA aws__hotplug 92 9 none]
+G c Z s s [filter_dataDF aws__hotplug 92 9 none]
+G c Z s s [filter_dataIP aws__hotplug 92 9 none]
+G c Z s s [has_element aws__hotplug__filter_table 115 13 101_4]
+G c Z s s [empty aws__hotplug__filter_table 125 13 101_4]
+G c Z s s [Oeq aws__hotplug__filter_table 127 24 101_4]
+G c Z s s [to_vector aws__hotplug__filter_table 136 13 101_4]
+G c Z s s [to_vector aws__hotplug__filter_table 139 13 101_4]
+G c Z s s [Oconcat aws__hotplug__filter_table 145 13 101_4]
+G c Z s s [Oconcat aws__hotplug__filter_table 149 13 101_4]
+G c Z s s [Oconcat aws__hotplug__filter_table 153 13 101_4]
+G c Z s s [Oconcat aws__hotplug__filter_table 157 13 101_4]
+G c Z s s [capacity aws__hotplug__filter_table 161 13 101_4]
+G c Z s s [reserve_capacity aws__hotplug__filter_table 164 14 101_4]
+G c Z s s [length aws__hotplug__filter_table 175 13 101_4]
+G c Z s s [set_length aws__hotplug__filter_table 178 14 101_4]
+G c Z s s [is_empty aws__hotplug__filter_table 187 13 101_4]
+G c Z s s [clear aws__hotplug__filter_table 190 14 101_4]
+G c Z s s [to_cursor aws__hotplug__filter_table 194 13 101_4]
+G c Z s s [to_index aws__hotplug__filter_table 201 13 101_4]
+G c Z s s [element aws__hotplug__filter_table 206 13 101_4]
+G c Z s s [element aws__hotplug__filter_table 213 13 101_4]
+G c Z s s [replace_element aws__hotplug__filter_table 217 14 101_4]
+G c Z s s [replace_element aws__hotplug__filter_table 228 14 101_4]
+G c Z s s [query_element aws__hotplug__filter_table 239 14 101_4]
+G c Z s s [query_element aws__hotplug__filter_table 250 14 101_4]
+G c Z s s [update_element aws__hotplug__filter_table 259 14 101_4]
+G c Z s s [update_element aws__hotplug__filter_table 276 14 101_4]
+G c Z s s [constant_reference aws__hotplug__filter_table 303 13 101_4]
+G c Z s s [reference aws__hotplug__filter_table 308 13 101_4]
+G c Z s s [constant_reference aws__hotplug__filter_table 313 13 101_4]
+G c Z s s [reference aws__hotplug__filter_table 318 13 101_4]
+G c Z s s [assign aws__hotplug__filter_table 323 14 101_4]
+G c Z s s [copy aws__hotplug__filter_table 325 13 101_4]
+G c Z s s [move aws__hotplug__filter_table 327 14 101_4]
+G c Z s s [new_vector aws__hotplug__filter_table 333 13 101_4]
+G c Z s s [insert_vector aws__hotplug__filter_table 337 14 101_4]
+G c Z s s [insert_vector aws__hotplug__filter_table 361 14 101_4]
+G c Z s s [insert_vector aws__hotplug__filter_table 378 14 101_4]
+G c Z s s [insert aws__hotplug__filter_table 396 14 101_4]
+G c Z s s [insert aws__hotplug__filter_table 404 14 101_4]
+G c Z s s [insert aws__hotplug__filter_table 412 14 101_4]
+G c Z s s [insert aws__hotplug__filter_table 421 14 101_4]
+G c Z s s [insert aws__hotplug__filter_table 438 14 101_4]
+G c Z s s [prepend_vector aws__hotplug__filter_table 449 14 101_4]
+G c Z s s [prepend aws__hotplug__filter_table 459 14 101_4]
+G c Z s s [append_vector aws__hotplug__filter_table 466 14 101_4]
+G c Z s s [append aws__hotplug__filter_table 476 14 101_4]
+G c Z s s [append aws__hotplug__filter_table 483 14 101_4]
+G c Z s s [insert_space aws__hotplug__filter_table 486 14 101_4]
+G c Z s s [insert_space aws__hotplug__filter_table 503 14 101_4]
+G c Z s s [delete aws__hotplug__filter_table 514 14 101_4]
+G c Z s s [delete aws__hotplug__filter_table 524 14 101_4]
+G c Z s s [delete_first aws__hotplug__filter_table 533 14 101_4]
+G c Z s s [delete_last aws__hotplug__filter_table 538 14 101_4]
+G c Z s s [reverse_elements aws__hotplug__filter_table 546 14 101_4]
+G c Z s s [swap aws__hotplug__filter_table 549 14 101_4]
+G c Z s s [swap aws__hotplug__filter_table 554 14 101_4]
+G c Z s s [first_index aws__hotplug__filter_table 560 13 101_4]
+G c Z s s [first aws__hotplug__filter_table 563 13 101_4]
+G c Z s s [first_element aws__hotplug__filter_table 567 13 101_4]
+G c Z s s [last_index aws__hotplug__filter_table 570 13 101_4]
+G c Z s s [last aws__hotplug__filter_table 574 13 101_4]
+G c Z s s [last_element aws__hotplug__filter_table 578 13 101_4]
+G c Z s s [next aws__hotplug__filter_table 581 13 101_4]
+G c Z s s [next aws__hotplug__filter_table 587 14 101_4]
+G c Z s s [previous aws__hotplug__filter_table 590 13 101_4]
+G c Z s s [previous aws__hotplug__filter_table 596 14 101_4]
+G c Z s s [find_index aws__hotplug__filter_table 599 13 101_4]
+G c Z s s [find aws__hotplug__filter_table 609 13 101_4]
+G c Z s s [reverse_find_index aws__hotplug__filter_table 623 13 101_4]
+G c Z s s [reverse_find aws__hotplug__filter_table 635 13 101_4]
+G c Z s s [contains aws__hotplug__filter_table 649 13 101_4]
+G c Z s s [iterate aws__hotplug__filter_table 654 14 101_4]
+G c Z s s [reverse_iterate aws__hotplug__filter_table 662 14 101_4]
+G c Z s s [iterate aws__hotplug__filter_table 669 13 101_4]
+G c Z s s [iterate aws__hotplug__filter_table 672 13 101_4]
+G c Z s s [adjust aws__hotplug__filter_table__implementation 90 28 726_4_101_4]
+G c Z s s [finalize aws__hotplug__filter_table__implementation 93 28 726_4_101_4]
+G c Z s s [zero_counts aws__hotplug__filter_table__implementation 96 17 726_4_101_4]
+G c Z s s [busy aws__hotplug__filter_table__implementation 100 17 726_4_101_4]
+G c Z s s [unbusy aws__hotplug__filter_table__implementation 104 17 726_4_101_4]
+G c Z s s [lock aws__hotplug__filter_table__implementation 108 17 726_4_101_4]
+G c Z s s [unlock aws__hotplug__filter_table__implementation 112 17 726_4_101_4]
+G c Z s s [tc_check aws__hotplug__filter_table__implementation 116 17 726_4_101_4]
+G c Z s s [te_check aws__hotplug__filter_table__implementation 120 17 726_4_101_4]
+G c Z s s [initialize aws__hotplug__filter_table__implementation 139 28 726_4_101_4]
+G c Z s s [finalize aws__hotplug__filter_table__implementation 140 28 726_4_101_4]
+G c Z s s [initialize aws__hotplug__filter_table__implementation 145 28 726_4_101_4]
+G c Z s s [finalize aws__hotplug__filter_table__implementation 146 28 726_4_101_4]
+G c Z s s [reference_control_typeDA aws__hotplug__filter_table__implementation 84 12 726_4_101_4]
+G c Z s s [reference_control_typeDF aws__hotplug__filter_table__implementation 84 12 726_4_101_4]
+G c Z s s [reference_control_typeIP aws__hotplug__filter_table__implementation 84 12 726_4_101_4]
+G c Z s s [with_busyDF aws__hotplug__filter_table__implementation 136 12 726_4_101_4]
+G c Z s s [with_busyIP aws__hotplug__filter_table__implementation 136 12 726_4_101_4]
+G c Z s s [with_lockDF aws__hotplug__filter_table__implementation 142 12 726_4_101_4]
+G c Z s s [with_lockIP aws__hotplug__filter_table__implementation 142 12 726_4_101_4]
+G c Z s s [put_image aws__hotplug__filter_table 747 14 101_4]
+G c Z s s [adjust aws__hotplug__filter_table 750 25 101_4]
+G c Z s s [finalize aws__hotplug__filter_table 751 25 101_4]
+G c Z s s [write aws__hotplug__filter_table 753 14 101_4]
+G c Z s s [read aws__hotplug__filter_table 759 14 101_4]
+G c Z s s [read aws__hotplug__filter_table 773 14 101_4]
+G c Z s s [write aws__hotplug__filter_table 779 14 101_4]
+G c Z s s [write aws__hotplug__filter_table 798 14 101_4]
+G c Z s s [read aws__hotplug__filter_table 804 14 101_4]
+G c Z s s [write aws__hotplug__filter_table 820 14 101_4]
+G c Z s s [read aws__hotplug__filter_table 826 14 101_4]
+G c Z s s [pseudo_reference aws__hotplug__filter_table 837 13 101_4]
+G c Z s s [get_element_access aws__hotplug__filter_table 846 13 101_4]
+G c Z s s [cursorIP aws__hotplug__filter_table 768 9 101_4]
+G c Z s s [vectorDA aws__hotplug__filter_table 741 9 101_4]
+G c Z s s [vectorDF aws__hotplug__filter_table 741 9 101_4]
+G c Z s s [vectorIP aws__hotplug__filter_table 741 9 101_4]
+G c Z s s [constant_reference_typeDI aws__hotplug__filter_table 788 9 101_4]
+G c Z s s [constant_reference_typeDA aws__hotplug__filter_table 788 9 101_4]
+G c Z s s [constant_reference_typeDF aws__hotplug__filter_table 788 9 101_4]
+G c Z s s [constant_reference_typeIP aws__hotplug__filter_table 788 9 101_4]
+G c Z s s [reference_typeDI aws__hotplug__filter_table 810 9 101_4]
+G c Z s s [reference_typeDA aws__hotplug__filter_table 810 9 101_4]
+G c Z s s [reference_typeDF aws__hotplug__filter_table 810 9 101_4]
+G c Z s s [reference_typeIP aws__hotplug__filter_table 810 9 101_4]
+G c Z s s [finalize aws__hotplug__filter_table 862 25 101_4]
+G c Z s s [first aws__hotplug__filter_table 864 24 101_4]
+G c Z s s [last aws__hotplug__filter_table 865 24 101_4]
+G c Z s s [next aws__hotplug__filter_table 867 24 101_4]
+G c Z s s [previous aws__hotplug__filter_table 871 24 101_4]
+G c Z s s [elements_arrayIP aws__hotplug__filter_table 729 9 101_4]
+G c Z s s [elements_arrayDI aws__hotplug__filter_table 729 9 101_4]
+G c Z s s [elements_arrayDA aws__hotplug__filter_table 729 9 101_4]
+G c Z s s [elements_arrayDF aws__hotplug__filter_table 729 9 101_4]
+G c Z s s [elements_typeDI aws__hotplug__filter_table 732 9 101_4]
+G c Z s s [elements_typeDF aws__hotplug__filter_table 732 9 101_4]
+G c Z s s [elements_typeIP aws__hotplug__filter_table 732 9 101_4]
+G c Z s s [iteratorDF aws__hotplug__filter_table 854 9 101_4]
+G c Z s s [iteratorIP aws__hotplug__filter_table 854 9 101_4]
+G c Z s s [free aws__hotplug__filter_table 44 14 101_4]
+G c Z s s [append_slow_path aws__hotplug__filter_table 47 14 101_4]
+G c Z s s [filter_setDI aws__hotplug 104 9 none]
+G c Z s s [filter_setDA aws__hotplug 104 9 none]
+G c Z s s [filter_setDF aws__hotplug 104 9 none]
+G c Z s s [filter_setIP aws__hotplug 104 9 none]
+G r c none [apply aws__hotplug 66 14 none] [uri aws__status 79 13 none]
+G r c none [apply aws__hotplug 66 14 none] [parameters aws__status 88 13 none]
+G r j list [apply aws__hotplug 66 14 none] [listDA aws__parameters 94 9 none]
+G r k list [apply aws__hotplug 66 14 none] [listDF aws__parameters 94 9 none]
+G r c none [apply aws__hotplug 66 14 none] [method aws__status 71 13 none]
+G r c none [apply aws__hotplug 66 14 none] [count aws__containers__tables 55 13 none]
+G r c none [apply aws__hotplug 66 14 none] [get_name aws__containers__tables 82 13 none]
+G r c none [apply aws__hotplug 66 14 none] [get_value aws__containers__tables 88 13 none]
+G r c none [apply aws__hotplug 66 14 none] [get aws__client 132 13 none]
+G r k data [apply aws__hotplug 66 14 none] [dataDF aws__response 436 9 none]
+G r c none [apply aws__hotplug 66 14 none] [is_soap aws__status 271 13 none]
+G r c none [apply aws__hotplug 66 14 none] [payload aws__status 279 13 none]
+G r c none [apply aws__hotplug 66 14 none] [soapaction aws__status 275 13 none]
+G r c none [apply aws__hotplug 66 14 none] [soap_post aws__client 252 13 none]
+G r c none [apply aws__hotplug 66 14 none] [binary_data aws__status 212 13 none]
+G r c none [apply aws__hotplug 66 14 none] [post aws__client 236 13 none]
+X 1 ada.ads
+16K9*Ada 20e8 54|33r14 34r14 90r8 102r10
+X 6 a-contai.ads
+16K13*Containers 28e19 54|33r18 102r14
+22I9*Count_Type<integer>
+X 9 a-conhel.ads
+84R12 Reference_Control_Type<22|43R9>
+X 17 a-convec.ads
+74k24*Vectors 875e27 54|33w29 102r25
+91R9*Vector<22|43R9> 54|106r27[101]
+107R9*Cursor 55|166r29[54|101]
+115V13*Has_Element{boolean} 55|182s29[54|101] 189s29[54|101]
+175V13*Length{6|22I9} 55|79s43[54|101] 136s33[54|101] 149s33[54|101] 214s43[54|101]
+206V13*Element{54|92R9} 55|82s31[54|101] 215s37[54|101]
+228U14*Replace_Element 55|190s29[54|101]
+483U14*Append 55|185s29[54|101] 192s29[54|101]
+514U14*Delete 55|218s26[54|101]
+549U14*Swap 55|137s23[54|101] 152s23[54|101]
+609V13*Find{107R9[54|101]} 55|178s30[54|101]
+X 24 a-iteint.ads
+24h9 Forward_Iterator
+32h9 Reversible_Iterator<24R9[14|78]>
+X 26 a-stream.ads
+42M9*Stream_Element
+54A9*Stream_Element_Array(42M9)<44I9>
+X 27 a-string.ads
+16K13*Strings 35e16 54|34r18 90r12
+X 34 a-strunb.ads
+83K21*Unbounded 765e26 54|34w26 90r20
+88R9*Unbounded_String<22|43R9> 744e15 54|93r20 95r20 55|59r19 167r16
+104V13*To_Unbounded_String{88R9} 55|172s15 174s15 177s16
+117V13*To_String{string} 55|72s17 91s22 102s28 107s28 215s13
+136U14*Append 55|68s13 69s13
+144U14*Append 55|63s16 65s16
+239V14*"="{boolean} 55|125s30
+X 41 aws.ads
+32K9*AWS 41e8 54|30r6 31r6 37r9 68r17 109r5 55|30r6 31r6 33r14 41r17 45r16
+. 47r45 48r22 48r45 61r24 68r29 69r35 89r19 89r48 100r25 103r28 104r28 108r28
+. 224r5
+X 43 aws-client.ads
+49K13*Client 660e15 55|30w10 90r27 101r33 106r33
+132V13*Get{67|59R9} 55|90s34
+236V13*Post{67|59R9} 55|106s40
+252V13*SOAP_Post{67|59R9} 55|101s40
+X 49 aws-containers-tables.ads
+55V13*Count{natural} 55|61s39
+82V13*Get_Name{string} 55|68s44
+88V13*Get_Value{string} 55|69s50
+X 54 aws-hotplug.ads
+37K13*Hotplug 41|32k9 54|92E9 109l9 109e16 55|33b18 224l9 224t16
+39X4*Register_Error 55|183r22
+42E9*Register_Mode 42e40 50r60 105r14 55|201r60
+42n27*Add{42E9} 55|181r15
+42n32*Replace{42E9} 55|188r15
+48R9*Filter_Set 50r41 54r24 61r24 67r17 77r24 83r24 104c9 107e14 55|40r17
+. 133r24 146r24 161r24 201r41 211r24
+50U14*Set_Mode 50=24 50>53 55|201b14 204l8 204t16
+50r24 Filters{48R9} 55|201b24 203m7
+50e53 Mode{42E9} 55|201b53 203r23
+53U14*Register 54=7 55>7 56>7 55|160b14 195l8 195t16
+54r7 Filters{48R9} 55|161b7 178r36 180r12 185m37 185r37 190m46 190r46 192m37
+. 192r37
+55a7 Regexp{string} 55|162b7 177r37 177r67
+56a7 URL{string} 55|163b7 171r10 171r34 171r39 172r36 174r36
+60U14*Unregister 61=7 62>7 55|210b14 222l8 222t18
+61r7 Filters{48R9} 55|211b7 214r51 215r46 218m34 218r34
+62a7 Regexp{string} 55|212b7 216r14
+66U14*Apply 67>7 68>7 69<7 70<7 55|39b14 117l8 117t13
+67r7 Filters{48R9} 55|40b7 79r51 82r40
+68r7 Status{69|58R9} 55|41b7 47r61 48r68 89r38 100r45 103r48 104r51 108r52
+69b7 Found{boolean} 55|42b7 76m7 85m16
+70r7 Data{67|59R9} 55|43b7 90m19 101m25 106m25
+76U14*Move_Up 77=7 78>7 55|145b14 154l8 154t15
+77r7 Filters{48R9} 55|146b7 149r41 152m29 152r29
+78i7 N{positive} 55|147b7 149r58 150r18 152r42 152r45
+82U14*Move_Down 83=7 84>7 55|132b14 139l8 139t17
+83r7 Filters{48R9} 55|133b7 136r41 137m29 137r29
+84i7 N{positive} 55|134b7 136r57 137r42 137r45
+92R9 Filter_Data 96e14 98r39 102r44 55|81r29 123r39 165r16
+93r7*Regexp_Str{34|88R9} 55|125r19 125r38 215r62
+94r7*Regexp{106|105R9} 55|84r45
+95r7*URL{34|88R9} 55|91r38 102r44 107r44
+98V13 Equal_Data{boolean} 98>25 98>31 102r57 55|123b13 126l8 126t18
+98r25 Left{92R9} 55|123b25 125r14
+98r31 Right{92R9} 55|123b31 125r32
+101K12 Filter_Table[17|74] 106r14 55|79r30 82r18 136r20 137r10 149r20 152r10
+. 166r16 178r17 182r16 185r16 189r16 190r16 192r16 214r30 215r24 218r13
+105e7*Mode{42E9} 55|180r20 203m15
+106r7*Set{17|91R9[101]} 55|79r59 82r48 136r49 137m37 149r49 152m37 178r44
+. 185m45 190m54 192m45 214r59 215r54 218m42
+X 55 aws-hotplug.adb
+47a7 URI{string} 84r35 92r24 92r29 92r46 98r27 98r32 98r49
+48r7 P{62|38R9} 61r46 68r54 69r61
+50V16 Parameters{string} 58b16 73l11 73t21 93s24
+59r10 Result{34|88R9} 63m24 63r24 65m24 65r24 68m21 68r21 69m21 69r21 72r28
+61i14 K{integer} 62r16 68r57 69r64
+78l7 Look_For_Filters 113r21 116l16 116e32
+79i11 K{integer} 82r53
+81r13 Item{54|92R9} 84r40 91r33 102r39 107r39
+97a22 Resource{string} 102r51 107r51
+165r7 Item{54|92R9} 177m7 177r7 178r49 185r50 190r67 192r50
+166r7 Cursor{17|107R9[54|101]} 178m7 182r42 189r42 190r59
+167r7 U{34|88R9} 172m10 174m10 177r76
+214i11 K{integer} 215r59 218r47
+X 62 aws-parameters.ads
+36K13*Parameters 55|31w10 48r26 61r28 68r33 69r39 62|96e19
+38R9*List<49|41R9> 55|48r37 62|94e70
+X 67 aws-response.ads
+51K13*Response 54|30w10 70r21 55|43r21 67|455e17
+59R9*Data<22|43R9> 54|70r30 55|43r30 67|446e14
+X 69 aws-status.ads
+52K13*Status 54|31w10 68r21 55|41r21 45r20 47r49 48r49 89r23 89r52 100r29
+. 103r32 104r32 108r32 69|405e15
+58R9*Data 54|68r28 55|41r28 69|403e14
+60E9*Request_Method 55|45r27 69|61e79
+61n16*GET{60E9} 55|89r59
+71V13*Method{60E9} 55|89s30
+79V13*URI{string} 55|47s56
+88V13*Parameters{62|38R9} 55|48s56
+212V13*Binary_Data{26|54A9} 55|108s39
+271V13*Is_SOAP{boolean} 55|100s36
+275V13*SOAPAction{string} 55|104s39
+279V13*Payload{string} 55|103s39
+X 74 gnat.ads
+34K9*GNAT 54|35r14 94r20 55|84r16 177r46 74|57e9
+X 77 g-regexp.ads
+70K14*Regexp=70:36 54|35w19 94r25 55|84r21 177r51
+X 88 system.ads
+67M9*Address
+X 98 s-memory.ads
+53V13*Alloc{88|67M9} 103i<c,__gnat_malloc>22
+68U14*Free 104i<c,__gnat_free>22
+76V13*Realloc{88|67M9} 105i<c,__gnat_realloc>22
+X 106 s-regexp.ads
+105R9*Regexp<22|43R9> 54|94r32 106|133e14
+111V13*Compile{105R9} 55|177s58
+122V13*Match{boolean} 55|84s28
+X 110 s-stausa.ads
+208U14*Initialize 209i<c,__gnat_stack_usage_initialize>22
+273U14*Output_Results 277i<c,__gnat_stack_usage_output_results>22
+X 112 s-stalib.adb
+89U14 Break_Start 90i<c,__gnat_break_start>22
+

@@ -1,0 +1,21 @@
+    <!-- DIMENSIONED_UNITS -->
+
+    <action name="&prefix;_dimensioned_units" category="">
+        <shell>
+            Project.load "&example_root;/gnat/dimensioned_units/dimensioned_units.gpr"
+        </shell>
+        <shell>
+            Editor.edit "free_fall.adb"
+        </shell>
+        <shell>
+            Editor.edit "README.testing"
+        </shell>
+    </action>
+
+    <submenu before="About">
+        <title>&menu;</title>
+        <menu action="&prefix;_dimensioned_units">
+            <title>GNAT &prefix;/Dimensioned Numeric Units</title>
+        </menu>
+    </submenu>
+

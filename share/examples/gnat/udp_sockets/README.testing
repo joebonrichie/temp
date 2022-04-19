@@ -1,0 +1,24 @@
+		       G N A T   E X A M P L E S
+		       =========================
+
+
+In order to compile the examples, make sure that the 'gprbuild' command is
+in your path. 
+
+Invocation
+----------
+
+In order to build the executables provided in this example, you need to
+use the "udp_sockets.gpr" project file. On the command-line, do a:
+
+  $ gprbuild -P udp_sockets
+
+In GPS, click on "Build", then "Make" and then "udp_sockets" is compiled, you
+can also simply press the F4 key.
+
+Features tested
+---------------
+
+* The udp_sockets example shows how to send strings as UDP datagrams
+  (udp_client), and how to receive them using a non-blocking socket and
+  selector object (udp_server) using GNAT.Sockets.

@@ -1,0 +1,798 @@
+V "GNAT Lib v2021"
+A -O2
+A -gnatA
+A -gnat2012
+A -gnatwc
+A -gnatwf
+A -gnatwi
+A -gnatwj
+A -gnatwk
+A -gnatwm
+A -gnatwr
+A -gnatwu
+A -gnatwv
+A -gnaty3
+A -gnatya
+A -gnatyb
+A -gnatyB
+A -gnatyc
+A -gnatyd
+A -gnatye
+A -gnatyf
+A -gnatyh
+A -gnatyi
+A -gnatyI
+A -gnatyk
+A -gnatyl
+A -gnatym
+A -gnatyn
+A -gnatyo
+A -gnatyO
+A -gnatyp
+A -gnatyr
+A -gnatys
+A -gnatyt
+A -gnatyx
+A -gnatn
+A -mtune=generic
+A -march=x86-64
+P SS ZX
+
+RN
+RV NO_ALLOCATORS
+RV NO_DISPATCH
+RV NO_DISPATCHING_CALLS
+RV NO_ENUMERATION_MAPS
+RV NO_EXCEPTION_HANDLERS
+RV NO_EXCEPTION_PROPAGATION
+RV NO_EXCEPTIONS
+RV NO_FINALIZATION
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_LOCAL_ALLOCATORS
+RV NO_NESTED_FINALIZATION
+RV NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_UNCHECKED_DEALLOCATION
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_ATTRIBUTES
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_ELABORATION_CODE
+
+U aws.net.std%b		aws-net-std__gnat.adb	ae2311b5 OO PK IU
+W ada%s			ada.ads			ada.ali
+Z ada.exceptions%s	a-except.adb		a-except.ali
+W ada.strings%s		a-string.ads		a-string.ali
+W ada.strings.maps%s	a-strmap.adb		a-strmap.ali
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W ada.unchecked_deallocation%s
+W aws%s			aws.ads			aws.ali
+W aws.net%s		aws-net.adb		aws-net.ali
+W aws.net.log%s		aws-net-log.adb		aws-net-log.ali
+W aws.os_lib%s		aws-os_lib.ads		aws-os_lib.ali
+W gnat%s		gnat.ads		gnat.ali
+W gnat.sockets%s	g-socket.adb		g-socket.ali
+Z system%s		system.ads		system.ali
+Z system.img_int%s	s-imgint.ads		s-imgint.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+Z system.soft_links%s	s-soflin.adb		s-soflin.ali
+Z system.standard_library%s  s-stalib.adb	s-stalib.ali
+
+U aws.net.std%s		aws-net-std.ads		08dc0263 BN EE OO PF PK IU
+W ada%s			ada.ads			ada.ali
+Z ada.exceptions%s	a-except.adb		a-except.ali
+Z ada.streams%s		a-stream.adb		a-stream.ali
+W ada.strings%s		a-string.ads		a-string.ali
+W ada.strings.fixed%s	a-strfix.adb		a-strfix.ali
+W ada.strings.maps%s	a-strmap.adb		a-strmap.ali
+W ada.strings.maps.constants%s  a-stmaco.ads	a-stmaco.ali
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W aws.net%s		aws-net.adb		aws-net.ali
+Z system%s		system.ads		system.ali
+Z system.finalization_masters%s  s-finmas.adb	s-finmas.ali
+Z system.pool_global%s	s-pooglo.adb		s-pooglo.ali
+Z system.put_images%s	s-putima.adb		s-putima.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+Z system.soft_links%s	s-soflin.adb		s-soflin.ali
+Z system.standard_library%s  s-stalib.adb	s-stalib.ali
+Z system.stream_attributes%s  s-stratt.adb	s-stratt.ali
+
+D ada.ads		20210520051131 76789da1 ada%s
+D a-calend.ads		20210520051128 474d9720 ada.calendar%s
+D a-catizo.ads		20210520051128 eaa56756 ada.calendar.time_zones%s
+D a-charac.ads		20210520051128 2d3ec45b ada.characters%s
+D a-chahan.ads		20210520051128 0ce1b450 ada.characters.handling%s
+D a-chlat1.ads		20210520051128 66457d31 ada.characters.latin_1%s
+D a-contai.ads		20210520051128 61e5e089 ada.containers%s
+D a-cgarso.ads		20210520051128 9129bfa8 ada.containers.generic_array_sort%s
+D a-cohata.ads		20210520051128 bc432d0e ada.containers.hash_tables%s
+D a-conhel.ads		20210520051128 20298884 ada.containers.helpers%s
+D a-cihama.ads		20210520051128 76287ea1 ada.containers.indefinite_hashed_maps%s
+D a-cihase.ads		20210520051128 18093f96 ada.containers.indefinite_hashed_sets%s
+D a-ciorma.ads		20210520051128 3aa5dad0 ada.containers.indefinite_ordered_maps%s
+D a-crbltr.ads		20210520051128 d3d16ba4 ada.containers.red_black_trees%s
+D a-direct.ads		20210520051128 078228da ada.directories%s
+D a-envvar.ads		20210520051128 00080416 ada.environment_variables%s
+D a-except.ads		20210520051128 946f3014 ada.exceptions%s
+D a-finali.ads		20210520051128 bf4f806b ada.finalization%s
+D a-inteio.ads		20210520051128 f64b89a4 ada.integer_text_io%s
+D a-ioexce.ads		20210520051128 e4a01f64 ada.io_exceptions%s
+D a-iteint.ads		20210520051128 49a8bee2 ada.iterator_interfaces%s
+D a-numeri.ads		20210520051129 84bea7a3 ada.numerics%s
+D a-nudira.ads		20210520051129 5984dff3 ada.numerics.discrete_random%s
+D a-ngelfu.ads		20210520051129 e6ec3af5 ada.numerics.generic_elementary_functions%s
+D a-nlelfu.ads		20210520051129 7620113d ada.numerics.long_elementary_functions%s
+D a-stream.ads		20210520051129 119b8fb3 ada.streams%s
+D a-ststio.ads		20210520051129 d6d358e8 ada.streams.stream_io%s
+D a-string.ads		20210520051129 90ac6797 ada.strings%s
+D a-strfix.ads		20210520051129 aeacf44c ada.strings.fixed%s
+D a-strhas.ads		20210520051129 c71c2a52 ada.strings.hash%s
+D a-strmap.ads		20210520051129 5a88892a ada.strings.maps%s
+D a-stmaco.ads		20210520051129 1c0e5368 ada.strings.maps.constants%s
+D a-sttebu.ads		20210520051129 18209c64 ada.strings.text_buffers%s
+D a-strunb.ads		20210520051129 03325227 ada.strings.unbounded%s
+D a-stunau.ads		20210520051129 76c9a2c5 ada.strings.unbounded.aux%s
+D a-stuten.ads		20210520051129 808c40ad ada.strings.utf_encoding%s
+D a-tags.ads		20210520051130 9eaa38c6 ada.tags%s
+D a-taside.ads		20210520051127 00e3a3f6 ada.task_identification%s
+D a-textio.ads		20210520051130 aef4d56d ada.text_io%s
+D a-tifiio.ads		20210520051130 afb79382 ada.text_io.fixed_io%s
+D a-tiinio.ads		20210520051130 390edddb ada.text_io.integer_io%s
+D a-unccon.ads		20210520051130 0e9b276f ada.unchecked_conversion%s
+D a-uncdea.ads		20210520051130 c3a8ac65 ada.unchecked_deallocation%s
+D aws.ads		20210520114206 82646736 aws%s
+D aws-containers.ads	20210519051431 c7ab8288 aws.containers%s
+D aws-containers-key_value.ads  20210519051431 f3f917f0 aws.containers.key_value%s
+D aws-net.ads		20210519051431 4147ea12 aws.net%s
+D aws-net-log.ads	20210519051431 dca57234 aws.net.log%s
+D aws-net-log.adb	20210519051431 13b6faaa aws.net.log%b
+D aws-net-std.ads	20210519051431 fb394f55 aws.net.std%s
+D aws-net-std__gnat.adb	20210519051430 2a65a8cc aws.net.std%b
+D aws-os_lib.ads	20210520114209 a9a322e9 aws.os_lib%s
+D aws-utils.ads		20210519051431 840ea1d3 aws.utils%s
+D aws-utils.adb		20210519051431 2cbff7f1 aws.utils%b
+D gnat.ads		20210520051132 b5988c27 gnat%s
+D g-os_lib.ads		20210520051131 0db74523 gnat.os_lib%s
+D g-socket.ads		20210520051131 935983be gnat.sockets%s
+D g-socket.adb		20210520051131 2d2d8e32 gnat.sockets%b
+D g-soliop.ads		20210520051131 7db90d5b gnat.sockets.linker_options%s
+D g-socpol.ads		20210520051131 6f74da53 gnat.sockets.poll%s
+D g-socthi.ads		20210520051131 8305425b gnat.sockets.thin%s
+D g-sothco.ads		20210520051131 6036b5fb gnat.sockets.thin_common%s
+D interfac.ads		20210520051132 edec285f interfaces%s
+D i-c.ads		20210520051132 d9beded9 interfaces.c%s
+D i-cstrin.ads		20210520051132 341d0ddf interfaces.c.strings%s
+D i-cstrea.ads		20210520051132 e53d8b8e interfaces.c_streams%s
+D system.ads		20210520051135 a2da961d system%s
+D s-atacco.ads		20210520051132 4c36d12f system.address_to_access_conversions%s
+D s-arit64.ads		20210520051132 5f88d2b0 system.arith_64%s
+D s-atocou.ads		20210520051132 b45c2d8d system.atomic_counters%s
+D s-commun.ads		20210520051132 06400110 system.communication%s
+D s-crtl.ads		20210520051132 0ebbdb71 system.crtl%s
+D s-exctab.ads		20210520051132 54135002 system.exception_table%s
+D s-fatgen.ads		20210520051132 d28c6cfe system.fat_gen%s
+D s-fatlfl.ads		20210520051132 378cba9f system.fat_lflt%s
+D s-ficobl.ads		20210520051132 078245e4 system.file_control_block%s
+D s-finmas.ads		20210520051132 1ab4dba8 system.finalization_masters%s
+D s-finroo.ads		20210520051132 4ff27390 system.finalization_root%s
+D s-imagef.ads		20210520051133 019cdf69 system.image_f%s
+D s-imagei.ads		20210520051133 0d3f86a7 system.image_i%s
+D s-imfi64.ads		20210520051133 dbac59b3 system.img_fixed_64%s
+D s-imgint.ads		20210520051133 bdb6f5ec system.img_int%s
+D s-imglli.ads		20210520051133 3723d9ff system.img_lli%s
+D s-linux.ads		20210520051127 ed0b8aee system.linux%s
+D s-memory.ads		20210520051133 597d6634 system.memory%s
+D s-multip.ads		20210520051133 38ac9f73 system.multiprocessors%s
+D s-oscons.ads		20210520095158 e3a42aec system.os_constants%s
+D s-osinte.ads		20210520051127 222ac181 system.os_interface%s
+D s-os_lib.ads		20210520051133 93b69309 system.os_lib%s
+D s-parame.ads		20210520051134 4752c4cb system.parameters%s
+D s-pooglo.ads		20210520051134 ede33ef8 system.pool_global%s
+D s-putima.ads		20210520051134 4e095881 system.put_images%s
+D s-rannum.ads		20210520051134 c3978523 system.random_numbers%s
+D s-secsta.ads		20210520051134 9b3ab94b system.secondary_stack%s
+D s-soflin.ads		20210520051134 a7318a92 system.soft_links%s
+D s-stache.ads		20210520051134 a37c21ec system.stack_checking%s
+D s-stausa.ads		20210520051134 017a0a05 system.stack_usage%s
+D s-stalib.ads		20210520051134 472fbca8 system.standard_library%s
+D s-stalib.adb		20210520051134 977290bf system.standard_library%b
+D s-stoele.ads		20210520051134 2dc34a04 system.storage_elements%s
+D s-stoele.adb		20210520051134 ed88f8fb system.storage_elements%b
+D s-stopoo.ads		20210520051134 e9fa2dd8 system.storage_pools%s
+D s-stposu.ads		20210520051134 e251976f system.storage_pools.subpools%s
+D s-stratt.ads		20210520051134 7bdda3fa system.stream_attributes%s
+D s-stratt.adb		20210520051134 fc996108 system.stream_attributes%b
+D s-statxd.ads		20210520051134 b54789f6 system.stream_attributes.xdr%s
+D s-string.ads		20210520051134 8fe54fb7 system.strings%s
+D s-tasinf.ads		20210520051127 2b3f8252 system.task_info%s
+D s-tasloc.ads		20210520051134 618a376e system.task_lock%s
+D s-taspri.ads		20210520051127 4ec891e7 system.task_primitives%s
+D s-taskin.ads		20210520051127 88fba9ad system.tasking%s
+D s-taprob.ads		20210520051127 acd6094d system.tasking.protected_objects%s
+D s-tpoben.ads		20210520051127 60ad3dae system.tasking.protected_objects.entries%s
+D s-tpobop.ads		20210520051127 5f548bb3 system.tasking.protected_objects.operations%s
+D s-traent.ads		20210520051134 26a8d361 system.traceback_entries%s
+D s-unstyp.ads		20210520051134 2b077493 system.unsigned_types%s
+D s-valint.ads		20210520051134 e7fcadb7 system.val_int%s
+D s-valuns.ads		20210520051134 dac7b45d system.val_uns%s
+D s-valuei.ads		20210520051134 978dd0a6 system.value_i%s
+D s-valueu.ads		20210520051134 7b8fccf5 system.value_u%s
+D s-wchcon.ads		20210520051135 1b7d22d2 system.wch_con%s
+D s-wchstw.ads		20210520051135 2d112c01 system.wch_stw%s
+D templates_parser.ads	20210519053215 1cb5e754 templates_parser%s
+D templates_parser-utils.ads  20210519053215 8849593d templates_parser.utils%s
+D templates_parser_tasking.ads  20210519053215 4c0209f0 templates_parser_tasking%s
+D unchconv.ads		20210520051135 ca2f9e18 unchecked_conversion%s
+D zlib.ads		20210519051430 0714e1ed zlib%s
+G a e
+G c Z s b [bind aws__net__std 49 25 none]
+G c Z s b [listen aws__net__std 60 25 none]
+G c Z s b [accept_socket aws__net__std 65 25 none]
+G c Z s b [connect aws__net__std 70 25 none]
+G c Z s b [shutdown aws__net__std 83 25 none]
+G c Z s b [send aws__net__std 93 25 none]
+G c Z s b [receive aws__net__std 98 25 none]
+G c Z s b [pending aws__net__std 104 24 none]
+G c Z s b [get_fd aws__net__std 113 24 none]
+G c Z s b [peer_addr aws__net__std 116 24 none]
+G c Z s b [peer_port aws__net__std 119 24 none]
+G c Z s b [get_addr aws__net__std 122 24 none]
+G c Z s b [get_port aws__net__std 125 24 none]
+G c Z s b [is_any_address aws__net__std 128 24 none]
+G c Z s b [is_ipv6 aws__net__std 132 24 none]
+G c Z s b [ipv6_available aws__net__std 134 13 none]
+G c Z s b [host_name aws__net__std 136 13 none]
+G c Z s b [is_timeout aws__net__std 138 24 none]
+G c Z s b [is_peer_closed aws__net__std 144 24 none]
+G c Z s b [set_no_delay aws__net__std 150 25 none]
+G c Z s b [set_send_buffer_size aws__net__std 154 25 none]
+G c Z s b [set_receive_buffer_size aws__net__std 160 25 none]
+G c Z s b [get_send_buffer_size aws__net__std 166 24 none]
+G c Z s b [get_receive_buffer_size aws__net__std 171 24 none]
+G c Z s b [errno aws__net__std 176 24 none]
+G c Z s s [is_secure aws__net__std 179 24 none]
+G c Z s b [free aws__net__std 191 25 none]
+G c Z s s [error_on_connect aws__net__std 194 13 none]
+G c Z s s [socket_typeDA aws__net__std 187 9 none]
+G c Z s s [socket_typeDF aws__net__std 187 9 none]
+G c Z s s [socket_typeIP aws__net__std 187 9 none]
+G c Z b b [socket_hiddenIP aws__net__std 44 9 none]
+G c Z b b [free aws__net__std 48 14 none]
+G c Z b b [raise_exception aws__net__std 51 14 none]
+G c Z b b [set_non_blocking_mode aws__net__std 59 14 none]
+G r s socket_type [bind aws__net__std 49 25 none] [socket_typeIP aws__net 481 9 none]
+G r f socket_type [bind aws__net__std 49 25 none] [initialize aws__net 495 25 none]
+G r e socket_type [bind aws__net__std 49 25 none] [finalize aws__net 497 25 none]
+G r c none [bind aws__net__std 49 25 none] [image aws__utils 103 13 none]
+G r c none [bind aws__net__std 49 25 none] [error aws__net__log 92 14 none]
+G r c none [listen aws__net__std 60 25 none] [error aws__net__log 92 14 none]
+G r s socket_type [accept_socket aws__net__std 65 25 none] [socket_typeIP aws__net 481 9 none]
+G r f socket_type [accept_socket aws__net__std 65 25 none] [initialize aws__net 495 25 none]
+G r e socket_type [accept_socket aws__net__std 65 25 none] [finalize aws__net 497 25 none]
+G r c none [accept_socket aws__net__std 65 25 none] [wait_for aws__net 432 14 none]
+G r c none [accept_socket aws__net__std 65 25 none] [is_event_active aws__net__log 76 13 none]
+G r c none [accept_socket aws__net__std 65 25 none] [event aws__net__log 88 14 none]
+G r c none [accept_socket aws__net__std 65 25 none] [error aws__net__log 92 14 none]
+G r s socket_type [connect aws__net__std 70 25 none] [socket_typeIP aws__net 481 9 none]
+G r f socket_type [connect aws__net__std 70 25 none] [initialize aws__net 495 25 none]
+G r e socket_type [connect aws__net__std 70 25 none] [finalize aws__net 497 25 none]
+G r c none [connect aws__net__std 70 25 none] [error aws__net__log 92 14 none]
+G r c none [connect aws__net__std 70 25 none] [wait aws__net 278 13 none]
+G r c none [connect aws__net__std 70 25 none] [error_message aws__net 489 13 none]
+G r c none [connect aws__net__std 70 25 none] [image aws__utils 103 13 none]
+G r c none [connect aws__net__std 70 25 none] [match aws__utils 199 13 none]
+G r c none [connect aws__net__std 70 25 none] [is_event_active aws__net__log 76 13 none]
+G r c none [connect aws__net__std 70 25 none] [event aws__net__log 88 14 none]
+G r c none [shutdown aws__net__std 83 25 none] [is_event_active aws__net__log 76 13 none]
+G r c none [shutdown aws__net__std 83 25 none] [event aws__net__log 88 14 none]
+G r c none [shutdown aws__net__std 83 25 none] [error aws__net__log 92 14 none]
+G r s socket_type [shutdown aws__net__std 83 25 none] [socket_typeIP aws__net 481 9 none]
+G r f socket_type [shutdown aws__net__std 83 25 none] [initialize aws__net 495 25 none]
+G r e socket_type [shutdown aws__net__std 83 25 none] [finalize aws__net 497 25 none]
+G r c none [send aws__net__std 93 25 none] [is_write_active aws__net__log 73 13 none]
+G r c none [send aws__net__std 93 25 none] [write aws__net__log 79 14 none]
+G r c none [send aws__net__std 93 25 none] [last_index aws__net 499 13 none]
+G r c none [send aws__net__std 93 25 none] [error aws__net__log 92 14 none]
+G r c none [receive aws__net__std 98 25 none] [wait_for aws__net 432 14 none]
+G r c none [receive aws__net__std 98 25 none] [is_write_active aws__net__log 73 13 none]
+G r c none [receive aws__net__std 98 25 none] [write aws__net__log 79 14 none]
+G r c none [receive aws__net__std 98 25 none] [error aws__net__log 92 14 none]
+G r c none [pending aws__net__std 104 24 none] [error aws__net__log 92 14 none]
+G r c none [peer_addr aws__net__std 116 24 none] [error aws__net__log 92 14 none]
+G r c none [peer_port aws__net__std 119 24 none] [error aws__net__log 92 14 none]
+G r c none [get_addr aws__net__std 122 24 none] [error aws__net__log 92 14 none]
+G r c none [get_port aws__net__std 125 24 none] [error aws__net__log 92 14 none]
+G r c none [is_any_address aws__net__std 128 24 none] [error aws__net__log 92 14 none]
+G r c none [is_ipv6 aws__net__std 132 24 none] [error aws__net__log 92 14 none]
+G r c none [is_timeout aws__net__std 138 24 none] [get_socket_errno aws__net 452 13 none]
+G r c none [is_timeout aws__net__std 138 24 none] [is_timeout aws__net 300 13 none]
+G r c none [is_peer_closed aws__net__std 144 24 none] [get_socket_errno aws__net 452 13 none]
+G r c none [is_peer_closed aws__net__std 144 24 none] [is_peer_closed aws__net 309 13 none]
+G r c none [set_no_delay aws__net__std 150 25 none] [error aws__net__log 92 14 none]
+G r c none [set_send_buffer_size aws__net__std 154 25 none] [error aws__net__log 92 14 none]
+G r c none [set_receive_buffer_size aws__net__std 160 25 none] [error aws__net__log 92 14 none]
+G r c none [get_send_buffer_size aws__net__std 166 24 none] [error aws__net__log 92 14 none]
+G r c none [get_receive_buffer_size aws__net__std 171 24 none] [error aws__net__log 92 14 none]
+G r d socket_type [socket_typeDA aws__net__std 187 9 none] [adjust aws__net 496 25 none]
+G r e socket_type [socket_typeDF aws__net__std 187 9 none] [finalize aws__net 497 25 none]
+G r s socket_type [socket_typeIP aws__net__std 187 9 none] [socket_typeIP aws__net 481 9 none]
+G r c none [raise_exception aws__net__std 51 14 none] [error aws__net__log 92 14 none]
+G r c none [set_non_blocking_mode aws__net__std 59 14 none] [error aws__net__log 92 14 none]
+X 1 ada.ads
+16K9*Ada 20e8 50|36r6 37r6 51|32r6 33r6 49r11 210r23
+X 10 a-conhel.ads
+84R12 Reference_Control_Type<18|43R9>
+X 13 a-ciorma.ads
+57R9*Map<18|43R9>
+67R9*Cursor 51|184r49[46|32]
+76V13*Has_Element{boolean} 51|186s46[46|32]
+91V13*Element{string} 51|187s48[46|32]
+196V13*Find{67R9[46|32]} 51|184s67[46|32]
+X 17 a-except.ads
+44K13*Exceptions 289e19 51|52r17 121r22 160r19 235r22 630r17
+53R9*Exception_Occurrence 263e14 50|140r16 146r16 51|52r28 121r33 235r33
+. 550r16 562r16 630r28
+84V13*Exception_Message{string} 51|306s23 311s23 634s50 805s53 835s43
+113U14*Save_Occurrence 51|160s30 302s19
+X 21 a-iteint.ads
+24h9 Forward_Iterator
+32h9 Reversible_Iterator<24R9[13|78]>
+X 26 a-stream.ads
+42M9*Stream_Element
+44I9*Stream_Element_Offset<long_long_integer> 50|96r20 101r20 51|647r20 678r20
+51I12*Stream_Element_Count{44I9} 50|105r36 51|613r36 619r14
+54A9*Stream_Element_Array(42M9)<44I9> 50|95r16 100r20 51|646r20 677r16
+X 28 a-string.ads
+16K13*Strings 35e16 50|36r10 37r10 197r13 199r27 51|32r10 210r27
+X 29 a-strfix.ads
+43K21*Fixed 1398e22 50|36w18 197r21 51|210r35
+237V13*Index{natural} 50|197s27 51|210s41
+241a7 Mapping{31|209A9} 50|199r16
+X 31 a-strmap.ads
+44K21*Maps 548e21 50|37r18 199r35 51|32w18
+209A9*Character_Mapping(character)
+X 32 a-stmaco.ads
+38K26*Constants 915e31 50|37w23 199r40
+54a4*Lower_Case_Map{31|209A9} 50|199r50
+X 37 a-tags.ads
+652V13 CW_Membership{boolean} 51|89s10
+X 43 a-uncdea.ads
+20u15*Unchecked_Deallocation 51|33w10 49r15
+X 44 aws.ads
+32K9*AWS 41e8 50|39r9 208r5 51|37r6 38r6 40r14 849r5
+X 45 aws-containers.ads
+32K13*Containers 34e19 51|184r28 186r25 187r27
+X 46 aws-containers-key_value.ads
+32K24*Key_Value[13|48] 51|184r39 186r36 187r38
+X 47 aws-net.ads
+45K13*Net 44|32k9 47|520e12 50|39r13 41r37 43r28 66r20 187r28 208r9 51|37r10
+. 40r18 73r20 79r37 91r10 92r10 92r25 114r33 228r33 273r33 289r19 290r19
+. 290r34 552r30 564r26 659r10 660r10 661r26 684r10 685r10 686r26 786r13 787r13
+. 787r28 834r22 849r9
+51X4*Socket_Error 50|41r41
+55H9*Socket_Type<18|43R9> 484e14 50|43r32 66r24 187r32 51|73r24 79r41 114r37
+. 228r37 552r34 564r30 834r26
+63N4*No_Socket 51|449r17 845r7
+66n24*Error{66E9} 51|276r33 805r35
+66n31*Input{66E9} 51|86r17 274r61 649r17
+66n38*Output{66E9} 51|274r45 283r40
+71A9*Event_Set(boolean)<66E9> 51|272r40
+79E9*Family_Type 79e66 50|55r23 75r16 51|63r30 111r23 181r16
+79n25*Family_Inet{79E9} 51|64r17
+79n38*Family_Inet6{79E9} 51|65r17
+79n52*Family_Unspec{79E9} 50|55r38 75r31 51|66r17 111r38 127r22 181r31
+81E9*Shutmode_Type 81e66 50|84r35 51|778r35 780r33
+81n27*Shut_Read{81E9} 51|782r20
+81n38*Shut_Write{81E9} 51|783r20
+81n50*Shut_Read_Write{81E9} 50|84r52 51|778r52 781r20 809r20
+138U14*Socket_Pair
+195V13*Output_Space{26|44I9}
+199V13*Output_Busy{26|44I9}
+228V13*Is_Listening{boolean}
+261V13*Cipher_Description{string}
+265U14*Set_Blocking_Mode
+270U14*Set_Timeout
+278V13*Wait{71A9} 51|273s37
+300V13*Is_Timeout{boolean} 51|564s14
+309V13*Is_Peer_Closed{boolean} 51|552s14
+319C9*FD_Set<319R9>
+324V13*To_FD_Set{319C9}
+432U14 Wait_For 51|86s7 649s7
+450a4 Peer_Closed_Message{string} 51|656r34
+452V13 Get_Socket_Errno{natural} 51|553s17 565s17
+472b7*Listening{boolean} 51|577m16
+479P9 RW_Data_Access(470R9)
+482p7*C{479P9} 51|577r14
+489V13 Error_Message{string} 51|202s23 281s28
+495U25 Initialize<18|46p14>
+496U25 Adjust<18|47p14>
+497U25 Finalize<18|48p14>
+499V13 Last_Index{26|44I9} 51|698s24
+508V13 IO_Control{26|44I9}
+514r4 Aliases{13|57R9[46|32]} 51|184r59
+X 48 aws-net-log.ads
+41K17*Log 99e16 51|37w14 91r14 92r14 92r29 217r10 289r23 290r23 290r38 636r7
+. 659r14 660r14 661r30 684r14 685r14 686r30 786r17 787r17 787r32 802r19 832r16
+43n28*Sent{43E9} 51|686r34
+43n34*Received{43E9} 51|661r34
+46n24*Connect{46E9} 51|290r42
+46n33*Accept_Socket{46E9} 51|92r33
+46n48*Shutdown{46E9} 51|787r36
+73V13*Is_Write_Active{boolean} 51|659s18 684s18
+76V13*Is_Event_Active{boolean} 51|91s18 289s27 786s21
+79U14*Write 51|660s18 685s18
+80e7 Direction{43E9} 51|661r13 686r13
+81c7 Socket<47|55R9> 51|662r13 687r13
+82a7 Data{26|54A9} 51|663r13 688r13
+83i7 Last{26|44I9} 51|664r13 689r13
+88U14*Event 51|92s18 290s27 787s21
+92U14*Error 51|217s14 636s11 802s23 832s20
+92a49 Message{string} 51|636r26 804r22 835r19
+X 50 aws-net-std.ads
+39K17*Std 47|45k13 50|183E9 208l13 208e16 51|40b22 849l13 849t16
+41X4*Socket_Error 51|223r16 637r13 656r16
+43R9*Socket_Type<47|55R9> 47|138p14 195p13 199p13 228p13 261p13 265p14 270p14
+. 324p13 495P25 496P25 497P25 508p13 50|49P25 50r30 60P25 61r20 65P25 67r27
+. 70P25 71r23 83P25 84r16 93P25 94r16 98P25 99r16 104P24 105r16 113P24 113r41
+. 116P24 116r44 119P24 119r44 122P24 122r43 125P24 125r43 128P24 128r49 132P24
+. 132r42 138P24 139r16 144P24 145r16 150P25 151r16 154P25 155r16 160P25 161r16
+. 166P24 167r16 171P24 172r16 176P24 176r40 179P24 179r44 187c9 189e14 191P25
+. 191r47 205r44 51|54r17 59r46 74r27 79r24 89r10 106r30 114r20 177r23 228r20
+. 318r40 424r47 433r43 446r41 459r43 472r16 488r16 521r49 535r42 549r16 561r16
+. 573r20 587r44 600r44 613r16 632r17 645r16 676r16 710r16 727r46 744r16 761r16
+. 778r16 833r19
+49U25*Bind<47|97p14> 50=7 51>7 52>7 53>7 54>7 55>7 51|105b25 170l8 170t12
+50r7 Socket{43R9} 51|106b7 113r10 114m10 117m7 134r19 139r22 143r39 146r19
+. 149r29 155r22 156r44 157r22 164r46 169r50
+51i7 Port{natural} 51|107b7 124r46
+52a7 Host{string} 51|108b7 124r27
+53b7 Reuse_Address{boolean} 51|109b7 147r64
+54b7 IPv6_Only{boolean} 51|110b7 140r61
+55e7 Family{47|79E9} 51|111b7 124r62 127r13
+60U25*Listen<47|111p14> 61>7 62>7 51|572b25 581l8 581t14
+61r7 Socket{43R9} 51|573b7 576r30 577r7 580r40
+62i7 Queue_Size{positive} 51|574b7 576r43
+65U25*Accept_Socket<47|115p14> 66>7 67=7 51|72b25 99l8 99t21
+66c7 Socket<47|55R9> 51|73b7 86r24 89r23
+67r7 New_Socket{43R9} 51|74b7 78r10 79m10 82m7 89r37 92r48 95r30 98r47
+70U25*Connect<47|124p14> 71=7 72>7 73>7 74>7 75>7 51|176b25 312l8 312t15
+71r7 Socket{43R9} 51|177b7 217r21 220r35 227r10 228m10 231m7 246r19 250r39
+. 253r35 274r36 281r50 290r51 298r44
+72a7 Host{string} 51|178b7 184r73 188r27
+73i7 Port{positive} 51|179b7 213r58 243r53
+74b7 Wait{boolean} 51|180b7 270r19
+75e7 Family{47|79E9} 51|181b7 238r51
+83U25*Shutdown<47|141p14> 84>7 84>29 51|777b25 838l8 838t16
+84r7 Socket{43R9} 51|778b7 785r10 787r46 796r38 803r22 814r50 819r13
+84e29 How{47|81E9} 51|778b29 796r60 809r13
+93U25*Send<47|166p14> 94>7 95>7 96<7 51|675b25 703l8 703t12
+94r7 Socket{43R9} 51|676b7 682r28 687r26 700r44
+95a7 Data{26|54A9} 51|677b7 682r41 688r26 698r36
+96i7 Last{26|44I9} 51|678b7 682m47 689r26 698m16
+98U25*Receive<47|176p14> 99>7 100<7 101<7 51|644b25 669l8 669t15
+99r7 Socket{43R9} 51|645b7 649r24 651r31 662r26 668r41
+100a7 Data{26|54A9} 51|646b7 651m44 655r17 663r26
+101i7 Last{26|44I9} 51|647b7 651m50 655r10 664r26
+104V24*Pending{26|51I12}<47|190p13> 105>7 51|612b24 623l8 623t15
+105r7 Socket{43R9} 51|613b7 617r31 622r41
+113V24*Get_FD{integer}<47|207p13> 113>32 51|446b24 453l8 453t14
+113r32 Socket{43R9} 51|446b32 448r10 451r31
+116V24*Peer_Addr{string}<47|210p13> 116>35 51|587b24 594l8 594t17
+116r35 Socket{43R9} 51|587b35 590r36 593r43
+119V24*Peer_Port{positive}<47|213p13> 119>35 51|600b24 606l8 606t17
+119r35 Socket{43R9} 51|600b35 602r47 605r43
+122V24*Get_Addr{string}<47|216p13> 122>34 51|433b24 440l8 440t16
+122r34 Socket{43R9} 51|433b34 436r38 439r42
+125V24*Get_Port{positive}<47|219p13> 125>34 51|459b24 465l8 465t16
+125r34 Socket{43R9} 51|459b34 461r49 464r42
+128V24*Is_Any_Address{boolean}<47|222p13> 128>40 51|521b24 529l8 529t22
+128r40 Socket{43R9} 51|521b40 524r31 528r48
+132V24*Is_IPv6{boolean}<47|226p13> 132>33 51|535b24 542l8 542t15
+132r33 Socket{43R9} 51|535b33 538r31 541r41
+134V13*IPv6_Available{boolean} 51|512b13 515l8 515t22
+136V13*Host_Name{string} 51|503b13 506l8 506t17
+138V24*Is_Timeout{boolean}<47|300p13> 139>7 140>7 51|560b24 566l8 566t18
+139r7 Socket{43R9} 51|561b7 564r43
+140r7 E{17|53R9} 51|562b7 564r52 565r35
+144V24*Is_Peer_Closed{boolean}<47|309p13> 145>7 146>7 51|548b24 554l8 554t22
+145r7 Socket{43R9} 51|549b7 552r47
+146r7 E{17|53R9} 51|550b7 552r56 553r35
+150U25*Set_No_Delay<47|274p14> 151>7 151>29 51|709b25 721l8 721t20
+151r7 Socket{43R9} 51|710b7 715r10 720r46
+151b29 Value{boolean} 51|710b29 717r31
+154U25*Set_Send_Buffer_Size<47|241p14> 155>7 156>7 51|760b25 771l8 771t28
+155r7 Socket{43R9} 51|761b7 767r10 770r54
+156i7 Size{natural} 51|762b7 767r61
+160U25*Set_Receive_Buffer_Size<47|246p14> 161>7 162>7 51|743b25 754l8 754t31
+161r7 Socket{43R9} 51|744b7 750r10 753r57
+162i7 Size{natural} 51|745b7 750r64
+166V24*Get_Send_Buffer_Size{natural}<47|251p13> 167>7 51|487b24 497l8 497t28
+167r7 Socket{43R9} 51|488b7 493r17 496r54
+171V24*Get_Receive_Buffer_Size{natural}<47|256p13> 172>7 51|471b24 481l8
+. 481t31
+172r7 Socket{43R9} 51|472b7 477r17 480r57
+176V24*Errno{integer}<47|297p13> 176>31 51|281s43 318b24 418l8 418t13
+176r31 Socket{43R9} 51|318b31 324r37
+179V24*Is_Secure{boolean}<47|232p13> 179>35 205b24
+179r35 Socket{43R9}
+183R9 Socket_Hidden 185r40 51|44c9 46e14 49r39 82r27 117r23 231r23 834r47
+185P9 Socket_Hidden_Access(183R9) 188r11 51|49r54
+188p7 S{185P9} 51|78r21 82m18 89r31 89r48 113r17 117m14 134r26 139r29 146r26
+. 149r36 155r29 156r51 157r29 220r42 227r17 231m14 246r26 253r42 298r51 324r44
+. 426m20 436r45 448r17 451r38 461r56 477r24 493r24 524r38 538r38 576r37 590r43
+. 602r54 617r38 651r38 682r35 715r17 733r30 750r17 767r17 785r17 796r45 814r57
+. 819r20
+191U25 Free<47|404p14> 191=31 51|424b25 427l8 427t12
+191r31 Socket{43R9} 51|424b31 426m13 426r13
+194V13 Error_On_Connect{string} 194>31 51|211s25
+194a31 Text{string} 195r11 195r36 195r42 196r13 196r19 196r33 196r53 198r16
+X 51 aws-net-std__gnat.adb
+45i7*FD{57|413I9} 89r33 89m50 134m28 139r31 146r28 149r38 155r31 156r53 157m31
+. 220r44 246m28 253r44 298r53 324r46 436r47 451r40 461r58 477r26 493r26 524r40
+. 538r40 576r39 590r45 602r56 617r40 651r40 682r37 715r19 733r32 750r19 767r19
+. 796r47 814r59 819m22 834m62
+48U14 Free[43|20] 426s7
+51U14 Raise_Exception 52>7 53>7 54>7 98s10 164s10 169s10 439s10 464s10 480s10
+. 496s10 528s10 541s10 580s10 593s10 605s10 622s10 629b14 638l8 638t23 668s10
+. 700s16 720s10 736s10 753s10 770s10
+52r7 E{17|53R9} 630b7 634r69
+53a7 Routine{string} 631b7 634r32
+54r7 Socket{50|43R9} 632b7 636r18
+59U14 Set_Non_Blocking_Mode 59>37 95s7 143s16 250s16 727b14 737l8 737t29
+59r37 Socket{50|43R9} 727b37 733r23 736r55
+63a4 To_GNAT(57|473E9) 124r53 238r42
+76r7 Sock_Addr{57|594R9} 89m54
+97r12 E{17|53R9} 98r27
+121r10 Keep_Excp{17|53R9} 160m47 164r27
+122a10 Addresses{57|1061A9} 128m19 128r19 131r27
+131r14 Addr_Info=131:27{57|1055R9} 134r32 134r55 135r19 137r19 149r42
+132q13 Check_Address 161l17 161e30
+154r21 E{17|53R9} 160r58
+168r12 E{17|53R9} 169r27
+183r7 Sock_Addr{57|594R9} 208r51 212r25 242m16 242r16 243m16 253r48
+184r7 C_Host{13|67R9[46|32]} 186r59 187r57
+185a7 Real_Host{string} 210r54 213r27 214r47 215r27 238r27
+190b7 Close_On_Exception{boolean} 219r13 248m16 297r22 299m22
+192U17 Raise_Error 192>30 200b17 203l11 203t22 284s25
+192i30 Errno{integer} 200b30 202r38
+194U17 Raise_Error 194>30 202s10 205b17 224l11 224t22 306s10 311s10
+194a30 Errm{string} 205b30 210r48 210r74 211r43
+208a10 Addr{string} 214r41 214r63 215r45
+209a10 Msg{string} 217r29 223r34
+235r10 Keep_Excp{17|53R9} 302m36 306r42
+236a10 Addresses{57|1061A9} 240r27
+240r14 Addr_Info=240:27{57|1055R9} 242r29 246r32 246r55 247r19
+241q13 Check_Address 303l17 303e30
+255r24 E{17|53R9} 261r46
+272a22 Events{47|71A9} 276r25 283r32
+296r21 E{17|53R9} 302r47
+310r12 E{17|53R9} 311r42
+321K15 SC=321:26 330r20 332r20 334r20 336r20 338r20 340r20 342r20 344r20
+. 346r20 348r20 350r20 352r20 354r20 356r20 358r20 360r20 362r20 364r20 366r20
+. 368r20 370r20 372r20 374r20 376r20 378r20 380r20 382r20 384r20 386r20 388r20
+. 390r20 392r20 394r20 396r20 398r20 400r20 402r20 404r20 406r20 408r20 410r20
+. 412r20 414r20
+323r7 Option{57|917R9} 326r12
+438r12 E{17|53R9} 439r27
+463r12 E{17|53R9} 464r27
+479r12 E{17|53R9} 480r27
+495r12 E{17|53R9} 496r27
+527r12 E{17|53R9} 528r27
+540r12 E{17|53R9} 541r27
+579r12 E{17|53R9} 580r27
+592r12 E{17|53R9} 593r27
+604r12 E{17|53R9} 605r27
+615r7 Res{57|1001R9} 617m44 617r44 619r36
+621r12 E{17|53R9} 622r27
+634a7 Msg=634:48{string} 636r37 637r31
+667r12 E{17|53R9} 668r27
+692r12 E{17|53R9} 695r50 700r33
+694e13 Error{57|731E9} 697r16
+719r12 E{17|53R9} 720r27
+729r7 Mode{57|1001R9} 731m7 733m36 733r36
+735r12 E{17|53R9} 736r27
+752r12 E{17|53R9} 753r27
+769r12 E{17|53R9} 770r27
+780a7 To_GNAT(57|488E9) 796r51
+798r18 E{17|53R9} 799r46 805r72
+814i13 FD{57|413I9} 826r35 834r68
+828r18 E{17|53R9} 835r62
+X 52 aws-os_lib.ads
+45K13*OS_Lib 51|38w10 284r38 321r26 553r40 565r40 52|337e15
+125N4*EADDRNOTAVAIL 51|334r23
+126N4*EINPROGRESS 51|356r23
+127N4*EINTR 51|358r23
+128N4*EINVAL 51|360r23
+129N4*ENAMETOOLONG 51|372r23
+130N4*ENOBUFS 51|380r23
+131N4*ENOTCONN 51|384r23
+132N4*ESHUTDOWN 51|398r23
+133N4*ESOCKTNOSUPPORT 51|400r23
+134N4*ETIMEDOUT 51|284r45 402r23 565r47
+135N4*ETOOMANYREFS 51|404r23
+136N4*EWOULDBLOCK 51|406r23
+137N4*ECONNRESET 51|346r23 553r47
+138N4*EACCES 51|330r23
+139N4*EADDRINUSE 51|332r23
+140N4*EAFNOSUPPORT 51|336r23
+141N4*EALREADY 51|338r23
+142N4*EBADF 51|340r23
+143N4*ECONNABORTED 51|342r23
+144N4*ECONNREFUSED 51|344r23
+145N4*EDESTADDRREQ 51|348r23
+146N4*EFAULT 51|350r23
+147N4*EHOSTDOWN 51|352r23
+148N4*EHOSTUNREACH 51|354r23
+149N4*EIO 51|362r23
+150N4*EISCONN 51|364r23
+151N4*ELOOP 51|366r23
+152N4*EMFILE 51|368r23
+153N4*EMSGSIZE 51|370r23
+154N4*EPIPE 51|392r23
+155N4*EPFNOSUPPORT 51|390r23
+156N4*EPROTONOSUPPORT 51|394r23
+157N4*EPROTOTYPE 51|396r23
+158N4*ENETDOWN 51|374r23
+159N4*ENETRESET 51|376r23
+160N4*ENETUNREACH 51|378r23
+161N4*ENOPROTOOPT 51|382r23
+162N4*ENOTSOCK 51|386r23
+163N4*EOPNOTSUPP 51|388r23
+184N4*HOST_NOT_FOUND 51|408r23
+185N4*TRY_AGAIN 51|410r23
+186N4*NO_DATA 51|414r23
+187N4*NO_RECOVERY 51|412r23
+X 53 aws-utils.ads
+44K13*Utils 51|124r33 213r45 214r28 53|466e14
+103V13*Image{string} 51|124s39 213s51
+199V13*Match{boolean} 51|214s34
+X 55 gnat.ads
+34K9*GNAT 51|35r6 42r8 120r14 234r14 255r28 280r31 55|57e9
+X 57 g-socket.ads
+56K14*Sockets 51|35w11 45r12 45r35 63r46 64r34 65r34 66r34 76r19 88r7 97r16
+. 120r19 137r43 140r31 147r30 154r25 154r48 155r37 156r22 157r37 168r16 168r39
+. 183r19 183r45 206r19 208r36 212r42 220r13 234r19 243r34 245r16 255r33 280r36
+. 296r25 296r48 298r22 310r16 310r39 319r11 434r11 438r16 451r17 461r24 463r16
+. 474r11 479r16 490r11 495r16 505r14 522r11 527r16 536r11 540r16 576r7 579r16
+. 588r11 592r16 602r24 604r16 615r13 615r35 617r7 621r16 651r7 667r16 680r16
+. 682r7 692r16 694r30 695r23 697r24 712r11 719r16 728r11 735r16 747r11 752r16
+. 764r11 769r16 780r51 781r39 782r39 783r39 791r22 796r13 798r22 799r19 800r22
+. 814r27 819r28 826r13 828r22 845r20 845r34 847r26 847r40 57|1598e17
+413I9*Socket_Type<integer> 51|45r20 814r35
+418i4*No_Socket{413I9} 51|45r43 155r45 157r45 819r36 845r42 847r48
+457X4*Socket_Error 51|97r24 154r33 168r24 255r41 280r44 296r33 310r24 438r24
+. 463r24 479r24 495r24 527r24 540r24 579r24 592r24 604r24 621r24 667r24 692r24
+. 719r24 735r24 752r24 769r24 798r30 828r30
+469V13*To_C{integer} 51|451s25 845s28 847s34
+473E9*Family_Type 51|63r54 57|473e79
+473n25*Family_Inet{473E9} 51|64r42
+473n38*Family_Inet6{473E9} 51|65r42 137r51 538r53
+473n65*Family_Unspec{473E9} 51|66r42
+488E9*Shutmode_Type 51|780r59 57|488e66
+488n27*Shut_Read{488E9} 51|782r47
+488n38*Shut_Write{488E9} 51|783r47
+488n50*Shut_Read_Write{488E9} 51|781r47
+496I9*Port_Type<integer> 51|243r42
+521R9*Inet_Addr_Type 51|206r27 57|530e14
+535r4*Any_Inet_Addr{521R9} 51|525r36
+538r4*Any_Inet6_Addr{521R9} 51|525r19
+541r4*No_Inet_Addr{521R9} 51|212r50
+594R9*Sock_Addr_Type 51|76r27 183r27 57|604e14
+594e25*Family{473E9} 51|134r47 137r34 246r47 538r44
+599r13*Addr{521R9} 51|212r35 436r51 524r44 590r49
+600i13*Port{496I9} 51|243m26 461r62 602r60
+610r4*No_Sock_Addr{594R9} 51|183r53
+619V13*Image{string} 51|436s14 590s14
+624V13*Image{string} 51|208s44
+665X4*Host_Error 51|154r56 168r47 296r56 310r47
+683V13*Host_Name{string} 51|505s22
+731E9*Error_Type 51|680r24 694r38 791r30 57|776e28
+732n7*Success{731E9} 51|327r15
+733n7*Permission_Denied{731E9} 51|329r15
+734n7*Address_Already_In_Use{731E9} 51|331r15
+735n7*Cannot_Assign_Requested_Address{731E9} 51|333r15
+736n7*Address_Family_Not_Supported_By_Protocol{731E9} 51|335r15
+737n7*Operation_Already_In_Progress{731E9} 51|337r15
+738n7*Bad_File_Descriptor{731E9} 51|339r15
+739n7*Software_Caused_Connection_Abort{731E9} 51|341r15
+740n7*Connection_Refused{731E9} 51|343r15
+741n7*Connection_Reset_By_Peer{731E9} 51|345r15
+742n7*Destination_Address_Required{731E9} 51|347r15
+743n7*Bad_Address{731E9} 51|349r15
+744n7*Host_Is_Down{731E9} 51|351r15
+745n7*No_Route_To_Host{731E9} 51|353r15
+746n7*Operation_Now_In_Progress{731E9} 51|262r30 355r15
+747n7*Interrupted_System_Call{731E9} 51|357r15
+748n7*Invalid_Argument{731E9} 51|359r15
+749n7*Input_Output_Error{731E9} 51|361r15
+750n7*Transport_Endpoint_Already_Connected{731E9} 51|363r15
+751n7*Too_Many_Symbolic_Links{731E9} 51|365r15
+752n7*Too_Many_Open_Files{731E9} 51|367r15
+753n7*Message_Too_Long{731E9} 51|369r15
+754n7*File_Name_Too_Long{731E9} 51|371r15
+755n7*Network_Is_Down{731E9} 51|373r15
+756n7*Network_Dropped_Connection_Because_Of_Reset{731E9} 51|375r15
+757n7*Network_Is_Unreachable{731E9} 51|377r15
+758n7*No_Buffer_Space_Available{731E9} 51|379r15
+759n7*Protocol_Not_Available{731E9} 51|381r15
+760n7*Transport_Endpoint_Not_Connected{731E9} 51|383r15 800r30
+761n7*Socket_Operation_On_Non_Socket{731E9} 51|385r15
+762n7*Operation_Not_Supported{731E9} 51|387r15
+763n7*Protocol_Family_Not_Supported{731E9} 51|389r15
+764n7*Protocol_Not_Supported{731E9} 51|393r15
+765n7*Protocol_Wrong_Type_For_Socket{731E9} 51|395r15
+766n7*Cannot_Send_After_Transport_Endpoint_Shutdown{731E9} 51|397r15
+767n7*Socket_Type_Not_Supported{731E9} 51|399r15
+768n7*Connection_Timed_Out{731E9} 51|401r15
+769n7*Too_Many_References{731E9} 51|403r15
+770n7*Resource_Temporarily_Unavailable{731E9} 51|263r30 405r15 697r32
+771n7*Broken_Pipe{731E9} 51|391r15
+772n7*Unknown_Host{731E9} 51|407r15
+773n7*Host_Name_Lookup_Failure{731E9} 51|409r15
+774n7*Non_Recoverable_Error{731E9} 51|411r15
+775n7*Unknown_Server_Error{731E9} 51|413r15
+783n7*Socket_Level{782E9} 51|146r32 324r50 477r30 493r30 750r23 767r23
+785n7*IP_Protocol_For_IPv6_Level{782E9} 51|139r35
+787n7*IP_Protocol_For_TCP_Level{782E9} 51|716r20
+814n7*Reuse_Address{802E9} 51|147r38
+820n7*Send_Buffer{802E9} 51|493r52 767r48
+823n7*Receive_Buffer{802E9} 51|477r52 750r48
+831n7*Error{802E9} 51|324r72
+848n7*No_Delay{802E9} 51|717r21
+902n7*IPv6_Only{802E9} 51|140r39
+917R9*Option_Type 51|323r25 57|990e14
+917e22*Name{802E9} 51|140m23
+932b13*Enabled{boolean} 51|140m50 147m53
+955i13*Size{natural} 51|477r68 493r65
+958e13*Error{731E9} 51|326r19
+998n7*Non_Blocking_IO{997E9} 51|729r28
+999n7*N_Bytes_To_Read{997E9} 51|615r43
+1001R9*Request_Type 51|615r21 729r14 57|1010e14
+1004b13*Enabled{boolean} 51|731m12
+1007i13*Size{natural} 51|619r40
+1056r7*Addr{594R9} 51|134r42 137r29 149r52 242r39 246r42
+1057e7*Mode{481E9} 51|134r65 246r65
+1058e7*Level{782E9} 51|135r29 247r29
+1061A9*Address_Info_Array(1055R9)<integer> 51|122r22 236r31
+1063V13*Get_Address_Info{1061A9} 51|123s24 237s24
+1070b7 Passive{boolean} 51|125r27 238r60
+1095U14*Sort 51|128s13
+1100V13*IPv6_TCP_Preferred{boolean} 51|128r30
+1120U14*Create_Socket 51|133s16 245s24
+1137U14*Accept_Socket 51|88s15
+1162U14*Bind_Socket 51|149s16
+1168U14*Close_Socket 51|156s30 220s21 298s30 826s21
+1171U14*Connect_Socket 51|253s19
+1192U14*Control_Socket 51|617s15 733s7
+1199V13*Get_Peer_Name{594R9} 51|590s21 602s32
+1203V13*Get_Socket_Name{594R9} 51|436s21 461s32 524s14 538s14
+1207V13*Get_Socket_Option{917R9} 51|324s18 476s14 492s14
+1210e7 Name{802E9} 51|324r64 477r44 493r44
+1215U14*Listen_Socket 51|576s15
+1225U14*Receive_Socket 51|651s15
+1258V13*Resolve_Exception{731E9} 51|261s27 695s31 799s27
+1265U14*Send_Socket 51|682s15
+1322U14*Set_Socket_Option 51|138s19 145s16 714s7 749s7 766s7
+1324e7 Level{782E9} 51|716r10
+1325r7 Option{917R9} 51|147r19 717r10 750r37 767r37
+1328U14*Shutdown_Socket 51|796s21
+X 63 interfac.ads
+55I9*Integer_64<long_long_integer>
+X 67 system.ads
+67M9*Address
+X 69 s-arit64.ads
+44I12*Int64{63|55I9}
+54V13*Multiply_With_Ovflo_Check64{44I12} 55i<c,__gnat_mulv64>22
+X 85 s-memory.ads
+53V13*Alloc{67|67M9} 103i<c,__gnat_malloc>22
+68U14*Free 104i<c,__gnat_free>22
+76V13*Realloc{67|67M9} 105i<c,__gnat_realloc>22
+X 97 s-stausa.ads
+208U14*Initialize 209i<c,__gnat_stack_usage_initialize>22
+273U14*Output_Results 277i<c,__gnat_stack_usage_output_results>22
+X 99 s-stalib.adb
+89U14 Break_Start 90i<c,__gnat_break_start>22
+

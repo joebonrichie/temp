@@ -1,0 +1,113 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>15. Tribooleans: Three state logic &#8212; GNATColl 2021 documentation</title>
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="16. Geometry: primitive geometric operations" href="geometry.html" />
+    <link rel="prev" title="14. VFS: Manipulating Files" href="vfs.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="geometry.html" title="16. Geometry: primitive geometric operations"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="vfs.html" title="14. VFS: Manipulating Files"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">GNATColl 2021 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">15. </span><strong>Tribooleans</strong>: Three state logic</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="tribooleans-three-state-logic">
+<span id="three-state-logic"></span><h1><span class="section-number">15. </span><strong>Tribooleans</strong>: Three state logic<a class="headerlink" href="#tribooleans-three-state-logic" title="Permalink to this headline">¶</a></h1>
+<p>Through the package <cite>GNATCOLL.Tribooleans</cite>, GNATColl provides
+a type that extends the classical <cite>Boolean</cite> type with an
+<cite>Indeterminate</cite> value.</p>
+<p>There are various cases where such a type is useful. One example we have
+is when a user is doing a search (on a database or any set of data), and
+can specify some optional boolean criteria (“must the contact be french?”).
+He can choose to only see french people (“True”), to see no french people
+at all (“False”), or to get all contacts (“Indeterminate”). With a classical
+boolean, there is no way to cover all these cases.</p>
+<p>Of course, there are more advanced use cases for such a type. To support
+these cases, the <cite>Tribooleans</cite> package overrides the usual logical
+operations <cite>“and”</cite>, <cite>“or”</cite>, <cite>“xor”</cite>, <cite>“not”</cite> and
+provides an <cite>Equal</cite> function.</p>
+<p>See the specs of the package to see the truth tables associated with those
+operators.</p>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/adacore_transparent.png" alt="Logo"/>
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="vfs.html"
+                        title="previous chapter"><span class="section-number">14. </span><strong>VFS</strong>: Manipulating Files</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="geometry.html"
+                        title="next chapter"><span class="section-number">16. </span><strong>Geometry</strong>: primitive geometric operations</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="geometry.html" title="16. Geometry: primitive geometric operations"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="vfs.html" title="14. VFS: Manipulating Files"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">GNATColl 2021 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">15. </span><strong>Tribooleans</strong>: Three state logic</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2007-2021, AdaCore.
+    </div>
+  </body>
+</html>

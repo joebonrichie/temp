@@ -1,0 +1,161 @@
+V "GNAT Lib v2021"
+A -O2
+A -gnatA
+A -fPIC
+A -gnatwu
+A -gnatwa
+A -gnaty
+A -gnatQ
+A -gnatn
+A -mtune=generic
+A -march=x86-64
+P SS ZX
+
+RN
+RV NO_EXCEPTIONS
+RV NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_UNCHECKED_DEALLOCATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U unicode.ces.basic_8bit%b  unicode-ces-basic_8bit.adb  ba342546 NE OO PK
+Z ada.exceptions%s	a-except.adb		a-except.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+W unicode%s		unicode.adb		unicode.ali
+W unicode.ccs%s		unicode-ccs.adb		unicode-ccs.ali
+W unicode.ces%s		unicode-ces.adb		unicode-ces.ali
+W unicode.ces.utf32%s	unicode-ces-utf32.adb	unicode-ces-utf32.ali
+
+U unicode.ces.basic_8bit%s  unicode-ces-basic_8bit.ads  4161d344 BN EE NE OO PK
+W unchecked_deallocation%s
+W unicode%s		unicode.adb		unicode.ali
+W unicode.ccs%s		unicode-ccs.adb		unicode-ccs.ali
+W unicode.ces%s		unicode-ces.adb		unicode-ces.ali
+W unicode.ces.utf32%s	unicode-ces-utf32.adb	unicode-ces-utf32.ali
+
+D ada.ads		20210520051131 76789da1 ada%s
+D a-except.ads		20210520051128 946f3014 ada.exceptions%s
+D a-unccon.ads		20210520051130 0e9b276f ada.unchecked_conversion%s
+D system.ads		20210520051135 a2da961d system%s
+D s-exctab.ads		20210520051132 54135002 system.exception_table%s
+D s-parame.ads		20210520051134 4752c4cb system.parameters%s
+D s-secsta.ads		20210520051134 9b3ab94b system.secondary_stack%s
+D s-stalib.ads		20210520051134 472fbca8 system.standard_library%s
+D s-stoele.ads		20210520051134 2dc34a04 system.storage_elements%s
+D s-traent.ads		20210520051134 26a8d361 system.traceback_entries%s
+D unchdeal.ads		20210520051135 214516a4 unchecked_deallocation%s
+D unicode.ads		20210519052322 a421878d unicode%s
+D unicode-ccs.ads	20210519052322 184e29de unicode.ccs%s
+D unicode-ces.ads	20210519052322 68f558ab unicode.ces%s
+D unicode-ces-basic_8bit.ads  20210519052322 a56f8139 unicode.ces.basic_8bit%s
+D unicode-ces-basic_8bit.adb  20210519052322 b2e5b80d unicode.ces.basic_8bit%b
+D unicode-ces-utf32.ads	20210519052322 b5f035ac unicode.ces.utf32%s
+G a e
+G c Z s b [encode unicode__ces__basic_8bit 49 14 none]
+G c Z s b [read unicode__ces__basic_8bit 57 14 none]
+G c Z s b [width unicode__ces__basic_8bit 63 13 none]
+G c Z s b [length unicode__ces__basic_8bit 66 13 none]
+G c Z s b [from_utf32 unicode__ces__basic_8bit 73 13 none]
+G c Z s b [to_utf32 unicode__ces__basic_8bit 78 13 none]
+G c Z s b [to_unicode_le unicode__ces__basic_8bit 87 13 none]
+G c Z s b [to_cs unicode__ces__basic_8bit 96 13 none]
+G c Z s s [free unicode__ces__basic_8bit 118 14 none]
+G c Z b b [convert unicode__ces__basic_8bit 35 13 none]
+G r c none [from_utf32 unicode__ces__basic_8bit 73 13 none] [read unicode__ces__utf32 73 14 none]
+G r c none [to_utf32 unicode__ces__basic_8bit 78 13 none] [encode unicode__ces__utf32 64 14 none]
+X 11 unchdeal.ads
+20u11*Unchecked_Deallocation 15|33w6 118r26
+X 12 unicode.ads
+111K9*Unicode 157e12 15|31r6 32r6 35r9 74r13 80r14 89r15 89r44 98r15 98r44
+. 123r5 16|30r6 30r32 31r6 31r32 33r14 37r17 94r13 108r10 122r14 131r10 142r17
+. 168r15 168r44 180r15 180r44 186r5
+114M9*Unicode_Char 15|50r16 60r19 63r27 16|46r16 64r19 74r27 99r11 127r11
+. 147r11
+X 13 unicode-ccs.ads
+31K17*CCS 72e16 15|32w14 89r23 89r52 98r23 98r52 16|31w14 31r40 37r25 142r25
+. 168r23 168r52 180r23 180r52
+44P9*Conversion_Function(12|114M9) 16|37r29 142r29
+47R9*Character_Set 50e14 15|89r27 98r27 16|168r27 180r27
+48p7*To_Unicode{44P9} 16|171r31
+49p7*To_CS{44P9} 16|183r31
+56V13*Identity{12|114M9} 16|37r52 142r52 151r20
+59r4*Unicode_Character_Set{47R9} 15|89r56 98r56 16|168r56 180r56
+X 14 unicode-ces.ads
+35K17*CES 12|111k9 14|171e16 15|31r14 35r17 74r21 80r22 123r13 16|30r14 30r40
+. 33r22 94r21 108r18 122r22 131r18 186r13
+41A12*Byte_Sequence{string}<integer> 15|51r23 16|47r23
+53E9*Byte_Order 53e56 15|90r15 99r15 16|38r17 143r17 169r15 181r15
+56e4*Default_Byte_Order{53E9} 15|90r29 99r29 16|38r31 143r31 169r29 181r29
+72n7*Unknown{62E9} 15|108r17
+111P9*Read_Function
+122P9*Width_Function(integer)
+127P9*Encode_Function 15|111r17
+136P9*Length_Function(integer)
+139R9*Encoding_Scheme 145e14 15|107r35
+140e7*BOM{62E9} 15|108m7
+141p7*Read{111P9} 15|109m7
+142p7*Width{122P9} 15|110m7
+143p7*Encode{127P9} 15|111m7
+144p7*Length{136P9} 15|112m7
+163X4*Invalid_Encoding 16|51r16
+167X4*Incomplete_Encoding 16|104r16
+X 15 unicode-ces-basic_8bit.ads
+35K21*Basic_8bit 14|35k17 15|123l17 123e27 16|33b26 186l17 186t27
+41A12*Basic_8bit_String{string}<integer> 42r44 58r15 66r27 75r14 79r13 88r15
+. 90r56 97r15 99r56 119r7 16|36r17 38r58 62r15 84r27 95r14 97r16 121r13 141r17
+. 143r58 167r15 169r56 179r15 181r56
+42P9*Basic_8bit_String_Access(41A12) 119r26
+49U14*Encode 50>7 51=7 52=7 111r34 16|45b14 55l8 55t14 110s10 156s13
+50m7 Char{12|114M9} 16|46b7 50r10 54r40
+51a7 Output{14|41A12} 16|47b7 54m7
+52i7 Index{natural} 16|48b7 53m7 53r16 54r15
+57U14*Read 58>7 59=7 60<7 109r17 16|61b14 68l8 68t12 130s10 155s13
+58a7 Str{41A12} 16|62b7 66r30
+59i7 Index{positive} 16|63b7 66r35 67m7 67r16
+60m7 Char{12|114M9} 16|64b7 66m7
+63V13*Width{natural} 63>20 110r17 122r19 16|74b13 78l8 78t13
+63m20 Char{12|114M9} 16|74b20 75r29
+66V13*Length{natural} 66>21 112r17 16|84b13 87l8 87t14
+66a21 Str{41A12} 16|84b21 86r14
+73V13*From_Utf32{41A12} 74>7 16|93b13 114l8 114t18
+74a7 Str{17|50A12} 16|94b7 97r40 100r23 102r10 107r18 108r34
+78V13*To_Utf32{17|50A12} 79>7 16|120b13 134l8 134t16
+79a7 Str{41A12} 16|121b7 124r38 126r23 129r18 130r16
+87V13*To_Unicode_LE{41A12} 88>7 89>7 90>7 16|166b13 172l8 172t21
+88a7 Str{41A12} 16|167b7 171r23
+89r7 Cs{13|47R9} 16|168b7 171r28
+90e7 Order{14|53E9} 16|169b7 171r43
+96V13*To_CS{41A12} 97>7 98>7 99>7 16|178b13 184l8 184t13
+97a7 Str{41A12} 16|179b7 183r23
+98r7 Cs{13|47R9} 16|180b7 183r28
+99e7 Order{14|53E9} 16|181b7 183r38
+107r4*Basic_8bit_Encoding{14|139R9}
+118U14*Free[11|20]
+X 16 unicode-ces-basic_8bit.adb
+35V13 Convert{15|41A12} 36>7 37>7 38>7 140b13 160l8 160t15 171s14 183s14
+36a7 Str{15|41A12} 141b7 146r19 148r23 152r17 154r21 155r19
+37p7 Convert{13|44P9} 142b7 151r10 156r21
+38e7 Order{14|53E9} 143b7 145r29
+97a7 Result{15|41A12} 98r28 109r35 110m21 110r21 113r14
+98i7 R_Index{natural} 109r25 110m29 110r29
+99m7 C{12|114M9} 108m50 110r18
+100i7 J{positive} 107r13 108m39 108r39
+124a7 Result{17|50A12} 125r28 131m39 131r39 133r14
+125i7 R_Index{natural} 131m47 131r47
+126i7 J{positive} 129r13 130m21 130r21
+127m7 C{12|114M9} 130m24 131r36
+146a7 S{string} 149r26 156m34 156r34 158r17
+147m7 C{12|114M9} 155m27 156r30
+148i7 J{positive} 154r16 155m24 155r24
+149i7 J_Out{natural} 156m37 156r37
+X 17 unicode-ces-utf32.ads
+40K21*Utf32 15|31w18 74r25 80r26 16|30w18 30r44 94r25 108r22 122r26 131r22
+. 17|158e22
+46A12*Utf32_String{string}<integer>
+50A12*Utf32_LE_String{46A12}<integer> 15|74r31 80r32 16|94r31 122r32 124r16
+57N4*Utf32_Char_Width 16|97r53 102r25 124r51
+64U14*Encode 16|131s28
+73U14*Read 16|108s28
+76m7 Char{12|114M9} 16|108r42
+

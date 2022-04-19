@@ -1,0 +1,13 @@
+project Library is
+
+   for Source_Dirs use (".");
+   for Main use ("test_libraries.adb");
+   for Object_Dir use "obj";
+   for Exec_Dir use ".";
+
+   package Builder is
+      for Default_Switches ("Ada") use ("-gnat05");
+      for Executable ("test_libraries.adb") use "library";
+   end Builder;
+
+end Library;

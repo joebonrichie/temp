@@ -1,0 +1,52 @@
+		       G N A T   E X A M P L E S
+		       =========================
+
+
+In order to compile the examples, make sure that the 'gprbuild' command is
+in your path. 
+
+Invocation
+----------
+
+In order to build the two executables provided in this example, you need to
+use the "oo_airline.gpr" project file. On the command-line, do a:
+
+  $ gprbuild -P broker
+
+In GPS, click on "Build", then "Make" and then "broker".
+
+To launch the example, just type "./broker" on the command line.
+
+Features tested
+---------------
+
+The purpose of this example is to read the content of a booking file
+and make some air ticket reservations accordingly. 
+This example features two interesting issues:
+
+* Use of GNAT.AWK package
+
+This package emulates the semantics of the well-known awk tool. The procedure
+Read_File () in broker.adb use this package to split the lines in file
+"orders.txt" into fields that are later exploited. The use of this package
+is very easy, as you just have to Open the file and read fields line by line.
+
+for more explanations, have a look a g-awk.ads
+
+* Use of Ada 2005 Interfaces
+
+The broker example uses two hierarchies of tagged types: one hierarchy is
+rooted at Airline.Seats.Seat and later derived into Coach_Seat, Business_Seat
+and First_Seat. It contains the basic location information of the seat aboard
+the plane. The second hierarchy is rooted at Airline.Meals.Meal and derived
+in Coach_Meal, Business_Meal and First_Meal. An Interface is defined so
+that Airline.Tickets inherit both from Seats and Meals.
+
+Once the Ticket information is read from the orders.txt file, the main
+procedure loops on all the passengers, calling procedures defined in
+both interfaces:
+
+- calls to Print () and Is_Aboard () dispatch to the right procedure in 
+  the Seat hierarchy;
+- calls to Eat () and Eaten () dispatch to the right procedure in
+  the Meal hierarchy.

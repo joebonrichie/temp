@@ -1,0 +1,31 @@
+		       G N A T   E X A M P L E S
+		       =========================
+
+
+Features tested
+---------------
+
+This example demonstrates how to manipulate the GNAT binding to the PowerPC
+AltiVec extension. A soft emulation is provided by default in the GNAT
+library. The hard version is provided as a separate package. The API is
+common to both bindings and is independant from the system endianness.
+
+Invocation
+----------
+
+In order to compile the example, make sure that the 'gprbuild' command is
+in your path. 
+
+In order to build the executable provided in this example, you need to
+use the "altivec_soft.gpr" project file. On the command-line do:
+
+  $ gprbuild -P altivec_soft
+
+In GPS, click on "Build", then "Make" and then "altivec" to compile the
+example. You can also simply press the F4 key.
+
+In order to build the example using the hard binding (provided as a separate
+pacakge), do:
+
+  $ gprbuild -P altivec_hard
+

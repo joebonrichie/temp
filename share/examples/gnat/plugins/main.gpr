@@ -1,0 +1,67 @@
+with "base";
+
+project Main is
+
+   --  Type definition
+   Type OS_Type is ("Win32", "Unix");
+   Type Option_Type is ("None", "Short", "Long");
+   Type Ext_Type is ("dll", "so", "sl");
+
+   --  External variables
+   OS_Name       : OS_Type     := external ("OS_Name", "Win32");
+   Linker_Option : Option_Type := external ("Linker_Option", "None");
+   Extension     : Ext_Type    := external ("Extension", "dll");
+
+   Common_Sources :=  ("demo.adb",
+                       "extension.ads",
+                       "plugins.ads");
+
+   --  Build the list of sources
+   case OS_Name is
+      when "Win32" =>
+         for Source_Files use Common_Sources & "plugins_windows.adb"
+            & "extension_dll.adb";
+      when "Unix" =>
+         case Extension is
+         when "sl" =>
+            for Source_Files use Common_Sources & "plugins_unix.adb"
+               & "extension_sl.adb";
+         when "so" =>
+            for Source_Files use Common_Sources & "plugins_unix.adb"
+               & "extension_so.adb";
+         when others =>
+            --  Error !
+            null;
+         end case;
+   end case;
+
+   for Main use ("demo");
+
+   package Compiler renames Base.Compiler;
+
+   package Linker is
+      case Linker_Option is
+         when "Short" =>
+            for Switches ("demo.adb") use ("-ldl");
+         when "Long" =>
+            for Switches ("demo.adb") use ("-ldld");
+         when others =>
+            null;
+      end case;
+   end Linker;
+
+   package Naming is
+      for Body ("Extension") use "extension_" & Extension & ".adb";
+      case OS_Name is
+         when "Win32" =>
+            for Body ("Plugins") use "plugins_windows.adb";
+         when others =>
+            for Body ("Plugins") use "plugins_unix.adb";
+      end case;
+   end Naming;
+
+   for Source_Dirs use (".");
+   for Object_Dir use ".";
+
+end Main;
+

@@ -1,0 +1,38 @@
+project menace is
+
+   type Builds is ("Debug", "Production");
+   Build : Builds := external("BUILD", "Production");
+
+   for Source_Dirs use ("source/menace", "source/mains", "source/utils");
+
+   for Main use ("play", "train", "display");
+
+   for Exec_Dir use ".";
+
+   for Object_Dir use "objs";
+
+   package Compiler is
+      case Build is
+         when "Debug" =>
+            for Default_Switches ("Ada") use
+               ("-g", "-gnato", "-gnatwa", "-fstack-check", "-gnat05");
+         when "Production" =>
+            for Default_Switches ("Ada") use
+               ("-O2", "-gnatwa", "-gnat05");
+      end case;
+   end Compiler;
+
+   package Builder is
+      case Build is
+         when "Debug" =>
+            for Default_Switches ("Ada") use ("-g", "-gnatQ");
+         when "Production" =>
+            for Default_Switches ("Ada") use ("-gnatQ");
+      end case;
+   end Builder;
+
+   package IDE is
+      for Compiler_Command("Ada") use "gnatmake";
+   end IDE;
+
+end menace;

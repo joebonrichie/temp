@@ -1,0 +1,100 @@
+		       G N A T   E X A M P L E S
+		       =========================
+
+
+In order to compile the examples, make sure that the 'gprbuild' command is
+in your path. 
+
+Invocation
+----------
+
+In order to build the two executables provided in this example, you need to
+use the "anagram.gpr" project file. On the command-line, do a:
+
+  $ gprbuild -Panagram
+
+In GPS, click on "Build", then "Make" and then "anagram" is compiled, you
+can click on "Build", then "Make" and then "anagram2".
+
+Features tested
+---------------
+
+* The anagram program is an example of how the 
+  Ada.Containers.Generic_Array_Sort package can be used.
+
+* The anagram2 program is an example of how the 
+  Ada.Containers.Indefinite_Vectors can be instanciated.
+
+Description of examples
+-----------------------
+
+* In the anagram program, when you give it a word, it searches
+  dictionary for all permutations of that word.  So for example,
+  if you give it the word "time", then it will return all the 
+  permutations of "time" that are also in the dictionary: "emit",
+  "item", "mite", and "time".  (The anagram program is 
+  interactive.  Press Enter without any input to terminate the 
+  program.)
+
+* The thing about anagram is that it's often hard to come with 
+  with words that have meaningful permutations; that is, words
+  with some permutations that are also words, as definted by 
+  the dictionary.  What you often want is a way to examine the
+  dictionary itself, to find the words that form an "anagram 
+  group", the group of equal-length words that are permutations
+  of each other.  That's what anagram2 does.  (The anagram2
+  program is non-interactive.  Just run it and it will display
+  each anagram group.)
+
+* In anagram, we use a vector to store each of the words in the
+  dictionary.  The words have type String, which is indefinite, 
+  so we use the indefinite vector to store strings directly.
+
+  The dictionary is sorted, so we can use a binary search to 
+  determine whether a word is in the dictionary.  We want to 
+  return the permutations of a word in dictionary order, so
+  the we first use Generic_Array_Sort to sort the word itself.
+
+  We then search for each permutation of the word.  using the 
+  binary search.  If that permutation is itself a word 
+  (meaning that it's in the dictionary), then we print out a 
+  message.  We then permutate the word, and search for that
+  permutation.  The iteration stops when we have searched
+  for all the permutations of the word.
+
+* In the anagram2 example, we use a vector as a kind of ordered 
+  map.  The vector element type is a word pair.  One word of 
+  the pair, the payload part, is the original word from the 
+  dictionary.  The other word of the pair is the original word,
+  but sorted (again, using Generic_Array_Sort).  As we consume
+  each line in the file, we build the key/payload (sorted word/
+  word) pair and append it to the vector.
+
+  We then sort the vector, in order by the key-part of each 
+  vector element pair.  We define a sort relation, and use it
+  to instantiate the vectors' Generic_Sorting nested package.
+  That gives us a Sort procedure which we use to sort the
+  vector.  (That nested package has other operations as well,
+  including an Is_Sorted predicate function.)
+
+  Each sorted permutation of a word will have the same value.
+  Remember this is the key-part of the vector element pair.
+  By sorting the vector by key-part of each element, this 
+  has the effect of moving all the permutations of a word
+  directly next to each other in the vector.
+
+  We only care about anagram groups that have more than a
+  single member, so what we need to do is scan the vector
+  for groups of elements that have the same key-part.  To
+  do that we use a Generic_Adjacent_Find generic algorithm,
+  which returns the position of the first element in the 
+  range that is followed by an equal-valued element.  We
+  define equal-valued to mean that the key-part of each
+  pair compares equal.
+
+  Adjacent_Find identifies the first member of the group,
+  but we need the entire group.  Knowing the position of
+  the first member, we keep scanning until we find an
+  element that is not equivalent.  That demarcates the 
+  range of the members of this group, and so we can then 
+  print the payload part of each element in the group.

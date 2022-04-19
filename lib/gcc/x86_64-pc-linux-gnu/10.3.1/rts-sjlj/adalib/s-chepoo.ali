@@ -1,0 +1,85 @@
+V "GNAT Lib v2021"
+A -O2
+A -ffunction-sections
+A -fdata-sections
+A -fsjlj
+A -fno-omit-frame-pointer
+A -momit-leaf-frame-pointer
+A -gnatg
+A -gnatn
+A -gnatU
+A -mtune=generic
+A -march=x86-64
+P
+
+RN
+RV NO_DISPATCHING_CALLS
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_ELABORATION_CODE
+
+U system.checked_pools%s  s-chepoo.ads		452bdb7a EE OL PK
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W system%s		system.ads		system.ali
+Z system.put_images%s	s-putima.adb		s-putima.ali
+Z system.soft_links%s	s-soflin.adb		s-soflin.ali
+W system.storage_elements%s  s-stoele.adb	s-stoele.ali
+W system.storage_pools%s  s-stopoo.adb		s-stopoo.ali
+
+D ada.ads		20210520051131 76789da1 ada%s
+D a-except.ads		20210520051128 946f3014 ada.exceptions%s
+D a-finali.ads		20210520051128 bf4f806b ada.finalization%s
+D a-stream.ads		20210520051129 119b8fb3 ada.streams%s
+D a-string.ads		20210520051129 90ac6797 ada.strings%s
+D a-sttebu.ads		20210520051129 18209c64 ada.strings.text_buffers%s
+D a-stuten.ads		20210520051129 808c40ad ada.strings.utf_encoding%s
+D a-tags.ads		20210520051130 9eaa38c6 ada.tags%s
+D a-unccon.ads		20210520051130 0e9b276f ada.unchecked_conversion%s
+D interfac.ads		20210520051132 edec285f interfaces%s
+D system.ads		20210520095221 fa138bbb system%s
+D s-chepoo.ads		20210520051132 7b01371d system.checked_pools%s
+D s-exctab.ads		20210520051132 54135002 system.exception_table%s
+D s-finroo.ads		20210520051132 4ff27390 system.finalization_root%s
+D s-parame.ads		20210520051134 4752c4cb system.parameters%s
+D s-putima.ads		20210520051134 4e095881 system.put_images%s
+D s-secsta.ads		20210520051134 9b3ab94b system.secondary_stack%s
+D s-soflin.ads		20210520051134 a7318a92 system.soft_links%s
+D s-stache.ads		20210520051134 a37c21ec system.stack_checking%s
+D s-stalib.ads		20210520051134 472fbca8 system.standard_library%s
+D s-stoele.ads		20210520051134 2dc34a04 system.storage_elements%s
+D s-stoele.adb		20210520051134 ed88f8fb system.storage_elements%b
+D s-stopoo.ads		20210520051134 e9fa2dd8 system.storage_pools%s
+D s-traent.ads		20210520051134 26a8d361 system.traceback_entries%s
+D s-unstyp.ads		20210520051134 2b077493 system.unsigned_types%s
+D unchconv.ads		20210520051135 ca2f9e18 unchecked_conversion%s
+G a e
+G c Z s s [checked_poolDF system__checked_pools 57 9 none]
+G c Z s s [checked_poolIP system__checked_pools 57 9 none]
+X 3 a-finali.ads
+53U14*Initialize<14|44p14>
+54U14*Finalize<14|43p14>
+X 11 system.ads
+37K9*System 154e11 12|32r6 33r6 35r9 38r10 46r34 47r34 58r10 59r5
+67M9*Address 12|45r34
+X 12 s-chepoo.ads
+35K16*Checked_Pools 11|37k9 12|57E9 59l12 59e25
+37H9*Checked_Pool<23|42R9> 3|53P14 54P14 12|43p14 44r41 57c9 58e65 14|42p14
+. 23|46p14 53p14 60p13
+43x14*Dereference 44=7 45>7 46>7 47>7
+44r7 Pool{37R9}
+45m7 Storage_Address{11|67M9}
+46i7 Size_In_Storage_Elements{21|61I12}
+47i7 Alignment{21|61I12}
+X 14 s-finroo.ads
+42U14*Adjust
+X 21 s-stoele.ads
+42K16*Storage_Elements 12|32w13 46r41 47r41 21|116e28
+54I9*Storage_Offset<long_integer>
+61I12*Storage_Count{54I9} 12|46r58 47r58
+X 23 s-stopoo.ads
+39K16*Storage_Pools 12|33w13 38r17 58r17 23|100e25
+42H9*Root_Storage_Pool<3|50R9> 12|38r31 58r31 23|67e62
+46x14*Allocate
+53x14*Deallocate
+60y13*Storage_Size{21|61I12}
+

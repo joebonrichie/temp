@@ -1,0 +1,348 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>5. Strings: high-performance strings &#8212; GNATColl 2021 documentation</title>
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="6. Memory: Monitoring memory usage" href="memory.html" />
+    <link rel="prev" title="4. Traces: Logging information" href="traces.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="memory.html" title="6. Memory: Monitoring memory usage"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="traces.html" title="4. Traces: Logging information"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">GNATColl 2021 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">5. </span><strong>Strings</strong>: high-performance strings</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="strings-high-performance-strings">
+<h1><span class="section-number">5. </span><strong>Strings</strong>: high-performance strings<a class="headerlink" href="#strings-high-performance-strings" title="Permalink to this headline">¶</a></h1>
+<p>The generic package <code class="file docutils literal notranslate"><span class="pre">GNATCOLL.Strings_Impl</span></code> (and its default
+instantiation in <code class="file docutils literal notranslate"><span class="pre">GNATCOLL.Strings</span></code>) provides a high-performance
+strings implementation.</p>
+<p>It comes in addition to Ada’s own <cite>String</cite> and <cite>Unbounded_String</cite> types,
+although it attempts to find a middle ground in between (flexibility
+vs performance).</p>
+<p>GNATCOLL.Strings therefore provides strings (named <cite>XString</cite>, as in
+extended-strings) that can grow as needed (up to <cite>Natural’Last</cite>, like standard
+strings), yet are faster than unbounded strings. They also come with an
+extended API, which includes all primitive operations from unbounded strings,
+in addition to some subprograms inspired from GNATCOLL.Utils and the python and
+C++ programming languages.</p>
+<div class="section" id="small-string-optimization">
+<h2><span class="section-number">5.1. </span>Small string optimization<a class="headerlink" href="#small-string-optimization" title="Permalink to this headline">¶</a></h2>
+<p>GNATCOLL.Strings uses a number of tricks to improve on the efficiency.  The
+most important one is to limit the number of memory allocations.  For this, we
+use a trick similar to what all C++ implementations do nowadays, namely the
+small string optimization.</p>
+<p>The idea is that when a string is short, we can avoid all memory allocations
+altogether, while still keeping the string type itself small. We therefore
+use an Unchecked_Union, where a string can be viewed in two ways:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span>Small string
+
+  [f][s][ characters of the string 23 bytes               ]
+     f  = 1 bit for a flag, set to 0 for a small string
+     s  = 7 bits for the size of the string (i.e. number of significant
+          characters in the array)
+
+Big string
+
+  [f][c      ][size     ][data      ][first     ][pad    ]
+     f = 1 bit for a flag, set to 1 for a big string
+     c = 31 bits for half the capacity. This is the size of the buffer
+         pointed to by data, and which contains the actual characters of
+         the string.
+     size = 32 bits for the size of the string, i.e. the number of
+         significant characters in the buffer.
+     data = a pointer (32 or 64 bits depending on architecture)
+     first = 32 bits, see the handling of substrings below
+     pad = 32 bits on a 64 bits system, 0 otherwise.
+         This is because of alignment issues.
+</pre></div>
+</div>
+<p>So in the same amount of memory (24 bytes), we can either store a small string
+of 23 characters or less with no memory allocations, or a big string that
+requires allocation. In a typical application, most strings are smaller than 23
+bytes, so we are saving very significant time here.</p>
+<p>This representation has to work on both 32 bits systems and 64 bits systems, so
+we have careful representation clauses to take this into account.  It also
+needs to work on both big-endian and little-endian systems. Thanks to Ada’s
+representation clauses, this one in fact relatively easy to achieve (well,
+okay, after trying a few different approaches to emulate what’s done in C++,
+and that did not work elegantly). In fact, emulating via bit-shift operations
+ended up with code that was less efficient than letting the compiler do it
+automatically because of our representation clauses.</p>
+</div>
+<div class="section" id="character-types">
+<h2><span class="section-number">5.2. </span>Character types<a class="headerlink" href="#character-types" title="Permalink to this headline">¶</a></h2>
+<p>Applications should be able to handle the whole set of Unicode characters. In
+Ada, these are represented as the Wide_Character type, rather than Character,
+and stored on 2 bytes rather than 1. Of course, for a lot of applications it
+would be wasting memory to always store 2 bytes per character, so we want to
+give flexibility to users here.</p>
+<p>So the package GNATCOLL.Strings_Impl is a generic. It has several formal
+parameters, among which:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Character_Type is the type used to represent each character. Typically,
+it will be Character, Wide_Character, or even possibly
+Wide_Wide_Character. It could really be any scalar type, so for instance
+we could use this package to represent DNA with its 4-valued nucleobases.</p></li>
+<li><p>Character_String is an array of these characters, as would be
+represented in Ada. It will typically be a String or a Wide_String. This
+type is used to make this package work with the rest of the Ada world.</p></li>
+</ul>
+</div></blockquote>
+<p>Note about Unicode: we could also always use a Character, and use UTF-8
+encoding internally. But this makes all operations (from taking the length to
+moving the next character) slower, and more fragile. We must make sure not to
+cut a string in the middle of a multi-byte sequence. Instead, we manipulate a
+string of code points (in terms of Unicode). A similar choice is made in Ada
+(String vs Wide_String), Python and C++.</p>
+</div>
+<div class="section" id="configuring-the-size-of-small-strings">
+<h2><span class="section-number">5.3. </span>Configuring the size of small strings<a class="headerlink" href="#configuring-the-size-of-small-strings" title="Permalink to this headline">¶</a></h2>
+<p>The above is what is done for most C++ implementations nowadays.  The maximum
+23 characters we mentioned for a small string depends in fact on several
+criteria, which impact the actual maximum size of a small string:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>on 32 bits system, the size of the big string is 16 bytes, so the maximum
+size of a small string is 15 bytes.</p></li>
+<li><p>on 64 bits system, the size of the big string is 24 bytes, so the maximum
+size of a small string is 23 bytes.</p></li>
+<li><p>If using a Character as the character type, the above are the actual
+number of characters in the string. But if you are using a
+Wide_Character, this is double the maximum length of the string, so a
+small string is either 7 characters or 11 characters long.</p></li>
+</ul>
+</div></blockquote>
+<p>This is often a reasonable number, and given that applications mostly use small
+strings, we are already saving a lot of allocations. However, in some cases we
+know that the typical length of strings in a particular context is different.
+For instance, GNATCOLL.Traces builds messages to output in the log file. Such
+messages will typically be at most 100 characters, although they can of course
+be much larger sometimes.</p>
+<p>We have added one more formal parameter to GNATCOLL.Strings_Impl to control the
+maximum size of small strings. If for instance we decide that a “small” string
+is anywhere from 1 to 100 characters long (i.e. we do not want to allocate
+memory for those strings), it can be done via this parameter.</p>
+<p>Of course, in such cases the size of the string itself becomes much larger.
+In this example it would be 101 bytes long, rather than the 24 bytes.  Although
+we are saving on memory allocations, we are also spending more time copying
+data when the string is passed around, so you’ll need to measure the
+performance here.</p>
+<p>The maximum size for the small string is 127 bytes however, because this size
+and the 1-bit flag need to fit in 1 bytes in the representation clauses we
+showed above. We tried to make this more configurable, but this makes things
+significantly more complex between little-endian and big-endian systems, and
+having large “small” strings would not make much sense in terms of performance
+anyway.</p>
+<p>Typical C++ implementations do not make this small size configurable.</p>
+</div>
+<div class="section" id="task-safety">
+<h2><span class="section-number">5.4. </span>Task safety<a class="headerlink" href="#task-safety" title="Permalink to this headline">¶</a></h2>
+<p>Just like unbounded strings, the strings in this package are not thread safe.
+This means that you cannot access the same string (read or write) from two
+different threads without somehow protecting the access via a protected type,
+locks,…</p>
+<p>In practice, sharing strings would rarely be done, so if the package itself
+was doing its own locking we would end up with very bad performance in all
+cases, for a few cases where it might prove useful.</p>
+<p>As we’ll discuss below, it is possible to use two different strings that
+actually share the same internal buffer, from two different threads. Since this
+is an implementation detail, this package takes care of guaranteeing the
+integrity of the shared data in such a case.</p>
+</div>
+<div class="section" id="copy-on-write">
+<h2><span class="section-number">5.5. </span>Copy on write<a class="headerlink" href="#copy-on-write" title="Permalink to this headline">¶</a></h2>
+<p>There is one more formal parameter, to configure whether this package should
+use copy-on-write or not. When copy on write is enabled, you can have multiple
+strings that internally share the same buffer of characters. This means that
+assigning a string to another one becomes a reasonably fast operation (copy a
+pointer and increment a refcount). Whenever the string is modified, a copy of
+the buffer is done so that other copies of the same string are not impacted.</p>
+<p>But in fact, there is one drawback with this scheme: we need reference counting
+to know when we can free the shared data, or when we need to make a copy of it.
+This reference counting must be thread safe, since users might be using two
+different strings from two different threads, but they share data internally.</p>
+<p>Thus the reference counting is done via atomic operations, which have some
+impact on performance. Since multiple threads try to access the same memory
+addresses, this is also a source of contention in multi-threaded applications.</p>
+<p>For this reason, the current C++ standard prevents the use of copy-on-write
+for strings.</p>
+<p>In our case, we chose to make this configurable in the generic, so that users
+can decide whether to pay the cost of the atomic operations, but save on the
+number of memory allocations and copy of the characters.  Sometimes it is
+better to share the data, sometimes to systematically copy it.
+Again, actual measurements of the performance are needed for your specific
+application.</p>
+</div>
+<div class="section" id="growth-strategy">
+<h2><span class="section-number">5.6. </span>Growth strategy<a class="headerlink" href="#growth-strategy" title="Permalink to this headline">¶</a></h2>
+<p>When the current size of the string becomes bigger than the available allocated
+memory (for instance because you are appending characters), this package needs
+to reallocate memory. There are plenty of strategies here, from allocating only
+the exact amount of memory needed (which saves on memory usage, but is very bad
+in terms of performance), to doubling the current size of the string until we
+have enough space, as currently done in the GNAT unbounded strings
+implementation.</p>
+<p>The latter approach would therefore allocate space for two characters, then
+for 4, then 8 and so on.</p>
+<p>This package has a slightly different strategy. Remember that we only start
+allocating memory past the size of small strings, so we will for instance first
+allocate 24 bytes. When more memory is needed, we multiply this size by 1.5,
+which some researchers have found to be a good comprise between waste of memory
+and number of allocations. For very large strings, we always allocate multiples
+of the memory page size (4096 bytes), since this is what the system will make
+available anyway. So we will basically allocate the following: 24, 36, 54, 82,
+122,…</p>
+<p>An additional constraint is that we only ever allocate even number of bytes.
+This is called the capacity of the string. In the layout of the big string,
+as shown above, we store half that capacity, which saves one bit that we
+use for the flag.</p>
+</div>
+<div class="section" id="substrings">
+<h2><span class="section-number">5.7. </span>Substrings<a class="headerlink" href="#substrings" title="Permalink to this headline">¶</a></h2>
+<p>One other optimization performed by this package (which is not done for
+unbounded strings or various C++ implementations) is to optimize substrings
+when also using copy-on-write.</p>
+<p>We simply store the index of the first character of the string within the
+shared buffer, instead of always starting at the first.</p>
+<p>From the user’s point of view, this is an implementation detail. Strings
+are always indexed from 1, and internally we convert to an actual position
+in the buffer. This means that if we need to reallocate the buffer, for
+instance when the string is modified, we transparently change the index
+of the first character, but the indexes the user was using are still valid.</p>
+<p>This results in very significant savings, as shown below in the timings
+for Trim for instance. Also, we can do an operation like splitting a
+string very efficiently.</p>
+<p>For instance, the following code doesn’t allocate any memory, beside
+setting the initial value of the string. It parses a file containing
+some “key=value” lines, with optional spaces, and possibly empty lines:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kr">declare</span>
+   <span class="n">S</span><span class="p">,</span> <span class="n">Key</span><span class="p">,</span> <span class="n">Value</span> <span class="p">:</span> <span class="n">XString</span><span class="p">;</span>
+   <span class="n">L</span>             <span class="p">:</span> <span class="n">XString_Array</span> <span class="p">(</span><span class="mi">1</span> <span class="p">..</span> <span class="mi">2</span><span class="p">);</span>
+   <span class="n">Last</span>          <span class="p">:</span> <span class="kt">Natural</span><span class="p">;</span>
+<span class="kr">begin</span>
+   <span class="n">S</span><span class="p">.</span><span class="n">Set</span> <span class="p">(</span><span class="s">&quot;.......&quot;</span><span class="p">);</span>
+
+   <span class="c1">--  Get each line</span>
+   <span class="kr">for</span> <span class="n">Line</span> <span class="ow">in</span> <span class="n">S</span><span class="p">.</span><span class="n">Split</span> <span class="p">(</span><span class="n">ASCII</span><span class="p">.</span><span class="n">LF</span><span class="p">)</span> <span class="kr">loop</span>
+
+      <span class="c1">--  Split into at most two substrings</span>
+      <span class="n">Line</span><span class="p">.</span><span class="n">Split</span> <span class="p">(</span><span class="s s-Character">&#39;=&#39;</span><span class="p">,</span> <span class="n">Into</span> <span class="p">=&gt;</span> <span class="n">L</span><span class="p">,</span> <span class="n">Last</span> <span class="p">=&gt;</span> <span class="n">Last</span><span class="p">);</span>
+
+      <span class="kr">if</span> <span class="n">Last</span> <span class="o">=</span> <span class="mi">2</span> <span class="kr">then</span>
+         <span class="n">Key</span> <span class="p">:=</span> <span class="n">L</span> <span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+         <span class="n">Key</span><span class="p">.</span><span class="n">Trim</span><span class="p">;</span>    <span class="c1">--  Removing leading and trailing spaces</span>
+
+         <span class="n">Value</span> <span class="p">:=</span> <span class="n">L</span> <span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+         <span class="n">Value</span><span class="p">.</span><span class="n">Trim</span><span class="p">;</span>
+
+      <span class="kr">end</span> <span class="kr">if</span><span class="p">;</span>
+   <span class="kr">end</span> <span class="kr">loop</span><span class="p">;</span>
+<span class="kr">end</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="api">
+<h2><span class="section-number">5.8. </span>API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h2>
+<p>This package provides a very extensive set of API that apply to <cite>XString</cite>,
+please check the spec in <code class="file docutils literal notranslate"><span class="pre">gnatcoll-strings_impl.ads</span></code> for a fully
+documented list.</p>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/adacore_transparent.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">5. <strong>Strings</strong>: high-performance strings</a><ul>
+<li><a class="reference internal" href="#small-string-optimization">5.1. Small string optimization</a></li>
+<li><a class="reference internal" href="#character-types">5.2. Character types</a></li>
+<li><a class="reference internal" href="#configuring-the-size-of-small-strings">5.3. Configuring the size of small strings</a></li>
+<li><a class="reference internal" href="#task-safety">5.4. Task safety</a></li>
+<li><a class="reference internal" href="#copy-on-write">5.5. Copy on write</a></li>
+<li><a class="reference internal" href="#growth-strategy">5.6. Growth strategy</a></li>
+<li><a class="reference internal" href="#substrings">5.7. Substrings</a></li>
+<li><a class="reference internal" href="#api">5.8. API</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="traces.html"
+                        title="previous chapter"><span class="section-number">4. </span><strong>Traces</strong>: Logging information</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="memory.html"
+                        title="next chapter"><span class="section-number">6. </span><strong>Memory</strong>: Monitoring memory usage</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="memory.html" title="6. Memory: Monitoring memory usage"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="traces.html" title="4. Traces: Logging information"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">GNATColl 2021 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">5. </span><strong>Strings</strong>: high-performance strings</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2007-2021, AdaCore.
+    </div>
+  </body>
+</html>

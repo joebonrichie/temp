@@ -1,0 +1,14 @@
+with "altivec.gpr";
+
+project Altivec_hard is
+
+  for Source_Dirs use (".");
+  for Object_Dir use "obj_hard/";
+  for Main use ("altivec");
+
+  package Compiler is
+     for Default_Switches ("Ada") use
+       ("-maltivec", "-mabi=altivec", "-gnatwa", "-gnaty");
+  end Compiler;
+
+end Altivec_Hard;

@@ -1,0 +1,30 @@
+		       G N A T   E X A M P L E S
+		       =========================
+
+
+In order to compile the examples, make sure that the 'gprbuild' command is
+in your path. 
+
+Invocation
+----------
+
+In order to build the executables provided in this example, you need to
+use the "oo_interfaces.gpr" project file. On the command-line, do a:
+
+  $ gprbuild -P oo_interfaces
+
+In GPS, click on "Build", then "Make" and then "oo_interfaces" is compiled, you
+can also simply press the F4 key.
+
+Features tested
+---------------
+
+* The oo_interfaces example uses the new Object.Method notation and the
+  interface support.  
+
+  In this example six graphical objects are created. A graphical object
+  implements a Drawable interface (to be able to draw the object) and the
+  a Sortable interface (to be able to compare the size of the objects). Those
+  objects are inserted into an Indefinite_Ordered_Multisets (found in the new
+  Ada.Containers hierarchy). Objects are ordered based on their surface given
+  by the sortable interface.

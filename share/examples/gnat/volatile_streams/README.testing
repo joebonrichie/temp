@@ -1,0 +1,32 @@
+		       G N A T   E X A M P L E S
+		       =========================
+
+
+In order to compile the examples, make sure that the 'gprbuild' command is
+in your path. 
+
+Invocation
+----------
+
+In order to build the executables provided in this example, you need to
+use the "volatile_streams.gpr" project file. On the command-line, do a:
+
+  $ gprbuild -P volatile_streams
+
+In GPS, click on "Build", then "Make" and select "demo_memory_streams" and 
+the executable "volatile_streams" will be built.
+You can also simply press the F4 key.
+
+Features illustrated
+---------------
+
+* The volatile_streams example illustrates the creation and use of a memory-
+  resident stream abstraction. Such a stream stores the stream elements
+  in memory instead of a file.  Note that one could extend the concept
+  to streams that read and write elements using some other communication
+  medium, instead of simply storing them in memory.
+  
+  The example also demonstrates how to make maximally efficient 
+  stream attributes for composite types, with the caveat that no 
+  component type-specific stream attributes will be called (if any exist).  
+

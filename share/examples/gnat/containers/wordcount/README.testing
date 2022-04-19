@@ -1,0 +1,93 @@
+		       G N A T   E X A M P L E S
+		       =========================
+
+
+In order to compile the examples, make sure that the 'gprbuild' command is
+in your path. 
+
+Invocation
+----------
+
+In order to build the two executables provided in this example, you need to
+use the "wordcount.gpr" project file. On the command-line, do a:
+
+  $ gprbuild -Pwordcount
+
+In GPS, click on "Build", then "Make" and then "wordcount".
+
+Features tested
+---------------
+
+Maps
+Vector sorting
+
+Description of example
+----------------------
+
+Wordcount is the canonical program for testing maps.  It reads a file scanning
+for words, and uses a map to keep track of the frequency of each word read.
+
+We use a hashed map in this example, but an ordered map would work just as
+well.  The key type, String, is indefinite, so we use the
+Indefinite_Hashed_Map.  A word matches regardless of case, so we use case
+insensitive functions for computing the hash value of the key, and for
+computing key equivalence.  (See wordcount_maps.ads.)
+
+The interesting feature of this example (see wordcount.adb) is how we insert
+words into the map.  We can't use the plain Insert operation, since if the word
+is already in the map then that operation would raise Constraint_Error.
+
+To avoid raising an exception, we could first test whether the element is in
+the map before inserting it.  If it's already in the map, then we would just
+increment the count.  Otherwise, we could insert the word with a count of 1.
+
+However, this wouldn't be very efficient, since Insert would only duplicate the
+same search that Find must perform.
+
+What we do instead is to use the conditional form of Insert, that passes back a
+cursor (like Find does) and a status indicating whether the insertion was
+successful.  If the status is True, then the cursor designates the
+newly-inserted word/count pair.  If the status is False, then the cursor
+designates the already-existing word/count pair.
+
+The wordcount program attempts to insert the word with a value of 0 for the
+count.  This might seem odd, but it works.  If the word is already in the map,
+then the insertion "fails" and the element is the current count for this word.
+If the word isn't in the map, but the insertion succeeds, and the element count
+is 0.  We don't actually interrogate the value of status indicator, since we
+don't really care about its value -- we just want to the insertion to be
+conditional.  In either case, we just use Update_Element to increment the count
+associated with the word, and we get the correct frequency.
+
+Note that we didn't have to use Update_Element, since the element is just an
+integer, and so we don't really need to modify the element in place.  (For
+elements that are large, or otherwise expensive to copy, then you probably do.)
+In this program, we could have just as easily used function Element to return
+the count, increment that value, and then replace it with Replace_Element.
+
+When all the words in the file have been collected, we must print out the words
+in frequency order.  We can't simply iterate over the map, since the words are
+scattered throughout the map (and that's a good thing).  What we do instead is
+to populate a vector with map cursors (so we don't have to copy the word/count
+pairs), and then sort the vector.
+
+We know how many elements we intend to put in the vector (it's the same as the
+length of the map), so we first Reserve_Capacity, since this avoids unnecessary
+expansion of the internal array.  We then populate the vector using the passive
+iterator for maps.  The Process procedure for the iterator (sometimes called an
+"action" function) delivers a map cursor, which is exactly what we want, and so
+we simply append that to the vector.
+
+The next step is to sort the vector.  Vectors and lists both have a nested
+package called Generic_Sorting, which provides a Sort operation.  In order to
+instantiate it we need to define an order relation for map cursors (the vector
+element type).  An element with a higher count appears earlier in the sorted
+order, so the order relation returns True when the count is greater.  We break
+a tie using the lexicographic order of the words.
+
+We use nested Query_Element calls to get both word/count pairs in scope, but we
+could also have used the Key and Element functions to interrogate map entries.
+
+Finally, once the vector is sorted, we print the first ten elements of the
+vector, which represent the words in the original file which appeared with the
+highest frequency.

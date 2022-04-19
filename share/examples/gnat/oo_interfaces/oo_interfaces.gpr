@@ -1,0 +1,20 @@
+project Oo_Interfaces is
+
+   for Source_Dirs use ("src");
+   for Object_Dir use "obj";
+
+   package Compiler is
+      for Default_Switches ("ada") use ("-g", "-gnat05");
+   end Compiler;
+
+   for Main use ("main.adb");
+
+   package Builder is
+      for Executable ("main.adb") use "oo_interfaces";
+   end Builder;
+
+   package Binder is
+      for Default_Switches ("ada") use ("-E");
+   end Binder;
+
+end Oo_Interfaces;

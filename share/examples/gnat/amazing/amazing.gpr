@@ -1,0 +1,45 @@
+project Amazing is
+
+   for Languages use ("Ada");
+   for Object_Dir use "objs";
+   for Exec_Dir use ".";
+
+   for Source_Dirs use ("source", "source/consoles", "source/utils");
+
+   for Main use ("mice.adb", "mouse.adb");
+
+   type Display_Type is ("Win32", "ANSI");
+   Console : Display_Type := external ("Console", "Win32");
+
+   type Build_Modes is ("debug", "release");
+   Build_Mode : Build_Modes := external ("MODE", "release");
+
+   package Builder is
+      case Build_Mode is
+         when "release" =>
+            for Default_Switches ("ada") use ("-gnatQ");
+         when "debug" =>
+            for Default_Switches ("ada") use ("-g", "-gnatQ");
+      end case;
+   end Builder;
+
+   package Compiler is
+      case Build_Mode is
+         when "release" =>
+            for Default_Switches ("ada") use ("-gnatwa", "-O2");
+         when "debug" =>
+            for Default_Switches ("ada") use ("-g", "-gnatwa", "-gnata");
+      end case;
+   end Compiler;
+
+   package Naming is
+      case Console is
+         when "Win32" =>
+            for Implementation ("console") use "console_win32.adb";
+         when "ANSI" =>
+            for Implementation ("console") use "console_ansi.adb";
+      end case;
+   end Naming;
+
+end Amazing;
+

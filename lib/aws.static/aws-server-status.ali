@@ -1,0 +1,895 @@
+V "GNAT Lib v2021"
+A -O2
+A -gnatA
+A -gnat2012
+A -gnatwc
+A -gnatwf
+A -gnatwi
+A -gnatwj
+A -gnatwk
+A -gnatwm
+A -gnatwr
+A -gnatwu
+A -gnatwv
+A -gnaty3
+A -gnatya
+A -gnatyb
+A -gnatyB
+A -gnatyc
+A -gnatyd
+A -gnatye
+A -gnatyf
+A -gnatyh
+A -gnatyi
+A -gnatyI
+A -gnatyk
+A -gnatyl
+A -gnatym
+A -gnatyn
+A -gnatyo
+A -gnatyO
+A -gnatyp
+A -gnatyr
+A -gnatys
+A -gnatyt
+A -gnatyx
+A -gnatn
+A -mtune=generic
+A -march=x86-64
+P SS ZX
+
+RN
+RV NO_CALENDAR
+RV NO_DELAY
+RV NO_DISPATCH
+RV NO_DISPATCHING_CALLS
+RV NO_ENUMERATION_MAPS
+RV NO_EXCEPTION_HANDLERS
+RV NO_EXCEPTION_PROPAGATION
+RV NO_EXCEPTIONS
+RV NO_FINALIZATION
+RV NO_FIXED_POINT
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_LOCAL_ALLOCATORS
+RV NO_NESTED_FINALIZATION
+RV NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_TASK_ATTRIBUTES_PACKAGE
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV MAX_ENTRY_QUEUE_LENGTH=1+
+
+U aws.server.status%b	aws-server-status.adb	f0e498e3 NE OO PK IU
+W ada%s			ada.ads			ada.ali
+Z ada.exceptions%s	a-except.adb		a-except.ali
+W ada.strings%s		a-string.ads		a-string.ali
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+W ada.strings.unbounded%s  a-strunb.adb		a-strunb.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W aws%s			aws.ads			aws.ali
+W aws.hotplug%s		aws-hotplug.adb		aws-hotplug.ali
+W aws.hotplug.get_status%s  aws-hotplug-get_status.adb  aws-hotplug-get_status.ali
+W aws.server%s		aws-server.adb		aws-server.ali
+W aws.server.log%s	aws-server-log.adb	aws-server-log.ali
+W aws.session%s		aws-session.adb		aws-session.ali
+W aws.url%s		aws-url.adb		aws-url.ali
+W aws.url.set%s		aws-url-set.adb		aws-url-set.ali
+W aws.utils%s		aws-utils.adb		aws-utils.ali
+W gnat%s		gnat.ads		gnat.ali
+W gnat.calendar%s	g-calend.adb		g-calend.ali
+W gnat.calendar.time_io%s  g-catiio.adb		g-catiio.ali
+Z system%s		system.ads		system.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+Z system.soft_links%s	s-soflin.adb		s-soflin.ali
+Z system.standard_library%s  s-stalib.adb	s-stalib.ali
+
+U aws.server.status%s	aws-server-status.ads	587ccdca EE NE OO PK IU
+W ada%s			ada.ads			ada.ali
+W ada.calendar%s	a-calend.adb		a-calend.ali
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+W aws%s			aws.ads			aws.ali
+W aws.net%s		aws-net.adb		aws-net.ali
+W aws.net.acceptors%s	aws-net-acceptors.adb	aws-net-acceptors.ali
+W aws.server%s		aws-server.adb		aws-server.ali
+W aws.templates%s	aws-templates.ads	aws-templates.ali
+
+D ada.ads		20210520051131 76789da1 ada%s
+D a-calend.ads		20210520051128 474d9720 ada.calendar%s
+D a-calend.adb		20210520051128 dfcd352e ada.calendar%b
+D a-caldel.ads		20210520051128 9f20b83d ada.calendar.delays%s
+D a-calfor.ads		20210520051128 0f4707d1 ada.calendar.formatting%s
+D a-catizo.ads		20210520051128 eaa56756 ada.calendar.time_zones%s
+D a-charac.ads		20210520051128 2d3ec45b ada.characters%s
+D a-chahan.ads		20210520051128 0ce1b450 ada.characters.handling%s
+D a-chlat1.ads		20210520051128 66457d31 ada.characters.latin_1%s
+D a-contai.ads		20210520051128 61e5e089 ada.containers%s
+D a-cdlili.ads		20210520051128 ad05d077 ada.containers.doubly_linked_lists%s
+D a-cgarso.ads		20210520051128 9129bfa8 ada.containers.generic_array_sort%s
+D a-cohata.ads		20210520051128 bc432d0e ada.containers.hash_tables%s
+D a-chtgke.ads		20210520051128 20177f7b ada.containers.hash_tables.generic_keys%s
+D a-chtgop.ads		20210520051128 11c5978a ada.containers.hash_tables.generic_operations%s
+D a-conhel.ads		20210520051128 20298884 ada.containers.helpers%s
+D a-conhel.adb		20210520051128 fe7a6827 ada.containers.helpers%b
+D a-cihama.ads		20210520051128 76287ea1 ada.containers.indefinite_hashed_maps%s
+D a-cihama.adb		20210520051128 e0ec62b4 ada.containers.indefinite_hashed_maps%b
+D a-cihase.ads		20210520051128 18093f96 ada.containers.indefinite_hashed_sets%s
+D a-ciorma.ads		20210520051128 3aa5dad0 ada.containers.indefinite_ordered_maps%s
+D a-ciorse.ads		20210520051128 61787512 ada.containers.indefinite_ordered_sets%s
+D a-coinve.ads		20210520051128 0843f47c ada.containers.indefinite_vectors%s
+D a-coinve.adb		20210520051128 7bf2f325 ada.containers.indefinite_vectors%b
+D a-coorma.ads		20210520051128 aa0fa2a2 ada.containers.ordered_maps%s
+D a-coorma.adb		20210520051128 f467e69e ada.containers.ordered_maps%b
+D a-crbltr.ads		20210520051128 d3d16ba4 ada.containers.red_black_trees%s
+D a-crbtgk.ads		20210520051128 ab25d217 ada.containers.red_black_trees.generic_keys%s
+D a-crbtgo.ads		20210520051128 e494c304 ada.containers.red_black_trees.generic_operations%s
+D a-convec.ads		20210520051128 5d39d84a ada.containers.vectors%s
+D a-direct.ads		20210520051128 078228da ada.directories%s
+D a-envvar.ads		20210520051128 00080416 ada.environment_variables%s
+D a-except.ads		20210520051128 946f3014 ada.exceptions%s
+D a-finali.ads		20210520051128 bf4f806b ada.finalization%s
+D a-ioexce.ads		20210520051128 e4a01f64 ada.io_exceptions%s
+D a-iteint.ads		20210520051128 49a8bee2 ada.iterator_interfaces%s
+D a-reatim.ads		20210520051127 0240fc73 ada.real_time%s
+D a-stream.ads		20210520051129 119b8fb3 ada.streams%s
+D a-ststio.ads		20210520051129 d6d358e8 ada.streams.stream_io%s
+D a-string.ads		20210520051129 90ac6797 ada.strings%s
+D a-strfix.ads		20210520051129 aeacf44c ada.strings.fixed%s
+D a-strhas.ads		20210520051129 c71c2a52 ada.strings.hash%s
+D a-shcain.ads		20210520051129 08af52df ada.strings.hash_case_insensitive%s
+D a-strmap.ads		20210520051129 5a88892a ada.strings.maps%s
+D a-stmaco.ads		20210520051129 1c0e5368 ada.strings.maps.constants%s
+D a-sttebu.ads		20210520051129 18209c64 ada.strings.text_buffers%s
+D a-strunb.ads		20210520051129 03325227 ada.strings.unbounded%s
+D a-stuten.ads		20210520051129 808c40ad ada.strings.utf_encoding%s
+D a-tags.ads		20210520051130 9eaa38c6 ada.tags%s
+D a-tasatt.ads		20210520051127 a641cb7e ada.task_attributes%s
+D a-taside.ads		20210520051127 00e3a3f6 ada.task_identification%s
+D a-textio.ads		20210520051130 aef4d56d ada.text_io%s
+D a-unccon.ads		20210520051130 0e9b276f ada.unchecked_conversion%s
+D a-uncdea.ads		20210520051130 c3a8ac65 ada.unchecked_deallocation%s
+D aws.ads		20210520114206 82646736 aws%s
+D aws-attachments.ads	20210519051431 2270236e aws.attachments%s
+D aws-config.ads	20210519051431 17e5b2cd aws.config%s
+D aws-config.adb	20210519051431 05e51043 aws.config%b
+D aws-config-ini.ads	20210519051431 3b5a32c5 aws.config.ini%s
+D aws-containers.ads	20210519051431 c7ab8288 aws.containers%s
+D aws-containers-key_value.ads  20210519051431 f3f917f0 aws.containers.key_value%s
+D aws-containers-memory_streams.ads  20210519051431 ea28c859 aws.containers.memory_streams%s
+D aws-containers-string_vectors.ads  20210519051431 b5692847 aws.containers.string_vectors%s
+D aws-containers-string_vectors.ads  20210519051431 b5692847 aws.containers.string_vectors%s
+D aws-containers-tables.ads  20210519051431 00be04da aws.containers.tables%s
+D aws-default.ads	20210519051431 9ec982b1 aws.default%s
+D aws-dispatchers.ads	20210519051431 c78b16eb aws.dispatchers%s
+D aws-exceptions.ads	20210519051431 6381c395 aws.exceptions%s
+D aws-headers.ads	20210519051431 25633780 aws.headers%s
+D aws-hotplug.ads	20210519051431 25dc94f6 aws.hotplug%s
+D aws-hotplug-get_status.ads  20210519051431 37e4cdbe aws.hotplug.get_status%s
+D aws-log.ads		20210519051431 70dd6a60 aws.log%s
+D aws-messages.ads	20210519051431 7cd16bc6 aws.messages%s
+D aws-mime.ads		20210519051431 796c9a32 aws.mime%s
+D aws-net.ads		20210519051431 4147ea12 aws.net%s
+D aws-net-acceptors.ads	20210519051431 c571689f aws.net.acceptors%s
+D aws-net-acceptors.adb	20210519051431 15cf2457 aws.net.acceptors%b
+D aws-net-generic_sets.ads  20210519051431 63584717 aws.net.generic_sets%s
+D aws-net-generic_sets.adb  20210519051431 7789faa1 aws.net.generic_sets%b
+D aws-net-ssl.ads	20210519051431 52fbd46f aws.net.ssl%s
+D aws-net-std.ads	20210519051431 fb394f55 aws.net.std%s
+D aws-os_lib.ads	20210520114209 a9a322e9 aws.os_lib%s
+D aws-parameters.ads	20210519051431 ff4aa491 aws.parameters%s
+D aws-resources.ads	20210519051431 407ba395 aws.resources%s
+D aws-resources-streams.ads  20210519051431 95c86167 aws.resources.streams%s
+D aws-resources-streams-memory.ads  20210519051431 eb23d323 aws.resources.streams.memory%s
+D aws-response.ads	20210519051431 907d00d3 aws.response%s
+D aws-server.ads	20210519051431 3aa37873 aws.server%s
+D aws-server-log.ads	20210519051431 8539e918 aws.server.log%s
+D aws-server-status.ads	20210519051431 9daf59ea aws.server.status%s
+D aws-server-status.adb	20210519051431 21019682 aws.server.status%b
+D aws-session.ads	20210519051431 7ee0b17c aws.session%s
+D aws-session.adb	20210519051431 355a8bc6 aws.session%b
+D aws-status.ads	20210519051431 715df1ae aws.status%s
+D aws-templates.ads	20210519051431 7d4c13ec aws.templates%s
+D aws-url.ads		20210519051431 32548484 aws.url%s
+D aws-url-set.ads	20210519051431 3b249d96 aws.url.set%s
+D aws-utils.ads		20210519051431 840ea1d3 aws.utils%s
+D aws-utils-streams.ads	20210519051431 0f23ce4c aws.utils.streams%s
+D gnat.ads		20210520051132 b5988c27 gnat%s
+D g-binenv.ads		20210520051131 9cb8b6eb gnat.bind_environment%s
+D g-bytswa.ads		20210520051131 a4d21639 gnat.byte_swapping%s
+D g-calend.ads		20210520051131 cad86fa7 gnat.calendar%s
+D g-catiio.ads		20210520051131 6f0f657f gnat.calendar.time_io%s
+D g-os_lib.ads		20210520051131 0db74523 gnat.os_lib%s
+D g-regexp.ads		20210520051131 691be386 gnat.regexp%s
+D g-regpat.ads		20210520051131 b85d88ef gnat.regpat%s
+D g-sechas.ads		20210520051131 302163b5 gnat.secure_hashes%s
+D g-sehash.ads		20210520051131 66b3b198 gnat.secure_hashes.sha1%s
+D g-shsh32.ads		20210520051131 671c9849 gnat.secure_hashes.sha2_32%s
+D g-shshco.ads		20210520051131 1144502c gnat.secure_hashes.sha2_common%s
+D g-sha1.ads		20210520051131 077f0b47 gnat.sha1%s
+D g-sha256.ads		20210520051131 c083f050 gnat.sha256%s
+D interfac.ads		20210520051132 edec285f interfaces%s
+D i-c.ads		20210520051132 d9beded9 interfaces.c%s
+D i-cstrin.ads		20210520051132 341d0ddf interfaces.c.strings%s
+D i-cstrea.ads		20210520051132 e53d8b8e interfaces.c_streams%s
+D memory_streams.ads	20210519051430 bf3b9ce5 memory_streams%s
+D ssl.ads		20210519051431 3abd0079 ssl%s
+D ssl-thin__dummy.ads	20210519051430 eb2eedfc ssl.thin%s
+D system.ads		20210520051135 a2da961d system%s
+D s-addima.ads		20210520051132 a1ec9d3a system.address_image%s
+D s-atacco.ads		20210520051132 4c36d12f system.address_to_access_conversions%s
+D s-arit64.ads		20210520051132 5f88d2b0 system.arith_64%s
+D s-atocou.ads		20210520051132 b45c2d8d system.atomic_counters%s
+D s-atocou.adb		20210520051132 b65612c0 system.atomic_counters%b
+D s-carun8.ads		20210520051132 a903718d system.compare_array_unsigned_8%s
+D s-crtl.ads		20210520051132 0ebbdb71 system.crtl%s
+D s-exctab.ads		20210520051132 54135002 system.exception_table%s
+D s-ficobl.ads		20210520051132 078245e4 system.file_control_block%s
+D s-finmas.ads		20210520051132 1ab4dba8 system.finalization_masters%s
+D s-finroo.ads		20210520051132 4ff27390 system.finalization_root%s
+D s-imagef.ads		20210520051133 019cdf69 system.image_f%s
+D s-imagei.ads		20210520051133 0d3f86a7 system.image_i%s
+D s-imager.ads		20210520051133 500b11a9 system.image_r%s
+D s-imageu.ads		20210520051133 525c30c6 system.image_u%s
+D s-imfi64.ads		20210520051133 dbac59b3 system.img_fixed_64%s
+D s-imgflt.ads		20210520051133 78689de8 system.img_flt%s
+D s-imgint.ads		20210520051133 bdb6f5ec system.img_int%s
+D s-imguns.ads		20210520051133 0e4da2ac system.img_uns%s
+D s-linux.ads		20210520051127 ed0b8aee system.linux%s
+D s-memory.ads		20210520051133 597d6634 system.memory%s
+D s-multip.ads		20210520051133 38ac9f73 system.multiprocessors%s
+D s-oscons.ads		20210520095158 e3a42aec system.os_constants%s
+D s-osinte.ads		20210520051127 222ac181 system.os_interface%s
+D s-os_lib.ads		20210520051133 93b69309 system.os_lib%s
+D s-osprim.ads		20210520051133 07fd65f6 system.os_primitives%s
+D s-parame.ads		20210520051134 4752c4cb system.parameters%s
+D s-pooglo.ads		20210520051134 ede33ef8 system.pool_global%s
+D s-powflt.ads		20210520051134 46f7a1b9 system.powten_flt%s
+D s-putima.ads		20210520051134 4e095881 system.put_images%s
+D s-regexp.ads		20210520051134 9c7d27a7 system.regexp%s
+D s-regpat.ads		20210520051134 825a9b7f system.regpat%s
+D s-secsta.ads		20210520051134 9b3ab94b system.secondary_stack%s
+D s-soflin.ads		20210520051134 a7318a92 system.soft_links%s
+D s-stache.ads		20210520051134 a37c21ec system.stack_checking%s
+D s-stausa.ads		20210520051134 017a0a05 system.stack_usage%s
+D s-stalib.ads		20210520051134 472fbca8 system.standard_library%s
+D s-stalib.adb		20210520051134 977290bf system.standard_library%b
+D s-stoele.ads		20210520051134 2dc34a04 system.storage_elements%s
+D s-stoele.adb		20210520051134 ed88f8fb system.storage_elements%b
+D s-stopoo.ads		20210520051134 e9fa2dd8 system.storage_pools%s
+D s-stposu.ads		20210520051134 e251976f system.storage_pools.subpools%s
+D s-stratt.ads		20210520051134 7bdda3fa system.stream_attributes%s
+D s-string.ads		20210520051134 8fe54fb7 system.strings%s
+D s-ststop.ads		20210520051134 5fbf1b38 system.strings.stream_ops%s
+D s-tasinf.ads		20210520051127 2b3f8252 system.task_info%s
+D s-taspri.ads		20210520051127 4ec891e7 system.task_primitives%s
+D s-taprop.ads		20210520051127 6eefbe12 system.task_primitives.operations%s
+D s-taskin.ads		20210520051127 88fba9ad system.tasking%s
+D s-taprob.ads		20210520051127 acd6094d system.tasking.protected_objects%s
+D s-tpoben.ads		20210520051127 60ad3dae system.tasking.protected_objects.entries%s
+D s-tpobop.ads		20210520051127 5f548bb3 system.tasking.protected_objects.operations%s
+D s-tasren.ads		20210520051127 a67a9949 system.tasking.rendezvous%s
+D s-tassta.ads		20210520051127 cca55c94 system.tasking.stages%s
+D s-traent.ads		20210520051134 26a8d361 system.traceback_entries%s
+D s-unstyp.ads		20210520051134 2b077493 system.unsigned_types%s
+D s-valflt.ads		20210520051134 d738ba7d system.val_flt%s
+D s-valint.ads		20210520051134 e7fcadb7 system.val_int%s
+D s-valrea.ads		20210520051134 8ddc6624 system.val_real%s
+D s-valuns.ads		20210520051134 dac7b45d system.val_uns%s
+D s-valuei.ads		20210520051134 978dd0a6 system.value_i%s
+D s-valueu.ads		20210520051134 7b8fccf5 system.value_u%s
+D s-wchcon.ads		20210520051135 1b7d22d2 system.wch_con%s
+D s-wchstw.ads		20210520051135 2d112c01 system.wch_stw%s
+D templates_parser.ads	20210519053215 1cb5e754 templates_parser%s
+D templates_parser.adb	20210519053215 a2af430b templates_parser%b
+D templates_parser-cached_files.adb  20210519053215 dbda1c76 templates_parser.cached_files
+D templates_parser-configuration__aws.ads  20210519051430 b6ef0221 templates_parser.configuration%s
+D templates_parser-data.adb  20210519053215 1b5e26e4 templates_parser.data
+D templates_parser-definitions.adb  20210519053215 c20aa6ba templates_parser.definitions
+D templates_parser-expr.adb  20210519053215 f197c968 templates_parser.expr
+D templates_parser-filter.adb  20210519053215 07e21396 templates_parser.filter
+D templates_parser-input.ads  20210519053215 f7044302 templates_parser.input%s
+D templates_parser-macro.adb  20210519053215 67ab4a97 templates_parser.macro
+D templates_parser-print_tree.adb  20210519053215 8a2ed825 templates_parser.print_tree
+D templates_parser-simplifier.adb  20210519053215 cd927d20 templates_parser.simplifier
+D templates_parser-utils.ads  20210519053215 8849593d templates_parser.utils%s
+D templates_parser-version.adb  20210519053215 878c6008 templates_parser.version
+D templates_parser_tasking.ads  20210519053215 4c0209f0 templates_parser_tasking%s
+D unchconv.ads		20210520051135 ca2f9e18 unchecked_conversion%s
+D zlib.ads		20210519051430 0714e1ed zlib%s
+G a e
+G c Z s b [translations aws__server__status 39 13 none]
+G c Z s b [translations aws__server__status 44 13 none]
+G c Z s b [start_time aws__server__status 48 13 none]
+G c Z s b [resources_served aws__server__status 51 13 none]
+G c Z s b [socket aws__server__status 55 13 none]
+G c Z s b [sockets aws__server__status 58 13 none]
+G c Z s b [port aws__server__status 61 13 none]
+G c Z s b [host aws__server__status 64 13 none]
+G c Z s b [is_any_address aws__server__status 67 13 none]
+G c Z s b [is_ipv6 aws__server__status 71 13 none]
+G c Z s b [local_url aws__server__status 74 13 none]
+G c Z s b [current_connections aws__server__status 77 13 none]
+G c Z s b [is_session_activated aws__server__status 80 13 none]
+G c Z s b [is_security_activated aws__server__status 83 13 none]
+G c Z s b [is_shutdown aws__server__status 86 13 none]
+G r c none [translations aws__server__status 39 13 none] [admin_uri aws__config 243 13 none]
+G r s translate_set [translations aws__server__status 39 13 none] [translate_setIP templates_parser 653 9 none]
+G r f translate_set [translations aws__server__status 39 13 none] [initialize templates_parser 658 25 none]
+G r c none [translations aws__server__status 39 13 none] [server_name aws__config 72 13 none]
+G r c none [translations aws__server__status 39 13 none] [assoc templates_parser 171 13 none]
+G r c none [translations aws__server__status 39 13 none] [insert templates_parser 242 14 none]
+G r k association [translations aws__server__status 39 13 none] [associationDF templates_parser 612 9 none]
+G r c none [translations aws__server__status 39 13 none] [case_sensitive_parameters aws__config 97 13 none]
+G r c none [translations aws__server__status 39 13 none] [assoc templates_parser 194 13 none]
+G r c none [translations aws__server__status 39 13 none] [check_url_validity aws__config 312 13 none]
+G r c none [translations aws__server__status 39 13 none] [error_log_filename_prefix aws__config 226 13 none]
+G r c none [translations aws__server__status 39 13 none] [error_log_split_mode aws__config 229 13 none]
+G r c none [translations aws__server__status 39 13 none] [free_slots_keep_alive_limit aws__config 129 13 none]
+G r c none [translations aws__server__status 39 13 none] [assoc templates_parser 186 13 none]
+G r c none [translations aws__server__status 39 13 none] [context_lifetime aws__config 406 13 none]
+G r c none [translations aws__server__status 39 13 none] [image aws__utils 114 13 none]
+G r c none [translations aws__server__status 39 13 none] [directory_browser_page aws__config 187 13 none]
+G r c none [translations aws__server__status 39 13 none] [input_line_size_limit aws__config 403 13 none]
+G r c none [translations aws__server__status 39 13 none] [keep_alive_force_limit aws__config 137 13 none]
+G r c none [translations aws__server__status 39 13 none] [line_stack_size aws__config 158 13 none]
+G r c none [translations aws__server__status 39 13 none] [hotplug_port aws__config 90 13 none]
+G r c none [translations aws__server__status 39 13 none] [log_file_directory aws__config 201 13 none]
+G r c none [translations aws__server__status 39 13 none] [log_filename_prefix aws__config 205 13 none]
+G r c none [translations aws__server__status 39 13 none] [reuse_address aws__config 161 13 none]
+G r c none [translations aws__server__status 39 13 none] [security_mode aws__config 327 13 none]
+G r c none [translations aws__server__status 39 13 none] [cipher_priorities aws__config 331 13 none]
+G r c none [translations aws__server__status 39 13 none] [exchange_certificate aws__config 338 13 none]
+G r c none [translations aws__server__status 39 13 none] [server_host aws__config 82 13 none]
+G r c none [translations aws__server__status 39 13 none] [session_name aws__config 100 13 none]
+G r c none [translations aws__server__status 39 13 none] [transient_cleanup_interval aws__config 388 13 none]
+G r c none [translations aws__server__status 39 13 none] [transient_lifetime aws__config 392 13 none]
+G r c none [translations aws__server__status 39 13 none] [upload_size_limit aws__config 180 13 none]
+G r c none [translations aws__server__status 39 13 none] [www_root aws__config 169 13 none]
+G r c none [translations aws__server__status 39 13 none] [max_concurrent_download aws__config 396 13 none]
+G r c none [translations aws__server__status 39 13 none] [max_connection aws__config 117 13 none]
+G r c none [translations aws__server__status 39 13 none] [server_port aws__config 87 13 none]
+G r c none [translations aws__server__status 39 13 none] [security aws__config 316 13 none]
+G r c none [translations aws__server__status 39 13 none] [key aws__config 323 13 none]
+G r c none [translations aws__server__status 39 13 none] [server_socket aws__net__acceptors 116 13 none]
+G r k socket_type [translations aws__server__status 39 13 none] [socket_typeDF aws__net 481 9 none]
+G r c none [translations aws__server__status 39 13 none] [length aws__net__acceptors 143 13 none]
+G r p none [translations aws__server__status 39 13 none] [free_slots aws__server__slots 388 16 none]
+G r c none [translations aws__server__status 39 13 none] [session aws__config 94 13 none]
+G r c none [translations aws__server__status 39 13 none] [session_id_length aws__config 372 13 none]
+G r c none [translations aws__server__status 39 13 none] [get_lifetime aws__session 203 13 none]
+G r c none [translations aws__server__status 39 13 none] [session_cleanup_interval aws__config 364 13 none]
+G r c none [translations aws__server__status 39 13 none] [cleaner_wait_for_client_timeout aws__config 263 13 none]
+G r c none [translations aws__server__status 39 13 none] [cleaner_client_header_timeout aws__config 268 13 none]
+G r c none [translations aws__server__status 39 13 none] [cleaner_client_data_timeout aws__config 273 13 none]
+G r c none [translations aws__server__status 39 13 none] [cleaner_server_response_timeout aws__config 278 13 none]
+G r c none [translations aws__server__status 39 13 none] [force_wait_for_client_timeout aws__config 283 13 none]
+G r c none [translations aws__server__status 39 13 none] [force_client_header_timeout aws__config 288 13 none]
+G r c none [translations aws__server__status 39 13 none] [force_client_data_timeout aws__config 293 13 none]
+G r c none [translations aws__server__status 39 13 none] [force_server_response_timeout aws__config 297 13 none]
+G r c none [translations aws__server__status 39 13 none] [send_timeout aws__config 302 13 none]
+G r c none [translations aws__server__status 39 13 none] [receive_timeout aws__config 305 13 none]
+G r c none [translations aws__server__status 39 13 none] [accept_queue_size aws__config 153 13 none]
+G r c none [translations aws__server__status 39 13 none] [image aws__utils 103 13 none]
+G r c none [translations aws__server__status 39 13 none] [status_page aws__config 247 13 none]
+G r c none [translations aws__server__status 39 13 none] [is_active aws__server__log 64 13 none]
+G r c none [translations aws__server__status 39 13 none] [name aws__server__log 55 13 none]
+G r c none [translations aws__server__status 39 13 none] [is_error_active aws__server__log 101 13 none]
+G r c none [translations aws__server__status 39 13 none] [error_name aws__server__log 92 13 none]
+G r c none [translations aws__server__status 39 13 none] [mode aws__log 178 13 none]
+G r p none [translations aws__server__status 39 13 none] [get aws__server__slots 412 16 none]
+G r c none [translations aws__server__status 39 13 none] [max_websocket_handler aws__config 410 13 none]
+G r c none [translations aws__server__status 39 13 none] [websocket_message_queue_size aws__config 413 13 none]
+G r c none [translations aws__server__status 39 13 none] [websocket_origin aws__config 434 13 none]
+G r i none [translations aws__server__status 39 13 none] [log_extended_fields_generic_iterate aws__config 216 14 none]
+G r c none [translations aws__server__status 39 13 none] [log_extended_fields_length aws__config 219 13 none]
+G r c none [translations aws__server__status 39 13 none] [assoc templates_parser 178 13 none]
+G r c none [translations aws__server__status 39 13 none] [upload_directory aws__config 176 13 none]
+G r s tag [translations aws__server__status 39 13 none] [tagIP templates_parser 587 9 none]
+G r f tag [translations aws__server__status 39 13 none] [initialize templates_parser 592 25 none]
+G r s slot [translations aws__server__status 39 13 none] [slotIP aws__server 324 9 none]
+G r p none [translations aws__server__status 39 13 none] [get_socket_info aws__server__slots 418 16 none]
+G r c none [translations aws__server__status 39 13 none] [Oconcat templates_parser 98 13 none]
+G r e tag [translations aws__server__status 39 13 none] [finalize templates_parser 593 25 none]
+G r c none [translations aws__server__status 39 13 none] [Oconcat templates_parser 90 13 none]
+G r p none [translations aws__server__status 39 13 none] [is_abortable aws__server__slots 377 16 none]
+G r c none [translations aws__server__status 39 13 none] [Oconcat templates_parser 94 13 none]
+G r c none [translations aws__server__status 39 13 none] [assoc templates_parser 202 13 none]
+G r d translate_set [translations aws__server__status 39 13 none] [adjust templates_parser 660 25 none]
+G r c none [translations aws__server__status 39 13 none] [insert templates_parser 247 14 none]
+G r e translate_set [translations aws__server__status 39 13 none] [finalize templates_parser 659 25 none]
+G r i none [translations aws__server__status 39 13 none] [for_every_session_data aws__session 187 14 none]
+G r i none [translations aws__server__status 39 13 none] [for_every_session aws__session 172 14 none]
+G r p none [translations aws__server__status 39 13 none] [lock_and_get_sessions aws__session__database 176 17 none]
+G r c none [translations aws__server__status 39 13 none] [image aws__session 75 13 none]
+G r s session_node [translations aws__server__status 39 13 none] [session_nodeIP aws__session 78 9 none]
+G r p none [translations aws__server__status 39 13 none] [lock_and_get_session aws__session__database 181 17 none]
+G r c none [translations aws__server__status 39 13 none] [v_kind aws__session 100 13 none]
+G r p none [translations aws__server__status 39 13 none] [unlock aws__session__database 187 17 none]
+G r c none [translations aws__server__status 39 13 none] [Oconcat templates_parser 100 13 none]
+G r c none [translations aws__server__status 39 13 none] [clear templates_parser 137 14 none]
+G r c none [translations aws__server__status 39 13 none] [get_status aws__hotplug 32 22 none]
+G r c none [translations aws__server__status 44 13 none] [admin_uri aws__config 243 13 none]
+G r s translate_set [translations aws__server__status 44 13 none] [translate_setIP templates_parser 653 9 none]
+G r f translate_set [translations aws__server__status 44 13 none] [initialize templates_parser 658 25 none]
+G r c none [translations aws__server__status 44 13 none] [server_name aws__config 72 13 none]
+G r c none [translations aws__server__status 44 13 none] [assoc templates_parser 171 13 none]
+G r c none [translations aws__server__status 44 13 none] [insert templates_parser 242 14 none]
+G r k association [translations aws__server__status 44 13 none] [associationDF templates_parser 612 9 none]
+G r c none [translations aws__server__status 44 13 none] [case_sensitive_parameters aws__config 97 13 none]
+G r c none [translations aws__server__status 44 13 none] [assoc templates_parser 194 13 none]
+G r c none [translations aws__server__status 44 13 none] [check_url_validity aws__config 312 13 none]
+G r c none [translations aws__server__status 44 13 none] [error_log_filename_prefix aws__config 226 13 none]
+G r c none [translations aws__server__status 44 13 none] [error_log_split_mode aws__config 229 13 none]
+G r c none [translations aws__server__status 44 13 none] [free_slots_keep_alive_limit aws__config 129 13 none]
+G r c none [translations aws__server__status 44 13 none] [assoc templates_parser 186 13 none]
+G r c none [translations aws__server__status 44 13 none] [context_lifetime aws__config 406 13 none]
+G r c none [translations aws__server__status 44 13 none] [image aws__utils 114 13 none]
+G r c none [translations aws__server__status 44 13 none] [directory_browser_page aws__config 187 13 none]
+G r c none [translations aws__server__status 44 13 none] [input_line_size_limit aws__config 403 13 none]
+G r c none [translations aws__server__status 44 13 none] [keep_alive_force_limit aws__config 137 13 none]
+G r c none [translations aws__server__status 44 13 none] [line_stack_size aws__config 158 13 none]
+G r c none [translations aws__server__status 44 13 none] [hotplug_port aws__config 90 13 none]
+G r c none [translations aws__server__status 44 13 none] [log_file_directory aws__config 201 13 none]
+G r c none [translations aws__server__status 44 13 none] [log_filename_prefix aws__config 205 13 none]
+G r c none [translations aws__server__status 44 13 none] [reuse_address aws__config 161 13 none]
+G r c none [translations aws__server__status 44 13 none] [security_mode aws__config 327 13 none]
+G r c none [translations aws__server__status 44 13 none] [cipher_priorities aws__config 331 13 none]
+G r c none [translations aws__server__status 44 13 none] [exchange_certificate aws__config 338 13 none]
+G r c none [translations aws__server__status 44 13 none] [server_host aws__config 82 13 none]
+G r c none [translations aws__server__status 44 13 none] [session_name aws__config 100 13 none]
+G r c none [translations aws__server__status 44 13 none] [transient_cleanup_interval aws__config 388 13 none]
+G r c none [translations aws__server__status 44 13 none] [transient_lifetime aws__config 392 13 none]
+G r c none [translations aws__server__status 44 13 none] [upload_size_limit aws__config 180 13 none]
+G r c none [translations aws__server__status 44 13 none] [www_root aws__config 169 13 none]
+G r c none [translations aws__server__status 44 13 none] [max_concurrent_download aws__config 396 13 none]
+G r c none [translations aws__server__status 44 13 none] [max_connection aws__config 117 13 none]
+G r c none [translations aws__server__status 44 13 none] [server_port aws__config 87 13 none]
+G r c none [translations aws__server__status 44 13 none] [security aws__config 316 13 none]
+G r c none [translations aws__server__status 44 13 none] [key aws__config 323 13 none]
+G r c none [translations aws__server__status 44 13 none] [server_socket aws__net__acceptors 116 13 none]
+G r k socket_type [translations aws__server__status 44 13 none] [socket_typeDF aws__net 481 9 none]
+G r c none [translations aws__server__status 44 13 none] [length aws__net__acceptors 143 13 none]
+G r p none [translations aws__server__status 44 13 none] [free_slots aws__server__slots 388 16 none]
+G r c none [translations aws__server__status 44 13 none] [session aws__config 94 13 none]
+G r c none [translations aws__server__status 44 13 none] [session_id_length aws__config 372 13 none]
+G r c none [translations aws__server__status 44 13 none] [get_lifetime aws__session 203 13 none]
+G r c none [translations aws__server__status 44 13 none] [session_cleanup_interval aws__config 364 13 none]
+G r c none [translations aws__server__status 44 13 none] [cleaner_wait_for_client_timeout aws__config 263 13 none]
+G r c none [translations aws__server__status 44 13 none] [cleaner_client_header_timeout aws__config 268 13 none]
+G r c none [translations aws__server__status 44 13 none] [cleaner_client_data_timeout aws__config 273 13 none]
+G r c none [translations aws__server__status 44 13 none] [cleaner_server_response_timeout aws__config 278 13 none]
+G r c none [translations aws__server__status 44 13 none] [force_wait_for_client_timeout aws__config 283 13 none]
+G r c none [translations aws__server__status 44 13 none] [force_client_header_timeout aws__config 288 13 none]
+G r c none [translations aws__server__status 44 13 none] [force_client_data_timeout aws__config 293 13 none]
+G r c none [translations aws__server__status 44 13 none] [force_server_response_timeout aws__config 297 13 none]
+G r c none [translations aws__server__status 44 13 none] [send_timeout aws__config 302 13 none]
+G r c none [translations aws__server__status 44 13 none] [receive_timeout aws__config 305 13 none]
+G r c none [translations aws__server__status 44 13 none] [accept_queue_size aws__config 153 13 none]
+G r c none [translations aws__server__status 44 13 none] [image aws__utils 103 13 none]
+G r c none [translations aws__server__status 44 13 none] [status_page aws__config 247 13 none]
+G r c none [translations aws__server__status 44 13 none] [is_active aws__server__log 64 13 none]
+G r c none [translations aws__server__status 44 13 none] [name aws__server__log 55 13 none]
+G r c none [translations aws__server__status 44 13 none] [is_error_active aws__server__log 101 13 none]
+G r c none [translations aws__server__status 44 13 none] [error_name aws__server__log 92 13 none]
+G r c none [translations aws__server__status 44 13 none] [mode aws__log 178 13 none]
+G r p none [translations aws__server__status 44 13 none] [get aws__server__slots 412 16 none]
+G r c none [translations aws__server__status 44 13 none] [max_websocket_handler aws__config 410 13 none]
+G r c none [translations aws__server__status 44 13 none] [websocket_message_queue_size aws__config 413 13 none]
+G r c none [translations aws__server__status 44 13 none] [websocket_origin aws__config 434 13 none]
+G r i none [translations aws__server__status 44 13 none] [log_extended_fields_generic_iterate aws__config 216 14 none]
+G r c none [translations aws__server__status 44 13 none] [log_extended_fields_length aws__config 219 13 none]
+G r c none [translations aws__server__status 44 13 none] [assoc templates_parser 178 13 none]
+G r c none [translations aws__server__status 44 13 none] [upload_directory aws__config 176 13 none]
+G r s tag [translations aws__server__status 44 13 none] [tagIP templates_parser 587 9 none]
+G r f tag [translations aws__server__status 44 13 none] [initialize templates_parser 592 25 none]
+G r s slot [translations aws__server__status 44 13 none] [slotIP aws__server 324 9 none]
+G r p none [translations aws__server__status 44 13 none] [get_socket_info aws__server__slots 418 16 none]
+G r c none [translations aws__server__status 44 13 none] [Oconcat templates_parser 98 13 none]
+G r e tag [translations aws__server__status 44 13 none] [finalize templates_parser 593 25 none]
+G r c none [translations aws__server__status 44 13 none] [Oconcat templates_parser 90 13 none]
+G r p none [translations aws__server__status 44 13 none] [is_abortable aws__server__slots 377 16 none]
+G r c none [translations aws__server__status 44 13 none] [Oconcat templates_parser 94 13 none]
+G r c none [translations aws__server__status 44 13 none] [assoc templates_parser 202 13 none]
+G r d translate_set [translations aws__server__status 44 13 none] [adjust templates_parser 660 25 none]
+G r c none [translations aws__server__status 44 13 none] [insert templates_parser 247 14 none]
+G r e translate_set [translations aws__server__status 44 13 none] [finalize templates_parser 659 25 none]
+G r i none [translations aws__server__status 44 13 none] [for_every_session_data aws__session 187 14 none]
+G r i none [translations aws__server__status 44 13 none] [for_every_session aws__session 172 14 none]
+G r p none [translations aws__server__status 44 13 none] [lock_and_get_sessions aws__session__database 176 17 none]
+G r c none [translations aws__server__status 44 13 none] [image aws__session 75 13 none]
+G r s session_node [translations aws__server__status 44 13 none] [session_nodeIP aws__session 78 9 none]
+G r p none [translations aws__server__status 44 13 none] [lock_and_get_session aws__session__database 181 17 none]
+G r c none [translations aws__server__status 44 13 none] [v_kind aws__session 100 13 none]
+G r p none [translations aws__server__status 44 13 none] [unlock aws__session__database 187 17 none]
+G r c none [translations aws__server__status 44 13 none] [Oconcat templates_parser 100 13 none]
+G r c none [translations aws__server__status 44 13 none] [clear templates_parser 137 14 none]
+G r c none [translations aws__server__status 44 13 none] [get_status aws__hotplug 32 22 none]
+G r c none [translations aws__server__status 44 13 none] [size templates_parser 286 13 none]
+G r s translate_table [translations aws__server__status 44 13 none] [translate_tableIP templates_parser 227 9 none]
+G r l translate_table [translations aws__server__status 44 13 none] [translate_tableDI templates_parser 227 9 none]
+G r k translate_table [translations aws__server__status 44 13 none] [translate_tableDF templates_parser 227 9 none]
+G r i none [translations aws__server__status 44 13 none] [for_every_association templates_parser 295 14 none]
+G r j association [translations aws__server__status 44 13 none] [associationDA templates_parser 612 9 none]
+G r j translate_table [translations aws__server__status 44 13 none] [translate_tableDA templates_parser 227 9 none]
+G r p none [resources_served aws__server__status 51 13 none] [get aws__server__slots 412 16 none]
+G r c none [socket aws__server__status 55 13 none] [server_socket aws__net__acceptors 116 13 none]
+G r c none [sockets aws__server__status 58 13 none] [server_sockets aws__net__acceptors 120 13 none]
+G r c none [port aws__server__status 61 13 none] [server_socket aws__net__acceptors 116 13 none]
+G r c none [host aws__server__status 64 13 none] [server_socket aws__net__acceptors 116 13 none]
+G r c none [is_any_address aws__server__status 67 13 none] [server_socket aws__net__acceptors 116 13 none]
+G r c none [is_any_address aws__server__status 67 13 none] [is_any_address aws__net 222 13 none]
+G r c none [is_ipv6 aws__server__status 71 13 none] [server_socket aws__net__acceptors 116 13 none]
+G r c none [is_ipv6 aws__server__status 71 13 none] [is_ipv6 aws__net 226 13 none]
+G r s object [local_url aws__server__status 74 13 none] [objectIP aws__url 225 9 none]
+G r l object [local_url aws__server__status 74 13 none] [objectDI aws__url 225 9 none]
+G r k object [local_url aws__server__status 74 13 none] [objectDF aws__url 225 9 none]
+G r c none [local_url aws__server__status 74 13 none] [server_socket aws__net__acceptors 116 13 none]
+G r c none [local_url aws__server__status 74 13 none] [is_any_address aws__net 222 13 none]
+G r c none [local_url aws__server__status 74 13 none] [is_ipv6 aws__net 226 13 none]
+G r c none [local_url aws__server__status 74 13 none] [localhost aws__net 411 13 none]
+G r c none [local_url aws__server__status 74 13 none] [security aws__config 316 13 none]
+G r c none [local_url aws__server__status 74 13 none] [connection_data aws__url__set 45 14 none]
+G r c none [local_url aws__server__status 74 13 none] [url aws__url 86 13 none]
+G r p none [current_connections aws__server__status 77 13 none] [free_slots aws__server__slots 388 16 none]
+G r c none [is_session_activated aws__server__status 80 13 none] [session aws__config 94 13 none]
+G r c none [is_security_activated aws__server__status 83 13 none] [security aws__config 316 13 none]
+X 1 ada.ads
+16K9*Ada 20e8 90|32r6 48r47 91|32r6 169r47 536r28 547r13
+X 2 a-calend.ads
+36K13*Calendar 413e17 90|32w10 48r51 91|169r51 212r26 246r26 250r22 310r34
+. 310r52 312r19
+42I9*Time<226I9> 90|48r60 91|169r60 212r35 246r35 250r31 310r43 312r28
+56V13*Clock{42I9} 91|310s61
+103V14*"+"{42I9} 91|259s27
+109V14*"-"{42I9} 91|339s32
+226I9 Time_Rep<long_long_integer>
+X 11 a-cdlili.ads
+54R9*List<34|43R9>
+X 16 a-conhel.ads
+84R12 Reference_Control_Type<34|43R9>
+X 25 a-coorma.ads
+250R9 Node_Type
+251P9 Node_Access(250R9)
+X 26 a-coorma.adb
+58V13 Color{27|37E9} 29|45i19
+61V13 Left{25|251P9[93|85]} 29|41i19[93|85]
+64V13 Parent{25|251P9} 29|39i19
+67V13 Right{25|251P9[93|85]} 29|43i19[93|85]
+70U14 Set_Parent 29|40i19[93|85]
+73U14 Set_Left 29|42i19
+76U14 Set_Right 29|44i19[93|85]
+79U14 Set_Color 29|46i19[93|85]
+X 36 a-iteint.ads
+24h9 Forward_Iterator
+32h9 Reversible_Iterator<24R9[21|78]>
+X 37 a-reatim.ads
+39K13*Real_Time 185e18 91|309r34 309r52 313r19 339r34
+49O9*Time<duration> 91|309r44 313r29
+54O9*Time_Span<duration>
+61V13*Clock{49O9} 91|309s62
+71V14*"-"{54O9} 91|340s33
+110V13*To_Duration{duration} 91|339s44
+X 40 a-string.ads
+16K13*Strings 35e16 91|32r10 536r32 547r17
+X 47 a-strunb.ads
+83K21*Unbounded 765e26 91|32w18 536r40 547r25
+88R9*Unbounded_String<34|43R9> 744e15 91|536r50
+136U14*Append 91|547s35
+X 55 aws.ads
+32K9*AWS 41e8 90|34r6 35r6 37r9 90r5 91|35r6 36r6 37r6 38r6 39r6 41r14 180r11
+. 521r9 521r35 597r5
+34a4*Version{string} 91|459r41
+X 57 aws-config.ads
+72V13*Server_Name{string} 91|360s13
+82V13*Server_Host{string} 91|414s13
+87V13*Server_Port{natural} 91|442s13
+90V13*Hotplug_Port{positive} 91|393s13
+94V13*Session{boolean} 91|94s18 461s45
+97V13*Case_Sensitive_Parameters{boolean} 91|363s13
+100V13*Session_Name{string} 91|417s13
+117V13*Max_Connection{positive} 91|316s28 439s13
+129V13*Free_Slots_Keep_Alive_Limit{natural} 91|375s13
+137V13*Keep_Alive_Force_Limit{positive} 91|387s13
+153V13*Accept_Queue_Size{positive} 91|504s26
+158V13*Line_Stack_Size{positive} 91|390s13
+161V13*Reuse_Address{boolean} 91|402s13
+169V13*WWW_Root{string} 91|429s13
+176V13*Upload_Directory{string} 91|561s13
+180V13*Upload_Size_Limit{positive} 91|426s13
+187V13*Directory_Browser_Page{string} 91|381s13
+201V13*Log_File_Directory{string} 91|396s13
+205V13*Log_Filename_Prefix{string} 91|399s13
+216u14*Log_Extended_Fields_Generic_Iterate 91|551r16
+226V13*Error_Log_Filename_Prefix{string} 91|369s13
+229V13*Error_Log_Split_Mode{string} 91|372s13
+243V13*Admin_URI{string} 91|355s42
+247V13*Status_Page{string} 91|507s13
+263V13*Cleaner_Wait_For_Client_Timeout{duration} 91|473s16
+268V13*Cleaner_Client_Header_Timeout{duration} 91|476s26
+273V13*Cleaner_Client_Data_Timeout{duration} 91|479s26
+278V13*Cleaner_Server_Response_Timeout{duration} 91|483s16
+283V13*Force_Wait_For_Client_Timeout{duration} 91|486s26
+288V13*Force_Client_Header_Timeout{duration} 91|489s26
+293V13*Force_Client_Data_Timeout{duration} 91|492s26
+297V13*Force_Server_Response_Timeout{duration} 91|495s26
+302V13*Send_Timeout{duration} 91|498s26
+305V13*Receive_Timeout{duration} 91|501s26
+312V13*Check_URL_Validity{boolean} 91|366s13
+316V13*Security{boolean} 91|85s18 445s13
+323V13*Key{string} 91|448s13
+327V13*Security_Mode{string} 91|405s13
+331V13*Cipher_Priorities{string} 91|408s13
+338V13*Exchange_Certificate{boolean} 91|411s13
+364V13*Session_Cleanup_Interval{duration} 91|469s26
+372V13*Session_Id_Length{positive} 91|463s55
+388V13*Transient_Cleanup_Interval{duration} 91|420s26
+392V13*Transient_Lifetime{duration} 91|423s26
+396V13*Max_Concurrent_Download{positive} 91|436s13
+403V13*Input_Line_Size_Limit{positive} 91|384s13
+406V13*Context_Lifetime{duration} 91|378s26
+410V13*Max_WebSocket_Handler{positive} 91|527s13
+413V13*WebSocket_Message_Queue_Size{positive} 91|530s26
+434V13*WebSocket_Origin{string} 91|533s13
+X 70 aws-hotplug.ads
+37K13*Hotplug 109e16 91|35r10 565r23
+X 71 aws-hotplug-get_status.ads
+32V22*Get_Status{186|233R9} 91|35w18 565s31
+X 72 aws-log.ads
+51K13*Log 218e12 91|521r13 521r39
+65E9*Split_Mode 65e55 91|521r17
+178V13*Mode{65E9} 91|521s43
+X 75 aws-net.ads
+45K13*Net 520e12 90|34r10 55r43 58r44 91|58r14 67r14 76r14 115r15 131r14
+. 131r28 151r43 153r14 160r44 162r14 451r18 454r9
+55C9*Socket_Type<55R9>
+55H9*Socket_Type<34|43R9> 484e14 90|55r47 91|151r47
+60I12*FD_Type{integer}
+207y13*Get_FD{60I12} 91|451R22
+216y13*Get_Addr{string} 91|58R60
+219y13*Get_Port{positive} 91|131R18
+222V13*Is_Any_Address{boolean} 91|67R60
+226V13*Is_IPv6{boolean} 91|76R60
+411V13*Localhost{string} 91|115s19
+X 76 aws-net-acceptors.ads
+42K17*Acceptors 209e22 90|34w14 58r48 91|58r18 67r18 76r18 131r32 153r18
+. 160r48 162r18 454r13
+48R12*Socket_List{11|54R9[46]} 90|58r58 91|160r58
+116V13*Server_Socket{75|55C9} 91|58s28 67s28 76s28 131s42 153s28
+120V13*Server_Sockets{48R12} 91|162s28
+143V13*Length{natural} 91|454s23
+X 88 aws-server.ads
+55K13*Server 55|32k9 88|551e15 90|37r13 90r9 91|36r10 41r18 597r9
+57R9*HTTP<34|50R9> 526e14 90|39r36 44r36 48r34 51r40 55r30 58r31 61r28 64r28
+. 67r38 71r31 74r33 77r43 80r44 83r45 86r35 91|47r43 56r28 65r38 74r31 83r45
+. 92r44 101r35 110r33 129r28 138r40 151r30 160r31 169r34 178r36 570r36
+272E9 Slot_Phase 299e7 91|327r34
+324R9 Slot 333e14 91|306r34
+327e7*Phase{272E9} 91|327r62
+328o7*Phase_Time_Stamp{37|49O9} 91|340r45
+330i7*Slot_Activity_Counter{natural} 91|142r40 335r27
+331i7*Activity_Counter{natural} 91|332r62
+343K12 CNF=343:28 91|85r14 94r14 316r24 355r38 360r9 363r9 366r9 369r9 372r9
+. 375r9 378r22 381r9 384r9 387r9 390r9 393r9 396r9 399r9 402r9 405r9 408r9
+. 411r9 414r9 417r9 420r22 423r22 426r9 429r9 436r9 439r9 442r9 445r9 448r9
+. 461r41 463r51 469r22 473r12 476r22 479r22 483r12 486r22 489r22 492r22 495r22
+. 498r22 501r22 504r22 507r9 527r9 530r22 533r9 551r12 561r9
+347R9 Socket_Data 350e14 91|320r30
+348a7*Peername{string} 91|324r44
+349i7*FD{integer} 91|323r44
+356i26 N{positive} 91|49r27 141r34
+377V16 Is_Abortable{boolean} 91|330s30
+377i30 Index{positive} 91|330r44
+388V16 Free_Slots{natural} 91|49s44
+412V16 Get{324R9} 91|142s32 317s39
+412i21 Index{positive} 91|317r44
+418V16 Get_Socket_Info{347R9} 91|321s34
+418i33 Index{positive} 91|321r51
+453P9 Slots_Access(356W19)
+480i7*Start_Time{2|42I9} 91|171r21 433r19
+483b7*Shutdown{boolean} 91|103r21
+487r7*Acceptor{76|44R9} 91|58r50 67r50 76r50 131r64 153r50 162r51 454r38
+491r7*Properties{57|47R9} 91|85r35 94r34 316r51 355r60 360r33 363r47 366r40
+. 369r47 372r42 375r49 381r44 387r44 390r37 393r34 396r40 399r41 402r35 405r35
+. 408r39 411r42 414r33 417r34 426r39 429r30 439r36 442r33 445r30 448r25 461r61
+. 473r56 476r64 479r62 483r56 486r64 489r62 492r60 495r64 498r47 501r50 504r52
+. 507r33 554r24 561r38
+494r7*Log{72|53R9} 91|521r56
+510r7*Filters{70|48R9} 91|565r50
+516p7*Slots{453P9} 91|49r21 49r38 141r28 142r26 317r33 321r28 330r24
+X 89 aws-server-log.ads
+32K20*Log 104e19 91|36w17 511r37 513r42 516r9 518r48
+55V13*Name{string} 91|513s46
+64V13*Is_Active{boolean} 91|511s41
+92V13*Error_Name{string} 91|518s52
+101V13*Is_Error_Active{boolean} 91|516s13
+X 90 aws-server-status.ads
+37K20*Status 88|55k13 90|90l16 90e22 91|41b25 597l16 597t22
+39V13*Translations{186|233R9} 39>27 91|178b13 568l8 568t20 573s42
+39r27 Server{88|57R9} 91|178b27 316r44 317r26 321r21 330r17 355r53 360r26
+. 363r40 366r33 369r40 372r35 375r42 381r37 387r37 390r30 393r27 396r33 399r34
+. 402r28 405r28 408r32 411r35 414r26 417r27 426r32 429r23 433r12 439r29 442r26
+. 445r23 448r18 451r38 454r31 457r30 461r54 473r49 476r57 479r55 483r49 486r57
+. 489r55 492r53 495r57 498r40 501r43 504r45 507r26 511r52 513r52 516r30 518r64
+. 521r49 524r27 554r17 561r31 565r43
+44V13*Translations{186|227A9} 44>27 91|570b13 595l8 595t20
+44r27 Server{88|57R9} 91|570b27 573r56
+48V13*Start_Time{2|42I9} 48>25 91|169b13 172l8 172t18
+48r25 Server{88|57R9} 91|169b25 171r14
+51V13*Resources_Served{natural} 51>31 91|138b13 145l8 145t24 524s9
+51r31 Server{88|57R9} 91|138b31 141r21 142r19
+55V13*Socket{75|55C9} 55>21 91|151b13 154l8 154t14 451s30
+55r21 Server{88|57R9} 91|151b21 153r43
+58V13*Sockets{76|48R12} 58>22 91|160b13 163l8 163t15
+58r22 Server{88|57R9} 91|160b22 162r44
+61V13*Port{positive} 61>19 91|121s24 129b13 132l8 132t12
+61r19 Server{88|57R9} 91|129b19 131r57
+64V13*Host{string} 64>19 91|56b13 59l8 59t12 116s15
+64r19 Server{88|57R9} 91|56b19 58r43
+67V13*Is_Any_Address{boolean} 67>29 91|65b13 68l8 68t22 114s13
+67r29 Server{88|57R9} 91|65b29 67r43
+71V13*Is_IPv6{boolean} 71>22 91|74b13 77l8 77t15 115s30
+71r22 Server{88|57R9} 91|74b22 76r43
+74V13*Local_URL{string} 74>24 91|110b13 123l8 123t17
+74r24 Server{88|57R9} 91|110b24 114r29 115r39 116r21 121r30 121r62
+77V13*Current_Connections{natural} 77>34 91|47b13 50l8 50t27 457s9
+77r34 Server{88|57R9} 91|47b34 49r14 49r31
+80V13*Is_Session_Activated{boolean} 80>35 91|92b13 95l8 95t28
+80r35 Server{88|57R9} 91|92b35 94r27
+83V13*Is_Security_Activated{boolean} 83>36 91|83b13 86l8 86t29 121s39
+83r36 Server{88|57R9} 91|83b36 85r28
+86V13*Is_Shutdown{boolean} 86>26 91|101b13 104l8 104t19
+86r26 Server{88|57R9} 91|101b26 103r14
+X 91 aws-server-status.adb
+111r7 O{96|60R9} 121m10 121r10 122r23
+113V16 Localhost{string} 121s13
+139i7 N{natural} 142m10 142r15 144r14
+141i11 K{integer} 142r37
+182V16 Slot_Table{186|233R9} 295b16 353l11 353t21 563s23
+185V16 Session_Table{186|233R9} 192b16 289l11 289t24 564s23
+194r10 Sessions{186|156R12} 252m13 252r28 282r57
+195r10 Sessions_TS{186|156R12} 254m13 254r28 283r57
+196r10 Sessions_Terminate{186|156R12} 257m13 257r35 284r57
+197r10 Keys{186|156R12} 228m13 228r23 263r34 266m20 266r20
+198r10 Values{186|156R12} 229m13 229r23 264r36 267m20 267r20
+199r10 M_Keys{186|157R12} 263m13 263r25 285r57
+200r10 M_Values{186|157R12} 264m13 264r25 286r57
+202U20 For_Each_Key_Value 203>13 204>13 204>18 205>13 206=13 220b20 230l14
+. 230t32 237r49
+203i13 N{positive} 221b13 226r34
+204a13 Key{string} 222b13 228r30
+204a18 Value{string} 222b18 229r32
+205e13 Kind{92|44E9} 223b13 226r37
+206b13 Quit{boolean} 224b13 226r43
+209U20 For_Each_Session 210>13 211>13 212>13 213=13 243b20 268l14 268t30
+. 275r44
+210i13 N{positive} 244b13 249r34
+211a13 SID{92|42A9} 245b13 252r54 261r35
+212i13 Time_Stamp{2|42I9} 246b13 255r46 259r16
+213b13 Quit{boolean} 247b13 249r37
+236U20 Build_Key_Value_List[92|187] 261s13 93|794b14
+274U20 Build_Session_List[92|172] 280s10 93|754b14
+277r10 Result{186|233R9} 282m18 282r18 283m18 283r18 284m18 284r18 285m18
+. 285r18 286m18 286r18 288r17
+298r10 Sock{186|156R12} 323m16 323r29 343r55
+299r10 Phase{186|156R12} 327m13 327r26 345r55
+300r10 Abortable{186|156R12} 329m13 329r26 346r55
+301r10 Activity_Counter{186|156R12} 332m13 332r33 347r55
+302r10 Slot_Activity_Counter{186|156R12} 334m13 334r38 350r55
+303r10 Activity_Time_Stamp{186|156R12} 337m13 337r36 348r58
+304r10 Peer_Name{186|156R12} 324m16 324r29 344r55
+306r10 Slot_Data{88|324R9} 317m13 327r52 332r52 335r17 340r35
+307r10 Result{186|233R9} 343m18 343r18 344m18 344r18 345m18 345r18 346m18
+. 346r18 347m18 347r18 348m18 348r18 350m13 350r13 352r17
+309o10 Now_Monolit{37|49O9} 340r21
+310i10 Now_Calendar{2|42I9} 339r19
+316i14 K{integer} 317r53 321r60 330r53
+320r16 SD{88|347R9} 323r41 324r41
+355a7 Admin_URI{string} 509r38 558r39
+356r7 Result{186|233R9} 359m15 359r15 362m15 362r15 365m15 365r15 368m15
+. 368r15 371m15 371r15 374m15 374r15 377m15 377r15 380m15 380r15 383m15 383r15
+. 386m15 386r15 389m15 389r15 392m15 392r15 395m15 395r15 398m15 398r15 401m15
+. 401r15 404m15 404r15 407m15 407r15 410m15 410r15 413m15 413r15 416m15 416r15
+. 419m15 419r15 422m15 422r15 425m15 425r15 428m15 428r15 431m15 431r15 435m15
+. 435r15 438m15 438r15 441m15 441r15 444m15 444r15 447m15 447r15 450m15 450r15
+. 453m15 453r15 456m15 456r15 459m15 459r15 461m15 461r15 463m15 463r15 465m15
+. 465r15 468m15 468r15 471m15 471r15 475m15 475r15 478m15 478r15 481m15 481r15
+. 485m15 485r15 488m15 488r15 491m15 491r15 494m15 494r15 497m15 497r15 500m15
+. 500r15 503m15 503r15 506m15 506r15 509m15 509r15 511m15 511r15 513m15 513r15
+. 515m15 515r15 518m15 518r15 520m15 520r15 523m15 523r15 526m15 526r15 529m15
+. 529r15 532m15 532r15 555m18 555r18 558m15 558r15 560m15 560r15 563m15 563r15
+. 564m15 564r15 565m15 565r15 567r14
+535q7 Log_Extended_Fields 556l11 556e30
+536r10 Extended_Fields{47|88R9} 547m43 547r43 555r56
+538U20 Field_Id 538>30 545b20 548l14 548t22 551r53
+538a30 Id{string} 545b30 547r60
+550U20 LEFGI[57|216] 58|462b14 91|554s10
+573r7 Set{186|233R9} 574r44 593r17
+574a7 Result{186|227A9} 575r28 586m10 594r14
+575i7 Index{positive} 586r18 587m10 587r19
+577U17 Action 577>25 577=45 583b17 588l11 588t17 590r56
+577r25 Item{186|163R9} 583b25 586r28
+577b45 Quit{boolean} 583b45 584r31
+590U17 For_Each[186|295] 593s7 187|1949b14
+X 92 aws-session.ads
+38K13*Session 91|37w10 205r26 211r26 223r26 237r17 245r26 252r39 259r29 275r17
+. 466r22 92|272e16
+42A9*Id<string> 91|211r34 245r34
+44E9*Value_Kind 91|205r34 223r34 92|44e51
+75V13*Image{string} 91|252s47
+172u14*For_Every_Session 91|275r25
+187u14*For_Every_Session_Data 91|237r25
+203V13*Get_Lifetime{duration} 91|259s37 466s30
+X 95 aws-templates.ads
+32K13*Templates=32:31 90|35w10 39r49 44r49 91|178r49 180r15 570r49 571r11
+X 96 aws-url.ads
+37K13*URL 91|38r10 111r11 120r7 122r14 96|255e12
+60R9*Object 91|111r15 96|237e14
+86V13*URL{string} 91|122s18
+X 97 aws-url-set.ads
+32K17*Set 91|38w14 120r11 97|63e16
+45U14*Connection_Data 91|120s15
+X 98 aws-utils.ads
+44K13*Utils 91|39w10 378r9 420r9 423r9 466r9 469r9 472r9 476r9 479r9 482r9
+. 486r9 489r9 492r9 495r9 498r9 501r9 504r9 530r9 98|466e14
+103V13*Image{string} 91|504s15 530s15
+114V13*Image{string} 91|378s15 420s15 423s15 466s15 469s15 472s15 476s15
+. 479s15 482s15 486s15 489s15 492s15 495s15 498s15 501s15
+457h9*Clonable
+X 100 gnat.ads
+34K9*GNAT 91|33r6 255r17 258r17 338r17 432r9 100|57e9
+X 103 g-calend.ads
+45K14*Calendar 91|33r11 255r22 258r22 338r22 432r14 103|185e18
+X 104 g-catiio.ads
+37K23*Time_IO 91|33w20 255r31 258r31 338r31 432r23 104|187e26
+118V13*Image{string} 91|255s39 258s39 338s39 432s31
+X 114 interfac.ads
+55I9*Integer_64<long_long_integer>
+X 121 system.ads
+67M9*Address
+X 124 s-arit64.ads
+44I12*Int64{114|55I9}
+54V13*Multiply_With_Ovflo_Check64{44I12} 55i<c,__gnat_mulv64>22
+X 142 s-memory.ads
+53V13*Alloc{121|67M9} 103i<c,__gnat_malloc>22
+68U14*Free 104i<c,__gnat_free>22
+76V13*Realloc{121|67M9} 105i<c,__gnat_realloc>22
+X 157 s-stausa.ads
+208U14*Initialize 209i<c,__gnat_stack_usage_initialize>22
+273U14*Output_Results 277i<c,__gnat_stack_usage_output_results>22
+X 159 s-stalib.adb
+89U14 Break_Start 90i<c,__gnat_break_start>22
+X 186 templates_parser.ads
+90V14*"&"{73R9} 91|228s28 229s30 252s37 255s15 258s15 324s39 327s32 338s15
+94V14*"&"{73R9} 91|330s15
+98V14*"&"{73R9} 91|323s39 332s50 335s15
+100V14*"&"{73R9} 91|263s32 264s34
+137U14*Clear 91|266s13 267s13
+156R12*Vector_Tag{73R9} 91|194r31 195r31 196r31 197r31 198r31 298r34 299r34
+. 300r34 301r34 302r34 303r34 304r34
+157R12*Matrix_Tag{73R9} 91|199r31 200r31
+163R9*Association 91|577r32 583r32 186|622e14
+171V13*Assoc{163R9} 91|359s23 368s23 371s23 377s23 380s23 395s23 398s23 404s23
+. 407s23 413s23 416s23 419s23 422s23 428s23 431s23 447s23 459s23 465s23 468s23
+. 471s23 475s23 478s23 481s23 485s23 488s23 491s23 494s23 497s23 500s23 503s23
+. 506s23 509s23 513s23 518s23 520s23 529s23 532s23 558s23 560s23
+178V13*Assoc{163R9} 91|555s26
+186V13*Assoc{163R9} 91|374s23 383s23 386s23 389s23 392s23 425s23 435s23 438s23
+. 441s23 450s23 453s23 456s23 463s23 523s23 526s23
+194V13*Assoc{163R9} 91|362s23 365s23 401s23 410s23 444s23 461s23 511s23 515s23
+202V13*Assoc{163R9} 91|282s26 283s26 284s26 285s26 286s26 343s26 344s26 345s26
+. 346s26 347s26 348s26 350s21
+227A9*Translate_Table(163R9)<integer> 90|44r59 91|570r59 574r16
+233R9*Translate_Set<34|43R9> 90|39r59 91|178r59 182r34 185r37 192r37 277r19
+. 295r34 307r34 356r19 573r25 186|656e14
+242U14*Insert 91|282s10 283s10 284s10 285s10 286s10 343s10 344s10 345s10
+. 346s10 347s10 348s10 349s10 359s7 362s7 365s7 368s7 371s7 374s7 377s7 380s7
+. 383s7 386s7 389s7 392s7 395s7 398s7 401s7 404s7 407s7 410s7 413s7 416s7
+. 419s7 422s7 425s7 428s7 431s7 435s7 438s7 441s7 444s7 447s7 450s7 453s7
+. 456s7 459s7 461s7 463s7 465s7 468s7 471s7 475s7 478s7 481s7 485s7 488s7
+. 491s7 494s7 497s7 500s7 503s7 506s7 509s7 511s7 513s7 515s7 518s7 520s7
+. 523s7 526s7 529s7 532s7 555s10 558s7 560s7
+247U14*Insert 91|563s7 564s7 565s7
+286V13*Size{natural} 91|574s38
+295u14*For_Every_Association 91|590r33
+

@@ -1,0 +1,757 @@
+V "GNAT Lib v2021"
+A -O2
+A -gnatA
+A -fPIC
+A -gnat2012
+A -gnatwc
+A -gnatwf
+A -gnatwi
+A -gnatwj
+A -gnatwk
+A -gnatwm
+A -gnatwr
+A -gnatwu
+A -gnatwv
+A -gnaty3
+A -gnatya
+A -gnatyb
+A -gnatyB
+A -gnatyc
+A -gnatyd
+A -gnatye
+A -gnatyf
+A -gnatyh
+A -gnatyi
+A -gnatyI
+A -gnatyk
+A -gnatyl
+A -gnatym
+A -gnatyn
+A -gnatyo
+A -gnatyO
+A -gnatyp
+A -gnatyr
+A -gnatys
+A -gnatyt
+A -gnatyx
+A -gnatn
+A -mtune=generic
+A -march=x86-64
+P SS ZX
+
+RN
+RV NO_ACCESS_SUBPROGRAMS
+RV NO_ALLOCATORS
+RV NO_CALENDAR
+RV NO_DELAY
+RV NO_DISPATCH
+RV NO_EXCEPTION_HANDLERS
+RV NO_EXCEPTIONS
+RV NO_FINALIZATION
+RV NO_FIXED_POINT
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_LOCAL_ALLOCATORS
+RV NO_NESTED_FINALIZATION
+RV NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_UNCHECKED_DEALLOCATION
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_OBSOLESCENT_FEATURES
+
+U soap.utils%b		soap-utils.adb		c89ebfd5 NE OO PK IU
+W ada%s			ada.ads			ada.ali
+W ada.calendar%s	a-calend.adb		a-calend.ali
+W ada.calendar.arithmetic%s  a-calari.adb	a-calari.ali
+W ada.calendar.formatting%s  a-calfor.adb	a-calfor.ali
+W ada.calendar.time_zones%s  a-catizo.adb	a-catizo.ali
+W ada.characters%s	a-charac.ads		a-charac.ali
+W ada.characters.handling%s  a-chahan.adb	a-chahan.ali
+Z ada.exceptions%s	a-except.adb		a-except.ali
+W ada.strings%s		a-string.ads		a-string.ali
+W ada.strings.fixed%s	a-strfix.adb		a-strfix.ali
+W ada.strings.maps%s	a-strmap.adb		a-strmap.ali
+W ada.strings.maps.constants%s  a-stmaco.ads	a-stmaco.ali
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W ada.unchecked_deallocation%s
+W aws%s			aws.ads			aws.ali
+W aws.utils%s		aws-utils.adb		aws-utils.ali
+W soap%s		soap.ads		soap.ali
+W soap.message%s	soap-message.adb	soap-message.ali
+W soap.message.xml%s	soap-message-xml.adb	soap-message-xml.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+Z system.soft_links%s	s-soflin.adb		s-soflin.ali
+Z system.standard_library%s  s-stalib.adb	s-stalib.ali
+Z system.val_fixed_64%s	s-vafi64.ads		s-vafi64.ali
+Z system.val_int%s	s-valint.ads		s-valint.ali
+W unicode%s		unicode.adb		unicode.ali
+W unicode.ces%s		unicode-ces.adb		unicode-ces.ali
+W unicode.ces.basic_8bit%s  unicode-ces-basic_8bit.adb  unicode-ces-basic_8bit.ali
+W unicode.ces.utf8%s	unicode-ces-utf8.adb	unicode-ces-utf8.ali
+
+U soap.utils%s		soap-utils.ads		2df17daa BN EE NE OO PK IU
+W ada%s			ada.ads			ada.ali
+W ada.finalization%s	a-finali.ads		a-finali.ali
+W ada.strings%s		a-string.ads		a-string.ali
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+W ada.strings.unbounded%s  a-strunb.adb		a-strunb.ali
+W aws%s			aws.ads			aws.ali
+W aws.response%s	aws-response.adb	aws-response.ali
+W aws.status%s		aws-status.adb		aws-status.ali
+W soap%s		soap.ads		soap.ali
+W soap.message%s	soap-message.adb	soap-message.ali
+W soap.message.payload%s  soap-message-payload.adb  soap-message-payload.ali
+W soap.name_space%s	soap-name_space.adb	soap-name_space.ali
+W soap.types%s		soap-types.adb		soap-types.ali
+W soap.wsdl%s		soap-wsdl.adb		soap-wsdl.ali
+W soap.wsdl.schema%s	soap-wsdl-schema.adb	soap-wsdl-schema.ali
+W unicode%s		unicode.adb		unicode.ali
+
+D ada.ads		20210520051131 76789da1 ada%s
+D a-calend.ads		20210520051128 474d9720 ada.calendar%s
+D a-calend.adb		20210520051128 dfcd352e ada.calendar%b
+D a-calari.ads		20210520051128 7017f4b1 ada.calendar.arithmetic%s
+D a-calfor.ads		20210520051128 0f4707d1 ada.calendar.formatting%s
+D a-catizo.ads		20210520051128 eaa56756 ada.calendar.time_zones%s
+D a-charac.ads		20210520051128 2d3ec45b ada.characters%s
+D a-chahan.ads		20210520051128 0ce1b450 ada.characters.handling%s
+D a-chahan.adb		20210520051128 9621beac ada.characters.handling%b
+D a-chlat1.ads		20210520051128 66457d31 ada.characters.latin_1%s
+D a-contai.ads		20210520051128 61e5e089 ada.containers%s
+D a-cohata.ads		20210520051128 bc432d0e ada.containers.hash_tables%s
+D a-conhel.ads		20210520051128 20298884 ada.containers.helpers%s
+D a-cihama.ads		20210520051128 76287ea1 ada.containers.indefinite_hashed_maps%s
+D a-cihase.ads		20210520051128 18093f96 ada.containers.indefinite_hashed_sets%s
+D a-coinho.ads		20210520051128 f2039f43 ada.containers.indefinite_holders%s
+D a-ciorma.ads		20210520051128 3aa5dad0 ada.containers.indefinite_ordered_maps%s
+D a-coinve.ads		20210520051128 0843f47c ada.containers.indefinite_vectors%s
+D a-crbltr.ads		20210520051128 d3d16ba4 ada.containers.red_black_trees%s
+D a-convec.ads		20210520051128 5d39d84a ada.containers.vectors%s
+D a-direct.ads		20210520051128 078228da ada.directories%s
+D a-envvar.ads		20210520051128 00080416 ada.environment_variables%s
+D a-except.ads		20210520051128 946f3014 ada.exceptions%s
+D a-finali.ads		20210520051128 bf4f806b ada.finalization%s
+D a-ioexce.ads		20210520051128 e4a01f64 ada.io_exceptions%s
+D a-iteint.ads		20210520051128 49a8bee2 ada.iterator_interfaces%s
+D a-reatim.ads		20210520051127 0240fc73 ada.real_time%s
+D a-stream.ads		20210520051129 119b8fb3 ada.streams%s
+D a-string.ads		20210520051129 90ac6797 ada.strings%s
+D a-strfix.ads		20210520051129 aeacf44c ada.strings.fixed%s
+D a-strhas.ads		20210520051129 c71c2a52 ada.strings.hash%s
+D a-strmap.ads		20210520051129 5a88892a ada.strings.maps%s
+D a-stmaco.ads		20210520051129 1c0e5368 ada.strings.maps.constants%s
+D a-strsea.ads		20210520051129 b9bc90ba ada.strings.search%s
+D a-sttebu.ads		20210520051129 18209c64 ada.strings.text_buffers%s
+D a-strunb.ads		20210520051129 03325227 ada.strings.unbounded%s
+D a-strunb.adb		20210520051129 3b950306 ada.strings.unbounded%b
+D a-stuten.ads		20210520051129 808c40ad ada.strings.utf_encoding%s
+D a-tags.ads		20210520051130 9eaa38c6 ada.tags%s
+D a-taside.ads		20210520051127 00e3a3f6 ada.task_identification%s
+D a-unccon.ads		20210520051130 0e9b276f ada.unchecked_conversion%s
+D a-uncdea.ads		20210520051130 c3a8ac65 ada.unchecked_deallocation%s
+D aws.ads		20210520114206 82646736 aws%s
+D aws-attachments.ads	20210519051431 2270236e aws.attachments%s
+D aws-client.ads	20210519051431 93f0cf40 aws.client%s
+D aws-config.ads	20210519051431 17e5b2cd aws.config%s
+D aws-containers.ads	20210519051431 c7ab8288 aws.containers%s
+D aws-containers-key_value.ads  20210519051431 f3f917f0 aws.containers.key_value%s
+D aws-containers-memory_streams.ads  20210519051431 ea28c859 aws.containers.memory_streams%s
+D aws-containers-string_vectors.ads  20210519051431 b5692847 aws.containers.string_vectors%s
+D aws-containers-tables.ads  20210519051431 00be04da aws.containers.tables%s
+D aws-default.ads	20210519051431 9ec982b1 aws.default%s
+D aws-headers.ads	20210519051431 25633780 aws.headers%s
+D aws-messages.ads	20210519051431 7cd16bc6 aws.messages%s
+D aws-mime.ads		20210519051431 796c9a32 aws.mime%s
+D aws-net.ads		20210519051431 4147ea12 aws.net%s
+D aws-net-ssl.ads	20210519051431 52fbd46f aws.net.ssl%s
+D aws-net-ssl-certificate.ads  20210519051431 4eafed25 aws.net.ssl.certificate%s
+D aws-net-std.ads	20210519051431 fb394f55 aws.net.std%s
+D aws-parameters.ads	20210519051431 ff4aa491 aws.parameters%s
+D aws-resources.ads	20210519051431 407ba395 aws.resources%s
+D aws-resources-streams.ads  20210519051431 95c86167 aws.resources.streams%s
+D aws-resources-streams-memory.ads  20210519051431 eb23d323 aws.resources.streams.memory%s
+D aws-response.ads	20210519051431 907d00d3 aws.response%s
+D aws-session.ads	20210519051431 7ee0b17c aws.session%s
+D aws-status.ads	20210519051431 715df1ae aws.status%s
+D aws-url.ads		20210519051431 32548484 aws.url%s
+D aws-utils.ads		20210519051431 840ea1d3 aws.utils%s
+D dom.ads		20210519052322 2bd88f63 dom%s
+D dom-core.ads		20210519052322 3a4cc7f1 dom.core%s
+D gnat.ads		20210520051132 b5988c27 gnat%s
+D g-bytswa.ads		20210520051131 a4d21639 gnat.byte_swapping%s
+D g-regexp.ads		20210520051131 691be386 gnat.regexp%s
+D g-sechas.ads		20210520051131 302163b5 gnat.secure_hashes%s
+D g-shsh32.ads		20210520051131 671c9849 gnat.secure_hashes.sha2_32%s
+D g-shshco.ads		20210520051131 1144502c gnat.secure_hashes.sha2_common%s
+D g-sha256.ads		20210520051131 c083f050 gnat.sha256%s
+D interfac.ads		20210520051132 edec285f interfaces%s
+D i-c.ads		20210520051132 d9beded9 interfaces.c%s
+D memory_streams.ads	20210519051430 bf3b9ce5 memory_streams%s
+D sax.ads		20210519052322 17965ec6 sax%s
+D sax-htable.ads	20210519052322 2df615ad sax.htable%s
+D sax-pointers.ads	20210519052322 d9877e85 sax.pointers%s
+D sax-symbols.ads	20210519052322 d3179de8 sax.symbols%s
+D sax-utils.ads		20210519052322 214aab19 sax.utils%s
+D soap.ads		20210519051431 90b700c9 soap%s
+D soap-message.ads	20210519051431 49d24300 soap.message%s
+D soap-message-payload.ads  20210519051431 aa70adc7 soap.message.payload%s
+D soap-message-response.ads  20210519051431 da5ab18d soap.message.response%s
+D soap-message-xml.ads	20210519051431 a86fe024 soap.message.xml%s
+D soap-name_space.ads	20210519051431 900fe4fb soap.name_space%s
+D soap-parameters.ads	20210519051431 3a01b34a soap.parameters%s
+D soap-types.ads	20210519051431 b111a541 soap.types%s
+D soap-utils.ads	20210519051431 6afb6436 soap.utils%s
+D soap-utils.adb	20210519051431 58865f77 soap.utils%b
+D soap-wsdl.ads		20210519051431 823c280a soap.wsdl%s
+D soap-wsdl-schema.ads	20210519051431 a5af5194 soap.wsdl.schema%s
+D ssl.ads		20210519051431 3abd0079 ssl%s
+D ssl-thin__dummy.ads	20210519051430 eb2eedfc ssl.thin%s
+D system.ads		20210520051135 a2da961d system%s
+D s-atacco.ads		20210520051132 4c36d12f system.address_to_access_conversions%s
+D s-arit64.ads		20210520051132 5f88d2b0 system.arith_64%s
+D s-atocou.ads		20210520051132 b45c2d8d system.atomic_counters%s
+D s-carun8.ads		20210520051132 a903718d system.compare_array_unsigned_8%s
+D s-exctab.ads		20210520051132 54135002 system.exception_table%s
+D s-finmas.ads		20210520051132 1ab4dba8 system.finalization_masters%s
+D s-finroo.ads		20210520051132 4ff27390 system.finalization_root%s
+D s-linux.ads		20210520051127 ed0b8aee system.linux%s
+D s-memory.ads		20210520051133 597d6634 system.memory%s
+D s-multip.ads		20210520051133 38ac9f73 system.multiprocessors%s
+D s-oscons.ads		20210520095158 e3a42aec system.os_constants%s
+D s-osinte.ads		20210520051127 222ac181 system.os_interface%s
+D s-osprim.ads		20210520051133 07fd65f6 system.os_primitives%s
+D s-parame.ads		20210520051134 4752c4cb system.parameters%s
+D s-pooglo.ads		20210520051134 ede33ef8 system.pool_global%s
+D s-putima.ads		20210520051134 4e095881 system.put_images%s
+D s-regexp.ads		20210520051134 9c7d27a7 system.regexp%s
+D s-secsta.ads		20210520051134 9b3ab94b system.secondary_stack%s
+D s-soflin.ads		20210520051134 a7318a92 system.soft_links%s
+D s-stache.ads		20210520051134 a37c21ec system.stack_checking%s
+D s-stausa.ads		20210520051134 017a0a05 system.stack_usage%s
+D s-stalib.ads		20210520051134 472fbca8 system.standard_library%s
+D s-stalib.adb		20210520051134 977290bf system.standard_library%b
+D s-stoele.ads		20210520051134 2dc34a04 system.storage_elements%s
+D s-stoele.adb		20210520051134 ed88f8fb system.storage_elements%b
+D s-stopoo.ads		20210520051134 e9fa2dd8 system.storage_pools%s
+D s-stratt.ads		20210520051134 7bdda3fa system.stream_attributes%s
+D s-string.ads		20210520051134 8fe54fb7 system.strings%s
+D s-ststop.ads		20210520051134 5fbf1b38 system.strings.stream_ops%s
+D s-tasinf.ads		20210520051127 2b3f8252 system.task_info%s
+D s-taspri.ads		20210520051127 4ec891e7 system.task_primitives%s
+D s-taprop.ads		20210520051127 6eefbe12 system.task_primitives.operations%s
+D s-taskin.ads		20210520051127 88fba9ad system.tasking%s
+D s-taprob.ads		20210520051127 acd6094d system.tasking.protected_objects%s
+D s-tpoben.ads		20210520051127 60ad3dae system.tasking.protected_objects.entries%s
+D s-tassta.ads		20210520051127 cca55c94 system.tasking.stages%s
+D s-traent.ads		20210520051134 26a8d361 system.traceback_entries%s
+D s-unstyp.ads		20210520051134 2b077493 system.unsigned_types%s
+D s-vafi64.ads		20210520051134 2ff3dc11 system.val_fixed_64%s
+D s-valint.ads		20210520051134 e7fcadb7 system.val_int%s
+D s-valuns.ads		20210520051134 dac7b45d system.val_uns%s
+D s-valuef.ads		20210520051134 44d93748 system.value_f%s
+D s-valuei.ads		20210520051134 978dd0a6 system.value_i%s
+D s-valueu.ads		20210520051134 7b8fccf5 system.value_u%s
+D templates_parser.ads	20210519053215 1cb5e754 templates_parser%s
+D templates_parser-utils.ads  20210519053215 8849593d templates_parser.utils%s
+D templates_parser_tasking.ads  20210519053215 4c0209f0 templates_parser_tasking%s
+D unchconv.ads		20210520051135 ca2f9e18 unchecked_conversion%s
+D unchdeal.ads		20210520051135 214516a4 unchecked_deallocation%s
+D unicode.ads		20210519052322 a421878d unicode%s
+D unicode-ccs.ads	20210519052322 184e29de unicode.ccs%s
+D unicode-ces.ads	20210519052322 68f558ab unicode.ces%s
+D unicode-ces-basic_8bit.ads  20210519052322 a56f8139 unicode.ces.basic_8bit%s
+D unicode-ces-utf32.ads	20210519052322 b5f035ac unicode.ces.utf32%s
+D unicode-ces-utf8.ads	20210519052322 dcbef85d unicode.ces.utf8%s
+D zlib.ads		20210519051430 0714e1ed zlib%s
+G a e
+G c Z s b [tag soap__utils 49 13 none]
+G c Z s b [encode soap__utils 53 13 none]
+G c Z s b [encode soap__utils 55 14 none]
+G c Z s b [ns soap__utils 58 13 none]
+G c Z s b [no_ns soap__utils 61 13 none]
+G c Z s b [with_ns soap__utils 64 13 none]
+G c Z s b [to_name soap__utils 67 13 none]
+G c Z s b [is_ada_reserved_word soap__utils 70 13 none]
+G c Z s b [time_instant soap__utils 73 13 none]
+G c Z s b [duration soap__utils 80 13 none]
+G c Z s b [to_utf8 soap__utils 94 13 none]
+G c Z s b [to_utf8 soap__utils 95 13 none]
+G c Z s b [default_utf8_mapping soap__utils 103 13 none]
+G c Z s b [set_utf8_map soap__utils 106 14 none]
+G c Z s b [from_utf8 soap__utils 112 13 none]
+G c Z s b [from_utf8 soap__utils 113 13 none]
+G c Z s b [from_utf8 soap__utils 114 13 none]
+G c Z s b [get soap__utils 190 13 none]
+G c Z s b [get soap__utils 193 13 none]
+G c Z s b [get soap__utils 196 13 none]
+G c Z s b [v soap__utils 199 13 none]
+G c Z s b [v soap__utils 203 13 none]
+G c Z s b [any soap__utils 208 13 none]
+G c Z s b [us soap__utils 216 13 none]
+G c Z s b [c soap__utils 224 13 none]
+G r c none [encode soap__utils 53 13 none] [image aws__utils 103 13 none]
+G r c none [encode soap__utils 55 14 none] [image aws__utils 103 13 none]
+G r c none [time_instant soap__utils 73 13 none] [t soap__types 461 13 none]
+G r c none [duration soap__utils 80 13 none] [d soap__types 481 13 none]
+G r c none [to_utf8 soap__utils 94 13 none] [to_utf32 unicode__ces__basic_8bit 78 13 none]
+G r c none [to_utf8 soap__utils 94 13 none] [from_utf32 unicode__ces__utf8 126 13 none]
+G r c none [to_utf8 soap__utils 95 13 none] [encode unicode__ces__utf8 64 14 none]
+G r c none [from_utf8 soap__utils 112 13 none] [read unicode__ces__utf8 72 14 none]
+G r c none [from_utf8 soap__utils 113 13 none] [read unicode__ces__utf8 72 14 none]
+G r c none [from_utf8 soap__utils 114 13 none] [read unicode__ces__utf8 72 14 none]
+G r c none [get soap__utils 190 13 none] [get soap__types 629 13 none]
+G r c none [get soap__utils 193 13 none] [get soap__types 629 13 none]
+G r j soap_enumeration [get soap__utils 196 13 none] [soap_enumerationDA soap__types 807 9 none]
+G r c none [get soap__utils 196 13 none] [image soap__types 577 24 none]
+G r c none [v soap__utils 199 13 none] [v soap__types 442 13 none]
+G r c none [v soap__utils 203 13 none] [v soap__types 442 13 none]
+G r c none [any soap__utils 208 13 none] [any soap__types 150 13 none]
+G r c none [us soap__utils 216 13 none] [s soap__types 428 13 none]
+G r c none [c soap__utils 224 13 none] [s soap__types 428 13 none]
+X 1 ada.ads
+16K9*Ada 20e8 94|32r6 33r6 47r8 243r32 95|32r6 33r6 34r6 36r6 37r6 38r6 39r6
+. 40r6 102r11 103r11 104r11 419r30 446r31 460r31 476r13 479r13 526r18 590r11
+. 591r11 592r11 593r16 679r11 810r11
+X 2 a-calend.ads
+36K13*Calendar 413e17 95|32r10 33r10 34r10 36w10 103r15 104r15 117r28 117r45
+. 120r19 121r19 123r19 127r19 133r7 178r28 199r15 591r15 592r15 593r20
+42I9*Time<226I9> 95|117r37 120r28
+48I12*Year_Number{integer} 95|121r28 662r35
+49I12*Month_Number{integer} 95|663r35
+50I12*Day_Number{integer} 95|123r28 664r35
+54O12*Day_Duration{duration}
+56V13*Clock{42I9} 95|117s54
+72U14*Split 95|133s16
+83V13*Time_Of{42I9} 95|199s24
+103V14*"+"{42I9} 95|204s20
+112V14*"-"{duration} 95|207s45
+226I9 Time_Rep<long_long_integer>
+X 4 a-calari.ads
+22K22*Arithmetic 65e28 95|32w19 104r24 127r28 178r37
+28I9*Day_Count<integer> 95|127r39 178r48
+52V14*"+"{2|42I9} 95|203s20
+X 5 a-calfor.ads
+24K22*Formatting 223e28 95|33w19 592r24
+35I12*Hour_Number{natural} 95|665r35
+36I12*Minute_Number{natural} 95|666r35
+37I12*Second_Number{natural} 95|667r35
+38O12*Second_Duration{2|54O12} 95|632r20 640r24
+102V13*Time_Of{2|42I9} 95|662s12
+103i7 Year{2|48I12} 95|662r21
+104i7 Month{2|49I12} 95|663r21
+105i7 Day{2|50I12} 95|664r21
+106i7 Hour{35I12} 95|665r21
+107i7 Minute{36I12} 95|666r21
+108i7 Second{37I12} 95|667r21
+109o7 Sub_Second{38O12} 95|668r21
+111i7 Time_Zone{6|23I9} 95|669r21
+X 6 a-catizo.ads
+19K22*Time_Zones 35e28 95|34w19 593r29 631r20 650r19 653r27
+23I9*Time_Offset<short_integer> 95|593r40 631r31 650r30 653r38
+X 7 a-charac.ads
+16K13*Characters 18e19 95|37r10 419r34
+X 8 a-chahan.ads
+36K24*Handling 160e28 95|37w21 419r45
+71V13*To_Lower{string} 95|419s54
+X 13 a-conhel.ads
+84R12 Reference_Control_Type<24|43R9>
+X 17 a-ciorma.ads
+57R9*Map<24|43R9>
+X 24 a-finali.ads
+40K13*Finalization 68e21 94|32w10 243r36 95|526r22
+43H9*Controlled<107|40R9> 59e72 94|243r49 95|526r35
+46U14*Initialize<107|44p14>
+47U14*Adjust<107|42p14>
+48U14*Finalize<107|43p14>
+X 26 a-iteint.ads
+24h9 Forward_Iterator
+32h9 Reversible_Iterator<24R9[18|84]>
+X 29 a-string.ads
+16K13*Strings 35e16 94|33r10 47r12 95|38r10 39r10 106r16 110r30 111r23 112r26
+. 148r15 152r21 446r35 460r35 597r29 598r20 620r20 681r14 682r18 817r15
+31n32*Outside{31E9} 95|152r29
+X 30 a-strfix.ads
+43K21*Fixed 1398e22 95|38w18 148r23 446r43 460r43 620r28 681r22 817r23
+237V13*Index{natural} 95|446s49 460s49 817s29
+398V13*Index{natural} 95|148s29 620s34
+400a7 Set{32|52A9} 95|151r13
+401i7 From{positive} 95|150r13 621r39
+402e7 Test{29|31E9} 95|152r13
+723V13*Translate{string} 95|681s28
+X 32 a-strmap.ads
+44K21*Maps 548e21 95|39r18 106r24 110r38 111r31 112r34 597r37 598r28 682r26
+52A9*Character_Set<274A9> 95|106r29 110r43 597r42
+129V14*"or"{52A9} 95|112s23
+172V13*To_Set{52A9} 95|112s39 598s33
+209A9*Character_Mapping(character)
+223V13*To_Mapping{209A9} 95|682s31
+274A9 Character_Set_Internal(boolean)<character>
+X 33 a-stmaco.ads
+38K26*Constants 915e31 95|39w23 111r36
+48a4*Decimal_Digit_Set{32|52A9} 95|111r46
+X 36 a-strunb.ads
+83K21*Unbounded 765e26 94|33w18 47r20
+88R9*Unbounded_String<24|43R9> 744e15 94|55r26 55r60 95r28 95r53 113r30 113r55
+. 190r52 199r45 217r19 95|222r16 223r23 246r16 264r30 264r55 272r18 391r52
+. 554r37 763r28 763r53 766r16 782r19 795r45
+93V13*Length{natural} 95|227s21 275s23 768s21
+96P9*String_Access(string) 94|114r45 95|257r11 305r45 308r16 322r16 337r16
+98U14*Free 95|260s7 328s13 343s13
+104V13*To_Unbounded_String{88R9} 95|248s15 393s14 797s14
+117V13*To_String{string} 95|249s14 788s23
+136U14*Append 95|231s28 232s28 233s28 234s28 235s28 237s16 238s16 772s10
+144U14*Append 95|239s16 240s28 296s13 298s13
+192V13*Element{character} 95|228s16 278s35 771s29
+X 39 a-tags.ads
+652V13 CW_Membership{boolean} 95|409s21
+X 42 a-uncdea.ads
+20u15*Unchecked_Deallocation 95|40w10 476r17 479r17
+X 43 aws.ads
+32K9*AWS 41e8 94|37r6 38r6 125r23 125r47 127r17 129r14 95|45r6 238r32 546r17
+. 548r14 550r39 555r30
+X 64 aws-response.ads
+51K13*Response 455e17 94|37w10 125r51 129r18 95|548r18
+59R9*Data<24|43R9> 446e14 94|125r60 129r27 95|548r27
+X 66 aws-status.ads
+52K13*Status 405e15 94|38w10 125r27 127r21 95|546r21 550r43 555r34
+58R9*Data 403e14 94|125r34 127r28 95|546r28
+275V13*SOAPAction{string} 95|550s50
+283V13*Payload{36|88R9} 95|555s41
+X 68 aws-utils.ads
+44K13*Utils 466e14 95|45w10 238r36
+103V13*Image{string} 95|238s42
+X 78 interfac.ads
+55I9*Integer_64<long_long_integer>
+X 86 soap.ads
+30K9*SOAP 53e9 94|40r6 41r6 42r6 43r6 45r9 261r5 95|46r6 48r14 65r14 693r11
+. 712r11 728r11 743r11 829r5
+42a4*No_SOAPAction{string} 95|552r24
+X 87 soap-message.ads
+36K14*Message 94e17 94|40r11 124r23 95|46r11 556r37 557r30
+X 88 soap-message-payload.ads
+33K22*Payload 55e25 94|40w19 124r31 95|556r45
+35R9*Object<87|40R9> 53e54 94|124r39 95|556r53
+X 90 soap-message-xml.ads
+38K22*XML 96e21 95|46w19 557r38
+51V13*Load_Payload{88|35R9} 95|557s42
+54r7 Schema{97|43R12} 95|558r47
+X 91 soap-name_space.ads
+34K14*Name_Space 150e20 94|41w11 165r26 165r47 169r14 183r26 183r47 187r14
+. 212r19 212r40 220r19 220r40 228r19 228r40 95|62r19 62r40 76r19 76r40 691r14
+. 710r14 785r19 785r40
+36R9*Object 113e14 94|165r37 169r25 183r37 187r25 212r30 220r30 228r30 95|62r30
+. 76r30 691r25 710r25 785r30
+65r4*No_Name_Space{36R9} 94|165r58 183r58 212r51 220r51 228r51 95|62r51 76r51
+. 785r51
+X 93 soap-types.ads
+63K14*Types 819e15 94|42w11 76r29 77r14 82r29 83r14 143r30 144r32 151r30
+. 152r34 158r28 169r40 176r28 187r40 190r25 193r25 196r25 199r20 203r20 209r19
+. 211r29 213r14 219r29 221r14 229r14 95|59r19 61r29 63r14 65r19 65r30 77r14
+. 79r14 99r29 100r14 213r17 391r25 393r43 396r25 397r40 407r25 408r23 409r16
+. 411r14 587r29 588r14 630r20 671r14 691r40 693r16 694r16 710r40 712r16 713r16
+. 727r32 728r16 742r34 743r16 784r29 786r14 788r14 795r20 797r35 800r20 802r14
+74C9*Object<74R9>
+74H9*Object<24|43R9> 702e14 94|143r36 151r36 158r34 176r34 190r31 193r31
+. 196r31 95|65r36 391r31 396r31 407r31
+83A9*Object_Set(79R9)<integer> 94|144r38 152r40 169r46 187r46 95|691r46 694r22
+. 710r46 713r22 727r38 742r40
+90V13*Image{string}
+93V13*Is_Empty{boolean}
+96U14*XML_Image
+108V13*XML_Type{string}
+117V14*"+"{79R9} 95|698s12 717s12
+120V14*"-"{74C9} 95|732s29 747s29
+140R9*XSD_Any_Type<74R9> 741e14 94|209r25 213r20 95|59r25 63r20
+150V13*Any{140R9} 95|65s25
+422a4*XML_String{string} 94|211r35 219r35 95|61r35 784r35
+424R9*XSD_String<123R9> 771e14 94|199r26 203r26 221r20 229r20 95|77r20 786r20
+. 795r26 800r26
+428V13*S{424R9} 95|79s20 788s20
+442V13*V{string} 95|797s41 802s20
+450I12*Local_Time{2|42I9} 95|630r26
+454a4*XML_Time_Instant{string} 94|76r35 95|587r35
+457R9*XSD_Time_Instant<123R9> 779e14 94|77r20 95|588r20
+461V13*T{457R9} 95|671s20
+464a7 Type_Name{string} 95|671r32
+475a4*XML_Duration{string} 94|82r35 95|99r35
+477R9*XSD_Duration<123R9> 783e14 94|83r20 95|100r20
+481V13*D{477R9} 95|213s23
+575R9*SOAP_Enumeration<123R9> 809e14 95|408r29 409r22
+577V24*Image{string}<90p13> 95|411s20
+629V13*Get{string} 95|393s49 397s46
+X 94 soap-utils.ads
+45K14*Utils 86|30k9 94|261l10 261e15 95|48b19 829l10 829t15
+49V13*Tag{string} 49>18 49>33 95|572b13 579l8 579t11
+49a18 Name{string} 95|572b18 575r23 577r24
+49b33 Start{boolean} 95|572b33 574r10
+53V13*Encode{string} 53>21 95|245b13 250l8 250t14
+53a21 Str{string} 95|245b21 248r36
+55U14*Encode 55>22 55=44 95|221b14 243l8 243t14 248s7
+55r22 S{36|88R9} 95|222b7 227r29 228r25
+55r44 Result{36|88R9} 95|223b7 231m36 232m36 233m36 234m36 235m36 237m24
+. 238m24 239m24 240m36
+58V13*NS{string} 58>17 95|459b13 467l8 467t10
+58a17 Name{string} 95|459b17 460r56 465r17 465r23
+61V13*No_NS{string} 61>20 95|445b13 453l8 453t13
+61a20 Name{string} 95|445b20 446r56 449r17 451r17 451r32
+64V13*With_NS{string} 64>22 64>26 95|809b13 827l8 827t15
+64a22 NS{string} 95|809b22 813r10 825r17
+64a26 Name{string} 95|809b26 814r17 817r36 820r18 825r28 825r39
+67V13*To_Name{string} 67>22 95|678b13 683l8 683t15
+67a22 Q_Name{string} 95|678b22 682r10
+70V13*Is_Ada_Reserved_Word{boolean} 70>35 95|418b13 439l8 439t28
+70a35 Name{string} 95|418b35 419r64
+73V13*Time_Instant{93|457R9} 74>7 75>7 76>7 95|585b13 672l8 672t20
+74a7 TI{string} 95|586b7 606r26 606r49 606r53 607r28 608r28 621r23 624r57
+. 641r13 646r10 649r13 650r49 652r16 653r57 656r16 662r54 663r55 664r53 665r54
+. 666r56 667r56
+75a7 Name{string} 95|586b11 671r26
+76a7 Type_Name{string} 95|587b7 671r45
+80V13*Duration{93|477R9} 81>7 81>10 82>7 95|97b13 215l8 215t16
+81a7 D{string} 84r18 85r28 85r31 87r28 87r31 87r55 87r58 95|98b7 118r39 118r42
+. 129r31 137r17 140r13 149r13 157r63 158r43
+81a10 Name{string} 95|98b10 213r34
+82a7 Type_Name{string} 95|99b7 213r40
+94V13*To_Utf8{string} 94>22 95|757b13 761l8 761t15
+94a22 Str{string} 95|757b22 760r43
+95V13*To_Utf8{36|88R9} 95>22 95|763b13 775l8 775t15
+95r22 Str{36|88R9} 95|763b22 768r29 771r38
+98M12*Unicode_Char{150|114M9} 101r36 103r39 95|50r36 86r39 265r16 270r18
+. 306r16 353r18
+100P9*Utf8_Map_Callback(character) 101>32 106r39 95|52r27 536r39
+101m32 C{98M12}
+103V13*Default_Utf8_Mapping{character} 103>35 95|52r48 86b13 91l8 91t28
+103m35 C{98M12} 95|86b35 87r28
+106U14*Set_Utf8_Map 106>28 95|536b14 539l8 539t20
+106p28 Callback{100P9} 95|536b28 538r19
+112V13*From_Utf8{string} 112>24 95|256b13 262l8 262t17
+112a24 Str{string} 95|256b24 257r39
+113V13*From_Utf8{36|88R9} 113>24 95|264b13 303l8 303t17
+113r24 Str{36|88R9} 95|264b24 275r31 278r44
+114V13*From_Utf8{36|96P9} 114>24 95|257s28 305b13 385l8 385t17
+114a24 Str{string} 95|305b24 350r29 358r23 359r35
+122V21 SOAP_CB{64|59R9} 123>10 124>10 125>10 95|560s20
+123a10 SOAPAction{string}
+124r10 Payload{88|35R9}
+125r10 Request{66|58R9}
+126v13*SOAP_Wrapper 127>7 128>7 95|545b13 566l8 566t20
+127r7 Request{66|58R9} 95|546b7 550r62 555r50 560r50
+128r7 Schema{97|43R12} 95|547b7 558r57
+138A12*SOAP_Base64{string}<integer>
+141+12 T 142r52 143r57
+142A12 T_Array(141+12)<integer> 144r57 95|727r57 729r16 735r14
+143V21 Get{141+12} 143>26 95|732s24
+143c26 O<93|74R9>
+144v13*To_T_Array 144>25 95|727b13 736l8 736t18
+144a25 From{93|83A9} 95|727b25 729r25 731r16 732r30
+148+12 T 150r40 151r57
+149I12 Index 150r30
+150A12 T_Array(148+12)<149I12> 152r59 95|742r59 744r16
+151V21 Get{148+12} 151>26 95|747s24
+151c26 O<93|74R9>
+152v13*To_T_Array_C 152>27 95|742b13 751l8 751t20
+152a27 From{93|83A9} 95|742b27 747r30
+156+12 T 157r52 162r26
+157A12 T_Array(156+12)<integer> 168r14 95|690r14
+158R12 XSD_Type<93|74R9> 24|46P14 47P14 48P14 93|90p13 93p13 96p14 108p13
+. 94|166r21
+159a7 E_Name{string} 95|698r36
+160a7 Type_Name{string} 95|698r57
+162V9 Get{158R12} 162>14 163>14 164>14 165>14 95|698s13
+162*14 V{156+12}
+163a14 Name{string} 95|698r28
+164a14 Type_Name{string} 95|698r44
+165r14 NS{91|36R9} 95|698r68
+167v13*To_Object_Set 168>7 169>7 95|689b13 702l8 702t21
+168*7 From{157A12} 95|690b7 694r34 696r16 698r18
+169r7 NS{91|36R9} 95|691b7 698r74
+173+12 T 175r40 180r26
+174I12 Index 175r30
+175A12 T_Array(173+12)<174I12> 186r14 95|709r14
+176R12 XSD_Type<93|74R9> 24|46P14 47P14 48P14 93|90p13 93p13 96p14 108p13
+. 94|184r21
+177a7 E_Name{string} 95|717r36
+178a7 Type_Name{string} 95|717r57
+180V9 Get{176R12} 180>14 181>14 182>14 183>14 95|717s13
+180*14 V{173+12}
+181a14 Name{string} 95|717r28
+182a14 Type_Name{string} 95|717r44
+183r14 NS{91|36R9} 95|717r68
+185v13*To_Object_Set_C 186>7 187>7 95|708b13 721l8 721t23
+186*7 From{175A12} 95|709b7 713r48 715r16 717r18
+187r7 NS{91|36R9} 95|710b7 717r74
+190V13*Get{36|88R9} 190>18 95|391b13 394l8 394t11
+190c18 Item<93|74R9> 95|391b18 393r54
+193V13*Get{character} 193>18 95|396b13 405l8 405t11
+193c18 Item<93|74R9> 95|396b18 397r51
+196V13*Get{string} 196>18 95|407b13 412l8 412t11
+196c18 Item<93|74R9> 95|407b18 409r40
+199V13*V{36|88R9} 199>16 95|795b13 798l8 798t9
+199r16 O{93|424R9} 95|795b16 797r44
+203V13*V{character} 203>16 95|800b13 803l8 803t9
+203r16 O{93|424R9} 95|800b16 802r23
+208V13*Any{93|140R9} 209>7 210>7 211>7 212>7 95|58b13 66l8 66t11
+209r7 V{93|140R9} 95|59b7 65r50
+210a7 Name{string} 95|60b7 65r54
+211a7 Type_Name{string} 95|61b7 65r60
+212r7 NS{91|36R9} 95|62b7 65r71
+216V13*US{93|424R9} 217>7 218>7 219>7 220>7 95|781b13 789l8 789t10
+217r7 V{36|88R9} 95|782b7 788r34
+218a7 Name{string} 95|783b7 788r38
+219a7 Type_Name{string} 95|784b7 788r44
+220r7 NS{91|36R9} 95|785b7 788r55
+224V13*C{93|424R9} 225>7 226>7 227>7 228>7 95|72b13 80l8 80t9
+225e7 V{character} 95|73b7 79r36
+226a7 Name{string} 95|74b7 79r40
+227a7 Type_Name{string} 95|75b7 79r46
+228r7 NS{91|36R9} 95|76b7 79r57
+237+12 T 238r31 252r40 95|476r41 524r40 527r27
+238P12 T_Access(237+12) 244r17 95|476r44
+239k12*Safe_Pointers 237z12 238z12 257E12 259l8 259e21 95|473b17 530l8 530t21
+241P12*Ref_Counter 245r17 257c12 95|479r50 495r16
+243R12*Safe_Pointer<24|43R9> 246e17 248P28 248r52 249P28 249r52 250P28 250r52
+. 252p16 252r50 95|485r48 494r50 515r52 524r50
+244*10 Item{238P12} 95|505m35
+245p10 Ref{241P12} 95|487r13 487r27 495r34 499m13 517m13
+248U28*Initialize<24|46p14> 248=40 95|515b28 518l11 518t21
+248r40 SP{243R12} 95|515b40 517m10
+249U28*Adjust<24|47p14> 249=40 95|485b28 488l11 488t17
+249r40 SP{243R12} 95|485b36 487r10 487r24
+250U28*Finalize<24|48p14> 250=40 95|494b28 509l11 509t19
+250r40 SP{243R12} 95|494b38 495r31 499m10 505m32 505r32
+252V16*To_Safe_Pointer{243R12} 252>33 95|524b16 528l11 528t26
+252*33 Item{237+12} 95|524b33 527r30
+X 95 soap-utils.adb
+50m4 Last_Character_Index{94|98M12} 295r20 376r20
+52p4 Utf8_Map{94|100P9} 296r29 377r21 538m7
+88e7 Invalid_Utf8_Character{character} 90r14
+108O15 S_Duration{duration} 128r19 157r30 157r45 166r43
+110a7 Numeric_Set{32|52A9} 151r21
+114N7 Minute 115r36 166r63
+115N7 Hour 181r48
+117i7 Base{2|42I9} 133r23 207r47
+118b7 Negative{boolean} 129r45 209r13
+120i7 Next{2|42I9} 199m7 203m7 203r15 204m7 204r15 207r40
+121i7 B_Year{2|48I12} 133m29 162m19 162r29 172m25 172r35 199r33
+122i7 B_Month{positive} 133m37 169m22 169r33 171r28 173m25 173r36 199r41
+123i7 B_Day{2|50I12} 133m46 199r50
+124o7 B_Seconds{duration} 133m53 199r57
+126b7 Time_Mode{boolean} 141m13 165r22
+127i7 N_Day{4|28I9} 178m19 203r22
+128o7 Seconds{108O15} 166m22 166r33 181m19 181r30 184m19 184r30 204r22
+129i7 K{positive} 137r13 140r16 142m13 142r18 150r21 157r66 191m10
+130i7 L{natural} 148m10 154r20 157r71 158r46 191r15
+157o13 Value{108O15} 162r47 166r55 169r52 178r59 181r40 184r40
+158e13 Key{character} 160r18
+207o10 Result{duration} 210m13 210r24 213r26
+225e7 Ch{character} 228m10 230r15 238r73 240r44
+227i11 K{integer} 228r28
+246r7 Result{36|88R9} 248m42 248r42 249r25
+257p7 A{36|96P9} 258r30 260m13 260r13
+258a7 R{string} 261r14
+267i7 Idx{integer} 275r16 278r49 279m13 279r20
+268a7 Buf{string} 276r32 278m13 286r33 292m13 292r24
+269i7 Buf_Last{integer} 276r21 278r18 280m13 280r25 283r20 289m10 289r22
+. 291r24
+270m7 Ch32{94|98M12} 286m41 295r13 296r39 298r44
+271i7 W{integer} 285m10 286m38 286r38 287m10 287r15 289r33 292r33
+272r7 Result{36|88R9} 296m21 296r21 298m21 298r21 302r14
+291i14 I{integer} 292r18 292r29
+308p7 Result{36|96P9} 324r21 325r20 326m13 327r13 339r21 340r20 341m13 342r13
+. 347r10 384r14
+309i7 Last{integer} 324r13 326r40 327r37 339r13 346m10 346r18 347r18
+311U17 Append 311>25 336b17 348l11 348t17 377s13 379s13
+311e25 Ch{character} 336b25 347r27
+314U17 Adjust_Result 321b17 330l11 330t24 383s7
+322p10 Old{36|96P9} 325m13 327r27 328m19 328r19
+337p10 Old{36|96P9} 340m13 341r40 342r26 342r39 343m19 343r19
+350i7 Idx{integer} 358r16 359r40 360m13 360r20
+351a7 Buf{string} 358r52 359m13 367r33 373m13 373r24
+352i7 Buf_Last{integer} 358r41 359r18 361m13 361r25 364r20 370m10 370r22
+. 372r24
+353m7 Ch32{94|98M12} 367m41 376r13 377r31 379r36
+354i7 W{integer} 366m10 367m38 367r38 368m10 368r15 370r33 373r33
+372i14 I{integer} 373r18 373r29
+397a7 Str{string} 400r10 403r17 403r22
+408r7 Enum{93|575R9} 411r27
+419a7 N{string} 421r10
+446i7 K{natural} 448r10 451r23
+460i7 K{natural} 462r10 465r37
+475U17 Unchecked_Free[42|20] 505s16
+478U17 Unchecked_Free[42|20] 506s16
+495p10 Ref{94|241P12} 501r13 502r13 502r24 504r16 506m32 506r32
+550a7 SOAPAction{string} 552r10 560r29
+554r13 Payload_Data{36|88R9} 558r33
+556r13 Payload{88|35R9} 560r41
+597a7 TZ_Pattern{32|52A9} 621r27
+605i7 First{positive} 610r49 610r63 611r49 611r63 612r49 612r63 613r49 613r63
+. 614r49 614r63 615r49 615r63
+610I15 Year_Range{positive} 662r58
+611I15 Month_Range{positive} 663r59
+612I15 Day_Range{positive} 664r57
+613I15 Hour_Range{positive} 665r58
+614I15 Minute_Range{positive} 666r60
+615I15 Second_Range{positive} 621r47 639r10 641r17 667r60
+619i7 TZ_Start{natural} 624r24 624r43
+623i7 TZ_First{positive} 626r49 626r65 627r49 627r65 628r49 628r65
+626I15 TZ_Type_Range{positive} 639r34 641r42 646r21 656r20
+627I15 TZ_Hour_Range{positive} 649r24 650r53
+628I15 TZ_Minute_Range{positive} 652r26 653r61
+630i7 T{93|450I12} 662m7 671r23
+631i7 TZ{6|23I9} 650m13 653m16 653r22 657m16 657r23 669r35
+632o7 Sub_Second{5|38O12} 640m10 668r35
+694a7 Result{93|83A9} 697m10 701r14
+696i11 K{integer} 697r18 698r24
+713a7 Result{93|83A9} 716m10 720r14
+715i11 K 716r27 717r24
+729*7 Result{94|142A12} 732m10 735r23
+731i11 K{integer} 732r18 732r36
+744*7 Result{94|150A12} 746r16 747m10 750r14
+746i11 K 747r18 747r45
+764a7 Chars{string} 771m48 771r48 772r26
+765i7 Idx{integer} 769m10 771m55 771r55 772r38
+766r7 Result{36|88R9} 772m18 772r18 774r14
+768i11 I{integer} 771r43
+811i7 K{natural} 817m10 819r13 820m13 822m13 822r18 825r34
+X 96 soap-wsdl.ads
+34K14*WSDL 94|43r11 128r17 128r43 95|547r17 547r43 96|93e14
+X 97 soap-wsdl-schema.ads
+34K19*Schema 94|43w16 128r22 128r48 95|547r22 547r48 97|109e21
+43R12*Definition{17|57R9[48|32]} 94|128r29 95|547r29
+67r4*Empty{43R12} 94|128r55 95|547r55
+X 100 system.ads
+67M9*Address
+X 102 s-arit64.ads
+44I12*Int64{78|55I9}
+54V13*Multiply_With_Ovflo_Check64{44I12} 55i<c,__gnat_mulv64>22
+X 109 s-memory.ads
+53V13*Alloc{100|67M9} 103i<c,__gnat_malloc>22
+68U14*Free 104i<c,__gnat_free>22
+76V13*Realloc{100|67M9} 105i<c,__gnat_realloc>22
+X 121 s-stausa.ads
+208U14*Initialize 209i<c,__gnat_stack_usage_initialize>22
+273U14*Output_Results 277i<c,__gnat_stack_usage_output_results>22
+X 123 s-stalib.adb
+89U14 Break_Start 90i<c,__gnat_break_start>22
+X 150 unicode.ads
+111K9*Unicode 94|35w6 98r28 95|42r6 43r6 286r10 367r10 759r14 760r10 770r10
+. 150|157e12
+114M9*Unicode_Char 94|98r36
+X 152 unicode-ces.ads
+35K17*CES 95|42r14 43r14 286r18 367r18 759r22 760r18 770r18 152|171e16
+X 153 unicode-ces-basic_8bit.ads
+35K21*Basic_8bit 95|42w18 760r22 153|123e27
+78V13*To_Utf32{154|50A12} 95|760s33
+X 154 unicode-ces-utf32.ads
+46A12*Utf32_String{string}<integer>
+50A12*Utf32_LE_String{46A12}<integer>
+X 155 unicode-ces-utf8.ads
+50K21*Utf8 95|43w18 286r22 367r22 759r26 770r22 155|174e21
+56A12*Utf8_String{string}<integer>
+64U14*Encode 95|770s27
+72U14*Read 95|286s27 367s27
+126V13*From_Utf32{56A12} 95|759s31
+

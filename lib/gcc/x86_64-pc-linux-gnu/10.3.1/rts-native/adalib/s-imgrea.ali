@@ -1,0 +1,42 @@
+V "GNAT Lib v2021"
+A -O2
+A -ffunction-sections
+A -fdata-sections
+A -gnatg
+A -gnatn
+A -gnatU
+A -mtune=generic
+A -march=x86-64
+P ZX
+
+RN
+RV NO_FLOATING_POINT
+
+U system.img_real%s	s-imgrea.ads		e2a3de74 NE OL PU PK
+W system%s		system.ads		system.ali
+W system.img_llf%s	s-imgllf.ads		s-imgllf.ali
+
+D system.ads		20210520051135 a2da961d system%s
+D s-imager.ads		20210520051133 500b11a9 system.image_r%s
+D s-imageu.ads		20210520051133 525c30c6 system.image_u%s
+D s-imgllf.ads		20210520051133 39f1d16c system.img_llf%s
+D s-imgllu.ads		20210520051133 e025ba90 system.img_llu%s
+D s-imgrea.ads		20210520051133 79889905 system.img_real%s
+D s-powllf.ads		20210520051134 9900c89e system.powten_llf%s
+D s-unstyp.ads		20210520051134 2b077493 system.unsigned_types%s
+G a e
+X 1 system.ads
+37K9*System 154e11 6|34r6 36r9 46r14 48r5
+X 4 s-imgllf.ads
+40K16*Img_LLF 73e19 6|34w13 46r21
+64U14*Set_Image_Long_Long_Float=71:19 6|46r29
+X 6 s-imgrea.ads
+36K16*Img_Real 1|37k9 6|48l12 48e20
+39U14*Set_Image_Real=46:29
+40f7 V{long_long_float}
+41a7 S{string}
+42i7 P{natural}
+43i7 Fore{natural}
+44i7 Aft{natural}
+45i7 Exp{natural}
+

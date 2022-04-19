@@ -1,0 +1,416 @@
+V "GNAT Lib v2021"
+A -O2
+A -gnatA
+A -gnatwu
+A -gnatwa
+A -gnaty
+A -gnatQ
+A -gnatn
+A -mtune=generic
+A -march=x86-64
+P SS ZX
+
+RN
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_FLOATING_POINT
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_LONG_LONG_INTEGERS
+RV NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLICIT_LOOPS
+
+U schema.decimal%b	schema-decimal.adb	08a5aa98 NE OO PK
+W ada%s			ada.ads			ada.ali
+W ada.strings%s		a-string.ads		a-string.ali
+W ada.strings.fixed%s	a-strfix.adb		a-strfix.ali
+W ada.strings.maps%s	a-strmap.adb		a-strmap.ali
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+W sax%s			sax.ads			sax.ali
+W sax.encodings%s	sax-encodings.ads	sax-encodings.ali
+W sax.symbols%s		sax-symbols.adb		sax-symbols.ali
+W sax.utils%s		sax-utils.adb		sax-utils.ali
+W schema%s		schema.adb		schema.ali
+W system%s		system.ads		system.ali
+Z system.exn_llf%s	s-exnllf.ads		s-exnllf.ali
+Z system.img_int%s	s-imgint.ads		s-imgint.ali
+Z system.img_llf%s	s-imgllf.ads		s-imgllf.ali
+W system.img_real%s	s-imgrea.ads		s-imgrea.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+Z system.val_int%s	s-valint.ads		s-valint.ali
+Z system.val_llf%s	s-valllf.ads		s-valllf.ali
+Z system.val_lli%s	s-vallli.ads		s-vallli.ali
+W unicode%s		unicode.adb		unicode.ali
+W unicode.ces%s		unicode-ces.adb		unicode-ces.ali
+W unicode.names%s	unicode-names.ads	unicode-names.ali
+W unicode.names.basic_latin%s  unicode-names-basic_latin.ads  unicode-names-basic_latin.ali
+
+U schema.decimal%s	schema-decimal.ads	d23d67d5 EE NE OO PK
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+W sax%s			sax.ads			sax.ali
+W sax.symbols%s		sax-symbols.adb		sax-symbols.ali
+W sax.utils%s		sax-utils.adb		sax-utils.ali
+W schema%s		schema.adb		schema.ali
+W unicode%s		unicode.adb		unicode.ali
+W unicode.ces%s		unicode-ces.adb		unicode-ces.ali
+
+D ada.ads		20210520051131 76789da1 ada%s
+D a-charac.ads		20210520051128 2d3ec45b ada.characters%s
+D a-chlat1.ads		20210520051128 66457d31 ada.characters.latin_1%s
+D a-except.ads		20210520051128 946f3014 ada.exceptions%s
+D a-finali.ads		20210520051128 bf4f806b ada.finalization%s
+D a-stream.ads		20210520051129 119b8fb3 ada.streams%s
+D a-string.ads		20210520051129 90ac6797 ada.strings%s
+D a-strfix.ads		20210520051129 aeacf44c ada.strings.fixed%s
+D a-strmap.ads		20210520051129 5a88892a ada.strings.maps%s
+D a-sttebu.ads		20210520051129 18209c64 ada.strings.text_buffers%s
+D a-stuten.ads		20210520051129 808c40ad ada.strings.utf_encoding%s
+D a-tags.ads		20210520051130 9eaa38c6 ada.tags%s
+D a-unccon.ads		20210520051130 0e9b276f ada.unchecked_conversion%s
+D a-uncdea.ads		20210520051130 c3a8ac65 ada.unchecked_deallocation%s
+D a-widcha.ads		20210520051130 a2b85d3d ada.wide_characters%s
+D a-wichun.ads		20210520051130 de294b78 ada.wide_characters.unicode%s
+D gnat.ads		20210520051132 b5988c27 gnat%s
+D g-tasloc.ads		20210520051131 9c49392e gnat.task_lock%s
+D interfac.ads		20210520051132 edec285f interfaces%s
+D sax.ads		20210519052322 17965ec6 sax%s
+D sax-encodings.ads	20210519052322 22d791a3 sax.encodings%s
+D sax-htable.ads	20210519052322 2df615ad sax.htable%s
+D sax-pointers.ads	20210519052322 d9877e85 sax.pointers%s
+D sax-symbols.ads	20210519052322 d3179de8 sax.symbols%s
+D sax-symbols.adb	20210519052322 d4150ebd sax.symbols%b
+D sax-utils.ads		20210519052322 214aab19 sax.utils%s
+D schema.ads		20210519052322 350cfe44 schema%s
+D schema-decimal.ads	20210519052322 7d99f7cb schema.decimal%s
+D schema-decimal.adb	20210519052322 eae8977c schema.decimal%b
+D system.ads		20210520051135 a2da961d system%s
+D s-addima.ads		20210520051132 a1ec9d3a system.address_image%s
+D s-exctab.ads		20210520051132 54135002 system.exception_table%s
+D s-exnllf.ads		20210520051132 17d83e5b system.exn_llf%s
+D s-exponr.ads		20210520051132 2127300b system.exponr%s
+D s-finmas.ads		20210520051132 1ab4dba8 system.finalization_masters%s
+D s-finroo.ads		20210520051132 4ff27390 system.finalization_root%s
+D s-imagei.ads		20210520051133 0d3f86a7 system.image_i%s
+D s-imager.ads		20210520051133 500b11a9 system.image_r%s
+D s-imageu.ads		20210520051133 525c30c6 system.image_u%s
+D s-imgint.ads		20210520051133 bdb6f5ec system.img_int%s
+D s-imgllf.ads		20210520051133 39f1d16c system.img_llf%s
+D s-imgllu.ads		20210520051133 e025ba90 system.img_llu%s
+D s-imgrea.ads		20210520051133 79889905 system.img_real%s
+D s-parame.ads		20210520051134 4752c4cb system.parameters%s
+D s-pooglo.ads		20210520051134 ede33ef8 system.pool_global%s
+D s-powllf.ads		20210520051134 9900c89e system.powten_llf%s
+D s-putima.ads		20210520051134 4e095881 system.put_images%s
+D s-secsta.ads		20210520051134 9b3ab94b system.secondary_stack%s
+D s-soflin.ads		20210520051134 a7318a92 system.soft_links%s
+D s-stache.ads		20210520051134 a37c21ec system.stack_checking%s
+D s-stalib.ads		20210520051134 472fbca8 system.standard_library%s
+D s-stoele.ads		20210520051134 2dc34a04 system.storage_elements%s
+D s-stoele.adb		20210520051134 ed88f8fb system.storage_elements%b
+D s-stopoo.ads		20210520051134 e9fa2dd8 system.storage_pools%s
+D s-stratt.ads		20210520051134 7bdda3fa system.stream_attributes%s
+D s-tasloc.ads		20210520051134 618a376e system.task_lock%s
+D s-traent.ads		20210520051134 26a8d361 system.traceback_entries%s
+D s-unstyp.ads		20210520051134 2b077493 system.unsigned_types%s
+D s-utf_32.ads		20210520051134 24cf731d system.utf_32%s
+D s-valint.ads		20210520051134 e7fcadb7 system.val_int%s
+D s-valllf.ads		20210520051134 ce309699 system.val_llf%s
+D s-vallli.ads		20210520051134 0767e6f3 system.val_lli%s
+D s-valllu.ads		20210520051134 660d930f system.val_llu%s
+D s-valrea.ads		20210520051134 8ddc6624 system.val_real%s
+D s-valuns.ads		20210520051134 dac7b45d system.val_uns%s
+D s-valuei.ads		20210520051134 978dd0a6 system.value_i%s
+D s-valueu.ads		20210520051134 7b8fccf5 system.value_u%s
+D unchconv.ads		20210520051135 ca2f9e18 unchecked_conversion%s
+D unchdeal.ads		20210520051135 214516a4 unchecked_deallocation%s
+D unicode.ads		20210519052322 a421878d unicode%s
+D unicode.adb		20210519052322 515a4003 unicode%b
+D unicode-ccs.ads	20210519052322 184e29de unicode.ccs%s
+D unicode-ces.ads	20210519052322 68f558ab unicode.ces%s
+D unicode-ces-utf32.ads	20210519052322 b5f035ac unicode.ces.utf32%s
+D unicode-ces-utf8.ads	20210519052322 dcbef85d unicode.ces.utf8%s
+D unicode-names.ads	20210519052322 fec77f75 unicode.names%s
+D unicode-names-basic_latin.ads  20210519052322 aa07d1b5 unicode.names.basic_latin%s
+G a e
+G c Z s b [image schema__decimal 45 13 none]
+G c Z s b [value schema__decimal 49 14 none]
+G c Z s b [value schema__decimal 57 13 none]
+G c Z s b [value_no_exponent schema__decimal 60 14 none]
+G c Z s b [Olt schema__decimal 67 13 none]
+G c Z s b [Ole schema__decimal 68 13 none]
+G c Z s b [Oeq schema__decimal 69 13 none]
+G c Z s b [Oge schema__decimal 70 13 none]
+G c Z s b [Ogt schema__decimal 71 13 none]
+G c Z s b [check_digits schema__decimal 74 13 none]
+G c Z s b [Ole schema__decimal 92 13 none]
+G c Z s b [Olt schema__decimal 93 13 none]
+G c Z s b [Oge schema__decimal 94 13 none]
+G c Z s b [Ogt schema__decimal 95 13 none]
+G c Z s b [image schema__decimal 98 13 none]
+G c Z s b [value schema__decimal 101 13 none]
+G c Z s s [arbitrary_precision_numberIP schema__decimal 105 9 none]
+G c Z s s [xml_floatIP schema__decimal 112 9 none]
+G c Z b b [compare schema__decimal 38 13 none]
+G c Z b b [get_exp schema__decimal 41 13 none]
+G c Z b b [get_fore schema__decimal 44 14 none]
+G c Z b b [get_aft schema__decimal 48 14 none]
+G c Z b b [to_next_digit schema__decimal 55 14 none]
+G c Z b b [internal_value schema__decimal 58 14 none]
+G r c none [image schema__decimal 45 13 none] [get sax__symbols 53 13 none]
+G r c none [value schema__decimal 49 14 none] [find sax__utils 182 13 none]
+G r c none [value schema__decimal 49 14 none] [is_white_space unicode 121 13 none]
+G r c none [value schema__decimal 49 14 none] [is_digit unicode 131 13 none]
+G r c none [value_no_exponent schema__decimal 60 14 none] [find sax__utils 182 13 none]
+G r c none [value_no_exponent schema__decimal 60 14 none] [is_white_space unicode 121 13 none]
+G r c none [value_no_exponent schema__decimal 60 14 none] [is_digit unicode 131 13 none]
+G r c none [Olt schema__decimal 67 13 none] [get sax__symbols 53 13 none]
+G r c none [Ole schema__decimal 68 13 none] [get sax__symbols 53 13 none]
+G r c none [Oeq schema__decimal 69 13 none] [get sax__symbols 53 13 none]
+G r c none [Oge schema__decimal 70 13 none] [get sax__symbols 53 13 none]
+G r c none [Ogt schema__decimal 71 13 none] [get sax__symbols 53 13 none]
+G r c none [check_digits schema__decimal 74 13 none] [get sax__symbols 53 13 none]
+G r c none [check_digits schema__decimal 74 13 none] [find sax__utils 182 13 none]
+G r c none [internal_value schema__decimal 58 14 none] [find sax__utils 182 13 none]
+G r c none [internal_value schema__decimal 58 14 none] [is_white_space unicode 121 13 none]
+G r c none [internal_value schema__decimal 58 14 none] [is_digit unicode 131 13 none]
+X 1 ada.ads
+16K9*Ada 20e8 29|27r6 27r37 28r6 28r37
+X 7 a-string.ads
+16K13*Strings 35e16 29|27r10 27r41 28r10 28r41
+X 8 a-strfix.ads
+43K21*Fixed 1398e22 29|27w18 27r49
+237V13*Index{natural} 29|760s33
+353V13*Index{natural} 29|703s15
+X 9 a-strmap.ads
+44K21*Maps 548e21 29|28w18 28r49
+52A9*Character_Set<274A9>
+172V13*To_Set{52A9} 29|703s27
+274A9 Character_Set_Internal(boolean)<character>
+X 20 sax.ads
+33K9*Sax 35e8 28|28r6 29r6 50r18 53r22 57r26 61r18 64r22 75r39 78r14 106r15
+. 109r16 29|29r6 29r37 30r6 30r37 31r6 31r37 60r24 85r13 96r17 99r21 110r24
+. 231r17 234r21 527r39 530r14
+X 21 sax-encodings.ads
+28K13*Encodings 160e18 29|29w10 29r41
+29r4*Encoding{73|139R9} 29|132r10 139r10 184r19 195r19 214r10
+X 23 sax-pointers.ads
+59R12*Pointer<5|43R9>
+X 24 sax-symbols.ads
+33K13*Symbols 103e16 28|28w10 53r26 57r30 64r26 78r18 106r19 109r20 29|30w10
+. 30r41 85r17 99r25 234r25 530r18
+41P9*Symbol<73|43P9> 28|53r34 57r38 64r34 78r26 106r27 29|63r28 85r25 99r33
+. 113r28 234r33 530r26
+43p4*No_Symbol{41P9} 28|109r28 29|73r26 217r16 494r23 495r30 496r26 576r14
+53V13*Get{73|43P9} 29|74s17 475s23 475s45 484s23 484s45 499s26 499s48 509s23
+. 509s45 518s23 518s45 532s52
+X 26 sax-utils.ads
+33K13*Utils 262e14 28|29w10 50r22 61r22 75r43 29|31w10 31r41 60r28 96r21
+. 110r28 231r21 527r43
+174R12*Symbol_Table{23|59R12[171]} 28|50r28 61r28 75r49 29|60r34 96r27 110r34
+. 231r27 527r49
+182V13*Find{24|41P9} 29|122s19 149s25 160s25 166s25 176s26 198s24 206s25
+. 220s27 222s27 558s20 569s20
+X 27 schema.ads
+27K9*Schema 83e11 28|32r9 123r5 29|35r14 790r5
+X 28 schema-decimal.ads
+32K16*Decimal 27|27k9 28|105E9 123l12 123e19 29|35b21 790l12 790t19
+42R9*Arbitrary_Precision_Number 43r32 46r16 52r22 57r53 63r22 67r32 68r32
+. 69r32 70r32 71r32 76r39 105c9 107e14 108r32 29|62r28 71r16 85r40 98r21
+. 112r28 233r21 473r31 482r32 492r31 507r32 516r31 528r39
+43r4*Undefined_Number{42R9} 108c4 29|123r17 151r23 161r23 168r23 177r23 199r29
+. 207r23
+45V13*Image{73|41A12} 46>7 29|70b13 78l8 78t13
+46r7 Number{42R9} 29|71b7 73r10 74r22
+49U14*Value 50>7 51>7 52<7 53<7 29|95b14 102l8 102t13
+50r7 Symbols{26|174R12} 29|96b7 101r27
+51a7 Ch{73|41A12} 29|97b7 101r23
+52r7 Val{42R9} 29|98b7 101m42
+53p7 Error{24|41P9} 29|99b7 101m47
+57V13*Value{42R9} 57>20 29|84b13 89l8 89t13
+57p20 Val{24|41P9} 29|85b7 88r24
+60U14*Value_No_Exponent 61>7 62>7 63<7 64<7 29|230b14 237l8 237t25
+61r7 Symbols{26|174R12} 29|231b7 236r27
+62a7 Ch{73|41A12} 29|232b7 236r23
+63r7 Val{42R9} 29|233b7 236m43
+64p7 Error{24|41P9} 29|234b7 236m48
+67V14*"<"{boolean} 67>19 67>25 29|473b14 476l9 476t11
+67r19 Num1{42R9} 29|473b18 475r28
+67r25 Num2{42R9} 29|473b24 475r50
+68V14*"<="{boolean} 68>19 68>25 29|482b14 486l9 486t12
+68r19 Num1{42R9} 29|482b19 484r28
+68r25 Num2{42R9} 29|482b25 484r50
+69V14*"="{boolean} 69>19 69>25 29|492b14 501l9 501t11
+69r19 Num1{42R9} 29|492b18 494r10 499r31
+69r25 Num2{42R9} 29|492b24 495r17 496r13 499r53
+70V14*">="{boolean} 70>19 70>25 29|507b14 510l9 510t12
+70r19 Num1{42R9} 29|507b19 509r28
+70r25 Num2{42R9} 29|507b25 509r50
+71V14*">"{boolean} 71>19 71>25 29|516b14 520l9 520t11
+71r19 Num1{42R9} 29|516b18 518r28
+71r25 Num2{42R9} 29|516b24 518r50
+74V13*Check_Digits{24|41P9} 75>7 76>7 77>7 77>24 29|526b13 577l8 577t20
+75r7 Symbols{26|174R12} 29|527b7 559r16 570r16
+76r7 Num{42R9} 29|528b7 532r57
+77i7 Fraction_Digits{integer} 29|529b7 565r10 567r31 572r33
+77i24 Total_Digits{integer} 29|529b24 556r10 557r28 561r33
+89R9*XML_Float 90r29 92r28 93r27 94r28 95r27 98r28 101r41 112c9 112d20 120e14
+. 121r29 29|583r28 624r28 633r27 642r27 685r41 691r17 693r17 695r17 732r17
+. 742r28
+90r4*Unknown_Float{89R9} 121c4
+92V14*"<="{boolean} 92>19 92>23 29|583b14 618l9 618t12 635s22
+92r19 F1{89R9} 29|583b19 585r12 608r29 610r30 611r43 613r30 614r43
+92r23 F2{89R9} 29|583b23 596r18 607r22 609r25 610r43 611r34 613r43 614r34
+93V14*"<"{boolean} 93>18 93>22 29|626s22 642b14 679l9 679t11
+93r18 F1{89R9} 29|642b18 644r12 669r29 671r30 672r43 674r30 675r43
+93r22 F2{89R9} 29|642b22 655r18 668r22 670r25 671r43 672r34 674r43 675r34
+94V14*">="{boolean} 94>19 94>23 29|624b14 627l9 627t12
+94r19 F1{89R9} 29|624b19 626r19
+94r23 F2{89R9} 29|624b23 626r24
+95V14*">"{boolean} 95>18 95>22 29|633b14 636l9 636t11
+95r18 F1{89R9} 29|633b18 635r19
+95r22 F2{89R9} 29|633b22 635r25
+98V13*Image{string} 98>20 29|742b13 788l8 788t13
+98r20 Value{89R9} 29|742b20 744r12 756r64 759r56 778r19 780r22
+101V13*Value{89R9} 101>20 29|685b13 736l8 736t13
+101a20 Str{string} 29|685b20 690r10 692r13 694r13 703r22 704r17 706r47 708r35
+. 708r49 709r47 709r52
+106p7*Value{24|41P9} 109m7 29|73r17 74r29 88m15 220m18 222m18 475r33 475r55
+. 484r33 484r55 494r15 495r22 496r18 499r36 499r58 509r33 509r55 518r33 518r55
+. 532r61
+111E9 XML_Float_Kind 111e79 112r27
+111n28 Plus_Infinity{111E9} 29|589r15 600r21 648r15 659r21 693r36 748r15
+111n43 Minus_Infinity{111E9} 29|592r15 603r21 651r15 662r21 695r36 751r15
+111n59 NaN{111E9} 112r45 121r51 29|586r15 597r21 645r15 656r21 691r36 745r15
+111n64 Standard_Float{111E9} 114r15 29|595r15 606r21 654r15 665r21 732r37
+. 754r15
+112e20*Kind{111E9} 113r12 121m43 29|585r15 596r21 644r15 655r21 691m28 693m28
+. 695m28 732m28 744r18
+115f13*Mantiss{long_long_float} 29|607r25 608r32 609r28 610r33 610r46 613r33
+. 613r46 668r25 669r32 670r28 671r33 671r46 674r33 674r46 733m28 756r70
+116i13*Exp{integer} 29|611r37 611r46 614r37 614r46 672r37 672r46 675r37 675r46
+. 734m28 759r62 778r25 780r28
+X 29 schema-decimal.adb
+37E9 Compare_Result 37e59 38r50 359r50
+37n28 Less_Than{37E9} 370r17 388r23 399r23 410r26 419r26 445r26 460r26 475r69
+. 509r70
+37n39 Equal{37E9} 429r23 438r29 455r29 499r72
+37n46 Greater_Than{37E9} 373r17 390r23 397r23 412r26 417r26 443r26 462r26
+. 485r9 519r9
+38V13 Compare{37E9} 38>22 38>28 359b13 467l8 467t15 475s14 484s14 499s17
+. 509s14 518s14
+38a22 Num1{string} 359b22 360r43 360r49 377r27 380r20 408r16 415r19 423r28
+. 426r23 431r26 452r22 453r34 454r29
+38a28 Num2{string} 359b28 361r43 361r49 378r27 381r20 408r30 415r33 424r28
+. 427r31 435r22 436r34 437r29 448r26
+41V13 Get_Exp{long_long_integer} 41>22 288b13 303l8 303t15 377s18 378s18
+. 533s45
+41a22 Num{string} 288b22 289r24 291r20 292r18 293r18 298r17 299r42 299r58
+44U14 Get_Fore 44>24 44<38 44<45 309b14 336l8 336t16 380s10 381s10 540s7
+44a24 Num{string} 309b24 312r10 312r15 312r40 312r45 313r19 315r19 319r20
+. 320r18 321r18 322r18 332r18
+44i38 First{integer} 309b38 313m10 315m10 318r14 331r13 332r23 334m10 334r19
+44i45 Last{integer} 309b45 327m7 331r21
+48U14 Get_Aft 49>7 50>7 51<7 51<14 243b14 282l8 282t15 541s7
+49a7 Num{string} 244b7 249r30 253r15 255r13 256r20 266r19 267r18 273r24
+50i7 Fore_Last{integer} 245b7 254r20 264r16
+51i7 First{integer} 246b7 264m7 266r10 267r23 269m10 269r19 270r13 272r27
+. 280r18
+51i14 Last{integer} 247b7 253m7 254r13 255r18 256r25 258r26 261m10 261r18
+. 271m13 272r19 273r29 275m16 275r24 280m10
+55U14 To_Next_Digit 55>29 55=43 342b14 353l8 353t21 423s13 424s13 436s19
+. 453s19
+55a29 Num{string} 342b29 346r17 347r13 347r32 348r20 349r16
+55i43 Pos{integer} 342b43 344m7 344r14 346r10 347r18 347r37 348m13 349r21
+. 350m13 350r20
+58U14 Internal_Value 59>7 60>7 61>7 62<7 63<7 101s7 108b14 224l8 224t22 236s7
+59a7 Ch{73|41A12} 109b7 115r33 121r10 130r20 132r25 139r25 150r71 160r74
+. 167r67 175r22 176r71 184r34 194r29 195r34 198r63 206r64 213r26 214r25 219r10
+. 222r42
+60r7 Symbols{26|174R12} 110b7 122r25 150r19 160r31 167r19 176r32 198r30 206r31
+. 220r33 222r33
+61b7 Allow_Exponent{boolean} 111b7 165r20
+62r7 Val{28|42R9} 112b7 123m10 151m16 161m16 168m16 177m16 199m22 207m16
+. 220m10 222m10
+63p7 Error{24|41P9} 113b7 122m10 149m16 160m16 166m16 176m16 197m22 206m16
+. 217m7
+115i7 Pos{integer} 130r13 131r19 132m29 132r29 139m29 139r29 142r15 175r16
+. 182r46 184m38 184r38 186m22 194r22 195m38 195r38 212r18 213r20 214m29 214r29
+116i7 First{integer} 131m10 219r14 222r46
+116i14 Last{integer} 142m7 212m10 219r23 222r55
+117m7 C{70|114M9} 132m34 133r40 138r10 138r27 139m34 147r13 156r16 157r20
+. 184m43 185r22 185r41 191r30 193r32 195m43 196r42 214m34
+118b7 Saw_Exponent{boolean} 159r16 172m13
+119b7 Saw_Point{boolean} 148r16 154m13 173m13
+182i19 Save{integer} 186r29
+249i7 Exp_First{integer} 258m13 270r21 271r21
+289i7 Pos{integer} 291r13 292r23 293r23 295m10 295r17 298r10 299r47
+310i7 Pos{integer} 318m7 319r13 320r23 321r23 322r23 324m10 324r17 327r15
+360b7 Num1_Negative{boolean} 369r10 372r17 387r16 396r16 409r19 416r19 442r19
+. 459r19
+361b7 Num2_Negative{boolean} 369r32 372r35
+363i7 Exp1{long_long_integer} 377m10 384r60 393r63
+363i13 Exp2{long_long_integer} 378m10 385r59 394r59
+364i7 Pos1{integer} 404m10 408r22 415r25 423m34 423r34 426r16 431r19 452r28
+. 453m40 453r40 454r22
+364i13 Pos2{integer} 405m10 408r36 415r39 424m34 424r34 427r24 435r28 436m40
+. 436r40 437r22 448r19
+365i7 Fore_First1{integer} 380m26 384r45 393r48 404r18
+365i20 Fore_Last1{integer} 380m39 384r32 393r35
+366i7 Fore_First2{integer} 381m26 385r44 394r44 405r18
+366i20 Fore_Last2{integer} 381m39 385r31 394r31
+532p7 Value{73|43P9} 533r54 540r17 541r16 544r14 545r10 545r31 549r10 559r37
+. 570r37
+533i7 Exp{long_long_integer} 566r60
+535i7 Fore_First{integer} 540m28 553r35
+535i19 Fore_Last{integer} 540m40 541r27 553r23
+536i7 Pos{integer} 544m7 545r17 545r38 546m10 546r17 549r17 550m10 550r17
+537i7 Digits_Count{natural} 553m7 557r13
+538i7 Aft_First{integer} 541m38 554r22 566r43
+538i18 Aft_Last{integer} 541m49 554r11 566r32
+686i7 E{integer} 703m10 704r13 708r40 709r65
+687i7 Exp{integer} 705m13 708m13 727m13 727r20 734r39
+688f7 Mantiss{long_long_float} 706m13 709m13 721r17 728m13 733r39
+716i13 Exp_Chars{natural} 726r24 727r51 729r41
+717a13 Str2{string} 718r36 722m22 722r22 727r41 729r17 729r23
+718i13 P{integer} 723m22 723r22 727r47 727r68 729r37
+756a16 Str{string} 760r40 761r33 763r23 764r24 767r19 772r22 779r26 781r26
+. 784r26
+759a16 Exp{string} 782r31 782r36 782r53 784r51
+760i16 E{integer} 763r19 764m19 771r38 773m22 779r36 781r36 784r36
+761i16 F{integer} 767r24 768m19 768r24 771r33 779r31 781r31 784r31
+771i20 J{integer} 772r27 773r27
+X 30 system.ads
+37K9*System 29|25r6 25r37 720r13 30|154e11
+X 43 s-imgrea.ads
+36K16*Img_Real 29|25w13 25r44 720r20 43|48e20
+39U14*Set_Image_Real=46:29 29|720s29
+41a7 S{string} 29|722r17
+42i7 P{natural} 29|723r17
+43i7 Fore{natural} 29|724r17
+44i7 Aft{natural} 29|725r17
+45i7 Exp{natural} 29|726r17
+X 70 unicode.ads
+111K9*Unicode 28|30r6 46r51 51r18 62r18 29|32r6 32r37 32r46 33r6 33r37 59r24
+. 71r51 97r17 109r24 232r17 70|157e12
+114M9*Unicode_Char 29|117r22
+121V13*Is_White_Space{boolean} 29|133s24 193s16 196s26
+131V13*Is_Digit{boolean} 29|191s20
+X 73 unicode-ces.ads
+35K17*CES 28|30w14 46r59 51r26 62r26 29|32w14 32r54 59r32 71r59 97r25 109r32
+. 232r25 73|171e16
+41A12*Byte_Sequence{string}<integer> 28|46r63 51r30 62r30 29|59r36 71r63
+. 97r29 109r36 232r29
+43P9*Cst_Byte_Sequence_Access(41A12) 29|532r24
+111P9*Read_Function
+141p7*Read{111P9} 29|132r19 139r19 184r28 195r28 214r19
+X 76 unicode-names.ads
+6K17*Names 29|33r14 33r45 76|8e18
+X 77 unicode-names-basic_latin.ads
+4K23*Basic_Latin 29|33w20 33r51 77|210e30
+124m4*Plus_Sign{70|114M9} 29|138r14 185r27
+126m4*Hyphen_Minus{70|114M9} 29|138r31 185r46
+127m4*Full_Stop{70|114M9} 29|147r17
+150m4*Latin_Capital_Letter_E{70|114M9} 29|156r20
+182m4*Latin_Small_Letter_E{70|114M9} 29|157r24
+

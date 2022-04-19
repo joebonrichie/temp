@@ -1,0 +1,18 @@
+    <!-- CPP_MAIN -->
+
+    <action name="&prefix;_cpp_main" category="">
+        <shell>
+            Project.load "&example_root;/gnat/other_languages/cpp_main/cpp_main.gpr"
+        </shell>
+        <shell>
+            Editor.edit "cpp_main.cc"
+        </shell>
+    </action>
+
+    <submenu before="About">
+        <title>&menu;</title>
+        <menu action="&prefix;_cpp_main">
+            <title>GNAT &prefix;/Multiple Languages/C++ Main</title>
+        </menu>
+    </submenu>
+

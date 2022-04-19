@@ -1,0 +1,744 @@
+V "GNAT Lib v2021"
+A -O2
+A -gnatA
+A -gnat2012
+A -gnatwc
+A -gnatwf
+A -gnatwi
+A -gnatwj
+A -gnatwk
+A -gnatwm
+A -gnatwr
+A -gnatwu
+A -gnatwv
+A -gnaty3
+A -gnatya
+A -gnatyb
+A -gnatyB
+A -gnatyc
+A -gnatyd
+A -gnatye
+A -gnatyf
+A -gnatyh
+A -gnatyi
+A -gnatyI
+A -gnatyk
+A -gnatyl
+A -gnatym
+A -gnatyn
+A -gnatyo
+A -gnatyO
+A -gnatyp
+A -gnatyr
+A -gnatys
+A -gnatyt
+A -gnatyx
+A -gnatn
+A -mtune=generic
+A -march=x86-64
+P SS ZX
+
+RN
+RV NO_ALLOCATORS
+RV NO_DISPATCH
+RV NO_DISPATCHING_CALLS
+RV NO_EXCEPTION_HANDLERS
+RV NO_EXCEPTION_PROPAGATION
+RV NO_EXCEPTIONS
+RV NO_FINALIZATION
+RV NO_IO
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_LOCAL_ALLOCATORS
+RV NO_NESTED_FINALIZATION
+RV NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_UNCHECKED_DEALLOCATION
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_ELABORATION_CODE
+RV NO_OBSOLESCENT_FEATURES
+
+U aws.pop%b		aws-pop.adb		db57dadd OO PK IU
+W ada%s			ada.ads			ada.ali
+Z ada.exceptions%s	a-except.adb		a-except.ali
+W ada.streams%s		a-stream.adb		a-stream.ali
+W ada.streams.stream_io%s  a-ststio.adb		a-ststio.ali
+W ada.strings%s		a-string.ads		a-string.ali
+W ada.strings.fixed%s	a-strfix.adb		a-strfix.ali
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W ada.unchecked_deallocation%s
+W aws%s			aws.ads			aws.ali
+W aws.headers%s		aws-headers.adb		aws-headers.ali
+W aws.headers.values%s	aws-headers-values.adb	aws-headers-values.ali
+W aws.messages%s	aws-messages.adb	aws-messages.ali
+W aws.net%s		aws-net.adb		aws-net.ali
+W aws.net.buffered%s	aws-net-buffered.adb	aws-net-buffered.ali
+W aws.resources%s	aws-resources.adb	aws-resources.ali
+W aws.resources.streams%s  aws-resources-streams.adb  aws-resources-streams.ali
+W aws.resources.streams.memory%s  aws-resources-streams-memory.adb  aws-resources-streams-memory.ali
+W aws.translator%s	aws-translator.adb	aws-translator.ali
+W gnat%s		gnat.ads		gnat.ali
+W gnat.md5%s		g-md5.ads		g-md5.ali
+W gnat.string_split%s	g-strspl.ads		g-strspl.ali
+Z system%s		system.ads		system.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+Z system.soft_links%s	s-soflin.adb		s-soflin.ali
+Z system.standard_library%s  s-stalib.adb	s-stalib.ali
+Z system.storage_elements%s  s-stoele.adb	s-stoele.ali
+Z system.storage_pools%s  s-stopoo.adb		s-stopoo.ali
+Z system.storage_pools.subpools%s  s-stposu.adb	s-stposu.ali
+Z system.val_int%s	s-valint.ads		s-valint.ali
+
+U aws.pop%s		aws-pop.ads		6813ed03 BN EE OO PF PK IU
+W ada%s			ada.ads			ada.ali
+Z ada.exceptions%s	a-except.adb		a-except.ali
+W ada.finalization%s	a-finali.ads		a-finali.ali
+Z ada.streams%s		a-stream.adb		a-stream.ali
+W ada.strings%s		a-string.ads		a-string.ali
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+W ada.strings.unbounded%s  a-strunb.adb		a-strunb.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W aws%s			aws.ads			aws.ali
+W aws.headers%s		aws-headers.adb		aws-headers.ali
+W aws.net%s		aws-net.adb		aws-net.ali
+W aws.net.std%s		aws-net-std__gnat.adb	aws-net-std__gnat.ali
+W aws.resources%s	aws-resources.adb	aws-resources.ali
+W aws.resources.streams%s  aws-resources-streams.adb  aws-resources-streams.ali
+W aws.utils%s		aws-utils.adb		aws-utils.ali
+Z system%s		system.ads		system.ali
+Z system.exception_table%s  s-exctab.adb	s-exctab.ali
+Z system.finalization_masters%s  s-finmas.adb	s-finmas.ali
+Z system.pool_global%s	s-pooglo.adb		s-pooglo.ali
+Z system.put_images%s	s-putima.adb		s-putima.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+Z system.soft_links%s	s-soflin.adb		s-soflin.ali
+Z system.standard_library%s  s-stalib.adb	s-stalib.ali
+Z system.stream_attributes%s  s-stratt.adb	s-stratt.ali
+Z system.strings.stream_ops%s  s-ststop.adb	s-ststop.ali
+
+D ada.ads		20210520051131 76789da1 ada%s
+D a-calend.ads		20210520051128 474d9720 ada.calendar%s
+D a-charac.ads		20210520051128 2d3ec45b ada.characters%s
+D a-chlat1.ads		20210520051128 66457d31 ada.characters.latin_1%s
+D a-contai.ads		20210520051128 61e5e089 ada.containers%s
+D a-cohata.ads		20210520051128 bc432d0e ada.containers.hash_tables%s
+D a-conhel.ads		20210520051128 20298884 ada.containers.helpers%s
+D a-cihama.ads		20210520051128 76287ea1 ada.containers.indefinite_hashed_maps%s
+D a-cihase.ads		20210520051128 18093f96 ada.containers.indefinite_hashed_sets%s
+D a-ciorma.ads		20210520051128 3aa5dad0 ada.containers.indefinite_ordered_maps%s
+D a-crbltr.ads		20210520051128 d3d16ba4 ada.containers.red_black_trees%s
+D a-convec.ads		20210520051128 5d39d84a ada.containers.vectors%s
+D a-direct.ads		20210520051128 078228da ada.directories%s
+D a-envvar.ads		20210520051128 00080416 ada.environment_variables%s
+D a-except.ads		20210520051128 946f3014 ada.exceptions%s
+D a-finali.ads		20210520051128 bf4f806b ada.finalization%s
+D a-ioexce.ads		20210520051128 e4a01f64 ada.io_exceptions%s
+D a-iteint.ads		20210520051128 49a8bee2 ada.iterator_interfaces%s
+D a-stream.ads		20210520051129 119b8fb3 ada.streams%s
+D a-ststio.ads		20210520051129 d6d358e8 ada.streams.stream_io%s
+D a-string.ads		20210520051129 90ac6797 ada.strings%s
+D a-strfix.ads		20210520051129 aeacf44c ada.strings.fixed%s
+D a-strhas.ads		20210520051129 c71c2a52 ada.strings.hash%s
+D a-strmap.ads		20210520051129 5a88892a ada.strings.maps%s
+D a-stmaco.ads		20210520051129 1c0e5368 ada.strings.maps.constants%s
+D a-strsea.ads		20210520051129 b9bc90ba ada.strings.search%s
+D a-sttebu.ads		20210520051129 18209c64 ada.strings.text_buffers%s
+D a-strunb.ads		20210520051129 03325227 ada.strings.unbounded%s
+D a-strunb.adb		20210520051129 3b950306 ada.strings.unbounded%b
+D a-stuten.ads		20210520051129 808c40ad ada.strings.utf_encoding%s
+D a-tags.ads		20210520051130 9eaa38c6 ada.tags%s
+D a-taside.ads		20210520051127 00e3a3f6 ada.task_identification%s
+D a-unccon.ads		20210520051130 0e9b276f ada.unchecked_conversion%s
+D a-uncdea.ads		20210520051130 c3a8ac65 ada.unchecked_deallocation%s
+D aws.ads		20210520114206 82646736 aws%s
+D aws-containers.ads	20210519051431 c7ab8288 aws.containers%s
+D aws-containers-key_value.ads  20210519051431 f3f917f0 aws.containers.key_value%s
+D aws-containers-memory_streams.ads  20210519051431 ea28c859 aws.containers.memory_streams%s
+D aws-containers-tables.ads  20210519051431 00be04da aws.containers.tables%s
+D aws-headers.ads	20210519051431 25633780 aws.headers%s
+D aws-headers-values.ads  20210519051431 e73ab651 aws.headers.values%s
+D aws-messages.ads	20210519051431 7cd16bc6 aws.messages%s
+D aws-net.ads		20210519051431 4147ea12 aws.net%s
+D aws-net-buffered.ads	20210519051431 98a7e729 aws.net.buffered%s
+D aws-net-std.ads	20210519051431 fb394f55 aws.net.std%s
+D aws-pop.ads		20210519051431 9996e018 aws.pop%s
+D aws-pop.adb		20210519051431 360ea887 aws.pop%b
+D aws-resources.ads	20210519051431 407ba395 aws.resources%s
+D aws-resources-streams.ads  20210519051431 95c86167 aws.resources.streams%s
+D aws-resources-streams-memory.ads  20210519051431 eb23d323 aws.resources.streams.memory%s
+D aws-resources-streams-memory-zlib.ads  20210519051431 964b70a5 aws.resources.streams.memory.zlib%s
+D aws-translator.ads	20210519051431 098e71c4 aws.translator%s
+D aws-translator.adb	20210519051431 bb00efeb aws.translator%b
+D aws-translator-conversion.adb  20210519051431 4e5e7f2e aws.translator.conversion
+D aws-utils.ads		20210519051431 840ea1d3 aws.utils%s
+D gnat.ads		20210520051132 b5988c27 gnat%s
+D g-arrspl.ads		20210520051131 0b7e9a23 gnat.array_split%s
+D g-arrspl.adb		20210520051131 f83117dc gnat.array_split%b
+D g-bytswa.ads		20210520051131 a4d21639 gnat.byte_swapping%s
+D g-md5.ads		20210520051131 bb55398e gnat.md5%s
+D g-sechas.ads		20210520051131 302163b5 gnat.secure_hashes%s
+D g-sehamd.ads		20210520051131 75201584 gnat.secure_hashes.md5%s
+D g-strspl.ads		20210520051131 dbf24c7a gnat.string_split%s
+D g-strspl.ads		20210520051131 dbf24c7a gnat.string_split%s
+D interfac.ads		20210520051132 edec285f interfaces%s
+D i-c.ads		20210520051132 d9beded9 interfaces.c%s
+D i-cstrea.ads		20210520051132 e53d8b8e interfaces.c_streams%s
+D memory_streams.ads	20210519051430 bf3b9ce5 memory_streams%s
+D system.ads		20210520051135 a2da961d system%s
+D s-atacco.ads		20210520051132 4c36d12f system.address_to_access_conversions%s
+D s-atocou.ads		20210520051132 b45c2d8d system.atomic_counters%s
+D s-carun8.ads		20210520051132 a903718d system.compare_array_unsigned_8%s
+D s-crtl.ads		20210520051132 0ebbdb71 system.crtl%s
+D s-exctab.ads		20210520051132 54135002 system.exception_table%s
+D s-exctab.adb		20210520051132 c756f391 system.exception_table%b
+D s-ficobl.ads		20210520051132 078245e4 system.file_control_block%s
+D s-finmas.ads		20210520051132 1ab4dba8 system.finalization_masters%s
+D s-finroo.ads		20210520051132 4ff27390 system.finalization_root%s
+D s-linux.ads		20210520051127 ed0b8aee system.linux%s
+D s-memory.ads		20210520051133 597d6634 system.memory%s
+D s-multip.ads		20210520051133 38ac9f73 system.multiprocessors%s
+D s-oscons.ads		20210520095158 e3a42aec system.os_constants%s
+D s-osinte.ads		20210520051127 222ac181 system.os_interface%s
+D s-parame.ads		20210520051134 4752c4cb system.parameters%s
+D s-pooglo.ads		20210520051134 ede33ef8 system.pool_global%s
+D s-putima.ads		20210520051134 4e095881 system.put_images%s
+D s-secsta.ads		20210520051134 9b3ab94b system.secondary_stack%s
+D s-soflin.ads		20210520051134 a7318a92 system.soft_links%s
+D s-stache.ads		20210520051134 a37c21ec system.stack_checking%s
+D s-stausa.ads		20210520051134 017a0a05 system.stack_usage%s
+D s-stalib.ads		20210520051134 472fbca8 system.standard_library%s
+D s-stalib.adb		20210520051134 977290bf system.standard_library%b
+D s-stoele.ads		20210520051134 2dc34a04 system.storage_elements%s
+D s-stoele.adb		20210520051134 ed88f8fb system.storage_elements%b
+D s-stopoo.ads		20210520051134 e9fa2dd8 system.storage_pools%s
+D s-stposu.ads		20210520051134 e251976f system.storage_pools.subpools%s
+D s-stratt.ads		20210520051134 7bdda3fa system.stream_attributes%s
+D s-stratt.adb		20210520051134 fc996108 system.stream_attributes%b
+D s-statxd.ads		20210520051134 b54789f6 system.stream_attributes.xdr%s
+D s-string.ads		20210520051134 8fe54fb7 system.strings%s
+D s-ststop.ads		20210520051134 5fbf1b38 system.strings.stream_ops%s
+D s-tasinf.ads		20210520051127 2b3f8252 system.task_info%s
+D s-taspri.ads		20210520051127 4ec891e7 system.task_primitives%s
+D s-taskin.ads		20210520051127 88fba9ad system.tasking%s
+D s-taprob.ads		20210520051127 acd6094d system.tasking.protected_objects%s
+D s-tpoben.ads		20210520051127 60ad3dae system.tasking.protected_objects.entries%s
+D s-traent.ads		20210520051134 26a8d361 system.traceback_entries%s
+D s-unstyp.ads		20210520051134 2b077493 system.unsigned_types%s
+D s-valint.ads		20210520051134 e7fcadb7 system.val_int%s
+D s-valuns.ads		20210520051134 dac7b45d system.val_uns%s
+D s-valuei.ads		20210520051134 978dd0a6 system.value_i%s
+D s-valueu.ads		20210520051134 7b8fccf5 system.value_u%s
+D templates_parser.ads	20210519053215 1cb5e754 templates_parser%s
+D templates_parser-utils.ads  20210519053215 8849593d templates_parser.utils%s
+D templates_parser_tasking.ads  20210519053215 4c0209f0 templates_parser_tasking%s
+D unchconv.ads		20210520051135 ca2f9e18 unchecked_conversion%s
+D zlib.ads		20210519051430 0714e1ed zlib%s
+G a e
+G c Z s b [initialize aws__pop 55 13 none]
+G c Z s b [close aws__pop 64 14 none]
+G c Z s b [user_name aws__pop 67 13 none]
+G c Z s b [message_count aws__pop 70 13 none]
+G c Z s b [size aws__pop 73 13 none]
+G c Z s b [get aws__pop 82 13 none]
+G c Z s b [delete aws__pop 89 14 none]
+G c Z s b [get_header aws__pop 94 13 none]
+G c Z s b [size aws__pop 122 13 none]
+G c Z s b [content aws__pop 125 13 none]
+G c Z s b [from aws__pop 129 13 none]
+G c Z s b [to aws__pop 132 13 none]
+G c Z s b [to_count aws__pop 136 13 none]
+G c Z s b [cc aws__pop 140 13 none]
+G c Z s b [cc_count aws__pop 144 13 none]
+G c Z s b [subject aws__pop 148 13 none]
+G c Z s b [date aws__pop 151 13 none]
+G c Z s b [header aws__pop 154 13 none]
+G c Z s b [attachment_count aws__pop 166 13 none]
+G c Z s b [get aws__pop 169 13 none]
+G c Z s b [content aws__pop 184 13 none]
+G c Z s b [content aws__pop 190 13 none]
+G c Z s b [filename aws__pop 195 13 none]
+G c Z s b [is_file aws__pop 199 13 none]
+G c Z s b [write aws__pop 202 14 none]
+G c Z s b [initialize aws__pop 237 25 none]
+G c Z s b [adjust aws__pop 238 25 none]
+G c Z s b [finalize aws__pop 239 25 none]
+G c Z s b [initialize aws__pop 253 25 none]
+G c Z s b [adjust aws__pop 254 25 none]
+G c Z s b [finalize aws__pop 255 25 none]
+G c Z s s [mailboxDI aws__pop 214 9 none]
+G c Z s s [mailboxDA aws__pop 214 9 none]
+G c Z s s [mailboxDF aws__pop 214 9 none]
+G c Z s s [mailboxIP aws__pop 214 9 none]
+G c Z s s [messageDA aws__pop 228 9 none]
+G c Z s s [messageDF aws__pop 228 9 none]
+G c Z s s [messageDI aws__pop 228 9 none]
+G c Z s s [messageIP aws__pop 228 9 none]
+G c Z s s [attachmentDA aws__pop 245 9 none]
+G c Z s s [attachmentDF aws__pop 245 9 none]
+G c Z s s [attachmentDI aws__pop 245 9 none]
+G c Z s s [attachmentIP aws__pop 245 9 none]
+G c Z b b [check_response aws__pop 53 14 none]
+G c Z b b [read_headers aws__pop 56 14 none]
+G c Z b b [unchecked_free aws__pop 63 14 none]
+G r s socket_type [initialize aws__pop 55 13 none] [socket_typeIP aws__net__std 187 9 none]
+G r f socket_type [initialize aws__pop 55 13 none] [initialize aws__net 495 25 none]
+G r e socket_type [initialize aws__pop 55 13 none] [finalize aws__net 497 25 none]
+G r c none [initialize aws__pop 55 13 none] [socket aws__net 90 13 none]
+G r k socket_type [initialize aws__pop 55 13 none] [socket_typeDF aws__net 481 9 none]
+G r c none [initialize aws__pop 55 13 none] [connect aws__net__std 70 25 none]
+G r c none [initialize aws__pop 55 13 none] [get_line aws__net__buffered 94 13 none]
+G r c none [initialize aws__pop 55 13 none] [put_line aws__net__buffered 44 14 none]
+G r d socket_type [initialize aws__pop 55 13 none] [adjust aws__net 496 25 none]
+G r c none [initialize aws__pop 55 13 none] [shutdown aws__net__std 83 25 none]
+G r c none [close aws__pop 64 14 none] [put_line aws__net__buffered 44 14 none]
+G r c none [close aws__pop 64 14 none] [get_line aws__net__buffered 94 13 none]
+G r c none [close aws__pop 64 14 none] [shutdown aws__net__std 83 25 none]
+G r s list [get aws__pop 82 13 none] [listIP aws__headers 97 9 none]
+G r l list [get aws__pop 82 13 none] [listDI aws__headers 97 9 none]
+G r k list [get aws__pop 82 13 none] [listDF aws__headers 97 9 none]
+G r c none [get aws__pop 82 13 none] [close aws__resources__streams__memory 91 25 none]
+G r k stream_type [get aws__pop 82 13 none] [stream_typeDF aws__resources__streams 73 9 none]
+G r c none [get aws__pop 82 13 none] [unchecked_free aws__utils 377 14 none]
+G r c none [get aws__pop 82 13 none] [image aws__utils 103 13 none]
+G r c none [get aws__pop 82 13 none] [put_line aws__net__buffered 44 14 none]
+G r c none [get aws__pop 82 13 none] [get_line aws__net__buffered 94 13 none]
+G r c none [get aws__pop 82 13 none] [read aws__headers 82 14 none]
+G r c none [get aws__pop 82 13 none] [get aws__containers__tables 74 13 none]
+G r c none [get aws__pop 82 13 none] [search aws__headers__values 97 13 none]
+G r s stream_type [get aws__pop 82 13 none] [stream_typeIP aws__resources__streams__memory 98 9 none]
+G r c none [get aws__pop 82 13 none] [base64_decode aws__translator 121 13 none]
+G r c none [get aws__pop 82 13 none] [append aws__resources__streams__memory 47 14 none]
+G r c none [get aws__pop 82 13 none] [to_stream_element_array aws__translator 144 13 none]
+G r j list [get aws__pop 82 13 none] [listDA aws__headers 97 9 none]
+G r c none [delete aws__pop 89 14 none] [image aws__utils 103 13 none]
+G r c none [delete aws__pop 89 14 none] [put_line aws__net__buffered 44 14 none]
+G r c none [delete aws__pop 89 14 none] [get_line aws__net__buffered 94 13 none]
+G r s list [get_header aws__pop 94 13 none] [listIP aws__headers 97 9 none]
+G r l list [get_header aws__pop 94 13 none] [listDI aws__headers 97 9 none]
+G r k list [get_header aws__pop 94 13 none] [listDF aws__headers 97 9 none]
+G r c none [get_header aws__pop 94 13 none] [close aws__resources__streams__memory 91 25 none]
+G r k stream_type [get_header aws__pop 94 13 none] [stream_typeDF aws__resources__streams 73 9 none]
+G r c none [get_header aws__pop 94 13 none] [unchecked_free aws__utils 377 14 none]
+G r c none [get_header aws__pop 94 13 none] [image aws__utils 103 13 none]
+G r c none [get_header aws__pop 94 13 none] [put_line aws__net__buffered 44 14 none]
+G r c none [get_header aws__pop 94 13 none] [get_line aws__net__buffered 94 13 none]
+G r c none [get_header aws__pop 94 13 none] [read aws__headers 82 14 none]
+G r j list [get_header aws__pop 94 13 none] [listDA aws__headers 97 9 none]
+G r c none [from aws__pop 129 13 none] [get aws__containers__tables 74 13 none]
+G r c none [to aws__pop 132 13 none] [get aws__containers__tables 74 13 none]
+G r c none [to_count aws__pop 136 13 none] [get aws__containers__tables 74 13 none]
+G r c none [cc aws__pop 140 13 none] [get aws__containers__tables 74 13 none]
+G r c none [cc_count aws__pop 144 13 none] [get aws__containers__tables 74 13 none]
+G r c none [subject aws__pop 148 13 none] [get aws__containers__tables 74 13 none]
+G r c none [date aws__pop 151 13 none] [get aws__containers__tables 74 13 none]
+G r c none [header aws__pop 154 13 none] [get aws__containers__tables 74 13 none]
+G r j list [get aws__pop 169 13 none] [listDA aws__headers 97 9 none]
+G r c none [content aws__pop 190 13 none] [reset aws__resources__streams__memory 78 25 none]
+G r c none [content aws__pop 190 13 none] [end_of_file aws__resources__streams__memory 72 24 none]
+G r c none [content aws__pop 190 13 none] [read aws__resources__streams__memory 65 25 none]
+G r c none [content aws__pop 190 13 none] [to_unbounded_string aws__translator 152 13 none]
+G r c none [write aws__pop 202 14 none] [reset aws__resources__streams__memory 78 25 none]
+G r c none [write aws__pop 202 14 none] [end_of_file aws__resources__streams__memory 72 24 none]
+G r c none [write aws__pop 202 14 none] [read aws__resources__streams__memory 65 25 none]
+G r c none [finalize aws__pop 239 25 none] [close aws__resources__streams__memory 91 25 none]
+G r k stream_type [finalize aws__pop 239 25 none] [stream_typeDF aws__resources__streams 73 9 none]
+G r c none [finalize aws__pop 239 25 none] [unchecked_free aws__utils 377 14 none]
+G r k list [finalize aws__pop 239 25 none] [listDF aws__headers 97 9 none]
+G r c none [finalize aws__pop 255 25 none] [close aws__resources__streams__memory 91 25 none]
+G r k stream_type [finalize aws__pop 255 25 none] [stream_typeDF aws__resources__streams 73 9 none]
+G r k list [finalize aws__pop 255 25 none] [listDF aws__headers 97 9 none]
+G r c none [finalize aws__pop 255 25 none] [unchecked_free aws__utils 377 14 none]
+G r d socket_type [mailboxDA aws__pop 214 9 none] [adjust aws__net 496 25 none]
+G r e socket_type [mailboxDF aws__pop 214 9 none] [finalize aws__net 497 25 none]
+G r s socket_type [mailboxIP aws__pop 214 9 none] [socket_typeIP aws__net__std 187 9 none]
+G r f socket_type [mailboxIP aws__pop 214 9 none] [initialize aws__net 495 25 none]
+G r e socket_type [mailboxIP aws__pop 214 9 none] [finalize aws__net 497 25 none]
+G r j list [messageDA aws__pop 228 9 none] [listDA aws__headers 97 9 none]
+G r c none [messageDF aws__pop 228 9 none] [close aws__resources__streams__memory 91 25 none]
+G r k stream_type [messageDF aws__pop 228 9 none] [stream_typeDF aws__resources__streams 73 9 none]
+G r c none [messageDF aws__pop 228 9 none] [unchecked_free aws__utils 377 14 none]
+G r k list [messageDF aws__pop 228 9 none] [listDF aws__headers 97 9 none]
+G r s list [messageIP aws__pop 228 9 none] [listIP aws__headers 97 9 none]
+G r l list [messageIP aws__pop 228 9 none] [listDI aws__headers 97 9 none]
+G r k list [messageIP aws__pop 228 9 none] [listDF aws__headers 97 9 none]
+G r j list [attachmentDA aws__pop 245 9 none] [listDA aws__headers 97 9 none]
+G r c none [attachmentDF aws__pop 245 9 none] [close aws__resources__streams__memory 91 25 none]
+G r k stream_type [attachmentDF aws__pop 245 9 none] [stream_typeDF aws__resources__streams 73 9 none]
+G r c none [attachmentDF aws__pop 245 9 none] [unchecked_free aws__utils 377 14 none]
+G r k list [attachmentDF aws__pop 245 9 none] [listDF aws__headers 97 9 none]
+G r s list [attachmentIP aws__pop 245 9 none] [listIP aws__headers 97 9 none]
+G r l list [attachmentIP aws__pop 245 9 none] [listDI aws__headers 97 9 none]
+G r k list [attachmentIP aws__pop 245 9 none] [listDF aws__headers 97 9 none]
+G r c none [read_headers aws__pop 56 14 none] [read aws__headers 82 14 none]
+X 1 ada.ads
+16K9*Ada 20e8 46|30r6 31r6 40r8 208r8 47|32r6 33r6 34r6 421r20
+X 7 a-conhel.ads
+84R12 Reference_Control_Type<16|43R9>
+X 16 a-finali.ads
+40K13*Finalization 68e21 46|30w10 228r24 245r27
+43H9*Controlled<78|40R9> 59e72 46|228r37 245r40
+X 18 a-iteint.ads
+24h9 Forward_Iterator
+32h9 Reversible_Iterator<24R9[10|78]>
+X 19 a-stream.ads
+36K13*Streams 87e16 47|32r10 195r16 196r16 421r24 852r11 857r16 858r16
+42M9*Stream_Element
+44I9*Stream_Element_Offset<long_long_integer> 47|196r24 858r24
+54A9*Stream_Element_Array(42M9)<44I9> 47|195r24 437r22 857r24
+X 20 a-ststio.ads
+39K21*Stream_IO 224e26 47|32w18 856r16 866r7 867r16 874r10 877r7
+44P9*File_Type 47|856r26
+47n32*Out_File{47E9} 47|867r26
+68U14*Create 47|866s17
+80U14*Close 47|877s17
+114U14*Write 47|874s20
+X 21 a-string.ads
+16K13*Strings 35e16 46|31r10 40r12 47|33r10 117r20 117r48 132r17 581r15 581r51
+. 668r25 668r61 669r25 669r61 725r18 725r54 818r20 818r48 833r17
+32n33*Backward{32E9} 47|581r59 668r69 669r69 725r62
+33n37*Both{33E9} 47|117r56 818r56
+X 22 a-strfix.ads
+43K21*Fixed 1398e22 47|33w18 117r28 132r25 581r23 668r33 669r33 725r26 818r28
+. 833r25
+237V13*Index{natural} 47|581s29 668s39 669s39 725s32
+550V13*Count{natural} 47|132s31 833s31
+1097V13*Trim{string} 47|117s34 818s34
+X 28 a-strunb.ads
+83K21*Unbounded 765e26 46|31w18 40r20
+88R9*Unbounded_String<16|43R9> 744e15 46|125r52 190r58 216r23 217r23 232r21
+. 249r19 47|177r52 189r58 194r16 445r18 646r19
+91r4*Null_Unbounded_String{88R9} 47|476r21 748r37
+104V13*To_Unbounded_String{88R9} 47|413s39 472s25 649s23 672s32
+117V13*To_String{string} 47|247s14 497s37 509s30 704s34 843s14 868s28
+128U14*Append 47|208s10
+136U14*Append 47|485s16 498s16
+239V14*"="{boolean} 47|476s19 748s34
+X 31 a-tags.ads
+652V13 CW_Membership{boolean} 47|192s36 272s19 432s22 436s22 650s30 854s36
+X 34 a-uncdea.ads
+20u15*Unchecked_Deallocation 47|34w10 63r36 257r39
+X 35 aws.ads
+32K9*AWS 41e8 46|33r6 34r6 35r6 36r6 38r9 186r14 229r21 231r21 246r19 247r19
+. 248r19 257r5 47|39r6 40r6 41r6 42r6 43r6 45r14 49r27 57r17 58r21 184r14
+. 190r11 255r16 258r10 259r10 271r16 765r17 766r21 770r12 851r11 880r5
+X 39 aws-containers-tables.ads
+74V13*Get{string} 47|398s28 407s37 467s40 622s22
+X 40 aws-headers.ads
+35K13*Headers 102e16 46|33w10 231r25 247r23 47|39r10 58r25 398r20 406r26
+. 407r29 466r29 467r32 622r14 766r25 770r16
+37R9*List<39|41R9> 97e70 46|231r33 247r31 47|58r33 766r33
+49X4*Format_Error 47|770r24
+82U14*Read 47|768s15
+X 41 aws-headers-values.ads
+32K21*Values 115e23 47|39w18 406r34 466r37
+97V13*Search{string} 47|406s41 466s44
+X 42 aws-messages.ads
+36K13*Messages 402e17 47|40w10 400r13 409r32 468r49
+133a4*Content_Type_Token{string} 47|468r58
+149a4*Content_Disposition_Token{string} 47|409r41
+152a4*Content_Transfer_Encoding_Token{string} 47|400r22
+X 43 aws-net.ads
+45K13*Net 520e12 46|34r10 215r23 47|41r10 57r21 157r7 160r40 231r7 235r15
+. 424r29 450r7 453r40 482r29 495r29 528r29 574r7 577r40 587r7 591r40 605r43
+. 650r23 651r26 651r49 658r40 685r10 688r43 693r10 696r43 702r10 707r43 715r7
+. 718r40 765r21
+55C9*Socket_Type<55R9>
+55H9*Socket_Type<16|43R9> 484e14 47|57r25 651r30 765r25
+90V13*Socket{55C9} 47|651s53
+X 44 aws-net-buffered.ads
+35K17*Buffered 142e21 47|41w14 157r11 160r44 231r11 235r19 424r33 450r11
+. 453r44 482r33 495r33 528r33 574r11 577r44 587r11 591r44 605r47 658r44 685r14
+. 688r47 693r14 696r47 702r14 707r47 715r11 718r44
+44U14*Put_Line 47|157s20 231s20 450s20 574s20 587s20 685s23 693s23 702s23
+. 715s20
+94V13*Get_Line{string} 47|160s53 235s28 424s42 453s53 482s42 495s42 528s42
+. 577s53 591s53 605s56 658s53 688s56 696s56 707s56 718s53
+X 45 aws-net-std.ads
+39K17*Std 208e16 46|34w14 215r27 47|650r27
+43R9*Socket_Type<43|55R9> 189e14 46|215r31 47|650r31
+70U25*Connect<43|124p14> 47|655s20
+83U25*Shutdown<43|141p14> 47|165s20 169s23 738s23
+X 46 aws-pop.ads
+38K13*POP 35|32k9 46|64r31 67r34 70r38 73r29 83r17 90r17 95r17 102r20 106r17
+. 114r20 117r50 122r29 125r32 129r29 132r27 136r33 140r27 144r33 148r32 151r29
+. 155r17 166r41 170r17 177r23 180r46 185r20 190r35 195r36 199r35 202r34 214E9
+. 237r54 238r54 239r54 253r57 254r57 255r57 257l9 257e12 47|45b18 70r53 75r50
+. 84r41 100r27 126r33 153r31 177r32 183r20 189r35 218r29 228r17 245r36 254r55
+. 282r52 304r46 322r17 340r50 356r29 366r17 372r23 374r27 382r23 384r27 545r17
+. 567r17 619r17 629r54 634r57 647r19 746r35 755r38 778r29 783r29 792r32 801r27
+. 827r33 841r34 850r34 880l9 880t12
+42X4*POP_Error 47|145r16 168r12 674r25 737r12
+49N4*Default_POP_Port 60r43 47|644r43
+51R9*Mailbox 60r68 64r35 67r38 70r42 73r33 83r21 90r21 95r21 106r21 117r54
+. 214c9 220e14 47|153r35 228r21 322r21 340r54 366r21 372r27 382r27 567r21
+. 644r68 647r23 755r42 778r33 841r38
+53E9*Authenticate_Mode 53e48 59r22 47|643r22
+53n31*Clear_Text{53E9} 59r43 47|643r43 683r25
+53n43*APOP{53E9} 47|664r28
+55V13*Initialize{51R9} 56>7 57>7 58>7 59>7 60>7 47|639b13 740l8 740t18
+56a7 Server_Name{string} 47|640b7 649r44 655r29
+57a7 User{string} 47|641b7 685r57 703r37
+58a7 Password{string} 47|642b7 693r57 704r58
+59e7 Authenticate{53E9} 47|643b7 664r13 683r10
+60i7 Port{positive} 47|644b7 655r42
+64U14*Close 64>21 47|153b14 171l8 171t13
+64r21 Mailbox{51R9} 47|153b21 157r30 160r63 165r7 169r10
+67V13*User_Name{string} 67>24 47|841b13 844l8 844t17
+67r24 Mailbox{51R9} 47|841b24 843r25
+70V13*Message_Count{natural} 70>28 47|755b13 758l8 758t21
+70r28 Mailbox{51R9} 47|755b28 757r14
+73V13*Size{natural} 73>19 47|778b13 781l8 781t12
+73r19 Mailbox{51R9} 47|778b19 780r14
+80R9*Message<16|43R9> 82p13 85r46 94p13 96r34 102r24 114r24 122p13 122r33
+. 125p13 125r36 129p13 129r33 132p13 132r31 136p13 136r37 140p13 140r31 144p13
+. 144r37 148p13 148r36 151p13 151r33 154p13 155r21 166p13 166r45 170r21 180r50
+. 228c9 235e14 237P25 237r58 238P25 238r58 239P25 239r58 47|75r54 84r45 100r31
+. 126r37 177r36 218r33 282r56 304r50 325r14 341r14 356r33 368r46 444r18 545r21
+. 568r34 570r14 619r21 629r58 783r33 792r36 801r31 827r37
+82V13*Get{80R9} 83>7 84>7 85>7 47|329s18 365b13 542l8 542t11
+83r7 Mailbox{51R9} 47|366b7 450r30 453r63 460r21 482r52 495r52 509r21 528r52
+. 538r18
+84i7 N{positive} 47|367b7 450r67 538r27
+85b7 Remove{boolean} 47|368b7 537r10
+89U14*Delete 90>7 91>7 47|227b14 239l8 239t14 538s10
+90r7 Mailbox{51R9} 47|228b7 231r30 235r38
+91i7 N{positive} 47|229b7 231r67
+94V13*Get_Header{80R9} 95>7 96>7 47|345s18 566b13 612l8 612t18
+95r7 Mailbox{51R9} 47|567b7 574r30 577r63 587r30 591r63 598r21 605r66
+96i7 N{positive} 47|568b7 574r67 587r66
+101U22 Action 102>10 103>10 104=10 47|330s10
+102r10 Message{80R9}
+103i10 Index{positive}
+104b10 Quit{boolean}
+105u14*For_Every_Message 106>7 107>7 47|321b14 334l8 334t25
+106r7 Mailbox{51R9} 47|322b7 328r21 329r23
+107b7 Remove{boolean} 47|323b7 329r35
+113U22 Action 114>10 115>10 116=10 47|346s10
+114r10 Message{80R9}
+115i10 Index{positive}
+116b10 Quit{boolean}
+117u14*For_Every_Message_Header 117>40 47|340b14 350l8 350t32
+117r40 Mailbox{51R9} 47|340b40 344r21 345r30
+122V13*Size{natural} 122>19 47|783b13 786l8 786t12
+122r19 Message{80R9} 47|783b19 785r14
+125V13*Content{28|88R9} 125>22 47|177b13 180l8 180t15
+125r22 Message{80R9} 47|177b22 179r14
+129V13*From{string} 129>19 47|356b13 359l8 359t12
+129r19 Message{80R9} 47|356b19 358r22
+132V13*To{string} 132>17 132>40 47|801b13 821l8 821t10
+132r17 Message{80R9} 47|801b17 804r46
+132i40 N{natural} 47|801b40 807r10 816r62
+136V13*To_Count{natural} 136>23 47|827b13 835l8 835t16
+136r23 Message{80R9} 47|827b23 828r47
+140V13*CC{string} 140>17 140>40 47|100b13 120l8 120t10
+140r17 Message{80R9} 47|100b17 103r46
+140i40 N{natural} 47|100b40 106r10 115r62
+144V13*CC_Count{natural} 144>23 47|126b13 134l8 134t16
+144r23 Message{80R9} 47|126b23 127r47
+148V13*Subject{string} 148>22 47|792b13 795l8 795t15
+148r22 Message{80R9} 47|792b22 794r22
+151V13*Date{string} 151>19 47|218b13 221l8 221t12
+151r19 Message{80R9} 47|218b19 220r22
+154V13*Header{string} 155>7 156>7 47|103s38 127s39 220s14 358s14 618b13 623l8
+. 623t14 794s14 804s38 828s39
+155r7 Message{80R9} 47|619b7 622r27
+156a7 Header{string} 47|620b7 622r44
+164R9*Attachment<16|43R9> 171r34 177r27 185r24 190r39 195r40 199r39 202r38
+. 222r37 245c9 251e14 253r61 254r61 255r61 47|64r7 70r57 183r24 189r39 245r40
+. 254r59 374r31 384r31 506r23 512r43 515r43 546r34 634r61 746r39 850r38
+166V13*Attachment_Count{natural} 166>31 47|84b13 94l8 94t24
+166r31 Message{80R9} 47|84b31 86r36
+169V13*Get{164R9} 170>7 171>7 47|544b13 560l8 560t11
+170c7 Message<80R9> 47|545b7 548r32
+171i7 Index{positive} 47|546b7 550r21
+176U22 Action 177>10 178>10 179=10 47|310s10
+177r10 Attachment{164R9}
+178i10 Index{positive}
+179b10 Quit{boolean}
+180u14*For_Every_Attachment 180>36 47|304b14 315l8 315t28
+180r36 Message{80R9} 47|304b36 305r36
+184V13*Content{49|36P9} 185>7 47|182b13 187l8 187t15
+185r7 Attachment{164R9} 47|183b7 186r14
+190V13*Content{28|88R9} 190>22 47|189b13 212l8 212t15
+190r22 Attachment{164R9} 47|189b22 192r49 199r19
+195V13*Filename{string} 195>23 47|245b13 248l8 248t16
+195r23 Attachment{164R9} 47|245b23 247r25
+199V13*Is_File{boolean} 199>22 47|199s10 746b13 749l8 749t15 861s14
+199r22 Attachment{164R9} 47|746b22 748r14
+202U14*Write 202>21 202>50 47|850b14 878l8 878t13
+202r21 Attachment{164R9} 47|850b21 854r49 861r23 868r39
+202a50 Directory{string} 47|850b50 868r10
+215r7*Sock{45|43R9} 47|157r38 160r71 165r15 169r18 231r38 235r46 394r32 424r60
+. 450r38 453r71 460r29 482r60 495r60 528r60 574r38 577r71 587r38 591r71 598r29
+. 605r74 650m15 655m15 658r71 685r41 688r74 693r41 696r74 703r21 707r74 715r38
+. 718r71 738r18
+216r7*Name{28|88R9} 47|649m15
+217r7*User_Name{28|88R9} 47|843r33
+218i7*Message_Count{natural} 47|328r29 344r29 727m21 757r22
+219i7*Size{natural} 47|729m21 780r22
+222P9 Attachment_Access(164R9) 233r21 234r21 250r19 47|64r19 86r15 305r15
+. 548r11
+229p7*Ref_Count{55|375P9} 47|77r15 77r40 284r51 288m15 631m15
+230i7*Size{natural} 47|582m15 785r22
+231r7*Headers{40|37R9} 47|460m40 468r40 598m40 622r35
+232r7*Content{28|88R9} 47|179r22 485m29 498m29
+233p7*Attachments{222P9} 47|86r44 294m37 305r44 512m24 513r44 548r40
+234p7*Last{222P9} 47|511r24 513m24 515r24 516m24 516r44
+237U25 Initialize<16|46p14> 237=37 47|629b25 632l8 632t18
+237r37 Message{80R9} 47|629b37 631m7
+238U25 Adjust<16|47p14> 238=37 47|75b25 78l8 78t14
+238r37 Message{80R9} 47|75b33 77r7 77r32
+239U25 Finalize<16|48p14> 239=37 47|282b25 298l8 298t16
+239r37 Message{80R9} 47|282b35 284r43 288m7 294m29 294r29
+246p7*Ref_Count{55|375P9} 47|72r18 72r46 260r54 264m18 636m18
+247r7*Headers{40|37R9} 47|394m49 399r24 408r43
+248p7*Content{49|36P9} 47|186r25 192r60 270r27 272r43 273m43 390m21 432r46
+. 436r46 854r60
+249r7*Filename{28|88R9} 47|247r36 413m27 748r25 868r50
+250p7*Next{222P9} 47|90r21 276m40 312r17 515m29 516r49 556r17
+253U25 Initialize<16|46p14> 253=37 47|634b25 637l8 637t18
+253r37 Attachment{164R9} 47|634b37 636m7
+254U25 Adjust<16|47p14> 254=37 47|70b25 73l8 73t14
+254r37 Attachment{164R9} 47|70b33 72r7 72r35
+255U25 Finalize<16|48p14> 255=37 47|254b25 280l8 280t16
+255r37 Attachment{164R9} 47|254b35 260r43 264m7 270r16 272r32 273m32 273r32
+. 276m29 276r29
+X 47 aws-pop.adb
+49R12 Stream_Type{50|42R9} 192r16 192r36 272r19 390r36 432r22 436r22 854r16
+. 854r36
+51a4 CRLF{string} 438r72 485r49 498r49
+53U14 Check_Response 53>30 140b14 147l8 147t22 162s10 237s10 455s10 580s10
+. 593s10 660s10 690s13 698s13 709s13 720s10
+53a30 Response{string} 140b30 142r10 143r18 143r28 143r46 145r31 145r41 145r63
+56U14 Read_Headers 57>7 58<7 394s10 460s7 598s7 764b14 772l8 772t20
+57c7 Sock<43|55R9> 765b7 768r21
+58r7 Headers{40|37R9} 766b7 768m7 768r7
+63U14 Unchecked_Free[34|20] 276s13 294s13
+85i7 Count{natural} 89m10 89r19 93r14
+86p7 Ptr{46|222P9} 88r13 90m10 90r17
+103a7 CC_Values{string} 107r17 110r39
+104r7 Cut_CC{57|75R9[64|39]} 110m31 115r27
+113a13 Result{string} 117r40
+127a7 CC_Values{string} 129r10 132r38
+160a10 Response{string} 162r26
+192r7 Stream{49R12} 204r21 206r37 207r23
+194r7 Result{28|88R9} 208m18 208r18 211r14
+195a7 Buffer{19|54A9} 207m31 208r58
+196i7 Last{19|44I9} 207m39 208r71
+234a10 Response{string} 237r26
+257U17 Unchecked_Free[34|20] 273s16
+260p7 Ref_Count{55|375P9} 266r10 267r10 267r27 269r13 277m35 277r35
+284p7 Ref_Count{55|375P9} 290r10 291r10 291r27 293r13 295m35 295r35
+305p7 P{46|222P9} 309r13 310r18 312m10 312r15
+306i7 Index{positive} 310r25 313m10 313r19
+307b7 Quit{boolean} 310m32 310r32 311r20
+325r7 Mess{46|80R9} 329m10 330r18
+326b7 Quit{boolean} 330m27 330r27 332r20
+328i11 K{integer} 329r32 330r24
+341r7 Mess{46|80R9} 345m10 346r18
+342b7 Quit{boolean} 346m27 346r27 348r20
+344i11 K{integer} 345r39 346r24
+371U17 Get 372>10 373>10 374<10 375<10 381b17 442l11 442t14 509s16
+372r10 Mailbox{46|51R9} 382b10 394r24 424r52
+373a10 Boundary{string} 383b10 387r44 428r37
+374r10 Attachment{46|164R9} 384b10 390m10 394m38 394r38 399r13 408r32 413m16
+. 432r35 436r35
+375b10 Last{boolean} 385b10 426m16 428r54
+387a10 End_Boundary=387:53{string} 426r35
+388b10 Base64{boolean} 398m10 430r19
+405a13 Filename{string} 412r16 413r60
+423a16 Response{string} 426r24 428r26 433r48 438r61
+444r7 Mess{46|80R9} 460m35 460r35 468r35 485m24 485r24 498m24 498r24 511r19
+. 512m19 513m19 513r39 515r19 516m19 516r39 541r14
+445r7 Boundary{28|88R9} 472m13 476r10 497r48 509r41
+453a10 Response{string} 455r26
+465a10 Boundary_Field{string} 471r13 472r53
+481a16 Response{string} 484r26 485r38
+494a16 Response{string} 497r26 498r38
+506r16 A{46|164R9} 509m52 512r55 515r55
+507b16 Last{boolean} 509m55 519r26
+527a16 Response{string} 530r26
+548p7 P{46|222P9} 552r13 556m10 556r15 559r14
+550i11 K{integer}
+570r7 Mess{46|80R9} 582m10 598m35 598r35 611r14
+577a10 Response{string} 580r26 581r36 582r38 582r57
+578i10 K{natural} 581m10 582r48
+591a10 Response{string} 593r26
+605a13 Response{string} 607r23
+646r7 Timestamp{28|88R9} 672m19 704r45
+647r7 Mailbox{46|51R9} 649m7 650m7 655m7 655r7 658r63 685r33 688r66 693r33
+. 696r66 703r13 707r66 715r30 718r63 727m13 729m13 734r14 738r10
+658a10 Response{string} 660r26 668r46 669r46 672r53
+666i16 First{natural} 668m16 671r19 672r63
+666i23 Last{natural} 669m16 671r39 672r72
+688a13 Response{string} 690r29
+696a13 Response{string} 698r29
+707a13 Response{string} 709r29
+718a10 Response{string} 720r26 725r39 728r33 728r43 730r33 730r52
+723i13 K{natural} 725m13 728r65 730r43
+804a7 To_Values{string} 808r17 811r39
+805r7 Cut_To{57|75R9[64|39]} 811m31 816r27
+814a13 Result{string} 818r40
+828a7 To_Values{string} 830r10 833r38
+854r7 Stream{49R12} 870r21 872r37 873r23
+856p7 File{20|44P9} 867m10 867r10 874r27 877m24 877r24
+857a7 Buffer{19|54A9} 873m31 874r33
+858i7 Last{19|44I9} 873m39 874r46
+X 48 aws-resources.ads
+36K13*Resources 46|35r10 186r18 248r23 47|42r10 49r31 184r18 190r15 255r20
+. 258r14 259r14 271r20 431r19 435r19 851r15 48|180e18
+X 49 aws-resources-streams.ads
+32K23*Streams 46|35w20 186r28 248r33 47|42r20 49r41 184r28 190r25 255r30
+. 258r24 259r24 271r30 431r29 435r29 851r25 49|75e26
+34H9*Stream_Type<48|146R9> 47|258r32 49|73e75
+36P9*Stream_Access(34R9) 46|186r36 248r41 47|184r36 255r38 259r32
+X 50 aws-resources-streams-memory.ads
+40K31*Memory 47|42w28 49r49 204r7 206r17 207r10 271r38 431r37 435r37 870r7
+. 872r17 873r10 50|102e33
+42R9*Stream_Type<49|34R9> 47|49r56 50|100e14
+47U14*Append 47|431s44 435s44
+65U25*Read<49|40p14> 47|207s17 873s17
+72V24*End_Of_File{boolean}<49|38p13> 47|206s24 872s24
+78U25*Reset<49|45p14> 47|204s14 870s14
+91U25*Close<49|54p14> 47|271s45
+X 52 aws-translator.ads
+38K13*Translator 47|43w10 208r26 433r22 438r25 52|180e19
+121V13*Base64_Decode{19|54A9} 47|433s33
+144V13*To_Stream_Element_Array{19|54A9} 47|438s36
+152V13*To_Unbounded_String{28|88R9} 47|208s37
+X 55 aws-utils.ads
+44K13*Utils 46|36w10 229r25 246r23 47|231r54 256r16 260r19 277r13 283r16
+. 284r19 295r13 450r54 574r54 587r53 55|466e14
+103V13*Image{string} 47|231s60 450s60 574s60 587s59
+375P9*Counter_Access(natural) 46|229r31 246r29 47|256r22 260r25 283r22 284r25
+377U14*Unchecked_Free[34|20] 47|277s19 295s19
+X 56 gnat.ads
+34K9*GNAT 47|36r6 37r6 101r11 704r17 802r11 56|57e9
+X 57 g-arrspl.ads
+75R9*Slice_Set<16|43R9> 47|104r32[64|39] 805r32[64|39]
+88U14*Create 47|110s23[64|39] 811s23[64|39]
+130I9*Slice_Number<integer> 47|115r48[64|39] 816r48[64|39]
+145V13*Slice{string} 47|114s37[64|39] 815s37[64|39]
+X 60 g-md5.ads
+42K14*MD5[61|126] 47|36w11 704r22
+X 61 g-sechas.ads
+178A15*Message_Digest{string}<integer>
+186V16*Digest{178A15[60|42]} 47|704s26[60|42]
+X 64 g-strspl.ads
+39K14*String_Split[57|58] 47|37w11 104r19 110r10 114r24 115r35 805r19 811r10
+. 815r24 816r35
+X 69 system.ads
+67M9*Address
+X 80 s-memory.ads
+53V13*Alloc{69|67M9} 103i<c,__gnat_malloc>22
+68U14*Free 104i<c,__gnat_free>22
+76V13*Realloc{69|67M9} 105i<c,__gnat_realloc>22
+X 90 s-stausa.ads
+208U14*Initialize 209i<c,__gnat_stack_usage_initialize>22
+273U14*Output_Results 277i<c,__gnat_stack_usage_output_results>22
+X 92 s-stalib.adb
+89U14 Break_Start 90i<c,__gnat_break_start>22
+

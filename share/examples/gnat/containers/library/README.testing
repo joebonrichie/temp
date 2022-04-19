@@ -1,0 +1,121 @@
+		       G N A T   E X A M P L E S
+		       =========================
+
+
+In order to compile the examples, make sure that the 'gprbuild' command is
+in your path. 
+
+Invocation
+----------
+
+In order to build the two executables provided in this example, you need to
+use the "library.gpr" project file. On the command-line, do a:
+
+  $ gprbuild -Plibrary
+
+In GPS, click on "Build", then "Make" and then "library".
+
+Features tested
+---------------
+
+Ordered sets
+Ordered Maps
+
+Description of example
+----------------------
+
+This program implements a simple database in the style of a library that
+stores books.  It allows you to list all by books in title order or in
+author order, or list just the books written by a specific author.
+
+The book type (Books.Book_Type) is declared as limited private with unknown
+descriminants.  The use of the "limited and indefinite" idiom forces the client
+to use the New_Book constructor to create a book object.  This makes it
+impossible to have a book object without a valid title and author.
+
+The library type (Libraries.Library_Type) is implemented using three separate
+sets: one containing book objects, another containing books ordered by title
+(really, book set cursors, ordered by title), and another containing books
+ordered by author (again, book set cursors, ordered by author).  The title and
+author sets are used to implement title-oriented and author-oriented searches.
+
+The library package has operations for adding and removing a book directly.
+(That is, an object of type Book_Type.)  But there's also an operation for
+removing a book from the library given only its title and author.  How should
+this be implemented?  We could try to create a book object from the title and
+author we are given, but that wouldn't work, since books are stored by their
+identity.  A new book that has just been constructed has a unique identity, and
+hence wouldn't be in the library.
+
+What we need is a way to compare the title/author string pair to the book
+objects in the library.  The library is implemented as a set, but book sets
+only compare books to books.  That's where Generic_Keys comes in.
+
+The sets nested package Generic_Keys provides a way to compare a proxy of a set
+element to a set element itself, even if the proxy (called a "key") and the
+element have different types.  This works whenever the set element type is a
+non-simple type such as record, in which only part of the element (the
+"key-part") is used to define the order (or hash) relation.
+
+Elements in the author set are ordered by author, with the book title used to
+break a tie.  (There can be multiple elements in the author set with the same
+author, but the author/title pair is always unique.  It would have to be, since
+this isn't a multiset.)
+
+To instantiate the Generic_Keys package, we need to define the key.  It needs
+to be able to perform the same order tests that the elements do, so here we
+declare the key as a record comprising the author/title string pair.
+
+Once instantiated (see libraries.adb), then Generic_Keys provides an operation
+for finding a set element given a key.  The Remove operation for Library_Type
+passes in the title and author (as strings), so we use those to construct a key
+object, and then use that as the parameter to Find.  The author set element is
+just a book set cursor, so once we have that then all else follows.
+
+Note that there's nothing special about the author set for implementing Remove,
+and we could have used the Generic_Keys nested package of the title set just as
+easily.  (Indeed, had we defined the order relation for books sets a little
+differently, we could have used its Generic_Keys too.)
+
+The other interesting library operation is iterating over all the books in the
+library by the same author.  The author set orders its elements by author, and
+for the same author by title.  This means that all of the books by the same
+author are logically adjacent.  The problem is finding this contiguous range of
+books by the same author.
+
+The ordered sets have Floor and Ceiling operations for either finding an item
+(if it's in the set) or its nearest neighbor (if it were in the set).  The
+Generic_Keys nested package has the same operations for finding a key.  What we
+want to do it use them to find the book at the beginning of the range of books
+having a common author, and to also find the book one-beyond-the-end of the
+range, and then iterate over that range.
+
+The Ceiling function has the semantics we want, but there's a catch.  We have
+the instantiation of Generic_Keys for author sets, but the key is a 2-tuple
+comprising both an author and a title, and we only have an author.  (The
+purpose of the library operation we're trying to implement is to find the
+titles by that author.)
+
+Since the order relation is defined in terms of both an author and title, and
+we don't have a title, then we have to create one.  The actual title value
+doesn't matter (this is only a key, so it doesn't even need to be a real
+title), since it's only used to implement the order relation for keys.
+
+The books for an author are ordered by title, so to find the beginning of the
+range, we can search for a title that we know is less than any other title in
+the range.  We know that book objects must have a non-empty title (the
+Book_Type constructor enforces this), so in this case we can use a key
+comprising the author and a title whose length is 0.  We define the order
+relations for the key such that when we compare a book to a key with a
+zero-length title, then "<" always returns True, and ">" always returns False.
+(That is, the key is always less than a book with the same author.)  Using
+Ceiling to search for a key with zero-length title is thus guaranteed to find
+the beginning of the range of titles by an author.
+
+To find the end of the range, we do something similar, but use a title that
+compares greater than any other title in the range.  Again, it doesn't matter
+what the value is, as long as "<" and ">" do the right thing when given a key
+having that value.  In this case we create a key with a title value string
+whose last index equals -1.  A key with that pseudo-title always compares
+greater than a book with the same author.  Using Ceiling to search for that
+special key is guaranteed to find the book one-beyond-the-end of the range.

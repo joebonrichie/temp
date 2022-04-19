@@ -1,0 +1,1406 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>7. Implementation Defined Characteristics &#8212; GNAT Reference Manual 2021 documentation</title>
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="8. Intrinsic Subprograms" href="intrinsic_subprograms.html" />
+    <link rel="prev" title="6. Implementation Advice" href="implementation_advice.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="intrinsic_subprograms.html" title="8. Intrinsic Subprograms"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="implementation_advice.html" title="6. Implementation Advice"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../gnat_rm.html">GNAT Reference Manual 2021 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">7. </span>Implementation Defined Characteristics</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="implementation-defined-characteristics">
+<span id="id1"></span><h1><span class="section-number">7. </span>Implementation Defined Characteristics<a class="headerlink" href="#implementation-defined-characteristics" title="Permalink to this headline">¶</a></h1>
+<p>In addition to the implementation dependent pragmas and attributes, and the
+implementation advice, there are a number of other Ada features that are
+potentially implementation dependent and are designated as
+implementation-defined. These are mentioned throughout the Ada Reference
+Manual, and are summarized in Annex M.</p>
+<p>A requirement for conforming Ada compilers is that they provide
+documentation describing how the implementation deals with each of these
+issues.  In this chapter you will find each point in Annex M listed,
+followed by a description of how GNAT handles the implementation dependence.</p>
+<p>You can use this chapter as a guide to minimizing implementation
+dependent features in your programs if portability to other compilers
+and other operating systems is an important consideration.  The numbers
+in each entry below correspond to the paragraph numbers in the Ada
+Reference Manual.</p>
+<ul class="simple">
+<li><p>“Whether or not each recommendation given in Implementation
+Advice is followed.  See 1.1.2(37).”</p></li>
+</ul>
+<p>See <a class="reference internal" href="implementation_advice.html#implementation-advice"><span class="std std-ref">Implementation Advice</span></a>.</p>
+<ul class="simple">
+<li><p>“Capacity limitations of the implementation.  See 1.1.3(3).”</p></li>
+</ul>
+<p>The complexity of programs that can be processed is limited only by the
+total amount of available virtual memory, and disk space for the
+generated object files.</p>
+<ul class="simple">
+<li><p>“Variations from the standard that are impractical to avoid
+given the implementation’s execution environment.  See 1.1.3(6).”</p></li>
+</ul>
+<p>There are no variations from the standard.</p>
+<ul class="simple">
+<li><p>“Which code_statements cause external
+interactions.  See 1.1.3(10).”</p></li>
+</ul>
+<p>Any <em>code_statement</em> can potentially cause external interactions.</p>
+<ul class="simple">
+<li><p>“The coded representation for the text of an Ada
+program.  See 2.1(4).”</p></li>
+</ul>
+<p>See separate section on source representation.</p>
+<ul class="simple">
+<li><p>“The control functions allowed in comments.  See 2.1(14).”</p></li>
+</ul>
+<p>See separate section on source representation.</p>
+<ul class="simple">
+<li><p>“The representation for an end of line.  See 2.2(2).”</p></li>
+</ul>
+<p>See separate section on source representation.</p>
+<ul class="simple">
+<li><p>“Maximum supported line length and lexical element
+length.  See 2.2(15).”</p></li>
+</ul>
+<p>The maximum line length is 255 characters and the maximum length of
+a lexical element is also 255 characters. This is the default setting
+if not overridden by the use of compiler switch <em>-gnaty</em> (which
+sets the maximum to 79) or <em>-gnatyMnn</em> which allows the maximum
+line length to be specified to be any value up to 32767. The maximum
+length of a lexical element is the same as the maximum line length.</p>
+<ul class="simple">
+<li><p>“Implementation defined pragmas.  See 2.8(14).”</p></li>
+</ul>
+<p>See <a class="reference internal" href="implementation_defined_pragmas.html#implementation-defined-pragmas"><span class="std std-ref">Implementation Defined Pragmas</span></a>.</p>
+<ul class="simple">
+<li><p>“Effect of pragma <code class="docutils literal notranslate"><span class="pre">Optimize</span></code>.  See 2.8(27).”</p></li>
+</ul>
+<p>Pragma <code class="docutils literal notranslate"><span class="pre">Optimize</span></code>, if given with a <code class="docutils literal notranslate"><span class="pre">Time</span></code> or <code class="docutils literal notranslate"><span class="pre">Space</span></code>
+parameter, checks that the optimization flag is set, and aborts if it is
+not.</p>
+<ul class="simple">
+<li><p>“The sequence of characters of the value returned by
+<code class="docutils literal notranslate"><span class="pre">S'Image</span></code> when some of the graphic characters of
+<code class="docutils literal notranslate"><span class="pre">S'Wide_Image</span></code> are not defined in <code class="docutils literal notranslate"><span class="pre">Character</span></code>.  See
+3.5(37).”</p></li>
+</ul>
+<p>The sequence of characters is as defined by the wide character encoding
+method used for the source.  See section on source representation for
+further details.</p>
+<ul class="simple">
+<li><p>“The predefined integer types declared in
+<code class="docutils literal notranslate"><span class="pre">Standard</span></code>.  See 3.5.4(25).”</p></li>
+</ul>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 39%" />
+<col style="width: 61%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Type</p></th>
+<th class="head"><p>Representation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><em>Short_Short_Integer</em></p></td>
+<td><p>8-bit signed</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>Short_Integer</em></p></td>
+<td><p>16-bit signed</p></td>
+</tr>
+<tr class="row-even"><td><p><em>Integer</em></p></td>
+<td><p>32-bit signed</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>Long_Integer</em></p></td>
+<td><p>64-bit signed (on most 64-bit targets,
+depending on the C definition of long)
+32-bit signed (on all other targets)</p></td>
+</tr>
+<tr class="row-even"><td><p><em>Long_Long_Integer</em></p></td>
+<td><p>64-bit signed</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>Long_Long_Long_Integer</em></p></td>
+<td><p>128-bit signed (on 64-bit targets)
+64-bit signed (on 32-bit targets)</p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p>“Any nonstandard integer types and the operators defined
+for them.  See 3.5.4(26).”</p></li>
+</ul>
+<p>There are no nonstandard integer types.</p>
+<ul class="simple">
+<li><p>“Any nonstandard real types and the operators defined for
+them.  See 3.5.6(8).”</p></li>
+</ul>
+<p>There are no nonstandard real types.</p>
+<ul class="simple">
+<li><p>“What combinations of requested decimal precision and range
+are supported for floating point types.  See 3.5.7(7).”</p></li>
+</ul>
+<p>The precision and range are defined by the IEEE Standard for Floating-Point
+Arithmetic (IEEE 754-2019).</p>
+<ul class="simple">
+<li><p>“The predefined floating point types declared in
+<code class="docutils literal notranslate"><span class="pre">Standard</span></code>.  See 3.5.7(16).”</p></li>
+</ul>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 32%" />
+<col style="width: 68%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Type</p></th>
+<th class="head"><p>Representation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><em>Short_Float</em></p></td>
+<td><p>IEEE Binary32 (Single)</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>Float</em></p></td>
+<td><p>IEEE Binary32 (Single)</p></td>
+</tr>
+<tr class="row-even"><td><p><em>Long_Float</em></p></td>
+<td><p>IEEE Binary64 (Double)</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>Long_Long_Float</em></p></td>
+<td><p>IEEE Binary64 (Double) on non-x86 architectures
+IEEE 80-bit Extended on x86 architecture</p></td>
+</tr>
+</tbody>
+</table>
+<p>The default rounding mode specified by the IEEE 754 Standard is assumed for
+static computations, i.e. round to nearest, ties to even. The input routines
+yield correctly rounded values for Short_Float, Float and Long_Float at least.
+The output routines can compute up to twice as many exact digits as the value
+of <code class="docutils literal notranslate"><span class="pre">T'Digits</span></code> for any type, for example 30 digits for Long_Float; if more
+digits are requested, zeros are printed.</p>
+<ul class="simple">
+<li><p>“The small of an ordinary fixed point type.  See 3.5.9(8).”</p></li>
+</ul>
+<p>The small is the largest power of two that does not exceed the delta.</p>
+<ul class="simple">
+<li><p>“What combinations of small, range, and digits are
+supported for fixed point types.  See 3.5.9(10).”</p></li>
+</ul>
+<p>For an ordinary fixed point type, on 32-bit platforms, the small must lie in
+2.0**(-80) .. 2.0**80 and the range in -9.0E+36 .. 9.0E+36; any combination
+is permitted that does not result in a mantissa larger than 63 bits.</p>
+<p>On 64-bit platforms, the small must lie in 2.0**(-127) .. 2.0**127 and the
+range in -1.0E+76 .. 1.0E+76; any combination is permitted that does not
+result in a mantissa larger than 63 bits, and any combination is permitted
+that results in a mantissa between 64 and 127 bits if the small is the
+ratio of two integers that lie in 1 .. 2.0**127.</p>
+<p>If the small is the ratio of two integers with 64-bit magnitude on 32-bit
+platforms and 128-bit magnitude on 64-bit platforms, which is the case if
+no <code class="docutils literal notranslate"><span class="pre">small</span></code> clause is provided, then the operations of the fixed point
+type are entirely implemented by means of integer instructions.  In the
+other cases, some operations, in particular input and output, may be
+implemented by means of floating-point instructions and may be affected
+by accuracy issues on architectures other than x86.</p>
+<p>For a decimal fixed point type, on 32-bit platforms, the small must lie in
+1.0E-18 .. 1.0E+18 and the digits in 1 .. 18.  On 64-bit platforms, the
+small must lie in 1.0E-38 .. 1.0E+38 and the digits in 1 .. 38.</p>
+<ul class="simple">
+<li><p>“The result of <code class="docutils literal notranslate"><span class="pre">Tags.Expanded_Name</span></code> for types declared
+within an unnamed <em>block_statement</em>.  See 3.9(10).”</p></li>
+</ul>
+<p>Block numbers of the form <code class="samp docutils literal notranslate"><span class="pre">B</span><em><span class="pre">nnn</span></em></code>, where <em>nnn</em> is a
+decimal integer are allocated.</p>
+<ul class="simple">
+<li><p>“Implementation-defined attributes.  See 4.1.4(12).”</p></li>
+</ul>
+<p>See <a class="reference internal" href="implementation_defined_attributes.html#implementation-defined-attributes"><span class="std std-ref">Implementation Defined Attributes</span></a>.</p>
+<ul class="simple">
+<li><p>“Any implementation-defined time types.  See 9.6(6).”</p></li>
+</ul>
+<p>There are no implementation-defined time types.</p>
+<ul class="simple">
+<li><p>“The time base associated with relative delays.”</p></li>
+</ul>
+<p>See 9.6(20).  The time base used is that provided by the C library
+function <code class="docutils literal notranslate"><span class="pre">gettimeofday</span></code>.</p>
+<ul class="simple">
+<li><p>“The time base of the type <code class="docutils literal notranslate"><span class="pre">Calendar.Time</span></code>.  See
+9.6(23).”</p></li>
+</ul>
+<p>The time base used is that provided by the C library function
+<code class="docutils literal notranslate"><span class="pre">gettimeofday</span></code>.</p>
+<ul class="simple">
+<li><p>“The time zone used for package <code class="docutils literal notranslate"><span class="pre">Calendar</span></code>
+operations.  See 9.6(24).”</p></li>
+</ul>
+<p>The time zone used by package <code class="docutils literal notranslate"><span class="pre">Calendar</span></code> is the current system time zone
+setting for local time, as accessed by the C library function
+<code class="docutils literal notranslate"><span class="pre">localtime</span></code>.</p>
+<ul class="simple">
+<li><p>“Any limit on <em>delay_until_statements</em> of
+<em>select_statements</em>.  See 9.6(29).”</p></li>
+</ul>
+<p>There are no such limits.</p>
+<ul class="simple">
+<li><p>“Whether or not two non-overlapping parts of a composite
+object are independently addressable, in the case where packing, record
+layout, or <code class="docutils literal notranslate"><span class="pre">Component_Size</span></code> is specified for the object.  See
+9.10(1).”</p></li>
+</ul>
+<p>Separate components are independently addressable if they do not share
+overlapping storage units.</p>
+<ul class="simple">
+<li><p>“The representation for a compilation.  See 10.1(2).”</p></li>
+</ul>
+<p>A compilation is represented by a sequence of files presented to the
+compiler in a single invocation of the <em>gcc</em> command.</p>
+<ul class="simple">
+<li><p>“Any restrictions on compilations that contain multiple
+compilation_units.  See 10.1(4).”</p></li>
+</ul>
+<p>No single file can contain more than one compilation unit, but any
+sequence of files can be presented to the compiler as a single
+compilation.</p>
+<ul class="simple">
+<li><p>“The mechanisms for creating an environment and for adding
+and replacing compilation units.  See 10.1.4(3).”</p></li>
+</ul>
+<p>See separate section on compilation model.</p>
+<ul class="simple">
+<li><p>“The manner of explicitly assigning library units to a
+partition.  See 10.2(2).”</p></li>
+</ul>
+<p>If a unit contains an Ada main program, then the Ada units for the partition
+are determined by recursive application of the rules in the Ada Reference
+Manual section 10.2(2-6).  In other words, the Ada units will be those that
+are needed by the main program, and then this definition of need is applied
+recursively to those units, and the partition contains the transitive
+closure determined by this relationship.  In short, all the necessary units
+are included, with no need to explicitly specify the list.  If additional
+units are required, e.g., by foreign language units, then all units must be
+mentioned in the context clause of one of the needed Ada units.</p>
+<p>If the partition contains no main program, or if the main program is in
+a language other than Ada, then GNAT
+provides the binder options <em>-z</em> and <em>-n</em> respectively, and in
+this case a list of units can be explicitly supplied to the binder for
+inclusion in the partition (all units needed by these units will also
+be included automatically).  For full details on the use of these
+options, refer to <em>GNAT Make Program gnatmake</em> in the
+<cite>GNAT User’s Guide</cite>.</p>
+<ul class="simple">
+<li><p>“The implementation-defined means, if any, of specifying
+which compilation units are needed by a given compilation unit.  See
+10.2(2).”</p></li>
+</ul>
+<p>The units needed by a given compilation unit are as defined in
+the Ada Reference Manual section 10.2(2-6).  There are no
+implementation-defined pragmas or other implementation-defined
+means for specifying needed units.</p>
+<ul class="simple">
+<li><p>“The manner of designating the main subprogram of a
+partition.  See 10.2(7).”</p></li>
+</ul>
+<p>The main program is designated by providing the name of the
+corresponding <code class="file docutils literal notranslate"><span class="pre">ALI</span></code> file as the input parameter to the binder.</p>
+<ul class="simple">
+<li><p>“The order of elaboration of <em>library_items</em>.  See
+10.2(18).”</p></li>
+</ul>
+<p>The first constraint on ordering is that it meets the requirements of
+Chapter 10 of the Ada Reference Manual.  This still leaves some
+implementation dependent choices, which are resolved by first
+elaborating bodies as early as possible (i.e., in preference to specs
+where there is a choice), and second by evaluating the immediate with
+clauses of a unit to determine the probably best choice, and
+third by elaborating in alphabetical order of unit names
+where a choice still remains.</p>
+<ul class="simple">
+<li><p>“Parameter passing and function return for the main
+subprogram.  See 10.2(21).”</p></li>
+</ul>
+<p>The main program has no parameters.  It may be a procedure, or a function
+returning an integer type.  In the latter case, the returned integer
+value is the return code of the program (overriding any value that
+may have been set by a call to <code class="docutils literal notranslate"><span class="pre">Ada.Command_Line.Set_Exit_Status</span></code>).</p>
+<ul class="simple">
+<li><p>“The mechanisms for building and running partitions.  See
+10.2(24).”</p></li>
+</ul>
+<p>GNAT itself supports programs with only a single partition.  The GNATDIST
+tool provided with the GLADE package (which also includes an implementation
+of the PCS) provides a completely flexible method for building and running
+programs consisting of multiple partitions.  See the separate GLADE manual
+for details.</p>
+<ul class="simple">
+<li><p>“The details of program execution, including program
+termination.  See 10.2(25).”</p></li>
+</ul>
+<p>See separate section on compilation model.</p>
+<ul class="simple">
+<li><p>“The semantics of any non-active partitions supported by the
+implementation.  See 10.2(28).”</p></li>
+</ul>
+<p>Passive partitions are supported on targets where shared memory is
+provided by the operating system.  See the GLADE reference manual for
+further details.</p>
+<ul class="simple">
+<li><p>“The information returned by <code class="docutils literal notranslate"><span class="pre">Exception_Message</span></code>.  See
+11.4.1(10).”</p></li>
+</ul>
+<p>Exception message returns the null string unless a specific message has
+been passed by the program.</p>
+<ul class="simple">
+<li><p>“The result of <code class="docutils literal notranslate"><span class="pre">Exceptions.Exception_Name</span></code> for types
+declared within an unnamed <em>block_statement</em>.  See 11.4.1(12).”</p></li>
+</ul>
+<p>Blocks have implementation defined names of the form <code class="samp docutils literal notranslate"><span class="pre">B</span><em><span class="pre">nnn</span></em></code>
+where <em>nnn</em> is an integer.</p>
+<ul class="simple">
+<li><p>“The information returned by
+<code class="docutils literal notranslate"><span class="pre">Exception_Information</span></code>.  See 11.4.1(13).”</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">Exception_Information</span></code> returns a string in the following format:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">*</span><span class="n">Exception_Name</span><span class="p">:</span><span class="o">*</span> <span class="n">nnnnn</span>
+<span class="o">*</span><span class="n">Message</span><span class="p">:</span><span class="o">*</span> <span class="n">mmmmm</span>
+<span class="o">*</span><span class="n">PID</span><span class="p">:</span><span class="o">*</span> <span class="n">ppp</span>
+<span class="o">*</span><span class="n">Load</span> <span class="n">address</span><span class="p">:</span><span class="o">*</span> <span class="mi">0</span><span class="n">xhhhh</span>
+<span class="o">*</span><span class="n">Call</span> <span class="n">stack</span> <span class="n">traceback</span> <span class="n">locations</span><span class="p">:</span><span class="o">*</span>
+<span class="mi">0</span><span class="n">xhhhh</span> <span class="mi">0</span><span class="n">xhhhh</span> <span class="mi">0</span><span class="n">xhhhh</span> <span class="o">...</span> <span class="mi">0</span><span class="n">xhhh</span>
+</pre></div>
+</div>
+<p>where</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">nnnn</span></code> is the fully qualified name of the exception in all upper
+case letters. This line is always present.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mmmm</span></code> is the message (this line present only if message is non-null)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ppp</span></code> is the Process Id value as a decimal integer (this line is
+present only if the Process Id is nonzero). Currently we are
+not making use of this field.</p></li>
+<li><p>The Load address line, the Call stack traceback locations line and the
+following values are present only if at least one traceback location was
+recorded. The Load address indicates the address at which the main executable
+was loaded; this line may not be present if operating system hasn’t relocated
+the main executable. The values are given in C style format, with lower case
+letters for a-f, and only as many digits present as are necessary.
+The line terminator sequence at the end of each line, including
+the last line is a single <code class="docutils literal notranslate"><span class="pre">LF</span></code> character (<code class="docutils literal notranslate"><span class="pre">16#0A#</span></code>).</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p>“Implementation-defined check names.  See 11.5(27).”</p></li>
+</ul>
+<p>The implementation defined check names include Alignment_Check,
+Atomic_Synchronization, Duplicated_Tag_Check, Container_Checks,
+Tampering_Check, Predicate_Check, and Validity_Check. In addition, a user
+program can add implementation-defined check names by means of the pragma
+Check_Name. See the description of pragma <code class="docutils literal notranslate"><span class="pre">Suppress</span></code> for full details.</p>
+<ul class="simple">
+<li><p>“The interpretation of each aspect of representation.  See
+13.1(20).”</p></li>
+</ul>
+<p>See separate section on data representations.</p>
+<ul class="simple">
+<li><p>“Any restrictions placed upon representation items.  See
+13.1(20).”</p></li>
+</ul>
+<p>See separate section on data representations.</p>
+<ul class="simple">
+<li><p>“The meaning of <code class="docutils literal notranslate"><span class="pre">Size</span></code> for indefinite subtypes.  See
+13.3(48).”</p></li>
+</ul>
+<p>Size for an indefinite subtype is the maximum possible size, except that
+for the case of a subprogram parameter, the size of the parameter object
+is the actual size.</p>
+<ul class="simple">
+<li><p>“The default external representation for a type tag.  See
+13.3(75).”</p></li>
+</ul>
+<p>The default external representation for a type tag is the fully expanded
+name of the type in upper case letters.</p>
+<ul class="simple">
+<li><p>“What determines whether a compilation unit is the same in
+two different partitions.  See 13.3(76).”</p></li>
+</ul>
+<p>A compilation unit is the same in two different partitions if and only
+if it derives from the same source file.</p>
+<ul class="simple">
+<li><p>“Implementation-defined components.  See 13.5.1(15).”</p></li>
+</ul>
+<p>The only implementation defined component is the tag for a tagged type,
+which contains a pointer to the dispatching table.</p>
+<ul class="simple">
+<li><p>“If <code class="docutils literal notranslate"><span class="pre">Word_Size</span></code> = <code class="docutils literal notranslate"><span class="pre">Storage_Unit</span></code>, the default bit
+ordering.  See 13.5.3(5).”</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">Word_Size</span></code> (32) is not the same as <code class="docutils literal notranslate"><span class="pre">Storage_Unit</span></code> (8) for this
+implementation, so no non-default bit ordering is supported.  The default
+bit ordering corresponds to the natural endianness of the target architecture.</p>
+<ul class="simple">
+<li><p>“The contents of the visible part of package <code class="docutils literal notranslate"><span class="pre">System</span></code>
+and its language-defined children.  See 13.7(2).”</p></li>
+</ul>
+<p>See the definition of these packages in files <code class="file docutils literal notranslate"><span class="pre">system.ads</span></code> and
+<code class="file docutils literal notranslate"><span class="pre">s-stoele.ads</span></code>. Note that two declarations are added to package
+System.</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="n">Max_Priority</span>           <span class="o">:</span> <span class="kr">constant</span><span class="p"> </span><span class="n">Positive</span> <span class="o">:=</span> <span class="n">Priority</span><span class="na">&#39;Last</span><span class="p">;</span>
+<span class="n">Max_Interrupt_Priority</span> <span class="o">:</span> <span class="kr">constant</span><span class="p"> </span><span class="n">Positive</span> <span class="o">:=</span> <span class="n">Interrupt_Priority</span><span class="na">&#39;Last</span><span class="p">;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>“The contents of the visible part of package
+<code class="docutils literal notranslate"><span class="pre">System.Machine_Code</span></code>, and the meaning of
+<em>code_statements</em>.  See 13.8(7).”</p></li>
+</ul>
+<p>See the definition and documentation in file <code class="file docutils literal notranslate"><span class="pre">s-maccod.ads</span></code>.</p>
+<ul class="simple">
+<li><p>“The effect of unchecked conversion.  See 13.9(11).”</p></li>
+</ul>
+<p>Unchecked conversion between types of the same size
+results in an uninterpreted transmission of the bits from one type
+to the other.  If the types are of unequal sizes, then in the case of
+discrete types, a shorter source is first zero or sign extended as
+necessary, and a shorter target is simply truncated on the left.
+For all non-discrete types, the source is first copied if necessary
+to ensure that the alignment requirements of the target are met, then
+a pointer is constructed to the source value, and the result is obtained
+by dereferencing this pointer after converting it to be a pointer to the
+target type. Unchecked conversions where the target subtype is an
+unconstrained array are not permitted. If the target alignment is
+greater than the source alignment, then a copy of the result is
+made with appropriate alignment</p>
+<ul class="simple">
+<li><p>“The semantics of operations on invalid representations.
+See 13.9.2(10-11).”</p></li>
+</ul>
+<p>For assignments and other operations where the use of invalid values cannot
+result in erroneous behavior, the compiler ignores the possibility of invalid
+values. An exception is raised at the point where an invalid value would
+result in erroneous behavior. For example executing:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="k">procedure </span><span class="nf">invalidvals</span> <span class="kr">is</span><span class="p"></span>
+  <span class="n">X</span> <span class="o">:</span> <span class="n">Integer</span> <span class="o">:=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+  <span class="n">Y</span> <span class="o">:</span> <span class="n">Natural</span> <span class="kr">range</span><span class="p"> </span><span class="mi">1</span> <span class="o">..</span> <span class="mi">10</span><span class="p">;</span>
+  <span class="kr">for</span><span class="p"> </span><span class="n">Y</span><span class="na">&#39;Address</span> <span class="kr">use</span><span class="p"> </span><span class="n">X</span><span class="na">&#39;Address</span><span class="p">;</span>
+  <span class="n">Z</span> <span class="o">:</span> <span class="n">Natural</span> <span class="kr">range</span><span class="p"> </span><span class="mi">1</span> <span class="o">..</span> <span class="mi">10</span><span class="p">;</span>
+  <span class="n">A</span> <span class="o">:</span> <span class="kr">array</span><span class="p"> </span><span class="o">(</span><span class="n">Natural</span> <span class="kr">range</span><span class="p"> </span><span class="mi">1</span> <span class="o">..</span> <span class="mi">10</span><span class="o">)</span> <span class="kr">of</span><span class="p"> </span><span class="n">Integer</span><span class="p">;</span>
+<span class="kr">begin</span><span class="p"></span>
+  <span class="n">Z</span> <span class="o">:=</span> <span class="n">Y</span><span class="p">;</span>     <span class="c">-- no exception</span>
+  <span class="n">A</span> <span class="o">(</span><span class="n">Z</span><span class="o">)</span> <span class="o">:=</span> <span class="mi">3</span><span class="p">;</span> <span class="c">-- exception raised;</span>
+<span class="kr">end</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>As indicated, an exception is raised on the array assignment, but not
+on the simple assignment of the invalid negative value from Y to Z.</p>
+<ul class="simple">
+<li><p>“The manner of choosing a storage pool for an access type
+when <code class="docutils literal notranslate"><span class="pre">Storage_Pool</span></code> is not specified for the type.  See 13.11(17).”</p></li>
+</ul>
+<p>There are 3 different standard pools used by the compiler when
+<code class="docutils literal notranslate"><span class="pre">Storage_Pool</span></code> is not specified depending whether the type is local
+to a subprogram or defined at the library level and whether
+<code class="docutils literal notranslate"><span class="pre">Storage_Size``is</span> <span class="pre">specified</span> <span class="pre">or</span> <span class="pre">not.</span>&#160; <span class="pre">See</span> <span class="pre">documentation</span> <span class="pre">in</span> <span class="pre">the</span> <span class="pre">runtime</span>
+<span class="pre">library</span> <span class="pre">units</span> <span class="pre">``System.Pool_Global</span></code>, <code class="docutils literal notranslate"><span class="pre">System.Pool_Size</span></code> and
+<code class="docutils literal notranslate"><span class="pre">System.Pool_Local</span></code> in files <code class="file docutils literal notranslate"><span class="pre">s-poosiz.ads</span></code>,
+<code class="file docutils literal notranslate"><span class="pre">s-pooglo.ads</span></code> and <code class="file docutils literal notranslate"><span class="pre">s-pooloc.ads</span></code> for full details on the
+default pools used.</p>
+<ul class="simple">
+<li><p>“Whether or not the implementation provides user-accessible
+names for the standard pool type(s).  See 13.11(17).”</p></li>
+</ul>
+<p>See documentation in the sources of the run time mentioned in the previous
+paragraph.  All these pools are accessible by means of <cite>with</cite>ing
+these units.</p>
+<ul class="simple">
+<li><p>“The meaning of <code class="docutils literal notranslate"><span class="pre">Storage_Size</span></code>.  See 13.11(18).”</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">Storage_Size</span></code> is measured in storage units, and refers to the
+total space available for an access type collection, or to the primary
+stack space for a task.</p>
+<ul class="simple">
+<li><p>“Implementation-defined aspects of storage pools.  See
+13.11(22).”</p></li>
+</ul>
+<p>See documentation in the sources of the run time mentioned in the
+paragraph about standard storage pools above
+for details on GNAT-defined aspects of storage pools.</p>
+<ul class="simple">
+<li><p>“The set of restrictions allowed in a pragma
+<code class="docutils literal notranslate"><span class="pre">Restrictions</span></code>.  See 13.12(7).”</p></li>
+</ul>
+<p>See <a class="reference internal" href="standard_and_implementation_defined_restrictions.html#standard-and-implementation-defined-restrictions"><span class="std std-ref">Standard and Implementation Defined Restrictions</span></a>.</p>
+<ul class="simple">
+<li><p>“The consequences of violating limitations on
+<code class="docutils literal notranslate"><span class="pre">Restrictions</span></code> pragmas.  See 13.12(9).”</p></li>
+</ul>
+<p>Restrictions that can be checked at compile time result in illegalities
+if violated.  Currently there are no other consequences of violating
+restrictions.</p>
+<ul class="simple">
+<li><p>“The representation used by the <code class="docutils literal notranslate"><span class="pre">Read</span></code> and
+<code class="docutils literal notranslate"><span class="pre">Write</span></code> attributes of elementary types in terms of stream
+elements.  See 13.13.2(9).”</p></li>
+</ul>
+<p>The representation is the in-memory representation of the base type of
+the type, using the number of bits corresponding to the
+<code class="docutils literal notranslate"><span class="pre">type'Size</span></code> value, and the natural ordering of the machine.</p>
+<ul class="simple">
+<li><p>“The names and characteristics of the numeric subtypes
+declared in the visible part of package <code class="docutils literal notranslate"><span class="pre">Standard</span></code>.  See A.1(3).”</p></li>
+</ul>
+<p>See items describing the integer and floating-point types supported.</p>
+<ul class="simple">
+<li><p>“The string returned by <code class="docutils literal notranslate"><span class="pre">Character_Set_Version</span></code>.
+See A.3.5(3).”</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">Ada.Wide_Characters.Handling.Character_Set_Version</span></code> returns
+the string “Unicode 4.0”, referring to version 4.0 of the
+Unicode specification.</p>
+<ul class="simple">
+<li><p>“The accuracy actually achieved by the elementary
+functions.  See A.5.1(1).”</p></li>
+</ul>
+<p>The elementary functions correspond to the functions available in the C
+library.  Only fast math mode is implemented.</p>
+<ul class="simple">
+<li><p>“The sign of a zero result from some of the operators or
+functions in <code class="docutils literal notranslate"><span class="pre">Numerics.Generic_Elementary_Functions</span></code>, when
+<code class="docutils literal notranslate"><span class="pre">Float_Type'Signed_Zeros</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code>.  See A.5.1(46).”</p></li>
+</ul>
+<p>The sign of zeroes follows the requirements of the IEEE 754 standard on
+floating-point.</p>
+<ul class="simple">
+<li><p>“The value of
+<code class="docutils literal notranslate"><span class="pre">Numerics.Float_Random.Max_Image_Width</span></code>.  See A.5.2(27).”</p></li>
+</ul>
+<p>Maximum image width is 6864, see library file <code class="file docutils literal notranslate"><span class="pre">s-rannum.ads</span></code>.</p>
+<ul class="simple">
+<li><p>“The value of
+<code class="docutils literal notranslate"><span class="pre">Numerics.Discrete_Random.Max_Image_Width</span></code>.  See A.5.2(27).”</p></li>
+</ul>
+<p>Maximum image width is 6864, see library file <code class="file docutils literal notranslate"><span class="pre">s-rannum.ads</span></code>.</p>
+<ul class="simple">
+<li><p>“The algorithms for random number generation.  See
+A.5.2(32).”</p></li>
+</ul>
+<p>The algorithm is the Mersenne Twister, as documented in the source file
+<code class="file docutils literal notranslate"><span class="pre">s-rannum.adb</span></code>. This version of the algorithm has a period of
+2**19937-1.</p>
+<ul class="simple">
+<li><p>“The string representation of a random number generator’s
+state.  See A.5.2(38).”</p></li>
+</ul>
+<p>The value returned by the Image function is the concatenation of
+the fixed-width decimal representations of the 624 32-bit integers
+of the state vector.</p>
+<ul class="simple">
+<li><p>“The minimum time interval between calls to the
+time-dependent Reset procedure that are guaranteed to initiate different
+random number sequences.  See A.5.2(45).”</p></li>
+</ul>
+<p>The minimum period between reset calls to guarantee distinct series of
+random numbers is one microsecond.</p>
+<ul class="simple">
+<li><p>“The values of the <code class="docutils literal notranslate"><span class="pre">Model_Mantissa</span></code>,
+<code class="docutils literal notranslate"><span class="pre">Model_Emin</span></code>, <code class="docutils literal notranslate"><span class="pre">Model_Epsilon</span></code>, <code class="docutils literal notranslate"><span class="pre">Model</span></code>,
+<code class="docutils literal notranslate"><span class="pre">Safe_First</span></code>, and <code class="docutils literal notranslate"><span class="pre">Safe_Last</span></code> attributes, if the Numerics
+Annex is not supported.  See A.5.3(72).”</p></li>
+</ul>
+<p>Run the compiler with <em>-gnatS</em> to produce a listing of package
+<code class="docutils literal notranslate"><span class="pre">Standard</span></code>, has the values of all numeric attributes.</p>
+<ul class="simple">
+<li><p>“Any implementation-defined characteristics of the
+input-output packages.  See A.7(14).”</p></li>
+</ul>
+<p>There are no special implementation defined characteristics for these
+packages.</p>
+<ul class="simple">
+<li><p>“The value of <code class="docutils literal notranslate"><span class="pre">Buffer_Size</span></code> in <code class="docutils literal notranslate"><span class="pre">Storage_IO</span></code>.  See
+A.9(10).”</p></li>
+</ul>
+<p>All type representations are contiguous, and the <code class="docutils literal notranslate"><span class="pre">Buffer_Size</span></code> is
+the value of <code class="docutils literal notranslate"><span class="pre">type'Size</span></code> rounded up to the next storage unit
+boundary.</p>
+<ul class="simple">
+<li><p>“External files for standard input, standard output, and
+standard error See A.10(5).”</p></li>
+</ul>
+<p>These files are mapped onto the files provided by the C streams
+libraries.  See source file <code class="file docutils literal notranslate"><span class="pre">i-cstrea.ads</span></code> for further details.</p>
+<ul class="simple">
+<li><p>“The accuracy of the value produced by <code class="docutils literal notranslate"><span class="pre">Put</span></code>.  See
+A.10.9(36).”</p></li>
+</ul>
+<p>If more digits are requested in the output than are represented by the
+precision of the value, zeroes are output in the corresponding least
+significant digit positions.</p>
+<ul class="simple">
+<li><p>“The meaning of <code class="docutils literal notranslate"><span class="pre">Argument_Count</span></code>, <code class="docutils literal notranslate"><span class="pre">Argument</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">Command_Name</span></code>.  See A.15(1).”</p></li>
+</ul>
+<p>These are mapped onto the <code class="docutils literal notranslate"><span class="pre">argv</span></code> and <code class="docutils literal notranslate"><span class="pre">argc</span></code> parameters of the
+main program in the natural manner.</p>
+<ul class="simple">
+<li><p>“The interpretation of the <code class="docutils literal notranslate"><span class="pre">Form</span></code> parameter in procedure
+<code class="docutils literal notranslate"><span class="pre">Create_Directory</span></code>.  See A.16(56).”</p></li>
+</ul>
+<p>The <code class="docutils literal notranslate"><span class="pre">Form</span></code> parameter is not used.</p>
+<ul class="simple">
+<li><p>“The interpretation of the <code class="docutils literal notranslate"><span class="pre">Form</span></code> parameter in procedure
+<code class="docutils literal notranslate"><span class="pre">Create_Path</span></code>.  See A.16(60).”</p></li>
+</ul>
+<p>The <code class="docutils literal notranslate"><span class="pre">Form</span></code> parameter is not used.</p>
+<ul class="simple">
+<li><p>“The interpretation of the <code class="docutils literal notranslate"><span class="pre">Form</span></code> parameter in procedure
+<code class="docutils literal notranslate"><span class="pre">Copy_File</span></code>.  See A.16(68).”</p></li>
+</ul>
+<p>The <code class="docutils literal notranslate"><span class="pre">Form</span></code> parameter is case-insensitive.
+Two fields are recognized in the <code class="docutils literal notranslate"><span class="pre">Form</span></code> parameter:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">*</span><span class="n">preserve</span><span class="o">=&lt;</span><span class="n">value</span><span class="o">&gt;*</span>
+<span class="o">*</span><span class="n">mode</span><span class="o">=&lt;</span><span class="n">value</span><span class="o">&gt;*</span>
+</pre></div>
+</div>
+<p>&lt;value&gt; starts immediately after the character ‘=’ and ends with the
+character immediately preceding the next comma (‘,’) or with the last
+character of the parameter.</p>
+<p>The only possible values for preserve= are:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 21%" />
+<col style="width: 79%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Value</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><em>no_attributes</em></p></td>
+<td><p>Do not try to preserve any file attributes. This is the
+default if no preserve= is found in Form.</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>all_attributes</em></p></td>
+<td><p>Try to preserve all file attributes (timestamps, access rights).</p></td>
+</tr>
+<tr class="row-even"><td><p><em>timestamps</em></p></td>
+<td><p>Preserve the timestamp of the copied file, but not the other
+file attributes.</p></td>
+</tr>
+</tbody>
+</table>
+<p>The only possible values for mode= are:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 85%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Value</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><em>copy</em></p></td>
+<td><p>Only do the copy if the destination file does not already exist.
+If it already exists, Copy_File fails.</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>overwrite</em></p></td>
+<td><p>Copy the file in all cases. Overwrite an already existing destination file.</p></td>
+</tr>
+<tr class="row-even"><td><p><em>append</em></p></td>
+<td><p>Append the original file to the destination file. If the destination file
+does not exist, the destination file is a copy of the source file.
+When mode=append, the field preserve=, if it exists, is not taken into account.</p></td>
+</tr>
+</tbody>
+</table>
+<p>If the Form parameter includes one or both of the fields and the value or
+values are incorrect, Copy_file fails with Use_Error.</p>
+<p>Examples of correct Forms:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Form</span> <span class="o">=&gt;</span> <span class="s2">&quot;preserve=no_attributes,mode=overwrite&quot;</span> <span class="p">(</span><span class="n">the</span> <span class="n">default</span><span class="p">)</span>
+<span class="n">Form</span> <span class="o">=&gt;</span> <span class="s2">&quot;mode=append&quot;</span>
+<span class="n">Form</span> <span class="o">=&gt;</span> <span class="s2">&quot;mode=copy, preserve=all_attributes&quot;</span>
+</pre></div>
+</div>
+<p>Examples of incorrect Forms:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Form</span> <span class="o">=&gt;</span> <span class="s2">&quot;preserve=junk&quot;</span>
+<span class="n">Form</span> <span class="o">=&gt;</span> <span class="s2">&quot;mode=internal, preserve=timestamps&quot;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>“The interpretation of the <code class="docutils literal notranslate"><span class="pre">Pattern</span></code> parameter, when not the null string,
+in the <code class="docutils literal notranslate"><span class="pre">Start_Search</span></code> and <code class="docutils literal notranslate"><span class="pre">Search</span></code> procedures.
+See A.16(104) and A.16(112).”</p></li>
+</ul>
+<p>When the <code class="docutils literal notranslate"><span class="pre">Pattern</span></code> parameter is not the null string, it is interpreted
+according to the syntax of regular expressions as defined in the
+<code class="docutils literal notranslate"><span class="pre">GNAT.Regexp</span></code> package.</p>
+<p>See <a class="reference internal" href="the_gnat_library.html#gnat-regexp-g-regexp-ads"><span class="std std-ref">GNAT.Regexp (g-regexp.ads)</span></a>.</p>
+<ul class="simple">
+<li><p>“Implementation-defined convention names.  See B.1(11).”</p></li>
+</ul>
+<p>The following convention names are supported</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 23%" />
+<col style="width: 77%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Convention Name</p></th>
+<th class="head"><p>Interpretation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><em>Ada</em></p></td>
+<td><p>Ada</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>Ada_Pass_By_Copy</em></p></td>
+<td><p>Allowed for any types except by-reference types such as limited
+records. Compatible with convention Ada, but causes any parameters
+with this convention to be passed by copy.</p></td>
+</tr>
+<tr class="row-even"><td><p><em>Ada_Pass_By_Reference</em></p></td>
+<td><p>Allowed for any types except by-copy types such as scalars.
+Compatible with convention Ada, but causes any parameters
+with this convention to be passed by reference.</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>Assembler</em></p></td>
+<td><p>Assembly language</p></td>
+</tr>
+<tr class="row-even"><td><p><em>Asm</em></p></td>
+<td><p>Synonym for Assembler</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>Assembly</em></p></td>
+<td><p>Synonym for Assembler</p></td>
+</tr>
+<tr class="row-even"><td><p><em>C</em></p></td>
+<td><p>C</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>C_Pass_By_Copy</em></p></td>
+<td><p>Allowed only for record types, like C, but also notes that record
+is to be passed by copy rather than reference.</p></td>
+</tr>
+<tr class="row-even"><td><p><em>COBOL</em></p></td>
+<td><p>COBOL</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>C_Plus_Plus (or CPP)</em></p></td>
+<td><p>C++</p></td>
+</tr>
+<tr class="row-even"><td><p><em>Default</em></p></td>
+<td><p>Treated the same as C</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>External</em></p></td>
+<td><p>Treated the same as C</p></td>
+</tr>
+<tr class="row-even"><td><p><em>Fortran</em></p></td>
+<td><p>Fortran</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>Intrinsic</em></p></td>
+<td><p>For support of pragma <code class="docutils literal notranslate"><span class="pre">Import</span></code> with convention Intrinsic, see
+separate section on Intrinsic Subprograms.</p></td>
+</tr>
+<tr class="row-even"><td><p><em>Stdcall</em></p></td>
+<td><p>Stdcall (used for Windows implementations only).  This convention correspond
+to the WINAPI (previously called Pascal convention) C/C++ convention under
+Windows.  A routine with this convention cleans the stack before
+exit. This pragma cannot be applied to a dispatching call.</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>DLL</em></p></td>
+<td><p>Synonym for Stdcall</p></td>
+</tr>
+<tr class="row-even"><td><p><em>Win32</em></p></td>
+<td><p>Synonym for Stdcall</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>Stubbed</em></p></td>
+<td><p>Stubbed is a special convention used to indicate that the body of the
+subprogram will be entirely ignored.  Any call to the subprogram
+is converted into a raise of the <code class="docutils literal notranslate"><span class="pre">Program_Error</span></code> exception.  If a
+pragma <code class="docutils literal notranslate"><span class="pre">Import</span></code> specifies convention <code class="docutils literal notranslate"><span class="pre">stubbed</span></code> then no body need
+be present at all.  This convention is useful during development for the
+inclusion of subprograms whose body has not yet been written.
+In addition, all otherwise unrecognized convention names are also
+treated as being synonymous with convention C.  In all implementations,
+use of such other names results in a warning.</p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p>“The meaning of link names.  See B.1(36).”</p></li>
+</ul>
+<p>Link names are the actual names used by the linker.</p>
+<ul class="simple">
+<li><p>“The manner of choosing link names when neither the link
+name nor the address of an imported or exported entity is specified.  See
+B.1(36).”</p></li>
+</ul>
+<p>The default linker name is that which would be assigned by the relevant
+external language, interpreting the Ada name as being in all lower case
+letters.</p>
+<ul class="simple">
+<li><p>“The effect of pragma <code class="docutils literal notranslate"><span class="pre">Linker_Options</span></code>.  See B.1(37).”</p></li>
+</ul>
+<p>The string passed to <code class="docutils literal notranslate"><span class="pre">Linker_Options</span></code> is presented uninterpreted as
+an argument to the link command, unless it contains ASCII.NUL characters.
+NUL characters if they appear act as argument separators, so for example</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kr">pragma</span><span class="p"> </span><span class="n">Linker_Options</span> <span class="o">(</span><span class="s">&quot;-labc&quot;</span> <span class="o">&amp;</span> <span class="n">ASCII.NUL</span> <span class="o">&amp;</span> <span class="s">&quot;-ldef&quot;</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>causes two separate arguments <code class="docutils literal notranslate"><span class="pre">-labc</span></code> and <code class="docutils literal notranslate"><span class="pre">-ldef</span></code> to be passed to the
+linker. The order of linker options is preserved for a given unit. The final
+list of options passed to the linker is in reverse order of the elaboration
+order. For example, linker options for a body always appear before the options
+from the corresponding package spec.</p>
+<ul class="simple">
+<li><p>“The contents of the visible part of package
+<code class="docutils literal notranslate"><span class="pre">Interfaces</span></code> and its language-defined descendants.  See B.2(1).”</p></li>
+</ul>
+<p>See files with prefix <code class="file docutils literal notranslate"><span class="pre">i-</span></code> in the distributed library.</p>
+<ul class="simple">
+<li><p>“Implementation-defined children of package
+<code class="docutils literal notranslate"><span class="pre">Interfaces</span></code>.  The contents of the visible part of package
+<code class="docutils literal notranslate"><span class="pre">Interfaces</span></code>.  See B.2(11).”</p></li>
+</ul>
+<p>See files with prefix <code class="file docutils literal notranslate"><span class="pre">i-</span></code> in the distributed library.</p>
+<ul class="simple">
+<li><p>“The types <code class="docutils literal notranslate"><span class="pre">Floating</span></code>, <code class="docutils literal notranslate"><span class="pre">Long_Floating</span></code>,
+<code class="docutils literal notranslate"><span class="pre">Binary</span></code>, <code class="docutils literal notranslate"><span class="pre">Long_Binary</span></code>, <code class="docutils literal notranslate"><span class="pre">Decimal_</span> <span class="pre">Element</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">COBOL_Character</span></code>; and the initialization of the variables
+<code class="docutils literal notranslate"><span class="pre">Ada_To_COBOL</span></code> and <code class="docutils literal notranslate"><span class="pre">COBOL_To_Ada</span></code>, in
+<code class="docutils literal notranslate"><span class="pre">Interfaces.COBOL</span></code>.  See B.4(50).”</p></li>
+</ul>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 37%" />
+<col style="width: 63%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>COBOL</p></th>
+<th class="head"><p>Ada</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><em>Floating</em></p></td>
+<td><p>Float</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>Long_Floating</em></p></td>
+<td><p>(Floating) Long_Float</p></td>
+</tr>
+<tr class="row-even"><td><p><em>Binary</em></p></td>
+<td><p>Integer</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>Long_Binary</em></p></td>
+<td><p>Long_Long_Integer</p></td>
+</tr>
+<tr class="row-even"><td><p><em>Decimal_Element</em></p></td>
+<td><p>Character</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>COBOL_Character</em></p></td>
+<td><p>Character</p></td>
+</tr>
+</tbody>
+</table>
+<p>For initialization, see the file <code class="file docutils literal notranslate"><span class="pre">i-cobol.ads</span></code> in the distributed library.</p>
+<ul class="simple">
+<li><p>“Support for access to machine instructions.  See C.1(1).”</p></li>
+</ul>
+<p>See documentation in file <code class="file docutils literal notranslate"><span class="pre">s-maccod.ads</span></code> in the distributed library.</p>
+<ul class="simple">
+<li><p>“Implementation-defined aspects of access to machine
+operations.  See C.1(9).”</p></li>
+</ul>
+<p>See documentation in file <code class="file docutils literal notranslate"><span class="pre">s-maccod.ads</span></code> in the distributed library.</p>
+<ul class="simple">
+<li><p>“Implementation-defined aspects of interrupts.  See C.3(2).”</p></li>
+</ul>
+<p>Interrupts are mapped to signals or conditions as appropriate.  See
+definition of unit
+<code class="docutils literal notranslate"><span class="pre">Ada.Interrupt_Names</span></code> in source file <code class="file docutils literal notranslate"><span class="pre">a-intnam.ads</span></code> for details
+on the interrupts supported on a particular target.</p>
+<ul class="simple">
+<li><p>“Implementation-defined aspects of pre-elaboration.  See
+C.4(13).”</p></li>
+</ul>
+<p>GNAT does not permit a partition to be restarted without reloading,
+except under control of the debugger.</p>
+<ul class="simple">
+<li><p>“The semantics of pragma <code class="docutils literal notranslate"><span class="pre">Discard_Names</span></code>.  See C.5(7).”</p></li>
+</ul>
+<p>Pragma <code class="docutils literal notranslate"><span class="pre">Discard_Names</span></code> causes names of enumeration literals to
+be suppressed.  In the presence of this pragma, the Image attribute
+provides the image of the Pos of the literal, and Value accepts
+Pos values.</p>
+<p>For tagged types, when pragmas <code class="docutils literal notranslate"><span class="pre">Discard_Names</span></code> and <code class="docutils literal notranslate"><span class="pre">No_Tagged_Streams</span></code>
+simultaneously apply, their Expanded_Name and External_Tag are initialized
+with empty strings. This is useful to avoid exposing entity names at binary
+level.</p>
+<ul class="simple">
+<li><p>“The result of the <code class="docutils literal notranslate"><span class="pre">Task_Identification.Image</span></code>
+attribute.  See C.7.1(7).”</p></li>
+</ul>
+<p>The result of this attribute is a string that identifies
+the object or component that denotes a given task. If a variable <code class="docutils literal notranslate"><span class="pre">Var</span></code>
+has a task type, the image for this task will have the form <code class="samp docutils literal notranslate"><span class="pre">Var_</span><em><span class="pre">XXXXXXXX</span></em></code>,
+where the suffix <em>XXXXXXXX</em>
+is the hexadecimal representation of the virtual address of the corresponding
+task control block. If the variable is an array of tasks, the image of each
+task will have the form of an indexed component indicating the position of a
+given task in the array, e.g., <code class="samp docutils literal notranslate"><span class="pre">Group(5)_</span><em><span class="pre">XXXXXXX</span></em></code>. If the task is a
+component of a record, the image of the task will have the form of a selected
+component. These rules are fully recursive, so that the image of a task that
+is a subcomponent of a composite object corresponds to the expression that
+designates this task.</p>
+<p>If a task is created by an allocator, its image depends on the context. If the
+allocator is part of an object declaration, the rules described above are used
+to construct its image, and this image is not affected by subsequent
+assignments. If the allocator appears within an expression, the image
+includes only the name of the task type.</p>
+<p>If the configuration pragma Discard_Names is present, or if the restriction
+No_Implicit_Heap_Allocation is in effect,  the image reduces to
+the numeric suffix, that is to say the hexadecimal representation of the
+virtual address of the control block of the task.</p>
+<ul class="simple">
+<li><p>“The value of <code class="docutils literal notranslate"><span class="pre">Current_Task</span></code> when in a protected entry
+or interrupt handler.  See C.7.1(17).”</p></li>
+</ul>
+<p>Protected entries or interrupt handlers can be executed by any
+convenient thread, so the value of <code class="docutils literal notranslate"><span class="pre">Current_Task</span></code> is undefined.</p>
+<ul class="simple">
+<li><p>“The effect of calling <code class="docutils literal notranslate"><span class="pre">Current_Task</span></code> from an entry
+body or interrupt handler.  See C.7.1(19).”</p></li>
+</ul>
+<p>When GNAT can determine statically that <code class="docutils literal notranslate"><span class="pre">Current_Task</span></code> is called directly in
+the body of an entry (or barrier) then a warning is emitted and <code class="docutils literal notranslate"><span class="pre">Program_Error</span></code>
+is raised at run time. Otherwise, the effect of calling <code class="docutils literal notranslate"><span class="pre">Current_Task</span></code> from an
+entry body or interrupt handler is to return the identification of the task
+currently executing the code.</p>
+<ul class="simple">
+<li><p>“Implementation-defined aspects of
+<code class="docutils literal notranslate"><span class="pre">Task_Attributes</span></code>.  See C.7.2(19).”</p></li>
+</ul>
+<p>There are no implementation-defined aspects of <code class="docutils literal notranslate"><span class="pre">Task_Attributes</span></code>.</p>
+<ul class="simple">
+<li><p>“Values of all <code class="docutils literal notranslate"><span class="pre">Metrics</span></code>.  See D(2).”</p></li>
+</ul>
+<p>The metrics information for GNAT depends on the performance of the
+underlying operating system.  The sources of the run-time for tasking
+implementation, together with the output from <em>-gnatG</em> can be
+used to determine the exact sequence of operating systems calls made
+to implement various tasking constructs.  Together with appropriate
+information on the performance of the underlying operating system,
+on the exact target in use, this information can be used to determine
+the required metrics.</p>
+<ul class="simple">
+<li><p>“The declarations of <code class="docutils literal notranslate"><span class="pre">Any_Priority</span></code> and
+<code class="docutils literal notranslate"><span class="pre">Priority</span></code>.  See D.1(11).”</p></li>
+</ul>
+<p>See declarations in file <code class="file docutils literal notranslate"><span class="pre">system.ads</span></code>.</p>
+<ul class="simple">
+<li><p>“Implementation-defined execution resources.  See D.1(15).”</p></li>
+</ul>
+<p>There are no implementation-defined execution resources.</p>
+<ul class="simple">
+<li><p>“Whether, on a multiprocessor, a task that is waiting for
+access to a protected object keeps its processor busy.  See D.2.1(3).”</p></li>
+</ul>
+<p>On a multi-processor, a task that is waiting for access to a protected
+object does not keep its processor busy.</p>
+<ul class="simple">
+<li><p>“The affect of implementation defined execution resources
+on task dispatching.  See D.2.1(9).”</p></li>
+</ul>
+<p>Tasks map to threads in the threads package used by GNAT.  Where possible
+and appropriate, these threads correspond to native threads of the
+underlying operating system.</p>
+<ul class="simple">
+<li><p>“Implementation-defined <em>policy_identifiers</em> allowed
+in a pragma <code class="docutils literal notranslate"><span class="pre">Task_Dispatching_Policy</span></code>.  See D.2.2(3).”</p></li>
+</ul>
+<p>There are no implementation-defined policy-identifiers allowed in this
+pragma.</p>
+<ul class="simple">
+<li><p>“Implementation-defined aspects of priority inversion.  See
+D.2.2(16).”</p></li>
+</ul>
+<p>Execution of a task cannot be preempted by the implementation processing
+of delay expirations for lower priority tasks.</p>
+<ul class="simple">
+<li><p>“Implementation-defined task dispatching.  See D.2.2(18).”</p></li>
+</ul>
+<p>The policy is the same as that of the underlying threads implementation.</p>
+<ul class="simple">
+<li><p>“Implementation-defined <em>policy_identifiers</em> allowed
+in a pragma <code class="docutils literal notranslate"><span class="pre">Locking_Policy</span></code>.  See D.3(4).”</p></li>
+</ul>
+<p>The two implementation defined policies permitted in GNAT are
+<code class="docutils literal notranslate"><span class="pre">Inheritance_Locking</span></code> and  <code class="docutils literal notranslate"><span class="pre">Concurrent_Readers_Locking</span></code>. On
+targets that support the <code class="docutils literal notranslate"><span class="pre">Inheritance_Locking</span></code> policy, locking is
+implemented by inheritance, i.e., the task owning the lock operates
+at a priority equal to the highest priority of any task currently
+requesting the lock. On targets that support the
+<code class="docutils literal notranslate"><span class="pre">Concurrent_Readers_Locking</span></code> policy, locking is implemented with a
+read/write lock allowing multiple protected object functions to enter
+concurrently.</p>
+<ul class="simple">
+<li><p>“Default ceiling priorities.  See D.3(10).”</p></li>
+</ul>
+<p>The ceiling priority of protected objects of the type
+<code class="docutils literal notranslate"><span class="pre">System.Interrupt_Priority'Last</span></code> as described in the Ada
+Reference Manual D.3(10),</p>
+<ul class="simple">
+<li><p>“The ceiling of any protected object used internally by
+the implementation.  See D.3(16).”</p></li>
+</ul>
+<p>The ceiling priority of internal protected objects is
+<code class="docutils literal notranslate"><span class="pre">System.Priority'Last</span></code>.</p>
+<ul class="simple">
+<li><p>“Implementation-defined queuing policies.  See D.4(1).”</p></li>
+</ul>
+<p>There are no implementation-defined queuing policies.</p>
+<ul class="simple">
+<li><p>“On a multiprocessor, any conditions that cause the
+completion of an aborted construct to be delayed later than what is
+specified for a single processor.  See D.6(3).”</p></li>
+</ul>
+<p>The semantics for abort on a multi-processor is the same as on a single
+processor, there are no further delays.</p>
+<ul class="simple">
+<li><p>“Any operations that implicitly require heap storage
+allocation.  See D.7(8).”</p></li>
+</ul>
+<p>The only operation that implicitly requires heap storage allocation is
+task creation.</p>
+<ul class="simple">
+<li><p>“What happens when a task terminates in the presence of
+pragma <code class="docutils literal notranslate"><span class="pre">No_Task_Termination</span></code>. See D.7(15).”</p></li>
+</ul>
+<p>Execution is erroneous in that case.</p>
+<ul class="simple">
+<li><p>“Implementation-defined aspects of pragma
+<code class="docutils literal notranslate"><span class="pre">Restrictions</span></code>.  See D.7(20).”</p></li>
+</ul>
+<p>There are no such implementation-defined aspects.</p>
+<ul class="simple">
+<li><p>“Implementation-defined aspects of package
+<code class="docutils literal notranslate"><span class="pre">Real_Time</span></code>.  See D.8(17).”</p></li>
+</ul>
+<p>There are no implementation defined aspects of package <code class="docutils literal notranslate"><span class="pre">Real_Time</span></code>.</p>
+<ul class="simple">
+<li><p>“Implementation-defined aspects of
+<em>delay_statements</em>.  See D.9(8).”</p></li>
+</ul>
+<p>Any difference greater than one microsecond will cause the task to be
+delayed (see D.9(7)).</p>
+<ul class="simple">
+<li><p>“The upper bound on the duration of interrupt blocking
+caused by the implementation.  See D.12(5).”</p></li>
+</ul>
+<p>The upper bound is determined by the underlying operating system.  In
+no cases is it more than 10 milliseconds.</p>
+<ul class="simple">
+<li><p>“The means for creating and executing distributed
+programs.  See E(5).”</p></li>
+</ul>
+<p>The GLADE package provides a utility GNATDIST for creating and executing
+distributed programs.  See the GLADE reference manual for further details.</p>
+<ul class="simple">
+<li><p>“Any events that can result in a partition becoming
+inaccessible.  See E.1(7).”</p></li>
+</ul>
+<p>See the GLADE reference manual for full details on such events.</p>
+<ul class="simple">
+<li><p>“The scheduling policies, treatment of priorities, and
+management of shared resources between partitions in certain cases.  See
+E.1(11).”</p></li>
+</ul>
+<p>See the GLADE reference manual for full details on these aspects of
+multi-partition execution.</p>
+<ul class="simple">
+<li><p>“Events that cause the version of a compilation unit to
+change.  See E.3(5).”</p></li>
+</ul>
+<p>Editing the source file of a compilation unit, or the source files of
+any units on which it is dependent in a significant way cause the version
+to change.  No other actions cause the version number to change.  All changes
+are significant except those which affect only layout, capitalization or
+comments.</p>
+<ul class="simple">
+<li><p>“Whether the execution of the remote subprogram is
+immediately aborted as a result of cancellation.  See E.4(13).”</p></li>
+</ul>
+<p>See the GLADE reference manual for details on the effect of abort in
+a distributed application.</p>
+<ul class="simple">
+<li><p>“Implementation-defined aspects of the PCS.  See E.5(25).”</p></li>
+</ul>
+<p>See the GLADE reference manual for a full description of all implementation
+defined aspects of the PCS.</p>
+<ul class="simple">
+<li><p>“Implementation-defined interfaces in the PCS.  See
+E.5(26).”</p></li>
+</ul>
+<p>See the GLADE reference manual for a full description of all
+implementation defined interfaces.</p>
+<ul class="simple">
+<li><p>“The values of named numbers in the package
+<code class="docutils literal notranslate"><span class="pre">Decimal</span></code>.  See F.2(7).”</p></li>
+</ul>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 67%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Named Number</p></th>
+<th class="head"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><em>Max_Scale</em></p></td>
+<td><p>+18</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>Min_Scale</em></p></td>
+<td><p>-18</p></td>
+</tr>
+<tr class="row-even"><td><p><em>Min_Delta</em></p></td>
+<td><p>1.0E-18</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>Max_Delta</em></p></td>
+<td><p>1.0E+18</p></td>
+</tr>
+<tr class="row-even"><td><p><em>Max_Decimal_Digits</em></p></td>
+<td><p>18</p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p>“The value of <code class="docutils literal notranslate"><span class="pre">Max_Picture_Length</span></code> in the package
+<code class="docutils literal notranslate"><span class="pre">Text_IO.Editing</span></code>.  See F.3.3(16).”</p></li>
+</ul>
+<p>64</p>
+<ul class="simple">
+<li><p>“The value of <code class="docutils literal notranslate"><span class="pre">Max_Picture_Length</span></code> in the package
+<code class="docutils literal notranslate"><span class="pre">Wide_Text_IO.Editing</span></code>.  See F.3.4(5).”</p></li>
+</ul>
+<p>64</p>
+<ul class="simple">
+<li><p>“The accuracy actually achieved by the complex elementary
+functions and by other complex arithmetic operations.  See G.1(1).”</p></li>
+</ul>
+<p>Standard library functions are used for the complex arithmetic
+operations.  Only fast math mode is currently supported.</p>
+<ul class="simple">
+<li><p>“The sign of a zero result (or a component thereof) from
+any operator or function in <code class="docutils literal notranslate"><span class="pre">Numerics.Generic_Complex_Types</span></code>, when
+<code class="docutils literal notranslate"><span class="pre">Real'Signed_Zeros</span></code> is True.  See G.1.1(53).”</p></li>
+</ul>
+<p>The signs of zero values are as recommended by the relevant
+implementation advice.</p>
+<ul class="simple">
+<li><p>“The sign of a zero result (or a component thereof) from
+any operator or function in
+<code class="docutils literal notranslate"><span class="pre">Numerics.Generic_Complex_Elementary_Functions</span></code>, when
+<code class="docutils literal notranslate"><span class="pre">Real'Signed_Zeros</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code>.  See G.1.2(45).”</p></li>
+</ul>
+<p>The signs of zero values are as recommended by the relevant
+implementation advice.</p>
+<ul class="simple">
+<li><p>“Whether the strict mode or the relaxed mode is the
+default.  See G.2(2).”</p></li>
+</ul>
+<p>The strict mode is the default.  There is no separate relaxed mode.  GNAT
+provides a highly efficient implementation of strict mode.</p>
+<ul class="simple">
+<li><p>“The result interval in certain cases of fixed-to-float
+conversion.  See G.2.1(10).”</p></li>
+</ul>
+<p>For cases where the result interval is implementation dependent, the
+accuracy is that provided by performing all operations in 64-bit IEEE
+floating-point format.</p>
+<ul class="simple">
+<li><p>“The result of a floating point arithmetic operation in
+overflow situations, when the <code class="docutils literal notranslate"><span class="pre">Machine_Overflows</span></code> attribute of the
+result type is <code class="docutils literal notranslate"><span class="pre">False</span></code>.  See G.2.1(13).”</p></li>
+</ul>
+<p>Infinite and NaN values are produced as dictated by the IEEE
+floating-point standard.
+Note that on machines that are not fully compliant with the IEEE
+floating-point standard, such as Alpha, the <em>-mieee</em> compiler flag
+must be used for achieving IEEE conforming behavior (although at the cost
+of a significant performance penalty), so infinite and NaN values are
+properly generated.</p>
+<ul class="simple">
+<li><p>“The result interval for division (or exponentiation by a
+negative exponent), when the floating point hardware implements division
+as multiplication by a reciprocal.  See G.2.1(16).”</p></li>
+</ul>
+<p>Not relevant, division is IEEE exact.</p>
+<ul class="simple">
+<li><p>“The definition of close result set, which determines the
+accuracy of certain fixed point multiplications and divisions.  See
+G.2.3(5).”</p></li>
+</ul>
+<p>Operations in the close result set are performed using IEEE long format
+floating-point arithmetic.  The input operands are converted to
+floating-point, the operation is done in floating-point, and the result
+is converted to the target type.</p>
+<ul class="simple">
+<li><p>“Conditions on a <em>universal_real</em> operand of a fixed
+point multiplication or division for which the result shall be in the
+perfect result set.  See G.2.3(22).”</p></li>
+</ul>
+<p>The result is only defined to be in the perfect result set if the result
+can be computed by a single scaling operation involving a scale factor
+representable in 64 bits.</p>
+<ul class="simple">
+<li><p>“The result of a fixed point arithmetic operation in
+overflow situations, when the <code class="docutils literal notranslate"><span class="pre">Machine_Overflows</span></code> attribute of the
+result type is <code class="docutils literal notranslate"><span class="pre">False</span></code>.  See G.2.3(27).”</p></li>
+</ul>
+<p>Not relevant, <code class="docutils literal notranslate"><span class="pre">Machine_Overflows</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code> for fixed-point
+types.</p>
+<ul class="simple">
+<li><p>“The result of an elementary function reference in
+overflow situations, when the <code class="docutils literal notranslate"><span class="pre">Machine_Overflows</span></code> attribute of the
+result type is <code class="docutils literal notranslate"><span class="pre">False</span></code>.  See G.2.4(4).”</p></li>
+</ul>
+<p>IEEE infinite and Nan values are produced as appropriate.</p>
+<ul class="simple">
+<li><p>“The value of the angle threshold, within which certain
+elementary functions, complex arithmetic operations, and complex
+elementary functions yield results conforming to a maximum relative
+error bound.  See G.2.4(10).”</p></li>
+</ul>
+<p>Information on this subject is not yet available.</p>
+<ul class="simple">
+<li><p>“The accuracy of certain elementary functions for
+parameters beyond the angle threshold.  See G.2.4(10).”</p></li>
+</ul>
+<p>Information on this subject is not yet available.</p>
+<ul class="simple">
+<li><p>“The result of a complex arithmetic operation or complex
+elementary function reference in overflow situations, when the
+<code class="docutils literal notranslate"><span class="pre">Machine_Overflows</span></code> attribute of the corresponding real type is
+<code class="docutils literal notranslate"><span class="pre">False</span></code>.  See G.2.6(5).”</p></li>
+</ul>
+<p>IEEE infinite and Nan values are produced as appropriate.</p>
+<ul class="simple">
+<li><p>“The accuracy of certain complex arithmetic operations and
+certain complex elementary functions for parameters (or components
+thereof) beyond the angle threshold.  See G.2.6(8).”</p></li>
+</ul>
+<p>Information on those subjects is not yet available.</p>
+<ul class="simple">
+<li><p>“Information regarding bounded errors and erroneous
+execution.  See H.2(1).”</p></li>
+</ul>
+<p>Information on this subject is not yet available.</p>
+<ul class="simple">
+<li><p>“Implementation-defined aspects of pragma
+<code class="docutils literal notranslate"><span class="pre">Inspection_Point</span></code>.  See H.3.2(8).”</p></li>
+</ul>
+<p>Pragma <code class="docutils literal notranslate"><span class="pre">Inspection_Point</span></code> ensures that the variable is live and can
+be examined by the debugger at the inspection point.</p>
+<ul class="simple">
+<li><p>“Implementation-defined aspects of pragma
+<code class="docutils literal notranslate"><span class="pre">Restrictions</span></code>.  See H.4(25).”</p></li>
+</ul>
+<p>There are no implementation-defined aspects of pragma <code class="docutils literal notranslate"><span class="pre">Restrictions</span></code>.  The
+use of pragma <code class="docutils literal notranslate"><span class="pre">Restrictions</span> <span class="pre">[No_Exceptions]</span></code> has no effect on the
+generated code.  Checks must suppressed by use of pragma <code class="docutils literal notranslate"><span class="pre">Suppress</span></code>.</p>
+<ul class="simple">
+<li><p>“Any restrictions on pragma <code class="docutils literal notranslate"><span class="pre">Restrictions</span></code>.  See
+H.4(27).”</p></li>
+</ul>
+<p>There are no restrictions on pragma <code class="docutils literal notranslate"><span class="pre">Restrictions</span></code>.</p>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../gnat_rm.html">
+              <img class="logo" src="../_static/adacore_transparent.png" alt="Logo"/>
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="implementation_advice.html"
+                        title="previous chapter"><span class="section-number">6. </span>Implementation Advice</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="intrinsic_subprograms.html"
+                        title="next chapter"><span class="section-number">8. </span>Intrinsic Subprograms</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/gnat_rm/implementation_defined_characteristics.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="intrinsic_subprograms.html" title="8. Intrinsic Subprograms"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="implementation_advice.html" title="6. Implementation Advice"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../gnat_rm.html">GNAT Reference Manual 2021 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">7. </span>Implementation Defined Characteristics</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2008-2021, Free Software Foundation.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,620 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3. Implementation Defined Aspects &#8212; GNAT Reference Manual 2021 documentation</title>
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="4. Implementation Defined Attributes" href="implementation_defined_attributes.html" />
+    <link rel="prev" title="2. Implementation Defined Pragmas" href="implementation_defined_pragmas.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="implementation_defined_attributes.html" title="4. Implementation Defined Attributes"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="implementation_defined_pragmas.html" title="2. Implementation Defined Pragmas"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../gnat_rm.html">GNAT Reference Manual 2021 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">3. </span>Implementation Defined Aspects</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="implementation-defined-aspects">
+<span id="id1"></span><h1><span class="section-number">3. </span>Implementation Defined Aspects<a class="headerlink" href="#implementation-defined-aspects" title="Permalink to this headline">¶</a></h1>
+<p>Ada defines (throughout the Ada 2012 reference manual, summarized
+in Annex K) a set of aspects that can be specified for certain entities.
+These language defined aspects are implemented in GNAT in Ada 2012 mode
+and work as described in the Ada 2012 Reference Manual.</p>
+<p>In addition, Ada 2012 allows implementations to define additional aspects
+whose meaning is defined by the implementation.  GNAT provides
+a number of these implementation-defined aspects which can be used
+to extend and enhance the functionality of the compiler.  This section of
+the GNAT reference manual describes these additional aspects.</p>
+<p>Note that any program using these aspects may not be portable to
+other compilers (although GNAT implements this set of aspects on all
+platforms).  Therefore if portability to other compilers is an important
+consideration, you should minimize the use of these aspects.</p>
+<p>Note that for many of these aspects, the effect is essentially similar
+to the use of a pragma or attribute specification with the same name
+applied to the entity. For example, if we write:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kr">type</span><span class="p"> </span><span class="n">R</span> <span class="kr">is</span><span class="p"> </span><span class="kr">range</span><span class="p"> </span><span class="mi">1</span> <span class="o">..</span> <span class="mi">100</span>
+  <span class="kr">with</span><span class="p"> </span><span class="n">Value_Size</span> <span class="o">=&gt;</span> <span class="mi">10</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>then the effect is the same as:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kr">type</span><span class="p"> </span><span class="n">R</span> <span class="kr">is</span><span class="p"> </span><span class="kr">range</span><span class="p"> </span><span class="mi">1</span> <span class="o">..</span> <span class="mi">100</span><span class="p">;</span>
+<span class="kr">for</span><span class="p"> </span><span class="n">R</span><span class="na">&#39;Value_Size</span> <span class="kr">use</span><span class="p"> </span><span class="mi">10</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>and if we write:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kr">type</span><span class="p"> </span><span class="n">R</span> <span class="kr">is</span><span class="p"> </span><span class="kr">new</span><span class="p"> </span><span class="n">Integer</span>
+  <span class="kr">with</span><span class="p"> </span><span class="n">Shared</span> <span class="o">=&gt;</span> <span class="kc">True</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>then the effect is the same as:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kr">type</span><span class="p"> </span><span class="n">R</span> <span class="kr">is</span><span class="p"> </span><span class="kr">new</span><span class="p"> </span><span class="n">Integer</span><span class="p">;</span>
+<span class="kr">pragma</span><span class="p"> </span><span class="n">Shared</span> <span class="o">(</span><span class="n">R</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>In the documentation below, such cases are simply marked
+as being boolean aspects equivalent to the corresponding pragma
+or attribute definition clause.</p>
+<div class="section" id="aspect-abstract-state">
+<h2><span class="section-number">3.1. </span>Aspect Abstract_State<a class="headerlink" href="#aspect-abstract-state" title="Permalink to this headline">¶</a></h2>
+<p id="index-0">This aspect is equivalent to <a class="reference internal" href="implementation_defined_pragmas.html#pragma-abstract-state"><span class="std std-ref">pragma Abstract_State</span></a>.</p>
+</div>
+<div class="section" id="aspect-annotate">
+<h2><span class="section-number">3.2. </span>Aspect Annotate<a class="headerlink" href="#aspect-annotate" title="Permalink to this headline">¶</a></h2>
+<p id="index-1">There are three forms of this aspect (where ID is an identifier,
+and ARG is a general expression),
+corresponding to <a class="reference internal" href="implementation_defined_pragmas.html#pragma-annotate"><span class="std std-ref">pragma Annotate</span></a>.</p>
+<dl class="simple">
+<dt><em>Annotate =&gt; ID</em></dt><dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">pragma</span> <span class="pre">Annotate</span> <span class="pre">(ID,</span> <span class="pre">Entity</span> <span class="pre">=&gt;</span> <span class="pre">Name);</span></code></p>
+</dd>
+<dt><em>Annotate =&gt; (ID)</em></dt><dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">pragma</span> <span class="pre">Annotate</span> <span class="pre">(ID,</span> <span class="pre">Entity</span> <span class="pre">=&gt;</span> <span class="pre">Name);</span></code></p>
+</dd>
+<dt><em>Annotate =&gt; (ID ,ID {, ARG})</em></dt><dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">pragma</span> <span class="pre">Annotate</span> <span class="pre">(ID,</span> <span class="pre">ID</span> <span class="pre">{,</span> <span class="pre">ARG},</span> <span class="pre">Entity</span> <span class="pre">=&gt;</span> <span class="pre">Name);</span></code></p>
+</dd>
+</dl>
+</div>
+<div class="section" id="aspect-async-readers">
+<h2><span class="section-number">3.3. </span>Aspect Async_Readers<a class="headerlink" href="#aspect-async-readers" title="Permalink to this headline">¶</a></h2>
+<p id="index-2">This boolean aspect is equivalent to <a class="reference internal" href="implementation_defined_pragmas.html#pragma-async-readers"><span class="std std-ref">pragma Async_Readers</span></a>.</p>
+</div>
+<div class="section" id="aspect-async-writers">
+<h2><span class="section-number">3.4. </span>Aspect Async_Writers<a class="headerlink" href="#aspect-async-writers" title="Permalink to this headline">¶</a></h2>
+<p id="index-3">This boolean aspect is equivalent to <a class="reference internal" href="implementation_defined_pragmas.html#pragma-async-writers"><span class="std std-ref">pragma Async_Writers</span></a>.</p>
+</div>
+<div class="section" id="aspect-constant-after-elaboration">
+<h2><span class="section-number">3.5. </span>Aspect Constant_After_Elaboration<a class="headerlink" href="#aspect-constant-after-elaboration" title="Permalink to this headline">¶</a></h2>
+<p id="index-4">This aspect is equivalent to <a class="reference internal" href="implementation_defined_pragmas.html#pragma-constant-after-elaboration"><span class="std std-ref">pragma Constant_After_Elaboration</span></a>.</p>
+</div>
+<div class="section" id="aspect-contract-cases">
+<h2><span class="section-number">3.6. </span>Aspect Contract_Cases<a class="headerlink" href="#aspect-contract-cases" title="Permalink to this headline">¶</a></h2>
+<p id="index-5">This aspect is equivalent to <a class="reference internal" href="implementation_defined_pragmas.html#pragma-contract-cases"><span class="std std-ref">pragma Contract_Cases</span></a>, the sequence
+of clauses being enclosed in parentheses so that syntactically it is an
+aggregate.</p>
+</div>
+<div class="section" id="aspect-depends">
+<h2><span class="section-number">3.7. </span>Aspect Depends<a class="headerlink" href="#aspect-depends" title="Permalink to this headline">¶</a></h2>
+<p id="index-6">This aspect is equivalent to <a class="reference internal" href="implementation_defined_pragmas.html#pragma-depends"><span class="std std-ref">pragma Depends</span></a>.</p>
+</div>
+<div class="section" id="aspect-default-initial-condition">
+<h2><span class="section-number">3.8. </span>Aspect Default_Initial_Condition<a class="headerlink" href="#aspect-default-initial-condition" title="Permalink to this headline">¶</a></h2>
+<p id="index-7">This aspect is equivalent to <a class="reference internal" href="implementation_defined_pragmas.html#pragma-default-initial-condition"><span class="std std-ref">pragma Default_Initial_Condition</span></a>.</p>
+</div>
+<div class="section" id="aspect-dimension">
+<h2><span class="section-number">3.9. </span>Aspect Dimension<a class="headerlink" href="#aspect-dimension" title="Permalink to this headline">¶</a></h2>
+<p id="index-8">The <code class="docutils literal notranslate"><span class="pre">Dimension</span></code> aspect is used to specify the dimensions of a given
+subtype of a dimensioned numeric type. The aspect also specifies a symbol
+used when doing formatted output of dimensioned quantities. The syntax is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">Dimension</span> <span class="o">=&gt;</span>
+  <span class="p">([</span><span class="n">Symbol</span> <span class="o">=&gt;</span><span class="p">]</span> <span class="n">SYMBOL</span><span class="p">,</span> <span class="n">DIMENSION_VALUE</span> <span class="p">{,</span> <span class="n">DIMENSION_Value</span><span class="p">})</span>
+
+<span class="n">SYMBOL</span> <span class="p">:</span><span class="o">:=</span> <span class="n">STRING_LITERAL</span> <span class="o">|</span> <span class="n">CHARACTER_LITERAL</span>
+
+<span class="n">DIMENSION_VALUE</span> <span class="p">:</span><span class="o">:=</span>
+  <span class="n">RATIONAL</span>
+<span class="o">|</span> <span class="n">others</span>               <span class="o">=&gt;</span> <span class="n">RATIONAL</span>
+<span class="o">|</span> <span class="n">DISCRETE_CHOICE_LIST</span> <span class="o">=&gt;</span> <span class="n">RATIONAL</span>
+
+<span class="n">RATIONAL</span> <span class="p">:</span><span class="o">:=</span> <span class="p">[</span><span class="o">-</span><span class="p">]</span> <span class="n">NUMERIC_LITERAL</span> <span class="p">[</span><span class="o">/</span> <span class="n">NUMERIC_LITERAL</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>This aspect can only be applied to a subtype whose parent type has
+a <code class="docutils literal notranslate"><span class="pre">Dimension_System</span></code> aspect. The aspect must specify values for
+all dimensions of the system. The rational values are the powers of the
+corresponding dimensions that are used by the compiler to verify that
+physical (numeric) computations are dimensionally consistent. For example,
+the computation of a force must result in dimensions (L =&gt; 1, M =&gt; 1, T =&gt; -2).
+For further examples of the usage
+of this aspect, see package <code class="docutils literal notranslate"><span class="pre">System.Dim.Mks</span></code>.
+Note that when the dimensioned type is an integer type, then any
+dimension value must be an integer literal.</p>
+</div>
+<div class="section" id="aspect-dimension-system">
+<h2><span class="section-number">3.10. </span>Aspect Dimension_System<a class="headerlink" href="#aspect-dimension-system" title="Permalink to this headline">¶</a></h2>
+<p id="index-9">The <code class="docutils literal notranslate"><span class="pre">Dimension_System</span></code> aspect is used to define a system of
+dimensions that will be used in subsequent subtype declarations with
+<code class="docutils literal notranslate"><span class="pre">Dimension</span></code> aspects that reference this system. The syntax is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">Dimension_System</span> <span class="o">=&gt;</span> <span class="p">(</span><span class="n">DIMENSION</span> <span class="p">{,</span> <span class="n">DIMENSION</span><span class="p">});</span>
+
+<span class="n">DIMENSION</span> <span class="p">:</span><span class="o">:=</span> <span class="p">([</span><span class="n">Unit_Name</span>   <span class="o">=&gt;</span><span class="p">]</span> <span class="n">IDENTIFIER</span><span class="p">,</span>
+               <span class="p">[</span><span class="n">Unit_Symbol</span> <span class="o">=&gt;</span><span class="p">]</span> <span class="n">SYMBOL</span><span class="p">,</span>
+               <span class="p">[</span><span class="n">Dim_Symbol</span>  <span class="o">=&gt;</span><span class="p">]</span> <span class="n">SYMBOL</span><span class="p">)</span>
+
+<span class="n">SYMBOL</span> <span class="p">:</span><span class="o">:=</span> <span class="n">CHARACTER_LITERAL</span> <span class="o">|</span> <span class="n">STRING_LITERAL</span>
+</pre></div>
+</div>
+<p>This aspect is applied to a type, which must be a numeric derived type
+(typically a floating-point type), that
+will represent values within the dimension system. Each <code class="docutils literal notranslate"><span class="pre">DIMENSION</span></code>
+corresponds to one particular dimension. A maximum of 7 dimensions may
+be specified. <code class="docutils literal notranslate"><span class="pre">Unit_Name</span></code> is the name of the dimension (for example
+<code class="docutils literal notranslate"><span class="pre">Meter</span></code>). <code class="docutils literal notranslate"><span class="pre">Unit_Symbol</span></code> is the shorthand used for quantities
+of this dimension (for example <code class="docutils literal notranslate"><span class="pre">m</span></code> for <code class="docutils literal notranslate"><span class="pre">Meter</span></code>).
+<code class="docutils literal notranslate"><span class="pre">Dim_Symbol</span></code> gives
+the identification within the dimension system (typically this is a
+single letter, e.g. <code class="docutils literal notranslate"><span class="pre">L</span></code> standing for length for unit name <code class="docutils literal notranslate"><span class="pre">Meter</span></code>).
+The <code class="docutils literal notranslate"><span class="pre">Unit_Symbol</span></code> is used in formatted output of dimensioned quantities.
+The <code class="docutils literal notranslate"><span class="pre">Dim_Symbol</span></code> is used in error messages when numeric operations have
+inconsistent dimensions.</p>
+<p>GNAT provides the standard definition of the International MKS system in
+the run-time package <code class="docutils literal notranslate"><span class="pre">System.Dim.Mks</span></code>. You can easily define
+similar packages for cgs units or British units, and define conversion factors
+between values in different systems. The MKS system is characterized by the
+following aspect:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kr">type</span><span class="p"> </span><span class="n">Mks_Type</span> <span class="kr">is</span><span class="p"> </span><span class="kr">new</span><span class="p"> </span><span class="n">Long_Long_Float</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">Dimension_System</span> <span class="o">=&gt;</span> <span class="o">(</span>
+    <span class="o">(</span><span class="n">Unit_Name</span> <span class="o">=&gt;</span> <span class="n">Meter</span><span class="p">,</span>    <span class="n">Unit_Symbol</span> <span class="o">=&gt;</span> <span class="sc">&#39;m&#39;</span><span class="p">,</span>   <span class="n">Dim_Symbol</span> <span class="o">=&gt;</span> <span class="sc">&#39;L&#39;</span><span class="o">)</span><span class="p">,</span>
+    <span class="o">(</span><span class="n">Unit_Name</span> <span class="o">=&gt;</span> <span class="n">Kilogram</span><span class="p">,</span> <span class="n">Unit_Symbol</span> <span class="o">=&gt;</span> <span class="s">&quot;kg&quot;</span><span class="p">,</span>  <span class="n">Dim_Symbol</span> <span class="o">=&gt;</span> <span class="sc">&#39;M&#39;</span><span class="o">)</span><span class="p">,</span>
+    <span class="o">(</span><span class="n">Unit_Name</span> <span class="o">=&gt;</span> <span class="n">Second</span><span class="p">,</span>   <span class="n">Unit_Symbol</span> <span class="o">=&gt;</span> <span class="sc">&#39;s&#39;</span><span class="p">,</span>   <span class="n">Dim_Symbol</span> <span class="o">=&gt;</span> <span class="sc">&#39;T&#39;</span><span class="o">)</span><span class="p">,</span>
+    <span class="o">(</span><span class="n">Unit_Name</span> <span class="o">=&gt;</span> <span class="n">Ampere</span><span class="p">,</span>   <span class="n">Unit_Symbol</span> <span class="o">=&gt;</span> <span class="sc">&#39;A&#39;</span><span class="p">,</span>   <span class="n">Dim_Symbol</span> <span class="o">=&gt;</span> <span class="sc">&#39;I&#39;</span><span class="o">)</span><span class="p">,</span>
+    <span class="o">(</span><span class="n">Unit_Name</span> <span class="o">=&gt;</span> <span class="n">Kelvin</span><span class="p">,</span>   <span class="n">Unit_Symbol</span> <span class="o">=&gt;</span> <span class="sc">&#39;K&#39;</span><span class="p">,</span>   <span class="n">Dim_Symbol</span> <span class="o">=&gt;</span> <span class="sc">&#39;@&#39;</span><span class="o">)</span><span class="p">,</span>
+    <span class="o">(</span><span class="n">Unit_Name</span> <span class="o">=&gt;</span> <span class="n">Mole</span><span class="p">,</span>     <span class="n">Unit_Symbol</span> <span class="o">=&gt;</span> <span class="s">&quot;mol&quot;</span><span class="p">,</span> <span class="n">Dim_Symbol</span> <span class="o">=&gt;</span> <span class="sc">&#39;N&#39;</span><span class="o">)</span><span class="p">,</span>
+    <span class="o">(</span><span class="n">Unit_Name</span> <span class="o">=&gt;</span> <span class="n">Candela</span><span class="p">,</span>  <span class="n">Unit_Symbol</span> <span class="o">=&gt;</span> <span class="s">&quot;cd&quot;</span><span class="p">,</span>  <span class="n">Dim_Symbol</span> <span class="o">=&gt;</span> <span class="sc">&#39;J&#39;</span><span class="o">))</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Note that in the above type definition, we use the <code class="docutils literal notranslate"><span class="pre">at</span></code> symbol (<code class="docutils literal notranslate"><span class="pre">&#64;</span></code>) to
+represent a theta character (avoiding the use of extended Latin-1
+characters in this context).</p>
+<p>See section ‘Performing Dimensionality Analysis in GNAT’ in the GNAT Users
+Guide for detailed examples of use of the dimension system.</p>
+</div>
+<div class="section" id="aspect-disable-controlled">
+<h2><span class="section-number">3.11. </span>Aspect Disable_Controlled<a class="headerlink" href="#aspect-disable-controlled" title="Permalink to this headline">¶</a></h2>
+<p id="index-10">The aspect  <code class="docutils literal notranslate"><span class="pre">Disable_Controlled</span></code> is defined for controlled record types. If
+active, this aspect causes suppression of all related calls to <code class="docutils literal notranslate"><span class="pre">Initialize</span></code>,
+<code class="docutils literal notranslate"><span class="pre">Adjust</span></code>, and <code class="docutils literal notranslate"><span class="pre">Finalize</span></code>. The intended use is for conditional compilation,
+where for example you might want a record to be controlled or not depending on
+whether some run-time check is enabled or suppressed.</p>
+</div>
+<div class="section" id="aspect-effective-reads">
+<h2><span class="section-number">3.12. </span>Aspect Effective_Reads<a class="headerlink" href="#aspect-effective-reads" title="Permalink to this headline">¶</a></h2>
+<p id="index-11">This aspect is equivalent to <a class="reference internal" href="implementation_defined_pragmas.html#pragma-effective-reads"><span class="std std-ref">pragma Effective_Reads</span></a>.</p>
+</div>
+<div class="section" id="aspect-effective-writes">
+<h2><span class="section-number">3.13. </span>Aspect Effective_Writes<a class="headerlink" href="#aspect-effective-writes" title="Permalink to this headline">¶</a></h2>
+<p id="index-12">This aspect is equivalent to <a class="reference internal" href="implementation_defined_pragmas.html#pragma-effective-writes"><span class="std std-ref">pragma Effective_Writes</span></a>.</p>
+</div>
+<div class="section" id="aspect-extensions-visible">
+<h2><span class="section-number">3.14. </span>Aspect Extensions_Visible<a class="headerlink" href="#aspect-extensions-visible" title="Permalink to this headline">¶</a></h2>
+<p id="index-13">This aspect is equivalent to <a class="reference internal" href="implementation_defined_pragmas.html#pragma-extensions-visible"><span class="std std-ref">pragma Extensions_Visible</span></a>.</p>
+</div>
+<div class="section" id="aspect-favor-top-level">
+<h2><span class="section-number">3.15. </span>Aspect Favor_Top_Level<a class="headerlink" href="#aspect-favor-top-level" title="Permalink to this headline">¶</a></h2>
+<p id="index-14">This boolean aspect is equivalent to <a class="reference internal" href="implementation_defined_pragmas.html#pragma-favor-top-level"><span class="std std-ref">pragma Favor_Top_Level</span></a>.</p>
+</div>
+<div class="section" id="aspect-ghost">
+<h2><span class="section-number">3.16. </span>Aspect Ghost<a class="headerlink" href="#aspect-ghost" title="Permalink to this headline">¶</a></h2>
+<p id="index-15">This aspect is equivalent to <a class="reference internal" href="implementation_defined_pragmas.html#pragma-ghost"><span class="std std-ref">pragma Ghost</span></a>.</p>
+</div>
+<div class="section" id="aspect-global">
+<h2><span class="section-number">3.17. </span>Aspect Global<a class="headerlink" href="#aspect-global" title="Permalink to this headline">¶</a></h2>
+<p id="index-16">This aspect is equivalent to <a class="reference internal" href="implementation_defined_pragmas.html#pragma-global"><span class="std std-ref">pragma Global</span></a>.</p>
+</div>
+<div class="section" id="aspect-initial-condition">
+<h2><span class="section-number">3.18. </span>Aspect Initial_Condition<a class="headerlink" href="#aspect-initial-condition" title="Permalink to this headline">¶</a></h2>
+<p id="index-17">This aspect is equivalent to <a class="reference internal" href="implementation_defined_pragmas.html#pragma-initial-condition"><span class="std std-ref">pragma Initial_Condition</span></a>.</p>
+</div>
+<div class="section" id="aspect-initializes">
+<h2><span class="section-number">3.19. </span>Aspect Initializes<a class="headerlink" href="#aspect-initializes" title="Permalink to this headline">¶</a></h2>
+<p id="index-18">This aspect is equivalent to <a class="reference internal" href="implementation_defined_pragmas.html#pragma-initializes"><span class="std std-ref">pragma Initializes</span></a>.</p>
+</div>
+<div class="section" id="aspect-inline-always">
+<h2><span class="section-number">3.20. </span>Aspect Inline_Always<a class="headerlink" href="#aspect-inline-always" title="Permalink to this headline">¶</a></h2>
+<p id="index-19">This boolean aspect is equivalent to <a class="reference internal" href="implementation_defined_pragmas.html#pragma-inline-always"><span class="std std-ref">pragma Inline_Always</span></a>.</p>
+</div>
+<div class="section" id="aspect-invariant">
+<h2><span class="section-number">3.21. </span>Aspect Invariant<a class="headerlink" href="#aspect-invariant" title="Permalink to this headline">¶</a></h2>
+<p id="index-20">This aspect is equivalent to <a class="reference internal" href="implementation_defined_pragmas.html#pragma-invariant"><span class="std std-ref">pragma Invariant</span></a>. It is a
+synonym for the language defined aspect <code class="docutils literal notranslate"><span class="pre">Type_Invariant</span></code> except
+that it is separately controllable using pragma <code class="docutils literal notranslate"><span class="pre">Assertion_Policy</span></code>.</p>
+</div>
+<div class="section" id="aspect-invariant-class">
+<h2><span class="section-number">3.22. </span>Aspect Invariant’Class<a class="headerlink" href="#aspect-invariant-class" title="Permalink to this headline">¶</a></h2>
+<p id="index-21">This aspect is equivalent to <a class="reference internal" href="implementation_defined_pragmas.html#pragma-type-invariant-class"><span class="std std-ref">pragma Type_Invariant_Class</span></a>. It is a
+synonym for the language defined aspect <code class="docutils literal notranslate"><span class="pre">Type_Invariant'Class</span></code> except
+that it is separately controllable using pragma <code class="docutils literal notranslate"><span class="pre">Assertion_Policy</span></code>.</p>
+</div>
+<div class="section" id="aspect-iterable">
+<h2><span class="section-number">3.23. </span>Aspect Iterable<a class="headerlink" href="#aspect-iterable" title="Permalink to this headline">¶</a></h2>
+<p id="index-22">This aspect provides a light-weight mechanism for loops and quantified
+expressions over container types, without the overhead imposed by the tampering
+checks of standard Ada 2012 iterators. The value of the aspect is an aggregate
+with six named components, of which the last three are optional: <code class="docutils literal notranslate"><span class="pre">First</span></code>,
+<code class="docutils literal notranslate"><span class="pre">Next</span></code>, <code class="docutils literal notranslate"><span class="pre">Has_Element</span></code>, <code class="docutils literal notranslate"><span class="pre">Element</span></code>, <code class="docutils literal notranslate"><span class="pre">Last</span></code>, and <code class="docutils literal notranslate"><span class="pre">Previous</span></code>.
+When only the first three components are specified, only the
+<code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">..</span> <span class="pre">in</span></code> form of iteration over cursors is available. When <code class="docutils literal notranslate"><span class="pre">Element</span></code>
+is specified, both this form and the <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">..</span> <span class="pre">of</span></code> form of iteration over
+elements are available. If the last two components are specified, reverse
+iterations over the container can be specified (analogous to what can be done
+over predefined containers that support the <code class="docutils literal notranslate"><span class="pre">Reverse_Iterator</span></code> interface).
+The following is a typical example of use:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kr">type</span><span class="p"> </span><span class="n">List</span> <span class="kr">is</span><span class="p"> </span><span class="kr">private</span><span class="p"> </span><span class="kr">with</span><span class="p"></span>
+    <span class="n">Iterable</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">First</span>        <span class="o">=&gt;</span> <span class="n">First_Cursor</span><span class="p">,</span>
+                 <span class="n">Next</span>         <span class="o">=&gt;</span> <span class="n">Advance</span><span class="p">,</span>
+                 <span class="n">Has_Element</span>  <span class="o">=&gt;</span> <span class="n">Cursor_Has_Element</span><span class="p">,</span>
+                [<span class="n">Element</span>      <span class="o">=&gt;</span> <span class="n">Get_Element</span>]<span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>The value denoted by <code class="docutils literal notranslate"><span class="pre">First</span></code> must denote a primitive operation of the
+container type that returns a <code class="docutils literal notranslate"><span class="pre">Cursor</span></code>, which must a be a type declared in
+the container package or visible from it. For example:</p></li>
+</ul>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="k">function </span><span class="nf">First_Cursor</span> <span class="o">(</span><span class="n">Cont</span> <span class="o">:</span> <span class="n">Container</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Cursor</span><span class="p">;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>The value of <code class="docutils literal notranslate"><span class="pre">Next</span></code> is a primitive operation of the container type that takes
+both a container and a cursor and yields a cursor. For example:</p></li>
+</ul>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="k">function </span><span class="nf">Advance</span> <span class="o">(</span><span class="n">Cont</span> <span class="o">:</span> <span class="n">Container</span><span class="p">;</span> <span class="n">Position</span> <span class="o">:</span> <span class="n">Cursor</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Cursor</span><span class="p">;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>The value of <code class="docutils literal notranslate"><span class="pre">Has_Element</span></code> is a primitive operation of the container type
+that takes both a container and a cursor and yields a boolean. For example:</p></li>
+</ul>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="k">function </span><span class="nf">Cursor_Has_Element</span> <span class="o">(</span><span class="n">Cont</span> <span class="o">:</span> <span class="n">Container</span><span class="p">;</span> <span class="n">Position</span> <span class="o">:</span> <span class="n">Cursor</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Boolean</span><span class="p">;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>The value of <code class="docutils literal notranslate"><span class="pre">Element</span></code> is a primitive operation of the container type that
+takes both a container and a cursor and yields an <code class="docutils literal notranslate"><span class="pre">Element_Type</span></code>, which must
+be a type declared in the container package or visible from it. For example:</p></li>
+</ul>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="k">function </span><span class="nf">Get_Element</span> <span class="o">(</span><span class="n">Cont</span> <span class="o">:</span> <span class="n">Container</span><span class="p">;</span> <span class="n">Position</span> <span class="o">:</span> <span class="n">Cursor</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Element_Type</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>This aspect is used in the GNAT-defined formal container packages.</p>
+</div>
+<div class="section" id="aspect-linker-section">
+<h2><span class="section-number">3.24. </span>Aspect Linker_Section<a class="headerlink" href="#aspect-linker-section" title="Permalink to this headline">¶</a></h2>
+<p id="index-23">This aspect is equivalent to <a class="reference internal" href="implementation_defined_pragmas.html#pragma-linker-section"><span class="std std-ref">pragma Linker_Section</span></a>.</p>
+</div>
+<div class="section" id="aspect-lock-free">
+<h2><span class="section-number">3.25. </span>Aspect Lock_Free<a class="headerlink" href="#aspect-lock-free" title="Permalink to this headline">¶</a></h2>
+<p id="index-24">This boolean aspect is equivalent to <a class="reference internal" href="implementation_defined_pragmas.html#pragma-lock-free"><span class="std std-ref">pragma Lock_Free</span></a>.</p>
+</div>
+<div class="section" id="aspect-max-queue-length">
+<h2><span class="section-number">3.26. </span>Aspect Max_Queue_Length<a class="headerlink" href="#aspect-max-queue-length" title="Permalink to this headline">¶</a></h2>
+<p id="index-25">This aspect is equivalent to <a class="reference internal" href="implementation_defined_pragmas.html#pragma-max-queue-length"><span class="std std-ref">pragma Max_Queue_Length</span></a>.</p>
+</div>
+<div class="section" id="aspect-no-caching">
+<h2><span class="section-number">3.27. </span>Aspect No_Caching<a class="headerlink" href="#aspect-no-caching" title="Permalink to this headline">¶</a></h2>
+<p id="index-26">This boolean aspect is equivalent to <a class="reference internal" href="implementation_defined_pragmas.html#pragma-no-caching"><span class="std std-ref">pragma No_Caching</span></a>.</p>
+</div>
+<div class="section" id="aspect-no-elaboration-code-all">
+<h2><span class="section-number">3.28. </span>Aspect No_Elaboration_Code_All<a class="headerlink" href="#aspect-no-elaboration-code-all" title="Permalink to this headline">¶</a></h2>
+<p id="index-27">This aspect is equivalent to <a class="reference internal" href="implementation_defined_pragmas.html#pragma-no-elaboration-code-all"><span class="std std-ref">pragma No_Elaboration_Code_All</span></a>
+for a program unit.</p>
+</div>
+<div class="section" id="aspect-no-inline">
+<h2><span class="section-number">3.29. </span>Aspect No_Inline<a class="headerlink" href="#aspect-no-inline" title="Permalink to this headline">¶</a></h2>
+<p id="index-28">This boolean aspect is equivalent to <a class="reference internal" href="implementation_defined_pragmas.html#pragma-no-inline"><span class="std std-ref">pragma No_Inline</span></a>.</p>
+</div>
+<div class="section" id="aspect-no-tagged-streams">
+<h2><span class="section-number">3.30. </span>Aspect No_Tagged_Streams<a class="headerlink" href="#aspect-no-tagged-streams" title="Permalink to this headline">¶</a></h2>
+<p id="index-29">This aspect is equivalent to <a class="reference internal" href="implementation_defined_pragmas.html#pragma-no-tagged-streams"><span class="std std-ref">pragma No_Tagged_Streams</span></a> with an
+argument specifying a root tagged type (thus this aspect can only be
+applied to such a type).</p>
+</div>
+<div class="section" id="aspect-no-task-parts">
+<h2><span class="section-number">3.31. </span>Aspect No_Task_Parts<a class="headerlink" href="#aspect-no-task-parts" title="Permalink to this headline">¶</a></h2>
+<p id="index-30">Applies to a type. If True, requires that the type and any descendants
+do not have any task parts. The rules for this aspect are the same as
+for the language-defined No_Controlled_Parts aspect (see RM-H.4.1),
+replacing “controlled” with “task”.</p>
+<p>If No_Task_Parts is True for a type T, then the compiler can optimize
+away certain tasking-related code that would otherwise be needed
+for T’Class, because descendants of T might contain tasks.</p>
+</div>
+<div class="section" id="aspect-object-size">
+<h2><span class="section-number">3.32. </span>Aspect Object_Size<a class="headerlink" href="#aspect-object-size" title="Permalink to this headline">¶</a></h2>
+<p id="index-31">This aspect is equivalent to <a class="reference internal" href="implementation_defined_attributes.html#attribute-object-size"><span class="std std-ref">attribute Object_Size</span></a>.</p>
+</div>
+<div class="section" id="aspect-obsolescent">
+<h2><span class="section-number">3.33. </span>Aspect Obsolescent<a class="headerlink" href="#aspect-obsolescent" title="Permalink to this headline">¶</a></h2>
+<p id="index-32">This aspect is equivalent to <a class="reference internal" href="implementation_defined_pragmas.html#pragma-obsolescent"><span class="std std-ref">pragma Obsolescent</span></a>. Note that the
+evaluation of this aspect happens at the point of occurrence, it is not
+delayed until the freeze point.</p>
+</div>
+<div class="section" id="aspect-part-of">
+<h2><span class="section-number">3.34. </span>Aspect Part_Of<a class="headerlink" href="#aspect-part-of" title="Permalink to this headline">¶</a></h2>
+<p id="index-33">This aspect is equivalent to <a class="reference internal" href="implementation_defined_pragmas.html#pragma-part-of"><span class="std std-ref">pragma Part_Of</span></a>.</p>
+</div>
+<div class="section" id="aspect-persistent-bss">
+<h2><span class="section-number">3.35. </span>Aspect Persistent_BSS<a class="headerlink" href="#aspect-persistent-bss" title="Permalink to this headline">¶</a></h2>
+<p id="index-34">This boolean aspect is equivalent to <a class="reference internal" href="implementation_defined_pragmas.html#pragma-persistent-bss"><span class="std std-ref">pragma Persistent_BSS</span></a>.</p>
+</div>
+<div class="section" id="aspect-predicate">
+<h2><span class="section-number">3.36. </span>Aspect Predicate<a class="headerlink" href="#aspect-predicate" title="Permalink to this headline">¶</a></h2>
+<p id="index-35">This aspect is equivalent to <a class="reference internal" href="implementation_defined_pragmas.html#pragma-predicate"><span class="std std-ref">pragma Predicate</span></a>. It is thus
+similar to the language defined aspects <code class="docutils literal notranslate"><span class="pre">Dynamic_Predicate</span></code>
+and <code class="docutils literal notranslate"><span class="pre">Static_Predicate</span></code> except that whether the resulting
+predicate is static or dynamic is controlled by the form of the
+expression. It is also separately controllable using pragma
+<code class="docutils literal notranslate"><span class="pre">Assertion_Policy</span></code>.</p>
+</div>
+<div class="section" id="aspect-pure-function">
+<h2><span class="section-number">3.37. </span>Aspect Pure_Function<a class="headerlink" href="#aspect-pure-function" title="Permalink to this headline">¶</a></h2>
+<p id="index-36">This boolean aspect is equivalent to <a class="reference internal" href="implementation_defined_pragmas.html#pragma-pure-function"><span class="std std-ref">pragma Pure_Function</span></a>.</p>
+</div>
+<div class="section" id="aspect-refined-depends">
+<h2><span class="section-number">3.38. </span>Aspect Refined_Depends<a class="headerlink" href="#aspect-refined-depends" title="Permalink to this headline">¶</a></h2>
+<p id="index-37">This aspect is equivalent to <a class="reference internal" href="implementation_defined_pragmas.html#pragma-refined-depends"><span class="std std-ref">pragma Refined_Depends</span></a>.</p>
+</div>
+<div class="section" id="aspect-refined-global">
+<h2><span class="section-number">3.39. </span>Aspect Refined_Global<a class="headerlink" href="#aspect-refined-global" title="Permalink to this headline">¶</a></h2>
+<p id="index-38">This aspect is equivalent to <a class="reference internal" href="implementation_defined_pragmas.html#pragma-refined-global"><span class="std std-ref">pragma Refined_Global</span></a>.</p>
+</div>
+<div class="section" id="aspect-refined-post">
+<h2><span class="section-number">3.40. </span>Aspect Refined_Post<a class="headerlink" href="#aspect-refined-post" title="Permalink to this headline">¶</a></h2>
+<p id="index-39">This aspect is equivalent to <a class="reference internal" href="implementation_defined_pragmas.html#pragma-refined-post"><span class="std std-ref">pragma Refined_Post</span></a>.</p>
+</div>
+<div class="section" id="aspect-refined-state">
+<h2><span class="section-number">3.41. </span>Aspect Refined_State<a class="headerlink" href="#aspect-refined-state" title="Permalink to this headline">¶</a></h2>
+<p id="index-40">This aspect is equivalent to <a class="reference internal" href="implementation_defined_pragmas.html#pragma-refined-state"><span class="std std-ref">pragma Refined_State</span></a>.</p>
+</div>
+<div class="section" id="aspect-relaxed-initialization">
+<h2><span class="section-number">3.42. </span>Aspect Relaxed_Initialization<a class="headerlink" href="#aspect-relaxed-initialization" title="Permalink to this headline">¶</a></h2>
+<p id="index-41">For the syntax and semantics of this aspect, see the SPARK 2014 Reference
+Manual, section 6.10.</p>
+</div>
+<div class="section" id="aspect-remote-access-type">
+<h2><span class="section-number">3.43. </span>Aspect Remote_Access_Type<a class="headerlink" href="#aspect-remote-access-type" title="Permalink to this headline">¶</a></h2>
+<p id="index-42">This aspect is equivalent to <a class="reference internal" href="implementation_defined_pragmas.html#pragma-remote-access-type"><span class="std std-ref">pragma Remote_Access_Type</span></a>.</p>
+</div>
+<div class="section" id="aspect-secondary-stack-size">
+<h2><span class="section-number">3.44. </span>Aspect Secondary_Stack_Size<a class="headerlink" href="#aspect-secondary-stack-size" title="Permalink to this headline">¶</a></h2>
+<p id="index-43">This aspect is equivalent to <a class="reference internal" href="implementation_defined_pragmas.html#pragma-secondary-stack-size"><span class="std std-ref">pragma Secondary_Stack_Size</span></a>.</p>
+</div>
+<div class="section" id="aspect-scalar-storage-order">
+<h2><span class="section-number">3.45. </span>Aspect Scalar_Storage_Order<a class="headerlink" href="#aspect-scalar-storage-order" title="Permalink to this headline">¶</a></h2>
+<p id="index-44">This aspect is equivalent to a <a class="reference internal" href="implementation_defined_attributes.html#attribute-scalar-storage-order"><span class="std std-ref">attribute Scalar_Storage_Order</span></a>.</p>
+</div>
+<div class="section" id="aspect-shared">
+<h2><span class="section-number">3.46. </span>Aspect Shared<a class="headerlink" href="#aspect-shared" title="Permalink to this headline">¶</a></h2>
+<p id="index-45">This boolean aspect is equivalent to <a class="reference internal" href="implementation_defined_pragmas.html#pragma-shared"><span class="std std-ref">pragma Shared</span></a>
+and is thus a synonym for aspect <code class="docutils literal notranslate"><span class="pre">Atomic</span></code>.</p>
+</div>
+<div class="section" id="aspect-simple-storage-pool">
+<h2><span class="section-number">3.47. </span>Aspect Simple_Storage_Pool<a class="headerlink" href="#aspect-simple-storage-pool" title="Permalink to this headline">¶</a></h2>
+<p id="index-46">This aspect is equivalent to <a class="reference internal" href="implementation_defined_attributes.html#attribute-simple-storage-pool"><span class="std std-ref">attribute Simple_Storage_Pool</span></a>.</p>
+</div>
+<div class="section" id="aspect-simple-storage-pool-type">
+<h2><span class="section-number">3.48. </span>Aspect Simple_Storage_Pool_Type<a class="headerlink" href="#aspect-simple-storage-pool-type" title="Permalink to this headline">¶</a></h2>
+<p id="index-47">This boolean aspect is equivalent to <a class="reference internal" href="implementation_defined_pragmas.html#pragma-simple-storage-pool-type"><span class="std std-ref">pragma Simple_Storage_Pool_Type</span></a>.</p>
+</div>
+<div class="section" id="aspect-spark-mode">
+<h2><span class="section-number">3.49. </span>Aspect SPARK_Mode<a class="headerlink" href="#aspect-spark-mode" title="Permalink to this headline">¶</a></h2>
+<p id="index-48">This aspect is equivalent to <a class="reference internal" href="implementation_defined_pragmas.html#pragma-spark-mode"><span class="std std-ref">pragma SPARK_Mode</span></a> and
+may be specified for either or both of the specification and body
+of a subprogram or package.</p>
+</div>
+<div class="section" id="aspect-suppress-debug-info">
+<h2><span class="section-number">3.50. </span>Aspect Suppress_Debug_Info<a class="headerlink" href="#aspect-suppress-debug-info" title="Permalink to this headline">¶</a></h2>
+<p id="index-49">This boolean aspect is equivalent to <a class="reference internal" href="implementation_defined_pragmas.html#pragma-suppress-debug-info"><span class="std std-ref">pragma Suppress_Debug_Info</span></a>.</p>
+</div>
+<div class="section" id="aspect-suppress-initialization">
+<h2><span class="section-number">3.51. </span>Aspect Suppress_Initialization<a class="headerlink" href="#aspect-suppress-initialization" title="Permalink to this headline">¶</a></h2>
+<p id="index-50">This boolean aspect is equivalent to <a class="reference internal" href="implementation_defined_pragmas.html#pragma-suppress-initialization"><span class="std std-ref">pragma Suppress_Initialization</span></a>.</p>
+</div>
+<div class="section" id="aspect-test-case">
+<h2><span class="section-number">3.52. </span>Aspect Test_Case<a class="headerlink" href="#aspect-test-case" title="Permalink to this headline">¶</a></h2>
+<p id="index-51">This aspect is equivalent to <a class="reference internal" href="implementation_defined_pragmas.html#pragma-test-case"><span class="std std-ref">pragma Test_Case</span></a>.</p>
+</div>
+<div class="section" id="aspect-thread-local-storage">
+<h2><span class="section-number">3.53. </span>Aspect Thread_Local_Storage<a class="headerlink" href="#aspect-thread-local-storage" title="Permalink to this headline">¶</a></h2>
+<p id="index-52">This boolean aspect is equivalent to <a class="reference internal" href="implementation_defined_pragmas.html#pragma-thread-local-storage"><span class="std std-ref">pragma Thread_Local_Storage</span></a>.</p>
+</div>
+<div class="section" id="aspect-universal-aliasing">
+<h2><span class="section-number">3.54. </span>Aspect Universal_Aliasing<a class="headerlink" href="#aspect-universal-aliasing" title="Permalink to this headline">¶</a></h2>
+<p id="index-53">This boolean aspect is equivalent to <a class="reference internal" href="implementation_defined_pragmas.html#pragma-universal-aliasing"><span class="std std-ref">pragma Universal_Aliasing</span></a>.</p>
+</div>
+<div class="section" id="aspect-unmodified">
+<h2><span class="section-number">3.55. </span>Aspect Unmodified<a class="headerlink" href="#aspect-unmodified" title="Permalink to this headline">¶</a></h2>
+<p id="index-54">This boolean aspect is equivalent to <a class="reference internal" href="implementation_defined_pragmas.html#pragma-unmodified"><span class="std std-ref">pragma Unmodified</span></a>.</p>
+</div>
+<div class="section" id="aspect-unreferenced">
+<h2><span class="section-number">3.56. </span>Aspect Unreferenced<a class="headerlink" href="#aspect-unreferenced" title="Permalink to this headline">¶</a></h2>
+<p id="index-55">This boolean aspect is equivalent to <a class="reference internal" href="implementation_defined_pragmas.html#pragma-unreferenced"><span class="std std-ref">pragma Unreferenced</span></a>.</p>
+<p>When using the <code class="docutils literal notranslate"><span class="pre">-gnat2022</span></code> switch, this aspect is also supported on formal
+parameters, which is in particular the only form possible for expression
+functions.</p>
+</div>
+<div class="section" id="aspect-unreferenced-objects">
+<h2><span class="section-number">3.57. </span>Aspect Unreferenced_Objects<a class="headerlink" href="#aspect-unreferenced-objects" title="Permalink to this headline">¶</a></h2>
+<p id="index-56">This boolean aspect is equivalent to <a class="reference internal" href="implementation_defined_pragmas.html#pragma-unreferenced-objects"><span class="std std-ref">pragma Unreferenced_Objects</span></a>.</p>
+</div>
+<div class="section" id="aspect-value-size">
+<h2><span class="section-number">3.58. </span>Aspect Value_Size<a class="headerlink" href="#aspect-value-size" title="Permalink to this headline">¶</a></h2>
+<p id="index-57">This aspect is equivalent to <a class="reference internal" href="implementation_defined_attributes.html#attribute-value-size"><span class="std std-ref">attribute Value_Size</span></a>.</p>
+</div>
+<div class="section" id="aspect-volatile-full-access">
+<h2><span class="section-number">3.59. </span>Aspect Volatile_Full_Access<a class="headerlink" href="#aspect-volatile-full-access" title="Permalink to this headline">¶</a></h2>
+<p id="index-58">This boolean aspect is equivalent to <a class="reference internal" href="implementation_defined_pragmas.html#pragma-volatile-full-access"><span class="std std-ref">pragma Volatile_Full_Access</span></a>.</p>
+</div>
+<div class="section" id="aspect-volatile-function">
+<h2><span class="section-number">3.60. </span>Aspect Volatile_Function<a class="headerlink" href="#aspect-volatile-function" title="Permalink to this headline">¶</a></h2>
+<p id="index-59">This boolean aspect is equivalent to <a class="reference internal" href="implementation_defined_pragmas.html#pragma-volatile-function"><span class="std std-ref">pragma Volatile_Function</span></a>.</p>
+</div>
+<div class="section" id="aspect-warnings">
+<h2><span class="section-number">3.61. </span>Aspect Warnings<a class="headerlink" href="#aspect-warnings" title="Permalink to this headline">¶</a></h2>
+<p id="index-60">This aspect is equivalent to the two argument form of <a class="reference internal" href="implementation_defined_pragmas.html#pragma-warnings"><span class="std std-ref">pragma Warnings</span></a>,
+where the first argument is <code class="docutils literal notranslate"><span class="pre">ON</span></code> or <code class="docutils literal notranslate"><span class="pre">OFF</span></code> and the second argument
+is the entity.</p>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../gnat_rm.html">
+              <img class="logo" src="../_static/adacore_transparent.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="../gnat_rm.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">3. Implementation Defined Aspects</a><ul>
+<li><a class="reference internal" href="#aspect-abstract-state">3.1. Aspect Abstract_State</a></li>
+<li><a class="reference internal" href="#aspect-annotate">3.2. Aspect Annotate</a></li>
+<li><a class="reference internal" href="#aspect-async-readers">3.3. Aspect Async_Readers</a></li>
+<li><a class="reference internal" href="#aspect-async-writers">3.4. Aspect Async_Writers</a></li>
+<li><a class="reference internal" href="#aspect-constant-after-elaboration">3.5. Aspect Constant_After_Elaboration</a></li>
+<li><a class="reference internal" href="#aspect-contract-cases">3.6. Aspect Contract_Cases</a></li>
+<li><a class="reference internal" href="#aspect-depends">3.7. Aspect Depends</a></li>
+<li><a class="reference internal" href="#aspect-default-initial-condition">3.8. Aspect Default_Initial_Condition</a></li>
+<li><a class="reference internal" href="#aspect-dimension">3.9. Aspect Dimension</a></li>
+<li><a class="reference internal" href="#aspect-dimension-system">3.10. Aspect Dimension_System</a></li>
+<li><a class="reference internal" href="#aspect-disable-controlled">3.11. Aspect Disable_Controlled</a></li>
+<li><a class="reference internal" href="#aspect-effective-reads">3.12. Aspect Effective_Reads</a></li>
+<li><a class="reference internal" href="#aspect-effective-writes">3.13. Aspect Effective_Writes</a></li>
+<li><a class="reference internal" href="#aspect-extensions-visible">3.14. Aspect Extensions_Visible</a></li>
+<li><a class="reference internal" href="#aspect-favor-top-level">3.15. Aspect Favor_Top_Level</a></li>
+<li><a class="reference internal" href="#aspect-ghost">3.16. Aspect Ghost</a></li>
+<li><a class="reference internal" href="#aspect-global">3.17. Aspect Global</a></li>
+<li><a class="reference internal" href="#aspect-initial-condition">3.18. Aspect Initial_Condition</a></li>
+<li><a class="reference internal" href="#aspect-initializes">3.19. Aspect Initializes</a></li>
+<li><a class="reference internal" href="#aspect-inline-always">3.20. Aspect Inline_Always</a></li>
+<li><a class="reference internal" href="#aspect-invariant">3.21. Aspect Invariant</a></li>
+<li><a class="reference internal" href="#aspect-invariant-class">3.22. Aspect Invariant’Class</a></li>
+<li><a class="reference internal" href="#aspect-iterable">3.23. Aspect Iterable</a></li>
+<li><a class="reference internal" href="#aspect-linker-section">3.24. Aspect Linker_Section</a></li>
+<li><a class="reference internal" href="#aspect-lock-free">3.25. Aspect Lock_Free</a></li>
+<li><a class="reference internal" href="#aspect-max-queue-length">3.26. Aspect Max_Queue_Length</a></li>
+<li><a class="reference internal" href="#aspect-no-caching">3.27. Aspect No_Caching</a></li>
+<li><a class="reference internal" href="#aspect-no-elaboration-code-all">3.28. Aspect No_Elaboration_Code_All</a></li>
+<li><a class="reference internal" href="#aspect-no-inline">3.29. Aspect No_Inline</a></li>
+<li><a class="reference internal" href="#aspect-no-tagged-streams">3.30. Aspect No_Tagged_Streams</a></li>
+<li><a class="reference internal" href="#aspect-no-task-parts">3.31. Aspect No_Task_Parts</a></li>
+<li><a class="reference internal" href="#aspect-object-size">3.32. Aspect Object_Size</a></li>
+<li><a class="reference internal" href="#aspect-obsolescent">3.33. Aspect Obsolescent</a></li>
+<li><a class="reference internal" href="#aspect-part-of">3.34. Aspect Part_Of</a></li>
+<li><a class="reference internal" href="#aspect-persistent-bss">3.35. Aspect Persistent_BSS</a></li>
+<li><a class="reference internal" href="#aspect-predicate">3.36. Aspect Predicate</a></li>
+<li><a class="reference internal" href="#aspect-pure-function">3.37. Aspect Pure_Function</a></li>
+<li><a class="reference internal" href="#aspect-refined-depends">3.38. Aspect Refined_Depends</a></li>
+<li><a class="reference internal" href="#aspect-refined-global">3.39. Aspect Refined_Global</a></li>
+<li><a class="reference internal" href="#aspect-refined-post">3.40. Aspect Refined_Post</a></li>
+<li><a class="reference internal" href="#aspect-refined-state">3.41. Aspect Refined_State</a></li>
+<li><a class="reference internal" href="#aspect-relaxed-initialization">3.42. Aspect Relaxed_Initialization</a></li>
+<li><a class="reference internal" href="#aspect-remote-access-type">3.43. Aspect Remote_Access_Type</a></li>
+<li><a class="reference internal" href="#aspect-secondary-stack-size">3.44. Aspect Secondary_Stack_Size</a></li>
+<li><a class="reference internal" href="#aspect-scalar-storage-order">3.45. Aspect Scalar_Storage_Order</a></li>
+<li><a class="reference internal" href="#aspect-shared">3.46. Aspect Shared</a></li>
+<li><a class="reference internal" href="#aspect-simple-storage-pool">3.47. Aspect Simple_Storage_Pool</a></li>
+<li><a class="reference internal" href="#aspect-simple-storage-pool-type">3.48. Aspect Simple_Storage_Pool_Type</a></li>
+<li><a class="reference internal" href="#aspect-spark-mode">3.49. Aspect SPARK_Mode</a></li>
+<li><a class="reference internal" href="#aspect-suppress-debug-info">3.50. Aspect Suppress_Debug_Info</a></li>
+<li><a class="reference internal" href="#aspect-suppress-initialization">3.51. Aspect Suppress_Initialization</a></li>
+<li><a class="reference internal" href="#aspect-test-case">3.52. Aspect Test_Case</a></li>
+<li><a class="reference internal" href="#aspect-thread-local-storage">3.53. Aspect Thread_Local_Storage</a></li>
+<li><a class="reference internal" href="#aspect-universal-aliasing">3.54. Aspect Universal_Aliasing</a></li>
+<li><a class="reference internal" href="#aspect-unmodified">3.55. Aspect Unmodified</a></li>
+<li><a class="reference internal" href="#aspect-unreferenced">3.56. Aspect Unreferenced</a></li>
+<li><a class="reference internal" href="#aspect-unreferenced-objects">3.57. Aspect Unreferenced_Objects</a></li>
+<li><a class="reference internal" href="#aspect-value-size">3.58. Aspect Value_Size</a></li>
+<li><a class="reference internal" href="#aspect-volatile-full-access">3.59. Aspect Volatile_Full_Access</a></li>
+<li><a class="reference internal" href="#aspect-volatile-function">3.60. Aspect Volatile_Function</a></li>
+<li><a class="reference internal" href="#aspect-warnings">3.61. Aspect Warnings</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="implementation_defined_pragmas.html"
+                        title="previous chapter"><span class="section-number">2. </span>Implementation Defined Pragmas</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="implementation_defined_attributes.html"
+                        title="next chapter"><span class="section-number">4. </span>Implementation Defined Attributes</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/gnat_rm/implementation_defined_aspects.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="implementation_defined_attributes.html" title="4. Implementation Defined Attributes"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="implementation_defined_pragmas.html" title="2. Implementation Defined Pragmas"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../gnat_rm.html">GNAT Reference Manual 2021 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">3. </span>Implementation Defined Aspects</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2008-2021, Free Software Foundation.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
+    </div>
+  </body>
+</html>

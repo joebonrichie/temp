@@ -1,0 +1,23 @@
+project Cpp_Main is
+
+   for Languages use ("Ada", "C++");
+   for Main use ("cpp_main.cc");
+
+   Prefix := external ("PREFIX", "");
+
+   package Ide is
+      for Vcs_Kind use "CVS";
+      for Compiler_Command ("Ada") use Prefix & "gnatmake";
+      for Compiler_Command ("c++") use Prefix & "g++";
+   end Ide;
+
+   package Builder is
+      for Executable ("cpp_main.cc") use "";
+   end Builder;
+
+   package Naming is
+      for Specification_Suffix ("c++") use ".h";
+      for Implementation_Suffix ("c++") use ".cc";
+   end Naming;
+
+end Cpp_Main;

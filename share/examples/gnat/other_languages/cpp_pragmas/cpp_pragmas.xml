@@ -1,0 +1,18 @@
+    <!-- CPP_PRAGMAS -->
+
+    <action name="&prefix;_cpp_pragmas" category="">
+        <shell>
+            Project.load "&example_root;/gnat/other_languages/cpp_pragmas/cpp_pragmas.gpr"
+        </shell>
+        <shell>
+            Editor.edit "ex6_main.adb"
+        </shell>
+    </action>
+
+    <submenu before="About">
+        <title>&menu;</title>
+        <menu action="&prefix;_cpp_pragmas">
+            <title>GNAT &prefix;/Multiple Languages/Use of C++ pragmas</title>
+        </menu>
+    </submenu>
+

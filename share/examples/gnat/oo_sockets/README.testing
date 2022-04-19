@@ -1,0 +1,32 @@
+		       G N A T   E X A M P L E S
+		       =========================
+
+
+In order to compile the examples, make sure that the 'gprbuild' command is
+in your path. 
+
+Invocation
+----------
+
+In order to build the executables provided in this example, you need to
+use the "oo_sockets.gpr" project file. On the command-line, do a:
+
+  $ gprbuild -P oo_sockets
+
+In GPS, click on "Build", then "Make" and then "oo_sockets" is compiled, you
+can also simply press the F4 key.
+
+Features tested
+---------------
+
+* The oo_sockets example shows how to send objects (tagged record)
+  over a socket. Using the Ada 'Class'Input and 'Class'Output
+  attributes any class-wide objects can be exchanged between
+  applications. This example uses the GNAT.Sockets unit which
+  provides support for streams.
+
+  This example could have been written with two executables, but for
+  simplicity a single executable with two tasks is used. One for the
+  client and one for the server. The client task creates two objects
+  and send them (via a socket) to the server which calls a simple
+  dispatching method on them.

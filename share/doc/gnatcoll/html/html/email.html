@@ -1,0 +1,242 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>11. Email: Processing email messages &#8212; GNATColl 2021 documentation</title>
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="12. Ravenscar: patterns for multitasking" href="ravenscar.html" />
+    <link rel="prev" title="10. Templates: generating text" href="templates.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="ravenscar.html" title="12. Ravenscar: patterns for multitasking"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="templates.html" title="10. Templates: generating text"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">GNATColl 2021 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">11. </span><strong>Email</strong>: Processing email messages</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="email-processing-email-messages">
+<h1><span class="section-number">11. </span><strong>Email</strong>: Processing email messages<a class="headerlink" href="#email-processing-email-messages" title="Permalink to this headline">¶</a></h1>
+<p id="index-0">GNATColl provides a set of packages for managing and processing
+email messages. Through this packages, you can extract the various messages
+contained in an existing mailbox, extract the various components of a message,
+editing previously parsed messages, or create new messages from scratch.</p>
+<p>This module fully supports MIME-encoded messages, with attachments.</p>
+<p>This module currently does not provide a way to send the message through the
+SMTP protocol. Rather, it is used to create an in-memory representation of
+the message, which you can then convert to a string, and pass this to a
+socket. See for instance the <a class="reference external" href="http://www.adacore.com/home/gnatpro/add-on_technologies/web_technologies">AWS library</a>)
+which contains the necessary subprograms to connect with an SMTP server.</p>
+<div class="section" id="message-formats">
+<h2><span class="section-number">11.1. </span>Message formats<a class="headerlink" href="#message-formats" title="Permalink to this headline">¶</a></h2>
+<p id="index-1">The format of mail messages is defined through numerous RFC documents.
+GNATColl tries to conform to these as best as possible. Basically,
+a message is made of two parts:</p>
+<dl class="simple">
+<dt><em>The headers</em></dt><dd><p>These are various fields that indicate who sent the message, when, to whom,
+and so on</p>
+</dd>
+<dt><em>The payload (aka body)</em></dt><dd><p>This is the actual contents of the message. It can either be a simple text,
+or made of one or more attachments in various formats. These attachments can
+be HTML text, images, or any binary file. Since email transfer is done through
+various servers, the set of bytes that can be sent is generally limited to
+7 bit characters. Therefore, the attachments are generally encoded through one
+of the encoding defined in the various MIME RFCs, and they need to be decoded
+before the original file can be manipulated again.</p>
+</dd>
+</dl>
+<p>GNATColl gives you access to these various components, as will be
+seen in the section <a class="reference internal" href="#parsing-messages"><span class="std std-ref">Parsing messages</span></a>.</p>
+<span class="target" id="index-2"></span><p id="index-3">The package <code class="file docutils literal notranslate"><span class="pre">GNATCOLL.Email.Utils</span></code> contains various subprograms to decode
+MIME-encoded streams, which you can use independently from the rest of the
+packages in the email module.</p>
+<p>The headers part of the message contains various pieces of information about
+the message. Most of the headers have a well-defined semantics and format.
+However, a user is free to add new headers, which will generally start with
+<cite>X-</cite> prefix. For those fields where the format is well-defined, they
+contain various pieces of information:</p>
+<dl class="simple">
+<dt><em>Email addresses</em></dt><dd><p>The <cite>From</cite>, <cite>TO</cite> or <cite>CC</cite> fields, among others, contain
+list of recipients. These recipients are the usual email addresses. However,
+the format is quite complex, because the full name of the recipient can also
+be specified, along with comments. The package <code class="file docutils literal notranslate"><span class="pre">GNATCOLL.Email.Utils</span></code>
+provides various subprograms for parsing email addresses and list of
+recipients.</p>
+</dd>
+<dt><em>Dates</em></dt><dd><p>The <cite>Date</cite> header indicates when the message was sent. The format of the
+date is also precisely defined in the RFC, and the package
+<code class="file docutils literal notranslate"><span class="pre">GNATCOLL.Email.Utils</span></code> provides subprograms for parsing this date (or,
+on the contrary, to create a string from an existing time).</p>
+</dd>
+<dt><em>Text</em></dt><dd><p>The <cite>Subject</cite> header provides a brief overview of the message. It is
+a simple text header. However, one complication comes from the fact that the
+user might want to use extended characters not in the ASCII subset. In such
+cases, the Subject (or part of it) will be MIME-encoded. The package
+<code class="file docutils literal notranslate"><span class="pre">GNATCOLL.Email.Utils</span></code> provides subprograms to decode MIME-encoded strings,
+with the various charsets.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="parsing-messages">
+<span id="id1"></span><h2><span class="section-number">11.2. </span>Parsing messages<a class="headerlink" href="#parsing-messages" title="Permalink to this headline">¶</a></h2>
+<p>There are two ways a message is represented in memory: initially, it is
+a free-form <cite>String</cite>. The usual Ada operations can be used on the string,
+of course, but there is no way to extract the various components of the
+message. For this, the message must first be parsed into an instance of the
+<cite>Message</cite> type.</p>
+<p>This type is controlled, which means that the memory will be freed
+automatically when the message is no longer needed.</p>
+<p id="index-4">The package <code class="file docutils literal notranslate"><span class="pre">GNATCOLL.Email.Parser</span></code> provides various subprograms that
+parse a message (passed as a string), and create a <cite>Message</cite> out of it.
+Parsing a message might be costly in some cases, for instance if a big
+attachment needs to be decoded first. In some cases, your application will
+not need that information (for instance you might only be looking for a few
+of the headers of the message, and not need any information from the body).
+This efficiency concern is why there are multiple parsers. Some of them will
+ignore parts of the message, and thus be more efficient if you can use them.</p>
+<p id="index-5">Once a <cite>Message</cite> has been created, the subprograms in
+<cite>GNATCOLL.Email</cite>
+can be used to access its various parts.
+The documentation for these subprograms is found in the file
+<cite>gnatcoll-email.ads</cite> directly, and is not duplicated here.</p>
+</div>
+<div class="section" id="parsing-mailboxes">
+<h2><span class="section-number">11.3. </span>Parsing mailboxes<a class="headerlink" href="#parsing-mailboxes" title="Permalink to this headline">¶</a></h2>
+<p>Most often, a message is not found on its own (unless you are for instance
+writing a filter for incoming messages). Instead, the messages are stored
+in what is called a mailbox. The latter can contain thousands of such
+messages.</p>
+<p>There are traditionally multiple formats that have been used for mailboxes.
+At this stage, GNATColl only supports one of them, the <cite>mbox</cite>
+format. In this format, the messages are concatenated in a single file,
+and separated by a newline.</p>
+<p id="index-6">The package <cite>GNATCOLL.Email.Mailboxes</cite> provides all the types and
+subprograms
+to manipulate mailboxes.
+Tagged types are used, so that new formats of mailboxes can relatively easily
+be added later on, or in your own application.</p>
+<p>Here is a small code example that opens an mbox on the disk, and parses each
+message it contains:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kr">declare</span>
+  <span class="n">Box</span>  <span class="p">:</span> <span class="n">Mbox</span><span class="p">;</span>
+  <span class="n">Curs</span> <span class="p">:</span> <span class="kt">Cursor</span><span class="p">;</span>
+  <span class="n">Msg</span>  <span class="p">:</span> <span class="n">Message</span><span class="p">;</span>
+<span class="kr">begin</span>
+  <span class="n">Open</span> <span class="p">(</span><span class="n">Box</span><span class="p">,</span> <span class="n">Filename</span> <span class="p">=&gt;</span> <span class="s">&quot;my_mbox&quot;</span><span class="p">);</span>
+  <span class="n">Curs</span> <span class="p">:=</span> <span class="n">Mbox_Cursor</span> <span class="p">(</span><span class="n">First</span> <span class="p">(</span><span class="n">Box</span><span class="p">));</span>
+  <span class="kr">while</span> <span class="n">Has_Element</span> <span class="p">(</span><span class="n">Curs</span><span class="p">)</span> <span class="kr">loop</span>
+     <span class="n">Get_Message</span> <span class="p">(</span><span class="n">Curs</span><span class="p">,</span> <span class="n">Box</span><span class="p">,</span> <span class="n">Msg</span><span class="p">);</span>
+     <span class="kr">if</span> <span class="n">Msg</span> <span class="o">/=</span> <span class="n">Null_Message</span> <span class="kr">then</span>
+        <span class="p">...</span>
+     <span class="kr">end</span> <span class="kr">if</span><span class="p">;</span>
+     <span class="n">Next</span> <span class="p">(</span><span class="n">Curs</span><span class="p">,</span> <span class="n">Box</span><span class="p">);</span>
+  <span class="kr">end</span> <span class="kr">loop</span><span class="p">;</span>
+<span class="kr">end</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>As you can see, the mailbox needs to be opened first. Then we get an
+iterator (called a cursor, to match the Ada2005 containers naming scheme),
+and we then parse each message. The <cite>if</cite> test is optional, but
+recommended: the message that is returned might be null if the mailbox
+was corrupted and the message could not be parsed. There are still chances
+that the next message will be readable, so only the current message should
+be ignored.</p>
+</div>
+<div class="section" id="creating-messages">
+<h2><span class="section-number">11.4. </span>Creating messages<a class="headerlink" href="#creating-messages" title="Permalink to this headline">¶</a></h2>
+<p>The subprograms in <cite>GNATCOLL.Email</cite> can also be used to create a message
+from scratch. Alternatively, if you have already parsed a message, you
+can alter it, or easily generate a reply to it (using the <cite>Reply_To</cite>
+subprogram. The latter will preset some headers, so that message threading
+is preserved in the user’s mailers.</p>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/adacore_transparent.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">11. <strong>Email</strong>: Processing email messages</a><ul>
+<li><a class="reference internal" href="#message-formats">11.1. Message formats</a></li>
+<li><a class="reference internal" href="#parsing-messages">11.2. Parsing messages</a></li>
+<li><a class="reference internal" href="#parsing-mailboxes">11.3. Parsing mailboxes</a></li>
+<li><a class="reference internal" href="#creating-messages">11.4. Creating messages</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="templates.html"
+                        title="previous chapter"><span class="section-number">10. </span><strong>Templates</strong>: generating text</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="ravenscar.html"
+                        title="next chapter"><span class="section-number">12. </span><strong>Ravenscar</strong>: patterns for multitasking</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="ravenscar.html" title="12. Ravenscar: patterns for multitasking"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="templates.html" title="10. Templates: generating text"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">GNATColl 2021 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">11. </span><strong>Email</strong>: Processing email messages</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2007-2021, AdaCore.
+    </div>
+  </body>
+</html>

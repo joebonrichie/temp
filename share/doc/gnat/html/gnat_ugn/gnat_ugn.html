@@ -1,0 +1,430 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GNAT User’s Guide for Native Platforms &#8212; GNAT User&#39;s Guide for Native Platforms 2021 documentation</title>
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="1. About This Guide" href="gnat_ugn/about_this_guide.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="gnat_ugn/about_this_guide.html" title="1. About This Guide"
+             accesskey="N">next</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">GNAT User&#39;s Guide for Native Platforms 2021 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">GNAT User’s Guide for Native Platforms</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="gnat-user-s-guide-for-native-platforms">
+<h1>GNAT User’s Guide for Native Platforms<a class="headerlink" href="#gnat-user-s-guide-for-native-platforms" title="Permalink to this headline">¶</a></h1>
+<p><em>GNAT, The GNU Ada Development Environment</em></p>
+<p><em>GNAT Community Edition</em></p>
+<div class="line-block">
+<div class="line">Version 2021</div>
+<div class="line">Date: May 20, 2021</div>
+</div>
+<p>AdaCore</p>
+<p>Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover Texts being
+“GNAT User’s Guide for Native Platforms”,
+and with no Back-Cover Texts.  A copy of the license is
+included in the section entitled <a class="reference internal" href="share/gnu_free_documentation_license.html#gnu-fdl"><span class="std std-ref">GNU Free Documentation License</span></a>.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="gnat_ugn/about_this_guide.html">1. About This Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="gnat_ugn/about_this_guide.html#what-this-guide-contains">1.1. What This Guide Contains</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_ugn/about_this_guide.html#what-you-should-know-before-reading-this-guide">1.2. What You Should Know before Reading This Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_ugn/about_this_guide.html#related-information">1.3. Related Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_ugn/about_this_guide.html#conventions">1.4. Conventions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gnat_ugn/getting_started_with_gnat.html">2. Getting Started with GNAT</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="gnat_ugn/getting_started_with_gnat.html#system-requirements">2.1. System Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_ugn/getting_started_with_gnat.html#running-gnat">2.2. Running GNAT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_ugn/getting_started_with_gnat.html#running-a-simple-ada-program">2.3. Running a Simple Ada Program</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_ugn/getting_started_with_gnat.html#running-a-program-with-multiple-units">2.4. Running a Program with Multiple Units</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gnat_ugn/the_gnat_compilation_model.html">3. The GNAT Compilation Model</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="gnat_ugn/the_gnat_compilation_model.html#source-representation">3.1. Source Representation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_ugn/the_gnat_compilation_model.html#foreign-language-representation">3.2. Foreign Language Representation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/the_gnat_compilation_model.html#latin-1">3.2.1. Latin-1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/the_gnat_compilation_model.html#other-8-bit-codes">3.2.2. Other 8-Bit Codes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/the_gnat_compilation_model.html#wide-character-encodings">3.2.3. Wide_Character Encodings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/the_gnat_compilation_model.html#wide-wide-character-encodings">3.2.4. Wide_Wide_Character Encodings</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_ugn/the_gnat_compilation_model.html#file-naming-topics-and-utilities">3.3. File Naming Topics and Utilities</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/the_gnat_compilation_model.html#file-naming-rules">3.3.1. File Naming Rules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/the_gnat_compilation_model.html#using-other-file-names">3.3.2. Using Other File Names</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/the_gnat_compilation_model.html#alternative-file-naming-schemes">3.3.3. Alternative File Naming Schemes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/the_gnat_compilation_model.html#handling-arbitrary-file-naming-conventions-with-gnatname">3.3.4. Handling Arbitrary File Naming Conventions with <code class="docutils literal notranslate"><span class="pre">gnatname</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/the_gnat_compilation_model.html#file-name-krunching-with-gnatkr">3.3.5. File Name Krunching with <code class="docutils literal notranslate"><span class="pre">gnatkr</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/the_gnat_compilation_model.html#renaming-files-with-gnatchop">3.3.6. Renaming Files with <code class="docutils literal notranslate"><span class="pre">gnatchop</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_ugn/the_gnat_compilation_model.html#configuration-pragmas">3.4. Configuration Pragmas</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/the_gnat_compilation_model.html#handling-of-configuration-pragmas">3.4.1. Handling of Configuration Pragmas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/the_gnat_compilation_model.html#the-configuration-pragmas-files">3.4.2. The Configuration Pragmas Files</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_ugn/the_gnat_compilation_model.html#generating-object-files">3.5. Generating Object Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_ugn/the_gnat_compilation_model.html#source-dependencies">3.6. Source Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_ugn/the_gnat_compilation_model.html#the-ada-library-information-files">3.7. The Ada Library Information Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_ugn/the_gnat_compilation_model.html#binding-an-ada-program">3.8. Binding an Ada Program</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_ugn/the_gnat_compilation_model.html#gnat-and-libraries">3.9. GNAT and Libraries</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/the_gnat_compilation_model.html#introduction-to-libraries-in-gnat">3.9.1. Introduction to Libraries in GNAT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/the_gnat_compilation_model.html#general-ada-libraries">3.9.2. General Ada Libraries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/the_gnat_compilation_model.html#stand-alone-ada-libraries">3.9.3. Stand-alone Ada Libraries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/the_gnat_compilation_model.html#rebuilding-the-gnat-run-time-library">3.9.4. Rebuilding the GNAT Run-Time Library</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_ugn/the_gnat_compilation_model.html#conditional-compilation">3.10. Conditional Compilation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/the_gnat_compilation_model.html#modeling-conditional-compilation-in-ada">3.10.1. Modeling Conditional Compilation in Ada</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/the_gnat_compilation_model.html#preprocessing-with-gnatprep">3.10.2. Preprocessing with <code class="docutils literal notranslate"><span class="pre">gnatprep</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/the_gnat_compilation_model.html#integrated-preprocessing">3.10.3. Integrated Preprocessing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_ugn/the_gnat_compilation_model.html#mixed-language-programming">3.11. Mixed Language Programming</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/the_gnat_compilation_model.html#interfacing-to-c">3.11.1. Interfacing to C</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/the_gnat_compilation_model.html#calling-conventions">3.11.2. Calling Conventions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/the_gnat_compilation_model.html#building-mixed-ada-and-c-programs">3.11.3. Building Mixed Ada and C++ Programs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/the_gnat_compilation_model.html#generating-ada-bindings-for-c-and-c-headers">3.11.4. Generating Ada Bindings for C and C++ headers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/the_gnat_compilation_model.html#generating-c-headers-for-ada-specifications">3.11.5. Generating C Headers for Ada Specifications</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_ugn/the_gnat_compilation_model.html#gnat-and-other-compilation-models">3.12. GNAT and Other Compilation Models</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/the_gnat_compilation_model.html#comparison-between-gnat-and-c-c-compilation-models">3.12.1. Comparison between GNAT and C/C++ Compilation Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/the_gnat_compilation_model.html#comparison-between-gnat-and-conventional-ada-library-models">3.12.2. Comparison between GNAT and Conventional Ada Library Models</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_ugn/the_gnat_compilation_model.html#using-gnat-files-with-external-tools">3.13. Using GNAT Files with External Tools</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/the_gnat_compilation_model.html#using-other-utility-programs-with-gnat">3.13.1. Using Other Utility Programs with GNAT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/the_gnat_compilation_model.html#the-external-symbol-naming-scheme-of-gnat">3.13.2. The External Symbol Naming Scheme of GNAT</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gnat_ugn/building_executable_programs_with_gnat.html">4. Building Executable Programs with GNAT</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="gnat_ugn/building_executable_programs_with_gnat.html#building-with-gnatmake">4.1. Building with <code class="docutils literal notranslate"><span class="pre">gnatmake</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/building_executable_programs_with_gnat.html#running-gnatmake">4.1.1. Running <code class="docutils literal notranslate"><span class="pre">gnatmake</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/building_executable_programs_with_gnat.html#switches-for-gnatmake">4.1.2. Switches for <code class="docutils literal notranslate"><span class="pre">gnatmake</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/building_executable_programs_with_gnat.html#mode-switches-for-gnatmake">4.1.3. Mode Switches for <code class="docutils literal notranslate"><span class="pre">gnatmake</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/building_executable_programs_with_gnat.html#notes-on-the-command-line">4.1.4. Notes on the Command Line</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/building_executable_programs_with_gnat.html#how-gnatmake-works">4.1.5. How <code class="docutils literal notranslate"><span class="pre">gnatmake</span></code> Works</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/building_executable_programs_with_gnat.html#examples-of-gnatmake-usage">4.1.6. Examples of <code class="docutils literal notranslate"><span class="pre">gnatmake</span></code> Usage</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_ugn/building_executable_programs_with_gnat.html#compiling-with-gcc">4.2. Compiling with <code class="docutils literal notranslate"><span class="pre">gcc</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/building_executable_programs_with_gnat.html#compiling-programs">4.2.1. Compiling Programs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/building_executable_programs_with_gnat.html#search-paths-and-the-run-time-library-rtl">4.2.2. Search Paths and the Run-Time Library (RTL)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/building_executable_programs_with_gnat.html#order-of-compilation-issues">4.2.3. Order of Compilation Issues</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/building_executable_programs_with_gnat.html#examples">4.2.4. Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_ugn/building_executable_programs_with_gnat.html#compiler-switches">4.3. Compiler Switches</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/building_executable_programs_with_gnat.html#alphabetical-list-of-all-switches">4.3.1. Alphabetical List of All Switches</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/building_executable_programs_with_gnat.html#output-and-error-message-control">4.3.2. Output and Error Message Control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/building_executable_programs_with_gnat.html#warning-message-control">4.3.3. Warning Message Control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/building_executable_programs_with_gnat.html#debugging-and-assertion-control">4.3.4. Debugging and Assertion Control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/building_executable_programs_with_gnat.html#validity-checking">4.3.5. Validity Checking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/building_executable_programs_with_gnat.html#style-checking">4.3.6. Style Checking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/building_executable_programs_with_gnat.html#run-time-checks">4.3.7. Run-Time Checks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/building_executable_programs_with_gnat.html#using-gcc-for-syntax-checking">4.3.8. Using <code class="docutils literal notranslate"><span class="pre">gcc</span></code> for Syntax Checking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/building_executable_programs_with_gnat.html#using-gcc-for-semantic-checking">4.3.9. Using <code class="docutils literal notranslate"><span class="pre">gcc</span></code> for Semantic Checking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/building_executable_programs_with_gnat.html#compiling-different-versions-of-ada">4.3.10. Compiling Different Versions of Ada</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/building_executable_programs_with_gnat.html#character-set-control">4.3.11. Character Set Control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/building_executable_programs_with_gnat.html#file-naming-control">4.3.12. File Naming Control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/building_executable_programs_with_gnat.html#subprogram-inlining-control">4.3.13. Subprogram Inlining Control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/building_executable_programs_with_gnat.html#auxiliary-output-control">4.3.14. Auxiliary Output Control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/building_executable_programs_with_gnat.html#debugging-control">4.3.15. Debugging Control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/building_executable_programs_with_gnat.html#exception-handling-control">4.3.16. Exception Handling Control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/building_executable_programs_with_gnat.html#units-to-sources-mapping-files">4.3.17. Units to Sources Mapping Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/building_executable_programs_with_gnat.html#code-generation-control">4.3.18. Code Generation Control</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_ugn/building_executable_programs_with_gnat.html#linker-switches">4.4. Linker Switches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_ugn/building_executable_programs_with_gnat.html#binding-with-gnatbind">4.5. Binding with <code class="docutils literal notranslate"><span class="pre">gnatbind</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/building_executable_programs_with_gnat.html#running-gnatbind">4.5.1. Running <code class="docutils literal notranslate"><span class="pre">gnatbind</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/building_executable_programs_with_gnat.html#switches-for-gnatbind">4.5.2. Switches for <code class="docutils literal notranslate"><span class="pre">gnatbind</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/building_executable_programs_with_gnat.html#command-line-access">4.5.3. Command-Line Access</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/building_executable_programs_with_gnat.html#search-paths-for-gnatbind">4.5.4. Search Paths for <code class="docutils literal notranslate"><span class="pre">gnatbind</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/building_executable_programs_with_gnat.html#examples-of-gnatbind-usage">4.5.5. Examples of <code class="docutils literal notranslate"><span class="pre">gnatbind</span></code> Usage</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_ugn/building_executable_programs_with_gnat.html#linking-with-gnatlink">4.6. Linking with <code class="docutils literal notranslate"><span class="pre">gnatlink</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/building_executable_programs_with_gnat.html#running-gnatlink">4.6.1. Running <code class="docutils literal notranslate"><span class="pre">gnatlink</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/building_executable_programs_with_gnat.html#switches-for-gnatlink">4.6.2. Switches for <code class="docutils literal notranslate"><span class="pre">gnatlink</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_ugn/building_executable_programs_with_gnat.html#using-the-gnu-make-utility">4.7. Using the GNU <code class="docutils literal notranslate"><span class="pre">make</span></code> Utility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/building_executable_programs_with_gnat.html#using-gnatmake-in-a-makefile">4.7.1. Using gnatmake in a Makefile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/building_executable_programs_with_gnat.html#automatically-creating-a-list-of-directories">4.7.2. Automatically Creating a List of Directories</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/building_executable_programs_with_gnat.html#generating-the-command-line-switches">4.7.3. Generating the Command Line Switches</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/building_executable_programs_with_gnat.html#overcoming-command-line-length-limits">4.7.4. Overcoming Command Line Length Limits</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gnat_ugn/gnat_utility_programs.html">5. GNAT Utility Programs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="gnat_ugn/gnat_utility_programs.html#the-file-cleanup-utility-gnatclean">5.1. The File Cleanup Utility <code class="docutils literal notranslate"><span class="pre">gnatclean</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/gnat_utility_programs.html#running-gnatclean">5.1.1. Running <code class="docutils literal notranslate"><span class="pre">gnatclean</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/gnat_utility_programs.html#switches-for-gnatclean">5.1.2. Switches for <code class="docutils literal notranslate"><span class="pre">gnatclean</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_ugn/gnat_utility_programs.html#the-gnat-library-browser-gnatls">5.2. The GNAT Library Browser <code class="docutils literal notranslate"><span class="pre">gnatls</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/gnat_utility_programs.html#running-gnatls">5.2.1. Running <code class="docutils literal notranslate"><span class="pre">gnatls</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/gnat_utility_programs.html#switches-for-gnatls">5.2.2. Switches for <code class="docutils literal notranslate"><span class="pre">gnatls</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/gnat_utility_programs.html#example-of-gnatls-usage">5.2.3. Example of <code class="docutils literal notranslate"><span class="pre">gnatls</span></code> Usage</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_ugn/gnat_utility_programs.html#the-coding-standard-verifier-gnatcheck">5.3. The Coding Standard Verifier <code class="docutils literal notranslate"><span class="pre">gnatcheck</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_ugn/gnat_utility_programs.html#the-gnat-metrics-tool-gnatmetric">5.4. The GNAT Metrics Tool <code class="docutils literal notranslate"><span class="pre">gnatmetric</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/gnat_utility_programs.html#output-file-control">5.4.1. Output File Control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/gnat_utility_programs.html#disable-metrics-for-local-units">5.4.2. Disable Metrics For Local Units</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/gnat_utility_programs.html#specifying-a-set-of-metrics-to-compute">5.4.3. Specifying a set of metrics to compute</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/gnat_utility_programs.html#other-gnatmetric-switches">5.4.4. Other <code class="docutils literal notranslate"><span class="pre">gnatmetric</span></code> Switches</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_ugn/gnat_utility_programs.html#the-gnat-pretty-printer-gnatpp">5.5. The GNAT Pretty Printer <code class="docutils literal notranslate"><span class="pre">gnatpp</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/gnat_utility_programs.html#switches-for-gnatpp">5.5.1. Switches for <code class="docutils literal notranslate"><span class="pre">gnatpp</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/gnat_utility_programs.html#formatting-rules">5.5.2. Formatting Rules</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_ugn/gnat_utility_programs.html#the-body-stub-generator-gnatstub">5.6. The Body Stub Generator <em>gnatstub</em></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/gnat_utility_programs.html#running-gnatstub">5.6.1. Running <code class="docutils literal notranslate"><span class="pre">gnatstub</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/gnat_utility_programs.html#switches-for-gnatstub">5.6.2. Switches for <code class="docutils literal notranslate"><span class="pre">gnatstub</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_ugn/gnat_utility_programs.html#the-unit-test-generator-gnattest">5.7. The Unit Test Generator <code class="docutils literal notranslate"><span class="pre">gnattest</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/gnat_utility_programs.html#running-gnattest">5.7.1. Running <code class="docutils literal notranslate"><span class="pre">gnattest</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/gnat_utility_programs.html#switches-for-gnattest-in-framework-generation-mode">5.7.2. Switches for <code class="docutils literal notranslate"><span class="pre">gnattest</span></code> in framework generation mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/gnat_utility_programs.html#switches-for-gnattest-in-test-execution-mode">5.7.3. Switches for <code class="docutils literal notranslate"><span class="pre">gnattest</span></code> in test execution mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/gnat_utility_programs.html#project-attributes-for-gnattest">5.7.4. Project Attributes for <code class="docutils literal notranslate"><span class="pre">gnattest</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/gnat_utility_programs.html#simple-example">5.7.5. Simple Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/gnat_utility_programs.html#setting-up-and-tearing-down-the-testing-environment">5.7.6. Setting Up and Tearing Down the Testing Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/gnat_utility_programs.html#regenerating-tests">5.7.7. Regenerating Tests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/gnat_utility_programs.html#default-test-behavior">5.7.8. Default Test Behavior</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/gnat_utility_programs.html#testing-primitive-operations-of-tagged-types">5.7.9. Testing Primitive Operations of Tagged Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/gnat_utility_programs.html#testing-inheritance">5.7.10. Testing Inheritance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/gnat_utility_programs.html#tagged-type-substitutability-testing">5.7.11. Tagged Type Substitutability Testing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/gnat_utility_programs.html#testing-with-contracts">5.7.12. Testing with Contracts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/gnat_utility_programs.html#additional-tests">5.7.13. Additional Tests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/gnat_utility_programs.html#individual-test-drivers">5.7.14. Individual Test Drivers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/gnat_utility_programs.html#stubbing">5.7.15. Stubbing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/gnat_utility_programs.html#integration-with-gnatcoverage">5.7.16. Integration with GNATcoverage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/gnat_utility_programs.html#putting-tests-under-version-control">5.7.17. Putting Tests under Version Control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/gnat_utility_programs.html#current-limitations">5.7.18. Current Limitations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_ugn/gnat_utility_programs.html#translating-code-addresses-into-source-locations-with-gnatsymbolize">5.8. Translating Code Addresses into Source Locations with <code class="docutils literal notranslate"><span class="pre">gnatsymbolize</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/gnat_utility_programs.html#running-gnatsymbolize">5.8.1. Running <code class="docutils literal notranslate"><span class="pre">gnatsymbolize</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/gnat_utility_programs.html#switches-for-gnatsymbolize">5.8.2. Switches for <code class="docutils literal notranslate"><span class="pre">gnatsymbolize</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/gnat_utility_programs.html#requirements-for-correct-operation">5.8.3. Requirements for Correct Operation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_ugn/gnat_utility_programs.html#using-project-files-with-gnat-tools">5.9. Using Project Files with GNAT Tools</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/gnat_utility_programs.html#switches-related-to-project-files">5.9.1. Switches Related to Project Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/gnat_utility_programs.html#tool-specific-packages-in-project-files">5.9.2. Tool-specific packages in project files</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gnat_ugn/gnat_and_program_execution.html">6. GNAT and Program Execution</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="gnat_ugn/gnat_and_program_execution.html#running-and-debugging-ada-programs">6.1. Running and Debugging Ada Programs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/gnat_and_program_execution.html#the-gnat-debugger-gdb">6.1.1. The GNAT Debugger GDB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/gnat_and_program_execution.html#running-gdb">6.1.2. Running GDB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/gnat_and_program_execution.html#introduction-to-gdb-commands">6.1.3. Introduction to GDB Commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/gnat_and_program_execution.html#using-ada-expressions">6.1.4. Using Ada Expressions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/gnat_and_program_execution.html#calling-user-defined-subprograms">6.1.5. Calling User-Defined Subprograms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/gnat_and_program_execution.html#using-the-next-command-in-a-function">6.1.6. Using the <em>next</em> Command in a Function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/gnat_and_program_execution.html#stopping-when-ada-exceptions-are-raised">6.1.7. Stopping When Ada Exceptions Are Raised</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/gnat_and_program_execution.html#ada-tasks">6.1.8. Ada Tasks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/gnat_and_program_execution.html#debugging-generic-units">6.1.9. Debugging Generic Units</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/gnat_and_program_execution.html#remote-debugging-with-gdbserver">6.1.10. Remote Debugging with gdbserver</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/gnat_and_program_execution.html#gnat-abnormal-termination-or-failure-to-terminate">6.1.11. GNAT Abnormal Termination or Failure to Terminate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/gnat_and_program_execution.html#naming-conventions-for-gnat-source-files">6.1.12. Naming Conventions for GNAT Source Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/gnat_and_program_execution.html#getting-internal-debugging-information">6.1.13. Getting Internal Debugging Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/gnat_and_program_execution.html#stack-traceback">6.1.14. Stack Traceback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/gnat_and_program_execution.html#pretty-printers-for-the-gnat-runtime">6.1.15. Pretty-Printers for the GNAT runtime</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_ugn/gnat_and_program_execution.html#profiling">6.2. Profiling</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/gnat_and_program_execution.html#profiling-an-ada-program-with-gprof">6.2.1. Profiling an Ada Program with gprof</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_ugn/gnat_and_program_execution.html#improving-performance">6.3. Improving Performance</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/gnat_and_program_execution.html#performance-considerations">6.3.1. Performance Considerations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/gnat_and_program_execution.html#text-io-suggestions">6.3.2. <code class="docutils literal notranslate"><span class="pre">Text_IO</span></code> Suggestions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/gnat_and_program_execution.html#reducing-size-of-executables-with-unused-subprogram-data-elimination">6.3.3. Reducing Size of Executables with Unused Subprogram/Data Elimination</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_ugn/gnat_and_program_execution.html#overflow-check-handling-in-gnat">6.4. Overflow Check Handling in GNAT</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/gnat_and_program_execution.html#background">6.4.1. Background</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/gnat_and_program_execution.html#management-of-overflows-in-gnat">6.4.2. Management of Overflows in GNAT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/gnat_and_program_execution.html#specifying-the-desired-mode">6.4.3. Specifying the Desired Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/gnat_and_program_execution.html#default-settings">6.4.4. Default Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/gnat_and_program_execution.html#implementation-notes">6.4.5. Implementation Notes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_ugn/gnat_and_program_execution.html#performing-dimensionality-analysis-in-gnat">6.5. Performing Dimensionality Analysis in GNAT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_ugn/gnat_and_program_execution.html#stack-related-facilities">6.6. Stack Related Facilities</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/gnat_and_program_execution.html#stack-overflow-checking">6.6.1. Stack Overflow Checking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/gnat_and_program_execution.html#static-stack-usage-analysis">6.6.2. Static Stack Usage Analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/gnat_and_program_execution.html#dynamic-stack-usage-analysis">6.6.3. Dynamic Stack Usage Analysis</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_ugn/gnat_and_program_execution.html#memory-management-issues">6.7. Memory Management Issues</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/gnat_and_program_execution.html#some-useful-memory-pools">6.7.1. Some Useful Memory Pools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/gnat_and_program_execution.html#the-gnat-debug-pool-facility">6.7.2. The GNAT Debug Pool Facility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/gnat_and_program_execution.html#the-gnatmem-tool">6.7.3. The <code class="docutils literal notranslate"><span class="pre">gnatmem</span></code> Tool</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="gnat_ugn/platform_specific_information.html">A. Platform-Specific Information</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="gnat_ugn/platform_specific_information.html#run-time-libraries">Run-Time Libraries</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/platform_specific_information.html#summary-of-run-time-configurations">Summary of Run-Time Configurations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_ugn/platform_specific_information.html#specifying-a-run-time-library">Specifying a Run-Time Library</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/platform_specific_information.html#index-10">Choosing the Scheduling Policy</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_ugn/platform_specific_information.html#gnu-linux-topics">GNU/Linux Topics</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/platform_specific_information.html#required-packages-on-gnu-linux">Required Packages on GNU/Linux</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_ugn/platform_specific_information.html#microsoft-windows-topics">Microsoft Windows Topics</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/platform_specific_information.html#using-gnat-on-windows">Using GNAT on Windows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/platform_specific_information.html#using-a-network-installation-of-gnat">Using a network installation of GNAT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/platform_specific_information.html#console-and-windows-subsystems">CONSOLE and WINDOWS subsystems</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/platform_specific_information.html#temporary-files">Temporary Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/platform_specific_information.html#disabling-command-line-argument-expansion">Disabling Command Line Argument Expansion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/platform_specific_information.html#windows-socket-timeouts">Windows Socket Timeouts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/platform_specific_information.html#mixed-language-programming-on-windows">Mixed-Language Programming on Windows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/platform_specific_information.html#windows-specific-add-ons">Windows Specific Add-Ons</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_ugn/platform_specific_information.html#mac-os-topics">Mac OS Topics</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/platform_specific_information.html#codesigning-the-debugger">Codesigning the Debugger</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gnat_ugn/example_of_binder_output.html">B. Example of Binder Output</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gnat_ugn/elaboration_order_handling_in_gnat.html">C. Elaboration Order Handling in GNAT</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="gnat_ugn/elaboration_order_handling_in_gnat.html#elaboration-code">Elaboration Code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_ugn/elaboration_order_handling_in_gnat.html#elaboration-order">Elaboration Order</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_ugn/elaboration_order_handling_in_gnat.html#checking-the-elaboration-order">Checking the Elaboration Order</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_ugn/elaboration_order_handling_in_gnat.html#controlling-the-elaboration-order-in-ada">Controlling the Elaboration Order in Ada</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_ugn/elaboration_order_handling_in_gnat.html#controlling-the-elaboration-order-in-gnat">Controlling the Elaboration Order in GNAT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_ugn/elaboration_order_handling_in_gnat.html#mixing-elaboration-models">Mixing Elaboration Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_ugn/elaboration_order_handling_in_gnat.html#abe-diagnostics">ABE Diagnostics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_ugn/elaboration_order_handling_in_gnat.html#spark-diagnostics">SPARK Diagnostics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_ugn/elaboration_order_handling_in_gnat.html#elaboration-circularities">Elaboration Circularities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_ugn/elaboration_order_handling_in_gnat.html#resolving-elaboration-circularities">Resolving Elaboration Circularities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_ugn/elaboration_order_handling_in_gnat.html#elaboration-related-compiler-switches">Elaboration-related Compiler Switches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_ugn/elaboration_order_handling_in_gnat.html#summary-of-procedures-for-elaboration-control">Summary of Procedures for Elaboration Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_ugn/elaboration_order_handling_in_gnat.html#inspecting-the-chosen-elaboration-order">Inspecting the Chosen Elaboration Order</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gnat_ugn/inline_assembler.html">D. Inline Assembler</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="gnat_ugn/inline_assembler.html#basic-assembler-syntax">Basic Assembler Syntax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_ugn/inline_assembler.html#a-simple-example-of-inline-assembler">A Simple Example of Inline Assembler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_ugn/inline_assembler.html#output-variables-in-inline-assembler">Output Variables in Inline Assembler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_ugn/inline_assembler.html#input-variables-in-inline-assembler">Input Variables in Inline Assembler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_ugn/inline_assembler.html#inlining-inline-assembler-code">Inlining Inline Assembler Code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_ugn/inline_assembler.html#other-asm-functionality">Other <code class="docutils literal notranslate"><span class="pre">Asm</span></code> Functionality</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/inline_assembler.html#the-clobber-parameter">The <code class="docutils literal notranslate"><span class="pre">Clobber</span></code> Parameter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_ugn/inline_assembler.html#the-volatile-parameter">The <code class="docutils literal notranslate"><span class="pre">Volatile</span></code> Parameter</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="share/gnu_free_documentation_license.html">E. GNU Free Documentation License</a></li>
+</ul>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="#">
+              <img class="logo" src="_static/adacore_transparent.png" alt="Logo"/>
+            </a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="gnat_ugn/about_this_guide.html"
+                        title="next chapter"><span class="section-number">1. </span>About This Guide</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/gnat_ugn.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="gnat_ugn/about_this_guide.html" title="1. About This Guide"
+             >next</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">GNAT User&#39;s Guide for Native Platforms 2021 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">GNAT User’s Guide for Native Platforms</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2008-2021, Free Software Foundation.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
+    </div>
+  </body>
+</html>

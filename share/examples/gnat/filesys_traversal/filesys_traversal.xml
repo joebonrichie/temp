@@ -1,0 +1,27 @@
+    <!-- FILESYS_TRAVERSAL -->
+
+    <action name="&prefix;_filesys_traversal" category="">
+        <shell>
+            Project.load "&example_root;/gnat/filesys_traversal/filesys.gpr"
+        </shell>
+        <shell>
+            Editor.edit "count_lines.adb"
+        </shell>
+        <shell>
+            Editor.edit "count_semicolons.adb"
+        </shell>
+        <shell>
+            Editor.edit "show_by_size.adb"
+        </shell>
+        <shell>
+            Editor.edit "README.testing"
+        </shell>
+    </action>
+
+    <submenu before="About">
+        <title>&menu;</title>
+        <menu action="&prefix;_filesys_traversal">
+            <title>GNAT &prefix;/File System Traversal Utility</title>
+        </menu>
+    </submenu>
+

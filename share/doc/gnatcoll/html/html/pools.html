@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>20. Pools: Controlling access to resources &#8212; GNATColl 2021 documentation</title>
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="21. JSON: handling JSON data" href="json.html" />
+    <link rel="prev" title="19. Config: Parsing configuration files" href="config.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="json.html" title="21. JSON: handling JSON data"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="config.html" title="19. Config: Parsing configuration files"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">GNATColl 2021 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">20. </span><strong>Pools</strong>: Controlling access to resources</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="pools-controlling-access-to-resources">
+<h1><span class="section-number">20. </span><strong>Pools</strong>: Controlling access to resources<a class="headerlink" href="#pools-controlling-access-to-resources" title="Permalink to this headline">¶</a></h1>
+<p>The package <strong>GNATCOLL.Pools</strong> provides resource pools.</p>
+<p>A pool contains a maximum number of resources, which are created on demand.
+However, once a resource is no longer needed by the client, it is not freed,
+but instead it is released to the pool, which will then return it again the
+next time a client requests a resource.</p>
+<p>The typical resource is when the creation of the resources is expensive, for
+instance a connection to a database or a remote server. The lazy creation then
+provides a faster startup time (as well as more flexibility, since there is no
+need to allocate dozens of resources if only one will be needed in the end),
+and more efficient retrieval through the reuse of resources.</p>
+<p>The pool in this package is task safe, and is intended as a global variable
+(or field of a global variable) somewhere in your application.</p>
+<p>The resources are implemented as reference-counted types (through
+<cite>GNATCOLL.Refcount</cite>). As a result, as soon as the client no longer has
+a handle on them, they are automatically released to the pool and there is
+no risk that the client forgets to do so.</p>
+<p><cite>GNATCOLL.Pools</cite> is a generic package where the formal parameters
+describe the type of resources, how to create them on demand, what should
+happen when a resource is released, and finally how to free a resource when
+the pool itself is freed. See <code class="file docutils literal notranslate"><span class="pre">gnatcoll-pools.ads</span></code> for a full and
+up-to-date description of these parameters.</p>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/adacore_transparent.png" alt="Logo"/>
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="config.html"
+                        title="previous chapter"><span class="section-number">19. </span><strong>Config</strong>: Parsing configuration files</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="json.html"
+                        title="next chapter"><span class="section-number">21. </span><strong>JSON</strong>: handling JSON data</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="json.html" title="21. JSON: handling JSON data"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="config.html" title="19. Config: Parsing configuration files"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">GNATColl 2021 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">20. </span><strong>Pools</strong>: Controlling access to resources</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2007-2021, AdaCore.
+    </div>
+  </body>
+</html>

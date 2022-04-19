@@ -1,0 +1,137 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>13. Storage Pools: controlling memory management &#8212; GNATColl 2021 documentation</title>
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="14. VFS: Manipulating Files" href="vfs.html" />
+    <link rel="prev" title="12. Ravenscar: patterns for multitasking" href="ravenscar.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="vfs.html" title="14. VFS: Manipulating Files"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="ravenscar.html" title="12. Ravenscar: patterns for multitasking"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">GNATColl 2021 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">13. </span><strong>Storage Pools</strong>: controlling memory management</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="storage-pools-controlling-memory-management">
+<h1><span class="section-number">13. </span><strong>Storage Pools</strong>: controlling memory management<a class="headerlink" href="#storage-pools-controlling-memory-management" title="Permalink to this headline">¶</a></h1>
+<p>Ada gives full control to the user for memory management. That allows for
+a number of optimization in your application. For instance, if you need to
+allocate a lot of small chunks of memory, it is generally more efficient
+to allocate a single large chunk, which is later divided into smaller
+chunks. That results in a single system call, which speeds up your
+application.</p>
+<p>This can of course be done in most languages. However, that generally
+means you have to remember not to use the standard memory allocations
+like <cite>malloc</cite> or <cite>new</cite>, and instead call one of your
+subprograms. If you ever decide to change the allocation strategy, or
+want to experiment with several strategies, that means updating your
+code in several places.</p>
+<p>In Ada, when you declare the type of your data, you also specify through
+a <cite>‘Storage_Pool</cite> attribute how the memory for instances of that
+type should be allocated. And that’s it. You then use the usual
+<cite>new</cite> keyword to allocate memory.</p>
+<p>GNATColl provides a number of examples for such storage pools,
+with various goals. There is also one advanced such pool in the GNAT
+run-time itself, called <cite>GNAT.Debug_Pools</cite>, which allows you to
+control memory leaks and whether all accesses do reference valid memory
+location (and not memory that has already been deallocated).</p>
+<p>In GNATColl, you will find the following storage pools:</p>
+<dl>
+<dt><em>`GNATCOLL.Storage_Pools.Alignment`</em></dt><dd><p>This pool gives you full control over the alignment of your data. In
+general, Ada will only allow you to specify alignments up to a limited
+number of bytes, because the compiler must only accept alignments
+that can be satisfied in all contexts, in particular on the stack.</p>
+<p>This package overcomes that limitation, by allocating larger chunks
+of memory than needed, and returning an address within that chunk which
+is properly aligned.</p>
+</dd>
+<dt><em>`GNATCOLL.Storage_Pools.Headers`</em></dt><dd><p>This pool allows you to allocate memory for the element and reserve extra
+space before it for a header. This header can be used to store per-element
+information, like for instance a reference counter, or next and previous
+links to other elements in the same collection.</p>
+<p>In many cases, this can be used to reduce the number of allocations, and
+thus speed up the overall application.</p>
+</dd>
+</dl>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/adacore_transparent.png" alt="Logo"/>
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="ravenscar.html"
+                        title="previous chapter"><span class="section-number">12. </span><strong>Ravenscar</strong>: patterns for multitasking</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="vfs.html"
+                        title="next chapter"><span class="section-number">14. </span><strong>VFS</strong>: Manipulating Files</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="vfs.html" title="14. VFS: Manipulating Files"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="ravenscar.html" title="12. Ravenscar: patterns for multitasking"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">GNATColl 2021 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">13. </span><strong>Storage Pools</strong>: controlling memory management</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2007-2021, AdaCore.
+    </div>
+  </body>
+</html>

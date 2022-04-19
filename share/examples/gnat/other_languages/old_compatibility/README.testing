@@ -1,0 +1,146 @@
+		       G N A T   E X A M P L E S
+		       =========================
+
+
+In this directory, we show how to call routines written in a different
+language, namely C and C++ in an Ada program.
+
+C Example
+---------
+
+The first example is implemented in use_of_import.adb. The Use_Of_Import
+subprogramme references the C function "imported_function" and binds it
+to the Imported_Function Ada name, using the C function call convention.
+
+To succesfully compile this, you need first to compile the C function:
+
+  $ gcc -c -o imported_function.o imported_function.c
+
+Then, you can compile the Ada routine and link all together with the
+following commands:
+
+  $ gnatmake -Isrc -D obj use_of_import -cargs -02 -largs obj/imported_function.o 
+
+The '-largs' switch tells gnat to add to the linker command line the
+C binary file.
+
+C++ Example
+-----------
+
+Information on how to link C++ & Ada is provided in the GNAT User's
+Guide in section 2.11.2. This is mostly accurate in the case of GNAT
+5.01a and Gnu C++ 3.x. These examples provide some more details for
+different kinds of Gnat/Gnu C++ combinations.
+
+You must first:
+
+* Edit the file named Makefile.inc, which is located in the directory
+  above this one, and edit the variable CPLUSPLUS so that it is 'TRUE'
+
+* Have in you command path a C++ compiler. 
+
+* Determine which versions of Gnat and the C++ compiler you are using.
+
+In the following commands, we use g++. However, g++ is called through
+gnatlink, which is called through the gnat wrapper mechanism. As a
+consequence, some environment variables are defined which influence g++
+behaviour.  In order to avoid this, we substitue the direct call to g++
+by a call to some other script, which undefines the nasty variables
+and then calls g++.
+
+Different Makefiles are provided to overcome the incompatibilities 
+between the gcc library used in different versions of G++ and in Gnat.
+To know the version of g++ you are using, do 'g++ --version'. To know
+the version of Gnat you are using, do 'gnatls -v'. If you have
+
+- G++ 2.9X and Gnat 3.1X  use Makefile.gnat_31x-gplusplus_29x
+- G++ 3.X  and Gnat 3.1X  use Makefile.gnat_31x-gplusplus_3x
+- G++ 2.9X and Gnat 5.X   use Makefile.gnat_5x-gplusplus_29x
+- G++ 3.X  and Gnat 5.00a use Makefile.gnat_500a-gplusplus_3x
+- G++ 3.X  and Gnat 5.01a use Makefile.gnat_501x-gplusplus_3x
+
+Note that we have not tested this example with a version of g++ older than
+2.91. 
+
+Then, to run the examples, just do 'make -f <your Makefile>', where
+<your Makefile> is the above Makefile suited for your situation.
+The following paragraphs explains why we need different Makefiles in
+each situation.
+
+	Makefile.gnat_31x-gplusplus_29x
+	-------------------------------
+
+There is nothing particular to say with respect to this example.
+There is no particular compatibility issue in this situation.
+
+	Makefile.gnat_31x-gplusplus_3x
+	------------------------------
+
+The symbol named "__dummy" which was part of libgcc with 2.x-based backends
+is no longer part of libgcc with 3.x-based backends. Since Gnat 3.1x is based
+on a 2.x backend technology, the corresponding libgnat expects to have this
+symbol available, which may lead to the following problem at link:
+
+raise.o(.text+0x1d): undefined reference to `__dummy'
+
+To address this issue, we build a separate library which defines the
+symbol dummy, so that link works:
+
+  $ cat dummy.c
+void __dummy (void)
+{
+   return;
+}
+
+	Makefile.gnat_5x-gplusplus_29x
+	------------------------------
+
+The 3.x-based compilers now use a backend-based exception system, which
+is implemented by mean of the libgcc_eh library, while 2.x-based compilers
+use a frontend-based system.
+
+Using gnat 5 with g++ 2.x can therefore lead to failure at link time, with the
+following kind of errors:
+
+raise.o(.text+0xf6): undefined reference to `_Unwind_GetDataRelBase'
+raise.o(.text+0x109): undefined reference to `_Unwind_GetRegionStart'
+raise.o(.text+0x114): undefined reference to `_Unwind_GetTextRelBase'
+/usr/local/gnat-5.00a/lib/gcc-lib/i686-pc-linux-gnu/3.2.2/adalib/libgnat.a(raise.o): In function `db_region_for':
+raise.o(.text+0x4f4): undefined reference to `_Unwind_GetIP'
+[more errors removed]
+
+To address this issue, it is necessary to link with -lgcc_eh.
+
+	Makefile.gnat_500a-gplusplus_3x
+	-------------------------------
+
+There is nothing particular to say with respect to this example.
+There is no particular compatibility issue in this situation, and
+we are fully in the situation described in section 2.11.2 of the
+manual.
+
+	Makefile.gnat_501x-gplusplus_3x
+	-------------------------------
+
+While using gnat 5.01a with a gplusplus compiler, you can have the
+following type of error:
+
+adaint.o(.text+0x1002): undefined reference to '__gnat_install_locks'
+
+This is due to the fact that GNAT 5.01a has its own thread-safety
+mechanism in libgcc.a that is not present in the G++ version of this
+file that you are using in this interfacing situation. In order to
+overcome this problem, if you use tasking, you first need to check
+that the g++ compiler has been configured to use a thread library
+compatible with the GNAT library run-time you have selected. You can
+execute "g++ -v" and check the used thread model. If you do not use
+tasking or if the thread model is not "Single" then the missing
+__gnat_install_locks function does not serve any purpose and can be
+dummied out. Here are the relevant build instructions (a modified
+version of what appears in section 2.11.2):
+
+  $cat install_locks.c
+void __gnat_install_locks (void)
+{
+   return;
+}

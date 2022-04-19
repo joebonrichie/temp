@@ -1,0 +1,96 @@
+V "GNAT Lib v2021"
+A -O2
+A -gnatA
+A -fPIC
+A -gnatwu
+A -gnatwa
+A -gnaty
+A -gnatQ
+A -gnatn
+A -mtune=generic
+A -march=x86-64
+P ZX
+
+RN
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLICIT_LOOPS
+RV NO_ELABORATION_CODE
+
+U unicode%b		unicode.adb		81555d43 OO PK
+W ada%s			ada.ads			ada.ali
+W ada.wide_characters%s	a-widcha.ads		a-widcha.ali
+W ada.wide_characters.unicode%s  a-wichun.adb	a-wichun.ali
+Z system.unsigned_types%s  s-unstyp.ads		s-unstyp.ali
+W unicode%s		unicode.adb		unicode.ali
+W unicode.names%s	unicode-names.ads	unicode-names.ali
+W unicode.names.basic_latin%s  unicode-names-basic_latin.ads  unicode-names-basic_latin.ali
+
+U unicode%s		unicode.ads		a421878d BN EE NE OO PR PK
+
+D ada.ads		20210520051131 76789da1 ada%s
+D a-widcha.ads		20210520051130 a2b85d3d ada.wide_characters%s
+D a-wichun.ads		20210520051130 de294b78 ada.wide_characters.unicode%s
+D a-wichun.adb		20210520051130 ae7008e2 ada.wide_characters.unicode%b
+D system.ads		20210520051135 a2da961d system%s
+D s-unstyp.ads		20210520051134 2b077493 system.unsigned_types%s
+D s-utf_32.ads		20210520051134 24cf731d system.utf_32%s
+D unicode.ads		20210519052322 a421878d unicode%s
+D unicode.adb		20210519052322 515a4003 unicode%b
+D unicode-names.ads	20210519052322 fec77f75 unicode.names%s
+D unicode-names-basic_latin.ads  20210519052322 aa07d1b5 unicode.names.basic_latin%s
+G a e
+G c Z s b [is_white_space unicode 121 13 none]
+G c Z s b [is_letter unicode 125 13 none]
+G c Z s b [is_base_char unicode 128 13 none]
+G c Z s b [is_digit unicode 131 13 none]
+G c Z s b [is_combining_char unicode 134 13 none]
+G c Z s b [is_extender unicode 139 13 none]
+G c Z s b [is_ideographic unicode 142 13 none]
+G c Z s b [to_unicode unicode 145 13 none]
+G c Z s b [to_lower unicode 149 13 none]
+G c Z b b [Tunichar_boolean_arrayBIP unicode 29 4 none]
+X 1 ada.ads
+16K9*Ada 20e8 9|25r6 25r42
+X 2 a-widcha.ads
+19K13*Wide_Characters 21e24 9|25r10 25r46
+X 3 a-wichun.ads
+39K29*Unicode 215e32 9|25w26 25r62
+201V13*To_Lower_Case{wide_character} 9|460s34
+X 8 unicode.ads
+111K9*Unicode 112r25 157l5 157e12 9|24r6 24r42 27b14 465l5 465t12
+114M9*Unicode_Char 121r36 125r31 128r34 131r30 134r39 139r33 142r36 145r47
+. 149r27 149r48 9|30r13 376r36 388r36 399r31 408r34 418r30 428r39 438r33
+. 447r47 456r27 456r48 459r17
+121V13*Is_White_Space{boolean} 121>29 155r19 9|376b13 382l8 382t22
+121m29 Char{114M9} 9|376b29 378r17 379r17 380r17 381r17
+125V13*Is_Letter{boolean} 125>24 154r19 9|399b13 402l8 402t17
+125m24 Char{114M9} 9|399b24 401r28 401r58
+128V13*Is_Base_Char{boolean} 128>27 9|401s14 408b13 412l8 412t20
+128m27 Char{114M9} 9|408b27 411r14 411r54
+131V13*Is_Digit{boolean} 131>23 9|418b13 422l8 422t16
+131m23 Char{114M9} 9|418b23 421r14 421r55
+134V13*Is_Combining_Char{boolean} 134>32 9|428b13 432l8 432t25
+134m32 Char{114M9} 9|428b32 431r14 431r59
+139V13*Is_Extender{boolean} 139>26 9|438b13 441l8 441t19
+139m26 Char{114M9} 9|438b26 440r14 440r58
+142V13*Is_Ideographic{boolean} 142>29 153r19 9|388b13 393l8 393t22 401s42
+142m29 Char{114M9} 9|388b29 390r14 391r17 392r17
+145V13*To_Unicode{114M9} 145>25 156r19 9|447b13 450l8 450t18
+145e25 C{character} 9|447b25 449r29
+149V13*To_Lower{114M9} 149>23 9|456b13 464l8 464t16
+149m23 C{114M9} 9|456b23 458r10 460r69 462r17
+X 9 unicode.adb
+29A9 Unichar_Boolean_Array(boolean)<8|114M9> 31r17 33r30 239r31 258r35 357r34
+33a4 Valid_BaseChar{29A9} 411r38
+239a4 Valid_DigitChar{29A9} 421r38
+258a4 Valid_CombiningChar{29A9} 431r38
+357a4 Valid_ExtenderChar{29A9} 440r38
+X 10 unicode-names.ads
+6K17*Names 9|24r14 24r50 10|8e18
+X 11 unicode-names-basic_latin.ads
+4K23*Basic_Latin 9|24w20 24r56 11|210e30
+31m4*Horizontal_Tabulation=32:28{8|114M9} 9|379r24
+37m4*Line_Feed{8|114M9} 9|380r24
+50m4*Carriage_Return{8|114M9} 9|381r24
+112m4*Space{8|114M9} 9|378r24
+

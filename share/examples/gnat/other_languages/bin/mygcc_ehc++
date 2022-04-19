@@ -1,0 +1,12 @@
+#! /bin/sh
+# 
+# Since g++ is called through the wrapper, some environment variables
+# set by the wrapper may interfere. This script is used to remove these
+# environment variables.
+#
+GNAT_VERSION=`gcc -dumpversion`
+GNAT_TARGET=`gcc -dumpmachine`
+GNAT_GCC_EH=$GCC_ROOT/lib/gcc-lib/$GNAT_TARGET/$GNAT_VERSION/libgcc_eh.a
+unset BINUTILS_ROOT
+unset GCC_ROOT
+g++ -v $* $GNAT_GCC_EH

@@ -1,0 +1,265 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>13. Interfacing to Other Languages &#8212; GNAT Reference Manual 2021 documentation</title>
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="14. Specialized Needs Annexes" href="specialized_needs_annexes.html" />
+    <link rel="prev" title="12. The GNAT Library" href="the_gnat_library.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="specialized_needs_annexes.html" title="14. Specialized Needs Annexes"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="the_gnat_library.html" title="12. The GNAT Library"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../gnat_rm.html">GNAT Reference Manual 2021 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">13. </span>Interfacing to Other Languages</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="interfacing-to-other-languages">
+<span id="id1"></span><h1><span class="section-number">13. </span>Interfacing to Other Languages<a class="headerlink" href="#interfacing-to-other-languages" title="Permalink to this headline">¶</a></h1>
+<p>The facilities in Annex B of the Ada Reference Manual are fully
+implemented in GNAT, and in addition, a full interface to C++ is
+provided.</p>
+<div class="section" id="interfacing-to-c">
+<span id="id2"></span><h2><span class="section-number">13.1. </span>Interfacing to C<a class="headerlink" href="#interfacing-to-c" title="Permalink to this headline">¶</a></h2>
+<p>Interfacing to C with GNAT can use one of two approaches:</p>
+<ul class="simple">
+<li><p>The types in the package <code class="docutils literal notranslate"><span class="pre">Interfaces.C</span></code> may be used.</p></li>
+<li><p>Standard Ada types may be used directly.  This may be less portable to
+other compilers, but will work on all GNAT compilers, which guarantee
+correspondence between the C and Ada types.</p></li>
+</ul>
+<p>Pragma <code class="docutils literal notranslate"><span class="pre">Convention</span> <span class="pre">C</span></code> may be applied to Ada types, but mostly has no
+effect, since this is the default.  The following table shows the
+correspondence between Ada scalar types and the corresponding C types.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 27%" />
+<col style="width: 73%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Ada Type</p></th>
+<th class="head"><p>C Type</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Integer</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">int</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Short_Integer</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">short</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Short_Short_Integer</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">signed</span> <span class="pre">char</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Long_Integer</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">long</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Long_Long_Integer</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">long</span> <span class="pre">long</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Short_Float</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Float</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Long_Float</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">double</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Long_Long_Float</span></code></p></td>
+<td><p>This is the longest floating-point type supported by the hardware.</p></td>
+</tr>
+</tbody>
+</table>
+<p>Additionally, there are the following general correspondences between Ada
+and C types:</p>
+<ul class="simple">
+<li><p>Ada enumeration types map to C enumeration types directly if pragma
+<code class="docutils literal notranslate"><span class="pre">Convention</span> <span class="pre">C</span></code> is specified, which causes them to have a length of
+32 bits, except for boolean types which map to C99 <code class="docutils literal notranslate"><span class="pre">bool</span></code> and for
+which the length is 8 bits.
+Without pragma <code class="docutils literal notranslate"><span class="pre">Convention</span> <span class="pre">C</span></code>, Ada enumeration types map to
+8, 16, or 32 bits (i.e., C types <code class="docutils literal notranslate"><span class="pre">signed</span> <span class="pre">char</span></code>, <code class="docutils literal notranslate"><span class="pre">short</span></code>,
+<code class="docutils literal notranslate"><span class="pre">int</span></code>, respectively) depending on the number of values passed.
+This is the only case in which pragma <code class="docutils literal notranslate"><span class="pre">Convention</span> <span class="pre">C</span></code> affects the
+representation of an Ada type.</p></li>
+<li><p>Ada access types map to C pointers, except for the case of pointers to
+unconstrained types in Ada, which have no direct C equivalent.</p></li>
+<li><p>Ada arrays map directly to C arrays.</p></li>
+<li><p>Ada records map directly to C structures.</p></li>
+<li><p>Packed Ada records map to C structures where all members are bit fields
+of the length corresponding to the <code class="docutils literal notranslate"><span class="pre">type'Size</span></code> value in Ada.</p></li>
+</ul>
+</div>
+<div class="section" id="id3">
+<span id="id4"></span><h2><span class="section-number">13.2. </span>Interfacing to C++<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>The interface to C++ makes use of the following pragmas, which are
+primarily intended to be constructed automatically using a binding generator
+tool, although it is possible to construct them by hand.</p>
+<p>Using these pragmas it is possible to achieve complete
+inter-operability between Ada tagged types and C++ class definitions.
+See <a class="reference internal" href="implementation_defined_pragmas.html#implementation-defined-pragmas"><span class="std std-ref">Implementation Defined Pragmas</span></a>, for more details.</p>
+<dl>
+<dt><code class="samp docutils literal notranslate"><span class="pre">pragma</span> <span class="pre">CPP_Class</span> <span class="pre">([Entity</span> <span class="pre">=&gt;]</span> <em><span class="pre">LOCAL_NAME</span></em><span class="pre">)</span></code></dt><dd><p>The argument denotes an entity in the current declarative region that is
+declared as a tagged or untagged record type. It indicates that the type
+corresponds to an externally declared C++ class type, and is to be laid
+out the same way that C++ would lay out the type.</p>
+<p>Note: Pragma <code class="docutils literal notranslate"><span class="pre">CPP_Class</span></code> is currently obsolete. It is supported
+for backward compatibility but its functionality is available
+using pragma <code class="docutils literal notranslate"><span class="pre">Import</span></code> with <code class="docutils literal notranslate"><span class="pre">Convention</span></code> = <code class="docutils literal notranslate"><span class="pre">CPP</span></code>.</p>
+</dd>
+<dt><code class="samp docutils literal notranslate"><span class="pre">pragma</span> <span class="pre">CPP_Constructor</span> <span class="pre">([Entity</span> <span class="pre">=&gt;]</span> <em><span class="pre">LOCAL_NAME</span></em><span class="pre">)</span></code></dt><dd><p>This pragma identifies an imported function (imported in the usual way
+with pragma <code class="docutils literal notranslate"><span class="pre">Import</span></code>) as corresponding to a C++ constructor.</p>
+</dd>
+</dl>
+<p>A few restrictions are placed on the use of the <code class="docutils literal notranslate"><span class="pre">Access</span></code> attribute
+in conjunction with subprograms subject to convention <code class="docutils literal notranslate"><span class="pre">CPP</span></code>: the
+attribute may be used neither on primitive operations of a tagged
+record type with convention <code class="docutils literal notranslate"><span class="pre">CPP</span></code>, imported or not, nor on
+subprograms imported with pragma <code class="docutils literal notranslate"><span class="pre">CPP_Constructor</span></code>.</p>
+<p>In addition, C++ exceptions are propagated and can be handled in an
+<code class="docutils literal notranslate"><span class="pre">others</span></code> choice of an exception handler. The corresponding Ada
+occurrence has no message, and the simple name of the exception identity
+contains <code class="docutils literal notranslate"><span class="pre">Foreign_Exception</span></code>. Finalization and awaiting dependent
+tasks works properly when such foreign exceptions are propagated.</p>
+<p>It is also possible to import a C++ exception using the following syntax:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LOCAL_NAME</span> <span class="p">:</span> <span class="n">exception</span><span class="p">;</span>
+<span class="n">pragma</span> <span class="n">Import</span> <span class="p">(</span><span class="n">Cpp</span><span class="p">,</span>
+  <span class="p">[</span><span class="n">Entity</span> <span class="o">=&gt;</span><span class="p">]</span> <span class="n">LOCAL_NAME</span><span class="p">,</span>
+  <span class="p">[</span><span class="n">External_Name</span> <span class="o">=&gt;</span><span class="p">]</span> <span class="n">static_string_EXPRESSION</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">External_Name</span></code> is the name of the C++ RTTI symbol. You can then
+cover a specific C++ exception in an exception handler.</p>
+</div>
+<div class="section" id="interfacing-to-cobol">
+<span id="id5"></span><h2><span class="section-number">13.3. </span>Interfacing to COBOL<a class="headerlink" href="#interfacing-to-cobol" title="Permalink to this headline">¶</a></h2>
+<p>Interfacing to COBOL is achieved as described in section B.4 of
+the Ada Reference Manual.</p>
+</div>
+<div class="section" id="interfacing-to-fortran">
+<span id="id6"></span><h2><span class="section-number">13.4. </span>Interfacing to Fortran<a class="headerlink" href="#interfacing-to-fortran" title="Permalink to this headline">¶</a></h2>
+<p>Interfacing to Fortran is achieved as described in section B.5 of the
+Ada Reference Manual.  The pragma <code class="docutils literal notranslate"><span class="pre">Convention</span> <span class="pre">Fortran</span></code>, applied to a
+multi-dimensional array causes the array to be stored in column-major
+order as required for convenient interface to Fortran.</p>
+</div>
+<div class="section" id="interfacing-to-non-gnat-ada-code">
+<span id="id7"></span><h2><span class="section-number">13.5. </span>Interfacing to non-GNAT Ada code<a class="headerlink" href="#interfacing-to-non-gnat-ada-code" title="Permalink to this headline">¶</a></h2>
+<p>It is possible to specify the convention <code class="docutils literal notranslate"><span class="pre">Ada</span></code> in a pragma
+<code class="docutils literal notranslate"><span class="pre">Import</span></code> or pragma <code class="docutils literal notranslate"><span class="pre">Export</span></code>.  However this refers to
+the calling conventions used by GNAT, which may or may not be
+similar enough to those used by some other Ada 83 / Ada 95 / Ada 2005
+compiler to allow interoperation.</p>
+<p>If arguments types are kept simple, and if the foreign compiler generally
+follows system calling conventions, then it may be possible to integrate
+files compiled by other Ada compilers, provided that the elaboration
+issues are adequately addressed (for example by eliminating the
+need for any load time elaboration).</p>
+<p>In particular, GNAT running on VMS is designed to
+be highly compatible with the DEC Ada 83 compiler, so this is one
+case in which it is possible to import foreign units of this type,
+provided that the data items passed are restricted to simple scalar
+values or simple record types without variants, or simple array
+types with fixed bounds.</p>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../gnat_rm.html">
+              <img class="logo" src="../_static/adacore_transparent.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="../gnat_rm.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">13. Interfacing to Other Languages</a><ul>
+<li><a class="reference internal" href="#interfacing-to-c">13.1. Interfacing to C</a></li>
+<li><a class="reference internal" href="#id3">13.2. Interfacing to C++</a></li>
+<li><a class="reference internal" href="#interfacing-to-cobol">13.3. Interfacing to COBOL</a></li>
+<li><a class="reference internal" href="#interfacing-to-fortran">13.4. Interfacing to Fortran</a></li>
+<li><a class="reference internal" href="#interfacing-to-non-gnat-ada-code">13.5. Interfacing to non-GNAT Ada code</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="the_gnat_library.html"
+                        title="previous chapter"><span class="section-number">12. </span>The GNAT Library</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="specialized_needs_annexes.html"
+                        title="next chapter"><span class="section-number">14. </span>Specialized Needs Annexes</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/gnat_rm/interfacing_to_other_languages.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="specialized_needs_annexes.html" title="14. Specialized Needs Annexes"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="the_gnat_library.html" title="12. The GNAT Library"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../gnat_rm.html">GNAT Reference Manual 2021 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">13. </span>Interfacing to Other Languages</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2008-2021, Free Software Foundation.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
+    </div>
+  </body>
+</html>

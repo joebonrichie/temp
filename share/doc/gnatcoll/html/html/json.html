@@ -1,0 +1,210 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>21. JSON: handling JSON data &#8212; GNATColl 2021 documentation</title>
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="22. Terminal: controlling the console" href="terminals.html" />
+    <link rel="prev" title="20. Pools: Controlling access to resources" href="pools.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="terminals.html" title="22. Terminal: controlling the console"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="pools.html" title="20. Pools: Controlling access to resources"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">GNATColl 2021 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">21. </span><strong>JSON</strong>: handling JSON data</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="json-handling-json-data">
+<h1><span class="section-number">21. </span><strong>JSON</strong>: handling JSON data<a class="headerlink" href="#json-handling-json-data" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/JSON">JSON</a> is a format often used on the web
+to communicate between a server and a browser, or between servers. It plays a
+similar role to XML, but it has a much lighter syntax. On the other hand, it
+doesn’t provide advanced features like validation, which XML provides.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">GNATCOLL.JSON</span></code> package provides an Ada API to decode JSON data from
+strings and to encode that data back to strings. It also allows one to create
+and modify JSON data.</p>
+<div class="section" id="api-overview">
+<h2><span class="section-number">21.1. </span>API overview<a class="headerlink" href="#api-overview" title="Permalink to this headline">¶</a></h2>
+<p>The entry point for this API is the <code class="docutils literal notranslate"><span class="pre">JSON_Value</span></code> data type.  JSON values can
+be any of:</p>
+<ul class="simple">
+<li><p>a null value (<code class="docutils literal notranslate"><span class="pre">JSON_Null_Type</span></code>): all such JSON values are equivalent;</p></li>
+<li><p>a boolean value (<code class="docutils literal notranslate"><span class="pre">JSON_Boolean_Type</span></code>): either true or false;</p></li>
+<li><p>an integer value (<code class="docutils literal notranslate"><span class="pre">JSON_Int_Type</span></code>), they are encoded as an Ada
+<code class="docutils literal notranslate"><span class="pre">Long_Long_Integer</span></code>;</p></li>
+<li><p>a floating point value (<code class="docutils literal notranslate"><span class="pre">JSON_Float_Type</span></code>), they are encoded as an Ada
+<code class="docutils literal notranslate"><span class="pre">Long_Float</span></code>;</p></li>
+<li><p>an UTF-8 encoded string (<code class="docutils literal notranslate"><span class="pre">JSON_String_Type</span></code>);</p></li>
+<li><p>an array of JSON values (<code class="docutils literal notranslate"><span class="pre">JSON_Array_Type</span></code>);</p></li>
+<li><p>a JSON object (<code class="docutils literal notranslate"><span class="pre">JSON_Object_Type</span></code>), which is a sequence of fields.  Each
+field has a unique name and maps to a JSON value. Depending on the context,
+this sequence can be processed as a mapping, because each field name is
+unique, but iterating on fields is deterministic because it is a sequence
+underneath.</p></li>
+</ul>
+<p>Parsing JSON is as easy as calling the <code class="docutils literal notranslate"><span class="pre">Read</span></code> function:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="n">Data</span> <span class="p">:</span> <span class="n">JSON_Value</span> <span class="p">:=</span> <span class="n">Read</span> <span class="p">(</span><span class="s">&quot;[1, &quot;&quot;foo&quot;&quot;, {&quot;&quot;foo&quot;&quot;: null}]&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Encoding to JSON is not any more complex:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="n">JSON_String</span> <span class="p">:</span> <span class="kt">String</span> <span class="p">:=</span> <span class="n">Write</span> <span class="p">(</span><span class="n">Data</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>JSON trees (<code class="docutils literal notranslate"><span class="pre">JSON_Value</span></code>) are available for both inspection and
+modification:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="n">Float_Number</span> <span class="p">:</span> <span class="n">JSON_Value</span> <span class="p">:=</span> <span class="n">Create</span> <span class="p">(</span><span class="kt">Float</span><span class="p">&#39;(</span><span class="mf">1.0</span><span class="p">));</span>
+<span class="c1">--  Mere float number</span>
+
+<span class="n">Object</span> <span class="p">:</span> <span class="n">JSON_Value</span> <span class="p">:=</span> <span class="n">Get</span> <span class="p">(</span><span class="n">Get</span> <span class="p">(</span><span class="n">Data</span><span class="p">),</span> <span class="mi">3</span><span class="p">);</span>
+<span class="c1">--  JSON object from Data: {&quot;foo&quot;: null}</span>
+
+<span class="n">Some_Array</span> <span class="p">:</span> <span class="n">JSON_Value</span> <span class="p">:=</span>
+   <span class="n">Create</span> <span class="p">(</span><span class="n">Float_Number</span> <span class="o">&amp;</span> <span class="n">Object</span> <span class="o">&amp;</span> <span class="n">Create</span> <span class="p">(</span><span class="kc">False</span><span class="p">));</span>
+<span class="c1">--  Synthetic JSON array: [1.0, {&quot;foo&quot;: null}, False]</span>
+
+<span class="c1">--  Modify Data in place</span>
+<span class="n">Data</span><span class="p">.</span><span class="n">Append</span> <span class="p">(</span><span class="n">Some_Array</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="examples">
+<h2><span class="section-number">21.2. </span>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<p>Here is a complete program demonstrating the use of this API:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kn">with</span> <span class="nn">Ada.Text_IO</span><span class="p">;</span>   <span class="kn">use</span> <span class="nn">Ada.Text_IO</span><span class="p">;</span>
+<span class="kn">with</span> <span class="nn">GNATCOLL.JSON</span><span class="p">;</span> <span class="kn">use</span> <span class="nn">GNATCOLL.JSON</span><span class="p">;</span>
+
+<span class="kd">procedure</span> <span class="nf">JSON_Test</span> <span class="kr">is</span>
+   <span class="c1">--  Create a JSON value from scratch</span>
+   <span class="n">My_Obj</span> <span class="p">:</span> <span class="n">JSON_Value</span> <span class="p">:=</span> <span class="n">Create_Object</span><span class="p">;</span>
+<span class="kr">begin</span>
+   <span class="n">My_Obj</span><span class="p">.</span><span class="n">Set_Field</span> <span class="p">(</span><span class="s">&quot;field1&quot;</span><span class="p">,</span> <span class="n">Create</span> <span class="p">(</span><span class="mi">1</span><span class="p">));</span>
+   <span class="n">My_Obj</span><span class="p">.</span><span class="n">Set_Field</span> <span class="p">(</span><span class="s">&quot;name&quot;</span><span class="p">,</span> <span class="s">&quot;theName&quot;</span><span class="p">);</span>
+
+   <span class="c1">--  Now serialize it. The call below will display:</span>
+   <span class="c1">--    {&quot;field1&quot;: 1, &quot;name&quot;: &quot;thename&quot;}</span>
+   <span class="n">Put_Line</span> <span class="p">(</span><span class="n">My_Obj</span><span class="p">.</span><span class="n">Write</span><span class="p">);</span>
+<span class="kr">end</span> <span class="nf">JSON_Test</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The above uses the Ada 2005 “dot notation” to call primitive operations
+(<code class="docutils literal notranslate"><span class="pre">.Set_Field</span></code>, <code class="docutils literal notranslate"><span class="pre">.Write</span></code>), but naturally the more traditional “prefix
+notation” is also available:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="n">Set_Field</span> <span class="p">(</span><span class="n">My_Obj</span><span class="p">,</span> <span class="s">&quot;field1&quot;</span><span class="p">,</span> <span class="n">Create</span> <span class="p">(</span><span class="mi">1</span><span class="p">));</span>
+</pre></div>
+</div>
+<p>It is also possible to create JSON arrays. These are not tagged types, so the
+prefix notation has to be used. Here is a further example that sets another
+field in the object we had before (<code class="docutils literal notranslate"><span class="pre">My_Obj</span></code>):</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kr">declare</span>
+   <span class="c1">--  Create a JSON array</span>
+   <span class="n">My_Arr</span> <span class="p">:</span> <span class="n">JSON_Array</span> <span class="p">:=</span> <span class="n">Empty_Array</span><span class="p">;</span>
+<span class="kr">begin</span>
+   <span class="c1">--  Fill it</span>
+   <span class="n">Append</span> <span class="p">(</span><span class="n">My_Arr</span><span class="p">,</span> <span class="n">Create</span> <span class="p">(</span><span class="mi">1</span><span class="p">));</span>
+   <span class="n">Append</span> <span class="p">(</span><span class="n">My_Arr</span><span class="p">,</span> <span class="n">Create</span> <span class="p">(</span><span class="s">&quot;aString&quot;</span><span class="p">));</span>
+
+   <span class="c1">--  Create a field in My_Obj to hold this array</span>
+   <span class="n">My_Obj</span><span class="p">.</span><span class="n">Set_Field</span> <span class="p">(</span><span class="s">&quot;vals&quot;</span><span class="p">,</span> <span class="n">My_Arr</span><span class="p">);</span>
+
+   <span class="c1">--  This will now display:</span>
+   <span class="c1">--    {&quot;field1&quot;: 1, &quot;name&quot;: &quot;thename&quot;, &quot;vals&quot;: [1, &quot;aString&quot;]}</span>
+   <span class="n">Put_Line</span> <span class="p">(</span><span class="n">My_Obj</span><span class="p">.</span><span class="n">Write</span><span class="p">);</span>
+<span class="kr">end</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Similarly to containers from the standard Ada library (from
+<code class="docutils literal notranslate"><span class="pre">Ada.Containers</span></code>), <code class="docutils literal notranslate"><span class="pre">GNATCOLL.JSON</span></code> features automatic memory management.
+This means that there is no need for explicit destructors.</p>
+<p>The above is all that is needed for most uses of <code class="docutils literal notranslate"><span class="pre">GNATCOLL.JSON</span></code>. To know
+more about its API, please refer to the <a class="reference external" href="https://github.com/AdaCore/gnatcoll-core/blob/master/src/gnatcoll-json.ads">gnatcoll-json.ads</a>
+source file.</p>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/adacore_transparent.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">21. <strong>JSON</strong>: handling JSON data</a><ul>
+<li><a class="reference internal" href="#api-overview">21.1. API overview</a></li>
+<li><a class="reference internal" href="#examples">21.2. Examples</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="pools.html"
+                        title="previous chapter"><span class="section-number">20. </span><strong>Pools</strong>: Controlling access to resources</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="terminals.html"
+                        title="next chapter"><span class="section-number">22. </span><strong>Terminal</strong>: controlling the console</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="terminals.html" title="22. Terminal: controlling the console"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="pools.html" title="20. Pools: Controlling access to resources"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">GNATColl 2021 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">21. </span><strong>JSON</strong>: handling JSON data</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2007-2021, AdaCore.
+    </div>
+  </body>
+</html>

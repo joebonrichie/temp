@@ -1,0 +1,24 @@
+    <!-- THREADSAFE_OUTPUT -->
+
+    <action name="&prefix;_threadsafe_output" category="">
+        <shell>
+            Project.load "&example_root;/gnat/threadsafe_output/threadsafe_output.gpr"
+        </shell>
+        <shell>
+            Editor.edit "demo_inline_printer.adb"
+        </shell>
+        <shell>
+            Editor.edit "demo_concurrent_printer.adb"
+        </shell>
+        <shell>
+            Editor.edit "README.testing"
+        </shell>
+    </action>
+
+    <submenu before="About">
+        <title>&menu;</title>
+        <menu action="&prefix;_threadsafe_output">
+            <title>GNAT &prefix;/Thread-safe Output</title>
+        </menu>
+    </submenu>
+

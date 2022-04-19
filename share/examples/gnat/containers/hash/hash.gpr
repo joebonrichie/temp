@@ -1,0 +1,13 @@
+project Hash is
+
+   for Source_Dirs use (".");
+   for Main use ("test_hash.adb");
+   for Object_Dir use "./obj";
+   for Exec_Dir use ".";
+
+   package Builder is
+      for Default_Switches ("Ada") use ("-gnat05");
+      for Executable ("test_hash.adb") use "hash";
+   end Builder;
+
+end Hash;

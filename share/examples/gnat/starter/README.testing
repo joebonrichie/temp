@@ -1,0 +1,107 @@
+		       G N A T   E X A M P L E S
+		       =========================
+
+
+In order to compile the examples, make sure that the 'gnatmake' command is
+in your path. 
+
+To compile a file, you need to use the gnatmake utility. gnatmake takes one
+compulsory argument, which is the name of the unit to be compiled, or a
+filename containing this unit. Gnat enforces the rule according to which 
+a unit must be contained in a file having the same name. Another rule
+is that Ada bodies have the .adb extension, and Ada specs have the .ads
+extension.
+
+Invocation
+----------
+
+Thus, to compile the "Hello world" program implemented by unit "hello",
+just type:
+  $ gnatmake hello
+or
+  $ gnatmake hello.adb
+
+Gnat is not a monolithic system. The gnatmake utility calls a set of tools
+to do the compilation, binding and linking. When compiling a file, it 
+displays which commands are actually executed, for instance:
+
+  gcc -c hello.adb
+  gnatbind -x hello.ali
+  gnatlink hello.ali
+
+If you try to recompile hello.adb without changing anything to it,
+gnatmake will tell you it is up-to-date.  Gnatmake is actually clever
+enough to know that a file doesn't need to be recompiled.
+If you want to recompile hello.adb anyway, you can use its '-f' switch:
+  $ gnatmake -f hello
+
+Error messages
+--------------
+
+Now, edit the the file hello.adb, and delete the semicolumn at the end of
+line 4. You will get the following error message when trying to recompile
+the file:
+
+  $ gnatmake hello
+  gcc -c hello.adb
+  hello.adb:4:45: missing ";"
+  gnatmake: "hello.adb" compilation error 
+
+Let's have a closer look at the following error message:
+  hello.adb:4:45: missing ";"
+
+* The first part of the message ("hello.adb") is the file in which the
+  error is raised.
+* The second part ("4") indicates which line contains the error.
+* The third part ("45") indicates at which place in the line the error
+  occurs.
+* The last part (" missing ";"") is a textual error message.
+As you see, gnat error messages are very good, and errors are easy to fix.
+
+Dependencies
+------------
+
+Now, let's try to compile the second example, which is implemented by
+unit demo1:
+
+  $ gnatmake demo1
+  gcc -c demo1.adb
+  gcc -c gen_list.adb
+  gcc -c instr.adb
+  gnatbind -x demo1.ali
+  gnatlink demo1.ali
+
+Gnatmake analyses which units are required by demo1, then compiles, binds
+and links  them.
+If you change the file instr.adb by replacing line 24 by:
+
+	Put (" Mph ");
+
+and run gnatmake again:
+
+  $ gnatmake demo1.adb 
+  gcc -c instr.adb
+  gnatbind -x demo1.ali
+  gnatlink demo1.ali
+
+you can see that gnatmake compiles only the necessary units. Once more,
+you can use the '-f' switch to force complete compilation.
+
+Other programs
+--------------
+
+As said above, gnat uses some other programs, namely gcc to compile,
+gnatbind to create the binding code, and gnatlink to link the application.
+It is possible to give a switch to any of these program by mean of gnatmake:
+ 
+  * -cargs can be followed by any gcc switch
+  * -bargs can be followed by any gnatbind switch
+  * -largs can be followed by any gnatlink switch
+
+For instance:
+
+ $ gnatmake demo1 -bargs -C -cargs -g -largs C
+
+recompiles demo1 with debug information ('-g') and generates the
+elaboration code in C instead of Ada ('-C' switch in both gnatbind and
+gnatlink)

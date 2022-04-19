@@ -1,0 +1,47 @@
+V "GNAT Lib v2021"
+A -O2
+A -gnatA
+A -gnatp
+A -gnatn
+A -gnatwa
+A -gnatw.X
+A -mtune=generic
+A -march=x86-64
+P ZX
+
+RN
+RV NO_IMPLEMENTATION_ATTRIBUTES
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U aunit.memory%b	aunit-memory.adb	b6c145a2 NE OO PK
+W aunit%s		aunit.adb		aunit.ali
+
+U aunit.memory%s	aunit-memory.ads	7426309d BN EE NE OO PK
+W aunit%s		aunit.adb		aunit.ali
+W system%s		system.ads		system.ali
+
+D aunit.ads		20210519052522 76cdf7c6 aunit%s
+D aunit-memory.ads	20210519052522 a0315146 aunit.memory%s
+D aunit-memory.adb	20210519052522 16f014e4 aunit.memory%b
+D system.ads		20210520051135 a2da961d system%s
+G a e
+G c Z s b [aunit_alloc aunit__memory 44 13 none]
+G c Z s b [aunit_free aunit__memory 46 14 none]
+X 1 aunit.ads
+34K9*AUnit 48e10 2|40r9 53r5 3|34r14 58r5
+X 2 aunit-memory.ads
+40K15*Memory 1|34k9 2|53l11 53e17 3|34b20 58l11 58t17
+42M9*size_t 44r33 3|40r33 41r34
+44V13*AUnit_Alloc{4|67M9} 44>26 50r19 3|40b13 45l8 45t19
+44m26 Size{42M9} 3|40b26 44r25
+46U14*AUnit_Free 46>26 51r19 3|51b14 56l8 56t18
+46m26 Obj{4|67M9} 3|51b26 55r16
+X 3 aunit-memory.adb
+41V16*RT_Malloc{4|67M9} 41>27 42b<c,__gnat_malloc>25 44s14
+41m27 Size{2|42M9}
+52U17*RT_Free 52>26 53b<c,__gnat_free>25 55s7
+52m26 Obj{4|67M9}
+X 4 system.ads
+37K9*System 2|38w6 44r48 46r32 3|40r48 41r49 51r32 52r32 4|154e11
+67M9*Address 2|44r55 46r39 3|40r55 41r56 51r39 52r39
+

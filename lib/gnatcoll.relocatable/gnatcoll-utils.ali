@@ -1,0 +1,620 @@
+V "GNAT Lib v2021"
+A -O2
+A -gnatA
+A -fPIC
+A -gnatn
+A -gnatwa
+A -gnatwC
+A -gnatwJ
+A -mtune=generic
+A -march=x86-64
+P SS ZX
+
+RN
+RV NO_ACCESS_SUBPROGRAMS
+RV NO_ALLOCATORS
+RV NO_CALENDAR
+RV NO_DELAY
+RV NO_DISPATCH
+RV NO_DISPATCHING_CALLS
+RV NO_EXCEPTION_HANDLERS
+RV NO_EXCEPTION_PROPAGATION
+RV NO_EXCEPTIONS
+RV NO_FIXED_POINT
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_LOCAL_ALLOCATORS
+RV NO_NESTED_FINALIZATION
+RV NO_RECURSION
+RV NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLICIT_LOOPS
+RV NO_OBSOLESCENT_FEATURES
+
+U gnatcoll.utils%b	gnatcoll-utils.adb	34c5204f NE OO PK IU
+W ada%s			ada.ads			ada.ali
+W ada.calendar%s	a-calend.adb		a-calend.ali
+W ada.calendar.formatting%s  a-calfor.adb	a-calfor.ali
+W ada.characters%s	a-charac.ads		a-charac.ali
+W ada.characters.handling%s  a-chahan.adb	a-chahan.ali
+W ada.command_line%s	a-comlin.adb		a-comlin.ali
+W ada.environment_variables%s  a-envvar.adb	a-envvar.ali
+Z ada.exceptions%s	a-except.adb		a-except.ali
+W ada.strings%s		a-string.ads		a-string.ali
+W ada.strings.fixed%s	a-strfix.adb		a-strfix.ali
+W ada.strings.maps%s	a-strmap.adb		a-strmap.ali
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+W gnat%s		gnat.ads		gnat.ali
+W gnat.calendar%s	g-calend.adb		g-calend.ali
+W gnat.calendar.time_io%s  g-catiio.adb		g-catiio.ali
+W gnat.case_util%s	g-casuti.ads		g-casuti.ali
+W gnat.os_lib%s		g-os_lib.ads		g-os_lib.ali
+W gnat.strings%s	g-string.ads		g-string.ali
+W gnatcoll%s		gnatcoll.ads		gnatcoll.ali
+W gnatcoll.string_builders%s  gnatcoll-string_builders.adb  gnatcoll-string_builders.ali
+W system%s		system.ads		system.ali
+Z system.img_int%s	s-imgint.ads		s-imgint.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+Z system.soft_links%s	s-soflin.adb		s-soflin.ali
+Z system.standard_library%s  s-stalib.adb	s-stalib.ali
+Z system.val_fixed_64%s	s-vafi64.ads		s-vafi64.ali
+
+U gnatcoll.utils%s	gnatcoll-utils.ads	35ea620c BN EE NE OO PK IU
+W ada%s			ada.ads			ada.ali
+W ada.calendar%s	a-calend.adb		a-calend.ali
+W ada.calendar.time_zones%s  a-catizo.adb	a-catizo.ali
+W ada.characters%s	a-charac.ads		a-charac.ali
+W ada.characters.handling%s  a-chahan.adb	a-chahan.ali
+Z ada.exceptions%s	a-except.adb		a-except.ali
+W ada.strings%s		a-string.ads		a-string.ali
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+W ada.strings.unbounded%s  a-strunb.adb		a-strunb.ali
+W gnat%s		gnat.ads		gnat.ali
+W gnat.calendar%s	g-calend.adb		g-calend.ali
+W gnat.expect%s		g-expect.adb		g-expect.ali
+W gnat.strings%s	g-string.ads		g-string.ali
+W gnatcoll%s		gnatcoll.ads		gnatcoll.ali
+Z system%s		system.ads		system.ali
+Z system.finalization_masters%s  s-finmas.adb	s-finmas.ali
+Z system.soft_links%s	s-soflin.adb		s-soflin.ali
+Z system.standard_library%s  s-stalib.adb	s-stalib.ali
+Z system.storage_elements%s  s-stoele.adb	s-stoele.ali
+
+D ada.ads		20210520051131 76789da1 ada%s
+D a-calend.ads		20210520051128 474d9720 ada.calendar%s
+D a-calend.adb		20210520051128 dfcd352e ada.calendar%b
+D a-calfor.ads		20210520051128 0f4707d1 ada.calendar.formatting%s
+D a-catizo.ads		20210520051128 eaa56756 ada.calendar.time_zones%s
+D a-charac.ads		20210520051128 2d3ec45b ada.characters%s
+D a-chacon.ads		20210520051128 5b23f5eb ada.characters.conversions%s
+D a-chahan.ads		20210520051128 0ce1b450 ada.characters.handling%s
+D a-chahan.adb		20210520051128 9621beac ada.characters.handling%b
+D a-chlat1.ads		20210520051128 66457d31 ada.characters.latin_1%s
+D a-comlin.ads		20210520051128 4aa66568 ada.command_line%s
+D a-envvar.ads		20210520051128 00080416 ada.environment_variables%s
+D a-except.ads		20210520051128 946f3014 ada.exceptions%s
+D a-finali.ads		20210520051128 bf4f806b ada.finalization%s
+D a-stream.ads		20210520051129 119b8fb3 ada.streams%s
+D a-string.ads		20210520051129 90ac6797 ada.strings%s
+D a-strfix.ads		20210520051129 aeacf44c ada.strings.fixed%s
+D a-strmap.ads		20210520051129 5a88892a ada.strings.maps%s
+D a-strmap.adb		20210520051129 7e646b75 ada.strings.maps%b
+D a-stmaco.ads		20210520051129 1c0e5368 ada.strings.maps.constants%s
+D a-strsea.ads		20210520051129 b9bc90ba ada.strings.search%s
+D a-sttebu.ads		20210520051129 18209c64 ada.strings.text_buffers%s
+D a-strunb.ads		20210520051129 03325227 ada.strings.unbounded%s
+D a-strunb.adb		20210520051129 3b950306 ada.strings.unbounded%b
+D a-stuten.ads		20210520051129 808c40ad ada.strings.utf_encoding%s
+D a-tags.ads		20210520051130 9eaa38c6 ada.tags%s
+D a-unccon.ads		20210520051130 0e9b276f ada.unchecked_conversion%s
+D a-uncdea.ads		20210520051130 c3a8ac65 ada.unchecked_deallocation%s
+D gnat.ads		20210520051132 b5988c27 gnat%s
+D g-calend.ads		20210520051131 cad86fa7 gnat.calendar%s
+D g-catiio.ads		20210520051131 6f0f657f gnat.calendar.time_io%s
+D g-casuti.ads		20210520051131 83c53f24 gnat.case_util%s
+D g-expect.ads		20210520051131 e4246c0f gnat.expect%s
+D g-os_lib.ads		20210520051131 0db74523 gnat.os_lib%s
+D g-regpat.ads		20210520051131 b85d88ef gnat.regpat%s
+D g-string.ads		20210520051131 c6abc540 gnat.strings%s
+D gnatcoll.ads		20210519051041 6a5da479 gnatcoll%s
+D gnatcoll-os.ads	20210519051041 399a6f15 gnatcoll.os%s
+D gnatcoll-string_builders.ads  20210519051041 506daf4b gnatcoll.string_builders%s
+D gnatcoll-string_builders.adb  20210519051041 40f459ef gnatcoll.string_builders%b
+D gnatcoll-utils.ads	20210519051041 529681bc gnatcoll.utils%s
+D gnatcoll-utils.adb	20210519051041 0e1eed04 gnatcoll.utils%b
+D interfac.ads		20210520051132 edec285f interfaces%s
+D i-c.ads		20210520051132 d9beded9 interfaces.c%s
+D system.ads		20210520051135 a2da961d system%s
+D s-arit64.ads		20210520051132 5f88d2b0 system.arith_64%s
+D s-atocou.ads		20210520051132 b45c2d8d system.atomic_counters%s
+D s-bitops.ads		20210520051132 0765e3a3 system.bit_ops%s
+D s-casuti.ads		20210520051132 3fd5b654 system.case_util%s
+D s-carun8.ads		20210520051132 a903718d system.compare_array_unsigned_8%s
+D s-exctab.ads		20210520051132 54135002 system.exception_table%s
+D s-finmas.ads		20210520051132 1ab4dba8 system.finalization_masters%s
+D s-finroo.ads		20210520051132 4ff27390 system.finalization_root%s
+D s-imagei.ads		20210520051133 0d3f86a7 system.image_i%s
+D s-imgint.ads		20210520051133 bdb6f5ec system.img_int%s
+D s-memory.ads		20210520051133 597d6634 system.memory%s
+D s-os_lib.ads		20210520051133 93b69309 system.os_lib%s
+D s-osprim.ads		20210520051133 07fd65f6 system.os_primitives%s
+D s-parame.ads		20210520051134 4752c4cb system.parameters%s
+D s-pooglo.ads		20210520051134 ede33ef8 system.pool_global%s
+D s-putima.ads		20210520051134 4e095881 system.put_images%s
+D s-regpat.ads		20210520051134 825a9b7f system.regpat%s
+D s-secsta.ads		20210520051134 9b3ab94b system.secondary_stack%s
+D s-soflin.ads		20210520051134 a7318a92 system.soft_links%s
+D s-stache.ads		20210520051134 a37c21ec system.stack_checking%s
+D s-stalib.ads		20210520051134 472fbca8 system.standard_library%s
+D s-stalib.adb		20210520051134 977290bf system.standard_library%b
+D s-stoele.ads		20210520051134 2dc34a04 system.storage_elements%s
+D s-stoele.adb		20210520051134 ed88f8fb system.storage_elements%b
+D s-stopoo.ads		20210520051134 e9fa2dd8 system.storage_pools%s
+D s-stratt.ads		20210520051134 7bdda3fa system.stream_attributes%s
+D s-string.ads		20210520051134 8fe54fb7 system.strings%s
+D s-traent.ads		20210520051134 26a8d361 system.traceback_entries%s
+D s-unstyp.ads		20210520051134 2b077493 system.unsigned_types%s
+D s-vafi64.ads		20210520051134 2ff3dc11 system.val_fixed_64%s
+D s-valuef.ads		20210520051134 44d93748 system.value_f%s
+D unchconv.ads		20210520051135 ca2f9e18 unchecked_conversion%s
+G a e
+G c Z s b [free gnatcoll__utils 48 14 none]
+G c Z s b [equal gnatcoll__utils 51 13 none]
+G c Z s b [case_insensitive_equal gnatcoll__utils 52 13 none]
+G c Z s b [image gnatcoll__utils 56 13 none]
+G c Z s b [replace gnatcoll__utils 68 14 none]
+G c Z s b [replace gnatcoll__utils 75 13 none]
+G c Z s b [split gnatcoll__utils 80 14 none]
+G c Z s b [split gnatcoll__utils 88 13 none]
+G c Z s b [split gnatcoll__utils 107 13 none]
+G c Z s b [capitalize gnatcoll__utils 114 13 none]
+G c Z s b [is_whitespace gnatcoll__utils 118 13 none]
+G c Z s b [starts_with gnatcoll__utils 122 13 none]
+G c Z s b [ends_with gnatcoll__utils 125 13 none]
+G c Z s b [skip_blanks gnatcoll__utils 128 14 none]
+G c Z s b [skip_blanks_backward gnatcoll__utils 129 14 none]
+G c Z s b [find_char gnatcoll__utils 136 13 none]
+G c Z s b [join gnatcoll__utils 140 13 none]
+G c Z s b [eol gnatcoll__utils 145 13 none]
+G c Z s b [line_start gnatcoll__utils 151 13 none]
+G c Z s b [line_end gnatcoll__utils 154 13 none]
+G c Z s b [skip_lines gnatcoll__utils 157 14 none]
+G c Z s b [skip_to_column gnatcoll__utils 166 14 none]
+G c Z s b [forward_utf8_char gnatcoll__utils 176 13 none]
+G c Z s b [next_line gnatcoll__utils 181 13 none]
+G c Z s b [previous_line gnatcoll__utils 185 13 none]
+G c Z s b [is_blank_line gnatcoll__utils 189 13 none]
+G c Z s b [skip_to_string gnatcoll__utils 195 14 none]
+G c Z s b [strip_character gnatcoll__utils 202 13 none]
+G c Z s b [strip_cr gnatcoll__utils 205 13 none]
+G c Z s s [predicate gnatcoll__utils 212 13 none]
+G c Z s s [is_alphanumeric gnatcoll__utils 222 13 none]
+G c Z s s [is_lower gnatcoll__utils 224 13 none]
+G c Z s s [is_upper gnatcoll__utils 226 13 none]
+G c Z s s [is_identifier gnatcoll__utils 229 13 none]
+G c Z s s [is_identifier gnatcoll__utils 231 13 none]
+G c Z s b [get_command_output gnatcoll__utils 241 13 none]
+G c Z s b [executable_location gnatcoll__utils 250 13 none]
+G c Z s b [executable_path gnatcoll__utils 257 13 none]
+G c Z s b [is_directory_separator gnatcoll__utils 265 13 none]
+G c Z s b [join_path gnatcoll__utils 269 13 none]
+G c Z s b [add_search_path gnatcoll__utils 274 14 none]
+G c Z s b [time_value gnatcoll__utils 285 13 none]
+G c Z s s [utc_time_offset gnatcoll__utils 305 13 none]
+G c Z s b [truncate gnatcoll__utils 311 13 none]
+G c Z s s [unbounded_string_arrayIP gnatcoll__utils 102 9 none]
+G c Z s s [unbounded_string_arrayDI gnatcoll__utils 102 9 none]
+G c Z s s [unbounded_string_arrayDA gnatcoll__utils 102 9 none]
+G c Z s s [unbounded_string_arrayDF gnatcoll__utils 102 9 none]
+G c Z b b [count_for_split gnatcoll__utils 39 13 none]
+G r s static_string_builder [join_path gnatcoll__utils 269 13 none] [static_string_builderIP gnatcoll__string_builders 113 9 none]
+G r c none [join_path gnatcoll__utils 269 13 none] [set gnatcoll__string_builders 82 14 none]
+G r c none [join_path gnatcoll__utils 269 13 none] [length gnatcoll__string_builders 92 13 none]
+G r c none [join_path gnatcoll__utils 269 13 none] [element gnatcoll__string_builders 86 13 none]
+G r c none [join_path gnatcoll__utils 269 13 none] [append gnatcoll__string_builders 78 14 none]
+G r c none [join_path gnatcoll__utils 269 13 none] [append gnatcoll__string_builders 74 14 none]
+G r c none [join_path gnatcoll__utils 269 13 none] [as_string gnatcoll__string_builders 97 13 none]
+G r s static_string_builder [add_search_path gnatcoll__utils 274 14 none] [static_string_builderIP gnatcoll__string_builders 113 9 none]
+G r c none [add_search_path gnatcoll__utils 274 14 none] [set gnatcoll__string_builders 82 14 none]
+G r c none [add_search_path gnatcoll__utils 274 14 none] [append gnatcoll__string_builders 78 14 none]
+G r c none [add_search_path gnatcoll__utils 274 14 none] [append gnatcoll__string_builders 74 14 none]
+G r c none [add_search_path gnatcoll__utils 274 14 none] [as_string gnatcoll__string_builders 97 13 none]
+X 1 ada.ads
+16K9*Ada 20e8 41|29r6 29r35 30r6 31r6 69r28 103r6 223r27 225r27 227r27 230r27
+. 283r14 285r46 305r38 306r17 321r31 42|24r6 25r6 25r38 26r6 27r6 28r6 28r38
+. 29r6 29r38 145r28 149r11 283r11 465r47 570r11 692r46 766r18 1113r27
+X 2 a-calend.ads
+36K13*Calendar 413e17 41|29r10 29r39 283r18 285r50 305r42 306r21 42|24r10
+. 692r50 766r22
+42I9*Time<226I9> 41|283r27 285r59 305r51 312r14 312r68 42|692r59 766r31 794r14
+. 794r68
+48I12*Year_Number{integer} 42|796r15
+49I12*Month_Number{integer} 42|797r15
+50I12*Day_Number{integer} 42|798r15
+54O12*Day_Duration{duration} 42|799r15
+103V14*"+"{42I9} 42|781s23 781s28 781s54
+226I9 Time_Rep<long_long_integer>
+X 4 a-calfor.ads
+24K22*Formatting 223e28 42|24w19 802r7 805r14
+121V13*Time_Of{2|42I9} 42|805s25
+127i7 Time_Zone{5|23I9} 42|805r52
+157U14*Split 42|802s18
+163b7 Leap_Second{boolean} 42|803r40
+164i7 Time_Zone{5|23I9} 42|804r10
+X 5 a-catizo.ads
+19K22*Time_Zones 35e28 41|29w19 306r30 312r32 42|794r32
+23I9*Time_Offset<short_integer> 41|312r43 42|794r43
+29V13*UTC_Time_Offset=30:14{23I9} 41|306s41
+X 6 a-charac.ads
+16K13*Characters 18e19 41|30r10 223r31 225r31 227r31 230r31 42|25r10 25r42
+X 8 a-chahan.ads
+36K24*Handling 160e28 41|30w21 223r42 225r42 227r42 230r42 42|25w21 25r53
+47V13*Is_Lower{boolean} 41|225r51
+48V13*Is_Upper{boolean} 41|227r51
+54V13*Is_Alphanumeric{boolean} 41|223r51 230s51
+67V13*To_Lower{character} 42|93s16 93s38 340s27
+68V13*To_Upper{character} 42|336s27
+X 11 a-comlin.ads
+36K13*Command_Line 144e21 42|26w10 465r51
+62V13*Command_Name{string} 42|465s64
+X 12 a-envvar.ads
+19K13*Environment_Variables 69e30 42|27w10 1113r31
+29V13*Value{string} 42|1114s47
+39U14*Set 42|1148s11
+X 16 a-string.ads
+16K13*Strings 35e16 41|31r10 69r32 103r10 321r35 42|28r10 28r42 29r10 29r42
+. 145r32 149r15 283r15 570r15
+X 17 a-strfix.ads
+43K21*Fixed 1398e22 42|28w18 167r14 225r18
+164V13*Index{natural} 42|225s24
+237V13*Index{natural} 42|167s20
+X 18 a-strmap.ads
+44K21*Maps 548e21 42|29w18 29r50
+52A9*Character_Set<274A9> 42|698r26
+150V13*Is_In{boolean} 42|719s13 725s16 732s16
+172V13*To_Set{52A9} 42|698s43
+274A9 Character_Set_Internal(boolean)<character>
+X 23 a-strunb.ads
+83K21*Unbounded 765e26 41|31w18 69r40 103r18 321r43 42|145r40 149r23 283r23
+. 570r23
+88R9*Unbounded_String<14|43R9> 744e15 41|69r50 103r28 42|145r50 571r16
+91r4*Null_Unbounded_String{88R9} 41|321r53 42|575r26
+93V13*Length{natural} 42|152s19
+104V13*To_Unbounded_String{88R9} 42|297s31
+117V13*To_String{string} 42|582s14
+136U14*Append 42|576s16 579s13
+239V14*"="{boolean} 42|575s23
+359V13*Index{natural} 42|153s17
+397V13*Index_Non_Blank{natural} 42|150s24
+491V13*Replace_Slice{88R9} 42|157s15
+X 29 gnat.ads
+34K9*GNAT 57e9 41|32r6 33r6 34r6 48r34 92r14 140r40 242r24 283r40 42|30r6
+. 31r6 32r6 33r6 33r38 50r34 245r14 248r25 249r13 397r18 429r13 474r26 490r19
+. 497r29 510r17 568r28 620r24 622r11 775r19 1061r38 1078r16 1129r36 1131r32
+. 1136r32 1142r32
+X 30 g-calend.ads
+45K14*Calendar 185e18 41|32w11 283r45 42|30r11 775r24
+58i4*No_Time{2|42I9} 41|283r54
+X 31 g-catiio.ads
+37K23*Time_IO 187e26 42|30w20 775r33
+132V13*Value{2|42I9} 42|775s41
+X 32 g-casuti.ads
+43K14*Case_Util=43:39 42|31w11 429r18
+X 33 g-expect.ads
+126K14*Expect 651e16 41|33w11 242r29 42|620r29 622r16
+151R9*Process_Descriptor 635e14 41|242r36 42|620r36
+195U14*Close 42|672R13
+317I9*Expect_Match<integer> 42|635r19
+328U14*Expect 42|642R13
+332i7 Timeout{integer} 42|642r48
+539V13*Expect_Out{string} 42|646R45
+569X4*Process_Died 42|671r15
+X 34 g-os_lib.ads
+51K14*OS_Lib=51:36 42|32w11 397r23 474r31 490r24 497r34 510r22 1061r43 1078r21
+. 1129r41 1131r37 1136r37 1142r37
+X 36 g-string.ads
+38K14*Strings=38:37 41|34w11 48r39 92r19 140r45 42|33w11 33r43 50r39 245r19
+. 248r30 249r18 568r33
+X 37 gnatcoll.ads
+24K9*GNATCOLL 27e13 41|36r9 323r5 42|34r6 37r14 1151r5
+X 39 gnatcoll-string_builders.ads
+27K18*String_Builders 132e29 42|34w15 1060r11 1112r11
+68R9*Static_String_Builder 116e14 42|1062r16 1115r24
+74U14*Append 42|1092s16 1132s16 1143s16
+78U14*Append 42|1089s19 1131s16 1136s16 1142s16
+82U14*Set 42|1081s16 1125s7
+86V13*Element{character} 42|1087s23
+92V13*Length{natural} 42|1085s19 1087s40
+97V13*As_String{string} 42|1103s14 1148s26
+X 41 gnatcoll-utils.ads
+36K18*Utils 37|24k9 41|320E4 323l14 323e19 42|37b23 1151l14 1151t19
+46P9*Cst_String_Access(string)
+48U14*Free 48=20 42|50b14 55l8 55t12
+48a20 List{72|54A9} 42|50b20 52r16 53m16 53r16
+51V13*Equal{boolean} 51>20 51>24 51>37 53r19 42|77b13 103l8 103t13 111s14
+51a20 S1{string} 42|77b20 82r17 85r13 89r16 92r22 93r26
+51a24 S2{string} 42|77b24 82r22 85r26 90r16 93r48
+51b37 Case_Sensitive{boolean} 42|77b37 81r10 111r29
+52V13*Case_Insensitive_Equal{boolean} 52>37 52>41 53r26 42|109b13 112l8 112t30
+52a37 S1{string} 42|109b37 111r21
+52a41 S2{string} 42|109b41 111r25
+56V13*Image{string} 57>7 58>7 59>7 60>7 42|118b13 138l8 138t13
+57i7 Value{integer} 42|119b7 124r45 130r10
+58i7 Min_Width{integer} 42|120b7 125r49
+59b7 Force_Sign{boolean} 42|121b7 133r13
+60e7 Padding{character} 42|122b7 126r20
+68U14*Replace 69=7 70>7 71>7 42|144b14 160l8 160t15
+69r7 S{23|88R9} 42|145b7 150r41 152r27 153r24 157m10 157r30
+70a7 Pattern{string} 72r18 42|146b7 153r27 157r44
+71a7 Replacement{string} 42|147b7 157r64 158r23
+75V13*Replace{string} 76>7 76>19 76>37 42|162b13 173s19 178l8 178t15
+76a7 S{string} 42|163b7 167r27 170r17 172r17 172r20 174r22 174r37 174r64
+76a19 Pattern{string} 77r18 42|163b19 167r30 174r46 175r22 175r37
+76a37 Replacement{string} 42|163b37 172r42 176r22 176r37
+80U14*Split 81>7 82>7 83^7 42|207s7 216b14 235l8 235t13 270s7 306s7
+81a7 Str{string} 42|217b7 221r27 224r22 225r31 228r21 231r34
+82a7 On{string} 42|218b7 225r36 233r26
+83p7 For_Each(boolean) 42|219b7 231r24
+83a35 Item{string}
+88V13*Split{72|55P9} 89>7 90>7 91>7 42|241b13 272l8 272t13
+89a7 Str{string} 42|242b7 247r53 270r14
+90e7 On{character} 42|243b7 247r58 270r25
+91b7 Omit_Empty_Lines{boolean} 42|244b7 247r62 260r17
+102A9*Unbounded_String_Array(23|88R9)<integer> 105r27 110r50 320r27 42|281r50
+. 285r16
+105a4*Empty_Array{102A9} 320c4
+107V13*Split{102A9} 108>7 109>7 110>7 42|278b13 308l8 308t13
+108a7 Str{string} 42|279b7 284r53 306r14
+109e7 On{character} 42|280b7 284r58 306r25
+110b7 Omit_Empty_Lines{boolean} 42|281b7 284r62 296r17
+114V13*Capitalize{string} 114>25 42|314b13 345l8 345t18
+114a25 Name{string} 42|314b25 315r24 318r16 319r13 322r16 325r16 326r25 327r21
+. 330r16 330r41 336r37 340r37
+118V13*Is_Whitespace{boolean} 118>28 42|61b13 71l8 71t21 522s18 535s18
+118e28 Char{character} 42|61b28 63r10 64r17 65r17 66r17
+122V13*Starts_With{boolean} 122>26 122>40 42|378b13 386l8 386t19
+122a26 Str{string} 42|378b26 381r10 385r14 385r19 385r32
+122a40 Prefix{string} 42|378b40 381r23 385r44 385r65
+125V13*Ends_With{boolean} 125>24 125>38 42|351b13 372l8 372t17
+125a24 Str{string} 42|351b24 358r10 366r13 366r18
+125a38 Suffix{string} 42|351b38 358r23 365r24 366r33 366r49
+128U14*Skip_Blanks 128>27 128=41 42|519b14 526l8 526t19
+128a27 Str{string} 42|519b27 521r22 522r33
+128i41 Index{natural} 42|519b41 521r13 522r38 524m10 524r19
+129U14*Skip_Blanks_Backward 129>36 129=50 42|532b14 539l8 539t28
+129a36 Str{string} 42|532b36 534r22 535r33
+129i50 Index{natural} 42|532b50 534r13 535r38 537m10 537r19
+136V13*Find_Char{natural} 136>24 136>38 42|545b13 552l8 552t17 560s14
+136a24 Str{string} 42|545b24 546r25 548r21 548r39
+136e38 Char{character} 42|545b38 548r53
+140V13*Join{string} 140>19 140>33 42|567b13 583l8 583t12
+140a19 Str{string} 42|568b7 576r32
+140a33 List{72|54A9} 42|568b21 573r16 574r13 579r29
+145V13*EOL{natural} 145>18 146r19 42|558b13 561l8 561t11
+145a18 Str{string} 42|558b18 560r25
+151V13*Line_Start{natural} 151>25 151>39 42|812b13 855l8 855t18 894s35 897s17
+. 922s25 929s25
+151a25 Str{string} 42|812b25 813r39 815r15 819r10 822r13 824r16 825r24 828r19
+. 832r23 836r13 839r13 844r24 845r13 845r40 846r20 849r23 854r14
+151i39 P{natural} 42|812b39 813r49 815r10 816r17
+154V13*Line_End{natural} 154>23 154>37 42|861b13 871l8 871t16
+154a23 Str{string} 42|861b23 862r48 864r25 865r13 865r40 870r14
+154i37 P{natural} 42|861b37 862r59
+157U14*Skip_Lines 158>7 159>7 160=7 161<7 42|907b14 939l8 939t18
+158a7 Str{string} 42|908b7 919r33 921r24 922r37 929r37 932r37
+159i7 Lines{integer} 42|909b7 917r10 918r32 931r33
+160i7 Index{natural} 42|910b7 919m13 919r38 921r16 922m16 922r42 929r42 932m13
+. 932r42 934r23
+161i7 Lines_Skipped{natural} 42|911b7 915m7 918r16 926m13 926r30 931r16 936m13
+. 936r30
+166U14*Skip_To_Column 167>7 168>7 169=7 170>7 42|1023b14 1050l8 1050t22
+167a7 Str{string} 42|1024b7 1031r10 1036r37 1037r18 1039r31 1040r21 1048r38
+168i7 Columns{integer} 42|1025b7 1035r27
+169i7 Index{integer} 42|1026b7 1036r27 1037r32 1039r22 1040r35 1048m10 1048r52
+170i7 Tab_Width{integer} 42|1027b7 1043r18 1043r52
+176V13*Forward_UTF8_Char{integer} 177>7 178>7 42|994b13 1017l8 1017t25 1048s19
+177a7 Str{string} 42|995b7 998r51
+178i7 Index{integer} 42|995b21 998r56 1002r17 1004r17 1006r17 1008r17 1010r17
+. 1012r17 1015r17
+181V13*Next_Line{natural} 181>24 181>38 42|877b13 887l8 887t17 919s22
+181a24 Str{string} 42|877b24 878r48 880r25 881r13 886r14
+181i38 P{natural} 42|877b38 878r59
+185V13*Previous_Line{natural} 185>28 185>42 42|893b13 901l8 901t21 932s22
+185a28 Str{string} 42|893b28 894r47 896r18 897r29 899r17
+185i42 P{natural} 42|893b42 894r52
+189V13*Is_Blank_Line{boolean} 190>7 190>21 42|945b13 970l8 970t21
+190a7 Str{string} 42|946b7 951r16 954r16 955r22 956r21 957r21 959r16 960r24
+190i21 Index{natural} 42|946b21 948r23
+195U14*Skip_To_String 196>7 197=7 198>7 42|976b14 988l8 988t22
+196a7 Str{string} 42|977b7 983r26 984r18
+197i7 Index{natural} 42|978b7 983r13 984r23 984r32 986m10 986r19
+198a7 Substring{string} 42|979b7 981r31 984r46
+202V13*Strip_Character{string} 202>30 202>45 42|589b13 604l8 604t23 612s14
+202a30 Text{string} 42|589b30 592r31 596r20 597r13 598r30
+202e45 C{character} 42|589b45 597r29
+205V13*Strip_CR{string} 205>23 206r19 42|610b13 613l8 613t16
+205a23 Text{string} 42|610b23 612r31
+212V13*Predicate{boolean} 213>8 214^9 223s10 225s10 227s10 232s11
+213a8 Text{string} 216r24
+214p9 Predicate(boolean) 216r32
+214e38 Item{character}
+216e19 C=216:24{character} 216r43
+222V13*Is_Alphanumeric{boolean} 222>30
+222a30 Text{string} 223r21
+224V13*Is_Lower{boolean} 224>23
+224a23 Text{string} 225r21
+226V13*Is_Upper{boolean} 226>23
+226a23 Text{string} 227r21
+229V13*Is_Identifier{boolean} 229>28 232r28
+229e28 C{character} 230r11 230r68
+231V13*Is_Identifier{boolean} 231>28
+231a28 Text{string} 232r22
+241V13*Get_Command_Output{string} 242^7 42|619b13 686l8 686t26
+242p7 Command(33|151R9) 42|620b7 642r21 646r57 672r20
+250V13*Executable_Location{string} 42|404b13 441l8 441t27
+257V13*Executable_Path{string} 42|405s38 447b13 513l8 513t23
+265V13*Is_Directory_Separator{boolean} 265>37 266r19 42|392b13 398l8 398t30
+. 410s13 431s16 470s19 1086s23
+265e37 C{character} 42|392b37 397r14 397r58
+269V13*Join_Path{string} 270>8 270>23 270>30 270>37 270>44 42|1056b13 1104l8
+. 1104t17
+270a8 Path{string} 42|1057b7 1063r11 1098r28
+270a23 Path1{string} 42|1057b22 1063r25 1099r28
+270a30 Path2{string} 42|1057b29 1063r40 1100r28
+270a37 Path3{string} 42|1057b36 1064r11 1101r28
+270a44 Path4{string} 42|1057b43 1064r26 1102r28
+274U14*Add_Search_Path 274>31 274>50 42|1110b14 1149l8 1149t23
+274a31 Variable{string} 42|1110b31 1114r54 1148r16
+274a50 Path{string} 42|1110b50 1116r35 1120r10 1125r20 1130r53 1141r49
+283i4*No_Time=283:54{2|42I9} 42|703r17 786r17
+285V13*Time_Value{2|42I9} 285>25 42|692b13 787l8 787t18
+285a25 Str{string} 42|692b25 693r27 694r27 702r10 709r10 709r34 718r10 719r20
+. 722r38 725r23 728r36 729r33 729r50 732r23 733r21 737r36 738r33 738r50 746r10
+. 746r34 754r13 755r40 765r28
+305V13*UTC_Time_Offset{duration} 305>30 42|781s30
+305i30 Local{2|42I9} 306r58
+311V13*Truncate{2|42I9} 312>7 312>20 42|793b13 806l8 806t16
+312i7 Date{2|42I9} 42|794b7 803r10
+312i20 Time_Zone{5|23I9} 42|794b20 804r23 805r65
+X 42 gnatcoll-utils.adb
+39V13 Count_For_Split{natural} 40>7 41>7 42>7 184b13 210l8 210t23 247s36
+. 284s36
+40a7 Str{string} 185b7 207r14
+41e7 On{character} 186b7 207r24
+42b7 Omit_Empty_Lines{boolean} 187b7 200r17
+52i11 L{integer} 53r22
+78i7 J1{natural} 89m10 92r16 93r30 97m13 97r19
+79i7 J2{natural} 90m10 93r52 98m13 98r19
+124a7 S{string} 125r39 129r23 129r52 129r60
+125a7 Buf{string} 129m7 129r12 129r39 132m10 135m10 137r14 137r28
+127i7 First{integer} 131m10 134m10 137r19
+150i7 Ind{natural} 152r13 153m10 153r36 155r20 157r33 157r38 158m10 158r17
+165i7 Idx{natural} 167m7 169r10 172r31 174r40
+190i7 Count{natural} 201m13 201r22 209r14
+192V16 For_Each{boolean} 192>26 198b16 204l11 204t19 207r28
+192a26 Item{string} 198b26 200r42
+219a35 Item{string}
+221i7 First{positive} 224r13 225r40 231r39 233m10
+222i7 Last{natural} 225m10 227r13 228m13 231r48 233r19
+247i7 Total{natural} 249r44
+248p7 Result{72|55P9} 261r13 271r14
+250i7 Count{positive} 261r21 262m13 262r22
+252V16 For_Each{boolean} 252>26 258b16 265l11 265t19 270r30
+252a26 Item{string} 258b26 260r42 261r43
+284i7 Total{natural} 285r45
+285a7 Result{41|102A9} 297m13 307r14
+286i7 Count{positive} 297r21 298m13 298r22
+288V16 For_Each{boolean} 288>26 294b16 301l11 301t19 306r30
+288a26 Item{string} 294b26 296r42 297r52
+315a7 Result{string} 316r22 320m13 323m13 331m13 333r20 334r20 336m13 340m13
+. 344r14 344r22
+316i7 J{integer} 320r21 321m13 321r18 323r21 324m13 324r18 331r21 332m13
+. 332r18 333r16 334r28 336r21 337m13 337r18 340r21 341m13 341r18 344r38
+318i11 N{integer} 319r19 322r22 325r22 326r21 327r27 330r22 330r47 336r43
+. 340r43
+365i11 J{integer} 366r29 366r57
+405a7 Exec_Path{string} 409r24 410r37 425r23 427r37 431r40 433r23 433r34
+. 435r23 435r34 439r17 439r28
+406i7 Path_Last{integer} 411m13 419r10 425r10 427r48 427r65 431r51 433r53
+. 435r53 439r47
+409i11 J{integer} 410r48 411r26
+427a13 Dir_Element{string} 429m38 429r38 430r16
+448V16*Internal{integer} 449>11 449>33 450b<c,c_executable_path>25 459s20
+449m11 Str{45|67M9}
+449i33 Length{integer}
+454a7 Result{string} 459m30 459r30 459r46 461r45 511r14 511r22
+457i7 Allocated{integer} 459m7 461r10 461r32 511r38
+465a13 Command_Name{string} 469r24 470r43 475r23 490r52 505r26
+469i17 Idx{integer} 470r57
+489p16 Executable_Path{72|45P9} 492r19 494r50 496m28 496r28
+494a22 Result{string} 498r26
+546i7 Last{natural} 548r13 548r44 549m10 549r18 551r14
+571r7 Result{23|88R9} 575r16 576m24 576r24 579m21 579r21 582r25
+573i11 L{integer} 574r19 579r35
+592a7 To{string} 598m13 603r14
+593i7 Index_To{positive} 598r17 599m13 599r25 603r23
+596i11 Index{integer} 597r19 598r36
+624p7 Output{72|45P9} 653r37 654r51 655r28 655r45 656m25 656r25 661r30 666m16
+. 676m16 676r16 681r33 683m16 683r16
+628i7 Last{integer} 653r19 664r25 664r37 665m16 665r24 675r10 681r46
+631i7 Status{integer} 672m33
+635i10 Result{33|317I9} 636r31 642m34
+645p16 NOutput{72|45P9} 654m19 655r19 661m19 664r16 666r26
+646a16 S{string} 647r31 653r26 654r65 664r44 664r57 665r31
+681a10 S{string} 684r17
+693i7 First{integer} 709r39 710m10 710r19 753r24 765r33
+694i7 Last{integer} 719r25 722r43 722r55 723m13 723r21 725r28 728r41 728r53
+. 729r38 729r55 729r67 730m13 730r21 732r28 733r26 737r41 737r53 738r38 738r55
+. 738r67 739m13 739r21 746r39 747m10 747r18 753r33 755r50 756m13 765r42
+697o7 TZ{duration} 722m13 728m13 737m13 748m10 781r25
+698a7 TZ_Mark{18|52A9} 719r36 725r39 732r39
+699o7 Subsecs{duration} 755m13 781r56
+753i11 S{integer} 754r18 755r45 756r21
+765a10 S2{string} 768r19 769r16 770m16 775r48
+766i10 Local{2|42I9} 775m10 781r17 781r47
+768i14 S{integer} 769r20 770r20
+796i7 Year{2|48I12} 803m16 805r34
+797i7 Month{2|49I12} 803m22 805r40
+798i7 Day{2|50I12} 803m29 805r47
+799o7 Dum1{2|54O12} 803m34
+800b7 Dum2{boolean} 803m55
+813i7 Index{natural} 819r15 820m10 820r19 822r18 823r20 824r21 825r16 826m16
+. 826r25 828r24 829r26 836r18 837m10 837r19 839r18 840r20 844r37
+844i11 J{integer} 845r18 845r45 846r16 847r23
+862i7 Index{natural} 864r16
+864i11 J{integer} 865r18 865r45 866r20
+878i7 Index{natural} 880r16
+880i11 J{integer} 881r18 882r20
+894i7 Index{natural} 896r10 897r34
+913i7 Index_Saved{natural} 929m10 934r31
+948i7 It{natural} 950r10 951m10 954r10 955r16 956r26 957r26 959r21 960r29
+. 965m13 965r19
+981i7 L{natural} 983r21 984r40
+997M12 Unicode_Char 998r20
+998m7 C{997M12} 1001r10 1003r14 1005r14 1007r14 1009r14 1011r14
+1029i7 Current_Col{integer} 1035r13 1042m13 1042r28 1043r31 1045m13 1045r28
+1061e7 Sep{character} 1089r35
+1062r7 Result{39|68R9} 1081m21 1081r21 1085r27 1087r32 1087r48 1089m27 1089r27
+. 1092m24 1092r24 1103r25
+1069U17 Append_Path_Element 1069>38 1075b17 1095l11 1095t30 1098s7 1099s7
+. 1100s7 1101s7 1102s7
+1069a38 Path_Elmt{string} 1075b38 1077r13 1078r46 1081r29 1092r32
+1113K15 Env=1113:31 1114r43 1148r7
+1114a7 Original_Value{string} 1116r11 1117r35 1128r18 1129r13 1130r16 1132r32
+. 1135r22 1138r22 1139r22 1141r16 1143r32
+1115r7 Result{39|68R9} 1125m12 1125r12 1131m24 1131r24 1132m24 1132r24 1136m24
+. 1136r24 1142m24 1142r24 1143m24 1143r24 1148r37
+1117i7 Start{integer} 1130r32 1132r48 1133m16 1139r13 1141r32 1143r48
+1128i11 Idx{integer} 1129r29 1130r41 1132r57 1133r25 1135r16 1138r16 1141r41
+. 1143r57
+X 43 interfac.ads
+55I9*Integer_64<long_long_integer>
+X 45 system.ads
+37K9*System 42|35w6 449r17 45|154e11
+67M9*Address 42|449r24
+X 46 s-arit64.ads
+44I12*Int64{43|55I9}
+54V13*Multiply_With_Ovflo_Check64{44I12} 55i<c,__gnat_mulv64>22
+X 49 s-casuti.ads
+59U14*To_Lower 42|429s28
+X 56 s-memory.ads
+53V13*Alloc{45|67M9} 103i<c,__gnat_malloc>22
+68U14*Free 104i<c,__gnat_free>22
+76V13*Realloc{45|67M9} 105i<c,__gnat_realloc>22
+X 57 s-os_lib.ads
+430V13*Is_Absolute_Path{boolean} 42|1078s28
+496V13*Locate_Exec_On_Path{67P12} 42|490s31
+538V13*Normalize_Pathname{string} 42|474s38 497s41 510s29
+541b7 Resolve_Links{boolean} 42|475r37 498r34 511r50
+1096e4*Directory_Separator{character} 42|397r30 1061r50
+1099e4*Path_Separator{character} 42|1129r48 1131r44 1136r44 1142r44
+X 67 s-stalib.adb
+89U14 Break_Start 90i<c,__gnat_break_start>22
+X 72 s-string.ads
+45P9*String_Access(string) 42|489r34 624r16 645r26
+49U14*Free[28|20] 42|53s10 496s22 656s19 676s10 683s10
+54A9*String_List(45P9)<integer> 41|48r47 140r53 42|50r47 249r26 568r41
+55P9*String_List_Access(54A9) 41|92r27 42|245r27 248r38
+

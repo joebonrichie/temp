@@ -1,0 +1,1059 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3. Building with GPRbuild &#8212; GPR Tools User&#39;s Guide 2021 documentation</title>
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="4. GPRbuild Companion Tools" href="companion_tools.html" />
+    <link rel="prev" title="2. GNAT Project Manager" href="gnat_project_manager.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="companion_tools.html" title="4. GPRbuild Companion Tools"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="gnat_project_manager.html" title="2. GNAT Project Manager"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../gprbuild_ug.html">GPR Tools User&#39;s Guide 2021 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">3. </span>Building with GPRbuild</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="building-with-gprbuild">
+<span id="id1"></span><h1><span class="section-number">3. </span>Building with GPRbuild<a class="headerlink" href="#building-with-gprbuild" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<span id="building-with-gprbuild-introduction"></span><h2><span class="section-number">3.1. </span>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p><cite>GPRbuild</cite> is a generic build tool designed for the construction of
+large multi-language systems organized into subsystems and libraries.
+It is well-suited for compiled languages supporting separate compilation,
+such as Ada, C, C++ and Fortran.</p>
+<p><cite>GPRbuild</cite> manages a three step build process.</p>
+<ul>
+<li><p>compilation phase:</p>
+<p>Each compilation unit of each subsystem is examined in turn, checked for
+consistency, and compiled or recompiled when necessary by the appropriate
+compiler.  The recompilation decision is based on dependency information
+that is typically produced by a previous compilation.</p>
+</li>
+<li><p>post-compilation phase (or binding):</p>
+<p>Compiled units from a given language are passed to a language-specific
+post-compilation tool if any. Also during this phase
+objects are grouped into static or dynamic libraries as specified.</p>
+</li>
+<li><p>linking phase:</p>
+<p>All units or libraries from all subsystems are passed to a linker tool
+specific to the set of toolchains being used.</p>
+</li>
+</ul>
+<p>The tool is generic in that it provides, when possible, equivalent
+build capabilities for all supported languages. For this, it uses a
+configuration file <code class="file docutils literal notranslate"><span class="pre">&lt;file&gt;.cgpr</span></code> that has a syntax and structure very
+similar to a project file, but which defines the characteristics
+of the supported languages and toolchains. The configuration file contains
+information such as:</p>
+<ul class="simple">
+<li><p>the default source naming conventions for each language,</p></li>
+<li><p>the compiler name, location and required options,</p></li>
+<li><p>how to compute inter-unit dependencies,</p></li>
+<li><p>how to build static or dynamic libraries,</p></li>
+<li><p>which post-compilation actions are needed,</p></li>
+<li><p>how to link together units from different languages.</p></li>
+</ul>
+<p>On the other hand, <cite>GPRbuild</cite> is not a replacement for general-purpose
+build tools such as <cite>make</cite> or <cite>ant</cite> which give the user a high
+level of control over the build process itself. When building a system
+requires complex actions that do not fit well in the three-phase process
+described above, <cite>GPRbuild</cite> might not be sufficient.
+In such situations, <cite>GPRbuild</cite> can still
+be used to manage the appropriate part of the build. For
+instance it can be called from within a Makefile.</p>
+</div>
+<div class="section" id="command-line">
+<span id="id2"></span><h2><span class="section-number">3.2. </span>Command Line<a class="headerlink" href="#command-line" title="Permalink to this headline">¶</a></h2>
+<p>Three elements can optionally be specified on GPRbuild’s command line:</p>
+<ul class="simple">
+<li><p>the main project file,</p></li>
+<li><p>the switches for GPRbuild itself or for the tools it
+drives, and</p></li>
+<li><p>the main source files.</p></li>
+</ul>
+<p>The general syntax is thus:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gprbuild</span> <span class="p">[</span><span class="o">&lt;</span><span class="n">proj</span><span class="o">&gt;.</span><span class="n">gpr</span><span class="p">]</span> <span class="p">[</span><span class="n">switches</span><span class="p">]</span> <span class="p">[</span><span class="n">names</span><span class="p">]</span>
+ <span class="p">{[</span><span class="o">-</span><span class="n">cargs</span> <span class="n">opts</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">cargs</span><span class="p">:</span><span class="n">lang</span> <span class="n">opts</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">largs</span> <span class="n">opts</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">kargs</span> <span class="n">opts</span><span class="p">]</span>
+  <span class="p">[</span><span class="o">-</span><span class="n">gargs</span> <span class="n">opts</span><span class="p">]}</span>
+</pre></div>
+</div>
+<p>GPRbuild requires a project file, which may be specified on the
+command line either directly or through the <code class="samp docutils literal notranslate"><span class="pre">-P</span></code> switch. If not
+specified, GPRbuild uses the project file <code class="file docutils literal notranslate"><span class="pre">default.gpr</span></code> if there
+is one in the current working directory. Otherwise, if there is only
+one project file in the current working directory, GPRbuild uses this
+project file.</p>
+<p>Main source files represent the sources to be used as the main
+programs. If they are not specified on the command line, GPRbuild uses
+the source files specified with the <cite>Main</cite> attribute in the project
+file. If none exists, then no executable will be built.
+It is also possible to specify absolute file names, or file names relative
+to the current directory.</p>
+<p>When source files are specified along with the option <code class="samp docutils literal notranslate"><span class="pre">-c</span></code>, then
+recompilation will be considered only for those source files. In all
+other cases, GPRbuild compiles or recompiles all sources in the
+project tree that are not up to date, and builds or rebuilds libraries
+that are not up to date.</p>
+<p>If invoked without the <code class="samp docutils literal notranslate"><span class="pre">--config=</span></code> or
+<code class="samp docutils literal notranslate"><span class="pre">--autoconf=</span></code> options, then GPRbuild will look for a configuration
+project file. The file name or path name of this configuration project file
+depends on the target, the runtime and environment variable <cite>GPR_CONFIG</cite>
+See <a class="reference internal" href="companion_tools.html#configuring-with-gprconfig"><span class="std std-ref">Configuring with GPRconfig</span></a>. If there is no such file in the default
+locations expected by GPRbuild (&lt;install&gt;/share/gpr and the current
+directory) then GPRbuild will invoke GPRconfig with
+the languages from the project files, and create a configuration project
+file <code class="file docutils literal notranslate"><span class="pre">auto.cgpr</span></code> in the object directory of the main project. The project
+<code class="file docutils literal notranslate"><span class="pre">auto.cgpr</span></code> will be rebuilt at each GPRbuild invocation unless you use
+the switch <code class="samp docutils literal notranslate"><span class="pre">--autoconf=path/auto.cgpr</span></code>, which will use the configuration
+project file if it exists and create it otherwise.</p>
+<p>Options given on the GPRbuild command line may be passed along to
+individual tools by preceding them with one of the “command line separators”
+shown below. Options following the separator, up to the
+next separator (or end of the command line), are passed along.  The
+different command line separators are:</p>
+<ul>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">-cargs</span></code></p>
+<p>The arguments that follow up to the next command line separator are
+options for all compilers for all languages.
+Example: <code class="samp docutils literal notranslate"><span class="pre">-cargs</span></code> <code class="samp docutils literal notranslate"><span class="pre">-g</span></code></p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">-cargs:</span><em><span class="pre">language</span> <span class="pre">name</span></em></code></p>
+<p>The arguments that follow up to the next command line separator are
+options for the compiler of the specific language.</p>
+<p>Examples:</p>
+<ul class="simple">
+<li><p><code class="samp docutils literal notranslate"><span class="pre">-cargs:Ada</span> <span class="pre">-gnatf</span></code></p></li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">-cargs:C</span> <span class="pre">-E</span></code></p></li>
+</ul>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">-bargs</span></code></p>
+<p>The arguments that follow up to the next command line separator are
+options for all binder drivers.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">-bargs:</span><em><span class="pre">language</span> <span class="pre">name</span></em></code></p>
+<p>The arguments that follow up to the next command line separators are
+options for the binder driver of the specific language.</p>
+<p>Examples:</p>
+<ul class="simple">
+<li><p><code class="samp docutils literal notranslate"><span class="pre">-bargs:Ada</span> <span class="pre">binder_prefix=ppc-elf</span></code></p></li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">-bargs:C++</span> <span class="pre">c_compiler_name=ccppc</span></code></p></li>
+</ul>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">-largs</span></code></p>
+<p>The arguments that follow up to the next command line separator are
+options for the linker, when linking an executable.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">-kargs</span></code></p>
+<p>The arguments that follow up to the next command line separator are
+options for gprconfig when performing auto-configuration.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">-gargs</span></code></p>
+<p>The arguments that follow up to the next command line separator are
+options for GPRbuild itself. Usually <code class="samp docutils literal notranslate"><span class="pre">-gargs</span></code> is specified after one or
+several other command line separators.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">-margs</span></code></p>
+<p>Equivalent to <code class="samp docutils literal notranslate"><span class="pre">-gargs</span></code>, provided for compatibility with
+<em>gnatmake</em>.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="switches">
+<span id="id3"></span><h2><span class="section-number">3.3. </span>Switches<a class="headerlink" href="#switches" title="Permalink to this headline">¶</a></h2>
+<p>GPRbuild takes into account switches that may be specified on the command
+line or in attributes Switches(&lt;main or language&gt;) or Default_Switches
+(&lt;language&gt;) in package Builder of the main project.</p>
+<p>When there are a single main (specified on the command line or in
+attribute Main in the main project), the switches that are taken into account
+in package Builder of the main project are Switches (&lt;main&gt;), if declared, or
+Switches (&lt;language of main&gt;), if declared.</p>
+<p>When there are several mains, if there are sources of the same language, then
+Switches (&lt;language of main&gt;) is taken into account, if specified.</p>
+<p>When there are no main specified, if there is only one compiled language
+(that is a language with a non empty Compiler Driver), then
+Switches (&lt;single language&gt;) is taken into account, if specified.</p>
+<p>The switches that are interpreted directly by GPRbuild are listed below.</p>
+<p>First, the switches that may be specified only on the command line, but not in
+package Builder of the main project:</p>
+<ul>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">--build-script=&lt;script_file&gt;</span></code></p>
+<p>This switch is not compatible with <code class="samp docutils literal notranslate"><span class="pre">--distributed=</span></code>.</p>
+<p>When this switch is specified, a shell script &lt;script_file&gt; is created.
+Provided that the temporary files created by gprbuild are not deleted,
+running this script should perform the same build as the invocation of
+gprbuild, with the same sources.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">--no-project</span></code></p>
+<p>This switch cannot be used if a project file is specified on the command
+line.</p>
+<p>When this switch is specified, it indicates to gprbuild that the project
+files in the current directory should not be considered and that the default
+project file in &lt;prefix&gt;/share/gpr is to be used.</p>
+<p>It is usually used with one or several mains specified on the command line.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">--no-complete-output</span></code></p>
+<p>Synonym: <code class="samp docutils literal notranslate"><span class="pre">-n</span></code>.</p>
+<p>By default, gprbuild redirects the standard output and the standard error of
+the compilations to different text files. This allows to inspect the results
+afterwards, and also ensures that parallel processes do not clobber each
+other’s output. When this switch is specified, these files are not created
+and individual compilations output directly to common standard streams.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">--complete-output</span></code></p>
+<p>This switch is not compatible with <code class="samp docutils literal notranslate"><span class="pre">--distributed=</span></code>.</p>
+<p>When this switch is specified, if a source is up to date and compilation
+log files exist, their contents are sent to standard output
+and standard error. This allows to redisplay any warning or info from the
+last invocation of gprbuild.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">--distributed[=</span><em><span class="pre">slave1</span></em><span class="pre">[,</span><em><span class="pre">slave2</span></em><span class="pre">]]</span></code></p>
+<p>This switch is not compatible with <code class="samp docutils literal notranslate"><span class="pre">--complete-output</span></code>, or with
+<code class="samp docutils literal notranslate"><span class="pre">--build-script=</span></code>.</p>
+<p>Activate the distributed compilation on the listed slaves nodes (IP or
+name). Or if no slave are specified they are search in <cite>GPR_SLAVES</cite> or
+<cite>GPR_SLAVES_FILE</cite> environment variables.
+see <a class="reference internal" href="#distributed-compilation"><span class="std std-ref">Distributed compilation</span></a>.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">--hash=</span><em><span class="pre">string</span></em></code></p>
+<p>Specify an hash string. This is just a value which is checked against the
+GPRslave hash value. If GPRslave has a hash value specified this string
+must match, otherwise it is ignored. For example:</p>
+</li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ gprbuild --hash=$(echo $ADA_PROJECT_PATH | shasum) --distributed=...
+</pre></div>
+</div>
+<ul>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">--slave-env=</span><em><span class="pre">name</span></em></code></p>
+<p>Use name as the slave’s environment directory instead of the default one.
+This options is only used in distributed mode.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">--version</span></code></p>
+<p>Display information about GPRbuild: version, origin and legal status, then
+exit successfully, ignoring other options.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">--help</span></code></p>
+<p>Display GPRbuild usage, then exit successfully, ignoring other options.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">--display-paths</span></code></p>
+<p>Display two lines: the configuration project file search path and the user
+project file search path, then exit successfully, ignoring other options.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">--config=</span><em><span class="pre">config</span> <span class="pre">project</span> <span class="pre">file</span> <span class="pre">name</span></em></code></p>
+<p>This specifies the configuration project file name. By default, the
+configuration project file name is <code class="file docutils literal notranslate"><span class="pre">default.cgpr</span></code>. Option <code class="samp docutils literal notranslate"><span class="pre">--config=</span></code>
+cannot be specified more than once. The configuration project file specified
+with <code class="samp docutils literal notranslate"><span class="pre">--config=</span></code> must exist.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">--autoconf=</span><em><span class="pre">config</span> <span class="pre">project</span> <span class="pre">file</span> <span class="pre">name</span></em></code></p>
+<p>This specifies a configuration project file name that already exists
+or will be created automatically. Option <code class="samp docutils literal notranslate"><span class="pre">--autoconf=</span></code> cannot
+be specified more than once. If the configuration project file
+specified with <code class="samp docutils literal notranslate"><span class="pre">--autoconf=</span></code> exists, then it is
+used. Otherwise, GPRconfig is invoked to create it automatically.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">--target=</span><em><span class="pre">targetname</span></em></code></p>
+<p>This specifies that the default configuration project file is
+<code class="file docutils literal notranslate"><span class="pre">&lt;targetname&gt;.cgpr</span></code>. If no configuration project file with this name
+is found, then GPRconfig is invoked with option
+<code class="samp docutils literal notranslate"><span class="pre">--target=</span><em><span class="pre">targetname</span></em></code> to create a configuration project file
+<code class="file docutils literal notranslate"><span class="pre">auto.cgpr</span></code>.</p>
+<p>Note: only one of <code class="samp docutils literal notranslate"><span class="pre">--config</span></code>, <code class="samp docutils literal notranslate"><span class="pre">--autoconf</span></code> or <code class="samp docutils literal notranslate"><span class="pre">--target=</span></code>
+can be specified.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">--implicit-with=</span><em><span class="pre">project</span> <span class="pre">file</span> <span class="pre">name</span></em></code></p>
+<p>Adds a given project as an implicit dependency to every project in the
+build tree by creating an implicit “limited with” clause at the start of
+each project. This switch can only appear once on the command line.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">--subdirs=</span><em><span class="pre">subdir</span></em></code></p>
+<p>This indicates that the object, library and executable directories specified
+in the project file will be suffixed with {subdir}. If needed, those
+subdirectories are created except for externally built projects: in this case
+if the subdirectories already exist they are used, otherwise the base
+directories are used.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">--src-subdirs=</span><em><span class="pre">subdir</span></em></code></p>
+<p>This adds the given subdirectory (relative to each object directory of the
+project tree) to the list of source directories of the project, one directory
+per object directory. This is useful for overriding temporarily some source
+files for the purpose of e.g. source instrumentation such as source coverage
+or preprocessing. This option may be combined with <code class="samp docutils literal notranslate"><span class="pre">--subdirs</span></code>.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">--relocate-build-tree[=</span><em><span class="pre">dir</span></em><span class="pre">]</span></code></p>
+<p>With this option it is possible to achieve out-of-tree build. That
+is, real object, library or exec directories are relocated to the
+current working directory or dir if specified.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">--root-dir=</span><em><span class="pre">dir</span></em></code></p>
+<p>This option is to be used with –relocate-build-tree above and
+cannot be specified alone. This option specifies the root directory
+for artifacts for proper relocation. The default value is the main
+project directory. This may not be suitable for relocation if for
+example some artifact directories are in parent directory of the
+main project. The specified directory must be a parent of all
+artifact directories.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">--unchecked-shared-lib-imports</span></code></p>
+<p>Allow shared library projects to import projects that are not shared
+library projects.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">--source-info=</span><em><span class="pre">source</span> <span class="pre">info</span> <span class="pre">file</span></em></code></p>
+<p>Specify a source info file. If the source info file is specified as a
+relative path, then it is relative to the object directory of the main
+project. If the source info file does not exist, then after the Project
+Manager has successfully parsed and processed the project files and found
+the sources, it creates the source info file. If the source info file
+already exists and can be read successfully, then the Project Manager will
+get all the needed information about the sources from the source info file
+and will not look for them. This reduces the time to process the project
+files, especially when looking for sources that take a long time. If the
+source info file exists but cannot be parsed successfully, the Project
+Manager will attempt to recreate it. If the Project Manager fails to create
+the source info file, a message is issued, but GPRbuild does not fail.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">--restricted-to-languages=</span><em><span class="pre">list</span> <span class="pre">of</span> <span class="pre">language</span> <span class="pre">names</span></em></code></p>
+<p>Restrict the sources to be compiled to one or several languages. Each
+language name in the list is separated from the next by a comma, without any
+space.</p>
+<p>Example: <code class="samp docutils literal notranslate"><span class="pre">--restricted-to-languages=Ada,C</span></code></p>
+<p>When this switch is used, switches <code class="samp docutils literal notranslate"><span class="pre">-c</span></code>, <code class="samp docutils literal notranslate"><span class="pre">-b</span></code> and
+<code class="samp docutils literal notranslate"><span class="pre">-l</span></code> are ignored. Only the compilation phase is performed and the
+sources that are not in the list of restricted languages are not compiled,
+including mains specified in package Builder of the main project.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">--no-sal-binding</span></code></p>
+<p>Specify to GPRbuild to not rebind a Stand-Alone Library (SAL), but instead
+to reuse the files created during a previous build of the SAL. GPRbuild
+will fail if there are missing files. This option is unsafe and not
+recommended, as it may result in incorrect binding of the SAL, for example
+if sources have been added, removed or modified in a significant way related
+to binding. It is only provided to improve performance, when it is known
+that the resulting binding files will be the same as the previous ones.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">-aP</span> <em><span class="pre">dir</span></em></code> (Add directory <code class="file docutils literal notranslate"><span class="pre">dir</span></code> to project search path)</p>
+<p>Specify to GPRbuild to add directory <code class="file docutils literal notranslate"><span class="pre">dir</span></code> to the user project file search
+path, before the default directory.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">-d</span></code> (Display progress)</p>
+<p>Display progress for each source, up to date or not, as a single
+line <em>completed x out of y (zz%)…</em>. If the file needs to be compiled
+this is displayed after the invocation of the compiler. These lines are
+displayed even in quiet output mode (switch <code class="samp docutils literal notranslate"><span class="pre">-q</span></code>).</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">-I</span><em><span class="pre">nn</span></em></code> (Index of main unit in multi-unit source file)
+Indicate the index of the main unit in a multi-unit source file.
+The index must be a positive number and there should be one and only
+one main source file name on the command line.</p></li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">-eL</span></code> (Follow symbolic links when processing project files)</p>
+<p>By default, symbolic links on project files are not taken into account
+when processing project files. Switch <code class="samp docutils literal notranslate"><span class="pre">-eL</span></code> changes this default
+behavior.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">-eS</span></code> (no effect)</p>
+<p>This switch is only accepted for compatibility with gnatmake, but it has
+no effect. For gnatmake, it means: echo commands to standard output instead
+of standard error, but for gprbuild, commands are always echoed to standard
+output.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">-F</span></code> (Full project path name in brief error messages)</p>
+<p>By default, in non verbose mode, when an error occurs while processing
+a project file, only the simple name of the project file is displayed in the
+error message. When switch <code class="samp docutils literal notranslate"><span class="pre">-F</span></code> is used, the full path of the project
+file is used. This switch has no effect when switch <code class="samp docutils literal notranslate"><span class="pre">-v</span></code> is used.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">-o</span> <em><span class="pre">name</span></em></code> (Choose an alternate executable name)</p>
+<p>Specify the file name of the executable. Switch <code class="samp docutils literal notranslate"><span class="pre">-o</span></code> can
+be used only if there is exactly one executable being built;
+that is, there is exactly one main on the command line,
+or there are no mains on the command line and exactly one
+main in attribute <cite>Main</cite> of the main project.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">-P</span> <em><span class="pre">proj</span></em></code> (use Project file <em>proj</em>)</p>
+<p>Specify the path name of the main project file. The space between <code class="samp docutils literal notranslate"><span class="pre">-P</span></code>
+and the project file name is optional. Specifying a project file name (with
+suffix <code class="file docutils literal notranslate"><span class="pre">.gpr</span></code>) may be used in place of option <code class="samp docutils literal notranslate"><span class="pre">-P</span></code>. Exactly one main
+project file can be specified.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">-r</span></code> (Recursive)</p>
+<p>This switch has an effect only when <code class="samp docutils literal notranslate"><span class="pre">-c</span></code> or <code class="samp docutils literal notranslate"><span class="pre">-u</span></code> is also
+specified and there are no mains: it means that all sources of all projects
+need to be compiled or recompiled.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">-u</span></code> (Unique compilation, only compile the given files)</p>
+<p>If there are sources specified on the command line, only compile these
+sources. If there are no sources specified on the command line, compile
+all the sources of the main project.</p>
+<p>In both cases, do not attempt the binding and the linking phases.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">-U</span></code> (Compile all sources of all projects)</p>
+<p>If there are sources specified on the command line, only compile these
+sources. If there are no sources specified on the command line, compile
+all the sources of all the projects in the project tree.</p>
+<p>In both cases, do not attempt the binding and the linking phases.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">-vP</span><em><span class="pre">x</span></em></code> (Specify verbosity when parsing Project Files)</p>
+<p>By default, GPRbuild does not display anything when processing project files,
+except when there are errors. This default behavior is obtained with switch
+<code class="samp docutils literal notranslate"><span class="pre">-vP0</span></code>. Switches <code class="samp docutils literal notranslate"><span class="pre">-vP1</span></code> and <code class="samp docutils literal notranslate"><span class="pre">-vP2</span></code> yield increasingly
+detailed output.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">-Xnm=</span><em><span class="pre">val</span></em></code> (Specify an external reference for Project Files)</p>
+<p>Specify an external reference that may be queried inside the project files
+using built-in function <cite>external</cite>. For example, with
+<code class="samp docutils literal notranslate"><span class="pre">-XBUILD=DEBUG</span></code>,
+<cite>external(“BUILD”)</cite> inside a project file will have the value
+<cite>“DEBUG”</cite>.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">--compiler-subst=</span><em><span class="pre">lang</span></em><span class="pre">,</span><em><span class="pre">tool</span></em></code> (Specify alternative compiler)</p>
+<p>Use <em>tool</em> for compiling files in language <em>lang</em>,
+instead of the normal compiler. For example, if
+<code class="samp docutils literal notranslate"><span class="pre">--compiler-subst=ada,my-compiler</span></code> is given, then Ada files
+will be compiled with <em>my-compiler</em> instead of the usual
+<em>gcc</em>. This and <code class="samp docutils literal notranslate"><span class="pre">--compiler-pkg-subst</span></code> are intended
+primarily for use by ASIS tools using <code class="samp docutils literal notranslate"><span class="pre">--incremental</span></code> mode.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">--compiler-pkg-subst=</span><em><span class="pre">pkg</span></em></code> (Specify alternative package)</p>
+<p>Use the switches in project-file package <em>pkg</em> when running
+the compiler, instead of the ones in package Compiler.</p>
+</li>
+</ul>
+<p>Then, the switches that may be specified on the command line as well as in
+package Builder of the main project (attribute Switches):</p>
+<ul>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">--keep-temp-files</span></code></p>
+<p>Normally, GPRbuild delete the temporary files that it creates.
+When this switch is used, the temporary files that GPRbuild creates are
+not deleted.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">--create-map-file</span></code></p>
+<p>When linking an executable, if supported by the platform, create a map file
+with the same name as the executable, but with suffix <code class="file docutils literal notranslate"><span class="pre">.map</span></code>.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">--create-map-file=</span><em><span class="pre">map</span> <span class="pre">file</span></em></code></p>
+<p>When linking an executable, if supported by the platform, create a map file
+with file name <code class="file docutils literal notranslate"><span class="pre">map</span> <span class="pre">file</span></code>.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">--no-indirect-imports</span></code></p>
+<p>This indicates that sources of a project should import only sources or
+header files from directly imported projects, that is those projects mentioned
+in a with clause and the projects they extend directly or indirectly.
+A check is done in the compilation phase, after a successful compilation, that
+the sources follow these restrictions. For Ada sources, the check is fully
+enforced. For non Ada sources, the check is partial, as in the dependency
+file there is no distinction between header files directly included and those
+indirectly included. The check will fail if there is no possibility that a
+header file in a non directly imported project could have been indirectly
+imported. If the check fails, the compilation artifacts (dependency file,
+object file, switches file) are deleted.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">--indirect-imports</span></code></p>
+<p>This indicates that sources of a project can import sources or header files
+from directly or indirectly imported projects. This is the default behavior.
+This switch is provided to cancel a previous switch
+<code class="samp docutils literal notranslate"><span class="pre">--no-indirect-imports</span></code> on the command line.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">--no-object-check</span></code></p>
+<p>Do not check if an object has been created after compilation.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">--no-split-units</span></code></p>
+<p>Forbid the sources of the same Ada unit to be in different projects.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">--single-compile-per-obj-dir</span></code></p>
+<p>Disallow several simultaneous compilations for the same object directory.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">-b</span></code> (Bind only)</p>
+<p>Specify to GPRbuild that the post-compilation (or binding) phase is to be
+performed, but not the other phases unless they are specified by appropriate
+switches.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">-c</span></code> (Compile only)</p>
+<p>Specify to GPRbuild that the compilation phase is to be performed, but not
+the other phases unless they are specified by appropriate switches.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">-f</span></code> (Force recompilations)</p>
+<p>Force the complete processing of all phases (or of those explicitly specified)
+even when up to date.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">-j</span><em><span class="pre">num</span></em></code> (use <em>num</em> simultaneous compilation jobs)</p>
+<p>By default, GPRbuild invokes one compiler at a time. With switch <code class="samp docutils literal notranslate"><span class="pre">-j</span></code>,
+it is possible to instruct GPRbuild to spawn several simultaneous compilation
+jobs if needed. For example, <code class="samp docutils literal notranslate"><span class="pre">-j2</span></code> for two simultaneous compilation
+jobs or <code class="samp docutils literal notranslate"><span class="pre">-j4</span></code> for four. On a multi-processor system,
+<code class="samp docutils literal notranslate"><span class="pre">-j</span><em><span class="pre">num</span></em></code> can greatly speed up the build process. If <code class="samp docutils literal notranslate"><span class="pre">-j0</span></code> is
+used, then the maximum number of simultaneous compilation jobs is the number
+of core processors on the platform.</p>
+<p>Switch <code class="samp docutils literal notranslate"><span class="pre">-j</span><em><span class="pre">num</span></em></code> is also used to spawned several simultaneous binding
+processes and several simultaneous linking processes when there are several
+mains to be bound and/or linked.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">-k</span></code> (Keep going after compilation errors)</p>
+<p>By default, GPRbuild stops spawning new compilation jobs at the first
+compilation failure. Using switch <code class="samp docutils literal notranslate"><span class="pre">-k</span></code>, it is possible to attempt to
+compile/recompile all the sources that are not up to date, even when some
+compilations failed. The post-compilation phase and the linking phase are never
+attempted if there are compilation failures, even when switch <code class="samp docutils literal notranslate"><span class="pre">-k</span></code> is
+used.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">-l</span></code> (Link only)</p>
+<p>Specify to GPRbuild that the linking phase is to be performed, but not
+the other phases unless they are specified by appropriate switches.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">-m</span></code> (Minimum Ada recompilation)</p>
+<p>Do not recompile Ada code if timestamps are different but checksums are the
+same. Note that for the case when source code contains preprocessing
+directives, this switch has no effect.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">-m2</span></code> (Checksum based recompilation)</p>
+<p>Recompile Ada code even if timestamps are the same, but checksums are
+different. Note that for the case when source code contains preprocessing
+directives, this switch has the same effect as -f.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">-p</span></code> or <code class="samp docutils literal notranslate"><span class="pre">--create-missing-dirs</span></code> (Create missing object, library and exec directories)</p>
+<p>By default, GPRbuild checks that the object, library and exec directories
+specified in project files exist. GPRbuild automatically creates any of these
+directories which is specified relatively to the project dir, for instance
+<code class="samp docutils literal notranslate"><span class="pre">for</span> <span class="pre">Object_Dir</span> <span class="pre">use</span> <span class="pre">&quot;obj/&quot;</span></code>. The <code class="samp docutils literal notranslate"><span class="pre">-p</span></code> switch instructs GPRbuild
+to attempt to create missing directories that are specified as absolute paths
+as well. Note that these switches may be specified in package Builder of the
+main project, but they are not useful there as either the directories already
+exist or the processing of the project files has failed before the evaluation
+of the Builder switches, because there is at least one missing directory.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">-q</span></code> (Quiet output)</p>
+<p>Do not display anything except errors and progress (switch <code class="samp docutils literal notranslate"><span class="pre">-d</span></code>).
+Cancel any previous switch <code class="samp docutils literal notranslate"><span class="pre">-v</span></code>.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">-R</span></code> (no run path option)</p>
+<p>Do not use a run path option to link executables or shared libraries,
+even when attribute Run_Path_Option is specified.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">-s</span></code> (recompile if compilation switches have changed)</p>
+<p>By default, GPRbuild will not recompile a source if all dependencies are
+satisfied. Switch <code class="samp docutils literal notranslate"><span class="pre">-s</span></code> instructs GPRbuild to recompile sources when a
+different set of compilation switches has been used in the previous
+compilation, even if all dependencies are satisfied. Each time GPRbuild
+invokes a compiler, it writes a text file that lists the switches used in the
+invocation of the compiler, so that it can retrieve these switches if
+<code class="samp docutils literal notranslate"><span class="pre">-s</span></code> is used later.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">-v</span></code> (Verbose output)</p>
+<p>Same as switch <code class="samp docutils literal notranslate"><span class="pre">-vl</span></code>.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">-vl</span></code> (Verbose output, low level)</p>
+<p>Display full paths, all options used in spawned processes, as well as
+creations of missing directories and changes of current working directories.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">-vm</span></code> (Verbose output, medium level)</p>
+<p>Not significantly different from switch <code class="samp docutils literal notranslate"><span class="pre">-vh</span></code>.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">-vh</span></code> (Verbose output, high level)</p>
+<p>In addition to what is displayed with switch <code class="samp docutils literal notranslate"><span class="pre">vl</span></code>, displayed internal
+behavior of gprbuild and reasons why the spawned processes are invoked.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">-we</span></code> (Treat all warnings as errors)</p>
+<p>When <code class="samp docutils literal notranslate"><span class="pre">-we</span></code> is used, any warning during the processing of the project
+files becomes an error and GPRbuild does not attempt any of the phases.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">-wn</span></code> (Treat warnings as warnings)</p>
+<p>Switch <code class="samp docutils literal notranslate"><span class="pre">-wn</span></code> may be used to restore the default after <code class="samp docutils literal notranslate"><span class="pre">-we</span></code> or
+<code class="samp docutils literal notranslate"><span class="pre">-ws</span></code>.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">-ws</span></code> (Suppress all warnings)</p>
+<p>Do not generate any warnings while processing the project files.
+Note that this switch is only for warnings generated by gprbuild,
+not for warnings generated by the compiler.
+Use the compiler switch <code class="samp docutils literal notranslate"><span class="pre">-gnatws</span></code> to suppress warnings generated by
+the GNAT front end, and the compiler switch <code class="samp docutils literal notranslate"><span class="pre">-w</span></code> to suppress warnings
+generated by the gcc back end.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">-x</span></code> (Create include path file)</p>
+<p>Create the include path file for the Ada compiler.
+This switch is often necessary when Ada sources are compiled with switch
+<code class="samp docutils literal notranslate"><span class="pre">-gnatep=</span></code>.</p>
+</li>
+</ul>
+<p>Switches that are accepted for compatibility with gnatmake, either on the
+command line or in the Builder Ada switches in the main project file:</p>
+<ul class="simple">
+<li><p><code class="samp docutils literal notranslate"><span class="pre">-nostdinc</span></code></p></li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">-nostdlib</span></code></p></li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">-fstack-check</span></code></p></li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">-fno-inline</span></code></p></li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">-g</span><em><span class="pre">*</span></em></code> Any switch starting with <code class="samp docutils literal notranslate"><span class="pre">-g</span></code></p></li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">-O</span><em><span class="pre">*</span></em></code> Any switch starting with <code class="samp docutils literal notranslate"><span class="pre">-O</span></code></p></li>
+</ul>
+<p>These switches are passed to the Ada compiler.</p>
+</div>
+<div class="section" id="initialization">
+<span id="id4"></span><h2><span class="section-number">3.4. </span>Initialization<a class="headerlink" href="#initialization" title="Permalink to this headline">¶</a></h2>
+<p>Before performing one or several of its three phases, GPRbuild has to read the
+command line, obtain its configuration, and process the project files.</p>
+<p>If GPRbuild is invoked with an invalid switch or without any project file on
+the command line, it will fail immediately.</p>
+<p>Examples:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ gprbuild -P
+gprbuild: project file name missing after -P
+
+$ gprbuild -P c_main.gpr -WW
+gprbuild: illegal option &quot;-WW&quot;
+</pre></div>
+</div>
+<p>GPRbuild looks for the configuration project file first in the current
+working directory, then in the default configuration project directory.
+If the GPRbuild executable is located in a subdirectory <code class="file docutils literal notranslate"><span class="pre">&lt;prefix&gt;/bin</span></code>,
+then
+the default configuration project directory is <code class="file docutils literal notranslate"><span class="pre">&lt;prefix&gt;/share/gpr</span></code>,
+otherwise there is no default configuration project directory.</p>
+<p>When it has found its configuration project path, GPRbuild needs to obtain its
+configuration. By default, the file name of the main configuration project
+is <code class="file docutils literal notranslate"><span class="pre">default.cgpr</span></code>. This default may be modified using the switch
+<code class="samp docutils literal notranslate"><span class="pre">--config=...</span></code></p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ gprbuild --config=my_standard.cgpr -P my_project.gpr
+</pre></div>
+</div>
+<p>If GPRbuild cannot find the main configuration project on the configuration
+project path, then it will look for all the languages specified in the user
+project tree and invoke GPRconfig to create a temporary configuration project
+file. This file is located in the directory computed by the following sequence:
+* Look for a valid absolute path in the environment variables TMPDIR, TEMP, and
+TMP.
+* If this fails, check some predefined platform-specific temp dirs (e.g. /tmp
+for linux).
+* Finally if none is accessible we fall back onto the current working
+directory.</p>
+<p>The invocation of GPRconfig will take into account the target, if specified
+either by switch –target= on the command line or by attribute Target in the
+main project. Also, if Ada is one of the languages, it will take into account
+the Ada runtime directory, specified either by switches –RTS= or –RTS:ada= on
+the command line or by attribute Runtime (“Ada”) in the main project file. If
+the Ada runtime is specified as a relative path, gprbuild will try to locate
+the Ada runtime directory as a subdirectory of the main project directory, or
+if environment variable GPR_RUNTIME_PATH is defined in the path specified
+by GPR_RUNTIME_PATH.</p>
+<p>Once it has found the configuration project, GPRbuild will process its
+configuration: if a single string attribute is specified in the configuration
+project and is not specified in a user project, then the attribute is added
+to the user project. If a string list attribute is specified in the
+configuration project then its value is prepended to the corresponding
+attribute in the user project.</p>
+<p>After GPRbuild has processed its configuration, it will
+process the user project file or files. If these user project files are
+incorrect then GPRbuild will fail with the appropriate error messages:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ gprbuild -P my_project.gpr
+ada_main.gpr:3:26: &quot;src&quot; is not a valid directory
+gprbuild: &quot;my_project.gpr&quot; processing failed
+</pre></div>
+</div>
+<p>Once the user project files have been dealt with successfully, GPRbuild
+will start its processing.</p>
+</div>
+<div class="section" id="compilation-of-one-or-several-sources">
+<span id="id5"></span><h2><span class="section-number">3.5. </span>Compilation of one or several sources<a class="headerlink" href="#compilation-of-one-or-several-sources" title="Permalink to this headline">¶</a></h2>
+<p>If GPRbuild is invoked with <code class="samp docutils literal notranslate"><span class="pre">-u</span></code> or <code class="samp docutils literal notranslate"><span class="pre">-U</span></code> and there are one or
+several source file names specified on the command line, GPRbuild will compile
+or recompile these sources, if they are not up to date or if <code class="samp docutils literal notranslate"><span class="pre">-f</span></code> is
+also specified. Then GPRbuild will stop its execution.</p>
+<p>The options/switches used to compile these sources are described in section
+<a class="reference internal" href="#compilation-phase"><span class="std std-ref">Compilation Phase</span></a>.</p>
+<p>If GPRbuild is invoked with <code class="samp docutils literal notranslate"><span class="pre">-u</span></code> and no source file name is specified
+on the command line, GPRbuild will compile or recompile all the sources of the
+<em>main</em> project and then stop.</p>
+<p>In contrast, if GPRbuild is invoked with <code class="samp docutils literal notranslate"><span class="pre">-U</span></code>, and again no source file name is specified
+on the command line, GPRbuild will compile or recompile all the sources of
+<em>all the projects in the project tree</em> and then stop.</p>
+</div>
+<div class="section" id="compilation-phase">
+<span id="id6"></span><h2><span class="section-number">3.6. </span>Compilation Phase<a class="headerlink" href="#compilation-phase" title="Permalink to this headline">¶</a></h2>
+<p>When switch <code class="samp docutils literal notranslate"><span class="pre">-c</span></code> is used or when switches <code class="samp docutils literal notranslate"><span class="pre">-b</span></code> or <code class="samp docutils literal notranslate"><span class="pre">-l</span></code>
+are not used, GPRbuild will first compile or recompile the sources that
+are not up to date in all the projects in the project tree. The sources
+considered are:</p>
+<ul class="simple">
+<li><p>all the sources in languages other than Ada</p></li>
+<li><p>if there are no main specified, all the Ada sources</p></li>
+<li><p>if there is a non Ada main, but no attribute <cite>Roots</cite> specified for
+this main, all the Ada sources</p></li>
+<li><p>if there is a main with an attribute <cite>Roots</cite> specified, all
+the Ada sources in the closures of these Roots.</p></li>
+<li><p>if there is an Ada main specified, all the Ada sources in the closure
+of the main</p></li>
+</ul>
+<p>Attribute Roots takes as an index a main and a string list value. Each string
+in the list is the name of an Ada library unit.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">Roots</span> <span class="p">(</span><span class="s2">&quot;main.c&quot;</span><span class="p">)</span> <span class="n">use</span> <span class="p">(</span><span class="s2">&quot;pkga&quot;</span><span class="p">,</span> <span class="s2">&quot;pkgb&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Package PkgA and PkgB will be considered, and all the Ada units in their
+closure will also be considered.</p>
+<p>GPRbuild will first consider each source and decide if it needs to be
+(re)compiled.</p>
+<p>A source needs to be compiled in the following cases:</p>
+<ul class="simple">
+<li><p>Switch <code class="samp docutils literal notranslate"><span class="pre">-f</span></code> (force recompilations) is used</p></li>
+<li><p>The object file does not exist</p></li>
+<li><p>The source is more recent than the object file</p></li>
+<li><p>The dependency file does not exist</p></li>
+<li><p>The source is more recent than the dependency file</p></li>
+<li><p>When <code class="samp docutils literal notranslate"><span class="pre">-s</span></code> is used: the switch file does not exist</p></li>
+<li><p>When <code class="samp docutils literal notranslate"><span class="pre">-s</span></code> is used: the source is more recent than the switch file</p></li>
+<li><p>The dependency file cannot be read</p></li>
+<li><p>The dependency file is empty</p></li>
+<li><p>The dependency file has a wrong format</p></li>
+<li><p>A source listed in the dependency file does not exist</p></li>
+<li><p>A source listed in the dependency file has an incompatible time stamp</p></li>
+<li><p>A source listed in the dependency file has been replaced</p></li>
+<li><p>Switch <code class="samp docutils literal notranslate"><span class="pre">-s</span></code> is used and the source has been compiled with
+different switches or with the same switches in a different order</p></li>
+</ul>
+<p>When a source is successfully compiled, the following files are normally
+created in the object directory of the project of the source:</p>
+<ul class="simple">
+<li><p>An object file</p></li>
+<li><p>A dependency file, except when the dependency kind for the language
+is <cite>none</cite></p></li>
+<li><p>A switch file if switch <code class="samp docutils literal notranslate"><span class="pre">-s</span></code> is used</p></li>
+</ul>
+<p>The compiler for the language corresponding to the source file name is invoked with the following
+switches/options:</p>
+<ul class="simple">
+<li><p>The required compilation switches for the language</p></li>
+<li><p>The compilation switches coming from package <cite>Compiler</cite> of the
+project of the source</p></li>
+<li><p>The compilation switches specified on the command line for all compilers,
+after <code class="samp docutils literal notranslate"><span class="pre">-cargs</span></code></p></li>
+<li><p>The compilation switches for the language of the source, specified
+after <code class="samp docutils literal notranslate"><span class="pre">-cargs:</span><em><span class="pre">language</span></em></code></p></li>
+<li><p>Various other options including a switch to create the dependency file
+while compiling, a switch to specify a configuration file, a switch
+to specify a mapping file, and switches to indicate where to look for
+other source or header files that are needed to compile the source.</p></li>
+</ul>
+<p>If compilation is needed, then all the options/switches, except those
+described as ‘Various other options’ are written to the switch file.
+The switch file is a text file. Its file name is obtained by replacing
+the suffix of the source with <code class="file docutils literal notranslate"><span class="pre">.cswi</span></code>. For example, the switch file
+for source <code class="file docutils literal notranslate"><span class="pre">main.adb</span></code> is <code class="file docutils literal notranslate"><span class="pre">main.cswi</span></code> and for
+<code class="file docutils literal notranslate"><span class="pre">toto.c</span></code> it is <code class="file docutils literal notranslate"><span class="pre">toto.cswi</span></code>.</p>
+<p>If the compilation is successful, then if the creation of the dependency
+file is not done during compilation but after (see configuration attribute
+<cite>Compute_Dependency</cite>), then the process to create the dependency file is
+invoked.</p>
+<p>If GPRbuild is invoked with a switch <code class="samp docutils literal notranslate"><span class="pre">-j</span></code> specifying more than one
+compilation process, then several compilation processes for several sources of
+possibly different languages are spawned concurrently.</p>
+<p>For each project file, attribute Interfaces may be declared. Its value is a
+list of sources or header files of the project file. For a project file
+extending another one, directly or indirectly, inherited sources may be in
+the list. When Interfaces is not declared, all sources or header files are
+part of the interface of the project. When Interfaces is declared, only those
+sources or header files are part of the interface of the project file. After
+a successful compilation, gprbuild checks that all imported or included sources
+or header files that are from an imported project are part of the interface of
+the imported project. If this check fails, the compilation is invalidated and
+the compilation artifacts (dependency, object and switches files) are deleted.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">project</span> <span class="n">Prj</span> <span class="ow">is</span>
+   <span class="k">for</span> <span class="n">Languages</span> <span class="n">use</span> <span class="p">(</span><span class="s2">&quot;Ada&quot;</span><span class="p">,</span> <span class="s2">&quot;C&quot;</span><span class="p">);</span>
+   <span class="k">for</span> <span class="n">Interfaces</span> <span class="n">use</span> <span class="p">(</span><span class="s2">&quot;pkg.ads&quot;</span><span class="p">,</span> <span class="s2">&quot;toto.h&quot;</span><span class="p">);</span>
+<span class="n">end</span> <span class="n">Prj</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>If a source from a project importing project Prj imports sources from Prj other
+than package Pkg or includes header files from Prj other than “toto.h”, then
+its compilation will be invalidated.</p>
+</div>
+<div class="section" id="post-compilation-phase">
+<span id="id7"></span><h2><span class="section-number">3.7. </span>Post-Compilation Phase<a class="headerlink" href="#post-compilation-phase" title="Permalink to this headline">¶</a></h2>
+<p>The post-compilation phase has two parts: library building and program binding.</p>
+<p>If there are libraries that need to be built or rebuilt, <em>gprbuild</em> will
+call the library builder, specified by attribute <cite>Library_Builder</cite>.
+This is generally the tool <em>gprlib</em>, provided with GPRbuild. If gprbuild
+can determine that a library is already up to date, then the library builder
+will not be called.</p>
+<p>If there are mains specified, and for these mains there are sources of
+languages with a binder driver (specified by attribute Binder’Driver
+(&lt;language&gt;), then the binder driver is called for each such main, but only
+if it needs to.</p>
+<p>For Ada, the binder driver is normally <em>gprbind</em>, which will call
+the appropriate version of <em>gnatbind</em>, that either the one in the same
+directory as the Ada compiler or the fist one found on the path.
+When neither of those is appropriate, it is possible to specify to
+<em>gprbind</em> the full path of <em>gnatbind</em>, using the Binder switch
+<cite>–gnatbind_path=</cite>.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">package</span> <span class="n">Binder</span> <span class="ow">is</span>
+   <span class="k">for</span> <span class="n">Switches</span> <span class="p">(</span><span class="s2">&quot;Ada&quot;</span><span class="p">)</span> <span class="n">use</span> <span class="p">(</span><span class="s2">&quot;--gnatbind_path=/toto/gnatbind&quot;</span><span class="p">);</span>
+<span class="n">end</span> <span class="n">Binder</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>If GPRbuild can determine that the artifacts from a previous
+post-compilation phase are already up to date, the binder driver is not called.</p>
+<p>If there are no libraries and no binder drivers, then the post-compilation
+phase is empty.</p>
+</div>
+<div class="section" id="linking-phase">
+<span id="id8"></span><h2><span class="section-number">3.8. </span>Linking Phase<a class="headerlink" href="#linking-phase" title="Permalink to this headline">¶</a></h2>
+<p>When there are mains specified, either in attribute Main or on the command
+line, and these mains are not up to date, the linker is invoked for each main,
+with all the specified or implied options, including the object files generated
+during the post-compilation phase by the binder drivers.</p>
+<p>If switch <code class="samp docutils literal notranslate"><span class="pre">-j</span><em><span class="pre">nnn</span></em></code> is used, with <cite>nnn</cite> other than 1, gprbuild will attempt to link
+simultaneously up to <cite>nnn</cite> executables.</p>
+</div>
+<div class="section" id="distributed-compilation">
+<span id="id9"></span><h2><span class="section-number">3.9. </span>Distributed compilation<a class="headerlink" href="#distributed-compilation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="introduction-to-distributed-compilation">
+<span id="id10"></span><h3><span class="section-number">3.9.1. </span>Introduction to distributed compilation<a class="headerlink" href="#introduction-to-distributed-compilation" title="Permalink to this headline">¶</a></h3>
+<p>For large projects the compilation time can become a limitation in
+the development cycle. To cope with that, GPRbuild supports
+distributed compilation.</p>
+<p>In the distributed mode, the local machine (called the build master)
+compiles locally but also sends compilation requests to remote
+machines (called the build slaves). The compilation process can use
+one or more build slaves. Once the compilation phase is done, the
+build master will conduct the binding and linking phases locally.</p>
+</div>
+<div class="section" id="setup-build-environments">
+<span id="id11"></span><h3><span class="section-number">3.9.2. </span>Setup build environments<a class="headerlink" href="#setup-build-environments" title="Permalink to this headline">¶</a></h3>
+<p>The configuration process to be able to use the distributed compilation
+support is the following:</p>
+<ul>
+<li><p>Optionally add a Remote package in the main project file</p>
+<p>This Remote package is to be placed into the project file that is passed
+to GPRbuild to build the application.</p>
+<p>The Root_Dir default value is the project’s directory. This attribute
+designates the sources root directory. That is, the directory from which
+all the sources are to be found to build the application. If the project
+passed to GPRbuild to build the application is not at the top-level
+directory but in a direct sub-directory the Remote package should be:</p>
+<div class="highlight-gpr notranslate"><div class="highlight"><pre><span></span><span class="k">package </span><span class="nf">Remote</span> <span class="kr">is</span><span class="p"></span>
+   <span class="kr">for</span><span class="p"> </span><span class="n">Root_Dir</span> <span class="kr">use</span><span class="p"> </span><span class="s">&quot;..&quot;</span><span class="p">;</span>
+<span class="k">end </span><span class="nf">Remote</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Launch a slave driver on each build slave</p>
+<p>The build master will communicate with each build slave with a specific driver
+in charge of running the compilation process and returning statuses. This
+driver is <em>gprslave</em>, <a class="reference internal" href="#gprslave"><span class="std std-ref">GPRslave</span></a>.</p>
+<p>The requirement for the slaves are:</p>
+<ul class="simple">
+<li><p>The same build environment must be setup (same compiler version).</p></li>
+<li><p>The same libraries must be installed. That is, if the GNAT
+project makes use of external libraries the corresponding C headers or
+Ada units must be installed on the remote slaves.</p></li>
+</ul>
+<p>When all the requirement are set, just launch the slave driver:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ gprslave
+</pre></div>
+</div>
+</li>
+</ul>
+<p>When all this is done, the remote compilation can be used simply by
+running GPRbuild in distributed mode from the build master:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ gprbuild --distributed=comp1.xyz.com,comp2.xyz.com prj.gpr
+</pre></div>
+</div>
+<p>Alternatively the slaves can be set using the <cite>GPR_SLAVES</cite> environment
+variable. So the following command is equivalent to the above:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ export GPR_SLAVES=comp1.xyz.com,comp2.xyz.com
+$ gprbuild --distributed prj.gpr
+</pre></div>
+</div>
+<p>A third alternative is proposed using a list of slaves in a file (one
+per line). In this case the <cite>GPR_SLAVES_FILE</cite> environment variable
+must contain the path name to this file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ export GPR_SLAVES_FILE=$HOME/slave-list.txt
+$ gprbuild --distributed prj.gpr
+</pre></div>
+</div>
+<p>Finally note that the search for the slaves are in this specific
+order. First the command line values, then <cite>GPR_SLAVES</cite> if set and
+finally <cite>GPR_SLAVES_FILES</cite>.</p>
+<p>The build slaves are specified with the following form:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">machine_name</span><span class="o">&gt;</span><span class="p">[:</span><span class="n">port</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="gprslave">
+<span id="id12"></span><h3><span class="section-number">3.9.3. </span>GPRslave<a class="headerlink" href="#gprslave" title="Permalink to this headline">¶</a></h3>
+<p>This is the slave driver in charge of running the compilation
+jobs as requested by the build master. One instance of this tool must be
+launched in each build slave referenced in the project file.</p>
+<p>Compilations for a specific project are conducted under a sub-directory
+from where the slave is launched by default. This can be overridden
+with the <cite>-d</cite> option below.</p>
+<p>The current options are:</p>
+<ul>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">-v,</span> <span class="pre">--verbose</span></code></p>
+<p>Activate the verbose mode</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">-vv</span></code>, <code class="samp docutils literal notranslate"><span class="pre">--debug</span></code></p>
+<p>Activate the debug mode (very verbose)</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">-h</span></code>, <code class="samp docutils literal notranslate"><span class="pre">--help</span></code></p>
+<p>Display the usage</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">-d</span></code>, <code class="samp docutils literal notranslate"><span class="pre">--directory=</span></code></p>
+<p>Set the work directory for the
+slave. This is where the sources will be copied and where the
+compilation will take place. A sub-directory will be created for each
+root project built.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">-s</span></code>, <code class="samp docutils literal notranslate"><span class="pre">--hash=</span><em><span class="pre">string</span></em></code></p>
+<p>Specify an hash string. This is just a value which is checked against the
+GPRbuild hash value. If set, GPRbuild hash value must match, otherwise the
+connection with the slave is aborted. For example:</p>
+</li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ gprslave --hash=$(echo $ADA_PROJECT_PATH | shasum)
+</pre></div>
+</div>
+<ul>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">-j</span><em><span class="pre">N</span></em></code>, <code class="samp docutils literal notranslate"><span class="pre">--jobs=</span><em><span class="pre">N</span></em></code></p>
+<p>Set the maximum simultaneous compilation.
+The default for <cite>N</cite> is the number of cores.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">-p</span></code>, <code class="samp docutils literal notranslate"><span class="pre">--port=</span><em><span class="pre">N</span></em></code></p>
+<p>Set the port the slave will listen to.
+The default value is 8484. The same port must be specified for the
+build slaves on <cite>GPRbuild</cite> command line.</p>
+</li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">-r</span></code>, <code class="samp docutils literal notranslate"><span class="pre">--response-handler=</span><em><span class="pre">N</span></em></code></p>
+<p>Set maximum number of simultaneous responses.
+With this option it is possible to control the number of simultaneous
+responses (sending back object code and ALI files) supported. The
+value must be between 1 and the maximum number of simultaneous
+compilations.</p>
+</li>
+</ul>
+<p>Note that a slave can be pinged to see if it is running and in
+response a set of information are delivered. The ping command has the
+following format:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">lower</span><span class="o">-</span><span class="n">bound</span><span class="o">&gt;&lt;</span><span class="n">upper</span><span class="o">-</span><span class="n">bound</span><span class="o">&gt;</span><span class="n">PG</span>
+</pre></div>
+</div>
+<p>When &lt;lower-bound&gt; and &lt;upper-bound&gt; are 32bits binary values for the
+PG string command. As an example here is how to send a ping command
+from a UNIX shell using the echo command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">echo</span> <span class="o">-</span><span class="n">e</span> <span class="s2">&quot;</span><span class="se">\x01\x00\x00\x00\x02\x00\x00\x00</span><span class="s2">PG&quot;</span> <span class="o">|</span> <span class="n">nc</span> <span class="o">&lt;</span><span class="n">HOSTNAME</span><span class="o">&gt;</span> <span class="mi">8484</span>
+</pre></div>
+</div>
+<p>The answer from the ping command has the following format:</p>
+<dl class="simple">
+<dt>::</dt><dd><p>OK&lt;GPR Version String&gt;[ASCII.GS]&lt;time-stamp&gt;[ASCII.GS]&lt;slave hash&gt;</p>
+</dd>
+</dl>
+<p>The ASCII.GS is the Group Separator character whose code is 29.</p>
+</div>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../gprbuild_ug.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">3. Building with GPRbuild</a><ul>
+<li><a class="reference internal" href="#introduction">3.1. Introduction</a></li>
+<li><a class="reference internal" href="#command-line">3.2. Command Line</a></li>
+<li><a class="reference internal" href="#switches">3.3. Switches</a></li>
+<li><a class="reference internal" href="#initialization">3.4. Initialization</a></li>
+<li><a class="reference internal" href="#compilation-of-one-or-several-sources">3.5. Compilation of one or several sources</a></li>
+<li><a class="reference internal" href="#compilation-phase">3.6. Compilation Phase</a></li>
+<li><a class="reference internal" href="#post-compilation-phase">3.7. Post-Compilation Phase</a></li>
+<li><a class="reference internal" href="#linking-phase">3.8. Linking Phase</a></li>
+<li><a class="reference internal" href="#distributed-compilation">3.9. Distributed compilation</a><ul>
+<li><a class="reference internal" href="#introduction-to-distributed-compilation">3.9.1. Introduction to distributed compilation</a></li>
+<li><a class="reference internal" href="#setup-build-environments">3.9.2. Setup build environments</a></li>
+<li><a class="reference internal" href="#gprslave">3.9.3. GPRslave</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="gnat_project_manager.html"
+                        title="previous chapter"><span class="section-number">2. </span>GNAT Project Manager</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="companion_tools.html"
+                        title="next chapter"><span class="section-number">4. </span>GPRbuild Companion Tools</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/gprbuild_ug/building_with_gprbuild.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="companion_tools.html" title="4. GPRbuild Companion Tools"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="gnat_project_manager.html" title="2. GNAT Project Manager"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../gprbuild_ug.html">GPR Tools User&#39;s Guide 2021 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">3. </span>Building with GPRbuild</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2008-2021, Free Software Foundation.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
+    </div>
+  </body>
+</html>

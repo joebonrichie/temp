@@ -1,0 +1,116 @@
+		       G N A T   E X A M P L E S
+		       =========================
+
+
+In order to compile the examples, make sure that the 'gprbuild' command is
+in your path. 
+
+Invocation
+----------
+
+In order to build the two executables provided in this example, you need to
+use the "genealogy.gpr" project file. On the command-line, do a:
+
+  $ gprbuild -Pgenealogy
+
+In GPS, click on "Build", then "Make" and then "genealogy".
+
+Features tested
+---------------
+
+Indefinite_Hashed_Maps
+Ordered_Maps
+Indefinite_Ordered_Maps
+Indefinite_Vectors
+Indefinite_Vectors
+
+Description of example
+----------------------
+
+The TCS genealogy database contains information about computer scientists,
+listing for each student his advisor, the school where he received his degree,
+and the year of his graduation.  Since students often go on to become advisors
+to other students, a scientist's name might appear more than once in the
+genealogy.
+
+The program builds a database containing the genealogy information, implemented
+as a tree-like structure whose root is the set of students whose advisor is
+unknown.  The children of the root are students of the root advisor.  But each
+of those students can be an advisor of other students, so that forms a subtree,
+and so on.
+
+The algorithms for building the database are relatively complicated, so they
+have been separated off into individual subprograms.  The main program (see
+genealogy.adb) is relatively simple, since all the complicated work is done by
+the subprograms it calls.
+
+The first thing the main program does is call Read_File to parse the input
+file.  That is implemented as a loop (see read_file.adb) that parses (see
+parser.adb) each record in the file.  Given a student's name (that's the first
+field of the record), Read_File immediately stores the information about that
+student in two maps: the Places map, which stores the place (the element) from
+where the student (the key) graduated, and the Dates map, which stores the date
+he graduated.
+
+The first point of interest is the implementation of those two maps.  Both map
+objects are declared in the Data_Maps package (see data_maps.ads).  Note the
+map type (Data_Maps.Map) is not a standard container directly.  Rather, the Map
+type is an abstract data type, declared as both limited and indefinite.  That
+combination of qualifiers means that it is impossible for anyone outside of the
+Data_Maps package to declare a Map object.  These are exactly the semantics we
+want, since we only need that type to have two instances: the Places map and
+the Dates map.  These map objects are part of the global state shared among
+different parts of the program, so we declare them right there in the Data_Maps
+package.
+
+How the Map type is implemented is itself interesting (see data_maps.ads).  The
+partial view of the type is limited and indefinite, but in the private part we
+can see that the Map type is just an access type, that designates the real map
+type, an instantiation of the the Indefinite_Hashed_Map standard container.
+(We use the indefinite form because both the key and the element are of type
+String, which is indefinite.)  The actual map objects are declared in the body
+(see data_maps.adb), and the Places and Dates selector functions (which return
+Data_Maps.Map) simply return a pointer to the underlying map.
+
+Read_File also populates two other global maps: the Students map, which is a
+mapping from an nadvisor to his students, and the Advisors map, which is a
+mapping from a student to his advisors.  We said earlier that the database is a
+tree-like structure, and this is how it is implemented (see relation_maps.ads).
+The map has a name as its key, and a set of names as its element.
+
+The relation map (Relation_Maps.Map) is declared as both limited and indefinite
+in the normal way, to prevent clients from declaring any instances.  (The type
+has only two instances, Students and Advisors, both of which are declared by
+the Relation_Maps package itself.)  Relation_Maps.Map, like Data_Maps.Map, is
+implemented as a pointer to the real map, an instantiation of
+Indefinite_Ordered_Maps, with type String as the key and an indefinite vector
+as the element.  The Students and Advisors "maps" are actually selector
+functions, that return a pointer to the real map objects declaring the body.
+
+We said the Relation_Maps.Map element was a set.  Relation_Maps.Set behaves
+like a set, but that type is actually implemented as a derivation of the
+underlying map cursor type.  The real set is just the element part of the real
+map, which in this case is actually a vector that we keep sorted.  This is just
+a vector of names, remember, but the names are ordered according to the date of
+graduation.  The date for a name is determined using the Dates map.  (See
+relation_maps.adb for the details.)
+
+Since dates aren't unique, this explains why we didn't simply use a proper set
+type as the implementation of the Relation_Maps.Set type.  The set in the
+standard container library requires that its elements be unique.  Since dates
+aren't unique, this precludes using the set container.  What we really need is
+a multiset.  At the time of writing of this example, we didn't have a multiset,
+so we just used what we did have: a sorted vector.  
+
+[NB: A multiset is still not part of the official standard library, but since
+writing this example using vectors (and largely motivated by our experience
+doing so), we have added an ordered multiset to the GNAT implementation of the
+container library.  The multiset greatly simplifies what you see here.]
+
+The main program next calls Find_Roots to populate the tree.  If a student's
+advisor doesn't have a database record of his own, then the advisor is added to
+the roots set (the set of students whose advisors are unknown).
+
+Finally, the main program calls Print_Roots to display the output (see
+print_roots.adb).  The implementation is recursive, since each student in the
+roots set is an advisor of other students.

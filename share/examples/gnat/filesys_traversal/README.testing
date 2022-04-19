@@ -1,0 +1,55 @@
+		       G N A T   E X A M P L E S
+		       =========================
+
+
+In order to compile the examples, make sure that the 'gprbuild' command is
+in your path. 
+
+Invocation
+----------
+
+In order to build the three executables provided in this example, you need to
+use the "filesys.gpr" project file. On the command-line, do the following:
+
+  $ gprbuild -P filesys
+
+Alternatively, in GPS, click on "Build", and then "Make", and the three example
+main programs will be built. 
+
+Features illustrated
+---------------
+
+* This example consists of three separate main programs that illustrate the use 
+  of a generic recursive file system traversal routine.  This generic procedure 
+  recursively walks the file sytem, starting at the user-specified initial 
+  directory.  As it encounters files and directories that satisfy user-specified 
+  predicates it calls user-specified procedures that perform whatever actions 
+  are required.  Internally the generic procedure uses the Ada 2005 package
+  Ada.Directories and is an example of usage for that facility as well.  
+
+  The first example program counts the "significant lines" in all the files in 
+  a given directory tree that match a given file name pattern.  Both the root 
+  of the tree and the file name pattern, specified as a regular expression, are 
+  given as command line inputs when invoking the program.  The "significant 
+  lines" are those that are not completely blank (consisting of only spaces and 
+  horizontal tabs) and not an Ada comment line (with or without leading 
+  spaces).  Only "ordinary" files are examined, as defined by the 
+  Ada.Directories implementation on the operating system in use.  A "grand 
+  total" is also displayed at the end, indicating the total number of 
+  significant lines encountered in all the files in the directory tree.  
+
+  The second example program is similar to the first, except that it counts 
+  "significant semicolons" instead of lines.  The "significant semicolons" are 
+  those that are not within comments, character or string literals, or 
+  subprogram and entry formal parameter specifications.  Essentially they 
+  correspond to construct terminators.  As in the first example, a "grand 
+  total" is also displayed, indicating in this case the total number of 
+  significant semicolons encountered.  
+
+  The third example program displays all the files, "ordinary" or otherwise, in 
+  a given directory tree that are at least as big (in bytes) as the user 
+  specifies.  The root of the tree is again specified as the first command-line 
+  argument, with the minimum size specified as the second argument.  The names 
+  and sizes of all those files that are at least as large as that argument 
+  value will be displayed, along with the name of the enclosing subdirectory.  
+  If no files match, nothing is displayed.  

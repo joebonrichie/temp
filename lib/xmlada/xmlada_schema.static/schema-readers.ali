@@ -1,0 +1,901 @@
+V "GNAT Lib v2021"
+A -O2
+A -gnatA
+A -gnatwu
+A -gnatwa
+A -gnaty
+A -gnatQ
+A -gnatn
+A -mtune=generic
+A -march=x86-64
+P SS ZX
+
+RN
+RV NO_ALLOCATORS
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_DISPATCH
+RV NO_DISPATCHING_CALLS
+RV NO_ENUMERATION_MAPS
+RV NO_EXCEPTION_HANDLERS
+RV NO_EXCEPTION_PROPAGATION
+RV NO_EXCEPTIONS
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_LOCAL_ALLOCATORS
+RV NO_NESTED_FINALIZATION
+RV NO_RECURSION
+RV NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_UNCHECKED_DEALLOCATION
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_ATTRIBUTES
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_ELABORATION_CODE
+
+U schema.readers%b	schema-readers.adb	e54bd749 OO PK
+W ada%s			ada.ads			ada.ali
+Z ada.exceptions%s	a-except.adb		a-except.ali
+W ada.strings%s		a-string.ads		a-string.ali
+W ada.strings.fixed%s	a-strfix.adb		a-strfix.ali
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W ada.unchecked_deallocation%s
+W gnat%s		gnat.ads		gnat.ali
+W gnat.directory_operations%s  g-dirope.adb	g-dirope.ali
+W gnat.os_lib%s		g-os_lib.ads		g-os_lib.ali
+W sax%s			sax.ads			sax.ali
+W sax.locators%s	sax-locators.adb	sax-locators.ali
+W sax.readers%s		sax-readers.adb		sax-readers.ali
+W sax.symbols%s		sax-symbols.adb		sax-symbols.ali
+W sax.utils%s		sax-utils.adb		sax-utils.ali
+W schema%s		schema.adb		schema.ali
+W schema.schema_readers%s  schema-schema_readers.adb  schema-schema_readers.ali
+W schema.simple_types%s	schema-simple_types.adb	schema-simple_types.ali
+W schema.validators%s	schema-validators.adb	schema-validators.ali
+Z system%s		system.ads		system.ali
+Z system.img_int%s	s-imgint.ads		s-imgint.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+Z system.soft_links%s	s-soflin.adb		s-soflin.ali
+Z system.standard_library%s  s-stalib.adb	s-stalib.ali
+Z system.storage_elements%s  s-stoele.adb	s-stoele.ali
+Z system.storage_pools%s  s-stopoo.adb		s-stopoo.ali
+Z system.storage_pools.subpools%s  s-stposu.adb	s-stposu.ali
+W unicode%s		unicode.adb		unicode.ali
+W unicode.ces%s		unicode-ces.adb		unicode-ces.ali
+
+U schema.readers%s	schema-readers.ads	cd33ccda EE OO PF PK
+Z ada.exceptions%s	a-except.adb		a-except.ali
+Z ada.streams%s		a-stream.adb		a-stream.ali
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W input_sources%s	input_sources.adb	input_sources.ali
+W sax%s			sax.ads			sax.ali
+W sax.symbols%s		sax-symbols.adb		sax-symbols.ali
+W sax.utils%s		sax-utils.adb		sax-utils.ali
+W schema%s		schema.adb		schema.ali
+W schema.validators%s	schema-validators.adb	schema-validators.ali
+Z system%s		system.ads		system.ali
+Z system.finalization_masters%s  s-finmas.adb	s-finmas.ali
+Z system.pool_global%s	s-pooglo.adb		s-pooglo.ali
+Z system.put_images%s	s-putima.adb		s-putima.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+Z system.soft_links%s	s-soflin.adb		s-soflin.ali
+Z system.standard_library%s  s-stalib.adb	s-stalib.ali
+Z system.stream_attributes%s  s-stratt.adb	s-stratt.ali
+W unicode%s		unicode.adb		unicode.ali
+W unicode.ces%s		unicode-ces.adb		unicode-ces.ali
+
+D ada.ads		20210520051131 76789da1 ada%s
+D a-charac.ads		20210520051128 2d3ec45b ada.characters%s
+D a-chahan.ads		20210520051128 0ce1b450 ada.characters.handling%s
+D a-chlat1.ads		20210520051128 66457d31 ada.characters.latin_1%s
+D a-except.ads		20210520051128 946f3014 ada.exceptions%s
+D a-finali.ads		20210520051128 bf4f806b ada.finalization%s
+D a-ioexce.ads		20210520051128 e4a01f64 ada.io_exceptions%s
+D a-stream.ads		20210520051129 119b8fb3 ada.streams%s
+D a-string.ads		20210520051129 90ac6797 ada.strings%s
+D a-strfix.ads		20210520051129 aeacf44c ada.strings.fixed%s
+D a-strmap.ads		20210520051129 5a88892a ada.strings.maps%s
+D a-sttebu.ads		20210520051129 18209c64 ada.strings.text_buffers%s
+D a-strunb.ads		20210520051129 03325227 ada.strings.unbounded%s
+D a-stuten.ads		20210520051129 808c40ad ada.strings.utf_encoding%s
+D a-tags.ads		20210520051130 9eaa38c6 ada.tags%s
+D a-textio.ads		20210520051130 aef4d56d ada.text_io%s
+D a-unccon.ads		20210520051130 0e9b276f ada.unchecked_conversion%s
+D a-uncdea.ads		20210520051130 c3a8ac65 ada.unchecked_deallocation%s
+D a-widcha.ads		20210520051130 a2b85d3d ada.wide_characters%s
+D a-wichun.ads		20210520051130 de294b78 ada.wide_characters.unicode%s
+D gnat.ads		20210520051132 b5988c27 gnat%s
+D g-dirope.ads		20210520051131 940c4438 gnat.directory_operations%s
+D g-dynhta.ads		20210520051131 b061de91 gnat.dynamic_htables%s
+D g-dyntab.ads		20210520051131 21cef781 gnat.dynamic_tables%s
+D g-io.ads		20210520051131 9f0d3ab2 gnat.io%s
+D g-os_lib.ads		20210520051131 0db74523 gnat.os_lib%s
+D g-regpat.ads		20210520051131 b85d88ef gnat.regpat%s
+D g-tasloc.ads		20210520051131 9c49392e gnat.task_lock%s
+D input_sources.ads	20210519052322 9ec704a2 input_sources%s
+D input_sources-file.ads  20210519052322 b313acf6 input_sources.file%s
+D input_sources-strings.ads  20210519052322 8045c77b input_sources.strings%s
+D interfac.ads		20210520051132 edec285f interfaces%s
+D i-cstrea.ads		20210520051132 e53d8b8e interfaces.c_streams%s
+D sax.ads		20210519052322 17965ec6 sax%s
+D sax-attributes.ads	20210519052322 baf0c3bb sax.attributes%s
+D sax-encodings.ads	20210519052322 22d791a3 sax.encodings%s
+D sax-exceptions.ads	20210519052322 32ef2902 sax.exceptions%s
+D sax-htable.ads	20210519052322 2df615ad sax.htable%s
+D sax-locators.ads	20210519052322 c21ab44e sax.locators%s
+D sax-models.ads	20210519052322 9f245dcd sax.models%s
+D sax-pointers.ads	20210519052322 d9877e85 sax.pointers%s
+D sax-pointers.adb	20210519052322 8f6422c0 sax.pointers%b
+D sax-readers.ads	20210519052322 41cb3ec9 sax.readers%s
+D sax-readers.adb	20210519052322 9fd6a643 sax.readers%b
+D sax-state_machines.ads  20210519052322 b43fd4c9 sax.state_machines%s
+D sax-state_machines.adb  20210519052322 02795c3f sax.state_machines%b
+D sax-symbols.ads	20210519052322 d3179de8 sax.symbols%s
+D sax-symbols.adb	20210519052322 d4150ebd sax.symbols%b
+D sax-utils.ads		20210519052322 214aab19 sax.utils%s
+D sax-utils.adb		20210519052322 b4529023 sax.utils%b
+D schema.ads		20210519052322 350cfe44 schema%s
+D schema.adb		20210519052322 719f4fa6 schema%b
+D schema-date_time.ads	20210519052322 27960bdd schema.date_time%s
+D schema-decimal.ads	20210519052322 7d99f7cb schema.decimal%s
+D schema-readers.ads	20210519052322 bf156a13 schema.readers%s
+D schema-readers.adb	20210519052322 22eac1f9 schema.readers%b
+D schema-schema_readers.ads  20210519052322 48a1000f schema.schema_readers%s
+D schema-simple_types.ads  20210519052322 3ab774bb schema.simple_types%s
+D schema-validators.ads	20210519052322 43453275 schema.validators%s
+D schema-validators.adb	20210519052322 13f73a74 schema.validators%b
+D schema-validators-xsd_grammar.ads  20210519052322 2f50ee2c schema.validators.xsd_grammar%s
+D system.ads		20210520051135 a2da961d system%s
+D s-addima.ads		20210520051132 a1ec9d3a system.address_image%s
+D s-atocou.ads		20210520051132 b45c2d8d system.atomic_counters%s
+D s-crtl.ads		20210520051132 0ebbdb71 system.crtl%s
+D s-exctab.ads		20210520051132 54135002 system.exception_table%s
+D s-ficobl.ads		20210520051132 078245e4 system.file_control_block%s
+D s-finmas.ads		20210520051132 1ab4dba8 system.finalization_masters%s
+D s-finroo.ads		20210520051132 4ff27390 system.finalization_root%s
+D s-imagei.ads		20210520051133 0d3f86a7 system.image_i%s
+D s-imageu.ads		20210520051133 525c30c6 system.image_u%s
+D s-imgint.ads		20210520051133 bdb6f5ec system.img_int%s
+D s-imguns.ads		20210520051133 0e4da2ac system.img_uns%s
+D s-memory.ads		20210520051133 597d6634 system.memory%s
+D s-os_lib.ads		20210520051133 93b69309 system.os_lib%s
+D s-parame.ads		20210520051134 4752c4cb system.parameters%s
+D s-pooglo.ads		20210520051134 ede33ef8 system.pool_global%s
+D s-putima.ads		20210520051134 4e095881 system.put_images%s
+D s-regpat.ads		20210520051134 825a9b7f system.regpat%s
+D s-secsta.ads		20210520051134 9b3ab94b system.secondary_stack%s
+D s-soflin.ads		20210520051134 a7318a92 system.soft_links%s
+D s-stache.ads		20210520051134 a37c21ec system.stack_checking%s
+D s-stalib.ads		20210520051134 472fbca8 system.standard_library%s
+D s-stalib.adb		20210520051134 977290bf system.standard_library%b
+D s-stoele.ads		20210520051134 2dc34a04 system.storage_elements%s
+D s-stoele.adb		20210520051134 ed88f8fb system.storage_elements%b
+D s-stopoo.ads		20210520051134 e9fa2dd8 system.storage_pools%s
+D s-stposu.ads		20210520051134 e251976f system.storage_pools.subpools%s
+D s-stratt.ads		20210520051134 7bdda3fa system.stream_attributes%s
+D s-stratt.adb		20210520051134 fc996108 system.stream_attributes%b
+D s-statxd.ads		20210520051134 b54789f6 system.stream_attributes.xdr%s
+D s-string.ads		20210520051134 8fe54fb7 system.strings%s
+D s-ststop.ads		20210520051134 5fbf1b38 system.strings.stream_ops%s
+D s-tasloc.ads		20210520051134 618a376e system.task_lock%s
+D s-traent.ads		20210520051134 26a8d361 system.traceback_entries%s
+D s-unstyp.ads		20210520051134 2b077493 system.unsigned_types%s
+D s-utf_32.ads		20210520051134 24cf731d system.utf_32%s
+D s-wchcon.ads		20210520051135 1b7d22d2 system.wch_con%s
+D unchconv.ads		20210520051135 ca2f9e18 unchecked_conversion%s
+D unchdeal.ads		20210520051135 214516a4 unchecked_deallocation%s
+D unicode.ads		20210519052322 a421878d unicode%s
+D unicode.adb		20210519052322 515a4003 unicode%b
+D unicode-ccs.ads	20210519052322 184e29de unicode.ccs%s
+D unicode-ces.ads	20210519052322 68f558ab unicode.ces%s
+D unicode-ces-basic_8bit.ads  20210519052322 a56f8139 unicode.ces.basic_8bit%s
+D unicode-ces-utf32.ads	20210519052322 b5f035ac unicode.ces.utf32%s
+D unicode-ces-utf8.ads	20210519052322 dcbef85d unicode.ces.utf8%s
+D unicode-names.ads	20210519052322 fec77f75 unicode.names%s
+D unicode-names-basic_latin.ads  20210519052322 aa07d1b5 unicode.names.basic_latin%s
+G a e
+G c b b b [b schema__readers 40 1 none]
+G c Z s b [set_grammar schema__readers 60 14 none]
+G c Z s b [get_grammar schema__readers 63 13 none]
+G c Z s b [parse_grammar schema__readers 85 14 none]
+G c Z s b [set_symbol_table schema__readers 104 25 none]
+G c Z s b [to_absolute_uri schema__readers 110 13 none]
+G c Z s b [parse_grammars schema__readers 116 14 none]
+G c Z s b [get_namespace_from_prefix schema__readers 122 14 none]
+G c Z s b [free schema__readers 131 25 none]
+G c Z s b [free schema__readers 132 14 none]
+G c Z s b [parse schema__readers 135 25 none]
+G c Z s s [validating_readerDA schema__readers 142 9 none]
+G c Z s s [validating_readerDF schema__readers 142 9 none]
+G c Z s s [validating_readerDI schema__readers 142 9 none]
+G c Z s s [validating_readerIP schema__readers 142 9 none]
+G c Z b b [printR schema__readers__printGP2462 44 14 none]
+G c Z b b [print schema__readers 44 14 none]
+G c Z b b [internal_characters schema__readers 47 14 none]
+G c Z b b [validate_current_characters schema__readers 54 14 none]
+G c Z b b [reset schema__readers 59 14 none]
+G c Z b b [hook_start_element schema__readers 63 14 none]
+G c Z b b [hook_end_element schema__readers 67 14 none]
+G c Z b b [hook_characters schema__readers 70 14 none]
+G c Z b b [hook_ignorable_whitespace schema__readers 73 14 none]
+G c Z b b [hook_notation_decl schema__readers 76 14 none]
+G r i none [b schema__readers 40 1 none] [debug_print schema__validators__schema_state_machines_matchers 519 17 354_4]
+G r c none [set_grammar schema__readers 60 14 none] [debug_output schema 66 14 none]
+G r c none [set_grammar schema__readers 60 14 none] [get_symbol_table sax__readers 701 13 none]
+G r c none [set_grammar schema__readers 60 14 none] [get sax__utils__symbol_table_pointers 76 16 171_4]
+G r e pointer [set_grammar schema__readers 60 14 none] [finalize sax__utils__symbol_table_pointers 88 17 171_4]
+G r c none [set_grammar schema__readers 60 14 none] [get_symbol_table schema__validators 73 13 none]
+G r c none [set_grammar schema__readers 60 14 none] [Oeq sax__utils__symbol_table_pointers 80 16 171_4]
+G r c none [set_grammar schema__readers 60 14 none] [set_symbol_table sax__readers 65 14 none]
+G r c none [set_grammar schema__readers 60 14 none] [set_symbol_table schema__validators 75 14 none]
+G r d pointer [get_grammar schema__readers 63 13 none] [adjust schema__validators__xml_grammars 89 17 912_4]
+G r c none [parse_grammar schema__readers 85 14 none] [parse_grammar_if_needed schema__schema_readers 62 14 none]
+G r c none [set_symbol_table schema__readers 104 25 none] [get_symbol_table schema__validators 73 13 none]
+G r c none [set_symbol_table schema__readers 104 25 none] [Oeq sax__utils__symbol_table_pointers 80 16 171_4]
+G r e pointer [set_symbol_table schema__readers 104 25 none] [finalize sax__utils__symbol_table_pointers 88 17 171_4]
+G r c none [set_symbol_table schema__readers 104 25 none] [get_symbol_table sax__readers 701 13 none]
+G r c none [set_symbol_table schema__readers 104 25 none] [set_symbol_table sax__readers 65 14 none]
+G r c none [to_absolute_uri schema__readers 110 13 none] [get sax__symbols 53 13 none]
+G r c none [to_absolute_uri schema__readers 110 13 none] [starts_with sax__utils 146 13 none]
+G r c none [to_absolute_uri schema__readers 110 13 none] [current_location sax__readers 361 13 none]
+G r c none [to_absolute_uri schema__readers 110 13 none] [find_symbol sax__readers 698 13 none]
+G r i none [parse_grammars schema__readers 116 14 none] [for_each_item sax__utils 164 14 none]
+G r c none [parse_grammars schema__readers 116 14 none] [get sax__symbols 53 13 none]
+G r c none [parse_grammars schema__readers 116 14 none] [is_white_space unicode 121 13 none]
+G r c none [parse_grammars schema__readers 116 14 none] [find_symbol sax__readers 698 13 none]
+G r c none [parse_grammars schema__readers 116 14 none] [parse_grammar_if_needed schema__schema_readers 62 14 none]
+G r c none [get_namespace_from_prefix schema__readers 122 14 none] [find_ns sax__readers 704 14 none]
+G r c none [get_namespace_from_prefix schema__readers 122 14 none] [get_uri sax__utils 204 13 none]
+G r c none [free schema__readers 131 25 none] [free schema__validators 625 14 none]
+G r c none [free schema__readers 132 14 none] [free schema__validators 625 14 none]
+G r k abstract_validation_reader [free schema__readers 132 14 none] [abstract_validation_readerDF schema__validators 447 9 none]
+G r c none [parse schema__readers 135 25 none] [get_system_id input_sources 106 13 none]
+G r c none [parse schema__readers 135 25 none] [output_action schema 71 14 none]
+G r c none [parse schema__readers 135 25 none] [initialize_symbols schema__validators 628 25 none]
+G r c none [parse schema__readers 135 25 none] [initialize_grammar schema__validators 757 14 none]
+G r c none [parse schema__readers 135 25 none] [get_feature sax__readers 84 13 none]
+G r c none [parse schema__readers 135 25 none] [set_hooks sax__readers 756 14 none]
+G r c none [parse schema__readers 135 25 none] [free schema__validators__schema_state_machines_matchers 414 17 354_4]
+G r c none [parse schema__readers 135 25 none] [parse sax__readers 54 14 none]
+G r c none [parse schema__readers 135 25 none] [in_final schema__validators__schema_state_machines_matchers 494 16 354_4]
+G r c none [parse schema__readers 135 25 none] [expected schema__validators__schema_state_machines_matchers 511 16 354_4]
+G r c none [parse schema__readers 135 25 none] [validation_error schema__validators 632 14 none]
+G r c none [parse schema__readers 135 25 none] [free schema__simple_types 237 14 none]
+G r c none [parse schema__readers 135 25 none] [free unicode__ces 46 14 none]
+G r j abstract_validation_reader [validating_readerDA schema__readers 142 9 none] [abstract_validation_readerDA schema__validators 447 9 none]
+G r k abstract_validation_reader [validating_readerDF schema__readers 142 9 none] [abstract_validation_readerDF schema__validators 447 9 none]
+G r s abstract_validation_reader [validating_readerIP schema__readers 142 9 none] [abstract_validation_readerIP schema__validators 447 9 none]
+G r s schema_nfa_matcher [validating_readerIP schema__readers 142 9 none] [schema_nfa_matcherIP schema__validators 887 9 none]
+G r c none [printR schema__readers__printGP2462 44 14 none] [node_label schema__validators__schema_state_machines_pp 344 16 352_4]
+G r c none [internal_characters schema__readers 47 14 none] [free unicode__ces 46 14 none]
+G r c none [validate_current_characters schema__readers 54 14 none] [get_nfa schema__validators 417 13 none]
+G r s state_data [validate_current_characters schema__readers 54 14 none] [state_dataIP schema__validators 275 9 none]
+G r c none [validate_current_characters schema__readers 54 14 none] [node_label schema__validators__schema_state_machines_pp 344 16 352_4]
+G r c none [validate_current_characters schema__readers 54 14 none] [validation_error schema__validators 632 14 none]
+G r c none [validate_current_characters schema__readers 54 14 none] [for_each_active_state schema__validators__schema_state_machines_matchers 445 16 354_4]
+G r c none [validate_current_characters schema__readers 54 14 none] [current schema__validators__schema_state_machines_matchers 451 16 354_4]
+G r c none [validate_current_characters schema__readers 54 14 none] [current_data schema__validators__schema_state_machines_matchers 468 16 354_4]
+G r c none [validate_current_characters schema__readers 54 14 none] [has_parent schema__validators__schema_state_machines_matchers 463 16 354_4]
+G r c none [validate_current_characters schema__readers 54 14 none] [parent schema__validators__schema_state_machines_matchers 464 16 354_4]
+G r c none [validate_current_characters schema__readers 54 14 none] [get_type_descr schema__validators 435 13 none]
+G r c none [validate_current_characters schema__readers 54 14 none] [get_simple_type schema__validators 428 13 none]
+G r c none [validate_current_characters schema__readers 54 14 none] [next schema__validators__schema_state_machines_matchers 449 17 354_4]
+G r c none [validate_current_characters schema__readers 54 14 none] [debug_output schema 66 14 none]
+G r c none [validate_current_characters schema__readers 54 14 none] [normalize_whitespace schema__simple_types 304 14 none]
+G r c none [validate_current_characters schema__readers 54 14 none] [get sax__symbols 53 13 none]
+G r c none [validate_current_characters schema__readers 54 14 none] [free unicode__ces 46 14 none]
+G r c none [validate_current_characters schema__readers 54 14 none] [to_qname schema__validators 815 13 none]
+G r c none [validate_current_characters schema__readers 54 14 none] [validate_simple_type schema__validators 671 14 none]
+G r c none [validate_current_characters schema__readers 54 14 none] [equal schema__validators 689 13 none]
+G r c none [reset schema__readers 59 14 none] [free schema__simple_types 237 14 none]
+G r c none [reset schema__readers 59 14 none] [free schema__validators__schema_state_machines_matchers 414 17 354_4]
+G r c none [reset schema__readers 59 14 none] [free unicode__ces 46 14 none]
+G r c none [hook_start_element schema__readers 63 14 none] [get_index sax__readers 241 13 none]
+G r s global_reference [hook_start_element schema__readers 63 14 none] [global_referenceIP schema__validators 383 9 none]
+G r c none [hook_start_element schema__readers 63 14 none] [get_ns sax__readers 690 13 none]
+G r c none [hook_start_element schema__readers 63 14 none] [get_uri sax__utils 204 13 none]
+G r c none [hook_start_element schema__readers 63 14 none] [get_local_name sax__readers 691 13 none]
+G r c none [hook_start_element schema__readers 63 14 none] [to_qname schema__validators 815 13 none]
+G r c none [hook_start_element schema__readers 63 14 none] [current_location sax__readers 361 13 none]
+G r c none [hook_start_element schema__readers 63 14 none] [to_string sax__locators 81 13 none]
+G r c none [hook_start_element schema__readers 63 14 none] [output_seen schema 72 14 none]
+G r c none [hook_start_element schema__readers 63 14 none] [start_tag_location sax__readers 684 13 none]
+G r c none [hook_start_element schema__readers 63 14 none] [get_nfa schema__validators 417 13 none]
+G r s state_data [hook_start_element schema__readers 63 14 none] [state_dataIP schema__validators 275 9 none]
+G r c none [hook_start_element schema__readers 63 14 none] [node_label schema__validators__schema_state_machines_pp 344 16 352_4]
+G r c none [hook_start_element schema__readers 63 14 none] [validation_error schema__validators 632 14 none]
+G r c none [hook_start_element schema__readers 63 14 none] [for_each_active_state schema__validators__schema_state_machines_matchers 445 16 354_4]
+G r c none [hook_start_element schema__readers 63 14 none] [current schema__validators__schema_state_machines_matchers 451 16 354_4]
+G r c none [hook_start_element schema__readers 63 14 none] [current_data schema__validators__schema_state_machines_matchers 468 16 354_4]
+G r c none [hook_start_element schema__readers 63 14 none] [has_parent schema__validators__schema_state_machines_matchers 463 16 354_4]
+G r c none [hook_start_element schema__readers 63 14 none] [parent schema__validators__schema_state_machines_matchers 464 16 354_4]
+G r c none [hook_start_element schema__readers 63 14 none] [get_type_descr schema__validators 435 13 none]
+G r c none [hook_start_element schema__readers 63 14 none] [get_simple_type schema__validators 428 13 none]
+G r c none [hook_start_element schema__readers 63 14 none] [next schema__validators__schema_state_machines_matchers 449 17 354_4]
+G r c none [hook_start_element schema__readers 63 14 none] [debug_output schema 66 14 none]
+G r c none [hook_start_element schema__readers 63 14 none] [normalize_whitespace schema__simple_types 304 14 none]
+G r c none [hook_start_element schema__readers 63 14 none] [get sax__symbols 53 13 none]
+G r c none [hook_start_element schema__readers 63 14 none] [free unicode__ces 46 14 none]
+G r c none [hook_start_element schema__readers 63 14 none] [validate_simple_type schema__validators 671 14 none]
+G r c none [hook_start_element schema__readers 63 14 none] [equal schema__validators 689 13 none]
+G r c none [hook_start_element schema__readers 63 14 none] [get_value sax__readers 274 13 none]
+G r c none [hook_start_element schema__readers 63 14 none] [parse_grammar_if_needed schema__schema_readers 62 14 none]
+G r i none [hook_start_element schema__readers 63 14 none] [for_each_item sax__utils 164 14 none]
+G r c none [hook_start_element schema__readers 63 14 none] [is_white_space unicode 121 13 none]
+G r c none [hook_start_element schema__readers 63 14 none] [find_symbol sax__readers 698 13 none]
+G r c none [hook_start_element schema__readers 63 14 none] [is_initialized schema__validators__schema_state_machines_matchers 417 16 354_4]
+G r c none [hook_start_element schema__readers 63 14 none] [start_match schema__validators__schema_state_machines_matchers 421 17 354_4]
+G r c none [hook_start_element schema__readers 63 14 none] [do_match schema__validators 363 14 none]
+G r c none [hook_start_element schema__readers 63 14 none] [split_qname sax__utils 149 13 none]
+G r s qualified_name [hook_start_element schema__readers 63 14 none] [qualified_nameIP sax__readers 326 9 none]
+G r c none [hook_start_element schema__readers 63 14 none] [find_ns sax__readers 704 14 none]
+G r c none [hook_start_element schema__readers 63 14 none] [get_references schema__validators 418 13 none]
+G r c none [hook_start_element schema__readers 63 14 none] [get schema__validators__reference_htables 60 13 405_4]
+G r c none [hook_start_element schema__readers 63 14 none] [get_nested schema__validators__schema_state_machines 268 13 289_4]
+G r c none [hook_start_element schema__readers 63 14 none] [get_start_state schema__validators__schema_state_machines 271 13 289_4]
+G r c none [hook_start_element schema__readers 63 14 none] [check_substitution_group_ok schema__validators 646 14 none]
+G r c none [hook_start_element schema__readers 63 14 none] [override_data schema__validators__schema_state_machines_matchers 485 17 354_4]
+G r c none [hook_start_element schema__readers 63 14 none] [simple_nested schema__validators 818 13 none]
+G r c none [hook_start_element schema__readers 63 14 none] [replace_state schema__validators__schema_state_machines_matchers 474 17 354_4]
+G r c none [hook_start_element schema__readers 63 14 none] [expected schema__validators__schema_state_machines_matchers 511 16 354_4]
+G r c none [hook_start_element schema__readers 63 14 none] [get_data schema__validators__schema_state_machines 110 13 289_4]
+G r c none [hook_start_element schema__readers 63 14 none] [validate_attributes schema__validators 697 14 none]
+G r c none [hook_start_element schema__readers 63 14 none] [get_value_as_boolean sax__readers 286 13 none]
+G r c none [hook_end_element schema__readers 67 14 none] [to_qname sax__readers 680 13 none]
+G r c none [hook_end_element schema__readers 67 14 none] [current_location sax__readers 361 13 none]
+G r c none [hook_end_element schema__readers 67 14 none] [to_string sax__locators 81 13 none]
+G r c none [hook_end_element schema__readers 67 14 none] [output_seen schema 72 14 none]
+G r c none [hook_end_element schema__readers 67 14 none] [start_tag_end_location sax__readers 686 13 none]
+G r c none [hook_end_element schema__readers 67 14 none] [get_nfa schema__validators 417 13 none]
+G r s state_data [hook_end_element schema__readers 67 14 none] [state_dataIP schema__validators 275 9 none]
+G r c none [hook_end_element schema__readers 67 14 none] [node_label schema__validators__schema_state_machines_pp 344 16 352_4]
+G r c none [hook_end_element schema__readers 67 14 none] [validation_error schema__validators 632 14 none]
+G r c none [hook_end_element schema__readers 67 14 none] [for_each_active_state schema__validators__schema_state_machines_matchers 445 16 354_4]
+G r c none [hook_end_element schema__readers 67 14 none] [current schema__validators__schema_state_machines_matchers 451 16 354_4]
+G r c none [hook_end_element schema__readers 67 14 none] [current_data schema__validators__schema_state_machines_matchers 468 16 354_4]
+G r c none [hook_end_element schema__readers 67 14 none] [has_parent schema__validators__schema_state_machines_matchers 463 16 354_4]
+G r c none [hook_end_element schema__readers 67 14 none] [parent schema__validators__schema_state_machines_matchers 464 16 354_4]
+G r c none [hook_end_element schema__readers 67 14 none] [get_type_descr schema__validators 435 13 none]
+G r c none [hook_end_element schema__readers 67 14 none] [get_simple_type schema__validators 428 13 none]
+G r c none [hook_end_element schema__readers 67 14 none] [next schema__validators__schema_state_machines_matchers 449 17 354_4]
+G r c none [hook_end_element schema__readers 67 14 none] [debug_output schema 66 14 none]
+G r c none [hook_end_element schema__readers 67 14 none] [normalize_whitespace schema__simple_types 304 14 none]
+G r c none [hook_end_element schema__readers 67 14 none] [get sax__symbols 53 13 none]
+G r c none [hook_end_element schema__readers 67 14 none] [free unicode__ces 46 14 none]
+G r c none [hook_end_element schema__readers 67 14 none] [to_qname schema__validators 815 13 none]
+G r c none [hook_end_element schema__readers 67 14 none] [validate_simple_type schema__validators 671 14 none]
+G r c none [hook_end_element schema__readers 67 14 none] [equal schema__validators 689 13 none]
+G r c none [hook_end_element schema__readers 67 14 none] [get_ns sax__readers 690 13 none]
+G r c none [hook_end_element schema__readers 67 14 none] [get_uri sax__utils 204 13 none]
+G r c none [hook_end_element schema__readers 67 14 none] [get_local_name sax__readers 691 13 none]
+G r c none [hook_end_element schema__readers 67 14 none] [do_match schema__validators 363 14 none]
+G r c none [hook_end_element schema__readers 67 14 none] [expected schema__validators__schema_state_machines_matchers 511 16 354_4]
+G r c none [hook_characters schema__readers 70 14 none] [free unicode__ces 46 14 none]
+G r c none [hook_ignorable_whitespace schema__readers 73 14 none] [get_nfa schema__validators 417 13 none]
+G r c none [hook_ignorable_whitespace schema__readers 73 14 none] [for_each_active_state schema__validators__schema_state_machines_matchers 445 16 354_4]
+G r c none [hook_ignorable_whitespace schema__readers 73 14 none] [current schema__validators__schema_state_machines_matchers 451 16 354_4]
+G r c none [hook_ignorable_whitespace schema__readers 73 14 none] [current_data schema__validators__schema_state_machines_matchers 468 16 354_4]
+G r c none [hook_ignorable_whitespace schema__readers 73 14 none] [get_type_descr schema__validators 435 13 none]
+G r c none [hook_ignorable_whitespace schema__readers 73 14 none] [free unicode__ces 46 14 none]
+G r c none [hook_ignorable_whitespace schema__readers 73 14 none] [next schema__validators__schema_state_machines_matchers 449 17 354_4]
+G r c none [hook_notation_decl schema__readers 76 14 none] [get_nfa schema__validators 417 13 none]
+G r c none [hook_notation_decl schema__readers 76 14 none] [find_symbol sax__readers 698 13 none]
+G r c none [hook_notation_decl schema__readers 76 14 none] [add_notation schema__validators 821 14 none]
+X 1 ada.ads
+16K9*Ada 20e8 56|34r6 34r33 35r6 613r18 615r21 1177r39
+X 5 a-except.ads
+48P9*Exception_Id<83|84P9>
+X 9 a-string.ads
+16K13*Strings 35e16 56|34r10 34r37 613r22 615r25
+33n37*Both{33E9} 56|615r33
+X 10 a-strfix.ads
+43K21*Fixed 1398e22 56|34w18 34r45 613r30
+1097V13*Trim{string} 56|613s36
+X 15 a-tags.ads
+652V13 CW_Membership{boolean} 56|442s9 457s9 974s9 1054s28 1066s9
+X 18 a-uncdea.ads
+20u15*Unchecked_Deallocation 56|35w10 1177r43
+X 21 gnat.ads
+34K9*GNAT 57e9 56|37r6 37r37 38r6 38r37
+X 22 g-dirope.ads
+43K14*Directory_Operations 262e30 56|37w11 37r42
+45A12*Dir_Name_Str{string}<integer>
+107V13*Dir_Name{45A12} 56|177s20
+X 26 g-os_lib.ads
+51K14*OS_Lib=51:36 56|38w11 38r42
+X 29 input_sources.ads
+41K9*Input_Sources 134e18 55|26w6 137r23 56|1109r23 1113r35
+43H9*Input_Source 133e14 55|137r37 56|1109r37
+46P9*Input_Source_Access(43R9)
+106V13*Get_System_Id{104|41A12} 56|1113R49
+X 34 sax.ads
+33K9*Sax 35e8 55|27r6 28r6 87r18 88r18 106r17 112r17 112r44 118r25 124r18
+. 125r22 56|28r6 28r29 29r6 29r29 30r6 30r29 31r6 31r29 129r17 1161r22 1201r18
+. 1202r18
+X 38 sax-htable.ads
+44R9*HTable
+60V13*Get{59|383R9} 56|635s42[59|405] 808s42[59|405] 821s42[59|405] 828s42[59|405]
+X 39 sax-locators.ads
+33K13*Locators 103e17 56|28w10 28r33
+41R9*Location 46e14 56|56r17 220r17
+45p7*System_Id{47|41P9} 56|177r60
+81V13*To_String{string} 56|671s31 982s39
+X 41 sax-pointers.ads
+59R12*Pointer<6|43R9>
+60r7*Null_Pointer{59R12[49|171]} 56|107r34[49|171]
+62P12*Encapsulated_Access(47|35R9)
+76V16*Get{62P12[49|171]} 56|99s13[49|171]
+80V17*"="{boolean} 56|106s43[49|171] 114s42[49|171] 134s52[49|171] 140s18[49|171]
+X 43 sax-readers.ads
+40K13*Readers 1176e16 56|30w10 30r33
+42R9*Sax_Reader 1172e14 56|64r24 68r24 71r24 74r24 77r30 142r28 435r30 452r24
+. 970r24 1051r24 1062r24
+54U14*Parse 56|1137s7
+65U14*Set_Symbol_Table 56|142s10
+77U14*Set_XML_Version
+79V13*Get_XML_Version{49|35E9}
+82U14*Set_Feature
+84V13*Get_Feature{boolean} 56|1119s10
+89U14*Use_Basename_In_Error_Messages
+92V13*Use_Basename_In_Error_Messages{boolean}
+147a4*Schema_Validation_Feature{string} 56|1119r31
+195U14*Warning
+205U14*Error
+217U14*Fatal_Error
+237R9*Sax_Attribute_List 1017e14 56|66r24 454r24
+241V13*Get_Index{integer} 56|458s44 460s44 603s51 922s18
+274V13*Get_Value{47|41P9} 56|614s26 684s25 690s16
+286V13*Get_Value_As_Boolean{boolean} 56|939s28
+326R9*Qualified_Name 329e14 56|619r28 664r32
+327p7*NS{47|41P9} 56|625m24 665m10 701m27 990m30
+328p7*Local{47|41P9} 56|626m24 666m10 701m51 991m30
+330r4*No_Qualified_Name{326R9} 56|901r39
+351U14*Set_Document_Locator
+361V13*Current_Location{39|41R9} 56|177s43 534R38 671R44 982R52
+367U14*Start_Document
+372U14*End_Document
+378U14*Start_Prefix_Mapping
+391U14*End_Prefix_Mapping
+397U14*Start_Element
+421U14*End_Element
+427U14*Characters
+439U14*Ignorable_Whitespace
+450U14*Processing_Instruction
+459U14*Skipped_Entity
+480U14*Unparsed_Entity_Decl
+488U14*Notation_Decl
+506V13*Resolve_Entity{29|46P9}
+547U14*Comment
+552U14*Start_Cdata
+557U14*End_Cdata
+560U14*Start_Entity
+567U14*End_Entity
+572U14*Start_DTD
+586U14*End_DTD
+596U14*Internal_Entity_Decl
+608U14*External_Entity_Decl
+616U14*Element_Decl
+628U14*Attribute_Decl
+647X4*XML_Fatal_Error 56|115r19 136r16
+669P9*Hook_Data_Access(668R9)
+675P9*Element_Access(674R9) 56|65r17 69r17 453r17 971r17
+680V13*To_QName{104|41A12} 56|982s15
+684V13*Start_Tag_Location{39|41R9} 56|676s46
+686V13*Start_Tag_End_Location{39|41R9} 56|985s46
+690V13*Get_NS{49|198P9} 56|665s28 990s48
+691V13*Get_Local_Name{47|41P9} 56|666s19 991s39
+698V13*Find_Symbol{47|41P9} 56|172s17 197s20 202s33 444s42 621s26 626s33
+701V13*Get_Symbol_Table{49|174R12} 56|99s18 112s40 114s16 140s21
+704U14*Find_NS 56|1163s7
+705c7 Parser<42R9> 56|1164r10
+706p7 Prefix{47|41P9} 56|1165r10
+707p7 NS{49|198P9} 56|1166r10
+725P9*Start_Element_Hook
+738P9*End_Element_Hook
+740P9*Characters_Hook
+742P9*Whitespace_Hook
+744P9*Set_Doc_Locator_Hook
+747P9*Notation_Decl_Hook
+753V13*Get_Hooks_Data{669P9}
+756U14*Set_Hooks 56|1120s10 1128s10
+759p7 Start_Element{725P9} 56|1121r21 1129r21
+760p7 End_Element{738P9} 56|1122r21 1130r21
+761p7 Characters{740P9} 56|1123r21 1131r21
+762p7 Whitespace{742P9} 56|1124r21 1132r21
+763p7 Doc_Locator{744P9} 56|1133r21
+764p7 Notation_Decl{747P9} 56|1125r21
+X 45 sax-state_machines.ads
+52I9*State<integer> 56|225r14[59|289] 477r31[59|289] 496r23[59|289] 514r31[59|289]
+. 517r22[59|289] 522r32[59|289] 655r17[59|289] 1068r15[59|289]
+55P9*State_Data_Access(59|275R9)
+61R9*NFA
+100i4*No_State{52I9[59|289]} 56|264r27[59|289] 345r27[59|289] 517r31[59|289]
+. 526r27[59|289] 538r31[59|289] 568r39[59|289] 753r44[59|289] 871r27[59|289]
+. 1076r24[59|289]
+101i4*Start_State{52I9[59|289]} 56|727r25[59|289]
+110V13*Get_Data{55P9[59|289]} 56|813R35[59|289] 853R36[59|289]
+238R9*Nested_NFA
+268V13*Get_Nested{238R9[59|289]} 56|500R19[59|289] 576R26[59|289] 852R53[59|289]
+271V13*Get_Start_State{52I9[59|289]} 56|499s21[59|289] 575s22[59|289] 852s32[59|289]
+299E9*Dump_Mode
+300n23*Dump_Compact{299E9[59|289]} 56|235r34[59|289] 591r31[59|289] 738r28[59|289]
+. 997r28[59|289]
+344V16*Node_Label{string} 56|45r32[59|352]
+354H9*Abstract_NFA_Matcher
+405R12*NFA_Matcher<354R9[59|289]>
+414U17*Free 56|1098s7[59|354] 1126s10[59|354]
+417V16*Is_Initialized{boolean} 56|695s22[59|354]
+421U17*Start_Match 56|725s20[59|354] 754s26[59|354] 762s26[59|354]
+423p10 On(61R9[59|289]) 56|726r13[59|354] 755r19[59|354]
+424i10 Start_At{52I9[59|289]} 56|727r13[59|354] 756r19[59|354] 764r19[59|354]
+431R12*Active_State_Iterator 56|257r17[59|354] 338r17[59|354] 484r17[59|354]
+. 494r17[59|354] 519r22[59|354] 767r35[59|354] 863r17[59|354] 1070r15[59|354]
+445V16*For_Each_Active_State{431R12[59|354]} 56|258s12[59|354] 339s12[59|354]
+. 520s12[59|354] 768s21[59|354] 864s12[59|354] 1070s40[59|354]
+447b10 Ignore_If_Nested{boolean} 56|259r35[59|354] 340r35[59|354] 521r53[59|354]
+. 770r24[59|354] 865r26[59|354] 1071r21[59|354]
+448b10 Ignore_If_Default{boolean} 56|260r35[59|354] 341r35[59|354] 521r26[59|354]
+. 769r35[59|354] 865r52[59|354] 1071r47[59|354]
+449U17*Next 56|296s13[59|354] 423s13[59|354] 587s13[59|354] 925s13[59|354]
+. 1086s10[59|354]
+451V16*Current{52I9[59|289]} 56|263s18[59|354] 344s18[59|354] 496s32[59|354]
+. 500s31[59|354] 525s18[59|354] 549s36[59|354] 576s38[59|354] 870s18[59|354]
+. 1075s15[59|354]
+463V16*Has_Parent{boolean} 56|273s46[59|354] 280s48[59|354] 498s13[59|354]
+. 574s19[59|354]
+464V16*Parent{431R12[59|354]} 56|274s59[59|354] 282s52[59|354] 500s51[59|354]
+. 502s45[59|354] 576s58[59|354]
+468V16*Current_Data{59|275R9} 56|266s21[59|354] 274s28[59|354] 282s21[59|354]
+. 347s19[59|354] 502s20[59|354] 504s20[59|354] 528s21[59|354] 773s27[59|354]
+. 1078s40[59|354]
+474U17*Replace_State 56|582s22[59|354]
+485U17*Override_Data 56|552s16[59|354] 774s19[59|354]
+494V16*In_Final{boolean} 56|1139s14[59|354]
+511V16*Expected{string} 56|790s15[59|354] 1004s15[59|354] 1143s15[59|354]
+519u17*Debug_Print 56|44r58[59|354]
+X 47 sax-symbols.ads
+33K13*Symbols 103e16 55|27w10 87r22 88r22 112r21 112r48 118r29 124r22 56|31w10
+. 31r33 1201r22 1202r22
+41P9*Symbol<104|43P9> 55|87r30 88r30 112r29 112r56 118r37 124r30 56|162r17
+. 162r32 188r25 191r13 227r17 228r17 617r28 867r18 1160r18 1201r30 1202r30
+43p4*No_Symbol{41P9} 56|141r26 191r23 196r19 204r20 227r27 228r27 268r24
+. 273r27 278r26 280r29 315r37 327r39 396r28 867r28 878r24 945r28
+44p4*Empty_String{41P9} 56|164r16 683r25 1167r25
+53V13*Get{104|43P9} 56|165s31 175s30 177s30 211s17 316s40 321s18 328s40 333s18
+. 399s38 410s34 418s27 614s21
+X 49 sax-utils.ads
+33K13*Utils 262e14 55|28w10 106r21 125r26 56|29w10 29r33 129r21 1161r26
+146V13*Starts_With{boolean} 56|165s18
+149V13*Split_Qname{integer} 56|616s48
+164u14*For_Each_Item 56|208r33
+171K12*Symbol_Table_Pointers[41|58] 56|92r11 107r12 131r11
+174R12*Symbol_Table{41|59R12[171]} 55|106r27 56|129r27
+198P9*XML_NS 55|125r32 56|618r28 1161r32
+199p4*No_XML_NS{198P9} 56|1168r16
+204V13*Get_URI{47|41P9} 56|625s33 665s19 990s39 1167s10
+X 51 schema.ads
+27K9*Schema 83e11 55|30r6 32r9 34r34 62r17 64r43 142r34 144r26 158r5 56|32r6
+. 32r31 33r6 33r31 36r6 36r33 40r14 90r17 151r43 1137r14 1192r13 1205r7 1209r5
+32X4*XML_Not_Implemented 56|709r23
+66U14 Debug_Output 56|95s10 101s16 110s16 304s13 319s13 331s13 354s22 377s22
+. 379s22 398s22 548s19 563s19 579s25 630s19 722s13 815s22 846s16 883s16 918s19
+. 952s19
+71U14 Output_Action 56|1112s10
+72U14 Output_Seen 56|670s10 980s10
+77b4 Debug{boolean} 56|94r10 100r16 109r16 234r10 303r13 318r13 330r13 353r22
+. 376r22 397r22 547r19 562r19 578r25 590r13 629r19 669r10 721r13 737r10 814r22
+. 845r16 882r16 917r19 951r19 979r10 996r10 1111r10
+X 55 schema-readers.ads
+32K16*Readers 51|27k9 55|142E9 158l12 158e19 56|40b21 1209l12 1209t19
+34R9*Validating_Reader<59|447R9> 43|77p14 79p13 82p14 84p13 89p14 92p13 195p14
+. 205p14 217p14 351p14 361p13 367p14 372p14 378p14 391p14 397p14 421p14 427p14
+. 439p14 450p14 459p14 480p14 488p14 506p13 547p14 552p14 557p14 560p14 567p14
+. 572p14 586p14 596p14 608p14 616p14 628p14 753p13 756p14 55|36r48 60p14
+. 61r24 63p13 64r17 85p14 86r34 104P25 105r24 110p13 111r17 117r32 122p14
+. 123r25 131P25 131r47 135P25 136r23 142c9 156e14 56|48r24 55r24 59r37 89r24
+. 128r24 151r17 161r17 187r32 219r24 1016r24 1094r37 1108r23 1159r25 1178r10
+. 1190r47 1200r34 59|628P25 632p14 642p13
+36P9*Validating_Reader_Access(34R9) 132r36 56|441r20 442r9 456r20 457r9 973r20
+. 974r9 1054r28 1065r24 1066r9 1176r36 1178r35
+60U14*Set_Grammar 61=7 62>7 56|88b14 121l8 121t19
+61r7 Reader{34R9} 56|89b7 99r36 104m31 112r58 114r34 120m7
+62r7 Grammar{59|56R9} 56|90b7 98r10 104r57 106r34 112r31 114r63 120r25
+63V13*Get_Grammar{59|56R9} 64>7 56|150b13 154l8 154t19
+64r7 Reader{34R9} 56|151b7 153r14
+85U14*Parse_Grammar 86^7 87>7 88>7 89>7 56|199R13 681R10 1199b14 1207l8 1207t21
+86p7 Handler(34R9) 56|1200b7 1206r11
+87p7 URI{47|41P9} 56|201r16 683r13 1201b7 1206r20
+88p7 Xsd_File{47|41P9} 56|202r16 684r13 1202b7 1206r25
+89b7 Do_Create_NFA{boolean} 56|203r16 685r13 1203b7 1206r35
+104U25*Set_Symbol_Table<43|65p14> 105=7 106>7 56|104s13 127b25 144l8 144t24
+105r7 Parser{34R9} 56|128b7 133r10 134r36 140r39 141m10 142m40 142r40
+106r7 Symbols{49|174R12} 56|129b7 134r55 140r10 142r49
+110V13*To_Absolute_URI{47|41P9} 111>7 112>7 56|160b13 180l8 180t23
+111r7 Handler{34R9} 56|161b7 173r13 177r35
+112p7 URI{47|41P9} 56|162b7 164r10 165r36 167r17 175r35
+116U14*Parse_Grammars 117^7 118>7 119>7 56|186b14 212l8 212t22 689s10
+117p7 Handler(34R9) 56|187b7 197r33 200r16 202r46
+118p7 Schema_Location{47|41P9} 56|188b7 211r22
+119b7 Do_Create_NFA{boolean} 56|189b7 203r33 690r54
+122U14*Get_Namespace_From_Prefix 123=7 124>7 125<7 56|623R16 1158b14 1170l8
+. 1170t33
+123r7 Handler{34R9} 56|1159b7 1164r21
+124p7 Prefix{47|41P9} 56|1160b7 1165r21
+125p7 NS{49|198P9} 56|1161b7 1166m21 1167r19 1168m10
+131U25*Free<59|625p14> 131=31 56|1181R10 1190b25 1193l8 1193t12
+131r31 Reader{34R9} 56|1190b31 1192m59 1192r59
+132U14*Free 132=20 56|1176b14 1184l8 1184t12
+132p20 Reader{36P9} 56|1176b20 1180r10 1181r16 1182m26
+135U25*Parse<43|54p14> 136=7 137=7 56|1107b25 1152l8 1152t13
+136r7 Parser{34R9} 56|1108b7 1116m27 1117m27 1119r23 1120m21 1126m16 1126r16
+. 1128m21 1137m60 1137r60 1139r24 1141m13 1141r13 1143r25 1146m14 1150m17
+137c7 Input<29|43R9> 56|1109b7 1113r64 1137m69
+144r7 Matcher{59|360R9} 56|235r25 258r43 263r35 266r43 274r50 282r43 296r27
+. 339r43 344r35 347r41 423r27 496r43 500r42 502r36 504r36 521r17 525r29 528r37
+. 549r47 553r21 576r49 582m39 587r21 591r22 695r40 725m12 731m31 738r19 754m18
+. 762m18 769r26 773r43 775r24 790r27 865r17 870r29 925r21 988m12 997r19 1004r27
+. 1071r12 1075r26 1078r56 1086r18 1098m20 1126m23 1139r31 1143r32
+146p7 Characters{104|42P9} 56|308r33 357r35 369r33 381r35 408r35 411r32 1026r18
+. 1028m18 1029r18 1031r28 1032r18 1038r20 1041m24 1042m18 1099m20
+147i7 Characters_Count{natural} 56|241r21 300r27 308m57 317r30 329r30 357r60
+. 361r30 369r58 382r58 408r60 411r57 427m15 1020r41 1027m18 1032r38 1033m18
+. 1037r28 1038r45 1039r23 1040m18 1100m14
+152b7 Is_Nil{boolean} 56|240r18 932m15 939m18 941m18 944r18 1008m9
+X 56 schema-readers.adb
+44U14 Print[45|519] 235s10 591s13 738s10 997s10
+47U14 Internal_Characters 48^7 49>7 316s10 328s10 1015b14 1044l8 1044t27
+. 1054s7 1082s13
+48p7 Handler(55|34R9) 1016b7 1020r33 1026r10 1027r10 1028r10 1029r10 1031r20
+. 1032r10 1032r30 1033r10 1037r20 1038r12 1038r37 1039r15 1040r10 1041r16
+. 1042r10
+49a7 Ch{104|41A12} 1017b7 1020r60 1027r38 1028r49 1029r36 1032r70 1039r55
+54U14 Validate_Current_Characters 55^7 56>7 218b14 428l8 428t35 676s7 985s7
+55p7 Handler(55|34R9) 219b7 224r53 235r17 240r10 241r13 243r16 258r35 263r27
+. 266r35 274r42 282r35 291r31 296r19 300r19 308r25 308r49 316r31 317r22 328r31
+. 329r22 339r35 344r27 347r33 357r27 357r52 361r22 363r25 368r25 369r25 369r50
+. 381r27 382r50 386r22 404r40 408r27 408r52 411r24 411r49 416r25 423r19 427r7
+56r7 Loc{39|41R9} 220b7 245r16 365r42 370r42 388r22 676r39 985r39
+59U14 Reset 59=21 1094b14 1101l8 1101t13 1146s7 1150s10
+59r21 Parser{55|34R9} 1094b21 1097m13 1097r13 1098m13 1098r13 1099m13 1099r13
+. 1100m7
+63U14 Hook_Start_Element 64^7 65>7 66^7 451b14 963l8 963t26 1121r38
+64p7 Handler(43|42R9) 452b7 457r35
+65p7 Elem{43|675P9} 453b7 665r36 666r35 676r66
+66p7 Atts(43|237R9) 454b7 459r10 461r10 604r13 614r37 684r36 690r27 913r25
+. 922r29 939r50
+67U14 Hook_End_Element 68^7 69>7 969b14 1009l8 1009t24 1122r38
+68p7 Handler(43|42R9) 970b7 974r35
+69p7 Elem{43|675P9} 971b7 982r25 985r70 990r56 991r55
+70U14 Hook_Characters 71^7 72>7 1050b14 1055l8 1055t23 1123r38
+71p7 Handler(43|42R9) 1051b7 1054r54
+72a7 Ch{104|41A12} 1052b7 1054r64
+73U14 Hook_Ignorable_Whitespace 74^7 75>7 1061b14 1088l8 1088t33 1124r38
+74p7 Handler(43|42R9) 1062b7 1066r35
+75a7 Ch{104|41A12} 1063b7 1082r37
+76U14 Hook_Notation_Decl 77^7 78>7 79>7 80>7 434b14 445l8 445t26 1125r38
+77p7 Handler(43|42R9) 435b7 442r35
+78a7 Name{104|41A12} 436b7 444r62
+79a7 Public_Id{104|41A12} 437b7 440r28
+80a7 System_Id{104|41A12} 438b7 440r39
+191p7 URI{47|41P9} 196r13 197m13 201r33 204m13
+193U17 Callback 193>27 194b17 206l11 206t19 208r48
+193a27 Ch{104|41A12} 194b27 197r46 202r59
+208U17 For_Each[49|164] 50|1176b14 56|211s7
+222b7 Is_Empty{boolean} 300m7 302r14 315r10 317m10 327r10 329m10 353r36 374r31
+223e7 Whitespace{58|50E9} 290m19 304r54 308r13
+224p7 NFA{59|359P9} 288r41 350r41
+225i7 S{45|52I9[59|289]} 263m13 264r23 344m13 345r23 378r62
+226p7 Descr(59|299R9) 288m16 289r19 291r49 350m16 352r19 356r37 363r34 368r34
+. 373r26 378r48 402r22 405r40
+227p7 Fixed{47|41P9} 268r16 269m16 273r19 274m19 315r28 316r45 321r23 396r19
+. 399r43 406r32 410r39 418r32
+228p7 Default{47|41P9} 278r16 279m16 280r19 281m19 327r28 328r45 333r23
+229r7 Data{59|275R9} 266m13 269r25 279r27 287r16 288r46
+230i7 Ty{59|247I9} 347m13 349r16 350r46
+231b7 Is_Equal{boolean} 403m22 410m22 414r26
+257r10 Iter{45|431R12[59|354]} 263r44 266r52 273r58 274r67 280r60 282r60
+. 296r36
+338r10 Iter{45|431R12[59|354]} 344r44 347r50 423r36
+441p7 H{55|36P9} 444r30 444r55
+456p7 H{55|36P9} 459r20 459r40 461r20 461r40 496r41 500r40 502r34 504r34
+. 521r15 525r27 528r35 532r19 534r36 549r45 553r19 576r47 582r37 587r19 591r20
+. 604r23 604r43 622r19 623r43 627r27 636r35 639r37 671r42 676r36 682r13 690r13
+. 695r38 696r23 701r33 701r60 707r13 712r10 725r10 726r34 731r29 738r17 752r19
+. 754r16 755r40 762r16 763r28 769r24 773r41 775r22 788r13 790r25 809r35 822r35
+. 829r35 834r22 865r15 870r27 903r28 906r43 911r31 913r22 922r39 922r59 925r19
+. 932r13 937r37 939r16 941r16 944r16 947r22
+458i7 No_Index{integer} 680r10 684r46
+460i7 Location_Index{integer} 688r10 690r37
+462p7 NFA{59|359P9} 500r15 561r39 576r22 643r61 696m7 764r31 813r31 852r49
+. 853r32 898r21 958r41
+464U17 Compute_Type_From_Attribute 465<10 466<10 599b17 650l11 650t38 749s13
+. 795s7
+465i10 Result_Index{59|247I9} 600b10 608m13 642m16
+466p10 Result{59|319P9} 601b10 609m13 643m16 646r35
+475U17 Replace_State 476>10 477>10 478>10 512b17 593l11 593t24 644s16 850s13
+. 956s16
+476b10 Check_Substitution{boolean} 513b10 530r16 645r19 851r16 957r19
+477i10 Nested_Start{45|52I9[59|289]} 514b10 522r41 538r16 646r19 852r16 958r19
+478i10 Simple{59|247I9} 515b10 532r22 550r48 555r34 647r19 853r16 959r19
+483V16 Simple_Type_Data{59|275R9} 484>10 493b16 506l11 506t27 535s36 876s21
+484r10 Iter{45|431R12[59|354]} 494b10 496r52 498r25 500r59 502r53 504r45
+496i10 S{45|52I9[59|289]} 500r70
+517i10 S{45|52I9[59|289]} 525m13 526r23 576r77 579r68
+518r10 Data{59|275R9} 528m13 533r19 556r34 557r34 558r34 559r34
+519r10 Iter{45|431R12[59|354]} 525r38 528r46 535r54 549r56 553r30 574r31
+. 576r66 582r48 587r30
+522i10 Internal_New_Nested{45|52I9[59|289]} 561m16 568r16 580r40 582r54
+603i10 Xsi_Type_Index{integer} 607r13 614r47
+605r10 TRef{59|383R9} 635m16 638r19 642r32 643r66 647r35
+612a16 Qname{104|41A12} 616r61 622r26 622r33 627r34 627r58
+616i16 Separator{integer} 622r48 627r41
+617p16 Prefix{47|41P9} 621m16 623r50
+618p16 NS{49|198P9} 623m58 623r58 625r42
+619r16 Typ{43|326R9} 625m16 632r34 636r52 639r68
+652b7 Success{boolean} 733m29 741r34 786r17
+653i7 Nil_Index{integer} 914m35 914r35 921m16 935r16 939r60
+654b7 Nillable{boolean} 813m19 887m13 887r25 936r23
+655i7 S{45|52I9[59|289]} 870m13 871r23 883r64
+656b7 Through_Any{boolean} 734m29 801r10
+657e7 Through_Process{59|104E9} 735m29 802r15 839r13 857m10 928r13
+658r7 TRef{59|383R9} 808m16 812r19 813r45 821m16 828m16 832r19 840r21 852r65
+. 853r46
+659p7 Xsi_Descr{59|319P9} 795m47 795r47 801r31
+660i7 Xsi_Index{59|247I9} 795m36
+662b7 Had_Matcher{boolean} 695m7 702r18 720r14 741r14
+664r7 Element_QName{43|326R9} 670r53 701r10 732r56 752r55 789r25 810r20 823r20
+. 830r20 835r34 847r42
+746p13 Descr{59|319P9} 749m49 749r49 750r16 753r19 756r31
+747i13 Index{59|247I9} 749m42 777r37
+767r19 Iter{45|431R12[59|354]} 773r52 775r33
+771r19 Data{59|275R9} 773m19 778r37 779r37 780r37 781r37
+863r10 Iter{45|431R12[59|354]} 870r38 876r39 925r30
+866r10 Data{59|275R9} 876m13 879r25 884r49 887r37 890r16 898r41 959r41
+867p10 Fixed{47|41P9} 878r16 879m16 945r19
+897p19 Descr(59|299R9) 900r22 901r25 904r48 912r22
+973p7 H{55|36P9} 982r50 985r36 988r10 997r17 1002r13 1004r25 1008r7
+975b7 Success{boolean} 992m29 1000r14
+976b7 Through_Any{boolean} 993m29
+977e7 Through_Process{59|104E9} 994m29
+1019p7 Tmp{104|42P9} 1036m10 1037r10 1039r10 1042r32
+1020i7 Max{natural} 1031r13 1032r62 1033r38 1036r34 1039r47 1040r38
+1065p7 H{55|36P9} 1067r54 1071r10 1075r24 1078r54 1082r34 1086r16
+1067p7 NFA{59|359P9} 1078r35
+1068i7 S{45|52I9[59|289]} 1075m10 1076r20
+1069p7 Descr(59|299R9) 1078m10 1079r13 1080r20
+1070r7 Iter{45|431R12[59|354]} 1075r35 1078r65 1086r27
+1177U17 Unchecked_Free[18|20] 1182s10
+X 57 schema-schema_readers.ads
+41K16*Schema_Readers 56|36w13 36r40 1205r14 57|394e26
+62U14*Parse_Grammar_If_Needed 56|1205s29
+X 58 schema-simple_types.ads
+36K16*Simple_Types 56|32w13 32r38 58|311e24
+38I9*Simple_Type_Index<integer>
+39i4*No_Simple_Type_Index{38I9} 56|289r43 352r43 402r46 1079r37
+50E9*Whitespace_Restriction 56|223r20 58|50e64
+50n36*Preserve{50E9} 56|223r46
+110e7*Whitespace{50E9} 56|292r22
+233P9*Symbol_Htable_Access(38|44R9[226])
+237U14*Free 56|1097s7
+304U14*Normalize_Whitespace 56|307s10
+X 59 schema-validators.ads
+39K16*Validators 55|30w13 34r41 62r24 64r50 142r41 144r33 56|33w13 33r38
+. 90r24 151r50 1137r21 1192r20 59|918e22
+56R9*XML_Grammar<41|59R12[912]> 55|62r35 64r61 56|90r35 151r61
+73V13*Get_Symbol_Table{49|174R12} 56|104s39 106s16 114s45 134s18
+75U14*Set_Symbol_Table 56|112s13
+82r4*No_Grammar{56R9} 56|98r21 133r28 712r22
+104E9*Process_Contents_Type 56|657r25 977r25 59|104e77
+104n35*Process_Strict{104E9} 56|825r18 857r29
+104n51*Process_Lax{104E9} 56|820r18
+104n64*Process_Skip{104E9} 56|803r18 839r32 928r31
+160r7*Name{43|326R9} 56|732m48 990m18
+161b7*Closing{boolean} 56|732m30 989m18
+233A9*Block_Status(boolean)<230E9>
+247I9*Type_Index<integer> 56|230r15 465r29 478r31 515r31 600r29 660r21 747r21
+248i4*No_Type_Index{247I9} 56|287r31 349r22 608r29 890r31
+275R9*State_Data 56|229r15 484r47 494r47 518r22 554r19 771r31 776r22 866r17
+. 59|281e14
+276i7*Simple{247I9} 56|287r21 288r51 347r56 533r24 555m22 777m25 853r60 884r54
+. 890r21 898r46 959r46 1078r71
+277p7*Fixed{47|41P9} 56|269r30 274r74 557m22 557r39 779m25 779r42 879r30
+278p7*Default{47|41P9} 56|279r32 282r67 558m22 558r39 780m25 780r42
+279a7*Block{233A9} 56|535r60 559m22 559r39 781m25 781r42
+280b7*Nillable{boolean} 56|556m22 556r39 778m25 778r42 813r59 887r42
+289K12*Schema_State_Machines[45|50] 56|41r8
+299R9*Type_Descr 56|226r22 897r43 1069r22 59|318e14
+300r7*Name{43|326R9} 56|356r43 378r54 901r31 904r54
+308i7*Simple_Content{58|38I9} 56|289r25 291r55 352r25 363r40 368r40 402r28
+. 405r46 1079r19
+312b7*Mixed{boolean} 56|373r32 1080r26
+313b7*Is_Abstract{boolean} 56|900r28
+315i7*Complex_Content{45|52I9[289]} 56|646r42 753r25 756r37
+319P9*Type_Descr_Access(299R9) 56|466r29 601r29 643r26 659r21 746r21
+352K12*Schema_State_Machines_PP[45|315] 56|45r7
+354K12*Schema_State_Machines_Matchers[45|398] 56|42r8 44r27
+359P9*Schema_NFA_Access(358R9) 56|224r23 462r24 1067r24
+360R9*Schema_NFA_Matcher<45|405R12[354]> 55|144r44 59|892e17
+363U14*Do_Match 56|730s7 987s7
+364r7 Matcher{360R9} 56|731r10
+365r7 Sym{159R9} 56|732r10 989r10
+366b7 Success{boolean} 56|733r10 992r10
+367b7 Through_Any{boolean} 56|734r10 993r10
+368e7 Through_Process{104E9} 56|735r10 994r10
+378n28*Ref_Element{378E9} 56|810r35 823r35 830r35
+379n28*Ref_Type{378E9} 56|636r57
+383R9*Global_Reference 56|605r17 658r17 59|391e14
+386i32*Element{45|52I9[289]} 56|813r50 852r70 853r51
+387i32*Typ{247I9} 56|642r37 643r71 647r40
+392r4*No_Global_Reference{383R9} 56|638r26 812r27 832r26 840r29
+405K12*Reference_HTables[38|42] 56|635r24 808r24 821r24 828r24
+412P9*Reference_HTable(38|44R9[405])
+417V13*Get_NFA{359P9} 56|224s44 291s22 444s21 696s14 726s25 755s31 763s19
+. 911s22 1067s45
+418V13*Get_References{412P9} 56|636s19 809s19 822s19 829s19
+428V13*Get_Simple_Type{58|105R9} 56|290s33
+435V13*Get_Type_Descr(299R9) 56|288s25 350s25 643s45 898s25 1078s19
+447H9*Abstract_Validation_Reader<43|42R9> 55|34r52 142r52 56|1137r32 1192r31
+. 59|621e14
+453p7*Id_Table{58|233P9} 56|1097m20
+456r7*Grammar{56R9} 56|120m14 133r17 134r43 153r21 224r61 291r39 444r32 636r37
+. 696r25 712r12 726r36 755r42 763r30 809r37 822r37 829r37 911r33 1067r56
+541p7*Nil{47|41P9} 56|922r61
+543p7*No_Namespace_Schema_Location{47|41P9} 56|459r42
+576p7*S_Schema{47|41P9} 56|701r62
+579p7*Schema_Location{47|41P9} 56|461r42
+601p7*Typ{47|41P9} 56|604r45
+614p7*XML_Instance_URI{47|41P9} 56|459r22 461r22 604r25 922r41
+615p7*XML_Schema_URI{47|41P9} 56|701r35
+620p7*Xmlns{47|41P9} 56|141m17
+625U14*Free 56|1192s7
+628U25*Initialize_Symbols<43|695p14> 56|1116s7
+632U14*Validation_Error 56|242R13 385R19 415R22 639R19 706R10 751R16 787R10
+. 833R19 902R25 906R25 937R19 946R19 1001R10 1140s10
+636p7 Except{5|48P9} 56|709r13
+642V13*Get_Error_Message{104|41A12}
+646U14*Check_Substitution_Group_OK 56|531s16
+649r7 Loc{39|41R9} 56|534r19
+650a7 Element_Block{233A9} 56|535r19
+671U14*Validate_Simple_Type 56|362s22 367s22
+675r7 Loc{39|41R9} 56|365r25 370r25
+689V13*Equal{boolean} 56|403s34
+690p7 Reader(447R9) 56|404r25
+691i7 Simple_Type{58|38I9} 56|405r25
+692p7 Ch1{47|41P9} 56|406r25
+693a7 Ch2{104|41A12} 56|407r25
+697U14*Validate_Attributes 56|910s19
+702i7 Is_Nil{integer} 56|914r22
+757U14*Initialize_Grammar 56|1117s7
+815V13*To_QName{104|41A12} 56|356s27 378s38 632s24 639s58 670s43 752s45 789s15
+. 835s24 847s32 904s38
+818V13*Simple_Nested{45|52I9[289]} 56|561s43 764s35 958s45
+821U14*Add_Notation 56|444s7
+X 62 system.ads
+67M9*Address
+X 74 s-memory.ads
+53V13*Alloc{62|67M9} 103i<c,__gnat_malloc>22
+68U14*Free 104i<c,__gnat_free>22
+76V13*Realloc{62|67M9} 105i<c,__gnat_realloc>22
+X 75 s-os_lib.ads
+538V13*Normalize_Pathname{string} 56|174s13
+539a7 Name{string} 56|175r17
+540a7 Directory{string} 56|176r17
+541b7 Resolve_Links{boolean} 56|178r17
+X 83 s-stalib.ads
+84P9*Exception_Data_Ptr(83R9)
+X 84 s-stalib.adb
+89U14 Break_Start 90i<c,__gnat_break_start>22
+X 101 unicode.ads
+111K9*Unicode 55|29r6 146r26 56|26w6 26r29 27r6 27r29 49r17 72r17 75r17 78r23
+. 79r23 80r23 436r23 437r23 438r23 1017r17 1052r17 1063r17 101|157e12
+X 104 unicode-ces.ads
+35K17*CES 55|29w14 146r34 56|27w14 27r37 49r25 72r25 75r25 78r31 79r31 80r31
+. 436r31 437r31 438r31 1017r25 1052r25 1063r25 104|171e16
+41A12*Byte_Sequence{string}<integer> 56|49r29 72r29 75r29 78r35 79r35 80r35
+. 193r32 194r32 436r35 437r35 438r35 612r33 1017r29 1052r29 1063r29
+42P9*Byte_Sequence_Access(41A12) 55|146r38 56|1019r13
+43P9*Cst_Byte_Sequence_Access(41A12)
+46U14*Free[100|20] 56|1041s10 1099s7
+

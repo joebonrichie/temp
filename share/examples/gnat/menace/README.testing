@@ -1,0 +1,127 @@
+		       G N A T   E X A M P L E S
+		       =========================
+
+
+In order to compile the examples, make sure that the 'gprbuild' command is
+in your path.
+
+Invocation
+----------
+
+In order to build the three executables provided in this example, you need to
+use the "menace.gpr" project file. On the command-line, do the following:
+
+  $ gprbuild -P menace
+
+Alternatively, in GPS, click on "Build", and then "Make", and then you can
+select which of the three example main programs will be built.  The executable
+"play" is the primary program.
+
+Features illustrated
+---------------
+
+* This example is a simulation of the Matchbox Educable Naughts and Crosses
+  Engine (MENACE) machine built by Donald Michie.  "Naughts and Crosses" is the
+  UK name for the game known as "Tic Tac Toe" in the US.  Michie used 300
+  matchboxes and colored beads to build his game.  We use a computer but the
+  design of the software reflects his approach.
+
+  A key word in MENACE is "Educable".  MENACE engines learn from playing games
+  and thus play improves as more games are played.  MENACE is, therefore, an
+  example of machine learning.
+
+  An engine is always player X in any game, and consists of a set of
+  matchboxes, one matchbox per game state that player X can encounter. On
+  each move by X, the engine finds the matchbox corresponding to the
+  current state of the game and randomly selects a colored bead from the
+  box. The color of the bead corresponds to the positions on the game
+  board (1 though 9 positions, hence 9 colors) and thus indicates the move
+  to be made. When a game ends the engine analyzes the results and
+  "rewards" or "punishes" the moves made by respectively adding or
+  subtracting beads of the color selected in each matchbox opened during
+  that game. Thus, in any subsequent game, the more advantageous moves are
+  more likely to be used again in that game state. The machine therefore
+  "learns" to play. In our simulation the analyzed matchboxes are saved to
+  a file so that the engine will retain the feedback from prior games
+  (i.e., they do not "forget" what the learned from prior play).
+
+* This example consists of one primary program allowing a human to
+  interactively create and/or play a selected engine, and two auxiliary
+  programs.
+
+  The primary program is "play".  This program will allow you to create new
+  named engines or to play existing engines.  If you specify the name of an
+  existing engine on the command line when invoking "play", that engine will be
+  loaded as your opponent.  An error message is displayed if the file
+  representing that engine cannot be located.  Alternatively, simply invoke
+  "play" without arguments and you will be prompted for what you want to do, at
+  which point you can either specify an existing engine to play or elect to
+  create a new one, or to quit.
+
+  Once a game begins you must finish the game, but you can always quit after
+  any game completes.  The program shows the current game interactively as play
+  progresses.  Moves taken by player X appear as an 'X', those by player O
+  appear as 'O', and those not taken by either player appear as blanks.  Moves
+  are specified by their position number, when prompted, and correspond to the
+  following positions on the board:
+
+     1 | 2 | 3
+    ---+---+---
+     4 | 5 | 6
+    ---+---+---
+     7 | 8 | 9
+
+  Note that you do not press the Enter key when answering most prompts,
+  including when specifying the move position numbers.
+
+* The first auxiliary program, named "train", allows you to train MENACE
+  engines in case you don't want to take the time to train them by playing them
+  yourself.  You specify the name of the engine as a command line parameter.
+  If that engine does not exist it will be created automatically.  You also
+  must specify the number of games to be played.  In addition, you have the
+  option to specify the initial move to be made by the engine.  (If you do not
+  specify the initial move it is chosen randomly.) A summary is displayed after
+  the games are completed, showing the number of games won and lost by the
+  engine, and the number of draws (ties).  The training "coach" implements a
+  good set of strategies so the engines learn fairly quickly.
+
+  Use of the "train" program is entirely optional.  Once trained to your
+  satisfaction, you can use the "play" program to play against them.  You can
+  further train an engine at any time.
+
+* The second auxiliary program, named "display", displays the content of an
+  engine file.  You specify the name of the engine on the command line.
+
+  Michie built a little cardboard slot into each matchbox, such that when the
+  box was shaken a single randomly selected bead would come out.  We use a
+  generic package that provides a non-uniformly-distributed random value, in
+  this instance a value representing bead colors, based on weights controlled
+  by the reenforcement routines.
+
+  Michie used approximately 300 matchboxes, with one state per matchbox.
+  This small number was achieved by eliminating all duplicates and,
+  especially, by eliminating those states that are reflections and
+  rotations of other states. The work necessary to do so would be
+  justified because he was working with actual, physical matchboxes, so
+  locating the matchbox corresponding to the state of a game would be
+  significantly easier with fewer total matchboxes to search. In our case,
+  using a computer to represent the machine, we need not spend the time to
+  greatly reduce the number of matchboxes player X can encounter because
+  we can search this relatively small number of short strings quickly and
+  easily. If we did reduce the total number we would have to take the
+  transformations into account when making each move, so it seems of
+  little value to do so. Thus, we have 2423 states (hence matchboxes),
+  representing the number of states that player X can encounter in a game,
+  omitting duplicates and games already won.
+
+  Each of the 2,423 matchboxes in the engine are shown by "display", including
+  the matchbox's state number and state image (as a sequence of 'X', 'O', and
+  '-' characters), the weights for the weighted random color generator, and the
+  total weight for the generator.
+
+* Note that we pre-compute the 2,423 states as strings and store them in a file
+  named "precomputed_states.txt", for the sake of the initialization time for
+  both "play" and "train".  However, if that file cannot be located, we
+  re-compute the states and recreate the file.
+
+

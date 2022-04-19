@@ -1,0 +1,1616 @@
+V "GNAT Lib v2021"
+A -O2
+A -gnatA
+A -gnatn
+A -gnatwa
+A -gnatwC
+A -gnatwJ
+A -mtune=generic
+A -march=x86-64
+P SS ZX
+
+RN
+RV NO_ALLOCATORS
+RV NO_CALENDAR
+RV NO_DELAY
+RV NO_DISPATCH
+RV NO_DISPATCHING_CALLS
+RV NO_EXCEPTION_HANDLERS
+RV NO_EXCEPTION_PROPAGATION
+RV NO_EXCEPTIONS
+RV NO_FINALIZATION
+RV NO_IO
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_LOCAL_ALLOCATORS
+RV NO_NESTED_FINALIZATION
+RV NO_RECURSION
+RV NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_UNCHECKED_ACCESS
+RV NO_UNCHECKED_CONVERSION
+RV NO_UNCHECKED_DEALLOCATION
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_ATTRIBUTES
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLICIT_LOOPS
+RV NO_ELABORATION_CODE
+
+U gnatcoll.vfs%b	gnatcoll-vfs.adb	96f5aac0 OO PK IU
+W ada%s			ada.ads			ada.ali
+W ada.calendar%s	a-calend.adb		a-calend.ali
+W ada.characters%s	a-charac.ads		a-charac.ali
+W ada.characters.handling%s  a-chahan.adb	a-chahan.ali
+W ada.exceptions%s	a-except.adb		a-except.ali
+W ada.numerics%s	a-numeri.ads		a-numeri.ali
+W ada.numerics.discrete_random%s
+W ada.strings%s		a-string.ads		a-string.ali
+W ada.strings.hash%s	a-strhas.adb		a-strhas.ali
+W ada.strings.hash_case_insensitive%s  a-shcain.adb  a-shcain.ali
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+W ada.tags%s		a-tags.adb		a-tags.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+W ada.unchecked_conversion%s
+W gnat%s		gnat.ads		gnat.ali
+W gnat.heap_sort%s	g-heasor.adb		g-heasor.ali
+W gnatcoll%s		gnatcoll.ads		gnatcoll.ali
+W gnatcoll.io%s		gnatcoll-io.adb		gnatcoll-io.ali
+W gnatcoll.io.remote%s	gnatcoll-io-remote.adb	gnatcoll-io-remote.ali
+W gnatcoll.path%s	gnatcoll-path.adb	gnatcoll-path.ali
+W gnatcoll.remote%s	gnatcoll-remote.ads	gnatcoll-remote.ali
+W gnatcoll.remote.db%s	gnatcoll-remote-db.adb	gnatcoll-remote-db.ali
+W gnatcoll.utils%s	gnatcoll-utils.adb	gnatcoll-utils.ali
+W gnatcoll.vfs_types%s	gnatcoll-vfs_types.ads	gnatcoll-vfs_types.ali
+W system%s		system.ads		system.ali
+Z system.compare_array_unsigned_8%s  s-carun8.adb  s-carun8.ali
+Z system.img_int%s	s-imgint.ads		s-imgint.ali
+Z system.random_numbers%s  s-rannum.adb		s-rannum.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+Z system.soft_links%s	s-soflin.adb		s-soflin.ali
+Z system.standard_library%s  s-stalib.adb	s-stalib.ali
+Z system.storage_elements%s  s-stoele.adb	s-stoele.ali
+Z system.storage_pools%s  s-stopoo.adb		s-stopoo.ali
+Z system.storage_pools.subpools%s  s-stposu.adb	s-stposu.ali
+
+U gnatcoll.vfs%s	gnatcoll-vfs.ads	f3e01347 BN EE OO PF PK IU
+W ada%s			ada.ads			ada.ali
+W ada.calendar%s	a-calend.adb		a-calend.ali
+W ada.containers%s	a-contai.ads		a-contai.ali
+Z ada.exceptions%s	a-except.adb		a-except.ali
+W ada.finalization%s	a-finali.ads		a-finali.ali
+Z ada.streams%s		a-stream.adb		a-stream.ali
+W ada.strings%s		a-string.ads		a-string.ali
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+W ada.strings.unbounded%s  a-strunb.adb		a-strunb.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W ada.unchecked_deallocation%s
+W gnat%s		gnat.ads		gnat.ali
+W gnat.os_lib%s		g-os_lib.ads		g-os_lib.ali
+W gnat.strings%s	g-string.ads		g-string.ali
+W gnatcoll%s		gnatcoll.ads		gnatcoll.ali
+W gnatcoll.io%s		gnatcoll-io.adb		gnatcoll-io.ali
+W gnatcoll.io.native%s	gnatcoll-io-native.adb	gnatcoll-io-native.ali
+W gnatcoll.strings%s	gnatcoll-strings.ads	gnatcoll-strings.ali
+W interfaces%s		interfac.ads		interfac.ali
+W interfaces.c%s	i-c.adb			i-c.ali
+W interfaces.c.strings%s  i-cstrin.adb		i-cstrin.ali
+Z system%s		system.ads		system.ali
+Z system.exception_table%s  s-exctab.adb	s-exctab.ali
+Z system.finalization_masters%s  s-finmas.adb	s-finmas.ali
+Z system.pool_global%s	s-pooglo.adb		s-pooglo.ali
+Z system.put_images%s	s-putima.adb		s-putima.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+Z system.soft_links%s	s-soflin.adb		s-soflin.ali
+Z system.standard_library%s  s-stalib.adb	s-stalib.ali
+Z system.storage_elements%s  s-stoele.adb	s-stoele.ali
+Z system.stream_attributes%s  s-stratt.adb	s-stratt.ali
+
+D ada.ads		20210520051131 76789da1 ada%s
+D a-calend.ads		20210520051128 474d9720 ada.calendar%s
+D a-calfor.ads		20210520051128 0f4707d1 ada.calendar.formatting%s
+D a-catizo.ads		20210520051128 eaa56756 ada.calendar.time_zones%s
+D a-charac.ads		20210520051128 2d3ec45b ada.characters%s
+D a-chacon.ads		20210520051128 5b23f5eb ada.characters.conversions%s
+D a-chahan.ads		20210520051128 0ce1b450 ada.characters.handling%s
+D a-chahan.adb		20210520051128 9621beac ada.characters.handling%b
+D a-chlat1.ads		20210520051128 66457d31 ada.characters.latin_1%s
+D a-comlin.ads		20210520051128 4aa66568 ada.command_line%s
+D a-contai.ads		20210520051128 61e5e089 ada.containers%s
+D a-envvar.ads		20210520051128 00080416 ada.environment_variables%s
+D a-except.ads		20210520051128 946f3014 ada.exceptions%s
+D a-finali.ads		20210520051128 bf4f806b ada.finalization%s
+D a-ioexce.ads		20210520051128 e4a01f64 ada.io_exceptions%s
+D a-numeri.ads		20210520051129 84bea7a3 ada.numerics%s
+D a-nudira.ads		20210520051129 5984dff3 ada.numerics.discrete_random%s
+D a-nudira.adb		20210520051129 0bfd6ec4 ada.numerics.discrete_random%b
+D a-stream.ads		20210520051129 119b8fb3 ada.streams%s
+D a-string.ads		20210520051129 90ac6797 ada.strings%s
+D a-strfix.ads		20210520051129 aeacf44c ada.strings.fixed%s
+D a-strhas.ads		20210520051129 c71c2a52 ada.strings.hash%s
+D a-shcain.ads		20210520051129 08af52df ada.strings.hash_case_insensitive%s
+D a-strmap.ads		20210520051129 5a88892a ada.strings.maps%s
+D a-stmaco.ads		20210520051129 1c0e5368 ada.strings.maps.constants%s
+D a-strsea.ads		20210520051129 b9bc90ba ada.strings.search%s
+D a-sttebu.ads		20210520051129 18209c64 ada.strings.text_buffers%s
+D a-strunb.ads		20210520051129 03325227 ada.strings.unbounded%s
+D a-strunb.adb		20210520051129 3b950306 ada.strings.unbounded%b
+D a-stuten.ads		20210520051129 808c40ad ada.strings.utf_encoding%s
+D a-tags.ads		20210520051130 9eaa38c6 ada.tags%s
+D a-textio.ads		20210520051130 aef4d56d ada.text_io%s
+D a-unccon.ads		20210520051130 0e9b276f ada.unchecked_conversion%s
+D a-uncdea.ads		20210520051130 c3a8ac65 ada.unchecked_deallocation%s
+D gnat.ads		20210520051132 b5988c27 gnat%s
+D g-calend.ads		20210520051131 cad86fa7 gnat.calendar%s
+D g-catiio.ads		20210520051131 6f0f657f gnat.calendar.time_io%s
+D g-casuti.ads		20210520051131 83c53f24 gnat.case_util%s
+D g-expect.ads		20210520051131 e4246c0f gnat.expect%s
+D g-heasor.ads		20210520051131 fb287677 gnat.heap_sort%s
+D g-os_lib.ads		20210520051131 0db74523 gnat.os_lib%s
+D g-regpat.ads		20210520051131 b85d88ef gnat.regpat%s
+D g-string.ads		20210520051131 c6abc540 gnat.strings%s
+D gnatcoll.ads		20210519051041 6a5da479 gnatcoll%s
+D gnatcoll-atomic.ads	20210519051041 a760a918 gnatcoll.atomic%s
+D gnatcoll-atomic.adb	20210519051041 d76879ba gnatcoll.atomic%b
+D gnatcoll-io.ads	20210519051041 40b00e79 gnatcoll.io%s
+D gnatcoll-io-native.ads  20210519051041 60c7703b gnatcoll.io.native%s
+D gnatcoll-io-remote.ads  20210519051041 dbadffe6 gnatcoll.io.remote%s
+D gnatcoll-os.ads	20210519051041 399a6f15 gnatcoll.os%s
+D gnatcoll-path.ads	20210519051041 44783065 gnatcoll.path%s
+D gnatcoll-path.adb	20210519051041 14c18322 gnatcoll.path%b
+D gnatcoll-refcount.ads	20210519051041 b4dda25c gnatcoll.refcount%s
+D gnatcoll-remote.ads	20210519051041 0702f81b gnatcoll.remote%s
+D gnatcoll-remote-db.ads  20210519051041 359f4135 gnatcoll.remote.db%s
+D gnatcoll-storage_pools.ads  20210519051041 f82e283b gnatcoll.storage_pools%s
+D gnatcoll-storage_pools-headers.ads  20210519051041 968b2c2e gnatcoll.storage_pools.headers%s
+D gnatcoll-string_builders.ads  20210519051041 506daf4b gnatcoll.string_builders%s
+D gnatcoll-strings.ads	20210519051041 014a3fb6 gnatcoll.strings%s
+D gnatcoll-strings.ads	20210519051041 014a3fb6 gnatcoll.strings%s
+D gnatcoll-strings_impl.ads  20210519051041 660cba3c gnatcoll.strings_impl%s
+D gnatcoll-strings_impl.adb  20210519051041 4bac4314 gnatcoll.strings_impl%b
+D gnatcoll-utils.ads	20210519051041 529681bc gnatcoll.utils%s
+D gnatcoll-utils.adb	20210519051041 0e1eed04 gnatcoll.utils%b
+D gnatcoll-vfs.ads	20210519051041 1efc72f6 gnatcoll.vfs%s
+D gnatcoll-vfs.adb	20210519051041 0d1af567 gnatcoll.vfs%b
+D gnatcoll-vfs_types.ads  20210519051041 14be4a8d gnatcoll.vfs_types%s
+D interfac.ads		20210520051132 edec285f interfaces%s
+D i-c.ads		20210520051132 d9beded9 interfaces.c%s
+D i-cstrin.ads		20210520051132 341d0ddf interfaces.c.strings%s
+D i-cstrea.ads		20210520051132 e53d8b8e interfaces.c_streams%s
+D system.ads		20210520051135 a2da961d system%s
+D s-arit64.ads		20210520051132 5f88d2b0 system.arith_64%s
+D s-atocou.ads		20210520051132 b45c2d8d system.atomic_counters%s
+D s-atocou.adb		20210520051132 b65612c0 system.atomic_counters%b
+D s-casuti.ads		20210520051132 3fd5b654 system.case_util%s
+D s-carun8.ads		20210520051132 a903718d system.compare_array_unsigned_8%s
+D s-crtl.ads		20210520051132 0ebbdb71 system.crtl%s
+D s-exctab.ads		20210520051132 54135002 system.exception_table%s
+D s-exctab.adb		20210520051132 c756f391 system.exception_table%b
+D s-ficobl.ads		20210520051132 078245e4 system.file_control_block%s
+D s-finmas.ads		20210520051132 1ab4dba8 system.finalization_masters%s
+D s-finroo.ads		20210520051132 4ff27390 system.finalization_root%s
+D s-imagei.ads		20210520051133 0d3f86a7 system.image_i%s
+D s-imageu.ads		20210520051133 525c30c6 system.image_u%s
+D s-imgint.ads		20210520051133 bdb6f5ec system.img_int%s
+D s-imguns.ads		20210520051133 0e4da2ac system.img_uns%s
+D s-memory.ads		20210520051133 597d6634 system.memory%s
+D s-os_lib.ads		20210520051133 93b69309 system.os_lib%s
+D s-parame.ads		20210520051134 4752c4cb system.parameters%s
+D s-pooglo.ads		20210520051134 ede33ef8 system.pool_global%s
+D s-putima.ads		20210520051134 4e095881 system.put_images%s
+D s-rannum.ads		20210520051134 c3978523 system.random_numbers%s
+D s-rannum.adb		20210520051134 2631917b system.random_numbers%b
+D s-ransee.ads		20210520051134 01a57b33 system.random_seed%s
+D s-regpat.ads		20210520051134 825a9b7f system.regpat%s
+D s-secsta.ads		20210520051134 9b3ab94b system.secondary_stack%s
+D s-soflin.ads		20210520051134 a7318a92 system.soft_links%s
+D s-stache.ads		20210520051134 a37c21ec system.stack_checking%s
+D s-stalib.ads		20210520051134 472fbca8 system.standard_library%s
+D s-stalib.adb		20210520051134 977290bf system.standard_library%b
+D s-stoele.ads		20210520051134 2dc34a04 system.storage_elements%s
+D s-stoele.adb		20210520051134 ed88f8fb system.storage_elements%b
+D s-stopoo.ads		20210520051134 e9fa2dd8 system.storage_pools%s
+D s-stposu.ads		20210520051134 e251976f system.storage_pools.subpools%s
+D s-stratt.ads		20210520051134 7bdda3fa system.stream_attributes%s
+D s-stratt.adb		20210520051134 fc996108 system.stream_attributes%b
+D s-statxd.ads		20210520051134 b54789f6 system.stream_attributes.xdr%s
+D s-strhas.ads		20210520051134 269cd894 system.string_hash%s
+D s-strhas.adb		20210520051134 2e038444 system.string_hash%b
+D s-string.ads		20210520051134 8fe54fb7 system.strings%s
+D s-ststop.ads		20210520051134 5fbf1b38 system.strings.stream_ops%s
+D s-traent.ads		20210520051134 26a8d361 system.traceback_entries%s
+D s-unstyp.ads		20210520051134 2b077493 system.unsigned_types%s
+D s-vafi64.ads		20210520051134 2ff3dc11 system.val_fixed_64%s
+D s-valuns.ads		20210520051134 dac7b45d system.val_uns%s
+D s-valuef.ads		20210520051134 44d93748 system.value_f%s
+D s-valueu.ads		20210520051134 7b8fccf5 system.value_u%s
+D s-wchcon.ads		20210520051135 1b7d22d2 system.wch_con%s
+D unchconv.ads		20210520051135 ca2f9e18 unchecked_conversion%s
+G a e
+G c Z s b [Oadd gnatcoll__vfs 73 13 none]
+G c Z s b [Oadd gnatcoll__vfs 75 13 none]
+G c Z s b [equal gnatcoll__vfs 77 13 none]
+G c Z s s [free gnatcoll__vfs 79 14 none]
+G c Z s b [symbolic_links_support gnatcoll__vfs 111 14 none]
+G c Z s b [create gnatcoll__vfs 141 13 none]
+G c Z s b [create_from_dir gnatcoll__vfs 152 13 none]
+G c Z s b [create_from_base gnatcoll__vfs 160 13 none]
+G c Z s b [create_from_utf8 gnatcoll__vfs 169 13 none]
+G c Z s b [locate_on_path gnatcoll__vfs 177 13 none]
+G c Z s b [join gnatcoll__vfs 182 13 none]
+G c Z s b [join gnatcoll__vfs 184 13 none]
+G c Z s b [Odivide gnatcoll__vfs 186 13 none]
+G c Z s b [Odivide gnatcoll__vfs 188 13 none]
+G c Z s b [Odivide gnatcoll__vfs 190 13 none]
+G c Z s b [base_name gnatcoll__vfs 214 13 none]
+G c Z s b [base_dir_name gnatcoll__vfs 221 13 none]
+G c Z s b [full_name gnatcoll__vfs 224 13 none]
+G c Z s b [full_name gnatcoll__vfs 236 13 none]
+G c Z s b [full_name_hash gnatcoll__vfs 241 13 none]
+G c Z s b [file_extension gnatcoll__vfs 248 13 none]
+G c Z s b [dir_name gnatcoll__vfs 257 13 none]
+G c Z s b [display_full_name gnatcoll__vfs 261 13 none]
+G c Z s b [display_base_name gnatcoll__vfs 266 13 none]
+G c Z s b [display_dir_name gnatcoll__vfs 271 13 none]
+G c Z s b [display_base_dir_name gnatcoll__vfs 274 13 none]
+G c Z s b [unix_style_full_name gnatcoll__vfs 277 13 none]
+G c Z s b [relative_path gnatcoll__vfs 288 13 none]
+G c Z s b [has_suffix gnatcoll__vfs 294 13 none]
+G c Z s b [to_remote gnatcoll__vfs 298 13 none]
+G c Z s b [to_local gnatcoll__vfs 303 13 none]
+G c Z s b [to_arg gnatcoll__vfs 309 13 none]
+G c Z s b [is_local gnatcoll__vfs 320 13 none]
+G c Z s b [get_host gnatcoll__vfs 323 13 none]
+G c Z s b [is_regular_file gnatcoll__vfs 327 13 none]
+G c Z s b [size gnatcoll__vfs 331 13 none]
+G c Z s b [Oeq gnatcoll__vfs 334 24 none]
+G c Z s b [Olt gnatcoll__vfs 337 13 none]
+G c Z s b [is_parent gnatcoll__vfs 341 13 none]
+G c Z s b [is_readable gnatcoll__vfs 345 13 none]
+G c Z s b [is_writable gnatcoll__vfs 348 13 none]
+G c Z s b [is_directory gnatcoll__vfs 351 13 none]
+G c Z s b [is_symbolic_link gnatcoll__vfs 354 13 none]
+G c Z s b [is_absolute_path gnatcoll__vfs 357 13 none]
+G c Z s b [set_writable gnatcoll__vfs 361 14 none]
+G c Z s b [set_readable gnatcoll__vfs 365 14 none]
+G c Z s b [file_time_stamp gnatcoll__vfs 370 13 none]
+G c Z s b [normalize_path gnatcoll__vfs 376 14 none]
+G c Z s b [unchecked_free gnatcoll__vfs 390 14 none]
+G c Z s b [sort gnatcoll__vfs 394 14 none]
+G c Z s b [append gnatcoll__vfs 397 14 none]
+G c Z s b [append gnatcoll__vfs 398 14 none]
+G c Z s b [prepend gnatcoll__vfs 399 14 none]
+G c Z s b [remove gnatcoll__vfs 403 14 none]
+G c Z s b [to_path gnatcoll__vfs 406 13 none]
+G c Z s b [from_path gnatcoll__vfs 410 13 none]
+G c Z s b [locate_on_path gnatcoll__vfs 413 13 none]
+G c Z s b [greatest_common_path gnatcoll__vfs 419 13 none]
+G c Z s b [locate_regular_file gnatcoll__vfs 424 13 none]
+G c Z s b [rename gnatcoll__vfs 433 14 none]
+G c Z s b [copy gnatcoll__vfs 439 14 none]
+G c Z s b [delete gnatcoll__vfs 445 14 none]
+G c Z s b [read_file gnatcoll__vfs 448 13 none]
+G c Z s b [read_file gnatcoll__vfs 449 13 none]
+G c Z s b [dir gnatcoll__vfs 464 13 none]
+G c Z s b [get_current_dir gnatcoll__vfs 470 13 none]
+G c Z s b [get_tmp_directory gnatcoll__vfs 473 13 none]
+G c Z s b [get_home_directory gnatcoll__vfs 477 13 none]
+G c Z s b [get_logical_drives gnatcoll__vfs 481 13 none]
+G c Z s b [ensure_directory gnatcoll__vfs 486 14 none]
+G c Z s b [get_root gnatcoll__vfs 490 13 none]
+G c Z s b [get_parent gnatcoll__vfs 493 13 none]
+G c Z s b [sub_dir gnatcoll__vfs 496 13 none]
+G c Z s b [change_dir gnatcoll__vfs 500 14 none]
+G c Z s b [make_dir gnatcoll__vfs 504 14 none]
+G c Z s b [read_dir gnatcoll__vfs 511 13 none]
+G c Z s b [read_dir_recursive gnatcoll__vfs 522 13 none]
+G c Z s b [remove_dir gnatcoll__vfs 532 14 none]
+G c Z s b [read_files_from_dirs gnatcoll__vfs 539 13 none]
+G c Z s b [open_dir gnatcoll__vfs 547 13 none]
+G c Z s b [read gnatcoll__vfs 550 14 none]
+G c Z s b [close gnatcoll__vfs 553 14 none]
+G c Z s b [Oeq gnatcoll__vfs 571 13 none]
+G c Z s b [write_file gnatcoll__vfs 574 13 none]
+G c Z s b [error_string gnatcoll__vfs 588 13 none]
+G c Z s b [write gnatcoll__vfs 592 14 none]
+G c Z s b [write gnatcoll__vfs 595 14 none]
+G c Z s b [close gnatcoll__vfs 600 14 none]
+G c Z s b [convert gnatcoll__vfs 608 13 none]
+G c Z s b [convert gnatcoll__vfs 610 13 none]
+G c Z s b [finalize gnatcoll__vfs 630 25 none]
+G c Z s b [adjust gnatcoll__vfs 631 25 none]
+G c Z s s [virtual_fileDA gnatcoll__vfs 625 9 none]
+G c Z s s [virtual_fileDF gnatcoll__vfs 625 9 none]
+G c Z s s [virtual_fileIP gnatcoll__vfs 625 9 none]
+G c Z s s [writable_fileDI gnatcoll__vfs 633 9 none]
+G c Z s s [writable_fileDA gnatcoll__vfs 633 9 none]
+G c Z s s [writable_fileDF gnatcoll__vfs 633 9 none]
+G c Z s s [writable_fileIP gnatcoll__vfs 633 9 none]
+G c Z s s [file_arrayIP gnatcoll__vfs 387 9 none]
+G c Z s s [file_arrayDI gnatcoll__vfs 387 9 none]
+G c Z s s [file_arrayDA gnatcoll__vfs 387 9 none]
+G c Z s s [file_arrayDF gnatcoll__vfs 387 9 none]
+G c Z s s [virtual_dirDI gnatcoll__vfs 650 9 none]
+G c Z s s [virtual_dirDA gnatcoll__vfs 650 9 none]
+G c Z s s [virtual_dirDF gnatcoll__vfs 650 9 none]
+G c Z s s [virtual_dirIP gnatcoll__vfs 650 9 none]
+G c Z b b [Oadd gnatcoll__vfs 54 13 none]
+G c Z b b [Oadd gnatcoll__vfs 55 13 none]
+G c Z b b [Oadd gnatcoll__vfs 56 13 none]
+G c Z b b [Oadd gnatcoll__vfs 63 13 none]
+G c Z b b [ensure_normalized gnatcoll__vfs 66 14 none]
+G r c none [equal gnatcoll__vfs 77 13 none] [local_fs gnatcoll__path 35 13 none]
+G r c none [equal gnatcoll__vfs 77 13 none] [is_case_sensitive gnatcoll__path 39 13 none]
+G r c none [equal gnatcoll__vfs 77 13 none] [equal gnatcoll__utils 51 13 none]
+G r c none [create gnatcoll__vfs 141 13 none] [ref gnatcoll__io 65 14 none]
+G r c none [create gnatcoll__vfs 141 13 none] [local_fs gnatcoll__path 35 13 none]
+G r c none [create gnatcoll__vfs 141 13 none] [is_absolute_path gnatcoll__path 62 13 none]
+G r c none [create gnatcoll__vfs 141 13 none] [normalize gnatcoll__path 141 13 none]
+G r c none [create gnatcoll__vfs 141 13 none] [current_dir gnatcoll__io__native 36 13 none]
+G r c none [create gnatcoll__vfs 141 13 none] [unref gnatcoll__io 66 14 none]
+G r c none [create gnatcoll__vfs 141 13 none] [current_dir gnatcoll__io__remote 38 13 none]
+G r c none [create gnatcoll__vfs 141 13 none] [is_dir_name gnatcoll__path 123 13 none]
+G r c none [create gnatcoll__vfs 141 13 none] [ensure_directory gnatcoll__path 129 13 none]
+G r c none [create gnatcoll__vfs 141 13 none] [free gnatcoll__vfs_types 31 14 none]
+G r c none [create gnatcoll__vfs 141 13 none] [get_host gnatcoll__io__remote 49 13 none]
+G r c none [create gnatcoll__vfs 141 13 none] [ensure_initialized gnatcoll__io__remote 45 14 none]
+G r c none [create gnatcoll__vfs 141 13 none] [from_unix gnatcoll__path 89 13 none]
+G r c none [create gnatcoll__vfs 141 13 none] [create gnatcoll__io__native 30 13 none]
+G r c none [create gnatcoll__vfs 141 13 none] [create gnatcoll__io__remote 33 13 none]
+G r c none [create_from_dir gnatcoll__vfs 152 13 none] [is_dir_name gnatcoll__path 123 13 none]
+G r c none [create_from_dir gnatcoll__vfs 152 13 none] [ensure_directory gnatcoll__path 129 13 none]
+G r c none [create_from_dir gnatcoll__vfs 152 13 none] [free gnatcoll__vfs_types 31 14 none]
+G r c none [create_from_dir gnatcoll__vfs 152 13 none] [normalize gnatcoll__path 141 13 none]
+G r c none [create_from_dir gnatcoll__vfs 152 13 none] [get_host gnatcoll__io__remote 49 13 none]
+G r c none [create_from_dir gnatcoll__vfs 152 13 none] [ensure_initialized gnatcoll__io__remote 45 14 none]
+G r c none [create_from_dir gnatcoll__vfs 152 13 none] [from_unix gnatcoll__path 89 13 none]
+G r c none [create_from_dir gnatcoll__vfs 152 13 none] [ref gnatcoll__io 65 14 none]
+G r c none [create_from_base gnatcoll__vfs 160 13 none] [local_fs gnatcoll__path 35 13 none]
+G r c none [create_from_base gnatcoll__vfs 160 13 none] [get_server gnatcoll__remote__db 84 13 none]
+G r c none [create_from_base gnatcoll__vfs 160 13 none] [from_unix gnatcoll__path 89 13 none]
+G r c none [create_from_base gnatcoll__vfs 160 13 none] [is_absolute_path gnatcoll__path 62 13 none]
+G r c none [create_from_base gnatcoll__vfs 160 13 none] [ref gnatcoll__io 65 14 none]
+G r c none [create_from_base gnatcoll__vfs 160 13 none] [normalize gnatcoll__path 141 13 none]
+G r c none [create_from_base gnatcoll__vfs 160 13 none] [current_dir gnatcoll__io__native 36 13 none]
+G r c none [create_from_base gnatcoll__vfs 160 13 none] [unref gnatcoll__io 66 14 none]
+G r c none [create_from_base gnatcoll__vfs 160 13 none] [current_dir gnatcoll__io__remote 38 13 none]
+G r c none [create_from_base gnatcoll__vfs 160 13 none] [is_dir_name gnatcoll__path 123 13 none]
+G r c none [create_from_base gnatcoll__vfs 160 13 none] [ensure_directory gnatcoll__path 129 13 none]
+G r c none [create_from_base gnatcoll__vfs 160 13 none] [free gnatcoll__vfs_types 31 14 none]
+G r c none [create_from_base gnatcoll__vfs 160 13 none] [get_host gnatcoll__io__remote 49 13 none]
+G r c none [create_from_base gnatcoll__vfs 160 13 none] [ensure_initialized gnatcoll__io__remote 45 14 none]
+G r c none [create_from_base gnatcoll__vfs 160 13 none] [create gnatcoll__io__native 30 13 none]
+G r c none [create_from_base gnatcoll__vfs 160 13 none] [create gnatcoll__io__remote 33 13 none]
+G r c none [create_from_utf8 gnatcoll__vfs 169 13 none] [from_utf8 gnatcoll__io__native__codec 140 16 none]
+G r c none [create_from_utf8 gnatcoll__vfs 169 13 none] [ref gnatcoll__io 65 14 none]
+G r c none [create_from_utf8 gnatcoll__vfs 169 13 none] [local_fs gnatcoll__path 35 13 none]
+G r c none [create_from_utf8 gnatcoll__vfs 169 13 none] [is_absolute_path gnatcoll__path 62 13 none]
+G r c none [create_from_utf8 gnatcoll__vfs 169 13 none] [normalize gnatcoll__path 141 13 none]
+G r c none [create_from_utf8 gnatcoll__vfs 169 13 none] [current_dir gnatcoll__io__native 36 13 none]
+G r c none [create_from_utf8 gnatcoll__vfs 169 13 none] [unref gnatcoll__io 66 14 none]
+G r c none [create_from_utf8 gnatcoll__vfs 169 13 none] [current_dir gnatcoll__io__remote 38 13 none]
+G r c none [create_from_utf8 gnatcoll__vfs 169 13 none] [is_dir_name gnatcoll__path 123 13 none]
+G r c none [create_from_utf8 gnatcoll__vfs 169 13 none] [ensure_directory gnatcoll__path 129 13 none]
+G r c none [create_from_utf8 gnatcoll__vfs 169 13 none] [free gnatcoll__vfs_types 31 14 none]
+G r c none [create_from_utf8 gnatcoll__vfs 169 13 none] [get_host gnatcoll__io__remote 49 13 none]
+G r c none [create_from_utf8 gnatcoll__vfs 169 13 none] [ensure_initialized gnatcoll__io__remote 45 14 none]
+G r c none [create_from_utf8 gnatcoll__vfs 169 13 none] [from_unix gnatcoll__path 89 13 none]
+G r c none [create_from_utf8 gnatcoll__vfs 169 13 none] [create gnatcoll__io__native 30 13 none]
+G r c none [create_from_utf8 gnatcoll__vfs 169 13 none] [create gnatcoll__io__remote 33 13 none]
+G r c none [create_from_utf8 gnatcoll__vfs 169 13 none] [from_utf8 gnatcoll__io__remote__codec 142 16 none]
+G r c none [locate_on_path gnatcoll__vfs 177 13 none] [local_fs gnatcoll__path 35 13 none]
+G r c none [locate_on_path gnatcoll__vfs 177 13 none] [is_absolute_path gnatcoll__path 62 13 none]
+G r c none [locate_on_path gnatcoll__vfs 177 13 none] [ref gnatcoll__io 65 14 none]
+G r c none [locate_on_path gnatcoll__vfs 177 13 none] [normalize gnatcoll__path 141 13 none]
+G r c none [locate_on_path gnatcoll__vfs 177 13 none] [current_dir gnatcoll__io__native 36 13 none]
+G r c none [locate_on_path gnatcoll__vfs 177 13 none] [unref gnatcoll__io 66 14 none]
+G r c none [locate_on_path gnatcoll__vfs 177 13 none] [current_dir gnatcoll__io__remote 38 13 none]
+G r c none [locate_on_path gnatcoll__vfs 177 13 none] [is_dir_name gnatcoll__path 123 13 none]
+G r c none [locate_on_path gnatcoll__vfs 177 13 none] [ensure_directory gnatcoll__path 129 13 none]
+G r c none [locate_on_path gnatcoll__vfs 177 13 none] [free gnatcoll__vfs_types 31 14 none]
+G r c none [locate_on_path gnatcoll__vfs 177 13 none] [get_host gnatcoll__io__remote 49 13 none]
+G r c none [locate_on_path gnatcoll__vfs 177 13 none] [ensure_initialized gnatcoll__io__remote 45 14 none]
+G r c none [locate_on_path gnatcoll__vfs 177 13 none] [from_unix gnatcoll__path 89 13 none]
+G r c none [locate_on_path gnatcoll__vfs 177 13 none] [create gnatcoll__io__native 30 13 none]
+G r c none [locate_on_path gnatcoll__vfs 177 13 none] [create gnatcoll__io__remote 33 13 none]
+G r c none [locate_on_path gnatcoll__vfs 177 13 none] [locate_on_path gnatcoll__io__remote 42 13 none]
+G r c none [join gnatcoll__vfs 182 13 none] [normalize gnatcoll__path 141 13 none]
+G r c none [join gnatcoll__vfs 182 13 none] [get_host gnatcoll__io__remote 49 13 none]
+G r c none [join gnatcoll__vfs 182 13 none] [ensure_initialized gnatcoll__io__remote 45 14 none]
+G r c none [join gnatcoll__vfs 182 13 none] [is_dir_name gnatcoll__path 123 13 none]
+G r c none [join gnatcoll__vfs 182 13 none] [ensure_directory gnatcoll__path 129 13 none]
+G r c none [join gnatcoll__vfs 182 13 none] [free gnatcoll__vfs_types 31 14 none]
+G r c none [join gnatcoll__vfs 182 13 none] [from_unix gnatcoll__path 89 13 none]
+G r c none [join gnatcoll__vfs 182 13 none] [ref gnatcoll__io 65 14 none]
+G r c none [join gnatcoll__vfs 184 13 none] [is_dir_name gnatcoll__path 123 13 none]
+G r c none [join gnatcoll__vfs 184 13 none] [ensure_directory gnatcoll__path 129 13 none]
+G r c none [join gnatcoll__vfs 184 13 none] [free gnatcoll__vfs_types 31 14 none]
+G r c none [join gnatcoll__vfs 184 13 none] [normalize gnatcoll__path 141 13 none]
+G r c none [join gnatcoll__vfs 184 13 none] [get_host gnatcoll__io__remote 49 13 none]
+G r c none [join gnatcoll__vfs 184 13 none] [ensure_initialized gnatcoll__io__remote 45 14 none]
+G r c none [join gnatcoll__vfs 184 13 none] [from_unix gnatcoll__path 89 13 none]
+G r c none [join gnatcoll__vfs 184 13 none] [ref gnatcoll__io 65 14 none]
+G r c none [Odivide gnatcoll__vfs 186 13 none] [normalize gnatcoll__path 141 13 none]
+G r c none [Odivide gnatcoll__vfs 186 13 none] [get_host gnatcoll__io__remote 49 13 none]
+G r c none [Odivide gnatcoll__vfs 186 13 none] [ensure_initialized gnatcoll__io__remote 45 14 none]
+G r c none [Odivide gnatcoll__vfs 186 13 none] [is_dir_name gnatcoll__path 123 13 none]
+G r c none [Odivide gnatcoll__vfs 186 13 none] [ensure_directory gnatcoll__path 129 13 none]
+G r c none [Odivide gnatcoll__vfs 186 13 none] [free gnatcoll__vfs_types 31 14 none]
+G r c none [Odivide gnatcoll__vfs 186 13 none] [from_unix gnatcoll__path 89 13 none]
+G r c none [Odivide gnatcoll__vfs 186 13 none] [ref gnatcoll__io 65 14 none]
+G r c none [Odivide gnatcoll__vfs 188 13 none] [is_dir_name gnatcoll__path 123 13 none]
+G r c none [Odivide gnatcoll__vfs 188 13 none] [ensure_directory gnatcoll__path 129 13 none]
+G r c none [Odivide gnatcoll__vfs 188 13 none] [free gnatcoll__vfs_types 31 14 none]
+G r c none [Odivide gnatcoll__vfs 188 13 none] [normalize gnatcoll__path 141 13 none]
+G r c none [Odivide gnatcoll__vfs 188 13 none] [get_host gnatcoll__io__remote 49 13 none]
+G r c none [Odivide gnatcoll__vfs 188 13 none] [ensure_initialized gnatcoll__io__remote 45 14 none]
+G r c none [Odivide gnatcoll__vfs 188 13 none] [from_unix gnatcoll__path 89 13 none]
+G r c none [Odivide gnatcoll__vfs 188 13 none] [ref gnatcoll__io 65 14 none]
+G r c none [Odivide gnatcoll__vfs 190 13 none] [ref gnatcoll__io 65 14 none]
+G r c none [Odivide gnatcoll__vfs 190 13 none] [local_fs gnatcoll__path 35 13 none]
+G r c none [Odivide gnatcoll__vfs 190 13 none] [is_absolute_path gnatcoll__path 62 13 none]
+G r c none [Odivide gnatcoll__vfs 190 13 none] [normalize gnatcoll__path 141 13 none]
+G r c none [Odivide gnatcoll__vfs 190 13 none] [current_dir gnatcoll__io__native 36 13 none]
+G r c none [Odivide gnatcoll__vfs 190 13 none] [unref gnatcoll__io 66 14 none]
+G r c none [Odivide gnatcoll__vfs 190 13 none] [current_dir gnatcoll__io__remote 38 13 none]
+G r c none [Odivide gnatcoll__vfs 190 13 none] [is_dir_name gnatcoll__path 123 13 none]
+G r c none [Odivide gnatcoll__vfs 190 13 none] [ensure_directory gnatcoll__path 129 13 none]
+G r c none [Odivide gnatcoll__vfs 190 13 none] [free gnatcoll__vfs_types 31 14 none]
+G r c none [Odivide gnatcoll__vfs 190 13 none] [get_host gnatcoll__io__remote 49 13 none]
+G r c none [Odivide gnatcoll__vfs 190 13 none] [ensure_initialized gnatcoll__io__remote 45 14 none]
+G r c none [Odivide gnatcoll__vfs 190 13 none] [from_unix gnatcoll__path 89 13 none]
+G r c none [Odivide gnatcoll__vfs 190 13 none] [create gnatcoll__io__native 30 13 none]
+G r c none [Odivide gnatcoll__vfs 190 13 none] [create gnatcoll__io__remote 33 13 none]
+G r c none [base_name gnatcoll__vfs 214 13 none] [normalize gnatcoll__path 141 13 none]
+G r c none [base_name gnatcoll__vfs 214 13 none] [base_name gnatcoll__path 99 13 none]
+G r c none [base_dir_name gnatcoll__vfs 221 13 none] [base_dir_name gnatcoll__path 105 13 none]
+G r c none [full_name gnatcoll__vfs 224 13 none] [normalize gnatcoll__path 141 13 none]
+G r c none [full_name gnatcoll__vfs 224 13 none] [get_host gnatcoll__io__remote 49 13 none]
+G r c none [full_name gnatcoll__vfs 224 13 none] [ensure_initialized gnatcoll__io__remote 45 14 none]
+G r c none [full_name gnatcoll__vfs 236 13 none] [normalize gnatcoll__path 141 13 none]
+G r c none [full_name gnatcoll__vfs 236 13 none] [get_host gnatcoll__io__remote 49 13 none]
+G r c none [full_name gnatcoll__vfs 236 13 none] [ensure_initialized gnatcoll__io__remote 45 14 none]
+G r c none [full_name_hash gnatcoll__vfs 241 13 none] [normalize gnatcoll__path 141 13 none]
+G r c none [full_name_hash gnatcoll__vfs 241 13 none] [is_case_sensitive gnatcoll__path 39 13 none]
+G r c none [full_name_hash gnatcoll__vfs 241 13 none] [ensure_directory gnatcoll__path 129 13 none]
+G r c none [file_extension gnatcoll__vfs 248 13 none] [normalize gnatcoll__path 141 13 none]
+G r c none [file_extension gnatcoll__vfs 248 13 none] [get_host gnatcoll__io__remote 49 13 none]
+G r c none [file_extension gnatcoll__vfs 248 13 none] [ensure_initialized gnatcoll__io__remote 45 14 none]
+G r c none [file_extension gnatcoll__vfs 248 13 none] [file_extension gnatcoll__path 94 13 none]
+G r c none [dir_name gnatcoll__vfs 257 13 none] [dir_name gnatcoll__path 117 13 none]
+G r c none [display_full_name gnatcoll__vfs 261 13 none] [normalize gnatcoll__path 141 13 none]
+G r c none [display_full_name gnatcoll__vfs 261 13 none] [get_host gnatcoll__io__remote 49 13 none]
+G r c none [display_full_name gnatcoll__vfs 261 13 none] [ensure_initialized gnatcoll__io__remote 45 14 none]
+G r c none [display_base_name gnatcoll__vfs 266 13 none] [normalize gnatcoll__path 141 13 none]
+G r c none [display_base_name gnatcoll__vfs 266 13 none] [base_name gnatcoll__path 99 13 none]
+G r c none [display_dir_name gnatcoll__vfs 271 13 none] [dir_name gnatcoll__path 117 13 none]
+G r c none [display_base_dir_name gnatcoll__vfs 274 13 none] [base_dir_name gnatcoll__path 105 13 none]
+G r c none [unix_style_full_name gnatcoll__vfs 277 13 none] [normalize gnatcoll__path 141 13 none]
+G r c none [unix_style_full_name gnatcoll__vfs 277 13 none] [get_host gnatcoll__io__remote 49 13 none]
+G r c none [unix_style_full_name gnatcoll__vfs 277 13 none] [ensure_initialized gnatcoll__io__remote 45 14 none]
+G r c none [unix_style_full_name gnatcoll__vfs 277 13 none] [to_unix gnatcoll__path 83 13 none]
+G r c none [unix_style_full_name gnatcoll__vfs 277 13 none] [is_case_sensitive gnatcoll__path 39 13 none]
+G r c none [relative_path gnatcoll__vfs 288 13 none] [is_dir_name gnatcoll__path 123 13 none]
+G r c none [relative_path gnatcoll__vfs 288 13 none] [ensure_directory gnatcoll__path 129 13 none]
+G r c none [relative_path gnatcoll__vfs 288 13 none] [free gnatcoll__vfs_types 31 14 none]
+G r c none [relative_path gnatcoll__vfs 288 13 none] [normalize gnatcoll__path 141 13 none]
+G r c none [relative_path gnatcoll__vfs 288 13 none] [get_host gnatcoll__io__remote 49 13 none]
+G r c none [relative_path gnatcoll__vfs 288 13 none] [ensure_initialized gnatcoll__io__remote 45 14 none]
+G r c none [relative_path gnatcoll__vfs 288 13 none] [relative_path gnatcoll__path 146 13 none]
+G r c none [has_suffix gnatcoll__vfs 294 13 none] [equal gnatcoll__path 78 13 none]
+G r c none [has_suffix gnatcoll__vfs 294 13 none] [normalize gnatcoll__path 141 13 none]
+G r c none [has_suffix gnatcoll__vfs 294 13 none] [get_host gnatcoll__io__remote 49 13 none]
+G r c none [has_suffix gnatcoll__vfs 294 13 none] [ensure_initialized gnatcoll__io__remote 45 14 none]
+G r c none [to_remote gnatcoll__vfs 298 13 none] [ref gnatcoll__io 65 14 none]
+G r c none [to_remote gnatcoll__vfs 298 13 none] [get_host gnatcoll__io__remote 49 13 none]
+G r c none [to_remote gnatcoll__vfs 298 13 none] [is_configured gnatcoll__remote__db 80 13 none]
+G r c none [to_remote gnatcoll__vfs 298 13 none] [get_server gnatcoll__remote__db 84 13 none]
+G r c none [to_remote gnatcoll__vfs 298 13 none] [nb_mount_points gnatcoll__remote__db 88 13 none]
+G r c none [to_remote gnatcoll__vfs 298 13 none] [get_mount_point_local_root gnatcoll__remote__db 93 13 none]
+G r c none [to_remote gnatcoll__vfs 298 13 none] [local_fs gnatcoll__path 35 13 none]
+G r c none [to_remote gnatcoll__vfs 298 13 none] [is_absolute_path gnatcoll__path 62 13 none]
+G r c none [to_remote gnatcoll__vfs 298 13 none] [normalize gnatcoll__path 141 13 none]
+G r c none [to_remote gnatcoll__vfs 298 13 none] [current_dir gnatcoll__io__native 36 13 none]
+G r c none [to_remote gnatcoll__vfs 298 13 none] [unref gnatcoll__io 66 14 none]
+G r c none [to_remote gnatcoll__vfs 298 13 none] [current_dir gnatcoll__io__remote 38 13 none]
+G r c none [to_remote gnatcoll__vfs 298 13 none] [is_dir_name gnatcoll__path 123 13 none]
+G r c none [to_remote gnatcoll__vfs 298 13 none] [ensure_directory gnatcoll__path 129 13 none]
+G r c none [to_remote gnatcoll__vfs 298 13 none] [free gnatcoll__vfs_types 31 14 none]
+G r c none [to_remote gnatcoll__vfs 298 13 none] [ensure_initialized gnatcoll__io__remote 45 14 none]
+G r c none [to_remote gnatcoll__vfs 298 13 none] [from_unix gnatcoll__path 89 13 none]
+G r c none [to_remote gnatcoll__vfs 298 13 none] [create gnatcoll__io__native 30 13 none]
+G r c none [to_remote gnatcoll__vfs 298 13 none] [create gnatcoll__io__remote 33 13 none]
+G r c none [to_remote gnatcoll__vfs 298 13 none] [equal gnatcoll__path 78 13 none]
+G r c none [to_remote gnatcoll__vfs 298 13 none] [get_mount_point_host_root gnatcoll__remote__db 99 13 none]
+G r c none [to_remote gnatcoll__vfs 298 13 none] [to_unix gnatcoll__path 83 13 none]
+G r c none [to_remote gnatcoll__vfs 298 13 none] [relative_path gnatcoll__path 146 13 none]
+G r c none [to_local gnatcoll__vfs 303 13 none] [ref gnatcoll__io 65 14 none]
+G r c none [to_local gnatcoll__vfs 303 13 none] [get_host gnatcoll__io__remote 49 13 none]
+G r c none [to_local gnatcoll__vfs 303 13 none] [is_configured gnatcoll__remote__db 80 13 none]
+G r c none [to_local gnatcoll__vfs 303 13 none] [get_server gnatcoll__remote__db 84 13 none]
+G r c none [to_local gnatcoll__vfs 303 13 none] [nb_mount_points gnatcoll__remote__db 88 13 none]
+G r c none [to_local gnatcoll__vfs 303 13 none] [get_mount_point_host_root gnatcoll__remote__db 99 13 none]
+G r c none [to_local gnatcoll__vfs 303 13 none] [local_fs gnatcoll__path 35 13 none]
+G r c none [to_local gnatcoll__vfs 303 13 none] [is_absolute_path gnatcoll__path 62 13 none]
+G r c none [to_local gnatcoll__vfs 303 13 none] [normalize gnatcoll__path 141 13 none]
+G r c none [to_local gnatcoll__vfs 303 13 none] [current_dir gnatcoll__io__native 36 13 none]
+G r c none [to_local gnatcoll__vfs 303 13 none] [unref gnatcoll__io 66 14 none]
+G r c none [to_local gnatcoll__vfs 303 13 none] [current_dir gnatcoll__io__remote 38 13 none]
+G r c none [to_local gnatcoll__vfs 303 13 none] [is_dir_name gnatcoll__path 123 13 none]
+G r c none [to_local gnatcoll__vfs 303 13 none] [ensure_directory gnatcoll__path 129 13 none]
+G r c none [to_local gnatcoll__vfs 303 13 none] [free gnatcoll__vfs_types 31 14 none]
+G r c none [to_local gnatcoll__vfs 303 13 none] [ensure_initialized gnatcoll__io__remote 45 14 none]
+G r c none [to_local gnatcoll__vfs 303 13 none] [from_unix gnatcoll__path 89 13 none]
+G r c none [to_local gnatcoll__vfs 303 13 none] [create gnatcoll__io__native 30 13 none]
+G r c none [to_local gnatcoll__vfs 303 13 none] [create gnatcoll__io__remote 33 13 none]
+G r c none [to_local gnatcoll__vfs 303 13 none] [equal gnatcoll__path 78 13 none]
+G r c none [to_local gnatcoll__vfs 303 13 none] [get_mount_point_local_root gnatcoll__remote__db 93 13 none]
+G r c none [to_local gnatcoll__vfs 303 13 none] [to_unix gnatcoll__path 83 13 none]
+G r c none [to_local gnatcoll__vfs 303 13 none] [relative_path gnatcoll__path 146 13 none]
+G r c none [to_arg gnatcoll__vfs 309 13 none] [get_host gnatcoll__io__remote 49 13 none]
+G r c none [to_arg gnatcoll__vfs 309 13 none] [ref gnatcoll__io 65 14 none]
+G r c none [to_arg gnatcoll__vfs 309 13 none] [is_configured gnatcoll__remote__db 80 13 none]
+G r c none [to_arg gnatcoll__vfs 309 13 none] [get_server gnatcoll__remote__db 84 13 none]
+G r c none [to_arg gnatcoll__vfs 309 13 none] [nb_mount_points gnatcoll__remote__db 88 13 none]
+G r c none [to_arg gnatcoll__vfs 309 13 none] [get_mount_point_host_root gnatcoll__remote__db 99 13 none]
+G r c none [to_arg gnatcoll__vfs 309 13 none] [local_fs gnatcoll__path 35 13 none]
+G r c none [to_arg gnatcoll__vfs 309 13 none] [is_absolute_path gnatcoll__path 62 13 none]
+G r c none [to_arg gnatcoll__vfs 309 13 none] [normalize gnatcoll__path 141 13 none]
+G r c none [to_arg gnatcoll__vfs 309 13 none] [current_dir gnatcoll__io__native 36 13 none]
+G r c none [to_arg gnatcoll__vfs 309 13 none] [unref gnatcoll__io 66 14 none]
+G r c none [to_arg gnatcoll__vfs 309 13 none] [current_dir gnatcoll__io__remote 38 13 none]
+G r c none [to_arg gnatcoll__vfs 309 13 none] [is_dir_name gnatcoll__path 123 13 none]
+G r c none [to_arg gnatcoll__vfs 309 13 none] [ensure_directory gnatcoll__path 129 13 none]
+G r c none [to_arg gnatcoll__vfs 309 13 none] [free gnatcoll__vfs_types 31 14 none]
+G r c none [to_arg gnatcoll__vfs 309 13 none] [ensure_initialized gnatcoll__io__remote 45 14 none]
+G r c none [to_arg gnatcoll__vfs 309 13 none] [from_unix gnatcoll__path 89 13 none]
+G r c none [to_arg gnatcoll__vfs 309 13 none] [create gnatcoll__io__native 30 13 none]
+G r c none [to_arg gnatcoll__vfs 309 13 none] [create gnatcoll__io__remote 33 13 none]
+G r c none [to_arg gnatcoll__vfs 309 13 none] [equal gnatcoll__path 78 13 none]
+G r c none [to_arg gnatcoll__vfs 309 13 none] [get_mount_point_local_root gnatcoll__remote__db 93 13 none]
+G r c none [to_arg gnatcoll__vfs 309 13 none] [to_unix gnatcoll__path 83 13 none]
+G r c none [to_arg gnatcoll__vfs 309 13 none] [relative_path gnatcoll__path 146 13 none]
+G r c none [get_host gnatcoll__vfs 323 13 none] [get_host gnatcoll__io__remote 49 13 none]
+G r c none [Oeq gnatcoll__vfs 334 24 none] [normalize gnatcoll__path 141 13 none]
+G r c none [Oeq gnatcoll__vfs 334 24 none] [ensure_directory gnatcoll__path 129 13 none]
+G r c none [Oeq gnatcoll__vfs 334 24 none] [equal gnatcoll__path 78 13 none]
+G r c none [Olt gnatcoll__vfs 337 13 none] [normalize gnatcoll__path 141 13 none]
+G r c none [Olt gnatcoll__vfs 337 13 none] [ensure_directory gnatcoll__path 129 13 none]
+G r c none [Olt gnatcoll__vfs 337 13 none] [equal gnatcoll__path 78 13 none]
+G r c none [Olt gnatcoll__vfs 337 13 none] [get_host gnatcoll__io__remote 49 13 none]
+G r c none [Olt gnatcoll__vfs 337 13 none] [is_case_sensitive gnatcoll__path 39 13 none]
+G r c none [is_parent gnatcoll__vfs 341 13 none] [normalize gnatcoll__path 141 13 none]
+G r c none [is_parent gnatcoll__vfs 341 13 none] [equal gnatcoll__path 78 13 none]
+G r c none [is_directory gnatcoll__vfs 351 13 none] [is_dir_name gnatcoll__path 123 13 none]
+G r c none [is_directory gnatcoll__vfs 351 13 none] [ensure_directory gnatcoll__path 129 13 none]
+G r c none [is_directory gnatcoll__vfs 351 13 none] [free gnatcoll__vfs_types 31 14 none]
+G r c none [is_absolute_path gnatcoll__vfs 357 13 none] [is_absolute_path gnatcoll__path 62 13 none]
+G r c none [normalize_path gnatcoll__vfs 376 14 none] [normalize gnatcoll__path 141 13 none]
+G r c none [normalize_path gnatcoll__vfs 376 14 none] [free gnatcoll__vfs_types 31 14 none]
+G r c none [unchecked_free gnatcoll__vfs 390 14 none] [unref gnatcoll__io 66 14 none]
+G r c none [append gnatcoll__vfs 397 14 none] [ref gnatcoll__io 65 14 none]
+G r c none [append gnatcoll__vfs 397 14 none] [unref gnatcoll__io 66 14 none]
+G r c none [append gnatcoll__vfs 398 14 none] [ref gnatcoll__io 65 14 none]
+G r c none [append gnatcoll__vfs 398 14 none] [unref gnatcoll__io 66 14 none]
+G r c none [prepend gnatcoll__vfs 399 14 none] [ref gnatcoll__io 65 14 none]
+G r c none [prepend gnatcoll__vfs 399 14 none] [unref gnatcoll__io 66 14 none]
+G r c none [remove gnatcoll__vfs 403 14 none] [normalize gnatcoll__path 141 13 none]
+G r c none [remove gnatcoll__vfs 403 14 none] [ensure_directory gnatcoll__path 129 13 none]
+G r c none [remove gnatcoll__vfs 403 14 none] [equal gnatcoll__path 78 13 none]
+G r c none [remove gnatcoll__vfs 403 14 none] [ref gnatcoll__io 65 14 none]
+G r c none [remove gnatcoll__vfs 403 14 none] [unref gnatcoll__io 66 14 none]
+G r c none [to_path gnatcoll__vfs 406 13 none] [normalize gnatcoll__path 141 13 none]
+G r c none [to_path gnatcoll__vfs 406 13 none] [get_host gnatcoll__io__remote 49 13 none]
+G r c none [to_path gnatcoll__vfs 406 13 none] [ensure_initialized gnatcoll__io__remote 45 14 none]
+G r c none [from_path gnatcoll__vfs 410 13 none] [ref gnatcoll__io 65 14 none]
+G r c none [from_path gnatcoll__vfs 410 13 none] [local_fs gnatcoll__path 35 13 none]
+G r c none [from_path gnatcoll__vfs 410 13 none] [is_absolute_path gnatcoll__path 62 13 none]
+G r c none [from_path gnatcoll__vfs 410 13 none] [normalize gnatcoll__path 141 13 none]
+G r c none [from_path gnatcoll__vfs 410 13 none] [current_dir gnatcoll__io__native 36 13 none]
+G r c none [from_path gnatcoll__vfs 410 13 none] [unref gnatcoll__io 66 14 none]
+G r c none [from_path gnatcoll__vfs 410 13 none] [current_dir gnatcoll__io__remote 38 13 none]
+G r c none [from_path gnatcoll__vfs 410 13 none] [is_dir_name gnatcoll__path 123 13 none]
+G r c none [from_path gnatcoll__vfs 410 13 none] [ensure_directory gnatcoll__path 129 13 none]
+G r c none [from_path gnatcoll__vfs 410 13 none] [free gnatcoll__vfs_types 31 14 none]
+G r c none [from_path gnatcoll__vfs 410 13 none] [get_host gnatcoll__io__remote 49 13 none]
+G r c none [from_path gnatcoll__vfs 410 13 none] [ensure_initialized gnatcoll__io__remote 45 14 none]
+G r c none [from_path gnatcoll__vfs 410 13 none] [from_unix gnatcoll__path 89 13 none]
+G r c none [from_path gnatcoll__vfs 410 13 none] [create gnatcoll__io__native 30 13 none]
+G r c none [from_path gnatcoll__vfs 410 13 none] [create gnatcoll__io__remote 33 13 none]
+G r c none [locate_on_path gnatcoll__vfs 413 13 none] [is_dir_name gnatcoll__path 123 13 none]
+G r c none [locate_on_path gnatcoll__vfs 413 13 none] [ensure_directory gnatcoll__path 129 13 none]
+G r c none [locate_on_path gnatcoll__vfs 413 13 none] [free gnatcoll__vfs_types 31 14 none]
+G r c none [locate_on_path gnatcoll__vfs 413 13 none] [normalize gnatcoll__path 141 13 none]
+G r c none [locate_on_path gnatcoll__vfs 413 13 none] [get_host gnatcoll__io__remote 49 13 none]
+G r c none [locate_on_path gnatcoll__vfs 413 13 none] [ensure_initialized gnatcoll__io__remote 45 14 none]
+G r c none [locate_on_path gnatcoll__vfs 413 13 none] [from_unix gnatcoll__path 89 13 none]
+G r c none [locate_on_path gnatcoll__vfs 413 13 none] [ref gnatcoll__io 65 14 none]
+G r c none [locate_on_path gnatcoll__vfs 413 13 none] [unref gnatcoll__io 66 14 none]
+G r c none [locate_on_path gnatcoll__vfs 413 13 none] [exe_extension gnatcoll__path 50 13 none]
+G r c none [greatest_common_path gnatcoll__vfs 419 13 none] [ref gnatcoll__io 65 14 none]
+G r c none [greatest_common_path gnatcoll__vfs 419 13 none] [get_root gnatcoll__path 57 13 none]
+G r c none [greatest_common_path gnatcoll__vfs 419 13 none] [unref gnatcoll__io 66 14 none]
+G r c none [greatest_common_path gnatcoll__vfs 419 13 none] [normalize gnatcoll__path 141 13 none]
+G r c none [greatest_common_path gnatcoll__vfs 419 13 none] [equal gnatcoll__path 78 13 none]
+G r c none [greatest_common_path gnatcoll__vfs 419 13 none] [ensure_directory gnatcoll__path 129 13 none]
+G r c none [greatest_common_path gnatcoll__vfs 419 13 none] [get_parent gnatcoll__path 111 13 none]
+G r c none [locate_regular_file gnatcoll__vfs 424 13 none] [is_dir_name gnatcoll__path 123 13 none]
+G r c none [locate_regular_file gnatcoll__vfs 424 13 none] [ensure_directory gnatcoll__path 129 13 none]
+G r c none [locate_regular_file gnatcoll__vfs 424 13 none] [free gnatcoll__vfs_types 31 14 none]
+G r c none [locate_regular_file gnatcoll__vfs 424 13 none] [normalize gnatcoll__path 141 13 none]
+G r c none [locate_regular_file gnatcoll__vfs 424 13 none] [get_host gnatcoll__io__remote 49 13 none]
+G r c none [locate_regular_file gnatcoll__vfs 424 13 none] [ensure_initialized gnatcoll__io__remote 45 14 none]
+G r c none [locate_regular_file gnatcoll__vfs 424 13 none] [from_unix gnatcoll__path 89 13 none]
+G r c none [locate_regular_file gnatcoll__vfs 424 13 none] [ref gnatcoll__io 65 14 none]
+G r c none [locate_regular_file gnatcoll__vfs 424 13 none] [unref gnatcoll__io 66 14 none]
+G r c none [copy gnatcoll__vfs 439 14 none] [is_dir_name gnatcoll__path 123 13 none]
+G r c none [copy gnatcoll__vfs 439 14 none] [ensure_directory gnatcoll__path 129 13 none]
+G r c none [copy gnatcoll__vfs 439 14 none] [free gnatcoll__vfs_types 31 14 none]
+G r d xstring [read_file gnatcoll__vfs 449 13 none] [adjust gnatcoll__strings 1051 28 31_1]
+G r c none [dir gnatcoll__vfs 464 13 none] [ref gnatcoll__io 65 14 none]
+G r c none [dir gnatcoll__vfs 464 13 none] [is_dir_name gnatcoll__path 123 13 none]
+G r c none [dir gnatcoll__vfs 464 13 none] [dir_name gnatcoll__path 117 13 none]
+G r c none [get_current_dir gnatcoll__vfs 470 13 none] [current_dir gnatcoll__io__native 36 13 none]
+G r c none [get_current_dir gnatcoll__vfs 470 13 none] [unref gnatcoll__io 66 14 none]
+G r c none [get_current_dir gnatcoll__vfs 470 13 none] [current_dir gnatcoll__io__remote 38 13 none]
+G r c none [get_current_dir gnatcoll__vfs 470 13 none] [ref gnatcoll__io 65 14 none]
+G r c none [get_tmp_directory gnatcoll__vfs 473 13 none] [get_tmp_directory gnatcoll__io__native 42 13 none]
+G r c none [get_tmp_directory gnatcoll__vfs 473 13 none] [ref gnatcoll__io 65 14 none]
+G r c none [get_tmp_directory gnatcoll__vfs 473 13 none] [get_tmp_directory gnatcoll__io__remote 40 13 none]
+G r c none [get_home_directory gnatcoll__vfs 477 13 none] [home_dir gnatcoll__io__native 39 13 none]
+G r c none [get_home_directory gnatcoll__vfs 477 13 none] [ref gnatcoll__io 65 14 none]
+G r c none [get_home_directory gnatcoll__vfs 477 13 none] [home_dir gnatcoll__io__remote 39 13 none]
+G r c none [get_logical_drives gnatcoll__vfs 481 13 none] [get_logical_drives gnatcoll__io__native 46 13 none]
+G r c none [get_logical_drives gnatcoll__vfs 481 13 none] [get_logical_drives gnatcoll__io__remote 41 13 none]
+G r c none [get_logical_drives gnatcoll__vfs 481 13 none] [unref gnatcoll__io 66 14 none]
+G r c none [ensure_directory gnatcoll__vfs 486 14 none] [is_dir_name gnatcoll__path 123 13 none]
+G r c none [ensure_directory gnatcoll__vfs 486 14 none] [ensure_directory gnatcoll__path 129 13 none]
+G r c none [ensure_directory gnatcoll__vfs 486 14 none] [free gnatcoll__vfs_types 31 14 none]
+G r c none [get_root gnatcoll__vfs 490 13 none] [ref gnatcoll__io 65 14 none]
+G r c none [get_root gnatcoll__vfs 490 13 none] [get_root gnatcoll__path 57 13 none]
+G r c none [get_parent gnatcoll__vfs 493 13 none] [ref gnatcoll__io 65 14 none]
+G r c none [get_parent gnatcoll__vfs 493 13 none] [get_parent gnatcoll__path 111 13 none]
+G r c none [sub_dir gnatcoll__vfs 496 13 none] [is_dir_name gnatcoll__path 123 13 none]
+G r c none [sub_dir gnatcoll__vfs 496 13 none] [ensure_directory gnatcoll__path 129 13 none]
+G r c none [sub_dir gnatcoll__vfs 496 13 none] [free gnatcoll__vfs_types 31 14 none]
+G r c none [sub_dir gnatcoll__vfs 496 13 none] [normalize gnatcoll__path 141 13 none]
+G r c none [sub_dir gnatcoll__vfs 496 13 none] [get_host gnatcoll__io__remote 49 13 none]
+G r c none [sub_dir gnatcoll__vfs 496 13 none] [ensure_initialized gnatcoll__io__remote 45 14 none]
+G r c none [sub_dir gnatcoll__vfs 496 13 none] [path gnatcoll__path 71 13 none]
+G r c none [sub_dir gnatcoll__vfs 496 13 none] [unref gnatcoll__io 66 14 none]
+G r c none [sub_dir gnatcoll__vfs 496 13 none] [ref gnatcoll__io 65 14 none]
+G r c none [make_dir gnatcoll__vfs 504 14 none] [is_dir_name gnatcoll__path 123 13 none]
+G r c none [make_dir gnatcoll__vfs 504 14 none] [ensure_directory gnatcoll__path 129 13 none]
+G r c none [make_dir gnatcoll__vfs 504 14 none] [free gnatcoll__vfs_types 31 14 none]
+G r c none [read_dir gnatcoll__vfs 511 13 none] [is_dir_name gnatcoll__path 123 13 none]
+G r c none [read_dir gnatcoll__vfs 511 13 none] [ensure_directory gnatcoll__path 129 13 none]
+G r c none [read_dir gnatcoll__vfs 511 13 none] [free gnatcoll__vfs_types 31 14 none]
+G r c none [read_dir gnatcoll__vfs 511 13 none] [normalize gnatcoll__path 141 13 none]
+G r c none [read_dir gnatcoll__vfs 511 13 none] [get_host gnatcoll__io__remote 49 13 none]
+G r c none [read_dir gnatcoll__vfs 511 13 none] [ensure_initialized gnatcoll__io__remote 45 14 none]
+G r c none [read_dir gnatcoll__vfs 511 13 none] [from_unix gnatcoll__path 89 13 none]
+G r c none [read_dir gnatcoll__vfs 511 13 none] [ref gnatcoll__io 65 14 none]
+G r c none [read_dir gnatcoll__vfs 511 13 none] [unref gnatcoll__io 66 14 none]
+G r c none [read_dir_recursive gnatcoll__vfs 522 13 none] [is_dir_name gnatcoll__path 123 13 none]
+G r c none [read_dir_recursive gnatcoll__vfs 522 13 none] [ensure_directory gnatcoll__path 129 13 none]
+G r c none [read_dir_recursive gnatcoll__vfs 522 13 none] [free gnatcoll__vfs_types 31 14 none]
+G r c none [read_dir_recursive gnatcoll__vfs 522 13 none] [normalize gnatcoll__path 141 13 none]
+G r c none [read_dir_recursive gnatcoll__vfs 522 13 none] [get_host gnatcoll__io__remote 49 13 none]
+G r c none [read_dir_recursive gnatcoll__vfs 522 13 none] [ensure_initialized gnatcoll__io__remote 45 14 none]
+G r c none [read_dir_recursive gnatcoll__vfs 522 13 none] [from_unix gnatcoll__path 89 13 none]
+G r c none [read_dir_recursive gnatcoll__vfs 522 13 none] [ref gnatcoll__io 65 14 none]
+G r c none [read_dir_recursive gnatcoll__vfs 522 13 none] [unref gnatcoll__io 66 14 none]
+G r c none [read_dir_recursive gnatcoll__vfs 522 13 none] [base_name gnatcoll__path 99 13 none]
+G r c none [read_dir_recursive gnatcoll__vfs 522 13 none] [file_extension gnatcoll__path 94 13 none]
+G r c none [read_files_from_dirs gnatcoll__vfs 539 13 none] [is_dir_name gnatcoll__path 123 13 none]
+G r c none [read_files_from_dirs gnatcoll__vfs 539 13 none] [ensure_directory gnatcoll__path 129 13 none]
+G r c none [read_files_from_dirs gnatcoll__vfs 539 13 none] [free gnatcoll__vfs_types 31 14 none]
+G r c none [read_files_from_dirs gnatcoll__vfs 539 13 none] [normalize gnatcoll__path 141 13 none]
+G r c none [read_files_from_dirs gnatcoll__vfs 539 13 none] [get_host gnatcoll__io__remote 49 13 none]
+G r c none [read_files_from_dirs gnatcoll__vfs 539 13 none] [ensure_initialized gnatcoll__io__remote 45 14 none]
+G r c none [read_files_from_dirs gnatcoll__vfs 539 13 none] [from_unix gnatcoll__path 89 13 none]
+G r c none [read_files_from_dirs gnatcoll__vfs 539 13 none] [ref gnatcoll__io 65 14 none]
+G r c none [read_files_from_dirs gnatcoll__vfs 539 13 none] [unref gnatcoll__io 66 14 none]
+G r c none [open_dir gnatcoll__vfs 547 13 none] [unref gnatcoll__io 66 14 none]
+G r c none [open_dir gnatcoll__vfs 547 13 none] [ref gnatcoll__io 65 14 none]
+G r c none [open_dir gnatcoll__vfs 547 13 none] [is_dir_name gnatcoll__path 123 13 none]
+G r c none [open_dir gnatcoll__vfs 547 13 none] [ensure_directory gnatcoll__path 129 13 none]
+G r c none [open_dir gnatcoll__vfs 547 13 none] [free gnatcoll__vfs_types 31 14 none]
+G r c none [open_dir gnatcoll__vfs 547 13 none] [normalize gnatcoll__path 141 13 none]
+G r c none [open_dir gnatcoll__vfs 547 13 none] [get_host gnatcoll__io__remote 49 13 none]
+G r c none [open_dir gnatcoll__vfs 547 13 none] [ensure_initialized gnatcoll__io__remote 45 14 none]
+G r c none [open_dir gnatcoll__vfs 547 13 none] [from_unix gnatcoll__path 89 13 none]
+G r c none [close gnatcoll__vfs 553 14 none] [unref gnatcoll__io 66 14 none]
+G r c none [close gnatcoll__vfs 553 14 none] [ref gnatcoll__io 65 14 none]
+G r c none [Oeq gnatcoll__vfs 571 13 none] [normalize gnatcoll__path 141 13 none]
+G r c none [Oeq gnatcoll__vfs 571 13 none] [ensure_directory gnatcoll__path 129 13 none]
+G r c none [Oeq gnatcoll__vfs 571 13 none] [equal gnatcoll__path 78 13 none]
+G r c none [write_file gnatcoll__vfs 574 13 none] [unref gnatcoll__io 66 14 none]
+G r c none [write_file gnatcoll__vfs 574 13 none] [ref gnatcoll__io 65 14 none]
+G r c none [write_file gnatcoll__vfs 574 13 none] [get_host gnatcoll__io__remote 49 13 none]
+G r c none [write_file gnatcoll__vfs 574 13 none] [get_tmp_directory gnatcoll__io__native 42 13 none]
+G r c none [write_file gnatcoll__vfs 574 13 none] [get_tmp_directory gnatcoll__io__remote 40 13 none]
+G r c none [write_file gnatcoll__vfs 574 13 none] [is_dir_name gnatcoll__path 123 13 none]
+G r c none [write_file gnatcoll__vfs 574 13 none] [ensure_directory gnatcoll__path 129 13 none]
+G r c none [write_file gnatcoll__vfs 574 13 none] [free gnatcoll__vfs_types 31 14 none]
+G r c none [write_file gnatcoll__vfs 574 13 none] [normalize gnatcoll__path 141 13 none]
+G r c none [write_file gnatcoll__vfs 574 13 none] [ensure_initialized gnatcoll__io__remote 45 14 none]
+G r c none [write_file gnatcoll__vfs 574 13 none] [from_unix gnatcoll__path 89 13 none]
+G r c none [write_file gnatcoll__vfs 574 13 none] [equal gnatcoll__path 78 13 none]
+G r c none [close gnatcoll__vfs 600 14 none] [normalize gnatcoll__path 141 13 none]
+G r c none [close gnatcoll__vfs 600 14 none] [get_host gnatcoll__io__remote 49 13 none]
+G r c none [close gnatcoll__vfs 600 14 none] [ensure_initialized gnatcoll__io__remote 45 14 none]
+G r c none [close gnatcoll__vfs 600 14 none] [ref gnatcoll__io 65 14 none]
+G r c none [close gnatcoll__vfs 600 14 none] [local_fs gnatcoll__path 35 13 none]
+G r c none [close gnatcoll__vfs 600 14 none] [is_absolute_path gnatcoll__path 62 13 none]
+G r c none [close gnatcoll__vfs 600 14 none] [current_dir gnatcoll__io__native 36 13 none]
+G r c none [close gnatcoll__vfs 600 14 none] [unref gnatcoll__io 66 14 none]
+G r c none [close gnatcoll__vfs 600 14 none] [current_dir gnatcoll__io__remote 38 13 none]
+G r c none [close gnatcoll__vfs 600 14 none] [is_dir_name gnatcoll__path 123 13 none]
+G r c none [close gnatcoll__vfs 600 14 none] [ensure_directory gnatcoll__path 129 13 none]
+G r c none [close gnatcoll__vfs 600 14 none] [free gnatcoll__vfs_types 31 14 none]
+G r c none [close gnatcoll__vfs 600 14 none] [from_unix gnatcoll__path 89 13 none]
+G r c none [close gnatcoll__vfs 600 14 none] [create gnatcoll__io__native 30 13 none]
+G r c none [close gnatcoll__vfs 600 14 none] [create gnatcoll__io__remote 33 13 none]
+G r c none [convert gnatcoll__vfs 608 13 none] [ref gnatcoll__io 65 14 none]
+G r c none [convert gnatcoll__vfs 608 13 none] [normalize gnatcoll__path 141 13 none]
+G r c none [convert gnatcoll__vfs 608 13 none] [get_host gnatcoll__io__remote 49 13 none]
+G r c none [convert gnatcoll__vfs 608 13 none] [ensure_initialized gnatcoll__io__remote 45 14 none]
+G r c none [convert gnatcoll__vfs 608 13 none] [to_unix gnatcoll__path 83 13 none]
+G r c none [convert gnatcoll__vfs 608 13 none] [local_fs gnatcoll__path 35 13 none]
+G r c none [convert gnatcoll__vfs 608 13 none] [is_absolute_path gnatcoll__path 62 13 none]
+G r c none [convert gnatcoll__vfs 608 13 none] [current_dir gnatcoll__io__native 36 13 none]
+G r c none [convert gnatcoll__vfs 608 13 none] [unref gnatcoll__io 66 14 none]
+G r c none [convert gnatcoll__vfs 608 13 none] [current_dir gnatcoll__io__remote 38 13 none]
+G r c none [convert gnatcoll__vfs 608 13 none] [is_dir_name gnatcoll__path 123 13 none]
+G r c none [convert gnatcoll__vfs 608 13 none] [ensure_directory gnatcoll__path 129 13 none]
+G r c none [convert gnatcoll__vfs 608 13 none] [free gnatcoll__vfs_types 31 14 none]
+G r c none [convert gnatcoll__vfs 608 13 none] [from_unix gnatcoll__path 89 13 none]
+G r c none [convert gnatcoll__vfs 608 13 none] [create gnatcoll__io__native 30 13 none]
+G r c none [convert gnatcoll__vfs 608 13 none] [create gnatcoll__io__remote 33 13 none]
+G r c none [convert gnatcoll__vfs 610 13 none] [ref gnatcoll__io 65 14 none]
+G r c none [convert gnatcoll__vfs 610 13 none] [is_dir_name gnatcoll__path 123 13 none]
+G r c none [convert gnatcoll__vfs 610 13 none] [ensure_directory gnatcoll__path 129 13 none]
+G r c none [convert gnatcoll__vfs 610 13 none] [free gnatcoll__vfs_types 31 14 none]
+G r c none [convert gnatcoll__vfs 610 13 none] [normalize gnatcoll__path 141 13 none]
+G r c none [convert gnatcoll__vfs 610 13 none] [get_host gnatcoll__io__remote 49 13 none]
+G r c none [convert gnatcoll__vfs 610 13 none] [ensure_initialized gnatcoll__io__remote 45 14 none]
+G r c none [convert gnatcoll__vfs 610 13 none] [relative_path gnatcoll__path 146 13 none]
+G r c none [convert gnatcoll__vfs 610 13 none] [to_unix gnatcoll__path 83 13 none]
+G r c none [convert gnatcoll__vfs 610 13 none] [from_unix gnatcoll__path 89 13 none]
+G r c none [finalize gnatcoll__vfs 630 25 none] [unref gnatcoll__io 66 14 none]
+G r c none [adjust gnatcoll__vfs 631 25 none] [ref gnatcoll__io 65 14 none]
+G r c none [virtual_fileDA gnatcoll__vfs 625 9 none] [ref gnatcoll__io 65 14 none]
+G r c none [virtual_fileDF gnatcoll__vfs 625 9 none] [unref gnatcoll__io 66 14 none]
+G r c none [writable_fileDA gnatcoll__vfs 633 9 none] [ref gnatcoll__io 65 14 none]
+G r c none [writable_fileDF gnatcoll__vfs 633 9 none] [unref gnatcoll__io 66 14 none]
+G r c none [writable_fileIP gnatcoll__vfs 633 9 none] [unref gnatcoll__io 66 14 none]
+G r c none [file_arrayDA gnatcoll__vfs 387 9 none] [ref gnatcoll__io 65 14 none]
+G r c none [file_arrayDF gnatcoll__vfs 387 9 none] [unref gnatcoll__io 66 14 none]
+G r c none [virtual_dirDA gnatcoll__vfs 650 9 none] [ref gnatcoll__io 65 14 none]
+G r c none [virtual_dirDF gnatcoll__vfs 650 9 none] [unref gnatcoll__io 66 14 none]
+G r c none [virtual_dirIP gnatcoll__vfs 650 9 none] [unref gnatcoll__io 66 14 none]
+G r c none [ensure_normalized gnatcoll__vfs 66 14 none] [normalize gnatcoll__path 141 13 none]
+X 1 ada.ads
+16K9*Ada 20e8 65|47r6 48r6 49r6 50r6 51r6 79r26 242r34 370r58 589r36 625r29
+. 639r18 643r20 644r20 657r7 662r24 669r8 66|24r6 24r37 25r6 25r37 26r6 27r6
+. 27r37 28r6 28r37 29r6 30r6 31r6 32r6 63r24 264r18 268r18 346r10 359r36
+. 400r24 414r18 417r18 431r18 434r18 468r13 486r18 489r18 586r34 603r17 606r17
+. 638r13 962r33 1233r37 1284r27 1324r27 1351r13 1358r27 1372r11 1438r16 1476r35
+. 1583r10 1607r16 1624r10
+X 2 a-calend.ads
+36K13*Calendar 413e17 65|47w10 370r62 66|24w10 24r41 1476r39
+42I9*Time<226I9> 65|370r71 66|1476r48
+226I9 Time_Rep<long_long_integer>
+X 5 a-charac.ads
+16K13*Characters 18e19 66|25r10 25r41
+X 7 a-chahan.ads
+36K24*Handling 160e28 66|25w21 25r52
+67V13*To_Lower{character} 61|283i21 66|205s22 206s22
+68V13*To_Upper{character} 61|285i21
+71V13*To_Lower{string} 66|724s21
+X 11 a-contai.ads
+16K13*Containers 28e19 65|48w10 242r38 66|586r38
+19M9*Hash_Type 65|242r49 66|586r49
+X 13 a-except.ads
+44K13*Exceptions 289e19 66|27w10 27r41
+80U14*Raise_Exception 66|1648s10 1662s10 1674s10 1682s10 1718s10 1724s10
+. 1761s10
+84V13*Exception_Message{string} 66|1683s43 1763s13
+X 14 a-finali.ads
+40K13*Finalization 68e21 65|49w10 625r33 643r24 644r24 657r11 662r28 669r12
+. 66|264r22 268r22 346r14 400r28 414r22 417r22 431r22 434r22 468r17 486r22
+. 489r22 638r17 1583r14 1607r20 1624r14
+43H9*Controlled<83|40R9> 59e72 65|625r46 643r37 644r37 657r24 662r41 669r25
+. 66|264r35 268r35 346r27 400r41 414r35 417r35 431r35 434r35 468r30 486r35
+. 489r35 638r30 1583r27 1607r33 1624r27
+X 16 a-numeri.ads
+16K13*Numerics 35e17 66|26r10 1233r41
+X 17 a-nudira.ads
+44k22*Discrete_Random 81e33 66|26w19 1233r50
+50R9 Generator<93|65R9> 66|1235r32[1233]
+52V13 Random{character} 66|1248s41[1233]
+61U14 Reset<93|103p14> 66|1242s22[1233]
+X 18 a-nudira.adb
+53V16 Random[93|86]{character} 94|402b13[66|1233]
+65V16 Random[93|86]{character} 94|402b13[66|1233]
+X 20 a-string.ads
+16K13*Strings 35e16 65|50r10 589r40 639r22 66|29r10 30r10 359r40 603r21 606r21
+. 1284r31 1324r31 1358r31 1372r15
+X 22 a-strhas.ads
+20V22*Hash{11|19M9} 66|29w18 603s29
+X 23 a-shcain.ads
+32V22*Hash_Case_Insensitive{11|19M9} 66|30w18 606s29
+X 28 a-strunb.ads
+83K21*Unbounded 765e26 65|50w18 589r48 639r30 66|359r48 1284r39 1324r39 1358r39
+. 1372r23
+88R9*Unbounded_String<14|43R9> 744e15 65|589r58 639r40 66|359r58
+91r4*Null_Unbounded_String{88R9} 66|1439r32
+104V13*To_Unbounded_String{88R9} 66|1284s49 1324s49 1358s49 1385s30 1425s36
+117V13*To_String{string} 66|1440s27
+239V14*"="{boolean} 66|1439s29
+X 31 a-tags.ads
+70K13*Tags 668e13 66|28w10 28r41
+652V13 CW_Membership{boolean} 66|573s31 975s32 988s13 1002s28 1121s26
+X 32 a-textio.ads
+58K13*Text_IO 725e16 66|31w10 1438r20
+543X4*Use_Error 66|1438r28
+X 33 a-unccon.ads
+20v14*Unchecked_Conversion 66|32w10 63r28 1351r17
+X 34 a-uncdea.ads
+20u15*Unchecked_Deallocation 65|51w10 79r30 66|962r37
+X 35 gnat.ads
+34K9*GNAT 57e9 65|55r6 56r6 311r43 448r52 636r18 636r49 645r19 66|36r6 36r37
+. 50r39 148r16 372r14 374r16 382r18 388r13 887r43 1181r35 1218r16 1230r14
+. 1300r17 1321r21 1355r21 1729r17 1752r13 2116r29 2135r24
+X 40 g-heasor.ads
+51K14*Heap_Sort 74e19 66|36w11 36r42
+68U14*Sort 66|2019s7
+X 41 g-os_lib.ads
+51K14*OS_Lib=51:36 65|55w11 636r23 636r54 645r24 66|50r44 148r21 372r19 374r21
+. 382r23 388r18 1218r21 1230r19 1300r22 1321r26 1355r26 2116r34 2135r29
+X 43 g-string.ads
+38K14*Strings=38:37 65|56w11 311r48 448r57 66|887r48 1181r40 1729r22 1752r18
+X 44 gnatcoll.ads
+24K9*GNATCOLL 27e13 65|58r14 59r14 60r6 62r9 420r11 449r52 626r15 663r33
+. 673r5 66|37r6 37r37 38r6 38r37 39r6 39r37 40r6 40r37 41r6 41r37 42r6 42r37
+. 43r6 43r37 46r14 245r13 246r20 252r23 265r27 266r40 269r27 285r14 289r14
+. 394r28 395r21 415r18 418r18 432r18 435r18 446r35 453r35 456r20 458r20 462r23
+. 487r18 490r18 572r10 573r13 975r35 987r17 1002r35 1006r35 1012r32 1121r33
+. 1199r52 1204r17 1331r44 1333r40 1362r37 1479r17 1538r13 1627r13 1932r15
+. 2196r11 2200r17 2304r5
+X 47 gnatcoll-io.ads
+32K26*IO 241e16 65|58w23 59r23 626r24 663r42 66|38w15 38r46 39r15 39r46 265r36
+. 269r36 285r23 289r23 394r37 395r30 415r27 418r27 432r27 435r27 446r44 453r44
+. 456r29 458r29 462r32 487r27 490r27 572r19 573r22 975r44 987r26 1002r44
+. 1006r44 1012r41 1121r42 1331r53 1333r49 1362r46 1538r22 1932r24
+35n7*Unknown{34E9} 66|1003r37 1051r32 1122r35 1673r28 1701r28
+37n7*File{34E9} 66|1006r47 1012r44 1331r56 1333r52 1362r49 1744r42
+39n7*Directory{34E9} 66|470r49 493r25 1125r33 1132r30 1187r31 1202r36 1677r28
+. 1741r42 1888r25
+47p7*Full{67|30P9} 66|518r59 532r60 559r24 569r24 574r59 577r59 621r55 634r53
+. 642r49 741r55 784r23 785r26 786r31 1156r66 1493r58 1495r62 1496m29 1497m23
+. 1533r59 1562m24 1565m21 1568m21 1586r53 1601r61
+50p7*Normalized{67|30P9} 66|566r28 1500r23 1502r43 1506r47 1508r26 1511m29
+. 1514m23 1531r21 1532m21 1541r65 1568r55
+53p7*Normalized_And_Resolved{67|30P9} 66|137r48 139r48 194r32 195r27 197r33
+. 198r33 200r39 201r38 205r44 206r44 515r24 563r28 604r45 607r45 1508r50
+. 1509m32 1512m23 1540r27 1541m27 1566r38 1967r23 1968r21 1975r23 1976r22
+. 1977r25 1978r27 1979r30
+58e7*Kind{34E9} 66|470m41 493m17 1003r29 1006r28 1012m24 1050m29 1050r48
+. 1051m24 1122r27 1125r26 1132m22 1187r24 1202r29 1331m36 1333m32 1362m29
+. 1673m20 1677m20 1701m20 1741m34 1744m34 1888m17
+62P9*File_Access(45R9) 65|626r27 66|394r40 1932r27
+63A9*File_Array(62P9)<integer> 66|446r47 453r47 462r35
+65U14*Ref 66|1947s10
+66U14*Unref 66|1936s10
+69y13*Dispatching_Create{62P9} 66|347R10 639R22 1584R10 1608R16 1625R10
+70p7 Ref(45R9) 66|348r13
+71a7 Full_Path{67|28A9} 66|349r13
+74y13*To_UTF8{string} 66|658R28 675R28 689R28 702R28
+83y13*Is_Local{boolean} 66|178R13 178R43 179R17 181R17
+86y13*Get_FS{67|34E9} 66|135R25 137R28 139R28 187R59 188R52 351R37 514R24
+. 518R40 532R41 601R22 621R36 634R34 642R30 732R27 768R21 783R23 926R24 946R25
+. 946R48 949R34 1156R47 1172R27 1493R40 1495R44 1502R25 1506R29 1533R40 1586R34
+. 1601R43 1628R26 1974R23 2180R70
+90x14*Resolve_Symlinks 66|1538R25
+98y13*Is_Regular_File{boolean} 66|1009R28
+102y13*Size{long_integer} 66|1028R28
+106y13*Is_Directory{boolean} 66|1128R26
+110y13*Is_Symbolic_Link{boolean} 66|1146R29
+114y13*File_Time_Stamp{2|42I9} 66|1482R25
+121y13*Is_Writable{boolean} 66|1108R53
+125x14*Set_Writable 66|1455R18
+131y13*Is_Readable{boolean} 66|1099R53
+135x14*Set_Readable 66|1468R18
+145x14*Rename 66|1047R10
+152x14*Copy 66|1074R21
+160x14*Delete 66|1089R21
+165y13*Read_Whole_File{111|45P9} 66|1191R28
+168y13*Read_Whole_File{61|311R12[59|31]} 66|1206R28
+176x14*Open_Write 66|1289R27 1296R21
+178b7 Append{boolean} 66|1290r13 1297r13
+179i7 FD{89|200I9} 66|1290r30 1297r29
+180r7 Error{28|88R9} 66|1290r42 1297r41
+185x14*Close 66|1383R33 1433R29
+191x14*Copy_File_Permissions 66|1398R16
+192p8 From(45R9) 66|1399r20
+192p14 To(45R9) 66|1400r20
+193b8 Success{boolean} 66|1401r20
+202y13*Change_Dir{boolean} 66|1651R28
+209y13*Read_Dir{111|54A9} 66|1730R29
+211b7 Dirs_Only{boolean} 66|1731r22
+212b7 Files_Only{boolean} 66|1732r22
+219y13*Make_Dir{boolean} 66|1670R27
+225x14*Remove_Dir 66|1699R17
+233x14*Copy_Dir 66|1071R21
+X 48 gnatcoll-io-native.ads
+26K21*Native 157e23 65|59w26 663r45 66|265r39 285r26 415r30 432r30 456r32
+. 487r30 975r47 1002r47 1121r45
+28R9*Native_File_Record<47|45R9> 147e63 66|975r54 1002r54 1121r52
+30V13*Create{47|62P9} 66|265s46
+36V13*Current_Dir{47|62P9} 66|487s37
+39V13*Home_Dir{47|62P9} 66|432s37
+42V13*Get_Tmp_Directory{47|62P9} 66|415s37
+46V13*Get_Logical_Drives{47|63A9} 66|456s39
+48p4*Local_Root_Dir{47|62P9} 65|663r52
+137K12*Codec 142e13 66|285r33
+140V16*From_UTF8{67|28A9} 66|285s39
+X 49 gnatcoll-io-remote.ads
+26K21*Remote 166e23 66|39w18 39r49 269r39 289r26 395r33 418r30 435r30 458r32
+. 490r30 572r22 573r25 987r29
+30R9*Remote_File_Record<47|45R9> 164e14 66|988r13
+31P9*Remote_File_Access(30R9) 66|573r32
+33V13*Create{47|62P9} 66|269s46
+38V13*Current_Dir{47|62P9} 66|490s37
+39V13*Home_Dir{47|62P9} 66|435s37
+40V13*Get_Tmp_Directory{47|62P9} 66|418s37
+41V13*Get_Logical_Drives{47|63A9} 66|458s39
+42V13*Locate_On_Path{47|62P9} 66|395s40
+45U14*Ensure_Initialized 66|572s29
+49V13*Get_Host{string} 66|987s36
+140K12*Codec 143e13 66|289r33
+142V16*From_UTF8{67|28A9} 66|289s39
+X 51 gnatcoll-path.ads
+26K26*Path 152e18 66|40w15 40r46 245r22 246r29 252r32 266r49 312r43 313r43
+. 320r18 1533r13 1627r22
+35V13*Local_FS{67|34E9} 66|106s50 266s54 306s16 378s31
+39V13*Is_Case_Sensitive{boolean} 66|106s31 187s28 188s21 602s10 721s32
+50V13*Exe_Extension{67|28A9} 66|2180s40
+57V13*Get_Root{67|28A9} 66|1586s13
+62V13*Is_Absolute_Path{boolean} 66|245s27 315s13 378s13 1156s18
+71V13*Path{67|28A9} 66|1627s27
+78V13*Equal{boolean} 66|134s17 782s18 1973s14
+83V13*To_Unix{67|28A9} 66|735s31 741s31 925s11 949s14
+89V13*From_Unix{67|28A9} 66|312s48 313s48 351s16
+94V13*File_Extension{67|28A9} 66|1171s13
+99V13*Base_Name{67|28A9} 66|513s18 518s18
+105V13*Base_Dir_Name{67|28A9} 66|532s15
+111V13*Get_Parent{67|28A9} 66|1601s21
+117V13*Dir_Name{67|28A9} 66|621s15 641s16
+123V13*Is_Dir_Name{boolean} 66|634s10 1493s17 1501s25
+129V13*Ensure_Directory{67|28A9} 66|136s13 138s13 320s23 604s14 607s14 1495s16
+. 1505s16
+141V13*Normalize{67|28A9} 66|246s34 252s37 1533s18
+146V13*Relative_Path{67|28A9} 66|767s33
+148a7 Ref{67|28A9} 66|769r10
+149a7 Path{67|28A9} 66|770r10
+X 54 gnatcoll-remote.ads
+38K18*Remote 77e20 66|41w15 41r46 42r15 42r46
+42h9*Server_Record
+43P9*Server_Access(42R9) 66|811r28 855r28
+45y13*Nickname{string} 66|816R48 817R66 821R54 860R48 862R51 867R55
+47y13*Shell_FS{67|34E9} 66|308R16
+X 55 gnatcoll-remote-db.ads
+30K25*Db 105e23 66|42w22 42r53
+80V13*Is_Configured{boolean} 66|806s14 850s14
+84V13*Get_Server{54|43P9} 66|308s26 811s45 855s45
+88V13*Nb_Mount_Points{natural} 66|816s24 860s24
+93V13*Get_Mount_Point_Local_Root{67|28A9} 66|817s31 867s20
+99V13*Get_Mount_Point_Host_Root{67|28A9} 66|821s20 862s17
+X 59 gnatcoll-strings.ads
+31K18*Strings[61|302] 65|60w15 449r61 66|1199r61 1204r26
+X 61 gnatcoll-strings_impl.ads
+311R12*XString<14|43R9> 65|449r69[59|31] 66|1199r69[59|31]
+321r7*Null_XString{311R12[59|31]} 66|1204r34[59|31]
+X 62 gnatcoll-strings_impl.adb
+1495V19 H[109|60]{11|19M9} 110|44b13[59|31]
+1511V19 H[109|60]{11|19M9} 110|44b13[59|31]
+X 63 gnatcoll-utils.ads
+36K18*Utils 323e19 66|37w15 37r46 1479r26
+51V13*Equal{boolean} 66|106s14
+283i4*No_Time=283:54{2|42I9} 66|1479r32
+X 65 gnatcoll-vfs.ads
+62K18*VFS 44|24k9 65|361r35 365r35 420r20 625E9 673l14 673e17 66|46b23 631r17
+. 1449r35 1462r35 2196r20 2200r26 2304l14 2304t17
+68A9*Filesystem_String<string>(character)<integer> 69r48 73r22 75r37 77r29
+. 80r7 83r57 142r23 154r19 161r19 162r19 178r19 185r36 189r36 191r14 216r19
+. 218r14 221r56 238r44 250r44 257r51 268r16 281r47 290r35 295r37 406r49 410r31
+. 414r19 425r19 441r21 497r34 524r19 66|48r27 54r22 55r40 75r22 80r40 82r14
+. 90r22 95r37 97r14 104r29 228r23 299r19 300r19 335r19 369r19 503r19 505r14
+. 526r56 541r14 615r51 669r16 714r47 718r51 719r51 752r35 767r14 778r37 1063r21
+. 1165r44 1170r17 1239r29 1247r31 1618r34 1772r20 1789r29 2093r49 2107r16
+. 2129r31 2166r19 2229r19 2269r36 2289r36 2299r14
+69P9*Filesystem_String_Access(68A9) 80r26 66|64r25
+73V14*"+"{string} 73>18 66|90b14 93l9 93t11 106s21 106s26 382s51 1426s25
+73a18 S{68A9} 66|90b18 92r22
+75V14*"+"{68A9} 75>18 66|95b14 98l9 98t11 387s28 724s20 1239s50 1737s46
+75a18 S{string} 66|95b18 97r33
+77V13*Equal{boolean} 77>20 77>24 78r19 66|104b13 107l8 107t13
+77a20 S1{68A9} 66|104b20 106r22
+77a24 S2{68A9} 66|104b24 106r27
+79U14*Free[34|20]
+83P9*Cst_Filesystem_String_Access(68A9) 227r48 66|554r14 562r20 565r20 574r17
+. 577r17
+89X4*VFS_Directory_Error 66|1648r27 1662r27 1675r13 1683r13 1696r16 1718r27
+. 1725r13 1762r13 1847r18 1892r12
+90X4*VFS_Invalid_File_Error 66|340r16 1452r16 1465r16
+91X4*VFS_Remote_Config_Error 66|807r16 851r16
+97R9*Virtual_File<14|43R9> 14|46P14 65|98r31 141p13 144r48 152p13 153r19
+. 155r44 160p13 163r48 169p13 172r48 177p13 179r48 182p13 183r15 183r36 183r57
+. 184p13 185r15 185r62 186p14 187r15 187r36 187r57 188p14 189r15 189r62 190p14
+. 191r40 191r61 214p13 215r19 221p13 221r35 224p13 225r23 236p13 237r19 241p13
+. 242r13 248p13 249r19 257p13 257r30 261p13 262r19 266p13 267r16 271p13 271r38
+. 274p13 274r43 277p13 278r22 288p13 289r14 290r14 294p13 295r14 298p13 299r14
+. 299r53 303p13 304r14 304r35 309p13 310r14 320p13 320r30 323p13 323r30 327p13
+. 327r37 331p13 331r26 334P25 334r44 337p14 337r33 341p13 341r40 345p13 345r33
+. 348p13 348r33 351p13 351r32 354p13 354r38 357p13 357r38 361p14 361r39 365p14
+. 365r39 370p13 370r37 376p14 377r26 387r60 397p14 397r60 403p14 403r60 413p13
+. 415r38 419p13 420r43 424p13 426r38 433p14 434r19 435r19 439p14 440r21 445p14
+. 445r29 448p13 448r31 449p13 449r31 462r30 464p13 464r25 464r46 470p13 470r66
+. 473p13 474r43 477p13 478r43 486p14 486r38 490p13 490r30 490r51 493p13 493r31
+. 493r52 496p13 497r13 497r60 500p14 500r32 504p14 504r30 511p13 512r16 522p13
+. 523r19 532p14 533r19 547p13 547r29 550p14 550r58 574p13 575r16 608p13 609r14
+. 609r53 610p13 611r18 612r18 613r18 613r39 625c9 627e14 629r34 630P25 630r49
+. 631P25 631r47 634r18 635r18 651r20 656r31 661r30 66|67r26 113r44 164r33
+. 230r48 249r37 281r48 301r48 334r19 336r44 370r48 373r14 410r68 427r43 481r43
+. 483r13 502r19 526r35 540r14 551r23 586r13 615r30 628r25 628r46 651r19 668r16
+. 683r38 697r43 711r22 751r14 752r14 778r14 795r14 795r53 812r19 813r19 840r30
+. 840r51 856r19 857r19 886r14 889r19 913r14 913r53 934r18 935r18 936r18 936r39
+. 972r30 982r30 996r37 1023r26 1037r19 1038r19 1062r21 1083r17 1097r33 1106r33
+. 1115r32 1143r38 1153r38 1164r19 1181r14 1199r31 1215r16 1221r39 1221r60
+. 1229r39 1229r60 1237r29 1249r23 1373r14 1449r39 1462r39 1476r14 1489r38
+. 1524r26 1552r26 1576r30 1576r51 1593r31 1593r52 1618r13 1618r60 1620r17
+. 1643r32 1658r30 1691r19 1710r16 1714r18 1771r20 1777r39 1780r39 1874r29
+. 1902r21 1931r49 1944r47 1955r40 2001r19 2026r60 2071r60 2167r38 2169r14
+. 2196r43 2204r28 2205r37 2230r38 2232r11 2259r15 2259r36 2259r57 2269r15
+. 2269r62 2279r15 2279r36 2279r57 2289r15 2289r62 2299r40 2299r61
+98r4*No_File{97R9} 656c4 666r47 66|260r17 385r20 398r23 631r21 799r17 813r35
+. 827r22 843r17 856r35 872r21 917r17 943r17 1263r17 1282r26 1293r24 1330r33
+. 1382r30 1579r17 1596r17 1604r20 1635r17 1910r18 2172r25 2188r14 2200r30
+. 2213r26 2242r14
+105a4*Local_Host{string} 143r33 163r29 171r33 179r29 311r24 470r47 474r24
+. 478r24 482r24 659c4 66|229r33 263r17 280r33 283r17 301r29 305r17 370r29
+. 377r17 410r49 413r17 427r24 430r17 444r24 455r20 481r24 485r17 570r37 874r35
+. 887r24 892r30 898r21 985r17
+111U14*Symbolic_Links_Support 111>38 66|2249b14 2252l8 2252t30
+111b38 Active{boolean} 66|2249b38 2251r32
+141V13*Create{97R9} 142>7 143>7 144>7 66|227b13 272l8 272t14 284s17 288s17
+. 316s20 319s20 379s20 387s20 817s22 820s26 861s23 866s25 924s14 1391s24
+. 1392s24 2137s29 2145s23 2301s31
+142a7 Full_Filename{68A9} 66|228b7 242r21 245r50 246r50 250r52 259r10 270r28
+143a7 Host{string} 66|229b7 250r44 263r10 270r21
+144b7 Normalize{boolean} 66|230b7 241r17 270r43 286r13 290r13
+152V13*Create_From_Dir{97R9} 153>7 154>7 155>7 66|323s20 333b13 352l8 352t23
+. 947s17 951s17 1253s24 1737s29 2173s21 2179s21 2235s15 2261s14 2271s14 2281s14
+. 2291s14 2301s14
+153r7 Dir{97R9} 66|334b7 339r10 343r7 348r26 350r27 351r27
+154a7 Base_Name{68A9} 66|335b7 351r46
+155b7 Normalize{boolean} 66|336b7 350r42
+160V13*Create_From_Base{97R9} 161>7 162>7 163>7 66|298b13 327l8 327t24
+161a7 Base_Name{68A9} 66|299b7 312r64
+162a7 Base_Dir{68A9} 66|300b7 313r64
+163a7 Host{string} 66|301b7 305r10 308r38 316r39 320r67 324r33
+169V13*Create_From_UTF8{97R9} 170>7 171>7 172>7 66|278b13 292l8 292t24
+170a7 Full_Filename{string} 66|279b7 285r50 289r50
+171a7 Host{string} 66|280b7 283r10 289r66
+172b7 Normalize{boolean} 66|281b7 286r26 290r26
+177V13*Locate_On_Path{97R9} 178>7 179>7 66|368b13 404l8 404t22
+178a7 Base_Name{68A9} 66|369b7 378r42 379r28 382r52 395r63
+179a7 Host{string} 66|370b7 377r10 395r56
+182V13*Join{97R9} 183>8 183>29 66|2258b13 2262l8 2262t12
+183r8 Self{97R9} 66|2259b8 2261r31
+183r29 File{97R9} 66|2259b29 2261r37
+184V13*Join{97R9} 185>8 185>29 66|2268b13 2272l8 2272t12
+185r8 Self{97R9} 66|2269b8 2271r31
+185a29 Path{68A9} 66|2269b29 2271r37
+186V14*"/"{97R9} 187>8 187>29 66|2278b14 2282l9 2282t11
+187r8 Self{97R9} 66|2279b8 2281r31
+187r29 File{97R9} 66|2279b29 2281r37
+188V14*"/"{97R9} 189>8 189>29 66|250s50 2288b14 2292l9 2292t11
+189r8 Self{97R9} 66|2289b8 2291r31
+189a29 Path{68A9} 66|2289b29 2291r37
+190V14*"/"{97R9} 191>8 191>33 66|2298b14 2302l9 2302t11
+191a8 Dir{68A9} 66|2299b8 2301r39
+191r33 File{97R9} 66|2299b33 2301r45
+214V13*Base_Name{68A9} 215>7 216>7 217>7 66|501b13 520l8 520t17 675s43 1789s60
+215r7 File{97R9} 66|502b7 507r10 512r29 514r13 515r13 518r29 518r48
+216a7 Suffix{68A9} 66|503b7 516r14 518r70
+217b7 Normalize{boolean} 66|504b7 511r10
+221V13*Base_Dir_Name{68A9} 221>28 66|526b13 533l8 533t21 702s43
+221r28 File{97R9} 66|526b28 528r10 532r30 532r49
+224V13*Full_Name{83P9} 225>7 226>7 227>7 66|350s31 543s19 550b13 579l8 579t17
+. 659s29 737s17 769s34 770s34 781s23 902s47 905s39 926s48 1172s51 1391s42
+. 1393s24 1419s28 1426s63 1427s41 1629s31 2101s39 2111s41 2112s25 2113s36
+. 2261s42 2281s42 2301s50
+225r7 File{97R9} 66|551b7 556r10 559r13 560r29 563r17 566r17 569r13 570r28
+. 573r52 574r48 577r48
+226b7 Normalize{boolean} 66|552b7 559r46 738r25 1394r22 1419r39
+227b7 Resolve_Links{boolean} 66|553b7 560r35 561r13 738r49 1394r41
+236V13*Full_Name{68A9} 237>7 238>7 66|253s59 539b13 544l8 544t17 757s22 764s22
+237r7 File{97R9} 66|540b7 543r14
+238b7 Normalize{boolean} 66|540b28 543r30
+241V13*Full_Name_Hash{11|19M9} 242>7 66|585b13 609l8 609t22
+242r7 Key{97R9} 66|586b7 590r10 594r26 601r12 604r35 607r35
+248V13*File_Extension{68A9} 249>7 250>7 66|1163b13 1174l8 1174t22 1793s40
+249r7 File{97R9} 66|1164b7 1167r10 1172r16 1172r46
+250b7 Normalize{boolean} 66|1165b7 1172r62
+257V13*Dir_Name{68A9} 257>23 66|615b13 622l8 622t16 689s43
+257r23 File{97R9} 66|615b23 617r10 621r25 621r44
+261V13*Display_Full_Name{string} 262>7 263>7 66|650b13 661l8 661t25
+262r7 File{97R9} 66|651b7 654r10 658r17 659r24
+263b7 Normalize{boolean} 66|652b7 659r40
+266V13*Display_Base_Name{string} 267>7 268>7 66|667b13 677l8 677t25
+267r7 File{97R9} 66|668b7 671r10 675r17 675r38
+268a7 Suffix{68A9} 66|669b7 675r54
+271V13*Display_Dir_Name{string} 271>31 66|683b13 691l8 691t24
+271r31 File{97R9} 66|683b31 685r10 689r17 689r38
+274V13*Display_Base_Dir_Name{string} 274>36 66|697b13 704l8 704t29
+274r36 File{97R9} 66|697b36 699r10 702r17 702r38
+277V13*Unix_Style_Full_Name{68A9} 278>7 279>7 280>7 281>7 66|710b13 744l8
+. 744t28
+278r7 File{97R9} 66|711b7 729r10 732r16 738r19 741r44
+279b7 Cygwin_Style{boolean} 66|712b7 739r16 741r65
+280b7 Normalize{boolean} 66|713b7 734r13 738r38
+281b7 Casing{boolean} 66|714b7 721r17
+288V13*Relative_Path{68A9} 289>7 290>7 66|750b13 771l8 771t21 949s48 953s18
+289r7 File{97R9} 66|751b7 757r17 761r17 762r17 764r17 768r10 770r29
+290r7 From{97R9} 66|752b7 756r28 760r10 762r35 769r29
+294V13*Has_Suffix{boolean} 295>7 295>28 66|777b13 788l8 788t18
+295r7 File{97R9} 66|778b7 780r14 781r18 783r12 784r12 785r15 786r20
+295a28 Suffix{68A9} 66|778b28 781r47 785r38 787r13
+298V13*To_Remote{97R9} 299>7 299>28 66|794b13 834l8 834t17 899s36
+299r7 File{97R9} 66|795b7 798r10 802r10 803r17 819r33 829r29 831r29
+299a28 To_Host{string} 66|795b28 802r26 806r29 811r57 822r19 829r35
+303V13*To_Local{97R9} 304>7 66|840b13 879l8 879t16 893s31
+304r7 File{97R9} 66|840b23 842r10 846r10 847r17 850r29 855r57 863r16 865r34
+. 874r29 876r29
+309V13*To_Arg{111|45P9} 310>7 311>7 66|885b13 906l8 906t14
+310r7 File{97R9} 66|886b7 891r18 892r13 893r26 895r26 905r34
+311a7 Host{string} 66|887b7 891r10 898r13 899r47
+320V13*Is_Local{boolean} 320>23 66|846s15 972b13 976l8 976t16 984s10
+320r23 File{97R9} 66|972b23 974r14 975r17
+323V13*Get_Host{string} 323>23 66|182s18 182s38 184s17 184s36 570s18 802s15
+. 850s34 855s62 863s21 891s23 892s18 982b13 990l8 990t16 1237s69
+323r23 File{97R9} 66|982b23 984r20 988r33
+327V13*Is_Regular_File{boolean} 327>30 66|996b13 1017l8 1017t23 1256s28 1275s38
+. 1801s38 2175s16 2182s16 2237s15
+327r30 File{97R9} 66|996b30 999r10 1002r13 1003r18 1006r17 1009r17 1012r13
+331V13*Size{long_integer} 331>19 66|1023b13 1030l8 1030t12
+331r19 File{97R9} 66|1023b19 1025r10 1028r17
+334V25*"="{boolean} 334>29 334>36 66|113b25 141l9 141t11 153s24 154s32 169s16
+. 827s20 872s19 1282s24 2075s23 2212s35
+334r29 File1{97R9} 66|113b29 116r10 120r13 122r17 128r29 135r13 137r16 137r36
+. 139r16
+334r36 File2{97R9} 66|113b36 116r24 121r17 122r40 129r29 139r36
+337V14*"<"{boolean} 337>18 337>25 66|164b14 221l9 221t11 2014s47
+337r18 File1{97R9} 66|164b18 169r10 172r13 178r23 179r27 181r27 182r28 184r27
+. 187r47 190r29 194r20 197r21 200r27 205r32
+337r25 File2{97R9} 66|164b25 169r18 175r13 178r53 182r48 184r46 188r40 191r29
+. 195r15 198r21 201r26 206r32
+341V13*Is_Parent{boolean} 341>24 341>32 66|819s22 865s23 1955b13 1980l8 1980t17
+. 2209s39
+341r24 Parent{97R9} 66|1955b24 1957r10 1959r17 1964r26 1967r10 1974r10 1975r10
+. 1979r17
+341r32 Child{97R9} 66|1955b32 1958r17 1959r37 1965r26 1968r9 1976r10 1977r13
+. 1978r15
+345V13*Is_Readable{boolean} 345>26 66|1097b13 1100l8 1100t19
+345r26 File{97R9} 66|1097b26 1099r14 1099r42
+348V13*Is_Writable{boolean} 348>26 66|1106b13 1109l8 1109t19
+348r26 File{97R9} 66|1106b26 1108r14 1108r42
+351V13*Is_Directory{boolean} 351>27 66|756s14 1070s10 1115b13 1137l8 1137t20
+. 1632s10 1666s10 1723s14 1797s38 1809s32 1820s14
+351r27 VF{97R9} 66|1115b27 1118r10 1121r13 1122r18 1125r17 1128r17 1131r13
+. 1132r13
+354V13*Is_Symbolic_Link{boolean} 354>31 66|1143b13 1147l8 1147t24
+354r31 File{97R9} 66|1143b31 1145r14 1146r18
+357V13*Is_Absolute_Path{boolean} 357>31 66|1153b13 1157l8 1157t24
+357r31 File{97R9} 66|1153b31 1155r14 1156r36 1156r55
+361U14*Set_Writable 361>28 361>53 66|1449b14 1456l8 1456t20
+361r28 File{97R9} 66|1449b28 1451r10 1455r7
+361b53 Writable{boolean} 66|1449b53 1455r32
+365U14*Set_Readable 365>28 365>53 66|1462b14 1469l8 1469t20
+365r28 File{97R9} 66|1462b28 1464r10 1468r7
+365b53 Readable{boolean} 66|1462b53 1468r32
+370V13*File_Time_Stamp{2|42I9} 370>30 66|1475b13 1483l8 1483t23
+370r30 File{97R9} 66|1476b7 1478r10 1482r14
+376U14*Normalize_Path 377>7 378>7 66|1551b14 1570l8 1570t22
+377r7 File{97R9} 66|1552b7 1556r10 1560r26 1562r13 1565r10 1566r27 1568r10
+. 1568r44
+378b7 Resolve_Symlinks{boolean} 66|1553b7 1560r32 1564r10
+387A9*File_Array(97R9)<integer> 388r41 392r32 394r35 398r60 399r61 406r30
+. 410r57 415r19 420r24 426r19 540r14 665r32 666r25 66|463r48 963r10 1734r25
+. 1831r15 1855r21 1986r35 2028r22 2035r60 2039r23 2041r21 2053r61 2057r23
+. 2059r21 2080r24 2093r30 2129r57 2153r27 2167r19 2196r24 2230r19
+388P9*File_Array_Access(387A9) 390r43 397r37 398r37 399r38 403r37 482r43
+. 513r53 525r56 540r33 652r20 66|444r43 463r23 961r43 963r22 1711r53 1713r18
+. 1773r57 1775r16 1781r18 1831r34 1833r16 1834r38 2026r37 2035r37 2036r13
+. 2053r38 2054r13 2071r37 2072r13 2130r14
+390U14*Unchecked_Free 390=30 66|961b14 966l8 966t22 1760s10 1816s10 1862s16
+. 1921s10 2044s10 2062s10 2081s13 2155s10
+390p30 Arr{388P9} 66|961b30 965m17
+392a4*Empty_File_Array{387A9} 665c4
+394U14*Sort 394=20 66|1986b14 2020l8 2020t12
+394a20 Files{387A9} 66|1986b20 2003r20 2003r27 2004m10 2004r17 2004r43 2004r50
+. 2005m10 2005r17 2014r17 2014r24 2015r12 2015r19 2019r13
+397U14*Append 397=22 397>56 66|1798s28 1802s28 1805s25 2026b14 2029l8 2029t14
+. 2137s16 2145s10
+397p22 Files{388P9} 66|2026b22 2028m15
+397r56 F{97R9} 66|2026b56 2028r39
+398U14*Append 398=22 398>56 66|2028s7 2035b14 2047l8 2047t14
+398p22 Files{388P9} 66|2035b22 2038r10 2039m10 2041r38 2042r20 2042r37 2043r15
+. 2044m26 2045m10
+398a56 F{387A9} 66|2035b56 2039r35 2041r53 2043r48
+399U14*Prepend 399=23 399>57 66|2053b14 2065l8 2065t15
+399p23 Files{388P9} 66|2053b23 2056r10 2057m10 2059r38 2060r46 2062m26 2063m10
+399a57 F{387A9} 66|2053b57 2057r35 2059r53 2060r19 2061r20 2061r33
+403U14*Remove 403=22 403>56 66|2071b14 2087l8 2087t14
+403p22 Files{388P9} 66|2071b22 2074r16 2075r13 2076r31 2077r16 2077r33 2080r36
+. 2080r43 2080r58 2081m29 2082m13
+403r56 F{97R9} 66|2071b56 2075r25
+406V13*To_Path{68A9} 406>22 66|2093b13 2123l8 2123t15
+406a22 Paths{387A9} 66|2093b22 2096r10 2100r16 2101r29 2104r26 2110r19 2111r31
+. 2112r15 2113r26 2115r21
+410V13*From_Path{387A9} 410>24 66|2129b13 2159l8 2159t17
+410a24 Path{68A9} 66|2129b24 2131r25 2133r16 2133r30 2135r13 2137r37 2144r18
+. 2145r31 2145r45
+413V13*Locate_On_Path{97R9} 414>7 415>7 66|2165b13 2189l8 2189t22
+414a7 Base_Name{68A9} 66|2166b7 2173r48 2180r26
+415a7 Path{387A9} 66|2167b7 2171r16 2172r13 2173r38 2180r16 2180r55
+419V13*Greatest_Common_Path{97R9} 420>7 66|2195b13 2222l8 2222t28
+420a7 L{387A9} 66|2196b7 2199r10 2204r44 2204r47 2207r19 2207r34 2209r50
+424V13*Locate_Regular_File{97R9} 425>7 426>7 66|2228b13 2243l8 2243t27
+425a7 File_Name{68A9} 66|2229b7 2235r42
+426a7 Path{387A9} 66|2230b7 2234r16 2235r32
+433U14*Rename 434>7 435>7 436<7 66|1036b14 1055l8 1055t14 1412s30
+434r7 File{97R9} 66|1037b7 1041r10 1043r17 1047r18 1050r37 1051r13
+435r7 Full_Name{97R9} 66|1038b7 1042r17 1043r35 1047r30 1050r13
+436b7 Success{boolean} 66|1039b7 1045m10 1047m47 1049r13
+439U14*Copy 440>7 441>7 442<7 66|1061b14 1076l8 1076t12 1418s33
+440r7 File{97R9} 66|1062b7 1066r10 1070r24 1071r10 1074r10
+441a7 Target_Name{68A9} 66|1063b7 1071r32 1074r28
+442b7 Success{boolean} 66|1064b7 1067m10 1071m45 1074m41
+445U14*Delete 445>22 445<43 66|1082b14 1091l8 1091t14 1421s36
+445r22 File{97R9} 66|1083b7 1086r10 1089r10
+445b43 Success{boolean} 66|1084b7 1087m10 1089m29
+448V13*Read_File{111|45P9} 448>24 66|1180b13 1193l8 1193t17
+448r24 File{97R9} 66|1181b7 1184r10 1187r13 1191r17
+449V13*Read_File{61|311R12[59|31]} 449>24 66|1199b13 1208l8 1208t17
+449r24 File{97R9} 66|1199b24 1201r10 1202r18 1206r17
+462r4*Local_Root_Dir{97R9} 661c4
+464V13*Dir{97R9} 464>18 66|628b13 644l8 644t11
+464r18 File{97R9} 66|628b18 630r10 634r23 634r42 635r17 640r16 642r19 642r38
+470V13*Get_Current_Dir{97R9} 470>30 66|250s19 324s16 480b13 495l8 495t23
+470a30 Host{string} 66|250r36 481b7 485r10 490r50
+473V13*Get_Tmp_Directory{97R9} 474>7 66|410b13 420l8 420t25 1237s45
+474a7 Host{string} 66|410b32 413r10 418r56
+477V13*Get_Home_Directory{97R9} 478>7 66|426b13 437l8 437t26
+478a7 Host{string} 66|427b7 430r10 435r47
+481V13*Get_Logical_Drives{388P9} 482>7 66|443b13 474l8 474t26
+482a7 Host{string} 66|444b7 455r13 458r59
+486U14*Ensure_Directory 486>32 66|343s11 1131s16 1489b14 1517l8 1517t24 1622s7
+. 1630s7 1721s7
+486r32 Dir{97R9} 66|1489b32 1492r10 1493r30 1493r48 1495r34 1495r52 1496r19
+. 1497r13 1500r13 1502r15 1502r33 1506r19 1506r37 1508r16 1508r40 1509r22
+. 1511r19 1512r13 1514r13
+490V13*Get_Root{97R9} 490>23 66|1576b13 1587l8 1587t16 2205s53
+490r23 File{97R9} 66|1576b23 1578r10 1585r13 1586r23 1586r42
+493V13*Get_Parent{97R9} 493>25 66|1593b13 1611l8 1611t18 2216s35
+493r25 Dir{97R9} 66|1593b25 1595r10 1601r33 1601r51 1608r36
+496V13*Sub_Dir{97R9} 497>7 497>27 66|1617b13 1637l8 1637t15
+497r7 Dir{97R9} 66|1618b7 1622r25 1626r13 1628r16 1629r27
+497a27 Name{68A9} 66|1618b27 1629r58
+500U14*Change_Dir 500>26 66|1643b14 1652l8 1652t18
+500r26 Dir{97R9} 66|1643b26 1647r10 1651r18
+504U14*Make_Dir 504>24 504>44 66|1658b14 1684l8 1684t16
+504r24 Dir{97R9} 66|1658b24 1661r10 1666r24 1670r17 1673r10 1677r10
+504b44 Recursive{boolean} 66|1658b44 1670r37
+509E9*Read_Dir_Filter 509e62 513r16 525r19 66|1711r16 1773r20
+509n29*All_Files{509E9} 513r35 525r38 66|1711r35 1773r39 1781r69 1804r27
+509n40*Dirs_Only{509E9} 66|1731r45 1740r21 1796r27
+509n51*Files_Only{509E9} 66|1732r45 1743r21 1800r27 1840r46
+511V13*Read_Dir{388P9} 512>7 513>7 66|1709b13 1764l8 1764t16 1781s49 1840s26
+. 1882s26
+512r7 Dir{97R9} 66|1710b7 1717r10 1721r25 1723r28 1730r19 1737r25
+513e7 Filter{509E9} 66|1711b7 1731r36 1732r36 1739r18 1781r59
+522V13*Read_Dir_Recursive{388P9} 523>7 524>7 525>7 66|1770b13 1824l8 1824t26
+523r7 Dir{97R9} 66|1771b8 1820r10 1821r20
+524a7 Extension{68A9} 66|1772b8 1792r22 1793r57
+525e7 Filter{509E9} 66|1773b8 1795r27
+532U14*Remove_Dir 533>7 534>7 535<7 66|1690b14 1703l8 1703t18
+533r7 Dir{97R9} 66|1691b7 1695r10 1699r7 1701r10
+534b7 Recursive{boolean} 66|1692b7 1699r29
+535b7 Success{boolean} 66|1693b7 1699m40 1700r10
+539V13*Read_Files_From_Dirs{388P9} 540>7 66|1830b13 1868l8 1868t28
+540a7 Dirs{387A9} 66|1831b8 1834r23 1838r16 1840r36
+543R9*Virtual_Dir 545r27 547r50 550r34 553r35 650c9 654e14 668r27 66|1874r50
+. 1875r14 1901r21 1918r35
+545r4*Invalid_Dir{543R9} 668c4 66|1878r17 1893r17 1924r15
+547V13*Open_Dir{543R9} 547>23 66|1874b13 1894l8 1894t16
+547r23 Dir{97R9} 66|1874b23 1877r10 1881r20 1882r36 1888r7
+550U14*Read 550=20 550<47 66|1900b14 1912l8 1912t12
+550r20 VDir{543R9} 66|1901b7 1904r10 1905r18 1905r33 1907m10 1907r26 1908r18
+. 1908r35
+550r47 File{97R9} 66|1902b7 1908m10 1910m10
+553U14*Close 553=21 66|1918b14 1925l8 1925t13
+553r21 VDir{543R9} 66|1918b21 1920r10 1921m26 1921r26 1924m7
+566R9*Writable_File 568r28 571r25 571r48 576r41 589r14 593r21 596r21 600r35
+. 633c9 640e14 642r28 66|147r25 147r48 359r14 1216r41 1219r12 1283r24 1301r21
+. 1314r21 1344r21 1371r35
+568r4*Invalid_File{566R9} 642c4 66|1268r17 1283r41 1301r38
+571V14*"="{boolean} 571>18 571>40 66|147b14 158l9 158t11
+571r18 Left{566R9} 66|147b18 153r14 154r18 155r18 156r18 157r18
+571r40 Right{566R9} 66|147b40 153r26 154r34 155r28 156r32 157r33
+574V13*Write_File{566R9} 575>7 576>7 66|1214b13 1307l8 1307t18
+575r7 File{97R9} 66|1215b7 1267r10 1271r20 1275r33 1279r40 1296r10
+576b7 Append{boolean} 66|1216b7 1272r20 1275r14
+588V13*Error_String{28|88R9} 589>7 66|358b13 362l8 362t20
+589r7 Self{566R9} 66|359b7 361r14
+592U14*Write 593=7 594>7 66|1313b14 1337l8 1337t13
+593r7 File{566R9} 66|1314b7 1320r10 1321r40 1322m10 1323r17 1324m13 1330r16
+. 1331m16 1331r16 1333m16 1333r16
+594a7 Str{string} 66|1315b7 1321r49 1321r62 1322r36
+595U14*Write 596=7 597>7 66|1343b14 1365l8 1365t13
+596r7 File{566R9} 66|1344b7 1353r10 1355r40 1356m10 1357r17 1358m13 1362m13
+. 1362r13
+597p7 Str{70|47P9} 66|1345b7 1354r34 1355r61
+600U14*Close 600=21 66|1371b14 1443l8 1443t13
+600r21 File{566R9} 66|1371b21 1381r10 1382r13 1383m13 1383r13 1383r40 1383m49
+. 1383r49 1384r20 1385m16 1391r32 1400r31 1412r16 1412m44 1412r44 1414r23
+. 1418r19 1419m63 1419r63 1420r22 1421r22 1425m22 1426r49 1433m13 1433r13
+. 1433r36 1433m45 1433r45 1437r14 1439r18 1440r38
+608V13*Convert{97R9} 609>7 609>28 66|829s20 874s20 912b13 927l8 927t15
+609r7 File{97R9} 66|913b7 916r10 926r13 926r43
+609a28 To_Host{string} 66|913b28 926r65
+610V13*Convert{97R9} 611>7 612>7 613>7 66|831s20 876s20 933b13 955l8 955t15
+611r7 File{97R9} 66|934b7 939r10 949r23 949r43 953r13
+612r7 From_Dir{97R9} 66|935b7 940r17 946r10 949r63 953r33
+613r7 To_Dir{97R9} 66|936b7 941r17 946r35 948r13 952r13
+626p7*Value{47|62P9} 643m53 644m53 657m40 663m24 669m41 66|116r16 116r30
+. 120r19 121r23 122r23 122r46 135r19 137r22 137r42 139r22 139r42 172r19 175r19
+. 178r29 178r59 179r33 181r33 187r53 188r46 194r26 195r21 197r27 198r27 200r33
+. 201r32 205r38 206r38 265m18 269m18 339r14 348r30 351r31 470r35 493r11 507r15
+. 514r18 515r18 518r34 518r53 528r15 532r35 532r54 556r15 559r18 563r22 566r22
+. 569r18 573r57 574r53 577r53 590r14 601r16 604r39 607r39 617r15 621r30 621r49
+. 630r15 634r28 634r47 639m13 640r21 642r24 642r43 654r15 658r22 671r15 675r22
+. 685r15 689r22 699r15 702r22 729r15 732r21 741r49 760r15 761r22 762r22 762r40
+. 768r15 780r19 783r17 784r17 785r20 786r25 798r15 842r15 916r15 926r18 939r15
+. 940r26 941r24 946r19 946r42 949r28 974r19 975r22 988r38 999r15 1002r18
+. 1003r23 1006r22 1009r22 1012r18 1025r15 1028r22 1041r15 1042r27 1043r22
+. 1043r45 1047r23 1047r40 1050r23 1050r42 1051r18 1066r15 1071r15 1074r15
+. 1086r15 1089r15 1099r19 1099r47 1108r19 1108r47 1118r13 1121r16 1122r21
+. 1125r20 1128r20 1132r16 1145r19 1146r23 1155r19 1156r41 1156r60 1167r15
+. 1172r21 1184r15 1187r18 1191r22 1201r15 1202r23 1206r22 1267r15 1289r21
+. 1296r15 1331r30 1333r26 1362r23 1383r27 1399r36 1400r45 1433r23 1451r15
+. 1455r12 1464r15 1468r12 1478r15 1482r19 1492r14 1493r34 1493r52 1495r38
+. 1495r56 1496r23 1497r17 1500r17 1502r19 1502r37 1506r23 1506r41 1508r20
+. 1508r44 1509r26 1511r23 1512r17 1514r17 1527r15 1531r15 1532r15 1533r34
+. 1533r53 1538r48 1540r21 1541r21 1541r59 1556r15 1562r18 1565r15 1566r32
+. 1568r15 1568r49 1578r15 1585r18 1586r28 1586r47 1595r14 1601r37 1601r55
+. 1608r40 1626r17 1628r20 1647r14 1651r22 1661r14 1670r21 1673r14 1677r14
+. 1695r14 1699r11 1701r14 1717r14 1730r23 1741r28 1744r28 1877r14 1888r11
+. 1932r47 1934m12 1946r15 1947r20 1957r17 1958r23 1959r24 1959r43 1967r17
+. 1968r15 1974r17 1975r17 1976r16 1977r19 1978r21 1979r24 2180r64
+630U25 Finalize<14|48p14> 630=35 66|1931b25 1938l8 1938t16
+630r35 File{97R9} 66|1931b35 1932r42 1934m7
+631U25 Adjust<14|47p14> 631=33 66|1944b25 1949l8 1949t14
+631r33 File{97R9} 66|1944b33 1946r10 1947r15
+634r7*File{97R9} 643m7 66|153r19 153r32 1271m9 1333m21 1362m18 1391r37 1433m18
+635r7*Tmp_File{97R9} 644m7 66|154r23 154r40 1279m12 1282r15 1289m12 1293m12
+. 1330r21 1331m21 1382r18 1383m18 1400r36 1412r21 1418r24 1421r27 1426r54
+636i7*FD{89|200I9} 645m7 66|155r23 155r34 1290m38 1297m37 1300r12 1321r45
+. 1355r45 1383r45 1433r41
+637b7*Append{boolean} 646m7 66|156r23 156r38 1272m9
+638b7*Success{boolean} 647m7 66|157r23 157r39 1273m9 1320r15 1322m15 1323r22
+. 1353r15 1356m15 1357r22 1381r15 1383m54 1384r25 1412m49 1414r28 1419m68
+. 1420r27 1433m50 1437r19
+639r7*Error{28|88R9} 66|361r19 1284m18 1290m53 1297m52 1302m15 1302r26 1324m18
+. 1358m18 1385m21 1425m27 1439r23 1440r43
+651r7*File{97R9} 66|1881m12
+652p7*Files_List{388P9} 66|1882m12 1884r15 1885r31 1904r15 1905r38 1908r23
+. 1920r15 1921m31
+653i7*Current{natural} 66|1885m15 1905r23 1907m15 1907r31 1908r40
+X 66 gnatcoll-vfs.adb
+48a4 Empty_String{65|68A9} 557r17
+50b4 Handle_Symbolic_Links{boolean} 1379r56 1390m16 1395m16 1537r13 2251m7
+54V14 "+"{67|28A9} 54>18 75b14 78l9 78t11 242s20 245s49 246s49 253s48 270s27
+. 312s63 313s63 351s45 378s41 395s62 516s13 518s69 675s37 689s37 702s37 737s16
+. 787s12 949s42 1071s31 1074s27
+54a18 S{65|68A9} 75b18 77r25
+55V14 "+"{65|68A9} 55>18 80b14 83l9 83t11 285s13 289s13 316s28 320s16 324s40
+. 513s17 518s17 532s14 621s14 722s20 817s30 821s19 862s16 867s19 925s10 949s13
+. 2180s39
+55a18 S{67|28A9} 80b18 82r33
+56V14 "+"{string} 56>18 85b14 88l9 88t11 604s13 607s13 724s31
+56a18 S{67|28A9} 85b18 87r22
+63V13 "+"[33|20]{65|69P9} 563s16 566s16 574s47 577s47
+66U14 Ensure_Normalized 67>7 68>7 128s10 129s10 190s10 191s10 512s10 560s10
+. 594s7 1523b14 1545l8 1545t25 1560s7 1964s7 1965s7
+67c7 File<65|97R9> 1524b7 1527r10 1531r10 1532r10 1533r29 1533r48 1538r43
+. 1540r16 1541r16 1541r54
+68b7 Resolve_Symlinks{boolean} 128r36 129r36 190r36 191r36 512r35 594r31
+. 1525b7 1536r10 1964r34 1965r33
+165e7 C1{character} 205m16 208r19 210r22
+165e11 C2{character} 206m16 208r24 210r27
+166i7 Ind1{integer} 197m13 205r69 214m16 214r24
+166i13 Ind2{integer} 198m13 201r19 206r69 215m16 215r24
+167b7 Case_Sensitive{boolean} 187m10 193r13
+200i17 C{integer}
+232V16 Internal_Get_Path{67|28A9} 232>35 239b16 256l11 256t28 266s21
+232e35 FS{67|34E9} 239b35 245r45 246r45 252r48
+249r16 Full_Path{65|97R9} 253r49
+303e7 FS{67|34E9} 306m10 308m10 312r59 313r59 315r31 320r41
+312a10 The_Name{67|28A9} 315r35 316r29 320r56 324r41
+313a10 The_Dir{67|28A9} 318r16 320r45
+372p7 Name{89|67P12} 382m10 384r13 387r29 388m31 388r31
+373r7 Ret{65|97R9} 387m13 389r20
+394p13 Int{47|62P9} 397r16 400r57
+446V16 Get_IO_List{47|63A9} 453b16 460l11 460t22 462s49
+462a7 List{47|63A9} 463r65 466r16 467r19 469r13 470r19
+463p7 Ret{65|388P9} 467r10 470r10 473r14
+466i11 J{integer} 467r15 469r19 470r15
+483r7 Ret{65|97R9} 486m10 489m10 493r7 494r14
+588e7 F{67|34E9} 601m7 602r29 604r32 607r32
+716e7 FS{67|34E9} 721r51 732m10 736r16 741r40
+718V16 Auto_Case{65|68A9} 718>27 719b16 726l11 726t20 735s20 741s20
+718a27 Str{67|28A9} 719b27 722r21 724r32
+811p10 Server{54|43P9} 816r41 817r59 821r47
+812r10 Local{65|97R9} 817m13 819r16 831r35
+813r10 Remote{65|97R9} 820m16 827r13 831r42
+816i14 J{integer} 817r76 821r64
+855p10 Server{54|43P9} 860r41 862r44 867r48
+856r10 Local{65|97R9} 866m16 872r13 876r43
+857r10 Remote{65|97R9} 861m13 865r16 876r35
+860i14 J{integer} 862r61 867r65
+889r7 Host_File{65|97R9} 893m13 895m13 899m13 899r26 902r37
+962U17 Internal[34|20] 965s7
+997b7 Ret{boolean} 1009m10 1011r13 1015r17
+1116b7 Ret{boolean} 1128m10 1130r13 1135r17
+1219r7 W{65|566R9} 1271m7 1272m7 1273m7 1279m10 1282r13 1289m10 1289r10 1290m36
+. 1290r36 1290m51 1290r51 1293m10 1297m35 1297r35 1297m50 1297r50 1300r10
+. 1302r24 1305r17
+1221V16 Temporary_File{65|97R9} 1221>32 1229b16 1264l11 1264t25 1279s24
+1221r32 From{65|97R9} 1229b32 1237r64
+1232E18 Lowercase{character} 1233r67
+1233K18 Random_Char[17|44] 1235r20 1242r10 1248r29
+1235r10 Gen{17|50R9[1233]} 1242r29 1248r49
+1237r10 Tmp_Dir{65|97R9} 1254r19
+1238i10 Pid_Int{integer} 1239r66
+1239a10 Pid{65|68A9} 1254r37 1254r42 1254r59
+1245i14 J{integer}
+1247a16 R{65|68A9} 1254r77
+1249r16 Temp{65|97R9} 1253m16 1256r23 1258r26
+1283r20 X{65|566R9} 1284m16
+1301r17 X{65|566R9} 1302m13
+1317i7 Written{integer} 1321m10 1322r26 1328r13
+1347i7 Written{integer} 1355m10 1356r26 1361r13
+1348i7 Len{integer} 1354m10 1355r67 1356r36
+1350V16 To_Address[33|20]{72|67M9} 1355s49
+1373r7 Norm{65|97R9} 1391m16 1392m16 1393r19 1399m31 1399r31 1412r38 1419r23
+. 1427r36
+1374b7 Success{boolean} 1401m31 1421m44
+1379b7 Save_Handle_Symbolic_Links{boolean} 1395r41
+1490p7 Full{67|30P9} 1494m13 1497r31 1504m13 1514r37
+1600a10 Parent{67|28A9} 1603r13 1608r47
+1620r7 New_Dir{65|97R9} 1623m7 1630r25 1632r24 1633r17
+1644b7 Success{boolean} 1645r28 1651m7
+1659b7 Result{boolean} 1670m7 1672r14
+1681r12 E{13|53R9} 1683r62
+1713p7 F_Array{65|388P9} 1734m10 1751r13 1751r22 1756r14 1760m26 1760r26
+1714r7 Tmp_File{65|97R9} 1737m13 1741r19 1744r19 1751r57
+1729a10 List{111|54A9} 1734r42 1736r19 1737r47 1751r42 1752r32
+1736i14 J{integer} 1737r53 1751r38 1752r38
+1759r12 E{13|53R9} 1763r32
+1775p7 Result{65|388P9} 1798m36 1798r36 1802m36 1802r36 1805m33 1805r33 1823r14
+1777U17 Internal 1777>27 1780b17 1810s22 1817l11 1817t19 1821s10
+1777r27 Directory{65|97R9} 1780b27 1781r39
+1781p10 Files{65|388P9} 1783r13 1787r19 1789r50 1793r30 1797r28 1798r44 1801r28
+. 1802r44 1805r41 1809r22 1810r32 1816m26 1816r26
+1787i14 F{integer} 1789r57 1793r37 1797r35 1798r51 1801r35 1802r51 1805r48
+. 1809r29 1810r39
+1789a16 B{65|68A9} 1791r19 1791r37
+1833p7 Ret{65|388P9} 1855m10 1856r17 1860r16 1866r17
+1834a7 Files(65|388P9) 1840m13 1842r16 1843r35 1848m16 1858r19 1859r16 1860r34
+. 1860r59 1861r29 1862m32 1862r32
+1835i7 Length{natural} 1843m16 1843r26 1852r10 1855r38
+1836i7 Idx{natural} 1856m10 1860r21 1860r28 1861m16 1861r23
+1838i11 J{integer} 1840r20 1840r42 1842r23 1843r42 1848r23
+1858i14 J{integer} 1859r23 1860r41 1860r66 1861r36 1862r39
+1875r7 VDir{65|543R9} 1881m7 1882m7 1884r10 1885m10 1885r26 1889r14
+1932p7 Value{47|62P9} 1935r10 1936m17 1936r17
+1990U17 Xchg 1990>23 1990>28 2000b17 2006l11 2006t15 2019r27
+1990i23 Op1{natural} 2000b23 2003r45 2004r35
+1990i28 Op2{natural} 2000b28 2004r68 2005r35
+1993V16 Lt{boolean} 1993>20 1993>25 2012b16 2016l11 2016t13 2019r53
+1993i20 Op1{natural} 2012b20 2014r42
+1993i25 Op2{natural} 2012b25 2015r37
+2001r10 Buffer{65|97R9} 2003m10 2005r43
+2036p7 Tmp{65|388P9} 2041m10 2042r10 2043r10 2043r35 2045r19
+2054p7 Tmp{65|388P9} 2059m10 2060r10 2060r31 2061r10 2063r19
+2072p7 Tmp{65|388P9} 2080m13 2082r22
+2074i11 J{integer} 2075r20 2076r22
+2076i17 K{integer} 2077r23 2077r40
+2094i7 Length{natural} 2101m10 2101r20 2104m7 2104r17 2107r40
+2100i11 J{integer} 2101r36
+2107a10 Ret{65|68A9} 2108r27 2111m13 2116m16 2121r17
+2108i10 Idx{natural} 2111r18 2111r25 2113m13 2113r20 2116r21 2117m16 2117r23
+2110i14 J{integer} 2111r38 2112r22 2113r33 2115r16
+2130p7 Ret{65|388P9} 2137m24 2137r24 2145m18 2145r18 2148r10 2153r41 2155m26
+. 2155r26
+2131i7 Last{natural} 2136r16 2137r43 2140m13 2144r10 2145r37
+2133i11 J{integer} 2135r19 2136r23 2137r51 2140r21
+2153a10 Final{65|387A9} 2157r17
+2169r7 File{65|97R9} 2173m13 2175r33 2176r23 2179m13 2182r33 2183r23
+2171i11 J{integer} 2172r19 2173r44 2180r22 2180r61
+2204r10 Greatest_Prefix{65|97R9} 2205r63 2209r23 2212r19 2216m16 2216r47
+. 2220r17
+2205r10 Root{65|97R9} 2212r37
+2207i14 J{integer} 2209r53
+2232r7 F{65|97R9} 2235m10 2237r13 2238r20
+2234i11 J{integer} 2235r38
+X 67 gnatcoll-vfs_types.ads
+26K18*VFS_Types 66|43w15 43r46 67|36e23
+28A9*FS_String<string>(character)<integer> 66|54r48 55r22 56r22 75r48 77r14
+. 80r22 85r22 232r56 239r56 312r30 313r30 350r16 659r13 718r33 719r33 769r18
+. 770r18 926r32 1172r35 1494r25 1504r25 1532r39 1566r16 1568r33 1600r28 1629r16
+. 1629r47
+30P9*FS_String_Access(28A9) 66|64r7 1490r14
+31U14*Free[34|20] 66|1496s13 1509s16 1511s13 1562s7
+34E9*FS_Type 66|232r40 239r40 303r12 588r11 716r12 67|34e79
+X 68 interfac.ads
+38K9*Interfaces 65|53r6 53r39 68|231e15
+55I9*Integer_64<long_long_integer>
+79M9*Unsigned_32
+82M9*Unsigned_64
+X 69 i-c.ads
+18K20*C 65|53r17 53r50 69|237e17
+62M9*size_t
+X 70 i-cstrin.ads
+36K22*Strings 65|53w19 53r52 70|106e25
+47P9*chars_ptr 65|597r14 66|1345r14 1351r39
+80V13*Strlen{69|62M9} 66|1354s26
+X 72 system.ads
+37K9*System 66|34w6 1351r50 72|154e11
+67M9*Address 66|1351r57
+X 73 s-arit64.ads
+44I12*Int64{68|55I9}
+54V13*Multiply_With_Ovflo_Check64{44I12} 55i<c,__gnat_mulv64>22
+X 88 s-memory.ads
+53V13*Alloc{72|67M9} 103i<c,__gnat_malloc>22
+68U14*Free 104i<c,__gnat_free>22
+76V13*Realloc{72|67M9} 105i<c,__gnat_realloc>22
+X 89 s-os_lib.ads
+67P12*String_Access{111|45P9} 66|372r26 374r28
+72U14*Free=72:62 66|388s25
+200I9*File_Descriptor<integer> 65|636r30 66|148r28 1218r28
+208i4*Invalid_FD{200I9} 65|636r61 645r31 66|1300r29
+496V13*Locate_Exec_On_Path{67P12} 66|382s30
+668V13*Write{integer} 66|1321s33 1355s33
+751I9*Process_Id<integer>
+759V13*Current_Process_Id{751I9} 66|1238s56
+864V13*Pid_To_Integer{integer} 66|1238s40
+1096e4*Directory_Separator{character} 66|50r51
+1099e4*Path_Separator{character} 66|2116r41 2135r36
+X 93 s-rannum.ads
+77V13*Random{68|79M9} 94|224i21
+78V13*Random{68|82M9} 94|224i21
+X 94 s-rannum.adb
+375V16 F[225]{float} 236b13
+381V16 F[225]{long_float} 236b13
+X 101 s-stalib.adb
+89U14 Break_Start 90i<c,__gnat_break_start>22
+X 111 s-string.ads
+45P9*String_Access(string) 65|311r56 448r65 66|887r56 1181r48
+49U14*Free[34|20] 66|1752s26
+54A9*String_List(45P9)<integer> 66|1729r30
+

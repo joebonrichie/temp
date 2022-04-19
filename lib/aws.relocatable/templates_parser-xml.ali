@@ -1,0 +1,951 @@
+V "GNAT Lib v2021"
+A -O2
+A -gnatA
+A -fPIC
+A -gnat2012
+A -gnatwc
+A -gnatwf
+A -gnatwi
+A -gnatwj
+A -gnatwk
+A -gnatwm
+A -gnatwr
+A -gnatwu
+A -gnatwv
+A -gnaty3
+A -gnatya
+A -gnatyb
+A -gnatyB
+A -gnatyc
+A -gnatyd
+A -gnatye
+A -gnatyf
+A -gnatyh
+A -gnatyi
+A -gnatyI
+A -gnatyk
+A -gnatyl
+A -gnatym
+A -gnatyn
+A -gnatyo
+A -gnatyO
+A -gnatyp
+A -gnatyr
+A -gnatys
+A -gnatyt
+A -gnatyx
+A -gnatn
+A -mtune=generic
+A -march=x86-64
+P SS ZX
+
+RN
+RV NO_ACCESS_SUBPROGRAMS
+RV NO_ALLOCATORS
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_DISPATCH
+RV NO_DISPATCHING_CALLS
+RV NO_EXCEPTION_HANDLERS
+RV NO_EXCEPTION_PROPAGATION
+RV NO_EXCEPTIONS
+RV NO_FINALIZATION
+RV NO_IO
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_LOCAL_ALLOCATORS
+RV NO_NESTED_FINALIZATION
+RV NO_RECURSION
+RV NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_STREAMS
+RV NO_UNCHECKED_ACCESS
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_ATTRIBUTES
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLICIT_ALIASING
+RV NO_IMPLICIT_LOOPS
+RV NO_ELABORATION_CODE
+RV NO_OBSOLESCENT_FEATURES
+
+U templates_parser.xml%b  templates_parser-xml.adb  124aab01 OO PF PK
+W ada%s			ada.ads			ada.ali
+W ada.containers%s	a-contai.ads		a-contai.ali
+Z ada.containers.hash_tables%s  a-cohata.ads	a-cohata.ali
+Z ada.containers.hash_tables.generic_keys%s
+Z ada.containers.hash_tables.generic_operations%s
+Z ada.containers.helpers%s  a-conhel.adb	a-conhel.ali
+Z ada.containers.prime_numbers%s  a-coprnu.adb	a-coprnu.ali
+Z ada.exceptions%s	a-except.adb		a-except.ali
+Z ada.finalization%s	a-finali.ads		a-finali.ali
+Z ada.iterator_interfaces%s
+Z ada.streams%s		a-stream.adb		a-stream.ali
+W ada.strings%s		a-string.ads		a-string.ali
+W ada.strings.fixed%s	a-strfix.adb		a-strfix.ali
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+Z ada.unchecked_deallocation%s
+W dom%s			dom.ads			dom.ali
+W dom.core%s		dom-core.adb		dom-core.ali
+W dom.core.nodes%s	dom-core-nodes.adb	dom-core-nodes.ali
+W dom.readers%s		dom-readers.adb		dom-readers.ali
+W input_sources%s	input_sources.adb	input_sources.ali
+W input_sources.file%s	input_sources-file.adb	input_sources-file.ali
+W input_sources.strings%s  input_sources-strings.adb  input_sources-strings.ali
+W sax%s			sax.ads			sax.ali
+W sax.readers%s		sax-readers.adb		sax-readers.ali
+Z system%s		system.ads		system.ali
+Z system.finalization_masters%s  s-finmas.adb	s-finmas.ali
+Z system.img_int%s	s-imgint.ads		s-imgint.ali
+Z system.pool_global%s	s-pooglo.adb		s-pooglo.ali
+Z system.put_images%s	s-putima.adb		s-putima.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+Z system.soft_links%s	s-soflin.adb		s-soflin.ali
+Z system.standard_library%s  s-stalib.adb	s-stalib.ali
+Z system.storage_elements%s  s-stoele.adb	s-stoele.ali
+Z system.storage_pools%s  s-stopoo.adb		s-stopoo.ali
+Z system.storage_pools.subpools%s  s-stposu.adb	s-stposu.ali
+Z system.stream_attributes%s  s-stratt.adb	s-stratt.ali
+Z system.strings.stream_ops%s  s-ststop.adb	s-ststop.ali
+Z system.val_int%s	s-valint.ads		s-valint.ali
+W templates_parser%s	templates_parser.adb	templates_parser.ali
+W templates_parser.utils%s  templates_parser-utils.adb  templates_parser-utils.ali
+W unicode%s		unicode.adb		unicode.ali
+W unicode.ces%s		unicode-ces.adb		unicode-ces.ali
+W unicode.ces.basic_8bit%s  unicode-ces-basic_8bit.adb  unicode-ces-basic_8bit.ali
+W unicode.ces.utf8%s	unicode-ces-utf8.adb	unicode-ces-utf8.ali
+
+U templates_parser.xml%s  templates_parser-xml.ads  be36658f EE NE OO PK
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+W templates_parser%s	templates_parser.adb	templates_parser.ali
+
+D ada.ads		20210520051131 76789da1 ada%s
+D a-calend.ads		20210520051128 474d9720 ada.calendar%s
+D a-calfor.ads		20210520051128 0f4707d1 ada.calendar.formatting%s
+D a-catizo.ads		20210520051128 eaa56756 ada.calendar.time_zones%s
+D a-charac.ads		20210520051128 2d3ec45b ada.characters%s
+D a-chahan.ads		20210520051128 0ce1b450 ada.characters.handling%s
+D a-chlat1.ads		20210520051128 66457d31 ada.characters.latin_1%s
+D a-comlin.ads		20210520051128 4aa66568 ada.command_line%s
+D a-contai.ads		20210520051128 61e5e089 ada.containers%s
+D a-cohata.ads		20210520051128 bc432d0e ada.containers.hash_tables%s
+D a-chtgke.ads		20210520051128 20177f7b ada.containers.hash_tables.generic_keys%s
+D a-chtgke.adb		20210520051128 fdf2dddc ada.containers.hash_tables.generic_keys%b
+D a-chtgop.ads		20210520051128 11c5978a ada.containers.hash_tables.generic_operations%s
+D a-chtgop.adb		20210520051128 c3ccdc4f ada.containers.hash_tables.generic_operations%b
+D a-conhel.ads		20210520051128 20298884 ada.containers.helpers%s
+D a-conhel.adb		20210520051128 fe7a6827 ada.containers.helpers%b
+D a-cihama.ads		20210520051128 76287ea1 ada.containers.indefinite_hashed_maps%s
+D a-cihama.adb		20210520051128 e0ec62b4 ada.containers.indefinite_hashed_maps%b
+D a-cihase.ads		20210520051128 18093f96 ada.containers.indefinite_hashed_sets%s
+D a-ciorse.ads		20210520051128 61787512 ada.containers.indefinite_ordered_sets%s
+D a-coinve.ads		20210520051128 0843f47c ada.containers.indefinite_vectors%s
+D a-coprnu.ads		20210520051128 0cdf1864 ada.containers.prime_numbers%s
+D a-crbltr.ads		20210520051128 d3d16ba4 ada.containers.red_black_trees%s
+D a-direct.ads		20210520051128 078228da ada.directories%s
+D a-envvar.ads		20210520051128 00080416 ada.environment_variables%s
+D a-except.ads		20210520051128 946f3014 ada.exceptions%s
+D a-finali.ads		20210520051128 bf4f806b ada.finalization%s
+D a-ioexce.ads		20210520051128 e4a01f64 ada.io_exceptions%s
+D a-iteint.ads		20210520051128 49a8bee2 ada.iterator_interfaces%s
+D a-stream.ads		20210520051129 119b8fb3 ada.streams%s
+D a-string.ads		20210520051129 90ac6797 ada.strings%s
+D a-strfix.ads		20210520051129 aeacf44c ada.strings.fixed%s
+D a-strhas.ads		20210520051129 c71c2a52 ada.strings.hash%s
+D a-shcain.ads		20210520051129 08af52df ada.strings.hash_case_insensitive%s
+D a-strmap.ads		20210520051129 5a88892a ada.strings.maps%s
+D a-stmaco.ads		20210520051129 1c0e5368 ada.strings.maps.constants%s
+D a-strsea.ads		20210520051129 b9bc90ba ada.strings.search%s
+D a-sttebu.ads		20210520051129 18209c64 ada.strings.text_buffers%s
+D a-strunb.ads		20210520051129 03325227 ada.strings.unbounded%s
+D a-strunb.adb		20210520051129 3b950306 ada.strings.unbounded%b
+D a-stuten.ads		20210520051129 808c40ad ada.strings.utf_encoding%s
+D a-tags.ads		20210520051130 9eaa38c6 ada.tags%s
+D a-taside.ads		20210520051127 00e3a3f6 ada.task_identification%s
+D a-textio.ads		20210520051130 aef4d56d ada.text_io%s
+D a-unccon.ads		20210520051130 0e9b276f ada.unchecked_conversion%s
+D a-uncdea.ads		20210520051130 c3a8ac65 ada.unchecked_deallocation%s
+D aws.ads		20210520114206 82646736 aws%s
+D aws-resources.ads	20210519051431 407ba395 aws.resources%s
+D aws-utils.ads		20210519051431 840ea1d3 aws.utils%s
+D dom.ads		20210519052322 2bd88f63 dom%s
+D dom-core.ads		20210519052322 3a4cc7f1 dom.core%s
+D dom-core-nodes.ads	20210519052322 06d13589 dom.core.nodes%s
+D dom-readers.ads	20210519052322 41244551 dom.readers%s
+D gnat.ads		20210520051132 b5988c27 gnat%s
+D g-binenv.ads		20210520051131 9cb8b6eb gnat.bind_environment%s
+D g-calend.ads		20210520051131 cad86fa7 gnat.calendar%s
+D g-catiio.ads		20210520051131 6f0f657f gnat.calendar.time_io%s
+D g-regpat.ads		20210520051131 b85d88ef gnat.regpat%s
+D input_sources.ads	20210519052322 9ec704a2 input_sources%s
+D input_sources-file.ads  20210519052322 b313acf6 input_sources.file%s
+D input_sources-strings.ads  20210519052322 8045c77b input_sources.strings%s
+D interfac.ads		20210520051132 edec285f interfaces%s
+D i-c.ads		20210520051132 d9beded9 interfaces.c%s
+D i-cstrea.ads		20210520051132 e53d8b8e interfaces.c_streams%s
+D sax.ads		20210519052322 17965ec6 sax%s
+D sax-attributes.ads	20210519052322 baf0c3bb sax.attributes%s
+D sax-encodings.ads	20210519052322 22d791a3 sax.encodings%s
+D sax-exceptions.ads	20210519052322 32ef2902 sax.exceptions%s
+D sax-htable.ads	20210519052322 2df615ad sax.htable%s
+D sax-locators.ads	20210519052322 c21ab44e sax.locators%s
+D sax-models.ads	20210519052322 9f245dcd sax.models%s
+D sax-pointers.ads	20210519052322 d9877e85 sax.pointers%s
+D sax-readers.ads	20210519052322 41cb3ec9 sax.readers%s
+D sax-symbols.ads	20210519052322 d3179de8 sax.symbols%s
+D sax-utils.ads		20210519052322 214aab19 sax.utils%s
+D system.ads		20210520051135 a2da961d system%s
+D s-addima.ads		20210520051132 a1ec9d3a system.address_image%s
+D s-atacco.ads		20210520051132 4c36d12f system.address_to_access_conversions%s
+D s-atocou.ads		20210520051132 b45c2d8d system.atomic_counters%s
+D s-atocou.adb		20210520051132 b65612c0 system.atomic_counters%b
+D s-carun8.ads		20210520051132 a903718d system.compare_array_unsigned_8%s
+D s-crtl.ads		20210520051132 0ebbdb71 system.crtl%s
+D s-exctab.ads		20210520051132 54135002 system.exception_table%s
+D s-ficobl.ads		20210520051132 078245e4 system.file_control_block%s
+D s-finmas.ads		20210520051132 1ab4dba8 system.finalization_masters%s
+D s-finroo.ads		20210520051132 4ff27390 system.finalization_root%s
+D s-imagei.ads		20210520051133 0d3f86a7 system.image_i%s
+D s-imgint.ads		20210520051133 bdb6f5ec system.img_int%s
+D s-linux.ads		20210520051127 ed0b8aee system.linux%s
+D s-memory.ads		20210520051133 597d6634 system.memory%s
+D s-multip.ads		20210520051133 38ac9f73 system.multiprocessors%s
+D s-oscons.ads		20210520095158 e3a42aec system.os_constants%s
+D s-osinte.ads		20210520051127 222ac181 system.os_interface%s
+D s-parame.ads		20210520051134 4752c4cb system.parameters%s
+D s-pooglo.ads		20210520051134 ede33ef8 system.pool_global%s
+D s-putima.ads		20210520051134 4e095881 system.put_images%s
+D s-regpat.ads		20210520051134 825a9b7f system.regpat%s
+D s-secsta.ads		20210520051134 9b3ab94b system.secondary_stack%s
+D s-soflin.ads		20210520051134 a7318a92 system.soft_links%s
+D s-stache.ads		20210520051134 a37c21ec system.stack_checking%s
+D s-stausa.ads		20210520051134 017a0a05 system.stack_usage%s
+D s-stalib.ads		20210520051134 472fbca8 system.standard_library%s
+D s-stalib.adb		20210520051134 977290bf system.standard_library%b
+D s-stoele.ads		20210520051134 2dc34a04 system.storage_elements%s
+D s-stoele.adb		20210520051134 ed88f8fb system.storage_elements%b
+D s-stopoo.ads		20210520051134 e9fa2dd8 system.storage_pools%s
+D s-stposu.ads		20210520051134 e251976f system.storage_pools.subpools%s
+D s-stratt.ads		20210520051134 7bdda3fa system.stream_attributes%s
+D s-stratt.adb		20210520051134 fc996108 system.stream_attributes%b
+D s-statxd.ads		20210520051134 b54789f6 system.stream_attributes.xdr%s
+D s-string.ads		20210520051134 8fe54fb7 system.strings%s
+D s-ststop.ads		20210520051134 5fbf1b38 system.strings.stream_ops%s
+D s-tasinf.ads		20210520051127 2b3f8252 system.task_info%s
+D s-taspri.ads		20210520051127 4ec891e7 system.task_primitives%s
+D s-taskin.ads		20210520051127 88fba9ad system.tasking%s
+D s-taprob.ads		20210520051127 acd6094d system.tasking.protected_objects%s
+D s-tpoben.ads		20210520051127 60ad3dae system.tasking.protected_objects.entries%s
+D s-traent.ads		20210520051134 26a8d361 system.traceback_entries%s
+D s-unstyp.ads		20210520051134 2b077493 system.unsigned_types%s
+D s-valint.ads		20210520051134 e7fcadb7 system.val_int%s
+D s-valuns.ads		20210520051134 dac7b45d system.val_uns%s
+D s-valuei.ads		20210520051134 978dd0a6 system.value_i%s
+D s-valueu.ads		20210520051134 7b8fccf5 system.value_u%s
+D s-wchcon.ads		20210520051135 1b7d22d2 system.wch_con%s
+D s-wchstw.ads		20210520051135 2d112c01 system.wch_stw%s
+D templates_parser.ads	20210519053215 1cb5e754 templates_parser%s
+D templates_parser.adb	20210519053215 a2af430b templates_parser%b
+D templates_parser-cached_files.adb  20210519053215 dbda1c76 templates_parser.cached_files
+D templates_parser-configuration__aws.ads  20210519051430 b6ef0221 templates_parser.configuration%s
+D templates_parser-data.adb  20210519053215 1b5e26e4 templates_parser.data
+D templates_parser-definitions.adb  20210519053215 c20aa6ba templates_parser.definitions
+D templates_parser-expr.adb  20210519053215 f197c968 templates_parser.expr
+D templates_parser-filter.adb  20210519053215 07e21396 templates_parser.filter
+D templates_parser-input.ads  20210519053215 f7044302 templates_parser.input%s
+D templates_parser-macro.adb  20210519053215 67ab4a97 templates_parser.macro
+D templates_parser-print_tree.adb  20210519053215 8a2ed825 templates_parser.print_tree
+D templates_parser-simplifier.adb  20210519053215 cd927d20 templates_parser.simplifier
+D templates_parser-utils.ads  20210519053215 8849593d templates_parser.utils%s
+D templates_parser-utils.adb  20210519053215 7b3c4449 templates_parser.utils%b
+D templates_parser-version.adb  20210519053215 878c6008 templates_parser.version
+D templates_parser-xml.ads  20210519053215 a28382db templates_parser.xml%s
+D templates_parser-xml.adb  20210519053215 2701c472 templates_parser.xml%b
+D templates_parser_tasking.ads  20210519053215 4c0209f0 templates_parser_tasking%s
+D unchconv.ads		20210520051135 ca2f9e18 unchecked_conversion%s
+D unchdeal.ads		20210520051135 214516a4 unchecked_deallocation%s
+D unicode.ads		20210519052322 a421878d unicode%s
+D unicode-ccs.ads	20210519052322 184e29de unicode.ccs%s
+D unicode-ces.ads	20210519052322 68f558ab unicode.ces%s
+D unicode-ces-basic_8bit.ads  20210519052322 a56f8139 unicode.ces.basic_8bit%s
+D unicode-ces-utf32.ads	20210519052322 b5f035ac unicode.ces.utf32%s
+D unicode-ces-utf8.ads	20210519052322 dcbef85d unicode.ces.utf8%s
+D unicode-encodings.ads	20210519052322 d94939b2 unicode.encodings%s
+D zlib.ads		20210519051430 0714e1ed zlib%s
+G a e
+G c Z s b [image templates_parser__xml 84 13 none]
+G c Z s b [value templates_parser__xml 88 13 none]
+G c Z s b [value templates_parser__xml 91 13 none]
+G c Z s b [load templates_parser__xml 94 13 none]
+G c Z s b [save templates_parser__xml 97 14 none]
+G c Z b b [empty templates_parser__xml__str_map 73 13 48_4]
+G c Z b b [has_element templates_parser__xml__str_map 79 13 48_4]
+G c Z b b [Oeq templates_parser__xml__str_map 85 24 48_4]
+G c Z b b [capacity templates_parser__xml__str_map 96 13 48_4]
+G c Z b b [reserve_capacity templates_parser__xml__str_map 100 14 48_4]
+G c Z b b [length templates_parser__xml__str_map 110 13 48_4]
+G c Z b b [is_empty templates_parser__xml__str_map 113 13 48_4]
+G c Z b b [clear templates_parser__xml__str_map 116 14 48_4]
+G c Z b b [key templates_parser__xml__str_map 119 13 48_4]
+G c Z b b [element templates_parser__xml__str_map 122 13 48_4]
+G c Z b b [replace_element templates_parser__xml__str_map 125 14 48_4]
+G c Z b b [query_element templates_parser__xml__str_map 131 14 48_4]
+G c Z b b [update_element templates_parser__xml__str_map 138 14 48_4]
+G c Z b b [constant_reference templates_parser__xml__str_map 155 13 48_4]
+G c Z b b [reference templates_parser__xml__str_map 160 13 48_4]
+G c Z b b [constant_reference templates_parser__xml__str_map 165 13 48_4]
+G c Z b b [reference templates_parser__xml__str_map 170 13 48_4]
+G c Z b b [assign templates_parser__xml__str_map 175 14 48_4]
+G c Z b b [copy templates_parser__xml__str_map 177 13 48_4]
+G c Z b b [move templates_parser__xml__str_map 179 14 48_4]
+G c Z b b [insert templates_parser__xml__str_map 183 14 48_4]
+G c Z b b [insert templates_parser__xml__str_map 201 14 48_4]
+G c Z b b [include templates_parser__xml__str_map 212 14 48_4]
+G c Z b b [replace templates_parser__xml__str_map 223 14 48_4]
+G c Z b b [exclude templates_parser__xml__str_map 234 14 48_4]
+G c Z b b [delete templates_parser__xml__str_map 243 14 48_4]
+G c Z b b [delete templates_parser__xml__str_map 251 14 48_4]
+G c Z b b [first templates_parser__xml__str_map 257 13 48_4]
+G c Z b b [next templates_parser__xml__str_map 261 13 48_4]
+G c Z b b [next templates_parser__xml__str_map 269 14 48_4]
+G c Z b b [find templates_parser__xml__str_map 272 13 48_4]
+G c Z b b [contains templates_parser__xml__str_map 278 13 48_4]
+G c Z b b [element templates_parser__xml__str_map 281 13 48_4]
+G c Z b b [equivalent_keys templates_parser__xml__str_map 284 13 48_4]
+G c Z b b [equivalent_keys templates_parser__xml__str_map 288 13 48_4]
+G c Z b b [equivalent_keys templates_parser__xml__str_map 292 13 48_4]
+G c Z b b [iterate templates_parser__xml__str_map 296 14 48_4]
+G c Z b b [iterate templates_parser__xml__str_map 301 13 48_4]
+G c Z b b [node_typeIP templates_parser__xml__str_map 325 9 48_4]
+G c Z b b [adjust templates_parser__xml__str_map__ht_types__implementation 90 28 58_7_331_4_48_4]
+G c Z b b [finalize templates_parser__xml__str_map__ht_types__implementation 93 28 58_7_331_4_48_4]
+G c Z b b [zero_counts templates_parser__xml__str_map__ht_types__implementation 96 17 58_7_331_4_48_4]
+G c Z b b [busy templates_parser__xml__str_map__ht_types__implementation 100 17 58_7_331_4_48_4]
+G c Z b b [unbusy templates_parser__xml__str_map__ht_types__implementation 104 17 58_7_331_4_48_4]
+G c Z b b [lock templates_parser__xml__str_map__ht_types__implementation 108 17 58_7_331_4_48_4]
+G c Z b b [unlock templates_parser__xml__str_map__ht_types__implementation 112 17 58_7_331_4_48_4]
+G c Z b b [tc_check templates_parser__xml__str_map__ht_types__implementation 116 17 58_7_331_4_48_4]
+G c Z b b [te_check templates_parser__xml__str_map__ht_types__implementation 120 17 58_7_331_4_48_4]
+G c Z b b [initialize templates_parser__xml__str_map__ht_types__implementation 139 28 58_7_331_4_48_4]
+G c Z b b [finalize templates_parser__xml__str_map__ht_types__implementation 140 28 58_7_331_4_48_4]
+G c Z b b [initialize templates_parser__xml__str_map__ht_types__implementation 145 28 58_7_331_4_48_4]
+G c Z b b [finalize templates_parser__xml__str_map__ht_types__implementation 146 28 58_7_331_4_48_4]
+G c Z b b [reference_control_typeDA templates_parser__xml__str_map__ht_types__implementation 84 12 58_7_331_4_48_4]
+G c Z b b [reference_control_typeDF templates_parser__xml__str_map__ht_types__implementation 84 12 58_7_331_4_48_4]
+G c Z b b [reference_control_typeIP templates_parser__xml__str_map__ht_types__implementation 84 12 58_7_331_4_48_4]
+G c Z b b [with_busyDF templates_parser__xml__str_map__ht_types__implementation 136 12 58_7_331_4_48_4]
+G c Z b b [with_busyIP templates_parser__xml__str_map__ht_types__implementation 136 12 58_7_331_4_48_4]
+G c Z b b [with_lockDF templates_parser__xml__str_map__ht_types__implementation 142 12 58_7_331_4_48_4]
+G c Z b b [with_lockIP templates_parser__xml__str_map__ht_types__implementation 142 12 58_7_331_4_48_4]
+G c Z b b [buckets_typeIP templates_parser__xml__str_map__ht_types 46 12 331_4_48_4]
+G c Z b b [hash_table_typeDA templates_parser__xml__str_map__ht_types 52 12 331_4_48_4]
+G c Z b b [hash_table_typeDF templates_parser__xml__str_map__ht_types 52 12 331_4_48_4]
+G c Z b b [hash_table_typeIP templates_parser__xml__str_map__ht_types 52 12 331_4_48_4]
+G c Z b b [put_image templates_parser__xml__str_map 338 14 48_4]
+G c Z b b [adjust templates_parser__xml__str_map 341 25 48_4]
+G c Z b b [finalize templates_parser__xml__str_map 343 25 48_4]
+G c Z b b [write templates_parser__xml__str_map 349 14 48_4]
+G c Z b b [read templates_parser__xml__str_map 355 14 48_4]
+G c Z b b [write templates_parser__xml__str_map 384 14 48_4]
+G c Z b b [read templates_parser__xml__str_map 390 14 48_4]
+G c Z b b [write templates_parser__xml__str_map 409 14 48_4]
+G c Z b b [read templates_parser__xml__str_map 415 14 48_4]
+G c Z b b [write templates_parser__xml__str_map 431 14 48_4]
+G c Z b b [read templates_parser__xml__str_map 437 14 48_4]
+G c Z b b [pseudo_reference templates_parser__xml__str_map 448 13 48_4]
+G c Z b b [get_element_access templates_parser__xml__str_map 455 13 48_4]
+G c Z b b [mapDA templates_parser__xml__str_map 334 9 48_4]
+G c Z b b [mapDF templates_parser__xml__str_map 334 9 48_4]
+G c Z b b [mapIP templates_parser__xml__str_map 334 9 48_4]
+G c Z b b [cursorIP templates_parser__xml__str_map 364 9 48_4]
+G c Z b b [constant_reference_typeDI templates_parser__xml__str_map 399 9 48_4]
+G c Z b b [constant_reference_typeDA templates_parser__xml__str_map 399 9 48_4]
+G c Z b b [constant_reference_typeDF templates_parser__xml__str_map 399 9 48_4]
+G c Z b b [constant_reference_typeIP templates_parser__xml__str_map 399 9 48_4]
+G c Z b b [reference_typeDI templates_parser__xml__str_map 421 9 48_4]
+G c Z b b [reference_typeDA templates_parser__xml__str_map 421 9 48_4]
+G c Z b b [reference_typeDF templates_parser__xml__str_map 421 9 48_4]
+G c Z b b [reference_typeIP templates_parser__xml__str_map 421 9 48_4]
+G c Z b b [finalize templates_parser__xml__str_map 471 25 48_4]
+G c Z b b [first templates_parser__xml__str_map 473 24 48_4]
+G c Z b b [next templates_parser__xml__str_map 475 24 48_4]
+G c Z b b [iteratorDF templates_parser__xml__str_map 464 9 48_4]
+G c Z b b [iteratorIP templates_parser__xml__str_map 464 9 48_4]
+G c Z b b [free_key templates_parser__xml__str_map 51 14 48_4]
+G c Z b b [free_element templates_parser__xml__str_map 54 14 48_4]
+G c Z b b [copy_node templates_parser__xml__str_map 61 13 48_4]
+G c Z b b [equivalent_key_node templates_parser__xml__str_map 64 13 48_4]
+G c Z b b [find_equal_key templates_parser__xml__str_map 69 13 48_4]
+G c Z b b [free templates_parser__xml__str_map 73 14 48_4]
+G c Z b b [hash_node templates_parser__xml__str_map 76 13 48_4]
+G c Z b b [next templates_parser__xml__str_map 79 13 48_4]
+G c Z b b [read_node templates_parser__xml__str_map 82 13 48_4]
+G c Z b b [set_next templates_parser__xml__str_map 85 14 48_4]
+G c Z b b [vet templates_parser__xml__str_map 88 13 48_4]
+G c Z b b [write_node templates_parser__xml__str_map 90 14 48_4]
+G c Z b b [free_hash_table templates_parser__xml__str_map__ht_ops 57 14 98_4_48_4]
+G c Z b b [index templates_parser__xml__str_map__ht_ops 61 13 98_4_48_4]
+G c Z b b [index templates_parser__xml__str_map__ht_ops 67 13 98_4_48_4]
+G c Z b b [checked_index templates_parser__xml__str_map__ht_ops 74 13 98_4_48_4]
+G c Z b b [checked_index templates_parser__xml__str_map__ht_ops 81 13 98_4_48_4]
+G c Z b b [adjust templates_parser__xml__str_map__ht_ops 86 14 98_4_48_4]
+G c Z b b [finalize templates_parser__xml__str_map__ht_ops 92 14 98_4_48_4]
+G c Z b b [clear templates_parser__xml__str_map__ht_ops 108 14 98_4_48_4]
+G c Z b b [move templates_parser__xml__str_map__ht_ops 114 14 98_4_48_4]
+G c Z b b [capacity templates_parser__xml__str_map__ht_ops 120 13 98_4_48_4]
+G c Z b b [reserve_capacity templates_parser__xml__str_map__ht_ops 123 14 98_4_48_4]
+G c Z b b [delete_node_at_index templates_parser__xml__str_map__ht_ops 132 14 98_4_48_4]
+G c Z b b [delete_node_sans_free templates_parser__xml__str_map__ht_ops 141 14 98_4_48_4]
+G c Z b b [first templates_parser__xml__str_map__ht_ops 146 13 98_4_48_4]
+G c Z b b [first templates_parser__xml__str_map__ht_ops 148 13 98_4_48_4]
+G c Z b b [next templates_parser__xml__str_map__ht_ops 155 13 98_4_48_4]
+G c Z b b [next templates_parser__xml__str_map__ht_ops 158 13 98_4_48_4]
+G c Z b b [new_buckets templates_parser__xml__str_map__ht_ops 205 13 98_4_48_4]
+G c Z b b [free_buckets templates_parser__xml__str_map__ht_ops 209 14 98_4_48_4]
+G c Z b b [index templates_parser__xml__str_map__key_ops 56 13 106_4_48_4]
+G c Z b b [checked_index templates_parser__xml__str_map__key_ops 62 13 106_4_48_4]
+G c Z b b [checked_equivalent_keys templates_parser__xml__str_map__key_ops 69 13 106_4_48_4]
+G c Z b b [delete_key_sans_free templates_parser__xml__str_map__key_ops 76 14 106_4_48_4]
+G c Z b b [find templates_parser__xml__str_map__key_ops 84 13 106_4_48_4]
+G c Z b b [is_equalR templates_parser__xml__str_map__is_equalGP4718 118 13 48_4]
+G c Z b b [is_equal templates_parser__xml__str_map 118 13 48_4]
+G c Z b b [read_nodesR templates_parser__xml__str_map__read_nodesGP27064 1005 14 48_4]
+G c Z b b [read_nodes templates_parser__xml__str_map 1005 14 48_4]
+G c Z b b [write_nodesR templates_parser__xml__str_map__write_nodesGP36107 1365 14 48_4]
+G c Z b b [write_nodes templates_parser__xml__str_map 1365 14 48_4]
+G c Z b b [parse_document templates_parser__xml 51 13 none]
+G r s tree_reader [value templates_parser__xml 88 13 none] [tree_readerIP dom__readers 97 9 none]
+G r l tree_reader [value templates_parser__xml 88 13 none] [tree_readerDI dom__readers 97 9 none]
+G r k tree_reader [value templates_parser__xml 88 13 none] [tree_readerDF dom__readers 97 9 none]
+G r s string_input [value templates_parser__xml 88 13 none] [string_inputIP input_sources__strings 60 9 none]
+G r s translate_set [value templates_parser__xml 88 13 none] [translate_setIP templates_parser 653 9 none]
+G r f translate_set [value templates_parser__xml 88 13 none] [initialize templates_parser 658 25 none]
+G r c none [value templates_parser__xml 88 13 none] [open input_sources__strings 34 14 none]
+G r c none [value templates_parser__xml 88 13 none] [set_feature sax__readers 82 14 none]
+G r c none [value templates_parser__xml 88 13 none] [parse sax__readers 54 14 none]
+G r c none [value templates_parser__xml 88 13 none] [close input_sources__strings 48 14 none]
+G r c none [value templates_parser__xml 88 13 none] [get_tree dom__readers 42 13 none]
+G r c none [value templates_parser__xml 88 13 none] [child_nodes dom__core__nodes 52 13 none]
+G r c none [value templates_parser__xml 88 13 none] [length dom__core__nodes 183 13 none]
+G r c none [value templates_parser__xml 88 13 none] [first_child dom__core__nodes 58 13 none]
+G r c none [value templates_parser__xml 88 13 none] [node_name dom__core__nodes 34 13 none]
+G r c none [value templates_parser__xml 88 13 none] [next_sibling dom__core__nodes 74 13 none]
+G r c none [value templates_parser__xml 88 13 none] [local_name dom__core__nodes 98 13 none]
+G r c none [value templates_parser__xml 88 13 none] [node_value dom__core__nodes 41 13 none]
+G r c none [value templates_parser__xml 88 13 none] [to_utf32 unicode__ces__utf8 130 13 none]
+G r c none [value templates_parser__xml 88 13 none] [from_utf32 unicode__ces__basic_8bit 73 13 none]
+G r c none [value templates_parser__xml 88 13 none] [assoc templates_parser 171 13 none]
+G r c none [value templates_parser__xml 88 13 none] [insert templates_parser 242 14 none]
+G r k association [value templates_parser__xml 88 13 none] [associationDF templates_parser 612 9 none]
+G r d translate_set [value templates_parser__xml 88 13 none] [adjust templates_parser 660 25 none]
+G r c none [value templates_parser__xml 88 13 none] [insert templates_parser 247 14 none]
+G r e translate_set [value templates_parser__xml 88 13 none] [finalize templates_parser 659 25 none]
+G r c none [value templates_parser__xml 88 13 none] [attributes dom__core__nodes 78 13 none]
+G r c none [value templates_parser__xml 88 13 none] [length dom__core__nodes 221 13 none]
+G r c none [value templates_parser__xml 88 13 none] [item dom__core__nodes 217 13 none]
+G r c none [value templates_parser__xml 88 13 none] [image templates_parser__utils 38 13 none]
+G r s tag [value templates_parser__xml 88 13 none] [tagIP templates_parser 587 9 none]
+G r f tag [value templates_parser__xml 88 13 none] [initialize templates_parser 592 25 none]
+G r c none [value templates_parser__xml 88 13 none] [Oconcat templates_parser 96 13 none]
+G r e tag [value templates_parser__xml 88 13 none] [finalize templates_parser 593 25 none]
+G r c none [value templates_parser__xml 88 13 none] [Oconcat templates_parser 90 13 none]
+G r c none [value templates_parser__xml 88 13 none] [assoc templates_parser 202 13 none]
+G r c none [value templates_parser__xml 88 13 none] [Oconcat templates_parser 100 13 none]
+G r d tag [value templates_parser__xml 88 13 none] [adjust templates_parser 594 25 none]
+G r c none [value templates_parser__xml 88 13 none] [free dom__core__nodes 326 14 none]
+G r s tree_reader [value templates_parser__xml 91 13 none] [tree_readerIP dom__readers 97 9 none]
+G r l tree_reader [value templates_parser__xml 91 13 none] [tree_readerDI dom__readers 97 9 none]
+G r k tree_reader [value templates_parser__xml 91 13 none] [tree_readerDF dom__readers 97 9 none]
+G r s string_input [value templates_parser__xml 91 13 none] [string_inputIP input_sources__strings 60 9 none]
+G r s translate_set [value templates_parser__xml 91 13 none] [translate_setIP templates_parser 653 9 none]
+G r f translate_set [value templates_parser__xml 91 13 none] [initialize templates_parser 658 25 none]
+G r c none [value templates_parser__xml 91 13 none] [open input_sources__strings 34 14 none]
+G r c none [value templates_parser__xml 91 13 none] [set_feature sax__readers 82 14 none]
+G r c none [value templates_parser__xml 91 13 none] [parse sax__readers 54 14 none]
+G r c none [value templates_parser__xml 91 13 none] [close input_sources__strings 48 14 none]
+G r c none [value templates_parser__xml 91 13 none] [get_tree dom__readers 42 13 none]
+G r c none [value templates_parser__xml 91 13 none] [child_nodes dom__core__nodes 52 13 none]
+G r c none [value templates_parser__xml 91 13 none] [length dom__core__nodes 183 13 none]
+G r c none [value templates_parser__xml 91 13 none] [first_child dom__core__nodes 58 13 none]
+G r c none [value templates_parser__xml 91 13 none] [node_name dom__core__nodes 34 13 none]
+G r c none [value templates_parser__xml 91 13 none] [next_sibling dom__core__nodes 74 13 none]
+G r c none [value templates_parser__xml 91 13 none] [local_name dom__core__nodes 98 13 none]
+G r c none [value templates_parser__xml 91 13 none] [node_value dom__core__nodes 41 13 none]
+G r c none [value templates_parser__xml 91 13 none] [to_utf32 unicode__ces__utf8 130 13 none]
+G r c none [value templates_parser__xml 91 13 none] [from_utf32 unicode__ces__basic_8bit 73 13 none]
+G r c none [value templates_parser__xml 91 13 none] [assoc templates_parser 171 13 none]
+G r c none [value templates_parser__xml 91 13 none] [insert templates_parser 242 14 none]
+G r k association [value templates_parser__xml 91 13 none] [associationDF templates_parser 612 9 none]
+G r d translate_set [value templates_parser__xml 91 13 none] [adjust templates_parser 660 25 none]
+G r c none [value templates_parser__xml 91 13 none] [insert templates_parser 247 14 none]
+G r e translate_set [value templates_parser__xml 91 13 none] [finalize templates_parser 659 25 none]
+G r c none [value templates_parser__xml 91 13 none] [attributes dom__core__nodes 78 13 none]
+G r c none [value templates_parser__xml 91 13 none] [length dom__core__nodes 221 13 none]
+G r c none [value templates_parser__xml 91 13 none] [item dom__core__nodes 217 13 none]
+G r c none [value templates_parser__xml 91 13 none] [image templates_parser__utils 38 13 none]
+G r s tag [value templates_parser__xml 91 13 none] [tagIP templates_parser 587 9 none]
+G r f tag [value templates_parser__xml 91 13 none] [initialize templates_parser 592 25 none]
+G r c none [value templates_parser__xml 91 13 none] [Oconcat templates_parser 96 13 none]
+G r e tag [value templates_parser__xml 91 13 none] [finalize templates_parser 593 25 none]
+G r c none [value templates_parser__xml 91 13 none] [Oconcat templates_parser 90 13 none]
+G r c none [value templates_parser__xml 91 13 none] [assoc templates_parser 202 13 none]
+G r c none [value templates_parser__xml 91 13 none] [Oconcat templates_parser 100 13 none]
+G r d tag [value templates_parser__xml 91 13 none] [adjust templates_parser 594 25 none]
+G r c none [value templates_parser__xml 91 13 none] [free dom__core__nodes 326 14 none]
+G r s tree_reader [load templates_parser__xml 94 13 none] [tree_readerIP dom__readers 97 9 none]
+G r l tree_reader [load templates_parser__xml 94 13 none] [tree_readerDI dom__readers 97 9 none]
+G r k tree_reader [load templates_parser__xml 94 13 none] [tree_readerDF dom__readers 97 9 none]
+G r s file_input [load templates_parser__xml 94 13 none] [file_inputIP input_sources__file 67 9 none]
+G r s translate_set [load templates_parser__xml 94 13 none] [translate_setIP templates_parser 653 9 none]
+G r f translate_set [load templates_parser__xml 94 13 none] [initialize templates_parser 658 25 none]
+G r c none [load templates_parser__xml 94 13 none] [open input_sources__file 33 14 none]
+G r c none [load templates_parser__xml 94 13 none] [set_feature sax__readers 82 14 none]
+G r c none [load templates_parser__xml 94 13 none] [parse sax__readers 54 14 none]
+G r c none [load templates_parser__xml 94 13 none] [close input_sources__file 49 14 none]
+G r c none [load templates_parser__xml 94 13 none] [get_tree dom__readers 42 13 none]
+G r c none [load templates_parser__xml 94 13 none] [child_nodes dom__core__nodes 52 13 none]
+G r c none [load templates_parser__xml 94 13 none] [length dom__core__nodes 183 13 none]
+G r c none [load templates_parser__xml 94 13 none] [first_child dom__core__nodes 58 13 none]
+G r c none [load templates_parser__xml 94 13 none] [node_name dom__core__nodes 34 13 none]
+G r c none [load templates_parser__xml 94 13 none] [next_sibling dom__core__nodes 74 13 none]
+G r c none [load templates_parser__xml 94 13 none] [local_name dom__core__nodes 98 13 none]
+G r c none [load templates_parser__xml 94 13 none] [node_value dom__core__nodes 41 13 none]
+G r c none [load templates_parser__xml 94 13 none] [to_utf32 unicode__ces__utf8 130 13 none]
+G r c none [load templates_parser__xml 94 13 none] [from_utf32 unicode__ces__basic_8bit 73 13 none]
+G r c none [load templates_parser__xml 94 13 none] [assoc templates_parser 171 13 none]
+G r c none [load templates_parser__xml 94 13 none] [insert templates_parser 242 14 none]
+G r k association [load templates_parser__xml 94 13 none] [associationDF templates_parser 612 9 none]
+G r d translate_set [load templates_parser__xml 94 13 none] [adjust templates_parser 660 25 none]
+G r c none [load templates_parser__xml 94 13 none] [insert templates_parser 247 14 none]
+G r e translate_set [load templates_parser__xml 94 13 none] [finalize templates_parser 659 25 none]
+G r c none [load templates_parser__xml 94 13 none] [attributes dom__core__nodes 78 13 none]
+G r c none [load templates_parser__xml 94 13 none] [length dom__core__nodes 221 13 none]
+G r c none [load templates_parser__xml 94 13 none] [item dom__core__nodes 217 13 none]
+G r c none [load templates_parser__xml 94 13 none] [image templates_parser__utils 38 13 none]
+G r s tag [load templates_parser__xml 94 13 none] [tagIP templates_parser 587 9 none]
+G r f tag [load templates_parser__xml 94 13 none] [initialize templates_parser 592 25 none]
+G r c none [load templates_parser__xml 94 13 none] [Oconcat templates_parser 96 13 none]
+G r e tag [load templates_parser__xml 94 13 none] [finalize templates_parser 593 25 none]
+G r c none [load templates_parser__xml 94 13 none] [Oconcat templates_parser 90 13 none]
+G r c none [load templates_parser__xml 94 13 none] [assoc templates_parser 202 13 none]
+G r c none [load templates_parser__xml 94 13 none] [Oconcat templates_parser 100 13 none]
+G r d tag [load templates_parser__xml 94 13 none] [adjust templates_parser 594 25 none]
+G r c none [load templates_parser__xml 94 13 none] [free dom__core__nodes 326 14 none]
+G r c none [parse_document templates_parser__xml 51 13 none] [child_nodes dom__core__nodes 52 13 none]
+G r c none [parse_document templates_parser__xml 51 13 none] [length dom__core__nodes 183 13 none]
+G r c none [parse_document templates_parser__xml 51 13 none] [first_child dom__core__nodes 58 13 none]
+G r c none [parse_document templates_parser__xml 51 13 none] [node_name dom__core__nodes 34 13 none]
+G r c none [parse_document templates_parser__xml 51 13 none] [next_sibling dom__core__nodes 74 13 none]
+G r s translate_set [parse_document templates_parser__xml 51 13 none] [translate_setIP templates_parser 653 9 none]
+G r f translate_set [parse_document templates_parser__xml 51 13 none] [initialize templates_parser 658 25 none]
+G r c none [parse_document templates_parser__xml 51 13 none] [local_name dom__core__nodes 98 13 none]
+G r c none [parse_document templates_parser__xml 51 13 none] [node_value dom__core__nodes 41 13 none]
+G r c none [parse_document templates_parser__xml 51 13 none] [to_utf32 unicode__ces__utf8 130 13 none]
+G r c none [parse_document templates_parser__xml 51 13 none] [from_utf32 unicode__ces__basic_8bit 73 13 none]
+G r c none [parse_document templates_parser__xml 51 13 none] [assoc templates_parser 171 13 none]
+G r c none [parse_document templates_parser__xml 51 13 none] [insert templates_parser 242 14 none]
+G r k association [parse_document templates_parser__xml 51 13 none] [associationDF templates_parser 612 9 none]
+G r d translate_set [parse_document templates_parser__xml 51 13 none] [adjust templates_parser 660 25 none]
+G r c none [parse_document templates_parser__xml 51 13 none] [insert templates_parser 247 14 none]
+G r e translate_set [parse_document templates_parser__xml 51 13 none] [finalize templates_parser 659 25 none]
+G r c none [parse_document templates_parser__xml 51 13 none] [attributes dom__core__nodes 78 13 none]
+G r c none [parse_document templates_parser__xml 51 13 none] [length dom__core__nodes 221 13 none]
+G r c none [parse_document templates_parser__xml 51 13 none] [item dom__core__nodes 217 13 none]
+G r c none [parse_document templates_parser__xml 51 13 none] [image templates_parser__utils 38 13 none]
+G r s tag [parse_document templates_parser__xml 51 13 none] [tagIP templates_parser 587 9 none]
+G r f tag [parse_document templates_parser__xml 51 13 none] [initialize templates_parser 592 25 none]
+G r c none [parse_document templates_parser__xml 51 13 none] [Oconcat templates_parser 96 13 none]
+G r e tag [parse_document templates_parser__xml 51 13 none] [finalize templates_parser 593 25 none]
+G r c none [parse_document templates_parser__xml 51 13 none] [Oconcat templates_parser 90 13 none]
+G r c none [parse_document templates_parser__xml 51 13 none] [assoc templates_parser 202 13 none]
+G r c none [parse_document templates_parser__xml 51 13 none] [Oconcat templates_parser 100 13 none]
+G r d tag [parse_document templates_parser__xml 51 13 none] [adjust templates_parser 594 25 none]
+X 1 ada.ads
+16K9*Ada 20e8 142|30r6 31r6
+X 9 a-contai.ads
+16K13*Containers 28e19 142|48r27
+19M9*Hash_Type
+X 15 a-conhel.ads
+84R12 Reference_Control_Type<27|43R9>
+X 17 a-cihama.ads
+49k24*Indefinite_Hashed_Maps 479e42 142|48r38
+56R9*Map<27|43R9> 142|522r32[48] 601r34[48] 729r29[48]
+66R9*Cursor 142|61r51[126|648] 83r51[126|648] 544r33[48] 547r34[48] 603r34[48]
+. 740r34[48] 851r34[48]
+75r4*No_Element{66R9[142|48]} 142|560r49[48]
+79V13*Has_Element{boolean} 142|651s33[48] 753s27[48]
+122V13*Element{126|163R9} 142|85s57[126|648] 553s57[48] 561s39[48] 652s42[48]
+. 757s53[48] 857s57[48]
+125U14*Replace_Element 142|759s27[48]
+183U14*Insert 142|619s32[48] 743s20[48] 767s24[48] 860s21[48]
+272V13*Find{66R9[142|48]} 142|551s31[48] 559s37[48] 649s36[48] 751s31[48]
+. 855s33[48]
+278V13*Contains{boolean} 142|113s33[126|648] 141s41[126|648] 169s44[126|648]
+. 200s44[126|648] 308s39[126|648]
+281V13*Element{126|163R9} 142|117s52[126|648] 311s51[126|648]
+296U14*Iterate 142|373s24[126|648]
+X 29 a-iteint.ads
+24h9 Forward_Iterator
+32h9 Reversible_Iterator<24R9[20|76]>
+X 31 a-string.ads
+16K13*Strings 35e16 142|30r10 49r33 149r18 180r18
+X 32 a-strfix.ads
+43K21*Fixed 1398e22 142|30w18 149r26 180r26
+237V13*Index{natural} 142|149s32 180s32
+X 33 a-strhas.ads
+20V22*Hash{9|19M9} 142|49r41
+X 39 a-strunb.ads
+88R9*Unbounded_String<27|43R9> 744e15 141|84r57 91r35 142|49r15 58r57 59r16
+. 67r31 263r23 361r31 442r37 519r24 520r24 730r21 850r26 938r24 939r24 940r24
+. 981r34 1093r35
+91r4*Null_Unbounded_String{88R9} 142|887r20 965r28
+93V13*Length{natural} 142|1094s45 1097s21
+96P9*String_Access(string) 142|1094r11
+98U14*Free 142|1104s10
+104V13*To_Unbounded_String{88R9} 142|621s31 743s33 761s25 768s31 785s30 953s28
+. 992s27 995s34
+117V13*To_String{string} 142|364s55 553s38 664s22 704s28 757s34 857s38 860s29
+. 895s20 896s20 927s33 963s33 963s51 968s23 969s23 1056s26
+136U14*Append 142|76s10 265s19 268s22 274s19 857s19
+192V13*Element{character} 142|1098s19
+239V14*"="{boolean} 142|49r53 887s18 965s25
+245V14*"="{boolean} 142|120s48
+X 44 a-textio.ads
+58K13*Text_IO 725e16 142|31w10 1053r14 1055r7 1055r29 1056r7 1057r7
+65P9*File_Type 142|1053r22
+67n32*Out_File{67E9} 142|1055r37
+97U14*Create 142|1055s15
+127U14*Close 142|1057s15
+457U14*Put 142|1056s15
+X 50 dom.ads
+37K9*DOM 39e8 142|33r6 34r6 51r35 387r11 388r11 389r11 394r16 418r35 419r11
+. 420r11 422r31 425r38 425r60 428r34 428r56 431r34 434r37 437r40 441r30 445r31
+. 452r31 462r38 462r60 463r14 465r15 467r35 468r18 478r31 492r34 492r56 493r14
+. 496r18 497r40 508r14 510r34 513r37 581r34 583r40 593r20 597r26 609r40 610r27
+. 622r45 670r31 671r18 673r22 681r33 706r39 722r37 728r21 786r39 810r44 811r30
+. 822r42 868r19 936r37 937r24 954r33 980r30 983r14 989r32 1011r34 1012r14
+. 1038r21 1065r11 1066r11 1070r16
+X 51 dom-core.ads
+38K13*Core 382e13 142|33r10 51r39 387r15 388r15 394r20 418r39 419r15 420r15
+. 422r35 425r42 425r64 428r38 428r60 431r38 434r41 437r44 441r34 445r35 452r35
+. 462r42 462r64 463r18 465r19 467r39 468r22 478r35 492r38 492r60 493r18 496r22
+. 497r44 508r18 510r38 513r41 581r38 583r44 593r24 597r30 609r44 610r31 622r49
+. 670r35 671r22 673r26 681r37 706r43 722r41 728r25 786r43 810r48 811r34 822r46
+. 868r23 936r41 937r28 954r37 980r34 983r18 989r36 1011r38 1012r18 1038r25
+. 1065r15 1070r20
+48A12*DOM_String{148|41A12}<integer>
+79P9*Node(78R9) 142|51r44 418r44 422r40 425r47 425r69 428r43 428r65 431r43
+. 434r46 437r49 441r39 445r40 452r40 462r47 462r69 463r23 478r40 492r43 492r65
+. 493r23 508r23 510r43 513r46 581r43 583r49 593r29 597r35 673r31 681r42 722r46
+. 728r30 868r28 936r46 937r33 980r39 983r23 1011r43 1012r23
+90P12*Document{79P9} 142|394r25 1070r25
+95R9*Node_List 221e14 142|1038r30
+98R9*Named_Node_Map<95R9> 142|609r49 670r40 810r53
+X 52 dom-core-nodes.ads
+28K18*Nodes 332e19 142|33w15 388r20 420r20 465r24 467r44 468r27 496r27 497r49
+. 610r36 622r54 671r27 706r48 786r48 811r39 822r51 954r42 989r41 1065r20
+34V13*Node_Name{51|48A12} 142|467s50 497s55
+41V13*Node_Value{51|48A12} 142|484s58 616s51 620s31 630s36 683s43 817s51
+. 821s31
+52V13*Child_Nodes{51|95R9} 142|1038s43
+58V13*First_Child{51|79P9} 142|465s30 622s60 706s54 786s54 822s57 954s48
+. 989s47
+74V13*Next_Sibling{51|79P9} 142|468s33 496s33
+78V13*Attributes{51|98R9} 142|610s42 671s33 811s45
+98V13*Local_Name{51|48A12} 142|453s36 608s50 614s36 682s43 698s47 782s50
+. 804s47 815s36 878s44 904s44 947s44 987s45 1019s42
+183V13*Length{natural} 142|1040s10 1044s34
+217V13*Item{51|79P9} 142|614s48 616s63 620s43 630s48 681s50 815s48 817s63
+. 821s43
+221V13*Length{natural} 142|613s28 676s16 814s28
+326U14*Free 142|409s7 1088s7
+X 53 dom-readers.ads
+33K13*Readers 105e16 142|34w10 389r15 1066r15
+35R9*Tree_Reader<73|42R9> 103e14 142|392r16 1068r16
+42V13*Get_Tree{51|90P12} 142|405s14 1084s14
+X 59 input_sources.ads
+41K9*Input_Sources 134e18 142|35r6 36r6 390r11 1069r16 1074r7 1082r7
+X 60 input_sources-file.ads
+27K23*File 72e23 142|35w20 393r16 398r7 403r7
+29R9*File_Input<59|43R9> 71e17 142|393r21
+33U14*Open 142|398s12
+49U14*Close<59|121p14> 142|403s12
+X 61 input_sources-strings.ads
+27K23*Strings 70e26 142|36w20 1069r30 1074r21 1082r21
+29R9*String_Input<59|43R9> 69e17 142|1069r38
+34U14*Open 142|1074s29
+48U14*Close<59|121p14> 142|1082s29
+X 65 sax.ads
+33K9*Sax 35e8 142|37r6 400r28 1079r28
+X 73 sax-readers.ads
+40K13*Readers 1176e16 142|37w10 400r32 1079r32
+54U14*Parse 142|401s7 1080s7
+82U14*Set_Feature 142|400s7 1079s7
+118a4*Namespace_Prefixes_Feature{string} 142|400r40 1079r40
+X 76 system.ads
+67M9*Address
+X 90 s-memory.ads
+53V13*Alloc{76|67M9} 103i<c,__gnat_malloc>22
+68U14*Free 104i<c,__gnat_free>22
+76V13*Realloc{76|67M9} 105i<c,__gnat_realloc>22
+X 101 s-stausa.ads
+208U14*Initialize 209i<c,__gnat_stack_usage_initialize>22
+273U14*Output_Results 277i<c,__gnat_stack_usage_output_results>22
+X 103 s-stalib.adb
+89U14 Break_Start 90i<c,__gnat_break_start>22
+X 126 templates_parser.ads
+45K9*Templates_Parser 673e21 141|82r9 100r5 142|41r6 43r14 1109r5
+73R9*Tag<27|43R9> 590e14 142|212r39 216r54 224r54 250r22 516r36 533r36 535r64
+. 543r64 549r26 599r26
+90V14*"&"{73R9} 142|654s32
+96V14*"&"{73R9} 142|561s29 652s32
+100V14*"&"{73R9} 142|566s29
+163R9*Association 622e14 142|85r26 116r42 310r41
+167n30*Std{167E9} 142|119r41 351r21
+167n35*Composite{167E9} 142|313r40 352r21
+171V13*Assoc{163R9} 142|703s25 895s13 963s26 968s16
+202V13*Assoc{163R9} 142|663s19 927s26
+233R9*Translate_Set<27|43R9> 656e14 141|84r35 88r50 91r60 94r45 97r54 142|51r57
+. 58r35 386r45 395r16 418r57 431r56 434r59 437r62 508r36 510r56 581r56 583r62
+. 594r23 598r26 672r22 869r19 936r59 941r24 1011r56 1013r14 1052r54 1064r50
+. 1071r16 1093r60 1102r28
+242U14*Insert 142|661s16 701s22 893s10 927s10 963s10 966s13
+247U14*Insert 142|709s22 911s19 1022s19 1025s19
+346A12*Path(natural)<integer>
+549n23 Value{549E9} 142|283r31
+551P9 Tag_Access(73R9)
+554P9 Tag_Node_Access(553R9) 142|225r20 279r20
+556e19*Kind{549E9} 142|283r24
+557p7*Next{554P9} 142|238r26 290r26
+559r28*V{39|88R9} 142|236r37 284r71
+560p28*VS{551P9} 142|286r36
+575i7*Nested_Level{positive} 142|228r38 303r48 314r57
+577p7*Head{554P9} 142|225r46 279r46
+585P9 Tag_Data_Access(572R9)
+589p7*Data{585P9} 142|225r41 228r33 279r41 303r43 314r52
+596A12 Indices{346A12}<integer> 142|210r36 212r50 251r22 253r25 255r46 262r46
+. 284r42 286r50
+612e22*Kind{167E9} 142|119r34 313r33 350r23
+613r7*Variable{39|88R9} 142|88r50
+617r13*Value{39|88R9} 142|120r42 124r50 342r46
+620r13*Comp_Value{73R9} 142|303r32 314r41 318r49 326r30
+648K12 Association_Map[17|49] 142|61r35 83r35 85r41
+651P9 Map_Access(17|56R9[648])
+655p7*Set{651P9} 142|113r29 117r48 141r37 169r40 200r40 308r35 311r47 373r20
+X 138 templates_parser-utils.ads
+34K26*Utils 90e27 142|41w23 230r41 231r48 235r54 270r39 271r27 306r48 546r45
+. 559r55 566r44 647r49 664r50 705r30 762r28 855r39
+38V13*Image{string} 142|230s47 231s54 235s60 270s45 271s33 306s54 546s51
+. 559s61 566s50 647s55 664s56 705s36 762s34 855s45
+X 141 templates_parser-xml.ads
+82K26*XML 126|45k9 141|100l22 100e25 142|43b31 1109l22 1109t25
+84V13*Image{39|88R9} 84>20 142|58b13 380l8 380t13 1056s37
+84r20 Translations{126|233R9} 142|58b20 113r16 117r35 141r24 169r27 200r27
+. 308r22 311r34 373r7
+88V13*Value{126|233R9} 88>20 142|1064b13 1091l8 1091t13 1102s45
+88a20 Translations{string} 142|1064b20 1075r10
+91V13*Value{126|233R9} 91>20 142|1093b13 1107l8 1107t13
+91r20 Translations{39|88R9} 142|1093b20 1094r53 1097r29 1098r28
+94V13*Load{126|233R9} 94>19 142|386b13 412l8 412t12
+94a19 Filename{string} 142|386b19 398r18
+97U14*Save 97>20 97>39 142|1052b14 1058l8 1058t12
+97a20 Filename{string} 142|1052b20 1055r47
+97r39 Translations{126|233R9} 142|1052b39 1056r44
+X 142 templates_parser-xml.adb
+45a4 Labels_Suffix{string} 199r45 306r66
+46a4 Description_Suffix{string} 111r56 137r29 139r33 140r21 142r47 168r45
+48K12 Str_Map[17|49] 522r24 544r25 547r26 553r49 560r41 561r31 596r20 601r26
+. 603r26 651r25 652r34 729r21 740r26 753r19 757r45 851r26 857r49
+51V13 Parse_Document{126|233R9} 51>29 407s17 418b13 1046l8 1046t22 1086s17
+51p29 Doc{51|79P9} 418b29 1038r56 1041r44 1043r17
+59r7 Result{39|88R9} 76m18 76r18 379r14
+61U17 Process 61>26 83b17 355l11 355t18 373r33
+61r26 Cursor{17|66R9[126|648]} 83b26 85r66
+64U17 Add 64>22 74b17 77l11 77t14 123s22 230s16 232s16 235s19 241s16 242s16
+. 276s19 295s13 296s13 297s13 299s13 328s13 337s13 338s13 339s13 341s13 342s13
+. 343s13 370s7 371s7 377s7
+64a22 Str{string} 74b22 76r26
+67V16 To_Utf8{string} 67>25 88s36 124s29 236s26 276s24 284s60 342s32 361b16
+. 365l11 365t18
+67r25 Str{39|88R9} 361b25 364r66
+85r10 Item{126|163R9} 88r45 303r27 326r25 342r41 350r18
+88a10 Var{string} 137r16 139r17 139r22 139r66 142r18 142r23 142r36 149r39
+. 151r30 160r29 160r55 162r22 168r23 168r33 169r54 169r59 180r39 182r30 191r29
+. 191r55 193r22 199r23 199r33 200r54 200r59 231r33 297r38 298r30 306r33 339r38
+. 340r30
+91U20 Process_Std 335b20 344l14 344t25 351s34
+94U20 Process_Composite 208b20 329l14 329t31 352s34
+97U20 Add_Description 97>37 110b20 128l14 128t29 231s16 298s13 340s13
+97a37 Var{string} 110b37 111r50
+100V19 Is_Labels{boolean} 177b19 202l14 202t23 349s17
+103V19 Is_Description{boolean} 134b19 171l14 171t28 349s40
+111a13 Var_Description=111:54{string} 113r43 117r61
+116r19 Description{126|163R9} 119r22 120r30 124r38
+135i13 N{natural} 149m13 151r16 151r35 155r21 156m16 156r21 159m19 159r24
+. 160r34 160r51 162r27 168r28
+135i16 L{natural} 155m16 169r72
+178i13 N{natural} 180m13 182r16 182r35 186r21 187m16 187r21 190m19 190r24
+. 191r34 191r51 193r27 199r28
+178i16 L{natural} 186m16 200r72
+210a13 Null_Indice{126|346A12} 212r61 251r33
+212U23 Output_Tag 212>35 212>44 249b23 286s22 292l17 292t27 326s13
+212r35 T{126|73R9} 250b16 279r39
+212a44 Pos{126|596A12} 251b16 284r36 286r44
+216U23 Output_Axis 216>36 216>50 224b23 243l17 243t28 318s28
+216i36 N{positive} 224b36 230r54 231r61
+216r50 T{126|73R9} 224b50 225r39 228r31
+225p16 P{126|554P9} 234r22 236r35 238m19 238r24
+226i16 K{positive} 235r67 237m19 237r24
+255U26 Output_Value 255>40 255>55 262b26 277l20 277t32 284s22
+255a40 Pos{126|596A12} 262b40 267r28 271r40
+255a55 Value{string} 262b55 274r38
+263r19 V{39|88R9} 265m27 265r27 269m25 269r25 274m27 274r27 276r33
+267i23 K{integer} 270r52 271r45
+279p16 N{126|554P9} 282r22 283r22 284r69 286r34 290m19 290r24
+280i16 P{positive} 284r56 286r64 289m19 289r24
+303i17 K{integer} 306r61 318r41
+305a19 Label_Var=306:64{string} 308r49 311r60
+310r25 Item{126|163R9} 313r28 314r36 318r44
+392r7 Reader{53|35R9} 400m20 400r20 401m14 401r14 405r24
+393r7 Input{60|29R9} 398m28 401m22 401r22 403m19 403r19
+394p7 Doc{51|90P12} 405m7 407r33 409m13 409r13
+395r7 Result{126|233R9} 407m7 411r14
+422U17 Error 422>24 422>46 452b17 456l11 456t16 627s31 633s28 636s25 677s16
+. 688s19 746s19 794s19 825s28 833s22 844s16 863s19 888s13 917s19 957s19 998s19
+. 1028s19 1043s10
+422p24 Node{51|79P9} 452b24 453r48
+422a46 Message{string} 452b46 455r53
+425V16 First_Child{51|79P9} 425>29 462b16 472l11 472t22 597s43 694s18 775s18
+. 800s18 874s15 900s15 943s15 983s31 1015s15 1041s31
+425p29 Parent{51|79P9} 462b29 465r43
+428V16 Next_Sibling{51|79P9} 428>30 492b16 501l11 501t23 639s24 712s21 790s24
+. 836s21 884s18 922s18 960s18 1003s18 1032s18
+428p30 N{51|79P9} 492b30 493r31
+431V16 Parse_Tagged{126|233R9} 431>30 1011b16 1036l11 1036t23 1041s17
+431p30 N{51|79P9} 1011b30 1015r28
+434V16 Parse_SimpleTag{126|233R9} 434>33 936b16 973l11 973t26 1022s30
+434p33 N{51|79P9} 936b33 943r28
+437V16 Parse_CompositeTag{126|233R9} 437>36 507b16 930l11 930t29 1025s30
+437p36 N{51|79P9} 508b10 874r28 888r20 900r28
+440U17 Parse_Tag 441>10 442<10 442<16 881s19 950s19 979b17 1005l11 1005t20
+441p10 N{51|79P9} 980b10 983r44 999r22
+442r10 Name{39|88R9} 981b10 992m19
+442r16 Description{39|88R9} 981b16 995m19
+445V16 Get_Value{string} 445>27 478b16 486l11 486t20 622s34 706s28 786s28
+. 822s31 954s22 989s21
+445p27 N{51|79P9} 478b27 481r13 484r70
+453a10 Name{string} 455r38
+463p10 N{51|79P9} 465m10 467r16 467r61 468m13 468r47 471r17
+493p10 M{51|79P9} 496m13 496r47 497r23 497r66 500r17
+510V19 Parse_Dim{126|233R9} 510>30 581b19 716l14 716t23 911s35
+510p30 N{51|79P9} 581b30 671r45 677r23 694r31
+513U20 Parse_Entry 513>33 722b20 866l14 866t25 914s19
+513p33 N{51|79P9} 722b33 775r31 794r26 800r31 844r23 863r26
+516V19 Build_Tag{126|73R9} 533b19 575l14 575t23 927s51
+519r10 Name{39|88R9} 664r33 704r39 881m33 887r13 895r31 927r44
+520r10 Description{39|88R9} 881m39 896r31
+522r10 Data{17|56R9[48]} 551r26 559r32 751r26 759m22 759r22 767m19 767r19
+. 860m16 860r16
+526i10 Level{natural} 555r23 841r16 842m16 843r19 854r30
+535V22 B_Tag{126|73R9} 535>29 535>43 543b22 566s31 571l17 571t22 574s20
+535a29 Key{string} 543b29 559r43
+535i43 N{positive} 543b43 546r58 555r19 566r61
+546a16 Max_Key=546:61{string} 551r37
+547r16 Cursor{17|66R9[48]} 551m16 553r66 559m22 560r32 561r48
+548i16 Max{natural} 553m16 558r33 565r33
+549r16 T{126|73R9} 561m22 561r27 566m22 566r27 570r23
+558i23 K{integer} 559r68
+565i23 K{integer} 566r57
+583V22 Parse_Labels{126|233R9} 583>36 592b22 668l17 668t29 709s38
+583p36 N{51|79P9} 593b16 597r56
+586i13 D{positive} 664r63 686m19 705r43
+597p16 C{51|79P9} 606r22 608r62 610r54 622r73 628r34 633r35 636r32 639m19
+. 639r38
+598r16 Result{126|233R9} 662m19 662r19 667r23
+599r16 T{126|73R9} 652m25 652r30 654m25 654r30 665r22
+600i16 Max{natural} 617m28 617r48 645r30
+601r16 Map{17|56R9[48]} 619m28 619r28 649r32
+602i16 K{positive} 616m28 617r53
+603r16 Cursor{17|66R9[48]} 623m31 649m22 651r46 652r51
+604b16 Success{boolean} 624m31 626r35
+608a22 N_Name{string} 612r25 636r69
+609r22 Atts{51|98R9} 613r36 614r54 616r69 620r49 630r54
+645i20 K{integer} 647r62
+647a22 K_Img{string} 649r42
+670r13 Atts{51|98R9} 676r24 681r56
+672r13 Result{126|233R9} 702m25 702r25 709m30 709r30 715r20
+673p13 C{51|79P9} 694m13 696r19 698r59 706r67 709r52 712m16 712r35
+681p16 A{51|79P9} 682r55 683r55 688r26
+682a16 Name{string} 685r19 688r67
+683a16 Value{string} 686r40
+698a19 N_Name{string} 700r22 708r25
+724U23 Insert 724>31 724>36 738b23 770l17 770t23 820s28
+724a31 Key{string} 738b31 739r45 743r28 746r66
+724a36 Value{string} 738b36 743r54 763r65 768r52
+728p13 C{51|79P9} 746r26 775m13 780r22 782r62 786r67 790m19 790r38 800m13
+. 802r19 804r59 811r57 822r70 825r35 833r29 836m16 836r35
+729r13 Map{17|56R9[48]} 743m16 743r16 855r29
+730r13 V{39|88R9} 785m25 860r46
+731i13 Max{natural} 818m28 818r48 841r35 842r25 843r28 843r40
+732i13 Count{natural} 807m22 807r31 841r41 843r47
+739a16 Max_Key=739:49{string} 751r37 768r22
+740r16 Cursor{17|66R9[48]} 743m62 751m16 753r40 757r62 760r25 768m60
+741b16 Success{boolean} 743m70 745r23 768m68
+755i22 Item{natural} 763r44
+778b16 Found{boolean} 787m25 793r23
+782a22 N_Name{string} 784r25
+804a19 N_Name{string} 806r22 829r25 833r69
+810r25 Atts{51|98R9} 814r36 815r54 817r69 821r49
+812i25 K{natural} 817m28 818r53
+850r16 Key{39|88R9} 857m27 857r27 860r40
+851r16 Cursor{17|66R9[48]} 855m19 857r66 860m49
+852b16 Success{boolean} 860m57 862r23
+854i20 K{integer} 855r52
+868p10 C{51|79P9} 874m10 876r16 878r56 881r30 884m13 884r32 900m10 902r16
+. 904r56 911r46 914r32 918r22 922m13 922r32
+869r10 Result{126|233R9} 894m13 894r13 911m27 911r27 927m18 927r18 929r17
+878a16 N_Name{string} 880r19
+904a16 N_Name{string} 906r19 910r22 913r22 919r68
+937p10 C{51|79P9} 943m10 945r16 947r56 950r30 954r61 957r26 960m13 960r32
+938r10 Name{39|88R9} 950m33 963r44 968r34
+939r10 Description{39|88R9} 950m39 965r13 969r34
+940r10 Value{39|88R9} 953m19 963r62
+941r10 Result{126|233R9} 963m18 963r18 967m16 967r16 972r17
+947a16 N_Name{string} 949r19 952r22 957r66
+983p10 C{51|79P9} 985r16 987r57 989r60 1003m13 1003r32
+987a16 N_Name{string} 991r19 994r22 1000r70
+988a16 N_Value{string} 992r48 995r55
+1012p10 C{51|79P9} 1015m10 1017r16 1019r54 1022r47 1025r50 1029r22 1032m13
+. 1032r32
+1013r10 T{126|233R9} 1022m27 1022r27 1025m27 1025r27 1035r17
+1019a16 Name{string} 1021r19 1024r22 1029r71
+1038r7 NL{51|95R9} 1040r18 1044r42
+1053p7 File{44|65P9} 1055m23 1055r23 1056r20 1057m22 1057r22
+1068r7 Reader{53|35R9} 1079m20 1079r20 1080m14 1080r14 1084r24
+1069r7 Input{61|29R9} 1077m10 1080m22 1080r22 1082m36 1082r36
+1070p7 Doc{51|90P12} 1084m7 1086r33 1088m13 1088r13
+1071r7 Result{126|233R9} 1086m7 1090r14
+1094p7 S{39|96P9} 1098r10 1102r52 1104m16 1104r16
+1097i11 I{integer} 1098r13 1098r42
+1102r10 Result{126|233R9} 1105r17
+X 146 unicode.ads
+111K9*Unicode 142|38r6 39r6 362r14 479r14 1076r10 146|157e12
+X 148 unicode-ces.ads
+35K17*CES 142|38r14 39r14 362r22 479r22 1076r18 148|171e16
+41A12*Byte_Sequence{string}<integer>
+X 149 unicode-ces-basic_8bit.ads
+35K21*Basic_8bit 142|38w18 364r34 484r20 149|123e27
+41A12*Basic_8bit_String{string}<integer>
+73V13*From_Utf32{41A12} 142|484s31
+78V13*To_Utf32{150|50A12} 142|364s45
+X 150 unicode-ces-utf32.ads
+46A12*Utf32_String{string}<integer>
+50A12*Utf32_LE_String{46A12}<integer>
+X 151 unicode-ces-utf8.ads
+50K21*Utf8 142|39w18 364r17 484r43 1076r22 151|174e21
+56A12*Utf8_String{string}<integer>
+126V13*From_Utf32{56A12} 142|364s22
+130V13*To_Utf32{150|50A12} 142|484s48
+159r4*Utf8_Encoding{148|139R9} 142|1076r27
+

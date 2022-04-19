@@ -1,0 +1,61 @@
+		       G N A T   E X A M P L E S
+		       =========================
+
+This example illustrates reading and writing binary values from/to a 
+file using the Ada stream attributes and stream input/output facility.  
+
+This example consists of a main program that creates a file and writes 
+values of various types to it, including values of numeric, 
+enumeration, and composite types.  In addition, two user-defined 
+stream attributes are overridden for a user-defined access type.  
+Values of the access type are handled by the stream attributes such 
+that the designated value is written to the file, rather than the 
+access value, The output file is closed and then reopened as an input 
+file for reading.  Values are read from the file and displayed as they 
+are read.  
+
+An addition package 'Hierarchy' is defined for the sake of the tagged 
+types used to illustrate the class-wide stream attributes.  
+
+Building and Running the application
+------------------------------------
+
+The application can be built using the project file 'simple_io_demo' 
+provided in this directory.  You can therefore do: 
+
+        gprbuild -P simple_io_demo.gpr
+
+The main program is called 'simple_io_demo'.  It requires no command 
+line parameters.  When invoked, the main program will display the 
+values as they are written to the file.  The program will then display 
+the values read from the file for the sake of comparison.  
+
+Features tested
+---------------
+
+A number of features are used by this example:
+
+* The language-defined package Ada.Streams.Stream_IO is used to manage 
+  the file.  
+
+* The function Ada.Streams.Stream_IO.Stream, returning an access value 
+  designating the file's underlying stream representation, for use as a 
+  parameter to calls to the attributes 
+
+* The use of predefined stream attributes
+
+* Definition and use of a pair of user-defined stream attributes
+
+* Handling of access values, which are not usefully written to (or 
+  read from) a file under typical situations 
+
+* The use of 'Output and 'Input for values of unconstrained types
+
+* The use of 'Class'Input and 'Class'Output for values of tagged types
+
+* Redispatching, in which a tagged value must be converted to a 
+  class-wide type when a primitive operation is called by another 
+  primitive operation that may have been overridden.  This conversion 
+  allows the actual derived type (the "subclass") to control dynamic 
+  dispatching.  
+

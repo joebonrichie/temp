@@ -1,0 +1,107 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>23. Promises: deferring work &#8212; GNATColl 2021 documentation</title>
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="22. Terminal: controlling the console" href="terminals.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="terminals.html" title="22. Terminal: controlling the console"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">GNATColl 2021 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">23. </span><strong>Promises</strong>: deferring work</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="promises-deferring-work">
+<h1><span class="section-number">23. </span><strong>Promises</strong>: deferring work<a class="headerlink" href="#promises-deferring-work" title="Permalink to this headline">¶</a></h1>
+<p>This package provides a way to synchronize work between some
+asynchronous workers (or threads).</p>
+<p>Promises are a way to encapsulate a yet unknown value, immediately
+return to the caller, and work in the background to actually
+execute the work.</p>
+<p>For instance, you could have a function that reads some data from
+a socket. This takes time, and we do not want to block the application
+while retrieving the data (and if there is an error retrieving it,
+we certainly want to properly handle it).</p>
+<p>The main thread (for instance a graphical user interface) needs to
+keep processing events and refresh itself. As soon as the data
+becomes available from the socket, we should let this main thread
+know so that it can take further action, like post-processing the
+data and then displaying it.</p>
+<p>A general scheme to do that is to have a callback function that is
+called whenever the work is finished. Promises build on that simple
+idea so that you can easily chain multiple callbacks to build
+more complex actions.</p>
+<p>See the extensive documentation in <code class="file docutils literal notranslate"><span class="pre">gnatcoll-promises.ads</span></code></p>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/adacore_transparent.png" alt="Logo"/>
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="terminals.html"
+                        title="previous chapter"><span class="section-number">22. </span><strong>Terminal</strong>: controlling the console</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="terminals.html" title="22. Terminal: controlling the console"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">GNATColl 2021 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">23. </span><strong>Promises</strong>: deferring work</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2007-2021, AdaCore.
+    </div>
+  </body>
+</html>

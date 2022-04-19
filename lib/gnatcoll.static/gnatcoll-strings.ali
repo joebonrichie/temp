@@ -1,0 +1,402 @@
+V "GNAT Lib v2021"
+A -O2
+A -gnatA
+A -gnatn
+A -gnatwa
+A -gnatwC
+A -gnatwJ
+A -mtune=generic
+A -march=x86-64
+P SS ZX
+
+RN
+RV NO_ACCESS_SUBPROGRAMS
+RV NO_DISPATCHING_CALLS
+RV NO_EXCEPTION_HANDLERS
+RV NO_EXCEPTIONS
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_LOCAL_ALLOCATORS
+RV NO_NESTED_FINALIZATION
+RV NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_UNCHECKED_ACCESS
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ATTRIBUTES
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLICIT_LOOPS
+RV NO_ELABORATION_CODE
+
+U gnatcoll.strings%b	gnatcoll-strings.ads	014a3fb6 EE OO PK IU
+W ada%s			ada.ads			ada.ali
+W ada.characters%s	a-charac.ads		a-charac.ali
+W ada.characters.handling%s  a-chahan.adb	a-chahan.ali
+Z ada.exceptions%s	a-except.adb		a-except.ali
+Z ada.streams%s		a-stream.adb		a-stream.ali
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W gnatcoll%s		gnatcoll.ads		gnatcoll.ali
+Z gnatcoll.atomic%s	gnatcoll-atomic.adb	gnatcoll-atomic.ali  AD
+W gnatcoll.strings_impl%s  gnatcoll-strings_impl.adb  gnatcoll-strings_impl.ali  ED
+Z system%s		system.ads		system.ali
+Z system.compare_array_unsigned_8%s  s-carun8.adb  s-carun8.ali
+Z system.finalization_masters%s  s-finmas.adb	s-finmas.ali
+Z system.img_int%s	s-imgint.ads		s-imgint.ali
+Z system.put_images%s	s-putima.adb		s-putima.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+Z system.soft_links%s	s-soflin.adb		s-soflin.ali
+Z system.standard_library%s  s-stalib.adb	s-stalib.ali
+Z system.storage_elements%s  s-stoele.adb	s-stoele.ali
+Z system.stream_attributes%s  s-stratt.adb	s-stratt.ali
+Z system.strings.stream_ops%s  s-ststop.adb	s-ststop.ali
+
+U gnatcoll.strings%s	gnatcoll-strings.ads	01fa95a3 EB EE OO PK IU
+W ada%s			ada.ads			ada.ali
+W ada.characters%s	a-charac.ads		a-charac.ali
+W ada.characters.handling%s  a-chahan.adb	a-chahan.ali
+Z ada.exceptions%s	a-except.adb		a-except.ali
+Z ada.streams%s		a-stream.adb		a-stream.ali
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W gnatcoll%s		gnatcoll.ads		gnatcoll.ali
+W gnatcoll.strings_impl%s  gnatcoll-strings_impl.adb  gnatcoll-strings_impl.ali
+Z system%s		system.ads		system.ali
+Z system.finalization_masters%s  s-finmas.adb	s-finmas.ali
+Z system.put_images%s	s-putima.adb		s-putima.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+Z system.soft_links%s	s-soflin.adb		s-soflin.ali
+Z system.standard_library%s  s-stalib.adb	s-stalib.ali
+Z system.storage_elements%s  s-stoele.adb	s-stoele.ali
+Z system.stream_attributes%s  s-stratt.adb	s-stratt.ali
+Z system.strings.stream_ops%s  s-ststop.adb	s-ststop.ali
+
+D ada.ads		20210520051131 76789da1 ada%s
+D a-charac.ads		20210520051128 2d3ec45b ada.characters%s
+D a-chahan.ads		20210520051128 0ce1b450 ada.characters.handling%s
+D a-chahan.adb		20210520051128 9621beac ada.characters.handling%b
+D a-chlat1.ads		20210520051128 66457d31 ada.characters.latin_1%s
+D a-contai.ads		20210520051128 61e5e089 ada.containers%s
+D a-except.ads		20210520051128 946f3014 ada.exceptions%s
+D a-finali.ads		20210520051128 bf4f806b ada.finalization%s
+D a-ioexce.ads		20210520051128 e4a01f64 ada.io_exceptions%s
+D a-stream.ads		20210520051129 119b8fb3 ada.streams%s
+D a-string.ads		20210520051129 90ac6797 ada.strings%s
+D a-strmap.ads		20210520051129 5a88892a ada.strings.maps%s
+D a-stmaco.ads		20210520051129 1c0e5368 ada.strings.maps.constants%s
+D a-sttebu.ads		20210520051129 18209c64 ada.strings.text_buffers%s
+D a-stuten.ads		20210520051129 808c40ad ada.strings.utf_encoding%s
+D a-tags.ads		20210520051130 9eaa38c6 ada.tags%s
+D a-unccon.ads		20210520051130 0e9b276f ada.unchecked_conversion%s
+D a-uncdea.ads		20210520051130 c3a8ac65 ada.unchecked_deallocation%s
+D gnatcoll.ads		20210519051041 6a5da479 gnatcoll%s
+D gnatcoll-atomic.ads	20210519051041 a760a918 gnatcoll.atomic%s
+D gnatcoll-atomic.adb	20210519051041 d76879ba gnatcoll.atomic%b
+D gnatcoll-refcount.ads	20210519051041 b4dda25c gnatcoll.refcount%s
+D gnatcoll-storage_pools.ads  20210519051041 f82e283b gnatcoll.storage_pools%s
+D gnatcoll-storage_pools-headers.ads  20210519051041 968b2c2e gnatcoll.storage_pools.headers%s
+D gnatcoll-strings.ads	20210519051041 014a3fb6 gnatcoll.strings%s
+D gnatcoll-strings.ads	20210519051041 014a3fb6 gnatcoll.strings%b
+D gnatcoll-strings_impl.ads  20210519051041 660cba3c gnatcoll.strings_impl%s
+D gnatcoll-strings_impl.adb  20210519051041 4bac4314 gnatcoll.strings_impl%b
+D interfac.ads		20210520051132 edec285f interfaces%s
+D system.ads		20210520051135 a2da961d system%s
+D s-atocou.ads		20210520051132 b45c2d8d system.atomic_counters%s
+D s-atocou.adb		20210520051132 b65612c0 system.atomic_counters%b
+D s-carun8.ads		20210520051132 a903718d system.compare_array_unsigned_8%s
+D s-exctab.ads		20210520051132 54135002 system.exception_table%s
+D s-finmas.ads		20210520051132 1ab4dba8 system.finalization_masters%s
+D s-finroo.ads		20210520051132 4ff27390 system.finalization_root%s
+D s-imagei.ads		20210520051133 0d3f86a7 system.image_i%s
+D s-imgint.ads		20210520051133 bdb6f5ec system.img_int%s
+D s-memory.ads		20210520051133 597d6634 system.memory%s
+D s-parame.ads		20210520051134 4752c4cb system.parameters%s
+D s-pooglo.ads		20210520051134 ede33ef8 system.pool_global%s
+D s-putima.ads		20210520051134 4e095881 system.put_images%s
+D s-secsta.ads		20210520051134 9b3ab94b system.secondary_stack%s
+D s-soflin.ads		20210520051134 a7318a92 system.soft_links%s
+D s-stache.ads		20210520051134 a37c21ec system.stack_checking%s
+D s-stalib.ads		20210520051134 472fbca8 system.standard_library%s
+D s-stalib.adb		20210520051134 977290bf system.standard_library%b
+D s-stoele.ads		20210520051134 2dc34a04 system.storage_elements%s
+D s-stoele.adb		20210520051134 ed88f8fb system.storage_elements%b
+D s-stopoo.ads		20210520051134 e9fa2dd8 system.storage_pools%s
+D s-stratt.ads		20210520051134 7bdda3fa system.stream_attributes%s
+D s-stratt.adb		20210520051134 fc996108 system.stream_attributes%b
+D s-statxd.ads		20210520051134 b54789f6 system.stream_attributes.xdr%s
+D s-strhas.ads		20210520051134 269cd894 system.string_hash%s
+D s-strhas.adb		20210520051134 2e038444 system.string_hash%b
+D s-string.ads		20210520051134 8fe54fb7 system.strings%s
+D s-ststop.ads		20210520051134 5fbf1b38 system.strings.stream_ops%s
+D s-traent.ads		20210520051134 26a8d361 system.traceback_entries%s
+D s-unstyp.ads		20210520051134 2b077493 system.unsigned_types%s
+D unchconv.ads		20210520051135 ca2f9e18 unchecked_conversion%s
+G a e
+G c s s s [s gnatcoll__strings 31 1 none]
+G c Z s s [length gnatcoll__strings 346 16 31_1]
+G c Z s s [is_empty gnatcoll__strings 349 16 31_1]
+G c Z s s [get gnatcoll__strings 353 16 31_1]
+G c Z s s [reference gnatcoll__strings 372 16 31_1]
+G c Z s s [first gnatcoll__strings 397 16 31_1]
+G c Z s s [next gnatcoll__strings 398 16 31_1]
+G c Z s s [has_element gnatcoll__strings 400 16 31_1]
+G c Z s s [element gnatcoll__strings 402 16 31_1]
+G c Z s s [iterate gnatcoll__strings 406 16 31_1]
+G c Z s s [first gnatcoll__strings 420 16 31_1]
+G c Z s s [next gnatcoll__strings 421 16 31_1]
+G c Z s s [has_element gnatcoll__strings 423 16 31_1]
+G c Z s s [set gnatcoll__strings 443 17 31_1]
+G c Z s s [to_xstring gnatcoll__strings 446 16 31_1]
+G c Z s s [append gnatcoll__strings 450 17 31_1]
+G c Z s s [append gnatcoll__strings 451 17 31_1]
+G c Z s s [append gnatcoll__strings 452 17 31_1]
+G c Z s s [Omultiply gnatcoll__strings 455 16 31_1]
+G c Z s s [Omultiply gnatcoll__strings 456 16 31_1]
+G c Z s s [Omultiply gnatcoll__strings 457 16 31_1]
+G c Z s s [reserve gnatcoll__strings 460 17 31_1]
+G c Z s s [shrink gnatcoll__strings 466 17 31_1]
+G c Z s s [swap gnatcoll__strings 470 17 31_1]
+G c Z s s [center gnatcoll__strings 479 17 31_1]
+G c Z s s [center gnatcoll__strings 483 16 31_1]
+G c Z s s [left_justify gnatcoll__strings 495 17 31_1]
+G c Z s s [left_justify gnatcoll__strings 499 16 31_1]
+G c Z s s [right_justify gnatcoll__strings 509 17 31_1]
+G c Z s s [right_justify gnatcoll__strings 513 16 31_1]
+G c Z s s [Oeq gnatcoll__strings 527 16 31_1]
+G c Z s s [Oeq gnatcoll__strings 528 16 31_1]
+G c Z s s [Oeq gnatcoll__strings 529 16 31_1]
+G c Z s s [Olt gnatcoll__strings 532 16 31_1]
+G c Z s s [Olt gnatcoll__strings 533 16 31_1]
+G c Z s s [Olt gnatcoll__strings 534 16 31_1]
+G c Z s s [Ole gnatcoll__strings 536 16 31_1]
+G c Z s s [Ole gnatcoll__strings 537 16 31_1]
+G c Z s s [Ole gnatcoll__strings 538 16 31_1]
+G c Z s s [Ogt gnatcoll__strings 540 16 31_1]
+G c Z s s [Ogt gnatcoll__strings 542 16 31_1]
+G c Z s s [Ogt gnatcoll__strings 544 16 31_1]
+G c Z s s [Oge gnatcoll__strings 547 16 31_1]
+G c Z s s [Oge gnatcoll__strings 549 16 31_1]
+G c Z s s [Oge gnatcoll__strings 551 16 31_1]
+G c Z s s [compare gnatcoll__strings 556 16 31_1]
+G c Z s s [compare gnatcoll__strings 558 16 31_1]
+G c Z s s [compare gnatcoll__strings 561 16 31_1]
+G c Z s s [compare_case_insensitive gnatcoll__strings 572 16 31_1]
+G c Z s s [compare_case_insensitive gnatcoll__strings 574 16 31_1]
+G c Z s s [compare_case_insensitive gnatcoll__strings 577 16 31_1]
+G c Z s s [equal_case_insensitive gnatcoll__strings 582 16 31_1]
+G c Z s s [equal_case_insensitive gnatcoll__strings 585 16 31_1]
+G c Z s s [equal_case_insensitive gnatcoll__strings 588 16 31_1]
+G c Z s s [less_case_insensitive gnatcoll__strings 592 16 31_1]
+G c Z s s [less_case_insensitive gnatcoll__strings 595 16 31_1]
+G c Z s s [less_case_insensitive gnatcoll__strings 598 16 31_1]
+G c Z s s [get_string gnatcoll__strings 606 17 31_1]
+G c Z s s [access_string gnatcoll__strings 616 17 31_1]
+G c Z s s [to_string gnatcoll__strings 626 16 31_1]
+G c Z s s [hash gnatcoll__strings 638 16 31_1]
+G c Z s s [hash_case_insensitive gnatcoll__strings 642 16 31_1]
+G c Z s s [to_upper gnatcoll__strings 650 17 31_1]
+G c Z s s [to_upper gnatcoll__strings 651 16 31_1]
+G c Z s s [to_lower gnatcoll__strings 655 17 31_1]
+G c Z s s [to_lower gnatcoll__strings 656 16 31_1]
+G c Z s s [capitalize gnatcoll__strings 660 17 31_1]
+G c Z s s [title gnatcoll__strings 664 17 31_1]
+G c Z s s [is_upper gnatcoll__strings 668 16 31_1]
+G c Z s s [is_lower gnatcoll__strings 669 16 31_1]
+G c Z s s [starts_with gnatcoll__strings 676 16 31_1]
+G c Z s s [starts_with gnatcoll__strings 678 16 31_1]
+G c Z s s [ends_with gnatcoll__strings 681 16 31_1]
+G c Z s s [ends_with gnatcoll__strings 683 16 31_1]
+G c Z s s [count gnatcoll__strings 694 16 31_1]
+G c Z s s [count gnatcoll__strings 699 16 31_1]
+G c Z s s [find gnatcoll__strings 711 16 31_1]
+G c Z s s [find gnatcoll__strings 716 16 31_1]
+G c Z s s [right_find gnatcoll__strings 721 16 31_1]
+G c Z s s [right_find gnatcoll__strings 726 16 31_1]
+G c Z s s [slice gnatcoll__strings 758 17 31_1]
+G c Z s s [slice gnatcoll__strings 760 16 31_1]
+G c Z s s [slice gnatcoll__strings 762 17 31_1]
+G c Z s s [trim gnatcoll__strings 774 17 31_1]
+G c Z s s [trim gnatcoll__strings 778 16 31_1]
+G c Z s s [head gnatcoll__strings 785 16 31_1]
+G c Z s s [tail gnatcoll__strings 789 16 31_1]
+G c Z s s [split gnatcoll__strings 793 16 31_1]
+G c Z s s [split gnatcoll__strings 798 17 31_1]
+G c Z s s [split gnatcoll__strings 804 16 31_1]
+G c Z s s [split gnatcoll__strings 809 17 31_1]
+G c Z s s [right_split gnatcoll__strings 844 16 31_1]
+G c Z s s [right_split gnatcoll__strings 849 17 31_1]
+G c Z s s [right_split gnatcoll__strings 855 16 31_1]
+G c Z s s [right_split gnatcoll__strings 860 17 31_1]
+G c Z s s [set_as_join gnatcoll__strings 870 17 31_1]
+G c Z s s [join gnatcoll__strings 876 16 31_1]
+G c Z s s [join gnatcoll__strings 882 16 31_1]
+G c Z s s [set_as_join gnatcoll__strings 887 17 31_1]
+G c Z s s [join gnatcoll__strings 893 16 31_1]
+G c Z s s [replace gnatcoll__strings 910 17 31_1]
+G c Z s s [replace gnatcoll__strings 915 17 31_1]
+G c Z s s [replace_slice gnatcoll__strings 920 17 31_1]
+G c Z s s [insert gnatcoll__strings 931 17 31_1]
+G c Z s s [insert gnatcoll__strings 935 17 31_1]
+G c Z s s [overwrite gnatcoll__strings 941 17 31_1]
+G c Z s s [overwrite gnatcoll__strings 945 17 31_1]
+G c Z s s [delete gnatcoll__strings 952 17 31_1]
+G c Z s s [clear gnatcoll__strings 960 17 31_1]
+G c Z s s [adjust gnatcoll__strings 1051 28 31_1]
+G c Z s s [finalize gnatcoll__strings 1052 28 31_1]
+G c Z s s [string_dataIP gnatcoll__strings 1040 12 31_1]
+G c Z s s [xstringDA gnatcoll__strings 1048 12 31_1]
+G c Z s s [xstringDF gnatcoll__strings 1048 12 31_1]
+G c Z s s [xstringIP gnatcoll__strings 1048 12 31_1]
+G c Z s s [character_referenceIP gnatcoll__strings 974 12 31_1]
+G c Z s s [index_rangeIP gnatcoll__strings 390 12 31_1]
+G c Z s s [xstring_arrayIP gnatcoll__strings 340 12 31_1]
+G c Z s s [xstring_arrayDI gnatcoll__strings 340 12 31_1]
+G c Z s s [xstring_arrayDA gnatcoll__strings 340 12 31_1]
+G c Z s s [xstring_arrayDF gnatcoll__strings 340 12 31_1]
+G c Z s s [big_string_dataIP gnatcoll__strings 977 12 31_1]
+G c Z s s [convert gnatcoll__strings 68 16 31_1]
+G c Z s s [convert gnatcoll__strings 70 16 31_1]
+G c Z s s [convert gnatcoll__strings 72 16 31_1]
+G c Z s s [store_capacity gnatcoll__strings 97 17 31_1]
+G c Z s s [get_capacity gnatcoll__strings 99 16 31_1]
+G c Z s s [store_size gnatcoll__strings 103 17 31_1]
+G c Z s s [clone gnatcoll__strings 107 17 31_1]
+G c Z s s [make_writable_thread_safe gnatcoll__strings 117 17 31_1]
+G c Z s s [make_writable_thread_unsafe gnatcoll__strings 118 17 31_1]
+G c Z s s [convert_to_big_string gnatcoll__strings 140 17 31_1]
+G r c none [s gnatcoll__strings 31 1 none] [is_lock_free gnatcoll__atomic 39 13 none]
+G r i none [s gnatcoll__strings 31 1 none] [strings gnatcoll__strings_impl 302 12 none]
+G r c none [set gnatcoll__strings 443 17 31_1] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [to_xstring gnatcoll__strings 446 16 31_1] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [to_xstring gnatcoll__strings 446 16 31_1] [increment gnatcoll__atomic 66 14 none]
+G r c none [append gnatcoll__strings 450 17 31_1] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [append gnatcoll__strings 451 17 31_1] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [append gnatcoll__strings 452 17 31_1] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [Omultiply gnatcoll__strings 455 16 31_1] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [Omultiply gnatcoll__strings 455 16 31_1] [increment gnatcoll__atomic 66 14 none]
+G r c none [Omultiply gnatcoll__strings 456 16 31_1] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [Omultiply gnatcoll__strings 456 16 31_1] [increment gnatcoll__atomic 66 14 none]
+G r c none [Omultiply gnatcoll__strings 457 16 31_1] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [Omultiply gnatcoll__strings 457 16 31_1] [increment gnatcoll__atomic 66 14 none]
+G r c none [reserve gnatcoll__strings 460 17 31_1] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [shrink gnatcoll__strings 466 17 31_1] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [center gnatcoll__strings 479 17 31_1] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [center gnatcoll__strings 483 16 31_1] [increment gnatcoll__atomic 66 14 none]
+G r c none [center gnatcoll__strings 483 16 31_1] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [left_justify gnatcoll__strings 495 17 31_1] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [left_justify gnatcoll__strings 499 16 31_1] [increment gnatcoll__atomic 66 14 none]
+G r c none [left_justify gnatcoll__strings 499 16 31_1] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [right_justify gnatcoll__strings 509 17 31_1] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [right_justify gnatcoll__strings 513 16 31_1] [increment gnatcoll__atomic 66 14 none]
+G r c none [right_justify gnatcoll__strings 513 16 31_1] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [access_string gnatcoll__strings 616 17 31_1] [increment gnatcoll__atomic 66 14 none]
+G r c none [access_string gnatcoll__strings 616 17 31_1] [decrement gnatcoll__atomic 70 13 none]
+G r c none [to_upper gnatcoll__strings 651 16 31_1] [increment gnatcoll__atomic 66 14 none]
+G r c none [to_upper gnatcoll__strings 651 16 31_1] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [to_lower gnatcoll__strings 656 16 31_1] [increment gnatcoll__atomic 66 14 none]
+G r c none [to_lower gnatcoll__strings 656 16 31_1] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [slice gnatcoll__strings 758 17 31_1] [decrement gnatcoll__atomic 70 13 none]
+G r c none [slice gnatcoll__strings 760 16 31_1] [decrement gnatcoll__atomic 70 13 none]
+G r c none [slice gnatcoll__strings 760 16 31_1] [increment gnatcoll__atomic 66 14 none]
+G r c none [slice gnatcoll__strings 760 16 31_1] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [slice gnatcoll__strings 762 17 31_1] [decrement gnatcoll__atomic 70 13 none]
+G r c none [slice gnatcoll__strings 762 17 31_1] [increment gnatcoll__atomic 66 14 none]
+G r c none [slice gnatcoll__strings 762 17 31_1] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [trim gnatcoll__strings 774 17 31_1] [decrement gnatcoll__atomic 70 13 none]
+G r c none [trim gnatcoll__strings 778 16 31_1] [decrement gnatcoll__atomic 70 13 none]
+G r c none [trim gnatcoll__strings 778 16 31_1] [increment gnatcoll__atomic 66 14 none]
+G r c none [trim gnatcoll__strings 778 16 31_1] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [head gnatcoll__strings 785 16 31_1] [decrement gnatcoll__atomic 70 13 none]
+G r c none [head gnatcoll__strings 785 16 31_1] [increment gnatcoll__atomic 66 14 none]
+G r c none [head gnatcoll__strings 785 16 31_1] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [tail gnatcoll__strings 789 16 31_1] [decrement gnatcoll__atomic 70 13 none]
+G r c none [tail gnatcoll__strings 789 16 31_1] [increment gnatcoll__atomic 66 14 none]
+G r c none [tail gnatcoll__strings 789 16 31_1] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [split gnatcoll__strings 793 16 31_1] [decrement gnatcoll__atomic 70 13 none]
+G r c none [split gnatcoll__strings 793 16 31_1] [increment gnatcoll__atomic 66 14 none]
+G r c none [split gnatcoll__strings 793 16 31_1] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [split gnatcoll__strings 798 17 31_1] [decrement gnatcoll__atomic 70 13 none]
+G r c none [split gnatcoll__strings 798 17 31_1] [increment gnatcoll__atomic 66 14 none]
+G r c none [split gnatcoll__strings 798 17 31_1] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [split gnatcoll__strings 804 16 31_1] [decrement gnatcoll__atomic 70 13 none]
+G r c none [split gnatcoll__strings 804 16 31_1] [increment gnatcoll__atomic 66 14 none]
+G r c none [split gnatcoll__strings 804 16 31_1] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [split gnatcoll__strings 809 17 31_1] [decrement gnatcoll__atomic 70 13 none]
+G r c none [split gnatcoll__strings 809 17 31_1] [increment gnatcoll__atomic 66 14 none]
+G r c none [split gnatcoll__strings 809 17 31_1] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [right_split gnatcoll__strings 844 16 31_1] [decrement gnatcoll__atomic 70 13 none]
+G r c none [right_split gnatcoll__strings 844 16 31_1] [increment gnatcoll__atomic 66 14 none]
+G r c none [right_split gnatcoll__strings 844 16 31_1] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [right_split gnatcoll__strings 849 17 31_1] [decrement gnatcoll__atomic 70 13 none]
+G r c none [right_split gnatcoll__strings 849 17 31_1] [increment gnatcoll__atomic 66 14 none]
+G r c none [right_split gnatcoll__strings 849 17 31_1] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [right_split gnatcoll__strings 855 16 31_1] [decrement gnatcoll__atomic 70 13 none]
+G r c none [right_split gnatcoll__strings 855 16 31_1] [increment gnatcoll__atomic 66 14 none]
+G r c none [right_split gnatcoll__strings 855 16 31_1] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [right_split gnatcoll__strings 860 17 31_1] [decrement gnatcoll__atomic 70 13 none]
+G r c none [right_split gnatcoll__strings 860 17 31_1] [increment gnatcoll__atomic 66 14 none]
+G r c none [right_split gnatcoll__strings 860 17 31_1] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [set_as_join gnatcoll__strings 870 17 31_1] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [join gnatcoll__strings 876 16 31_1] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [join gnatcoll__strings 876 16 31_1] [increment gnatcoll__atomic 66 14 none]
+G r c none [join gnatcoll__strings 882 16 31_1] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [join gnatcoll__strings 882 16 31_1] [increment gnatcoll__atomic 66 14 none]
+G r c none [set_as_join gnatcoll__strings 887 17 31_1] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [join gnatcoll__strings 893 16 31_1] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [join gnatcoll__strings 893 16 31_1] [increment gnatcoll__atomic 66 14 none]
+G r c none [replace gnatcoll__strings 915 17 31_1] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [replace_slice gnatcoll__strings 920 17 31_1] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [insert gnatcoll__strings 931 17 31_1] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [insert gnatcoll__strings 935 17 31_1] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [overwrite gnatcoll__strings 941 17 31_1] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [overwrite gnatcoll__strings 945 17 31_1] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [delete gnatcoll__strings 952 17 31_1] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [clear gnatcoll__strings 960 17 31_1] [decrement gnatcoll__atomic 70 13 none]
+G r c none [adjust gnatcoll__strings 1051 28 31_1] [increment gnatcoll__atomic 66 14 none]
+G r c none [adjust gnatcoll__strings 1051 28 31_1] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [finalize gnatcoll__strings 1052 28 31_1] [decrement gnatcoll__atomic 70 13 none]
+G r c none [xstringDA gnatcoll__strings 1048 12 31_1] [increment gnatcoll__atomic 66 14 none]
+G r c none [xstringDA gnatcoll__strings 1048 12 31_1] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [xstringDF gnatcoll__strings 1048 12 31_1] [decrement gnatcoll__atomic 70 13 none]
+G r c none [xstring_arrayDA gnatcoll__strings 340 12 31_1] [increment gnatcoll__atomic 66 14 none]
+G r c none [xstring_arrayDA gnatcoll__strings 340 12 31_1] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [xstring_arrayDF gnatcoll__strings 340 12 31_1] [decrement gnatcoll__atomic 70 13 none]
+G r c none [clone gnatcoll__strings 107 17 31_1] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [make_writable_thread_safe gnatcoll__strings 117 17 31_1] [decrement gnatcoll__atomic 70 13 none]
+G r c none [make_writable_thread_safe gnatcoll__strings 117 17 31_1] [unsafe_increment gnatcoll__atomic 86 14 none]
+G r c none [make_writable_thread_safe gnatcoll__strings 117 17 31_1] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [make_writable_thread_unsafe gnatcoll__strings 118 17 31_1] [decrement gnatcoll__atomic 68 14 none]
+G r c none [make_writable_thread_unsafe gnatcoll__strings 118 17 31_1] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [convert_to_big_string gnatcoll__strings 140 17 31_1] [default_growth gnatcoll__strings_impl 253 13 none]
+X 1 ada.ads
+16K9*Ada 20e8 26|29r6 29r38
+X 2 a-charac.ads
+16K13*Characters 18e19 26|29r10 29r42
+X 3 a-chahan.ads
+36K24*Handling 160e28 26|29w21 29r53
+67V13*To_Lower{character} 27|283i21
+68V13*To_Upper{character} 27|285i21
+X 6 a-contai.ads
+19M9*Hash_Type
+X 19 gnatcoll.ads
+24K9*GNATCOLL 27e13 26|28r6 31r9 32r8 33r28
+X 26 gnatcoll-strings.ads
+31K18*Strings[27|302] 19|24k9
+X 27 gnatcoll-strings_impl.ads
+238K18*Strings_Impl 26|28w15 32r17 33r37 27|1083e26
+245M9*Optimal_String_Size 26|33r50
+263M12 SSize 26|33r8
+271E12 Character_Type 26|34r8
+276A12 Character_String(271E12)<integer> 26|35r8
+302k12*Strings 26|32r30 27|1064e15
+X 28 gnatcoll-strings_impl.adb
+1495V19 H[54|60]{6|19M9} 55|44b13[26|31]
+1511V19 H[54|60]{6|19M9} 55|44b13[26|31]
+X 30 system.ads
+67M9*Address
+X 39 s-memory.ads
+53V13*Alloc{30|67M9} 103i<c,__gnat_malloc>22
+68U14*Free 104i<c,__gnat_free>22
+76V13*Realloc{30|67M9} 105i<c,__gnat_realloc>22
+X 47 s-stalib.adb
+89U14 Break_Start 90i<c,__gnat_break_start>22
+

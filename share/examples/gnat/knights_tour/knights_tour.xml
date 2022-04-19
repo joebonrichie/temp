@@ -1,0 +1,21 @@
+    <!-- KNIGHTS_TOUR -->
+
+    <action name="&prefix;_knights_tour" category="">
+        <shell>
+            Project.load "&example_root;/gnat/knights_tour/knights_tour.gpr"
+        </shell>
+        <shell>
+            Editor.edit "knights_tour.adb"
+        </shell>
+        <shell>
+            Editor.edit "README.testing"
+        </shell>
+    </action>
+
+    <submenu before="About">
+        <title>&menu;</title>
+        <menu action="&prefix;_knights_tour">
+            <title>GNAT &prefix;/Knight's Tour (Backtracking)</title>
+        </menu>
+    </submenu>
+

@@ -1,0 +1,172 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>17. Obsolescent Features &#8212; GNAT Reference Manual 2021 documentation</title>
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="18. Compatibility and Porting Guide" href="compatibility_and_porting_guide.html" />
+    <link rel="prev" title="16. Implementation of Ada 2012 Features" href="implementation_of_ada_2012_features.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="compatibility_and_porting_guide.html" title="18. Compatibility and Porting Guide"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="implementation_of_ada_2012_features.html" title="16. Implementation of Ada 2012 Features"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../gnat_rm.html">GNAT Reference Manual 2021 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">17. </span>Obsolescent Features</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="obsolescent-features">
+<span id="id1"></span><h1><span class="section-number">17. </span>Obsolescent Features<a class="headerlink" href="#obsolescent-features" title="Permalink to this headline">¶</a></h1>
+<p>This chapter describes features that are provided by GNAT, but are
+considered obsolescent since there are preferred ways of achieving
+the same effect. These features are provided solely for historical
+compatibility purposes.</p>
+<div class="section" id="pragma-no-run-time">
+<span id="id2"></span><h2><span class="section-number">17.1. </span>pragma No_Run_Time<a class="headerlink" href="#pragma-no-run-time" title="Permalink to this headline">¶</a></h2>
+<p>The pragma <code class="docutils literal notranslate"><span class="pre">No_Run_Time</span></code> is used to achieve an affect similar
+to the use of the “Zero Foot Print” configurable run time, but without
+requiring a specially configured run time. The result of using this
+pragma, which must be used for all units in a partition, is to restrict
+the use of any language features requiring run-time support code. The
+preferred usage is to use an appropriately configured run-time that
+includes just those features that are to be made accessible.</p>
+</div>
+<div class="section" id="pragma-ravenscar">
+<span id="id3"></span><h2><span class="section-number">17.2. </span>pragma Ravenscar<a class="headerlink" href="#pragma-ravenscar" title="Permalink to this headline">¶</a></h2>
+<p>The pragma <code class="docutils literal notranslate"><span class="pre">Ravenscar</span></code> has exactly the same effect as pragma
+<code class="docutils literal notranslate"><span class="pre">Profile</span> <span class="pre">(Ravenscar)</span></code>. The latter usage is preferred since it
+is part of the new Ada 2005 standard.</p>
+</div>
+<div class="section" id="pragma-restricted-run-time">
+<span id="id4"></span><h2><span class="section-number">17.3. </span>pragma Restricted_Run_Time<a class="headerlink" href="#pragma-restricted-run-time" title="Permalink to this headline">¶</a></h2>
+<p>The pragma <code class="docutils literal notranslate"><span class="pre">Restricted_Run_Time</span></code> has exactly the same effect as
+pragma <code class="docutils literal notranslate"><span class="pre">Profile</span> <span class="pre">(Restricted)</span></code>. The latter usage is
+preferred since the Ada 2005 pragma <code class="docutils literal notranslate"><span class="pre">Profile</span></code> is intended for
+this kind of implementation dependent addition.</p>
+</div>
+<div class="section" id="pragma-task-info">
+<span id="id5"></span><h2><span class="section-number">17.4. </span>pragma Task_Info<a class="headerlink" href="#pragma-task-info" title="Permalink to this headline">¶</a></h2>
+<p>The functionality provided by pragma <code class="docutils literal notranslate"><span class="pre">Task_Info</span></code> is now part of the
+Ada language. The <code class="docutils literal notranslate"><span class="pre">CPU</span></code> aspect and the package
+<code class="docutils literal notranslate"><span class="pre">System.Multiprocessors</span></code> offer a less system-dependent way to specify
+task affinity or to query the number of processors.</p>
+<p>Syntax</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kr">pragma</span><span class="p"> </span><span class="n">Task_Info</span> <span class="o">(</span><span class="n">EXPRESSION</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>This pragma appears within a task definition (like pragma
+<code class="docutils literal notranslate"><span class="pre">Priority</span></code>) and applies to the task in which it appears.  The
+argument must be of type <code class="docutils literal notranslate"><span class="pre">System.Task_Info.Task_Info_Type</span></code>.
+The <code class="docutils literal notranslate"><span class="pre">Task_Info</span></code> pragma provides system dependent control over
+aspects of tasking implementation, for example, the ability to map
+tasks to specific processors.  For details on the facilities available
+for the version of GNAT that you are using, see the documentation
+in the spec of package System.Task_Info in the runtime
+library.</p>
+</div>
+<div class="section" id="package-system-task-info-s-tasinf-ads">
+<span id="package-system-task-info"></span><h2><span class="section-number">17.5. </span>package System.Task_Info (<code class="file docutils literal notranslate"><span class="pre">s-tasinf.ads</span></code>)<a class="headerlink" href="#package-system-task-info-s-tasinf-ads" title="Permalink to this headline">¶</a></h2>
+<p>This package provides target dependent functionality that is used
+to support the <code class="docutils literal notranslate"><span class="pre">Task_Info</span></code> pragma. The predefined Ada package
+<code class="docutils literal notranslate"><span class="pre">System.Multiprocessors</span></code> and the <code class="docutils literal notranslate"><span class="pre">CPU</span></code> aspect now provide a
+standard replacement for GNAT’s <code class="docutils literal notranslate"><span class="pre">Task_Info</span></code> functionality.</p>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../gnat_rm.html">
+              <img class="logo" src="../_static/adacore_transparent.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="../gnat_rm.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">17. Obsolescent Features</a><ul>
+<li><a class="reference internal" href="#pragma-no-run-time">17.1. pragma No_Run_Time</a></li>
+<li><a class="reference internal" href="#pragma-ravenscar">17.2. pragma Ravenscar</a></li>
+<li><a class="reference internal" href="#pragma-restricted-run-time">17.3. pragma Restricted_Run_Time</a></li>
+<li><a class="reference internal" href="#pragma-task-info">17.4. pragma Task_Info</a></li>
+<li><a class="reference internal" href="#package-system-task-info-s-tasinf-ads">17.5. package System.Task_Info (<code class="file docutils literal notranslate"><span class="pre">s-tasinf.ads</span></code>)</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="implementation_of_ada_2012_features.html"
+                        title="previous chapter"><span class="section-number">16. </span>Implementation of Ada 2012 Features</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="compatibility_and_porting_guide.html"
+                        title="next chapter"><span class="section-number">18. </span>Compatibility and Porting Guide</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/gnat_rm/obsolescent_features.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="compatibility_and_porting_guide.html" title="18. Compatibility and Porting Guide"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="implementation_of_ada_2012_features.html" title="16. Implementation of Ada 2012 Features"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../gnat_rm.html">GNAT Reference Manual 2021 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">17. </span>Obsolescent Features</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2008-2021, Free Software Foundation.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
+    </div>
+  </body>
+</html>

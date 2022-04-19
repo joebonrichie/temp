@@ -1,0 +1,13 @@
+project Shapes is
+
+   for Source_Dirs use (".");
+   for Object_Dir use "./obj";
+   for Exec_Dir use ".";
+   for Main use ("test_shapes.adb");
+
+   package Builder is 
+      for Default_Switches ("Ada") use ("-gnat05");
+      for Executable ("test_shapes.adb") use "shapes";
+   end Builder;
+
+end Shapes;

@@ -1,0 +1,170 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>22. Terminal: controlling the console &#8212; GNATColl 2021 documentation</title>
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="23. Promises: deferring work" href="promises.html" />
+    <link rel="prev" title="21. JSON: handling JSON data" href="json.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="promises.html" title="23. Promises: deferring work"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="json.html" title="21. JSON: handling JSON data"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">GNATColl 2021 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">22. </span><strong>Terminal</strong>: controlling the console</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="terminal-controlling-the-console">
+<h1><span class="section-number">22. </span><strong>Terminal</strong>: controlling the console<a class="headerlink" href="#terminal-controlling-the-console" title="Permalink to this headline">¶</a></h1>
+<p>Applications generally provide user feedback either via full-fledge
+graphical interfaces, or via a simpler, console-based output.</p>
+<p>The basic support for console-based output is provided directly via
+<cite>Ada.Text_IO</cite>. But more advanced features are highly system-dependent,
+and somewhat tricky to develop.</p>
+<p>The package <cite>GNATCOLL.Terminal</cite> provide cross-platform support for
+manipulating colors in terminals, as well as a few basic cursor
+manipulation subprograms.</p>
+<div class="section" id="colors">
+<h2><span class="section-number">22.1. </span>Colors<a class="headerlink" href="#colors" title="Permalink to this headline">¶</a></h2>
+<p>Most modern terminals support color output, generally with a limit set of
+colors. On Unix systems, these colors are set by using escape sequences in the
+output; on Windows systems, these are manipulated by calling functions on a
+file handle.</p>
+<p>GNATCOLL will automatically try to guess whether its output is sent to a color
+enabled terminal. In general, this will be true when outputing to standard
+output or standard error, and false when outputing to files or to pipes.
+You can override this default value to force either color support or
+black-and-white support.</p>
+<p>Here is an example:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kn">with</span> <span class="nn">Ada.Text_IO</span><span class="p">;</span>        <span class="kn">use</span> <span class="nn">Ada.Text_IO</span><span class="p">;</span>
+<span class="kn">with</span> <span class="nn">GNATCOLL.Terminal</span><span class="p">;</span>  <span class="kn">use</span> <span class="nn">GNATCOLL.Terminal</span><span class="p">;</span>
+
+<span class="kd">procedure</span> <span class="nf">Test_Colors</span> <span class="kr">is</span>
+   <span class="n">Info</span> <span class="p">:</span> <span class="n">Terminal_Info</span><span class="p">;</span>
+<span class="kr">begin</span>
+   <span class="n">Info</span><span class="p">.</span><span class="n">Init_For_Stdout</span> <span class="p">(</span><span class="n">Auto</span><span class="p">);</span>
+
+   <span class="n">Info</span><span class="p">.</span><span class="n">Set_Color</span> <span class="p">(</span><span class="n">Standard_Output</span><span class="p">,</span> <span class="n">Blue</span><span class="p">,</span> <span class="n">Yellow</span><span class="p">);</span>
+   <span class="n">Put_Line</span> <span class="p">(</span><span class="s">&quot;A blue on yellow line&quot;</span><span class="p">);</span>
+
+   <span class="n">Info</span><span class="p">.</span><span class="n">Set_Color</span> <span class="p">(</span><span class="n">Standard_Output</span><span class="p">,</span> <span class="n">Style</span> <span class="p">=&gt;</span> <span class="n">Reset_All</span><span class="p">);</span>
+   <span class="n">Put_Line</span> <span class="p">(</span><span class="s">&quot;Back to standard colors -- much better&quot;</span><span class="p">);</span>
+<span class="kr">end</span> <span class="nf">Test_Colors</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="cursors">
+<h2><span class="section-number">22.2. </span>Cursors<a class="headerlink" href="#cursors" title="Permalink to this headline">¶</a></h2>
+<p>It is often useful for an application to display some progress indicator during
+long operations. <cite>GNATCOLL.Terminal</cite> provides a limit set of subprograms to do
+so, as in:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kn">with</span> <span class="nn">Ada.Text_IO</span><span class="p">;</span>        <span class="kn">use</span> <span class="nn">Ada.Text_IO</span><span class="p">;</span>
+<span class="kn">with</span> <span class="nn">GNATCOLL.Terminal</span><span class="p">;</span>  <span class="kn">use</span> <span class="nn">GNATCOLL.Terminal</span><span class="p">;</span>
+
+<span class="kd">procedure</span> <span class="nf">Test_Colors</span> <span class="kr">is</span>
+   <span class="n">Info</span> <span class="p">:</span> <span class="n">Terminal_Info</span><span class="p">;</span>
+<span class="kr">begin</span>
+   <span class="n">Info</span><span class="p">.</span><span class="n">Init_For_Stdout</span> <span class="p">(</span><span class="n">Auto</span><span class="p">);</span>
+   <span class="kr">for</span> <span class="n">J</span> <span class="ow">in</span> <span class="mi">1</span> <span class="p">..</span> <span class="mi">1_000</span> <span class="kr">loop</span>
+      <span class="kr">if</span> <span class="n">J</span> <span class="ow">mod</span> <span class="mi">10</span> <span class="o">=</span> <span class="mi">0</span> <span class="kr">then</span>
+         <span class="n">Put</span> <span class="p">(</span><span class="s">&quot;Processing file&quot;</span> <span class="o">&amp;</span> <span class="n">J</span><span class="p">&#39;</span><span class="na">Img</span> <span class="o">&amp;</span> <span class="s">&quot; with long name&quot;</span><span class="p">);</span>
+      <span class="kr">else</span>
+         <span class="n">Put</span> <span class="p">(</span><span class="s">&quot;Processing file&quot;</span> <span class="o">&amp;</span> <span class="n">J</span><span class="p">&#39;</span><span class="na">Img</span><span class="p">);</span>
+      <span class="kr">end</span> <span class="kr">if</span><span class="p">;</span>
+      <span class="kr">delay</span> <span class="mf">0.1</span><span class="p">;</span>
+      <span class="n">Info</span><span class="p">.</span><span class="n">Beginning_Of_Line</span><span class="p">;</span>
+      <span class="n">Info</span><span class="p">.</span><span class="n">Clear_To_End_Of_Line</span><span class="p">;</span>
+   <span class="kr">end</span> <span class="kr">loop</span><span class="p">;</span>
+<span class="kr">end</span> <span class="nf">Test_Colors</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/adacore_transparent.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">22. <strong>Terminal</strong>: controlling the console</a><ul>
+<li><a class="reference internal" href="#colors">22.1. Colors</a></li>
+<li><a class="reference internal" href="#cursors">22.2. Cursors</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="json.html"
+                        title="previous chapter"><span class="section-number">21. </span><strong>JSON</strong>: handling JSON data</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="promises.html"
+                        title="next chapter"><span class="section-number">23. </span><strong>Promises</strong>: deferring work</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="promises.html" title="23. Promises: deferring work"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="json.html" title="21. JSON: handling JSON data"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">GNATColl 2021 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">22. </span><strong>Terminal</strong>: controlling the console</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2007-2021, AdaCore.
+    </div>
+  </body>
+</html>

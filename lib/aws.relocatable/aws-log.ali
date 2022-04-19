@@ -1,0 +1,933 @@
+V "GNAT Lib v2021"
+A -O2
+A -gnatA
+A -fPIC
+A -gnat2012
+A -gnatwc
+A -gnatwf
+A -gnatwi
+A -gnatwj
+A -gnatwk
+A -gnatwm
+A -gnatwr
+A -gnatwu
+A -gnatwv
+A -gnaty3
+A -gnatya
+A -gnatyb
+A -gnatyB
+A -gnatyc
+A -gnatyd
+A -gnatye
+A -gnatyf
+A -gnatyh
+A -gnatyi
+A -gnatyI
+A -gnatyk
+A -gnatyl
+A -gnatym
+A -gnatyn
+A -gnatyo
+A -gnatyO
+A -gnatyp
+A -gnatyr
+A -gnatys
+A -gnatyt
+A -gnatyx
+A -gnatn
+A -mtune=generic
+A -march=x86-64
+P SS ZX
+
+RN
+RV NO_ACCESS_SUBPROGRAMS
+RV NO_CALENDAR
+RV NO_DELAY
+RV NO_DISPATCHING_CALLS
+RV NO_EXCEPTION_HANDLERS
+RV NO_EXCEPTION_PROPAGATION
+RV NO_EXCEPTIONS
+RV NO_FINALIZATION
+RV NO_IO
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_LOCAL_ALLOCATORS
+RV NO_NESTED_FINALIZATION
+RV NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLICIT_LOOPS
+RV NO_ELABORATION_CODE
+RV MAX_ENTRY_QUEUE_LENGTH=1+
+
+U aws.log%b		aws-log.adb		5717ed12 OO PK IU
+W ada%s			ada.ads			ada.ali
+W ada.calendar%s	a-calend.adb		a-calend.ali
+W ada.command_line%s	a-comlin.adb		a-comlin.ali
+W ada.directories%s	a-direct.adb		a-direct.ali
+Z ada.exceptions%s	a-except.adb		a-except.ali
+W ada.strings%s		a-string.ads		a-string.ali
+W ada.strings.fixed%s	a-strfix.adb		a-strfix.ali
+W ada.strings.maps%s	a-strmap.adb		a-strmap.ali
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+W ada.text_io.c_streams%s  a-tiocst.adb		a-tiocst.ali
+W aws%s			aws.ads			aws.ali
+W gnat%s		gnat.ads		gnat.ali
+W gnat.calendar%s	g-calend.adb		g-calend.ali
+W gnat.calendar.time_io%s  g-catiio.adb		g-catiio.ali
+Z system%s		system.ads		system.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+Z system.soft_links%s	s-soflin.adb		s-soflin.ali
+Z system.standard_library%s  s-stalib.adb	s-stalib.ali
+Z system.tasking%s	s-taskin.adb		s-taskin.ali
+Z system.tasking.protected_objects%s  s-taprob.adb  s-taprob.ali
+Z system.tasking.protected_objects.operations%s  s-tpobop.adb  s-tpobop.ali
+
+U aws.log%s		aws-log.ads		5360f408 EE OO PF PK IU
+W ada%s			ada.ads			ada.ali
+W ada.containers%s	a-contai.ads		a-contai.ali
+Z ada.containers.helpers%s  a-conhel.adb	a-conhel.ali
+W ada.containers.indefinite_ordered_maps%s
+Z ada.containers.red_black_trees%s  a-crbltr.ads  a-crbltr.ali
+Z ada.containers.red_black_trees.generic_keys%s
+Z ada.containers.red_black_trees.generic_operations%s
+Z ada.exceptions%s	a-except.adb		a-except.ali
+W ada.finalization%s	a-finali.ads		a-finali.ali
+Z ada.iterator_interfaces%s
+Z ada.streams%s		a-stream.adb		a-stream.ali
+W ada.strings%s		a-string.ads		a-string.ali
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+W ada.strings.unbounded%s  a-strunb.adb		a-strunb.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+Z ada.unchecked_deallocation%s
+W aws%s			aws.ads			aws.ali
+W aws.containers%s	aws-containers.ads	aws-containers.ali
+W aws.containers.string_vectors%s  aws-containers-string_vectors.ads  aws-containers-string_vectors.ali
+W aws.headers%s		aws-headers.adb		aws-headers.ali
+W aws.messages%s	aws-messages.adb	aws-messages.ali
+W aws.response%s	aws-response.adb	aws-response.ali
+W aws.status%s		aws-status.adb		aws-status.ali
+W aws.utils%s		aws-utils.adb		aws-utils.ali
+Z system%s		system.ads		system.ali
+Z system.compare_array_unsigned_8%s  s-carun8.adb  s-carun8.ali
+Z system.finalization_masters%s  s-finmas.adb	s-finmas.ali
+Z system.put_images%s	s-putima.adb		s-putima.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+Z system.soft_links%s	s-soflin.adb		s-soflin.ali
+Z system.standard_library%s  s-stalib.adb	s-stalib.ali
+Z system.storage_elements%s  s-stoele.adb	s-stoele.ali
+Z system.storage_pools%s  s-stopoo.adb		s-stopoo.ali
+Z system.storage_pools.subpools%s  s-stposu.adb	s-stposu.ali
+Z system.stream_attributes%s  s-stratt.adb	s-stratt.ali
+Z system.strings.stream_ops%s  s-ststop.adb	s-ststop.ali
+
+D ada.ads		20210520051131 76789da1 ada%s
+D a-calend.ads		20210520051128 474d9720 ada.calendar%s
+D a-calend.adb		20210520051128 dfcd352e ada.calendar%b
+D a-calfor.ads		20210520051128 0f4707d1 ada.calendar.formatting%s
+D a-catizo.ads		20210520051128 eaa56756 ada.calendar.time_zones%s
+D a-charac.ads		20210520051128 2d3ec45b ada.characters%s
+D a-chahan.ads		20210520051128 0ce1b450 ada.characters.handling%s
+D a-chlat1.ads		20210520051128 66457d31 ada.characters.latin_1%s
+D a-comlin.ads		20210520051128 4aa66568 ada.command_line%s
+D a-contai.ads		20210520051128 61e5e089 ada.containers%s
+D a-cgarso.ads		20210520051128 9129bfa8 ada.containers.generic_array_sort%s
+D a-cohata.ads		20210520051128 bc432d0e ada.containers.hash_tables%s
+D a-conhel.ads		20210520051128 20298884 ada.containers.helpers%s
+D a-conhel.adb		20210520051128 fe7a6827 ada.containers.helpers%b
+D a-cihama.ads		20210520051128 76287ea1 ada.containers.indefinite_hashed_maps%s
+D a-cihase.ads		20210520051128 18093f96 ada.containers.indefinite_hashed_sets%s
+D a-ciorma.ads		20210520051128 3aa5dad0 ada.containers.indefinite_ordered_maps%s
+D a-ciorma.adb		20210520051128 8a4de7f9 ada.containers.indefinite_ordered_maps%b
+D a-coinve.ads		20210520051128 0843f47c ada.containers.indefinite_vectors%s
+D a-coinve.adb		20210520051128 7bf2f325 ada.containers.indefinite_vectors%b
+D a-crbltr.ads		20210520051128 d3d16ba4 ada.containers.red_black_trees%s
+D a-crbtgk.ads		20210520051128 ab25d217 ada.containers.red_black_trees.generic_keys%s
+D a-crbtgk.adb		20210520051128 35f47ece ada.containers.red_black_trees.generic_keys%b
+D a-crbtgo.ads		20210520051128 e494c304 ada.containers.red_black_trees.generic_operations%s
+D a-crbtgo.adb		20210520051128 d6731d97 ada.containers.red_black_trees.generic_operations%b
+D a-convec.ads		20210520051128 5d39d84a ada.containers.vectors%s
+D a-direct.ads		20210520051128 078228da ada.directories%s
+D a-envvar.ads		20210520051128 00080416 ada.environment_variables%s
+D a-except.ads		20210520051128 946f3014 ada.exceptions%s
+D a-finali.ads		20210520051128 bf4f806b ada.finalization%s
+D a-inteio.ads		20210520051128 f64b89a4 ada.integer_text_io%s
+D a-ioexce.ads		20210520051128 e4a01f64 ada.io_exceptions%s
+D a-iteint.ads		20210520051128 49a8bee2 ada.iterator_interfaces%s
+D a-numeri.ads		20210520051129 84bea7a3 ada.numerics%s
+D a-nudira.ads		20210520051129 5984dff3 ada.numerics.discrete_random%s
+D a-ngelfu.ads		20210520051129 e6ec3af5 ada.numerics.generic_elementary_functions%s
+D a-nlelfu.ads		20210520051129 7620113d ada.numerics.long_elementary_functions%s
+D a-reatim.ads		20210520051127 0240fc73 ada.real_time%s
+D a-stream.ads		20210520051129 119b8fb3 ada.streams%s
+D a-ststio.ads		20210520051129 d6d358e8 ada.streams.stream_io%s
+D a-string.ads		20210520051129 90ac6797 ada.strings%s
+D a-strfix.ads		20210520051129 aeacf44c ada.strings.fixed%s
+D a-strhas.ads		20210520051129 c71c2a52 ada.strings.hash%s
+D a-strmap.ads		20210520051129 5a88892a ada.strings.maps%s
+D a-stmaco.ads		20210520051129 1c0e5368 ada.strings.maps.constants%s
+D a-strsea.ads		20210520051129 b9bc90ba ada.strings.search%s
+D a-sttebu.ads		20210520051129 18209c64 ada.strings.text_buffers%s
+D a-strunb.ads		20210520051129 03325227 ada.strings.unbounded%s
+D a-strunb.adb		20210520051129 3b950306 ada.strings.unbounded%b
+D a-stunau.ads		20210520051129 76c9a2c5 ada.strings.unbounded.aux%s
+D a-stuten.ads		20210520051129 808c40ad ada.strings.utf_encoding%s
+D a-tags.ads		20210520051130 9eaa38c6 ada.tags%s
+D a-taside.ads		20210520051127 00e3a3f6 ada.task_identification%s
+D a-textio.ads		20210520051130 aef4d56d ada.text_io%s
+D a-tiocst.ads		20210520051130 c0ef90a5 ada.text_io.c_streams%s
+D a-tifiio.ads		20210520051130 afb79382 ada.text_io.fixed_io%s
+D a-tiinio.ads		20210520051130 390edddb ada.text_io.integer_io%s
+D a-unccon.ads		20210520051130 0e9b276f ada.unchecked_conversion%s
+D a-uncdea.ads		20210520051130 c3a8ac65 ada.unchecked_deallocation%s
+D aws.ads		20210520114206 82646736 aws%s
+D aws-attachments.ads	20210519051431 2270236e aws.attachments%s
+D aws-config.ads	20210519051431 17e5b2cd aws.config%s
+D aws-containers.ads	20210519051431 c7ab8288 aws.containers%s
+D aws-containers-key_value.ads  20210519051431 f3f917f0 aws.containers.key_value%s
+D aws-containers-memory_streams.ads  20210519051431 ea28c859 aws.containers.memory_streams%s
+D aws-containers-string_vectors.ads  20210519051431 b5692847 aws.containers.string_vectors%s
+D aws-containers-string_vectors.ads  20210519051431 b5692847 aws.containers.string_vectors%s
+D aws-containers-tables.ads  20210519051431 00be04da aws.containers.tables%s
+D aws-default.ads	20210519051431 9ec982b1 aws.default%s
+D aws-digest.ads	20210519051431 f05850e0 aws.digest%s
+D aws-headers.ads	20210519051431 25633780 aws.headers%s
+D aws-headers-values.ads  20210519051431 e73ab651 aws.headers.values%s
+D aws-log.ads		20210519051431 70dd6a60 aws.log%s
+D aws-log.adb		20210519051431 7667d55c aws.log%b
+D aws-messages.ads	20210519051431 7cd16bc6 aws.messages%s
+D aws-mime.ads		20210519051431 796c9a32 aws.mime%s
+D aws-net.ads		20210519051431 4147ea12 aws.net%s
+D aws-os_lib.ads	20210520114209 a9a322e9 aws.os_lib%s
+D aws-parameters.ads	20210519051431 ff4aa491 aws.parameters%s
+D aws-resources.ads	20210519051431 407ba395 aws.resources%s
+D aws-resources-streams.ads  20210519051431 95c86167 aws.resources.streams%s
+D aws-resources-streams-disk.ads  20210519051431 b770f515 aws.resources.streams.disk%s
+D aws-resources-streams-disk-once.ads  20210519051431 6c35a0ca aws.resources.streams.disk.once%s
+D aws-resources-streams-memory.ads  20210519051431 eb23d323 aws.resources.streams.memory%s
+D aws-resources-streams-memory-zlib.ads  20210519051431 964b70a5 aws.resources.streams.memory.zlib%s
+D aws-response.ads	20210519051431 907d00d3 aws.response%s
+D aws-response.adb	20210519051431 aae33934 aws.response%b
+D aws-response-set.ads	20210519051431 5ad1f369 aws.response.set%s
+D aws-session.ads	20210519051431 7ee0b17c aws.session%s
+D aws-status.ads	20210519051431 715df1ae aws.status%s
+D aws-status.adb	20210519051431 fbda0349 aws.status%b
+D aws-translator.ads	20210519051431 098e71c4 aws.translator%s
+D aws-url.ads		20210519051431 32548484 aws.url%s
+D aws-utils.ads		20210519051431 840ea1d3 aws.utils%s
+D aws-utils.adb		20210519051431 2cbff7f1 aws.utils%b
+D gnat.ads		20210520051132 b5988c27 gnat%s
+D g-bytswa.ads		20210520051131 a4d21639 gnat.byte_swapping%s
+D g-calend.ads		20210520051131 cad86fa7 gnat.calendar%s
+D g-catiio.ads		20210520051131 6f0f657f gnat.calendar.time_io%s
+D g-md5.ads		20210520051131 bb55398e gnat.md5%s
+D g-os_lib.ads		20210520051131 0db74523 gnat.os_lib%s
+D g-regexp.ads		20210520051131 691be386 gnat.regexp%s
+D g-sechas.ads		20210520051131 302163b5 gnat.secure_hashes%s
+D g-sehamd.ads		20210520051131 75201584 gnat.secure_hashes.md5%s
+D g-shsh32.ads		20210520051131 671c9849 gnat.secure_hashes.sha2_32%s
+D g-shshco.ads		20210520051131 1144502c gnat.secure_hashes.sha2_common%s
+D g-sha256.ads		20210520051131 c083f050 gnat.sha256%s
+D interfac.ads		20210520051132 edec285f interfaces%s
+D i-c.ads		20210520051132 d9beded9 interfaces.c%s
+D i-cstrin.ads		20210520051132 341d0ddf interfaces.c.strings%s
+D i-cstrea.ads		20210520051132 e53d8b8e interfaces.c_streams%s
+D memory_streams.ads	20210519051430 bf3b9ce5 memory_streams%s
+D system.ads		20210520051135 a2da961d system%s
+D s-atacco.ads		20210520051132 4c36d12f system.address_to_access_conversions%s
+D s-arit64.ads		20210520051132 5f88d2b0 system.arith_64%s
+D s-atocou.ads		20210520051132 b45c2d8d system.atomic_counters%s
+D s-atocou.adb		20210520051132 b65612c0 system.atomic_counters%b
+D s-carun8.ads		20210520051132 a903718d system.compare_array_unsigned_8%s
+D s-crtl.ads		20210520051132 0ebbdb71 system.crtl%s
+D s-exctab.ads		20210520051132 54135002 system.exception_table%s
+D s-fatgen.ads		20210520051132 d28c6cfe system.fat_gen%s
+D s-fatlfl.ads		20210520051132 378cba9f system.fat_lflt%s
+D s-ficobl.ads		20210520051132 078245e4 system.file_control_block%s
+D s-finmas.ads		20210520051132 1ab4dba8 system.finalization_masters%s
+D s-finroo.ads		20210520051132 4ff27390 system.finalization_root%s
+D s-imagef.ads		20210520051133 019cdf69 system.image_f%s
+D s-imagei.ads		20210520051133 0d3f86a7 system.image_i%s
+D s-imfi64.ads		20210520051133 dbac59b3 system.img_fixed_64%s
+D s-imgint.ads		20210520051133 bdb6f5ec system.img_int%s
+D s-imglli.ads		20210520051133 3723d9ff system.img_lli%s
+D s-linux.ads		20210520051127 ed0b8aee system.linux%s
+D s-memory.ads		20210520051133 597d6634 system.memory%s
+D s-multip.ads		20210520051133 38ac9f73 system.multiprocessors%s
+D s-oscons.ads		20210520095158 e3a42aec system.os_constants%s
+D s-osinte.ads		20210520051127 222ac181 system.os_interface%s
+D s-os_lib.ads		20210520051133 93b69309 system.os_lib%s
+D s-osprim.ads		20210520051133 07fd65f6 system.os_primitives%s
+D s-parame.ads		20210520051134 4752c4cb system.parameters%s
+D s-pooglo.ads		20210520051134 ede33ef8 system.pool_global%s
+D s-powflt.ads		20210520051134 46f7a1b9 system.powten_flt%s
+D s-putima.ads		20210520051134 4e095881 system.put_images%s
+D s-rannum.ads		20210520051134 c3978523 system.random_numbers%s
+D s-regexp.ads		20210520051134 9c7d27a7 system.regexp%s
+D s-secsta.ads		20210520051134 9b3ab94b system.secondary_stack%s
+D s-soflin.ads		20210520051134 a7318a92 system.soft_links%s
+D s-stache.ads		20210520051134 a37c21ec system.stack_checking%s
+D s-stausa.ads		20210520051134 017a0a05 system.stack_usage%s
+D s-stalib.ads		20210520051134 472fbca8 system.standard_library%s
+D s-stalib.adb		20210520051134 977290bf system.standard_library%b
+D s-stoele.ads		20210520051134 2dc34a04 system.storage_elements%s
+D s-stoele.adb		20210520051134 ed88f8fb system.storage_elements%b
+D s-stopoo.ads		20210520051134 e9fa2dd8 system.storage_pools%s
+D s-stposu.ads		20210520051134 e251976f system.storage_pools.subpools%s
+D s-stratt.ads		20210520051134 7bdda3fa system.stream_attributes%s
+D s-stratt.adb		20210520051134 fc996108 system.stream_attributes%b
+D s-statxd.ads		20210520051134 b54789f6 system.stream_attributes.xdr%s
+D s-string.ads		20210520051134 8fe54fb7 system.strings%s
+D s-ststop.ads		20210520051134 5fbf1b38 system.strings.stream_ops%s
+D s-tasinf.ads		20210520051127 2b3f8252 system.task_info%s
+D s-taspri.ads		20210520051127 4ec891e7 system.task_primitives%s
+D s-taprop.ads		20210520051127 6eefbe12 system.task_primitives.operations%s
+D s-taskin.ads		20210520051127 88fba9ad system.tasking%s
+D s-taprob.ads		20210520051127 acd6094d system.tasking.protected_objects%s
+D s-tpoben.ads		20210520051127 60ad3dae system.tasking.protected_objects.entries%s
+D s-tpobop.ads		20210520051127 5f548bb3 system.tasking.protected_objects.operations%s
+D s-tassta.ads		20210520051127 cca55c94 system.tasking.stages%s
+D s-traent.ads		20210520051134 26a8d361 system.traceback_entries%s
+D s-unstyp.ads		20210520051134 2b077493 system.unsigned_types%s
+D s-valboo.ads		20210520051134 5026d18b system.val_bool%s
+D s-vaenu8.ads		20210520051134 b7b91426 system.val_enum_8%s
+D s-valflt.ads		20210520051134 d738ba7d system.val_flt%s
+D s-vallli.ads		20210520051134 0767e6f3 system.val_lli%s
+D s-valllu.ads		20210520051134 660d930f system.val_llu%s
+D s-valrea.ads		20210520051134 8ddc6624 system.val_real%s
+D s-valuti.ads		20210520051134 aca0b6fe system.val_util%s
+D s-valuei.ads		20210520051134 978dd0a6 system.value_i%s
+D s-valuen.ads		20210520051134 72b74993 system.value_n%s
+D s-valuen.adb		20210520051134 82820e8f system.value_n%b
+D s-valueu.ads		20210520051134 7b8fccf5 system.value_u%s
+D s-wchcon.ads		20210520051135 1b7d22d2 system.wch_con%s
+D templates_parser.ads	20210519053215 1cb5e754 templates_parser%s
+D templates_parser-utils.ads  20210519053215 8849593d templates_parser.utils%s
+D templates_parser_tasking.ads  20210519053215 4c0209f0 templates_parser_tasking%s
+D unchconv.ads		20210520051135 ca2f9e18 unchecked_conversion%s
+D zlib.ads		20210519051430 0714e1ed zlib%s
+G a e
+G c Z s b [start aws__log 79 14 none]
+G c Z s b [start aws__log 95 14 none]
+G c Z s b [register_field aws__log 108 14 none]
+G c Z s b [set_field aws__log 111 14 none]
+G c Z s b [set_header_fields aws__log 117 14 none]
+G c Z s b [write aws__log 126 14 none]
+G c Z s b [write aws__log 131 14 none]
+G c Z s b [write aws__log 137 14 none]
+G c Z s b [write aws__log 147 14 none]
+G c Z s b [write aws__log 154 14 none]
+G c Z s b [flush aws__log 159 14 none]
+G c Z s b [stop aws__log 165 14 none]
+G c Z s b [is_active aws__log 168 13 none]
+G c Z s b [filename aws__log 171 13 none]
+G c Z s b [mode aws__log 178 13 none]
+G c Z s s [equivalent_keys aws__log__strings_positive 55 13 187_4]
+G c Z s s [empty aws__log__strings_positive 72 13 187_4]
+G c Z s s [has_element aws__log__strings_positive 76 13 187_4]
+G c Z s s [Oeq aws__log__strings_positive 81 13 187_4]
+G c Z s s [length aws__log__strings_positive 83 13 187_4]
+G c Z s s [is_empty aws__log__strings_positive 85 13 187_4]
+G c Z s s [clear aws__log__strings_positive 87 14 187_4]
+G c Z s s [key aws__log__strings_positive 89 13 187_4]
+G c Z s s [element aws__log__strings_positive 91 13 187_4]
+G c Z s s [replace_element aws__log__strings_positive 93 14 187_4]
+G c Z s s [query_element aws__log__strings_positive 98 14 187_4]
+G c Z s s [update_element aws__log__strings_positive 103 14 187_4]
+G c Z s s [constant_reference aws__log__strings_positive 118 13 187_4]
+G c Z s s [reference aws__log__strings_positive 123 13 187_4]
+G c Z s s [constant_reference aws__log__strings_positive 128 13 187_4]
+G c Z s s [reference aws__log__strings_positive 133 13 187_4]
+G c Z s s [assign aws__log__strings_positive 138 14 187_4]
+G c Z s s [copy aws__log__strings_positive 140 13 187_4]
+G c Z s s [move aws__log__strings_positive 142 14 187_4]
+G c Z s s [insert aws__log__strings_positive 144 14 187_4]
+G c Z s s [insert aws__log__strings_positive 151 14 187_4]
+G c Z s s [include aws__log__strings_positive 156 14 187_4]
+G c Z s s [replace aws__log__strings_positive 161 14 187_4]
+G c Z s s [exclude aws__log__strings_positive 166 14 187_4]
+G c Z s s [delete aws__log__strings_positive 168 14 187_4]
+G c Z s s [delete aws__log__strings_positive 170 14 187_4]
+G c Z s s [delete_first aws__log__strings_positive 172 14 187_4]
+G c Z s s [delete_last aws__log__strings_positive 174 14 187_4]
+G c Z s s [first aws__log__strings_positive 176 13 187_4]
+G c Z s s [first_element aws__log__strings_positive 178 13 187_4]
+G c Z s s [first_key aws__log__strings_positive 180 13 187_4]
+G c Z s s [last aws__log__strings_positive 182 13 187_4]
+G c Z s s [last_element aws__log__strings_positive 184 13 187_4]
+G c Z s s [last_key aws__log__strings_positive 186 13 187_4]
+G c Z s s [next aws__log__strings_positive 188 13 187_4]
+G c Z s s [next aws__log__strings_positive 190 14 187_4]
+G c Z s s [previous aws__log__strings_positive 192 13 187_4]
+G c Z s s [previous aws__log__strings_positive 194 14 187_4]
+G c Z s s [find aws__log__strings_positive 196 13 187_4]
+G c Z s s [element aws__log__strings_positive 198 13 187_4]
+G c Z s s [floor aws__log__strings_positive 200 13 187_4]
+G c Z s s [ceiling aws__log__strings_positive 202 13 187_4]
+G c Z s s [contains aws__log__strings_positive 204 13 187_4]
+G c Z s s [Olt aws__log__strings_positive 206 13 187_4]
+G c Z s s [Ogt aws__log__strings_positive 208 13 187_4]
+G c Z s s [Olt aws__log__strings_positive 210 13 187_4]
+G c Z s s [Ogt aws__log__strings_positive 212 13 187_4]
+G c Z s s [Olt aws__log__strings_positive 214 13 187_4]
+G c Z s s [Ogt aws__log__strings_positive 216 13 187_4]
+G c Z s s [iterate aws__log__strings_positive 218 14 187_4]
+G c Z s s [reverse_iterate aws__log__strings_positive 222 14 187_4]
+G c Z s s [iterate aws__log__strings_positive 230 13 187_4]
+G c Z s s [iterate aws__log__strings_positive 234 13 187_4]
+G c Z s s [node_typeIP aws__log__strings_positive 250 9 187_4]
+G c Z s s [adjust aws__log__strings_positive__tree_types__implementation 90 28 52_7_259_4_187_4]
+G c Z s s [finalize aws__log__strings_positive__tree_types__implementation 93 28 52_7_259_4_187_4]
+G c Z s s [zero_counts aws__log__strings_positive__tree_types__implementation 96 17 52_7_259_4_187_4]
+G c Z s s [busy aws__log__strings_positive__tree_types__implementation 100 17 52_7_259_4_187_4]
+G c Z s s [unbusy aws__log__strings_positive__tree_types__implementation 104 17 52_7_259_4_187_4]
+G c Z s s [lock aws__log__strings_positive__tree_types__implementation 108 17 52_7_259_4_187_4]
+G c Z s s [unlock aws__log__strings_positive__tree_types__implementation 112 17 52_7_259_4_187_4]
+G c Z s s [tc_check aws__log__strings_positive__tree_types__implementation 116 17 52_7_259_4_187_4]
+G c Z s s [te_check aws__log__strings_positive__tree_types__implementation 120 17 52_7_259_4_187_4]
+G c Z s s [initialize aws__log__strings_positive__tree_types__implementation 139 28 52_7_259_4_187_4]
+G c Z s s [finalize aws__log__strings_positive__tree_types__implementation 140 28 52_7_259_4_187_4]
+G c Z s s [initialize aws__log__strings_positive__tree_types__implementation 145 28 52_7_259_4_187_4]
+G c Z s s [finalize aws__log__strings_positive__tree_types__implementation 146 28 52_7_259_4_187_4]
+G c Z s s [reference_control_typeDA aws__log__strings_positive__tree_types__implementation 84 12 52_7_259_4_187_4]
+G c Z s s [reference_control_typeDF aws__log__strings_positive__tree_types__implementation 84 12 52_7_259_4_187_4]
+G c Z s s [reference_control_typeIP aws__log__strings_positive__tree_types__implementation 84 12 52_7_259_4_187_4]
+G c Z s s [with_busyDF aws__log__strings_positive__tree_types__implementation 136 12 52_7_259_4_187_4]
+G c Z s s [with_busyIP aws__log__strings_positive__tree_types__implementation 136 12 52_7_259_4_187_4]
+G c Z s s [with_lockDF aws__log__strings_positive__tree_types__implementation 142 12 52_7_259_4_187_4]
+G c Z s s [with_lockIP aws__log__strings_positive__tree_types__implementation 142 12 52_7_259_4_187_4]
+G c Z s s [tree_typeDA aws__log__strings_positive__tree_types 44 12 259_4_187_4]
+G c Z s s [tree_typeDF aws__log__strings_positive__tree_types 44 12 259_4_187_4]
+G c Z s s [tree_typeIP aws__log__strings_positive__tree_types 44 12 259_4_187_4]
+G c Z s s [put_image aws__log__strings_positive 267 14 187_4]
+G c Z s s [adjust aws__log__strings_positive 270 25 187_4]
+G c Z s s [write aws__log__strings_positive 279 14 187_4]
+G c Z s s [read aws__log__strings_positive 285 14 187_4]
+G c Z s s [write aws__log__strings_positive 299 14 187_4]
+G c Z s s [read aws__log__strings_positive 305 14 187_4]
+G c Z s s [read aws__log__strings_positive 324 14 187_4]
+G c Z s s [write aws__log__strings_positive 330 14 187_4]
+G c Z s s [read aws__log__strings_positive 346 14 187_4]
+G c Z s s [write aws__log__strings_positive 352 14 187_4]
+G c Z s s [pseudo_reference aws__log__strings_positive 363 13 187_4]
+G c Z s s [get_element_access aws__log__strings_positive 370 13 187_4]
+G c Z s s [mapDA aws__log__strings_positive 263 9 187_4]
+G c Z s s [mapDF aws__log__strings_positive 263 9 187_4]
+G c Z s s [mapIP aws__log__strings_positive 263 9 187_4]
+G c Z s s [cursorIP aws__log__strings_positive 294 9 187_4]
+G c Z s s [constant_reference_typeDI aws__log__strings_positive 314 9 187_4]
+G c Z s s [constant_reference_typeDA aws__log__strings_positive 314 9 187_4]
+G c Z s s [constant_reference_typeDF aws__log__strings_positive 314 9 187_4]
+G c Z s s [constant_reference_typeIP aws__log__strings_positive 314 9 187_4]
+G c Z s s [reference_typeDI aws__log__strings_positive 336 9 187_4]
+G c Z s s [reference_typeDA aws__log__strings_positive 336 9 187_4]
+G c Z s s [reference_typeDF aws__log__strings_positive 336 9 187_4]
+G c Z s s [reference_typeIP aws__log__strings_positive 336 9 187_4]
+G c Z s s [finalize aws__log__strings_positive 387 25 187_4]
+G c Z s s [first aws__log__strings_positive 389 24 187_4]
+G c Z s s [last aws__log__strings_positive 390 24 187_4]
+G c Z s s [next aws__log__strings_positive 392 24 187_4]
+G c Z s s [previous aws__log__strings_positive 396 24 187_4]
+G c Z s s [iteratorDF aws__log__strings_positive 379 9 187_4]
+G c Z s s [iteratorIP aws__log__strings_positive 379 9 187_4]
+G c Z s s [color aws__log__strings_positive 59 13 187_4]
+G c Z s s [left aws__log__strings_positive 62 13 187_4]
+G c Z s s [parent aws__log__strings_positive 65 13 187_4]
+G c Z s s [right aws__log__strings_positive 68 13 187_4]
+G c Z s s [set_parent aws__log__strings_positive 71 14 187_4]
+G c Z s s [set_left aws__log__strings_positive 74 14 187_4]
+G c Z s s [set_right aws__log__strings_positive 77 14 187_4]
+G c Z s s [set_color aws__log__strings_positive 80 14 187_4]
+G c Z s s [copy_node aws__log__strings_positive 87 13 187_4]
+G c Z s s [free aws__log__strings_positive 90 14 187_4]
+G c Z s s [is_equal_node_node aws__log__strings_positive 92 13 187_4]
+G c Z s s [is_greater_key_node aws__log__strings_positive 96 13 187_4]
+G c Z s s [is_less_key_node aws__log__strings_positive 101 13 187_4]
+G c Z s s [min aws__log__strings_positive__tree_operations 51 13 110_4_187_4]
+G c Z s s [max aws__log__strings_positive__tree_operations 54 13 110_4_187_4]
+G c Z s s [vet aws__log__strings_positive__tree_operations 64 13 110_4_187_4]
+G c Z s s [next aws__log__strings_positive__tree_operations 68 13 110_4_187_4]
+G c Z s s [previous aws__log__strings_positive__tree_operations 71 13 110_4_187_4]
+G c Z s s [delete_node_sans_free aws__log__strings_positive__tree_operations 81 14 110_4_187_4]
+G c Z s s [rebalance_for_insert aws__log__strings_positive__tree_operations 157 14 110_4_187_4]
+G c Z s s [delete_fixup aws__log__strings_positive__tree_operations 49 14 110_4_187_4]
+G c Z s s [delete_swap aws__log__strings_positive__tree_operations 51 14 110_4_187_4]
+G c Z s s [left_rotate aws__log__strings_positive__tree_operations 53 14 110_4_187_4]
+G c Z s s [right_rotate aws__log__strings_positive__tree_operations 54 14 110_4_187_4]
+G c Z s s [delete_treeR aws__log__strings_positive__delete_treeGP4690 113 14 187_4]
+G c Z s s [delete_tree aws__log__strings_positive 113 14 187_4]
+G c Z s s [copy_treeR aws__log__strings_positive__copy_treeGP4772 116 13 187_4]
+G c Z s s [copy_tree aws__log__strings_positive 116 13 187_4]
+G c Z s s [find aws__log__strings_positive__key_ops 156 13 121_4_187_4]
+G c Z s s [ceiling aws__log__strings_positive__key_ops 161 13 121_4_187_4]
+G c Z s s [floor aws__log__strings_positive__key_ops 166 13 121_4_187_4]
+G c Z s s [upper_bound aws__log__strings_positive__key_ops 171 13 121_4_187_4]
+G c Z s s [free_key aws__log__strings_positive 128 14 187_4]
+G c Z s s [free_element aws__log__strings_positive 131 14 187_4]
+G c Z s s [is_equalR aws__log__strings_positive__is_equalGP5329 134 13 187_4]
+G c Z s s [is_equal aws__log__strings_positive 134 13 187_4]
+G c Z s s [adjustR aws__log__strings_positive__adjustGP9600 276 14 187_4]
+G c Z s s [adjust aws__log__strings_positive 276 14 187_4]
+G c Z s s [clearR aws__log__strings_positive__clearGP10882 329 14 187_4]
+G c Z s s [clear aws__log__strings_positive 329 14 187_4]
+G c Z s s [moveR aws__log__strings_positive__moveGP32948 1135 14 187_4]
+G c Z s s [move aws__log__strings_positive 1135 14 187_4]
+G c Z s s [fields_tableDI aws__log 192 9 none]
+G c Z s s [fields_tableDA aws__log 192 9 none]
+G c Z s s [fields_tableDF aws__log 192 9 none]
+G c Z s s [fields_tableIP aws__log 192 9 none]
+G c Z s b [finalize aws__log 216 25 none]
+G c Z s s [objectDF aws__log 200 9 none]
+G c Z s s [objectDI aws__log 200 9 none]
+G c Z s s [objectIP aws__log 200 9 none]
+G c Z b b [check_split aws__log 43 14 none]
+G c Z b b [write_callback aws__log 46 14 none]
+G c Z b b [write_file aws__log 51 14 none]
+G c Z b b [write_log aws__log 56 14 none]
+G c Z b b [get_position aws__log 63 13 none]
+G r c none [start aws__log 79 14 none] [normalized_directory aws__utils 400 13 none]
+G r c none [start aws__log 79 14 none] [image aws__utils 103 13 none]
+G r c none [set_header_fields aws__log 117 14 none] [iterate_names aws__containers__tables 115 14 none]
+G r o none [write aws__log 126 14 none] [seize aws__utils__semaphore 223 13 none]
+G r c none [write aws__log 126 14 none] [normalized_directory aws__utils 400 13 none]
+G r c none [write aws__log 126 14 none] [image aws__utils 103 13 none]
+G r p none [write aws__log 126 14 none] [release aws__utils__semaphore 224 17 none]
+G r c none [write aws__log 131 14 none] [status_code aws__response 300 13 none]
+G r c none [write aws__log 131 14 none] [content_length aws__response 303 13 none]
+G r c none [write aws__log 131 14 none] [image aws__messages 203 13 none]
+G r c none [write aws__log 131 14 none] [image aws__utils 108 13 none]
+G r c none [write aws__log 131 14 none] [peername aws__status 185 13 none]
+G r c none [write aws__log 131 14 none] [authorization_name aws__status 311 13 none]
+G r c none [write aws__log 131 14 none] [method aws__status 74 13 none]
+G r c none [write aws__log 131 14 none] [uri aws__status 79 13 none]
+G r c none [write aws__log 131 14 none] [http_version aws__status 95 13 none]
+G r o none [write aws__log 131 14 none] [seize aws__utils__semaphore 223 13 none]
+G r c none [write aws__log 131 14 none] [normalized_directory aws__utils 400 13 none]
+G r c none [write aws__log 131 14 none] [image aws__utils 103 13 none]
+G r p none [write aws__log 131 14 none] [release aws__utils__semaphore 224 17 none]
+G r c none [write aws__log 137 14 none] [image aws__messages 203 13 none]
+G r c none [write aws__log 137 14 none] [image aws__utils 108 13 none]
+G r c none [write aws__log 137 14 none] [peername aws__status 185 13 none]
+G r c none [write aws__log 137 14 none] [authorization_name aws__status 311 13 none]
+G r c none [write aws__log 137 14 none] [method aws__status 74 13 none]
+G r c none [write aws__log 137 14 none] [uri aws__status 79 13 none]
+G r c none [write aws__log 137 14 none] [http_version aws__status 95 13 none]
+G r o none [write aws__log 137 14 none] [seize aws__utils__semaphore 223 13 none]
+G r c none [write aws__log 137 14 none] [normalized_directory aws__utils 400 13 none]
+G r c none [write aws__log 137 14 none] [image aws__utils 103 13 none]
+G r p none [write aws__log 137 14 none] [release aws__utils__semaphore 224 17 none]
+G r c none [write aws__log 147 14 none] [peername aws__status 185 13 none]
+G r c none [write aws__log 147 14 none] [authorization_name aws__status 311 13 none]
+G r c none [write aws__log 147 14 none] [method aws__status 74 13 none]
+G r c none [write aws__log 147 14 none] [uri aws__status 79 13 none]
+G r c none [write aws__log 147 14 none] [http_version aws__status 95 13 none]
+G r o none [write aws__log 147 14 none] [seize aws__utils__semaphore 223 13 none]
+G r c none [write aws__log 147 14 none] [normalized_directory aws__utils 400 13 none]
+G r c none [write aws__log 147 14 none] [image aws__utils 103 13 none]
+G r p none [write aws__log 147 14 none] [release aws__utils__semaphore 224 17 none]
+G r o none [write aws__log 154 14 none] [seize aws__utils__semaphore 223 13 none]
+G r c none [write aws__log 154 14 none] [normalized_directory aws__utils 400 13 none]
+G r c none [write aws__log 154 14 none] [image aws__utils 103 13 none]
+G r p none [write aws__log 154 14 none] [release aws__utils__semaphore 224 17 none]
+G r o none [flush aws__log 159 14 none] [seize aws__utils__semaphore 223 13 none]
+G r p none [flush aws__log 159 14 none] [release aws__utils__semaphore 224 17 none]
+G r o none [stop aws__log 165 14 none] [seize aws__utils__semaphore 223 13 none]
+G r c none [stop aws__log 165 14 none] [normalized_directory aws__utils 400 13 none]
+G r c none [stop aws__log 165 14 none] [image aws__utils 103 13 none]
+G r p none [stop aws__log 165 14 none] [release aws__utils__semaphore 224 17 none]
+G r o none [finalize aws__log 216 25 none] [seize aws__utils__semaphore 223 13 none]
+G r c none [finalize aws__log 216 25 none] [normalized_directory aws__utils 400 13 none]
+G r c none [finalize aws__log 216 25 none] [image aws__utils 103 13 none]
+G r p none [finalize aws__log 216 25 none] [release aws__utils__semaphore 224 17 none]
+G r o none [objectDF aws__log 200 9 none] [seize aws__utils__semaphore 223 13 none]
+G r c none [objectDF aws__log 200 9 none] [normalized_directory aws__utils 400 13 none]
+G r c none [objectDF aws__log 200 9 none] [image aws__utils 103 13 none]
+G r p none [objectDF aws__log 200 9 none] [release aws__utils__semaphore 224 17 none]
+G r k semaphore [objectDF aws__log 200 9 none] [semaphoreVDF aws__utils 222 4 none]
+G r s semaphore [objectIP aws__log 200 9 none] [semaphoreVIP aws__utils 222 4 none]
+G r k semaphore [objectIP aws__log 200 9 none] [semaphoreVDF aws__utils 222 4 none]
+G r c none [check_split aws__log 43 14 none] [normalized_directory aws__utils 400 13 none]
+G r c none [check_split aws__log 43 14 none] [image aws__utils 103 13 none]
+G r o none [write_file aws__log 51 14 none] [seize aws__utils__semaphore 223 13 none]
+G r c none [write_file aws__log 51 14 none] [normalized_directory aws__utils 400 13 none]
+G r c none [write_file aws__log 51 14 none] [image aws__utils 103 13 none]
+G r p none [write_file aws__log 51 14 none] [release aws__utils__semaphore 224 17 none]
+G r o none [write_log aws__log 56 14 none] [seize aws__utils__semaphore 223 13 none]
+G r c none [write_log aws__log 56 14 none] [normalized_directory aws__utils 400 13 none]
+G r c none [write_log aws__log 56 14 none] [image aws__utils 103 13 none]
+G r p none [write_log aws__log 56 14 none] [release aws__utils__semaphore 224 17 none]
+X 1 ada.ads
+16K9*Ada 20e8 73|45r14 46r14 47r14 48r14 184r8 185r8 188r10 200r23 74|32r6
+. 33r6 34r6 35r6 36r6 37r6 43r54 63r34 71r54 163r34 164r11 317r40 395r32
+. 398r32 564r17 584r14 657r21 687r17
+X 2 a-calend.ads
+36K13*Calendar 413e17 74|32w10 43r58 58r14 71r58 75r39 78r40 285r22 285r39
+. 395r36 398r36 486r22 486r39 525r30 525r47 564r21 584r18 657r25 687r21 775r14
+42I9*Time<226I9> 74|43r67 58r23 71r67 285r31 486r31 525r39 564r30 657r34
+. 775r23
+49I12*Month_Number{integer}
+50I12*Day_Number{integer}
+56V13*Clock{42I9} 74|285s48 486s48 525s56 584s27 687s30
+65V13*Month{49I12} 74|78s49 398s45
+66V13*Day{50I12} 74|75s48 395s45
+226I9 Time_Rep<long_long_integer>
+X 9 a-comlin.ads
+36K13*Command_Line 144e21 74|33w10 317r44
+62V13*Command_Name{string} 74|317s57
+X 10 a-contai.ads
+16K13*Containers 28e19 73|45r18 188r14
+22I9*Count_Type<integer>
+X 13 a-conhel.ads
+84R12 Reference_Control_Type<30|43R9>
+X 17 a-ciorma.ads
+48k24*Indefinite_Ordered_Maps 400e43 73|45w29 188r25
+57R9*Map<30|43R9> 73|205r47[187]
+67R9*Cursor 74|192r35[73|187] 228r42[73|187] 595r62[73|187] 597r60[73|187]
+. 603r60[73|187] 623r33[73|187] 702r64[73|187] 704r63[73|187] 710r63[73|187]
+. 730r36[73|187]
+76V13*Has_Element{boolean} 74|231s51[73|187] 626s30[73|187] 636s30[73|187]
+. 733s33[73|187] 743s33[73|187]
+83V13*Length{10|22I9} 74|196s43[73|187] 206s67[73|187] 562s66[73|187] 656s70[73|187]
+89V13*Key{string} 74|613s55[73|187] 720s55[73|187]
+91V13*Element{integer} 74|233s33[73|187] 606s40[73|187] 627s35[73|187] 637s35[73|187]
+. 712s43[73|187] 734s38[73|187] 744s38[73|187]
+144U14*Insert 74|195s27[73|187]
+196V13*Find{67R9[73|187]} 74|229s38[73|187] 623s63[73|187] 634s37[73|187]
+. 730s66[73|187] 741s40[73|187]
+218U14*Iterate 74|610s33[73|187] 716s36[73|187]
+244R9 Node_Type
+245P9 Node_Access(244R9)
+X 18 a-ciorma.adb
+59V13 Color{21|37E9} 24|45i19
+62V13 Left{17|245P9} 24|41i19
+65V13 Parent{17|245P9[73|187]} 24|39i19[73|187]
+68V13 Right{17|245P9} 24|43i19
+71U14 Set_Parent 24|40i19
+74U14 Set_Left 24|42i19[73|187]
+77U14 Set_Right 24|44i19[73|187]
+80U14 Set_Color 24|46i19
+X 19 a-coinve.ads
+60R9*Vector<30|43R9> 73|193r19[67|32]
+73R9*Cursor 74|566r48[67|32] 572r48[67|32] 660r48[67|32] 666r48[67|32]
+76r4*Empty_Vector{60R9[67|32]} 73|196r64[67|32]
+112V13*Length{10|22I9} 74|207s59[67|32]
+157V13*Element{string} 74|629s28[67|32] 639s28[67|32] 736s31[67|32] 746s31[67|32]
+161V13*Element{string} 74|574s45[67|32] 670s39[67|32] 672s45[67|32]
+163U14*Replace_Element 74|232s25[67|32] 630s28[67|32] 640s28[67|32] 737s31[67|32]
+. 747s31[67|32]
+168U14*Replace_Element 74|575s22[67|32] 675s22[67|32]
+280U14*Append 74|218s25[67|32]
+362U14*Iterate 74|645s19[67|32] 752s22[67|32]
+X 27 a-direct.ads
+76K13*Directories 502e20 74|34w10 380r16 386r33
+310V13*Exists{boolean} 74|380s28 386s45
+X 30 a-finali.ads
+40K13*Finalization 68e21 73|46w18 200r27
+50H9*Limited_Controlled<125|40R9> 66e55 73|200r40
+X 39 a-stream.ads
+44I9*Stream_Element_Offset<long_long_integer>
+X 41 a-string.ads
+16K13*Strings 35e16 73|47r18 185r12 74|35r10 36r10 321r22 322r22 322r59 330r21
+. 331r48 348r40
+32n33*Backward{32E9} 74|322r67 331r56
+X 42 a-strfix.ads
+43K21*Fixed 1398e22 74|35w18 321r30 330r29 348r48
+237V13*Index{natural} 74|330s35 348s54
+353V13*Index{natural} 74|321s36
+357e7 Going{41|32E9} 74|322r50
+X 44 a-strmap.ads
+44K21*Maps 548e21 74|36w18 322r30
+52A9*Character_Set<274A9>
+172V13*To_Set{52A9} 74|322s35
+274A9 Character_Set_Internal(boolean)<character>
+X 48 a-strunb.ads
+83K21*Unbounded 765e26 73|47w26 185r20
+88R9*Unbounded_String<30|43R9> 744e15 73|203r30 207r30 208r30 74|361r19 563r17
+. 594r22
+91r4*Null_Unbounded_String{88R9} 73|203r50 74|563r37 594r42
+104V13*To_Unbounded_String{88R9} 74|365s35 366s35 373s19 383s28 389s21 418s35
+117V13*To_String{string} 74|88s36 89s36 102s36 103s36 119s17 380s36 386s53
+. 401s52 405s54 616s25 646s19
+136U14*Append 74|613s16
+X 54 a-textio.ads
+58K13*Text_IO 725e16 73|48w18 201r30 74|37r10 63r38 83r10 97r10 116r10 117r17
+. 139r11 163r38 164r15 175r14 401r7 401r31 404r12 405r10 405r36 431r16 433r16
+. 670r13 672r13 686r10 694r13 695r13 697r13 699r13 719r19 723r16 754r10 757r13
+. 780r10 784r10 787r13
+65P9*File_Type 73|201r38 74|63r46 163r46
+67n32*Out_File{67E9} 74|405r44
+67n42*Append_File{67E9} 74|401r39
+97U14*Create 74|405s18
+112U14*Open 74|401s15
+127U14*Close 74|83s18 97s18 433s24
+157V13*Name{string} 74|117s25
+164V13*Is_Open{boolean} 74|116s18 147s10 175s22 431s24 686s18 780s18
+200U14*Flush 74|148s10 757s21 787s21
+256U14*New_Line 74|723s24 754s18
+457U14*Put 74|670s21 672s21 699s21 719s27
+496U14*Put_Line 74|694s21 695s21 697s21 784s18
+542X4*Name_Error 74|404r20
+X 55 a-tiocst.ads
+38K21*C_Streams 53e26 74|37w18 164r23
+40K12*ICS=40:35 74|166r23
+42V13*C_Stream{111|41M12} 74|166s34
+X 60 aws.ads
+32K9*AWS 41e8 73|39r6 40r6 41r6 42r6 43r6 49r14 51r9 121r16 190r23 218r5
+. 74|41r14 246r16 258r13 505r23 799r5
+34a4*Version{string} 74|589r60 696r64
+X 63 aws-containers.ads
+32K13*Containers 34e19 73|39r10 190r27
+X 67 aws-containers-string_vectors.ads
+32K24*String_Vectors[19|47] 73|39w21 190r38
+X 68 aws-containers-tables.ads
+115U14*Iterate_Names 74|262s14
+X 71 aws-headers.ads
+35K13*Headers 102e16 73|40w10 121r20 74|246r20
+37R9*List<68|41R9> 97e70 73|121r28 74|246r28
+X 73 aws-log.ads
+51K13*Log 60|32k9 73|187E12 218l9 218e12 74|41b18 799l9 799t12
+53R9*Object<30|50R9> 80r32 96r23 108r43 112r13 118r16 126r34 132r29 138r31
+. 148r29 154r34 159r34 165r33 168r30 171r29 178r25 200c9 214e14 216r48 74|43r40
+. 46r43 51r39 57r21 71r40 114r29 129r48 138r34 173r30 182r25 191r43 204r13
+. 243r16 270r32 413r23 427r33 455r29 465r31 482r29 524r34 544r34 558r20 653r39
+. 774r21
+56P9*Callback 56>39 97r16 202r30 74|414r16
+56a39 Message{string}
+65E9*Split_Mode 65e55 81r25 178r40 209r30 74|72r20 182r40 271r25
+65n24*None{65E9} 81r39 209r44 74|271r39 293r21 376r15
+65n30*Each_Run{65E9} 74|100r36 379r15
+65n40*Daily{65E9} 74|74r23 394r15
+65n47*Monthly{65E9} 74|77r24 397r15
+72R9*Fields_Table 75r34 112r35 119r23 126r56 192c9 194e14 196r34 74|46r65
+. 51r61 204r35 244r23 544r56 558r42 653r61
+75r4*Empty_Fields_Table{72R9} 196c4
+77a4*Not_Specified{string} 83r39 84r39 198c4 74|273r39 274r39 343r22
+79U14*Start 80=7 81>7 82>7 83>7 84>7 85>7 74|85s10 99s10 269b14 406l8 406t13
+80r7 Log{53R9} 74|85r17 99r17 270b7 365m7 366m7 367m7 368m7 369m7 370m7 371m7
+. 395m13 398m13 401m21 401r21 405m26 405r26
+81e7 Split{65E9} 74|86r17 100r17 271b7 293r13 367r35 375r12
+82i7 Size_Limit{natural} 74|87r17 101r17 272b7 368r35
+83a7 File_Directory{string} 74|88r17 102r17 273b7 294r48 297r48 366r56
+84a7 Filename_Prefix{string} 74|89r17 103r17 274b7 295r29 298r29 365r56
+85b7 Auto_Flush{boolean} 74|90r17 104r17 275b7 369r35
+95U14*Start 96=7 97>7 98>7 74|412b14 421l8 421t13
+96r7 Log{53R9} 74|413b7 417m7 418m7 419m7 420m7
+97p7 Writer{56P9} 74|414b7 417r35
+98a7 Name{string} 74|415b7 418r56
+108U14*Register_Field 108=30 108>51 74|191b14 197l8 197t22
+108r30 Log{53R9} 74|191b30 195m7 195r7 196r23
+108a51 Id{string} 74|191b51 196r10
+111U14*Set_Field 112>7 112=21 112>49 112>53 74|203b14 236l8 236t17 256s10
+112r7 Log{53R9} 74|204b7 206r47 229r18
+112r21 Data{72R9} 74|204b21 207r47 218m13 218r13 232m13 232r13
+112a49 Id{string} 74|204b49 229r44
+112a53 Value{string} 74|204b53 231r13 233r48
+117U14*Set_Header_Fields 118>7 119=7 120>7 121>7 74|242b14 263l8 263t25
+118r7 Log{53R9} 74|243b7 257r13
+119r7 Data{72R9} 74|244b7 257m18
+120a7 Prefix{string} 74|245b7 257r24
+121r7 Header{71|37R9} 74|246b7 262r7
+126U14*Write 126=21 126=42 74|544b14 551l8 551t13
+126r21 Log{53R9} 74|544b21 546r10 547m22 549m26
+126r42 Data{72R9} 74|544b42 547m27 549m31
+131U14*Write 132=7 133>7 134>7 74|454b14 462l8 462t13
+132r7 Log{53R9} 74|455b7 459m14
+133r7 Connect_Stat{90|58R9} 74|456b7 459r19
+134r7 Answer{86|59R9} 74|457b7 460r36 461r39
+137U14*Write 138=7 139>7 140>7 141>7 74|459s7 464b14 479l8 479t13
+138r7 Log{53R9} 74|465b7 478m10
+139r7 Connect_Stat{90|58R9} 74|466b7 478r15
+140e7 Status_Code{75|174E9} 74|467b7 478r45
+141i7 Content_Length{86|84I12} 74|468b7 473r13 475r28
+147U14*Write 148=7 149>7 150>7 74|477s7 481b14 522l8 522t13
+148r7 Log{53R9} 74|482b7 517r10 518m21 520r10
+149r7 Connect_Stat{90|58R9} 74|483b7 495r65 505r44 510r40 512r37 513r46
+150a7 Data{string} 74|484b7 514r25
+154U14*Write 154=21 154>42 74|432s16 524b14 535l8 535t13
+154r21 Log{53R9} 74|524b21 530r10 531m21 533r10
+154a42 Data{string} 74|524b42 528r55
+159U14*Flush 159=21 74|138b14 157l8 157t13
+159r21 Log{53R9} 74|138b21 141r10 141r37 145m7 145r7 147r19 148r17 151m7
+. 151r7 155m10 155r10
+165U14*Stop 165=20 74|131s7 427b14 442l8 442t12
+165r20 Log{53R9} 74|427b20 429r14 430r13 431r33 432m23 433m31 433r31 436r13
+. 437m13 441m7
+168V13*Is_Active{boolean} 168>24 74|173b13 176l8 176t17
+168r24 Log{53R9} 74|173b24 175r31 175r49
+171V13*Filename{string} 171>23 74|114b13 123l8 123t16
+171r23 Log{53R9} 74|114b23 116r27 117r31 118r13 119r28
+178V13*Mode{65E9} 178>19 74|182b13 185l8 185t12
+178r19 Log{53R9} 74|182b19 184r14
+187K12 Strings_Positive[17|48] 205r30 74|192r18 228r25 231r34 233r16 595r45
+. 597r43 603r43 606r23 613r38 623r16 626r13 627r18 636r13 637r18 702r47 704r46
+. 710r46 712r26 720r38 730r19 733r16 734r21 743r16 744r21
+190K12 SV=190:38 193r16 196r61 74|566r45 572r45 574r42 660r45 666r45 670r36
+. 672r42
+193r7*Values{19|60R9[67|32]} 196m51 74|207r52 218m18 232m18 575m15 629r21
+. 630m21 639r21 640m21 645r12 675m15 736r24 737m24 746r24 747m24 752r15
+201p7*File{54|65P9} 74|83m29 93r36 97m29 116r31 117r35 147r23 148r21 175r35
+. 401m25 405m30 431r37 433m35 670r30 672r30 686r31 694r35 696r20 698r20 699r30
+. 720r26 723r38 754r32 757r32 780r31 784r32 787r32
+202p7*Writer{56P9} 74|118r17 141r14 175r53 417m11 430r17 436r17 437m17 517r14
+. 520r14 530r14 533r14 546r14 589r14 590r14 591r14 616r17 646r11
+203r7*Writer_Name{48|88R9} 74|119r32 418m11
+204b7*Stop_Has_Been_Called{boolean} 74|371m11 420m11 429r18 441m11
+205r7*Extended_Fields{17|57R9[187]} 74|195m11 196r27 206r51 229r22 562r50
+. 610r17 623r47 634r21 656r54 716r20 730r50 741r24
+206b7*Header_Written{boolean} 74|370m11 419m11 586r18 587m14 691r21 692m17
+207r7*File_Directory{48|88R9} 74|88r51 102r51 366m11
+208r7*Filename_Prefix{48|88R9} 74|89r51 103r51 365m11
+209e7*Split{65E9} 74|74r15 77r16 86r40 95r28 106m14 184r18 367m11
+210i7*Size_Limit{natural} 74|87r40 92r17 93r48 101r40 368m11
+211i7*Current_Tag{positive} 74|75r24 78r25 395m17 398m17
+212w7*Semaphore{94|222W19} 74|145m11 151m11 155m14 684m11 761m11 765m14 778m11
+. 791m11 795m14
+213b7*Auto_Flush{boolean} 74|90r40 104r40 141r41 369m11 756r17 786r17
+216U25 Finalize<30|54p14> 216=35 74|129b25 132l8 132t16
+216r35 Log{53R9} 74|129b35 131m13
+X 74 aws-log.adb
+43U14 Check_Split 43=27 43>48 71b14 108l8 108t19 689s10 782s10
+43r27 Log{73|53R9} 71b27 74r11 75r20 77r12 78r21 83m25 83r25 85m36 86r36
+. 87r36 88r47 89r47 90r36 92r13 93r32 93r44 95r24 97m25 97r25 99m36 101r36
+. 102r47 103r47 104r36 106m10
+43i48 Now{2|42I9} 71b48 75r53 78r56
+46U14 Write_Callback 46=30 46=51 549s10 557b14 647l8 647t22
+46r30 Log{73|53R9} 558b7 562r46 586r14 587m10 589r10 590r10 591r10 610r13
+. 616r13 623r43 634r17 646r7
+46r51 Data{73|72R9} 558b28 575m10 575r10 629r16 630m16 630r16 639r16 640m16
+. 640r16 645r7
+51U14 Write_File 51=26 51=47 547s10 653b14 767l8 767t18
+51r26 Log{73|53R9} 653b26 656r50 670r26 672r26 684m7 684r7 686r27 689m23
+. 691r17 692m13 694r31 696r16 698r16 699r26 716r16 720r22 723r34 730r46 741r20
+. 754r28 756r13 757r28 761m7 761r7 765m10 765r10
+51r47 Data{73|72R9} 653b47 675m10 675r10 736r19 737m19 737r19 746r19 747m19
+. 747r19 752r10
+56U14 Write_Log 57=7 58>7 59>7 518s10 531s10 773b14 797l8 797t17
+57r7 Log{73|53R9} 774b7 778m7 778r7 780r27 782m23 784r28 786r13 787r28 791m7
+. 791r7 795m10 795r10
+58i7 Now{2|42I9} 775b7 782r28
+59a7 Data{string} 776b7 784r38
+63V13 Get_Position{natural} 63>27 93s18 163b13 167l8 167t20
+63p27 File{54|65P9} 163b27 166r44
+72e7 Keep_Split{73|65E9} 95m10 106r23
+192r7 Position{17|67R9[73|187]} 196m56
+193b7 Success{boolean} 196m66
+206i7 Ext_Len{natural} 209r10 217r24 221r25
+207i7 Data_Len{natural} 213r10 221r13
+217i14 J{integer}
+228r10 CSN{17|67R9[73|187]} 231r64 233r42
+248U17 Process 248>26 248>32 254b17 259l11 259t18 262r35
+248a26 Name{string} 254b26 257r39
+248a32 Value{string} 254b32 258r30
+277V16 Get_Prefix{string} 291b16 301l11 301t21 360s38
+280V16 Log_Prefix{string} 280>28 295s17 298s17 307b16 358l11 358t21
+280a28 Prefix{string} 307b28 343r13 348r61 351r26 353r26 353r34 354r35 354r52
+285i7 Now{2|42I9} 299r46 381r58 395r50 398r52
+309V19 Prog_Name{string} 316b19 340l14 340t23 354s23
+317a13 Name{string} 322r16 325r25 331r16 331r31 334r24 339r20
+318i13 First{natural} 321m13 324r16 325m16 327m16 327r25 331r22 339r26
+319i13 Last{natural} 330m13 333r16 334m16 336m16 336r24 339r35
+348i16 K{natural} 350r19 353r50 354r43
+360a7 Prefix{string} 373r40 383r49 390r24
+361r7 Filename{48|88R9} 373m7 380r47 383m16 386r64 388m19 401r63 405r65
+362a7 Time_Part{string} 381m16 383r58 390r33
+385i20 K{integer} 390r64
+472V16 Length_Image{string} 478s66
+486i7 Now{2|42I9} 508r54 518r26
+488V16 Authorization_Name{string} 494b16 502l11 502t29 506s33
+495a10 Result{string} 497r13 500r20
+504a7 Log_Message=514:23{string} 518r31 520r22
+525i7 Now{2|42I9} 528r26 531r26
+526a7 Log_Message=528:53{string} 531r31 533r22
+562i7 Length{natural} 579r10 595r34
+563r7 Message{48|88R9} 574m33 574r33 646r30
+564i7 Now{2|42I9} 584m7 590r41 630r55 640r55
+566U17 Write_And_Clear 566>34 572b17 576l11 576t26 645r28
+566r34 Position{19|73R9[67|32]} 572b34 574r54 575r39
+594r13 Fields{48|88R9} 613m24 613r24 616r36
+595a13 Order(17|67R9[73|187]) 606m16 612r22 613r60
+597U23 Process 597>32 603b23 607l17 607t24 610r42
+597r32 Position{17|67R9[73|187]} 603b32 606r49 606r63
+612i17 J{integer} 613r67
+623r10 CSN{17|67R9[73|187]} 626r43 627r44 634m10 636r43 637r44
+624i10 P{positive} 627m13 629r37 630r45 637m13 639r37 640r45
+656i7 Length{natural} 679r10 702r36
+657i7 Now{2|42I9} 687m10 689r28 698r45 737r58 747r58
+658b7 First_Field{boolean} 668r13 669m13
+660U17 Write_And_Clear 660>34 666b17 676l11 676t26 752r31
+660r34 Position{19|73R9[67|32]} 666b34 670r48 672r54 675r39
+702a16 Order(17|67R9[73|187]) 712m19 718r25 720r60
+704U26 Process 704>35 710b26 713l20 713t27 716r45
+704r35 Position{17|67R9[73|187]} 710b35 712r52 712r66
+718i20 J{integer} 720r67
+730r13 CSN{17|67R9[73|187]} 733r46 734r47 741m13 743r46 744r47
+731i13 P{positive} 734m16 736r40 737r48 744m16 746r40 747r48
+X 75 aws-messages.ads
+36K13*Messages 73|41w10 140r24 74|467r24 478r29 75|402e17
+174E9*Status_Code 73|140r33 74|467r33 75|195e8
+203V13*Image{string} 74|478s38
+X 86 aws-response.ads
+51K13*Response 73|42w10 134r22 141r24 74|457r22 460r14 461r14 468r24 470r16
+. 473r30 86|455e17
+59R9*Data<30|43R9> 73|134r31 74|457r31 86|446e14
+84I12*Content_Length_Type{39|44I9} 73|141r33 74|468r33 470r25
+87i4*Undefined_Length{84I12} 74|473r39
+300V13*Status_Code{75|174E9} 74|460s23
+303V13*Content_Length{84I12} 74|461s23
+X 90 aws-status.ads
+52K13*Status 73|43w10 133r22 139r24 149r22 74|456r22 466r24 483r22 495r38
+. 505r27 510r25 512r25 513r25 90|405e15
+58R9*Data 73|133r29 139r31 149r29 74|456r29 466r31 483r29 90|403e14
+74V13*Method{string} 74|510s32
+79V13*URI{string} 74|512s32
+95V13*HTTP_Version{string} 74|513s32
+185V13*Peername{string} 74|505s34
+311V13*Authorization_Name{string} 74|495s45
+X 94 aws-utils.ads
+44K13*Utils 73|49w18 212r30 74|258r17 294r20 297r20 390r51 475r15 574r10
+. 94|466e14
+103V13*Image{string} 74|390s57
+108V13*Image{string} 74|475s21
+148V13*Quote{string} 74|258s23
+186U14*Append_With_Sep 74|574s16
+189a7 Sep{string} 74|574r65
+222W19*Semaphore 73|212r36 94|229e17
+223Y13 Seize 74|145s21 684s21 778s21
+224U17 Release 74|151s21 155s24 761s21 765s24 791s21 795s24
+400V13*Normalized_Directory{string} 74|294s26 297s26
+X 96 gnat.ads
+34K9*GNAT 74|39r6 299r17 381r29 508r25 527r25 560r11 654r11 96|57e9
+X 98 g-calend.ads
+45K14*Calendar 74|39r11 299r22 381r34 508r30 527r30 560r16 654r16 98|185e18
+X 99 g-catiio.ads
+37K23*Time_IO 74|39w20 299r31 381r43 508r39 527r39 560r25 654r25 99|187e26
+42A9*Picture_String<string>(character)<integer>
+106a4*ISO_Date{42A9} 74|590r46 630r60 698r50 737r63
+118V13*Image{string} 74|299s39 381s51 508s47 527s47 590s34 630s48 640s48
+. 698s38 737s51 747s51
+X 108 interfac.ads
+55I9*Integer_64<long_long_integer>
+X 111 i-cstrea.ads
+41M12*FILEs{119|50M12}
+165V13*ftell=166:26{119|55I9} 74|166s27
+X 113 system.ads
+67M9*Address
+X 115 s-arit64.ads
+44I12*Int64{108|55I9}
+54V13*Multiply_With_Ovflo_Check64{44I12} 55i<c,__gnat_mulv64>22
+X 119 s-crtl.ads
+50M12*FILEs{113|67M9}
+55I9*long<long_integer>
+X 132 s-memory.ads
+53V13*Alloc{113|67M9} 103i<c,__gnat_malloc>22
+68U14*Free 104i<c,__gnat_free>22
+76V13*Realloc{113|67M9} 105i<c,__gnat_realloc>22
+X 147 s-stausa.ads
+208U14*Initialize 209i<c,__gnat_stack_usage_initialize>22
+273U14*Output_Results 277i<c,__gnat_stack_usage_output_results>22
+X 149 s-stalib.adb
+89U14 Break_Start 90i<c,__gnat_break_start>22
+

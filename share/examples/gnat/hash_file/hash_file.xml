@@ -1,0 +1,28 @@
+    <!-- HASH_FILE -->
+
+    <action name="&prefix;_hash_file" category="">
+        <shell>
+            Project.load "&example_root;/gnat/hash_file/hash_file.gpr"
+        </shell>
+        <shell>
+            Editor.edit "gen_sum.ads"
+            Editor.edit "gen_sum.adb"
+            Editor.edit "md5sum.ads"
+            Editor.edit "sha1sum.ads"
+            Editor.edit "sha224sum.ads"
+            Editor.edit "sha256sum.ads"
+            Editor.edit "sha384sum.ads"
+            Editor.edit "sha512sum.ads"
+        </shell>
+        <shell>
+            Editor.edit "README.testing"
+        </shell>
+    </action>
+
+    <submenu before="About">
+        <title>&menu;</title>
+        <menu action="&prefix;_hash_file">
+            <title>GNAT &prefix;/Compute hashes of a file</title>
+        </menu>
+    </submenu>
+

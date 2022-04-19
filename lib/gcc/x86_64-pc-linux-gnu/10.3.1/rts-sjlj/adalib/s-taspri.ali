@@ -1,0 +1,73 @@
+V "GNAT Lib v2021"
+A -O2
+A -ffunction-sections
+A -fdata-sections
+A -fsjlj
+A -fno-omit-frame-pointer
+A -momit-leaf-frame-pointer
+A -gnatg
+A -gnatn
+A -gnatU
+A -mtune=generic
+A -march=x86-64
+P
+
+RN
+RV NO_ACCESS_SUBPROGRAMS
+RV NO_IMPLEMENTATION_ATTRIBUTES
+
+U system.task_primitives%s  s-taspri.ads	96f1dbdd NE OL PR PK
+W system%s		system.ads		system.ali
+W system.os_interface%s	s-osinte.adb		s-osinte.ali
+
+D ada.ads		20210520051131 76789da1 ada%s
+D a-unccon.ads		20210520051130 0e9b276f ada.unchecked_conversion%s
+D interfac.ads		20210520051132 edec285f interfaces%s
+D i-c.ads		20210520051132 d9beded9 interfaces.c%s
+D system.ads		20210520095221 fa138bbb system%s
+D s-exctab.ads		20210520051132 54135002 system.exception_table%s
+D s-linux.ads		20210520051127 ed0b8aee system.linux%s
+D s-oscons.ads		20210520095221 e3a42aec system.os_constants%s
+D s-osinte.ads		20210520051127 222ac181 system.os_interface%s
+D s-parame.ads		20210520051134 4752c4cb system.parameters%s
+D s-stalib.ads		20210520051134 472fbca8 system.standard_library%s
+D s-taspri.ads		20210520051127 4ec891e7 system.task_primitives%s
+D s-unstyp.ads		20210520051134 2b077493 system.unsigned_types%s
+G a e
+G c Z s s [lockIP system__task_primitives 73 9 none]
+G c Z s s [suspension_objectIP system__task_primitives 78 9 none]
+G c Z s s [private_dataIP system__task_primitives 95 9 none]
+X 4 i-c.ads
+46M9*unsigned_long
+X 5 system.ads
+37K9*System 154e11 12|37r6 39r9 62r28 66r39 71r25 74r20 91r20 96r24 104r21
+. 109r20 116r5
+67M9*Address 12|62r35 104r28
+X 9 s-osinte.ads
+46K16*OS_Interface 683e24 12|37w13 66r46 71r32 74r27 91r27 96r31 109r27
+296M9*pthread_t<4|46M9> 12|96r44
+302R9*pthread_mutex_t 659e14 12|71r45
+303R9*pthread_rwlock_t 671e14 12|74r40
+304R9*pthread_cond_t 677e14 12|91r40 109r40
+331N4*Alternate_Stack_Size 12|66r59
+X 12 s-taspri.ads
+39K16*Task_Primitives 5|37k9 12|71E9 116l12 116e27
+42R9*Lock 73c9 76e14
+45R9*RTS_Lock<9|302R9> 71c9 75r20 88r19 112r19
+50R9*Suspension_Object 78c9 93e14
+53P9*Task_Body_Access
+57R9*Private_Data 95c9 114e14
+62M12*Task_Address{5|67M9}
+63N4*Task_Address_Size
+66N4*Alternate_Stack_Size
+74r7*RW{9|303R9}
+75r7*WO{45R9}
+79b7*State{boolean}
+85b7*Waiting{boolean}
+88r7*L{45R9}
+91r7*CV{9|304R9}
+96m7*Thread{9|296M9}
+104m7*LWP{5|67M9}
+109r7*CV{9|304R9}
+112r7*L{45R9}
+

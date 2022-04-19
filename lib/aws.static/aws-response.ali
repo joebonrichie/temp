@@ -1,0 +1,913 @@
+V "GNAT Lib v2021"
+A -O2
+A -gnatA
+A -gnat2012
+A -gnatwc
+A -gnatwf
+A -gnatwi
+A -gnatwj
+A -gnatwk
+A -gnatwm
+A -gnatwr
+A -gnatwu
+A -gnatwv
+A -gnaty3
+A -gnatya
+A -gnatyb
+A -gnatyB
+A -gnatyc
+A -gnatyd
+A -gnatye
+A -gnatyf
+A -gnatyh
+A -gnatyi
+A -gnatyI
+A -gnatyk
+A -gnatyl
+A -gnatym
+A -gnatyn
+A -gnatyo
+A -gnatyO
+A -gnatyp
+A -gnatyr
+A -gnatys
+A -gnatyt
+A -gnatyx
+A -gnatn
+A -mtune=generic
+A -march=x86-64
+P SS ZX
+
+RN
+RV NO_ACCESS_SUBPROGRAMS
+RV NO_ALLOCATORS
+RV NO_CALENDAR
+RV NO_DELAY
+RV NO_DISPATCH
+RV NO_DISPATCHING_CALLS
+RV NO_ENUMERATION_MAPS
+RV NO_EXCEPTION_HANDLERS
+RV NO_EXCEPTION_PROPAGATION
+RV NO_EXCEPTIONS
+RV NO_FINALIZATION
+RV NO_IO
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_LOCAL_ALLOCATORS
+RV NO_NESTED_FINALIZATION
+RV NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_UNCHECKED_DEALLOCATION
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLICIT_LOOPS
+RV NO_ELABORATION_CODE
+RV NO_OBSOLESCENT_FEATURES
+
+U aws.response%b	aws-response.adb	ee9ddd4a OO PK IU
+W ada%s			ada.ads			ada.ali
+W ada.directories%s	a-direct.adb		a-direct.ali
+Z ada.exceptions%s	a-except.adb		a-except.ali
+W ada.strings%s		a-string.ads		a-string.ali
+W ada.strings.fixed%s	a-strfix.adb		a-strfix.ali
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W aws%s			aws.ads			aws.ali
+W aws.headers%s		aws-headers.adb		aws-headers.ali
+W aws.headers.values%s	aws-headers-values.adb	aws-headers-values.ali
+W aws.resources%s	aws-resources.adb	aws-resources.ali
+W aws.resources.streams%s  aws-resources-streams.adb  aws-resources-streams.ali
+W aws.resources.streams.disk%s  aws-resources-streams-disk.adb  aws-resources-streams-disk.ali
+W aws.resources.streams.disk.once%s  aws-resources-streams-disk-once.adb  aws-resources-streams-disk-once.ali
+W aws.resources.streams.memory%s  aws-resources-streams-memory.adb  aws-resources-streams-memory.ali
+W aws.response%s	aws-response.adb	aws-response.ali
+W aws.response.set%s	aws-response-set.adb	aws-response-set.ali
+W aws.translator%s	aws-translator.adb	aws-translator.ali
+Z system%s		system.ads		system.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+Z system.soft_links%s	s-soflin.adb		s-soflin.ali
+Z system.standard_library%s  s-stalib.adb	s-stalib.ali
+Z system.storage_elements%s  s-stoele.adb	s-stoele.ali
+Z system.storage_pools%s  s-stopoo.adb		s-stopoo.ali
+Z system.storage_pools.subpools%s  s-stposu.adb	s-stposu.ali
+Z system.val_bool%s	s-valboo.adb		s-valboo.ali
+Z system.val_enum_8%s	s-vaenu8.ads		s-vaenu8.ali
+Z system.val_lli%s	s-vallli.ads		s-vallli.ali
+
+U aws.response%s	aws-response.ads	be16bdf0 BN EE OO PF PK IU
+W ada%s			ada.ads			ada.ali
+W ada.calendar%s	a-calend.adb		a-calend.ali
+Z ada.exceptions%s	a-except.adb		a-except.ali
+W ada.finalization%s	a-finali.ads		a-finali.ali
+W ada.streams%s		a-stream.adb		a-stream.ali
+W ada.strings%s		a-string.ads		a-string.ali
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+W ada.strings.unbounded%s  a-strunb.adb		a-strunb.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W ada.unchecked_deallocation%s
+W aws%s			aws.ads			aws.ali
+W aws.headers%s		aws-headers.adb		aws-headers.ali
+W aws.messages%s	aws-messages.adb	aws-messages.ali
+W aws.mime%s		aws-mime.adb		aws-mime.ali
+W aws.net%s		aws-net.adb		aws-net.ali
+W aws.resources%s	aws-resources.adb	aws-resources.ali
+W aws.resources.streams%s  aws-resources-streams.adb  aws-resources-streams.ali
+W aws.status%s		aws-status.adb		aws-status.ali
+Z system%s		system.ads		system.ali
+Z system.put_images%s	s-putima.adb		s-putima.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+Z system.soft_links%s	s-soflin.adb		s-soflin.ali
+Z system.standard_library%s  s-stalib.adb	s-stalib.ali
+Z system.stream_attributes%s  s-stratt.adb	s-stratt.ali
+Z system.strings.stream_ops%s  s-ststop.adb	s-ststop.ali
+
+D ada.ads		20210520051131 76789da1 ada%s
+D a-calend.ads		20210520051128 474d9720 ada.calendar%s
+D a-charac.ads		20210520051128 2d3ec45b ada.characters%s
+D a-chahan.ads		20210520051128 0ce1b450 ada.characters.handling%s
+D a-chlat1.ads		20210520051128 66457d31 ada.characters.latin_1%s
+D a-contai.ads		20210520051128 61e5e089 ada.containers%s
+D a-cdlili.ads		20210520051128 ad05d077 ada.containers.doubly_linked_lists%s
+D a-cohata.ads		20210520051128 bc432d0e ada.containers.hash_tables%s
+D a-conhel.ads		20210520051128 20298884 ada.containers.helpers%s
+D a-cihama.ads		20210520051128 76287ea1 ada.containers.indefinite_hashed_maps%s
+D a-cihase.ads		20210520051128 18093f96 ada.containers.indefinite_hashed_sets%s
+D a-ciorma.ads		20210520051128 3aa5dad0 ada.containers.indefinite_ordered_maps%s
+D a-coinve.ads		20210520051128 0843f47c ada.containers.indefinite_vectors%s
+D a-crbltr.ads		20210520051128 d3d16ba4 ada.containers.red_black_trees%s
+D a-convec.ads		20210520051128 5d39d84a ada.containers.vectors%s
+D a-direct.ads		20210520051128 078228da ada.directories%s
+D a-envvar.ads		20210520051128 00080416 ada.environment_variables%s
+D a-except.ads		20210520051128 946f3014 ada.exceptions%s
+D a-finali.ads		20210520051128 bf4f806b ada.finalization%s
+D a-ioexce.ads		20210520051128 e4a01f64 ada.io_exceptions%s
+D a-iteint.ads		20210520051128 49a8bee2 ada.iterator_interfaces%s
+D a-reatim.ads		20210520051127 0240fc73 ada.real_time%s
+D a-stream.ads		20210520051129 119b8fb3 ada.streams%s
+D a-ststio.ads		20210520051129 d6d358e8 ada.streams.stream_io%s
+D a-string.ads		20210520051129 90ac6797 ada.strings%s
+D a-strfix.ads		20210520051129 aeacf44c ada.strings.fixed%s
+D a-strhas.ads		20210520051129 c71c2a52 ada.strings.hash%s
+D a-strmap.ads		20210520051129 5a88892a ada.strings.maps%s
+D a-stmaco.ads		20210520051129 1c0e5368 ada.strings.maps.constants%s
+D a-strsea.ads		20210520051129 b9bc90ba ada.strings.search%s
+D a-sttebu.ads		20210520051129 18209c64 ada.strings.text_buffers%s
+D a-strunb.ads		20210520051129 03325227 ada.strings.unbounded%s
+D a-strunb.adb		20210520051129 3b950306 ada.strings.unbounded%b
+D a-stuten.ads		20210520051129 808c40ad ada.strings.utf_encoding%s
+D a-tags.ads		20210520051130 9eaa38c6 ada.tags%s
+D a-tasatt.ads		20210520051127 a641cb7e ada.task_attributes%s
+D a-taside.ads		20210520051127 00e3a3f6 ada.task_identification%s
+D a-textio.ads		20210520051130 aef4d56d ada.text_io%s
+D a-unccon.ads		20210520051130 0e9b276f ada.unchecked_conversion%s
+D a-uncdea.ads		20210520051130 c3a8ac65 ada.unchecked_deallocation%s
+D aws.ads		20210520114206 82646736 aws%s
+D aws-attachments.ads	20210519051431 2270236e aws.attachments%s
+D aws-config.ads	20210519051431 17e5b2cd aws.config%s
+D aws-containers.ads	20210519051431 c7ab8288 aws.containers%s
+D aws-containers-key_value.ads  20210519051431 f3f917f0 aws.containers.key_value%s
+D aws-containers-memory_streams.ads  20210519051431 ea28c859 aws.containers.memory_streams%s
+D aws-containers-string_vectors.ads  20210519051431 b5692847 aws.containers.string_vectors%s
+D aws-containers-tables.ads  20210519051431 00be04da aws.containers.tables%s
+D aws-default.ads	20210519051431 9ec982b1 aws.default%s
+D aws-digest.ads	20210519051431 f05850e0 aws.digest%s
+D aws-dispatchers.ads	20210519051431 c78b16eb aws.dispatchers%s
+D aws-exceptions.ads	20210519051431 6381c395 aws.exceptions%s
+D aws-headers.ads	20210519051431 25633780 aws.headers%s
+D aws-headers-values.ads  20210519051431 e73ab651 aws.headers.values%s
+D aws-hotplug.ads	20210519051431 25dc94f6 aws.hotplug%s
+D aws-log.ads		20210519051431 70dd6a60 aws.log%s
+D aws-messages.ads	20210519051431 7cd16bc6 aws.messages%s
+D aws-mime.ads		20210519051431 796c9a32 aws.mime%s
+D aws-net.ads		20210519051431 4147ea12 aws.net%s
+D aws-net-acceptors.ads	20210519051431 c571689f aws.net.acceptors%s
+D aws-net-generic_sets.ads  20210519051431 63584717 aws.net.generic_sets%s
+D aws-net-ssl.ads	20210519051431 52fbd46f aws.net.ssl%s
+D aws-net-std.ads	20210519051431 fb394f55 aws.net.std%s
+D aws-parameters.ads	20210519051431 ff4aa491 aws.parameters%s
+D aws-resources.ads	20210519051431 407ba395 aws.resources%s
+D aws-resources-streams.ads  20210519051431 95c86167 aws.resources.streams%s
+D aws-resources-streams.adb  20210519051431 88a8dacb aws.resources.streams%b
+D aws-resources-streams-disk.ads  20210519051431 b770f515 aws.resources.streams.disk%s
+D aws-resources-streams-disk-once.ads  20210519051431 6c35a0ca aws.resources.streams.disk.once%s
+D aws-resources-streams-memory.ads  20210519051431 eb23d323 aws.resources.streams.memory%s
+D aws-resources-streams-memory-zlib.ads  20210519051431 964b70a5 aws.resources.streams.memory.zlib%s
+D aws-resources-streams-zlib.ads  20210519051431 373ad61e aws.resources.streams.zlib%s
+D aws-response.ads	20210519051431 907d00d3 aws.response%s
+D aws-response.adb	20210519051431 aae33934 aws.response%b
+D aws-response-set.ads	20210519051431 5ad1f369 aws.response.set%s
+D aws-response-set.adb	20210519051431 700450e9 aws.response.set%b
+D aws-server.ads	20210519051431 3aa37873 aws.server%s
+D aws-session.ads	20210519051431 7ee0b17c aws.session%s
+D aws-status.ads	20210519051431 715df1ae aws.status%s
+D aws-translator.ads	20210519051431 098e71c4 aws.translator%s
+D aws-translator.adb	20210519051431 bb00efeb aws.translator%b
+D aws-translator-conversion.adb  20210519051431 4e5e7f2e aws.translator.conversion
+D aws-url.ads		20210519051431 32548484 aws.url%s
+D aws-utils.ads		20210519051431 840ea1d3 aws.utils%s
+D gnat.ads		20210520051132 b5988c27 gnat%s
+D g-bytswa.ads		20210520051131 a4d21639 gnat.byte_swapping%s
+D g-md5.ads		20210520051131 bb55398e gnat.md5%s
+D g-regexp.ads		20210520051131 691be386 gnat.regexp%s
+D g-sechas.ads		20210520051131 302163b5 gnat.secure_hashes%s
+D g-sehamd.ads		20210520051131 75201584 gnat.secure_hashes.md5%s
+D g-shsh32.ads		20210520051131 671c9849 gnat.secure_hashes.sha2_32%s
+D g-shshco.ads		20210520051131 1144502c gnat.secure_hashes.sha2_common%s
+D g-sha256.ads		20210520051131 c083f050 gnat.sha256%s
+D interfac.ads		20210520051132 edec285f interfaces%s
+D i-c.ads		20210520051132 d9beded9 interfaces.c%s
+D i-cstrea.ads		20210520051132 e53d8b8e interfaces.c_streams%s
+D memory_streams.ads	20210519051430 bf3b9ce5 memory_streams%s
+D ssl.ads		20210519051431 3abd0079 ssl%s
+D ssl-thin__dummy.ads	20210519051430 eb2eedfc ssl.thin%s
+D system.ads		20210520051135 a2da961d system%s
+D s-atacco.ads		20210520051132 4c36d12f system.address_to_access_conversions%s
+D s-atocou.ads		20210520051132 b45c2d8d system.atomic_counters%s
+D s-carun8.ads		20210520051132 a903718d system.compare_array_unsigned_8%s
+D s-crtl.ads		20210520051132 0ebbdb71 system.crtl%s
+D s-exctab.ads		20210520051132 54135002 system.exception_table%s
+D s-ficobl.ads		20210520051132 078245e4 system.file_control_block%s
+D s-finmas.ads		20210520051132 1ab4dba8 system.finalization_masters%s
+D s-finroo.ads		20210520051132 4ff27390 system.finalization_root%s
+D s-linux.ads		20210520051127 ed0b8aee system.linux%s
+D s-memory.ads		20210520051133 597d6634 system.memory%s
+D s-multip.ads		20210520051133 38ac9f73 system.multiprocessors%s
+D s-oscons.ads		20210520095158 e3a42aec system.os_constants%s
+D s-osinte.ads		20210520051127 222ac181 system.os_interface%s
+D s-parame.ads		20210520051134 4752c4cb system.parameters%s
+D s-pooglo.ads		20210520051134 ede33ef8 system.pool_global%s
+D s-putima.ads		20210520051134 4e095881 system.put_images%s
+D s-regexp.ads		20210520051134 9c7d27a7 system.regexp%s
+D s-secsta.ads		20210520051134 9b3ab94b system.secondary_stack%s
+D s-soflin.ads		20210520051134 a7318a92 system.soft_links%s
+D s-stache.ads		20210520051134 a37c21ec system.stack_checking%s
+D s-stausa.ads		20210520051134 017a0a05 system.stack_usage%s
+D s-stalib.ads		20210520051134 472fbca8 system.standard_library%s
+D s-stalib.adb		20210520051134 977290bf system.standard_library%b
+D s-stoele.ads		20210520051134 2dc34a04 system.storage_elements%s
+D s-stoele.adb		20210520051134 ed88f8fb system.storage_elements%b
+D s-stopoo.ads		20210520051134 e9fa2dd8 system.storage_pools%s
+D s-stposu.ads		20210520051134 e251976f system.storage_pools.subpools%s
+D s-stratt.ads		20210520051134 7bdda3fa system.stream_attributes%s
+D s-stratt.adb		20210520051134 fc996108 system.stream_attributes%b
+D s-statxd.ads		20210520051134 b54789f6 system.stream_attributes.xdr%s
+D s-string.ads		20210520051134 8fe54fb7 system.strings%s
+D s-ststop.ads		20210520051134 5fbf1b38 system.strings.stream_ops%s
+D s-tasinf.ads		20210520051127 2b3f8252 system.task_info%s
+D s-taspri.ads		20210520051127 4ec891e7 system.task_primitives%s
+D s-taprop.ads		20210520051127 6eefbe12 system.task_primitives.operations%s
+D s-taskin.ads		20210520051127 88fba9ad system.tasking%s
+D s-taprob.ads		20210520051127 acd6094d system.tasking.protected_objects%s
+D s-tpoben.ads		20210520051127 60ad3dae system.tasking.protected_objects.entries%s
+D s-tassta.ads		20210520051127 cca55c94 system.tasking.stages%s
+D s-traent.ads		20210520051134 26a8d361 system.traceback_entries%s
+D s-unstyp.ads		20210520051134 2b077493 system.unsigned_types%s
+D s-valboo.ads		20210520051134 5026d18b system.val_bool%s
+D s-vaenu8.ads		20210520051134 b7b91426 system.val_enum_8%s
+D s-vallli.ads		20210520051134 0767e6f3 system.val_lli%s
+D s-valllu.ads		20210520051134 660d930f system.val_llu%s
+D s-valuti.ads		20210520051134 aca0b6fe system.val_util%s
+D s-valuei.ads		20210520051134 978dd0a6 system.value_i%s
+D s-valuen.ads		20210520051134 72b74993 system.value_n%s
+D s-valuen.adb		20210520051134 82820e8f system.value_n%b
+D s-valueu.ads		20210520051134 7b8fccf5 system.value_u%s
+D s-wchcon.ads		20210520051135 1b7d22d2 system.wch_con%s
+D templates_parser.ads	20210519053215 1cb5e754 templates_parser%s
+D templates_parser-utils.ads  20210519053215 8849593d templates_parser.utils%s
+D templates_parser_tasking.ads  20210519053215 4c0209f0 templates_parser_tasking%s
+D unchconv.ads		20210520051135 ca2f9e18 unchecked_conversion%s
+D zlib.ads		20210519051430 0714e1ed zlib%s
+G a e
+G c Z s b [build aws__response 105 13 none]
+G c Z s b [build aws__response 115 13 none]
+G c Z s b [build aws__response 129 13 none]
+G c Z s b [file aws__response 156 13 none]
+G c Z s b [stream aws__response 178 13 none]
+G c Z s b [url aws__response 205 13 none]
+G c Z s b [moved aws__response 216 13 none]
+G c Z s b [acknowledge aws__response 234 13 none]
+G c Z s b [authenticate aws__response 248 13 none]
+G c Z s b [socket_taken aws__response 260 13 none]
+G c Z s b [empty aws__response 267 13 none]
+G c Z s b [header aws__response 283 13 none]
+G c Z s b [header aws__response 287 13 none]
+G c Z s b [header aws__response 291 13 none]
+G c Z s b [has_header aws__response 293 13 none]
+G c Z s b [send_header aws__response 296 14 none]
+G c Z s b [status_code aws__response 300 13 none]
+G c Z s b [content_length aws__response 303 13 none]
+G c Z s b [content_type aws__response 307 13 none]
+G c Z s b [cache_control aws__response 310 13 none]
+G c Z s b [cache_control aws__response 313 13 none]
+G c Z s b [expires aws__response 317 13 none]
+G c Z s b [location aws__response 320 13 none]
+G c Z s b [mode aws__response 328 13 none]
+G c Z s b [is_empty aws__response 331 13 none]
+G c Z s b [message_body aws__response 334 13 none]
+G c Z s b [message_body aws__response 342 13 none]
+G c Z s b [message_body aws__response 345 13 none]
+G c Z s b [message_body aws__response 348 14 none]
+G c Z s b [filename aws__response 353 13 none]
+G c Z s b [realm aws__response 361 13 none]
+G c Z s b [authentication aws__response 364 13 none]
+G c Z s b [authentication_stale aws__response 367 13 none]
+G c Z s b [create_resource aws__response 374 14 none]
+G c Z s b [close_resource aws__response 386 13 none]
+G c Z s b [keep_alive aws__response 389 13 none]
+G c Z s b [websocket aws__response 396 13 none]
+G c Z s b [initialize aws__response 448 25 none]
+G c Z s b [adjust aws__response 449 25 none]
+G c Z s b [finalize aws__response 450 25 none]
+G c Z s s [unchecked_free aws__response 452 14 none]
+G c Z s s [dataDA aws__response 436 9 none]
+G c Z s s [dataDF aws__response 436 9 none]
+G c Z s s [dataDI aws__response 436 9 none]
+G c Z s s [dataIP aws__response 436 9 none]
+G c Z s s [release_controllerIP aws__response 425 9 none]
+G r s list [build aws__response 105 13 none] [listIP aws__headers 97 9 none]
+G r l list [build aws__response 105 13 none] [listDI aws__headers 97 9 none]
+G r k list [build aws__response 105 13 none] [listDF aws__headers 97 9 none]
+G r c none [build aws__response 105 13 none] [reset aws__headers 85 25 none]
+G r k stream_type [build aws__response 105 13 none] [stream_typeDF aws__resources__streams 73 9 none]
+G r c none [build aws__response 105 13 none] [status_code aws__response__set 67 14 none]
+G r c none [build aws__response 105 13 none] [content_type aws__response__set 73 14 none]
+G r c none [build aws__response 105 13 none] [data_encoding aws__response__set 160 14 none]
+G r c none [build aws__response 105 13 none] [message_body aws__response__set 184 14 none]
+G r c none [build aws__response 105 13 none] [cache_control aws__response__set 91 14 none]
+G r j list [build aws__response 105 13 none] [listDA aws__headers 97 9 none]
+G r s list [build aws__response 115 13 none] [listIP aws__headers 97 9 none]
+G r l list [build aws__response 115 13 none] [listDI aws__headers 97 9 none]
+G r k list [build aws__response 115 13 none] [listDF aws__headers 97 9 none]
+G r c none [build aws__response 115 13 none] [reset aws__headers 85 25 none]
+G r k stream_type [build aws__response 115 13 none] [stream_typeDF aws__resources__streams 73 9 none]
+G r c none [build aws__response 115 13 none] [status_code aws__response__set 67 14 none]
+G r c none [build aws__response 115 13 none] [content_type aws__response__set 73 14 none]
+G r c none [build aws__response 115 13 none] [data_encoding aws__response__set 160 14 none]
+G r c none [build aws__response 115 13 none] [message_body aws__response__set 177 14 none]
+G r c none [build aws__response 115 13 none] [cache_control aws__response__set 91 14 none]
+G r j list [build aws__response 115 13 none] [listDA aws__headers 97 9 none]
+G r s list [build aws__response 129 13 none] [listIP aws__headers 97 9 none]
+G r l list [build aws__response 129 13 none] [listDI aws__headers 97 9 none]
+G r k list [build aws__response 129 13 none] [listDF aws__headers 97 9 none]
+G r c none [build aws__response 129 13 none] [reset aws__headers 85 25 none]
+G r k stream_type [build aws__response 129 13 none] [stream_typeDF aws__resources__streams 73 9 none]
+G r c none [build aws__response 129 13 none] [status_code aws__response__set 67 14 none]
+G r c none [build aws__response 129 13 none] [content_type aws__response__set 73 14 none]
+G r c none [build aws__response 129 13 none] [data_encoding aws__response__set 160 14 none]
+G r c none [build aws__response 129 13 none] [message_body aws__response__set 171 14 none]
+G r c none [build aws__response 129 13 none] [cache_control aws__response__set 91 14 none]
+G r j list [build aws__response 129 13 none] [listDA aws__headers 97 9 none]
+G r s list [file aws__response 156 13 none] [listIP aws__headers 97 9 none]
+G r l list [file aws__response 156 13 none] [listDI aws__headers 97 9 none]
+G r k list [file aws__response 156 13 none] [listDF aws__headers 97 9 none]
+G r c none [file aws__response 156 13 none] [reset aws__headers 85 25 none]
+G r k stream_type [file aws__response 156 13 none] [stream_typeDF aws__resources__streams 73 9 none]
+G r c none [file aws__response 156 13 none] [status_code aws__response__set 67 14 none]
+G r c none [file aws__response 156 13 none] [content_type aws__response__set 73 14 none]
+G r c none [file aws__response 156 13 none] [filename aws__response__set 132 14 none]
+G r c none [file aws__response 156 13 none] [cache_control aws__response__set 91 14 none]
+G r c none [file aws__response 156 13 none] [is_regular_file aws__resources 128 13 none]
+G r c none [file aws__response 156 13 none] [add_header aws__response__set 44 14 none]
+G r c none [file aws__response 156 13 none] [mode aws__response__set 125 14 none]
+G r j list [file aws__response 156 13 none] [listDA aws__headers 97 9 none]
+G r s list [stream aws__response 178 13 none] [listIP aws__headers 97 9 none]
+G r l list [stream aws__response 178 13 none] [listDI aws__headers 97 9 none]
+G r k list [stream aws__response 178 13 none] [listDF aws__headers 97 9 none]
+G r c none [stream aws__response 178 13 none] [reset aws__headers 85 25 none]
+G r k stream_type [stream aws__response 178 13 none] [stream_typeDF aws__resources__streams 73 9 none]
+G r c none [stream aws__response 178 13 none] [name aws__resources__streams 61 13 none]
+G r c none [stream aws__response 178 13 none] [filename aws__response__set 132 14 none]
+G r c none [stream aws__response 178 13 none] [stream aws__response__set 139 14 none]
+G r c none [stream aws__response 178 13 none] [status_code aws__response__set 67 14 none]
+G r c none [stream aws__response 178 13 none] [content_type aws__response__set 73 14 none]
+G r c none [stream aws__response 178 13 none] [cache_control aws__response__set 91 14 none]
+G r c none [stream aws__response 178 13 none] [close_resource aws__response__set 148 14 none]
+G r c none [stream aws__response 178 13 none] [add_header aws__response__set 44 14 none]
+G r j list [stream aws__response 178 13 none] [listDA aws__headers 97 9 none]
+G r s list [url aws__response 205 13 none] [listIP aws__headers 97 9 none]
+G r l list [url aws__response 205 13 none] [listDI aws__headers 97 9 none]
+G r k list [url aws__response 205 13 none] [listDF aws__headers 97 9 none]
+G r c none [url aws__response 205 13 none] [reset aws__headers 85 25 none]
+G r k stream_type [url aws__response 205 13 none] [stream_typeDF aws__resources__streams 73 9 none]
+G r c none [url aws__response 205 13 none] [status_code aws__response__set 67 14 none]
+G r c none [url aws__response 205 13 none] [location aws__response__set 97 14 none]
+G r c none [url aws__response 205 13 none] [mode aws__response__set 125 14 none]
+G r c none [url aws__response 205 13 none] [cache_control aws__response__set 91 14 none]
+G r j list [url aws__response 205 13 none] [listDA aws__headers 97 9 none]
+G r s list [moved aws__response 216 13 none] [listIP aws__headers 97 9 none]
+G r l list [moved aws__response 216 13 none] [listDI aws__headers 97 9 none]
+G r k list [moved aws__response 216 13 none] [listDF aws__headers 97 9 none]
+G r c none [moved aws__response 216 13 none] [reset aws__headers 85 25 none]
+G r k stream_type [moved aws__response 216 13 none] [stream_typeDF aws__resources__streams 73 9 none]
+G r c none [moved aws__response 216 13 none] [location aws__response__set 97 14 none]
+G r c none [moved aws__response 216 13 none] [status_code aws__response__set 67 14 none]
+G r c none [moved aws__response 216 13 none] [message_body aws__response__set 184 14 none]
+G r c none [moved aws__response 216 13 none] [content_type aws__response__set 73 14 none]
+G r c none [moved aws__response 216 13 none] [cache_control aws__response__set 91 14 none]
+G r j list [moved aws__response 216 13 none] [listDA aws__headers 97 9 none]
+G r s list [acknowledge aws__response 234 13 none] [listIP aws__headers 97 9 none]
+G r l list [acknowledge aws__response 234 13 none] [listDI aws__headers 97 9 none]
+G r k list [acknowledge aws__response 234 13 none] [listDF aws__headers 97 9 none]
+G r c none [acknowledge aws__response 234 13 none] [reset aws__headers 85 25 none]
+G r k stream_type [acknowledge aws__response 234 13 none] [stream_typeDF aws__resources__streams 73 9 none]
+G r c none [acknowledge aws__response 234 13 none] [status_code aws__response__set 67 14 none]
+G r c none [acknowledge aws__response 234 13 none] [mode aws__response__set 125 14 none]
+G r c none [acknowledge aws__response 234 13 none] [message_body aws__response__set 184 14 none]
+G r c none [acknowledge aws__response 234 13 none] [content_type aws__response__set 73 14 none]
+G r j list [acknowledge aws__response 234 13 none] [listDA aws__headers 97 9 none]
+G r s list [authenticate aws__response 248 13 none] [listIP aws__headers 97 9 none]
+G r l list [authenticate aws__response 248 13 none] [listDI aws__headers 97 9 none]
+G r k list [authenticate aws__response 248 13 none] [listDF aws__headers 97 9 none]
+G r c none [authenticate aws__response 248 13 none] [reset aws__headers 85 25 none]
+G r k stream_type [authenticate aws__response 248 13 none] [stream_typeDF aws__resources__streams 73 9 none]
+G r c none [authenticate aws__response 248 13 none] [authentication aws__response__set 104 14 none]
+G r c none [authenticate aws__response 248 13 none] [content_type aws__response__set 73 14 none]
+G r c none [authenticate aws__response 248 13 none] [message_body aws__response__set 184 14 none]
+G r j list [authenticate aws__response 248 13 none] [listDA aws__headers 97 9 none]
+G r s list [socket_taken aws__response 260 13 none] [listIP aws__headers 97 9 none]
+G r l list [socket_taken aws__response 260 13 none] [listDI aws__headers 97 9 none]
+G r k list [socket_taken aws__response 260 13 none] [listDF aws__headers 97 9 none]
+G r c none [socket_taken aws__response 260 13 none] [reset aws__headers 85 25 none]
+G r k stream_type [socket_taken aws__response 260 13 none] [stream_typeDF aws__resources__streams 73 9 none]
+G r c none [socket_taken aws__response 260 13 none] [mode aws__response__set 125 14 none]
+G r j list [socket_taken aws__response 260 13 none] [listDA aws__headers 97 9 none]
+G r s list [empty aws__response 267 13 none] [listIP aws__headers 97 9 none]
+G r l list [empty aws__response 267 13 none] [listDI aws__headers 97 9 none]
+G r k list [empty aws__response 267 13 none] [listDF aws__headers 97 9 none]
+G r c none [empty aws__response 267 13 none] [reset aws__headers 85 25 none]
+G r k stream_type [empty aws__response 267 13 none] [stream_typeDF aws__resources__streams 73 9 none]
+G r c none [empty aws__response 267 13 none] [status_code aws__response__set 67 14 none]
+G r j list [empty aws__response 267 13 none] [listDA aws__headers 97 9 none]
+G r c none [header aws__response 283 13 none] [get aws__containers__tables 74 13 none]
+G r c none [header aws__response 287 13 none] [get_values aws__headers 73 13 none]
+G r j list [header aws__response 291 13 none] [listDA aws__headers 97 9 none]
+G r c none [has_header aws__response 293 13 none] [exist aws__containers__tables 71 13 none]
+G r c none [send_header aws__response 296 14 none] [send_header aws__headers 52 14 none]
+G r c none [content_length aws__response 303 13 none] [get aws__containers__tables 74 13 none]
+G r c none [cache_control aws__response 310 13 none] [get aws__containers__tables 74 13 none]
+G r c none [cache_control aws__response 313 13 none] [get aws__containers__tables 74 13 none]
+G r c none [cache_control aws__response 313 13 none] [to_cache_data aws__messages 282 13 none]
+G r c none [expires aws__response 317 13 none] [get aws__containers__tables 74 13 none]
+G r c none [expires aws__response 317 13 none] [to_time aws__messages 377 13 none]
+G r c none [location aws__response 320 13 none] [get aws__containers__tables 74 13 none]
+G r c none [message_body aws__response 334 13 none] [size aws__resources__streams 56 13 none]
+G r c none [message_body aws__response 334 13 none] [reset aws__resources__streams__memory 78 25 none]
+G r c none [message_body aws__response 334 13 none] [to_string aws__translator 138 13 none]
+G r c none [message_body aws__response 342 13 none] [to_string aws__translator 138 13 none]
+G r c none [message_body aws__response 342 13 none] [reset aws__resources__streams__memory 78 25 none]
+G r c none [message_body aws__response 345 13 none] [size aws__resources__streams 56 13 none]
+G r c none [message_body aws__response 345 13 none] [reset aws__resources__streams__memory 78 25 none]
+G r c none [message_body aws__response 348 14 none] [create aws__resources__streams 66 14 none]
+G r c none [realm aws__response 361 13 none] [get aws__containers__tables 74 13 none]
+G r c none [realm aws__response 361 13 none] [search aws__headers__values 97 13 none]
+G r c none [authentication aws__response 364 13 none] [get_values aws__containers__tables 103 13 none]
+G r j vstring_array [authentication aws__response 364 13 none] [vstring_arrayDA aws__containers__tables 53 9 none]
+G r k vstring_array [authentication aws__response 364 13 none] [vstring_arrayDF aws__containers__tables 53 9 none]
+G r c none [authentication aws__response 364 13 none] [get_unnamed_value aws__headers__values 104 13 none]
+G r c none [authentication_stale aws__response 367 13 none] [get_values aws__containers__tables 103 13 none]
+G r j vstring_array [authentication_stale aws__response 367 13 none] [vstring_arrayDA aws__containers__tables 53 9 none]
+G r k vstring_array [authentication_stale aws__response 367 13 none] [vstring_arrayDF aws__containers__tables 53 9 none]
+G r c none [authentication_stale aws__response 367 13 none] [search aws__headers__values 97 13 none]
+G r c none [create_resource aws__response 374 14 none] [open aws__resources 70 14 none]
+G r c none [create_resource aws__response 374 14 none] [update_header aws__response__set 53 14 none]
+G r s stream_type [create_resource aws__response 374 14 none] [stream_typeIP aws__resources__streams__disk__once 36 9 none]
+G r l stream_type [create_resource aws__response 374 14 none] [stream_typeDI aws__resources__streams__disk__once 36 9 none]
+G r c none [create_resource aws__response 374 14 none] [open aws__resources__streams__disk 40 14 none]
+G r c none [create_resource aws__response 374 14 none] [create aws__resources__streams 66 14 none]
+G r s list [websocket aws__response 396 13 none] [listIP aws__headers 97 9 none]
+G r l list [websocket aws__response 396 13 none] [listDI aws__headers 97 9 none]
+G r k list [websocket aws__response 396 13 none] [listDF aws__headers 97 9 none]
+G r c none [websocket aws__response 396 13 none] [reset aws__headers 85 25 none]
+G r k stream_type [websocket aws__response 396 13 none] [stream_typeDF aws__resources__streams 73 9 none]
+G r c none [websocket aws__response 396 13 none] [status_code aws__response__set 67 14 none]
+G r c none [websocket aws__response 396 13 none] [mode aws__response__set 125 14 none]
+G r c none [websocket aws__response 396 13 none] [add_header aws__response__set 44 14 none]
+G r j list [websocket aws__response 396 13 none] [listDA aws__headers 97 9 none]
+G r c none [initialize aws__response 448 25 none] [reset aws__headers 85 25 none]
+G r k stream_type [finalize aws__response 450 25 none] [stream_typeDF aws__resources__streams 73 9 none]
+G r j list [dataDA aws__response 436 9 none] [listDA aws__headers 97 9 none]
+G r k stream_type [dataDF aws__response 436 9 none] [stream_typeDF aws__resources__streams 73 9 none]
+G r k list [dataDF aws__response 436 9 none] [listDF aws__headers 97 9 none]
+G r c none [dataDI aws__response 436 9 none] [reset aws__headers 85 25 none]
+G r s list [dataIP aws__response 436 9 none] [listIP aws__headers 97 9 none]
+G r l list [dataIP aws__response 436 9 none] [listDI aws__headers 97 9 none]
+G r k list [dataIP aws__response 436 9 none] [listDF aws__headers 97 9 none]
+X 1 ada.ads
+16K9*Ada 20e8 73|37r6 38r6 39r6 48r14 49r14 53r8 54r8 55r8 436r21 452r36
+. 74|32r6 33r6 392r39 582r11
+X 2 a-calend.ads
+36K13*Calendar 413e17 73|37w10 317r39 74|299r39
+42I9*Time<226I9> 73|317r48 74|299r48
+226I9 Time_Rep<long_long_integer>
+X 9 a-conhel.ads
+84R12 Reference_Control_Type<19|43R9>
+X 16 a-direct.ads
+76K13*Directories 502e20 74|32w10 320r15 680r20
+245V13*Simple_Name{string} 74|320s27 680s32
+X 19 a-finali.ads
+40K13*Finalization 68e21 73|48w18 436r25
+43H9*Controlled<108|40R9> 59e72 73|436r38
+X 21 a-iteint.ads
+24h9 Forward_Iterator
+32h9 Reversible_Iterator<24R9[7|77]>
+X 23 a-stream.ads
+36K13*Streams 87e16 73|38w10 54r12 74|178r23 519r44 522r26
+42M9*Stream_Element
+44I9*Stream_Element_Offset<long_long_integer> 73|85r9 85r43 74|500r16 523r17
+. 539r22
+54A9*Stream_Element_Array(42M9)<44I9> 73|131r23 345r44 74|178r31 499r16 519r52
+. 522r34 538r22
+X 25 a-string.ads
+16K13*Strings 35e16 73|39r10 55r12 74|33r10 160r25 582r15
+X 26 a-strfix.ads
+43K21*Fixed 1398e22 74|33w18 593r38 598r20
+237V13*Index{natural} 74|593s44
+807V13*Replace_Slice{string} 74|598s26
+X 32 a-strunb.ads
+83K21*Unbounded 765e26 73|39w18 55r20 74|160r33
+88R9*Unbounded_String<19|43R9> 744e15 73|117r25 342r44 440r22 441r22 74|160r43
+. 495r44 498r16
+91r4*Null_Unbounded_String{88R9} 74|503r17
+117V13*To_String{string} 74|107s40 126s32 239s14 381s14
+136U14*Append 74|509s10
+X 35 a-tags.ads
+652V13 CW_Membership{boolean} 74|269s50 514s21 546s27
+X 40 a-uncdea.ads
+20u15*Unchecked_Deallocation 73|49w18 452r40 74|392r43
+X 41 aws.ads
+32K9*AWS 41e8 73|41r6 42r6 43r6 44r6 45r6 46r6 51r9 57r13 219r48 291r38 350r18
+. 376r18 443r22 455r5 74|35r6 36r6 37r6 38r6 39r6 41r14 43r24 91r35 101r11
+. 118r11 248r18 251r11 265r25 267r30 268r16 269r19 271r16 434r38 555r18 578r48
+. 755r5
+X 48 aws-containers-tables.ads
+53A9*VString_Array(32|88R9)<integer>
+71V13*Exist{boolean} 74|427s23
+74V13*Get{string} 74|201s18 224s28 301s40 441s22 483s22 622s28
+103V13*Get_Values{53A9} 74|103s23 120s23
+X 53 aws-headers.ads
+35K13*Headers 102e16 73|41w10 291r42 443r26 74|35r10 101r15 118r15 201r10
+. 224r20 301r32 434r42 441r14 446r14 483r14 619r11 633r7
+37R9*List<48|41R9> 97e70 73|291r50 443r34 74|434r50
+45A12*VString_Array{48|53A9}<integer> 74|102r30 119r30
+52U14*Send_Header 74|633s15
+73V13*Get_Values{string} 74|446s22
+85U25*Reset<48|173p14> 74|456s21
+X 54 aws-headers-values.ads
+32K21*Values 115e23 74|35w18 107r14 125r29 621r14
+97V13*Search{string} 74|125s36 621s21
+98a7 Header_Value{string} 74|622r10
+99a7 Name{string} 74|623r10
+100b7 Case_Sensitive{boolean} 74|624r10
+104V13*Get_Unnamed_Value{string} 74|107s21
+X 57 aws-messages.ads
+36K13*Messages 402e17 73|42w10 57r17 108r23 108r52 109r23 109r52 110r23 110r52
+. 118r25 118r54 119r25 119r54 120r25 120r54 132r23 132r55 133r23 133r55 134r23
+. 134r55 159r23 159r52 160r23 160r52 161r23 161r52 181r23 181r52 182r23 182r52
+. 183r23 183r52 207r23 207r48 210r53 220r23 220r48 223r55 235r22 255r62 268r43
+. 300r43 310r45 313r45 398r56 439r22 439r46 74|50r22 103r45 120r45 143r23
+. 143r52 144r23 144r52 145r23 145r52 161r25 161r54 162r25 162r54 163r25 163r54
+. 179r23 179r52 180r23 180r52 181r23 181r52 198r45 200r14 201r33 204r45 206r14
+. 206r38 224r43 260r38 291r32 301r14 301r55 311r23 311r52 312r23 312r52 313r23
+. 313r52 339r19 345r19 359r18 361r27 363r18 365r27 367r18 483r37 579r23 579r48
+. 607r34 622r43 651r43 663r23 663r52 664r23 664r52 665r23 665r52 708r13 714r13
+. 727r23 727r48 732r34 746r32 749r18 749r45 751r18 751r42
+62a4*Cache_Control_Token{string} 74|201r42
+63a4*Connection_Token{string} 74|749r27
+68a4*Upgrade_Token{string} 74|749r54 751r27
+104a4*Location_Token{string} 74|483r46
+109a4*WWW_Authenticate_Token{string} 74|103r54 120r54 622r52
+127a4*Content_Encoding_Token{string} 74|260r47 361r36 365r36
+129a4*Content_Length_Token{string} 74|224r52
+134a4*Expires_Token{string} 74|301r64
+149a4*Content_Disposition_Token{string} 74|339r28 345r28 708r22 714r22
+156a4*Websocket_Token{string} 74|751r51
+174E9*Status_Code 195e8 73|57r26 108r32 118r34 132r32 159r32 181r32 235r31
+. 300r52 439r31 74|50r31 143r32 161r34 179r32 311r32 651r52 663r32
+175n13*S101{174E9} 73|398r65 74|746r41
+178n7*S200{174E9} 73|108r61 118r63 132r64 159r61 181r61 439r55 74|143r61
+. 161r63 179r61 311r61 663r61
+178n31*S204{174E9} 73|268r52 74|291r41
+182n13*S301{174E9} 73|223r64 74|607r43
+182n19*S302{174E9} 73|210r62 74|732r43
+186n13*S401{174E9} 73|255r71
+216E9*Content_Encoding 216e54 73|110r32 120r34 134r32 161r32 183r32 74|145r32
+. 163r34 181r32 313r32 665r32
+216n30*Identity{216E9} 73|110r61 120r63 134r64 161r61 183r61 74|145r61 163r63
+. 181r61 313r61 367r27 665r61
+216n40*GZip{216E9} 74|359r27
+216n46*Deflate{216E9} 74|363r27
+224A9*Cache_Option<string>(character)<integer> 73|109r32 119r34 133r32 160r32
+. 182r32 207r32 220r32 310r54 74|144r32 162r34 180r32 198r54 200r23 312r32
+. 579r32 664r32 727r32
+235a4*Unspecified{224A9} 73|109r61 119r63 133r64 160r61 207r57 220r57 74|144r61
+. 162r63 180r61 312r61 579r57 727r57
+236a4*No_Cache{224A9} 73|182r61 74|664r61
+240n33*Response{240E9} 74|206r47
+257R9*Cache_Data 276e14 73|313r54 74|204r54
+282V13*To_Cache_Data{257R9} 74|206s23
+377V13*To_Time{2|42I9} 74|301s23
+X 58 aws-mime.ads
+30K13*MIME 178e13 73|43w10 219r52 237r32 74|52r32 91r39 578r52
+45a4*Text_HTML{string} 73|219r57 237r37 74|52r37 91r44 578r57
+X 59 aws-net.ads
+45K13*Net 520e12 73|44w10 296r36 74|631r36
+55H9*Socket_Type<19|43R9> 484e14 73|296r40 74|631r40
+X 65 aws-resources.ads
+36K13*Resources 180e18 73|45r10 180r39 350r22 376r22 423r46 442r22 453r7
+. 453r44 74|36r10 37r10 43r28 248r22 251r15 265r29 267r34 268r20 269r23 271r20
+. 275r13 331r10 390r11 496r16 507r10 520r16 529r15 531r17 541r13 555r22 557r7
+. 662r39 681r16
+42P9*File_Type 73|350r32 376r32 74|248r32 555r32
+53I12*Content_Length_Type{23|44I9}
+55i4*Undefined_Length{53I12} 73|423r56 74|531r27
+70U14*Open 74|257s13
+128V13*Is_Regular_File{boolean} 74|331s20
+X 66 aws-resources-streams.ads
+32K23*Streams 75e26 73|45w20 180r49 442r32 453r17 453r54 74|36r20 37r20 43r38
+. 265r39 267r44 268r30 269r33 271r30 275r23 390r21 496r26 507r20 520r26 529r25
+. 541r23 557r17 662r49 681r26
+34H9*Stream_Type<65|146R9> 73e75 73|180r57 453r25 74|662r57
+36P9*Stream_Access(34R9) 73|442r40 453r62 74|265r47 496r34 520r34
+40x14*Read<65|161p14> 74|507R28 541R31
+54x14*Close<65|169p14> 74|412R16
+56V13*Size{23|44I9}<65|166p13> 74|529R33
+61V13*Name{string} 74|681R34 689R17 690R39
+66U14*Create 74|271s38 275s31 557s25
+X 68 aws-resources-streams-disk.ads
+36K31*Disk 81e31 74|36r28 267r52 268r38 269r41
+40U14*Open 74|268s48
+X 69 aws-resources-streams-disk-once.ads
+34K36*Once 42e36 74|36w33 267r57 268r43 269r46
+36R9*Stream_Type<68|38R9> 36e61 74|267r62 269r51
+X 70 aws-resources-streams-memory.ads
+40K31*Memory 102e33 74|37w28 43r46
+42R9*Stream_Type<66|34R9> 100e14 74|514r22 546r28
+78U25*Reset<66|45p14> 74|514s11 546s17
+X 73 aws-response.ads
+51K13*Response 41|32k9 73|113r26 123r26 137r26 167r26 189r26 240r17 404E4
+. 455l9 455e17 74|38r10 41b18 256r15 263r15 274r15 274r33 360r16 364r16 755l9
+. 755t17
+59R9*Data<19|43R9> 62r68 111r14 121r14 135r14 165r14 187r14 208r14 221r14
+. 237r55 253r14 260r33 267r26 283r25 287r25 291r25 293r29 296r63 300r30 303r33
+. 307r31 310r32 313r32 317r26 320r27 328r23 331r27 334r31 342r31 345r31 349r14
+. 353r27 361r24 364r33 367r39 375r21 386r33 389r29 396r30 436c9 446e14 448r53
+. 449r53 450r53 74|52r55 54r16 72r49 86r14 88r16 100r33 117r39 146r14 148r16
+. 164r14 166r16 182r14 184r16 198r32 204r32 213r33 222r33 237r31 247r21 288r26
+. 289r16 299r26 316r63 324r16 379r27 388r51 425r29 434r25 439r25 444r25 453r53
+. 463r27 472r29 481r27 490r31 495r31 519r31 554r14 566r23 580r14 603r22 618r24
+. 631r63 640r33 641r16 651r30 668r63 687r16 728r14 730r16 743r30 744r16
+62P9*Callback(59R9) 62>38
+62r38 Request{79|58R9}
+66E9*Data_Mode 74e15 328r36 438r22 74|566r36
+67n7*Header{66E9} 211r46 242r51 74|59r28 734r34
+68n7*Message{66E9} 74|274r42
+69n7*File{66E9} 170r53 74|256r24 355r31
+70n7*File_Once{66E9} 169r53 74|263r24 353r31
+71n7*Stream{66E9} 74|274r24
+72n7*Socket_Taken{66E9} 262r52 74|643r25
+73n7*WebSocket{66E9} 399r49 74|747r32
+74n7*No_Data{66E9} 269r45 438r46 74|465r23
+76E9*Authentication_Mode 76e61 250r17 364r46 74|83r17 100r46 106r17
+76n33*Unknown{76E9}
+76n42*Any{76E9} 74|109r17
+76n47*Basic{76E9} 250r40 74|83r40
+76n54*Digest{76E9}
+84I12*Content_Length_Type{23|44I9} 87r32 303r46 422r32 423r25 74|222r46 229r17
+87i4*Undefined_Length{84I12} 422c4 74|227r17
+93a4*Default_Moved_Message{string} 218r48 404c4 74|577r48
+97a4*Default_Authenticate_Message{string} 252r40 409c4 74|85r40
+105V13*Build{59R9} 106>7 107>7 108>7 109>7 110>7 74|140b13 156l8 156t13
+106a7 Content_Type{string} 74|141b7 151r34
+107a7 Message_Body{string} 74|142b7 153r34
+108e7 Status_Code{57|174E9} 113r64 74|143b7 150r34
+109a7 Cache_Control{57|224A9} 74|144b7 154r34
+110e7 Encoding{57|216E9} 74|145b7 152r34
+115V13*Build{59R9} 116>7 117>7 118>7 119>7 120>7 74|158b13 174l8 174t13
+116a7 Content_Type{string} 74|159b7 169r34
+117r7 UString_Message{32|88R9} 74|160b7 171r34
+118e7 Status_Code{57|174E9} 123r64 74|161b7 168r34
+119a7 Cache_Control{57|224A9} 74|162b7 172r34
+120e7 Encoding{57|216E9} 74|163b7 170r34
+129V13*Build{59R9} 130>7 131>7 132>7 133>7 134>7 74|176b13 192l8 192t13
+130a7 Content_Type{string} 74|177b7 187r34
+131a7 Message_Body{23|54A9} 74|178b7 189r34
+132e7 Status_Code{57|174E9} 137r64 74|179b7 186r34
+133a7 Cache_Control{57|224A9} 74|180b7 190r34
+134e7 Encoding{57|216E9} 74|181b7 188r34
+140E9*Disposition_Mode 140e55 163r23 185r23 74|315r23 667r23
+140n30*Attachment{140E9} 74|336r18 705r27
+140n42*Inline{140E9} 74|342r18 711r27
+140n50*None{140E9} 163r52 185r52 74|315r52 348r18 667r52 702r24
+156V13*File{59R9} 157>7 158>7 159>7 160>7 161>7 162>7 163>7 164>7 74|308b13
+. 373l8 373t12
+157a7 Content_Type{string} 74|309b7 327r34
+158a7 Filename{string} 74|310b7 320r40 328r34 331r37
+159e7 Status_Code{57|174E9} 167r63 74|311b7 326r34
+160a7 Cache_Control{57|224A9} 74|312b7 329r34
+161e7 Encoding{57|216E9} 74|313b7 358r15
+162b7 Once{boolean} 168r30 74|314b7 352r13
+163e7 Disposition{140E9} 74|315b7 335r15
+164a7 User_Filename{string} 74|316b7 319r13 321r15
+178V13*Stream{59R9} 179>7 180^7 181>7 182>7 183>7 184>7 185>7 186>7 74|660b13
+. 719l8 719t14
+179a7 Content_Type{string} 74|661b7 695r35
+180p7 Handle(66|34R9) 74|662b7 681r40 689r10 690r32 693r35
+181e7 Status_Code{57|174E9} 189r65 74|663b7 694r35
+182a7 Cache_Control{57|224A9} 74|664b7 696r35
+183e7 Encoding{57|216E9} 74|665b7 693r43
+184b7 Server_Close{boolean} 74|666b7 697r35
+185e7 Disposition{140E9} 74|667b7 702r10 705r13 711r13
+186a7 User_Filename{string} 74|668b7 679r13 683r20
+205V13*URL{59R9} 206>7 207>7 209r31 210r39 211r32 74|725b13 737l8 737t11
+206a7 Location{string} 74|726b7 733r34
+207a7 Cache_Control{57|224A9} 74|727b7 735r34
+216V13*Moved{59R9} 217>7 218>7 219>7 220>7 222r31 223r39 74|575b13 612l8
+. 612t13
+217a7 Location{string} 74|576b7 598r68 606r34
+218a7 Message{string} 74|577b7 593r51 596r20 598r41
+219a7 Content_Type{string} 74|578b7 609r34
+220a7 Cache_Control{57|224A9} 74|579b7 610r34
+234V13*Acknowledge{59R9} 235>7 236>7 237>7 239r22 240r39 242r29 74|49b13
+. 66l8 66t19
+235e7 Status_Code{57|174E9} 240r61 74|50b7 56r32
+236a7 Message_Body{string} 241r21 74|51b7 58r10 61r36
+237a7 Content_Type{string} 74|52b7 62r36
+248V13*Authenticate{59R9} 249>7 250>7 251>7 252>7 254r31 255r39 74|81b13
+. 94l8 94t20
+249a7 Realm{string} 74|82b7 90r35
+250e7 Mode{76E9} 74|83b7 90r42
+251b7 Stale{boolean} 74|84b7 90r48
+252a7 Message{string} 74|85b7 92r35
+260V13*Socket_Taken{59R9} 74|640b13 645l8 645t20
+267V13*Empty{59R9} 268r27 269r29 74|288b13 293l8 293t13
+283V13*Header{string} 283>21 283>31 283>46 74|439b13 442l8 442t14
+283r21 D{59R9} 74|439b21 441r27
+283a31 Name{string} 74|439b31 441r37
+283i46 N{positive} 74|439b46 441r43
+287V13*Header{string} 287>21 287>31 74|444b13 447l8 447t14
+287r21 D{59R9} 74|444b21 446r34
+287a31 Name{string} 74|444b31 446r44
+291V13*Header{53|37R9} 291>21 74|434b13 437l8 437t14
+291r21 D{59R9} 74|434b21 436r14
+293V13*Has_Header{boolean} 293>25 293>35 74|425b13 428l8 428t18
+293r25 D{59R9} 74|425b25 427r14
+293a35 Name{string} 74|425b35 427r30
+296U14*Send_Header 296>27 296>59 74|631b14 634l8 634t19
+296c27 Socket<59|55R9> 74|631b27 633r28
+296r59 D{59R9} 74|631b59 633r36
+300V13*Status_Code{57|174E9} 113s35 123s35 137s35 167s35 189s35 210s26 223s26
+. 240s26 255s26 268s14 300>26 398s23 74|651b13 654l8 654t19
+300r26 D{59R9} 74|651b26 653r14
+303V13*Content_Length{84I12} 303>29 74|222b13 231l8 231t22
+303r29 D{59R9} 74|222b29 224r33
+307V13*Content_Type{string} 307>27 74|237b13 240l8 240t20
+307r27 D{59R9} 74|237b27 239r25
+310V13*Cache_Control{57|224A9} 310>28 74|198b13 202l8 202t21 206s57
+310r28 D{59R9} 74|198b28 201r23
+313V13*Cache_Control{57|257R9} 313>28 74|204b13 207l8 207t21
+313r28 D{59R9} 74|204b28 206r72
+317V13*Expires{2|42I9} 317>22 74|299b13 302l8 302t15
+317r22 D{59R9} 74|299b22 301r45
+320V13*Location{string} 320>23 74|481b13 484l8 484t16
+320r23 D{59R9} 74|481b23 483r27
+328V13*Mode{66E9} 169s32 170s32 211s26 242s23 262s23 269s23 328>19 399s23
+. 74|566b13 569l8 569t12
+328r19 D{59R9} 74|566b19 568r14
+331V13*Is_Empty{boolean} 112s21 122s21 136s21 166s21 188s21 209s21 222s21
+. 239s12 254s21 261s18 331>23 397s18 74|463b13 466l8 466t16
+331r23 D{59R9} 74|463b23 465r14
+334V13*Message_Body{string} 334>27 74|490b13 493l8 493t20
+334r27 D{59R9} 74|490b27 492r50
+342V13*Message_Body{32|88R9} 342>27 74|495b13 517l8 517t20
+342r27 D{59R9} 74|495b27 502r10 507r34 514r35
+345V13*Message_Body{23|54A9} 345>27 74|492s36 519b13 551l8 551t20
+345r27 D{59R9} 74|519b27 525r10 529r39 541r37 546r41
+348U14*Message_Body 349>7 350<7 74|553b14 560l8 560t20
+349r7 D{59R9} 74|554b7 557r39 559r7
+350p7 File{65|42P9} 74|555b7 557m33
+353V13*Filename{string} 353>23 74|257s25 270s19 379b13 382l8 382t16
+353r23 D{59R9} 74|379b23 381r25
+361V13*Realm{string} 361>20 74|618b13 625l8 625t13
+361r20 D{59R9} 74|618b20 622r33
+364V13*Authentication{76E9} 364>29 74|100b13 111l8 111t22
+364r29 D{59R9} 74|100b29 103r35
+367V13*Authentication_Stale{boolean} 367>35 74|117b13 134l8 134t28
+367r35 D{59R9} 74|117b35 120r35
+374U14*Create_Resource 375=7 376<7 377>7 74|246b14 282l8 282t23
+375r7 D{59R9} 74|247b7 255r12 257r35 260m35 270r29 275r45 277r13
+376p7 File{65|42P9} 74|248b7 257m19 271m46 275m39
+377b7 GZip{boolean} 74|249b7 253r29
+386V13*Close_Resource{boolean} 386>29 74|213b13 216l8 216t22
+386r29 D{59R9} 74|213b29 215r14
+389V13*Keep_Alive{boolean} 389>25 74|472b13 475l8 475t18
+389r25 D{59R9} 74|472b25 474r14
+396V13*WebSocket{59R9} 74|743b13 753l8 753t17
+407a4 CRLF{string} 410r23 411r54 412r26 413r44 414r50 415r54 416r54 417r53
+. 418r53 419r41 420r27
+425R9 Release_Controller 432e14 434r49 74|393r10 455r33
+426i7*Counter{natural} 74|74m26 74r56 403m22 403r45 405r25
+429b7*Stream_Taken{boolean} 74|277m27 408r32 559m21
+434P9 Release_Controller_Access(425R9) 437r22 74|393r30 395r21
+437p7*Ref_Counter{434P9} 74|74r14 74r44 277r15 395r57 400m14 455m14 559r9
+438e7*Mode{66E9} 74|255r14 465r16 568r16
+439e7*Status_Code{57|174E9} 74|653r16
+440r7*Filename{32|88R9} 74|381r27
+441r7*Content_Type{32|88R9} 74|239r27
+442p7*Stream{66|36P9} 74|275r47 409r31 412r30 413m39 502r12 507r36 514r37
+. 525r12 529r41 541r39 546r43 557r41
+443r7*Header{53|37R9} 74|103r37 120r37 201r25 224r35 301r47 427r16 436r16
+. 441r29 446r36 456m14 483r29 622r35 633r38
+444b7*Close_Stream{boolean} 74|215r16
+445b7*Keep_Alive{boolean} 74|474r16
+448U25 Initialize<19|46p14> 448=37 74|453b25 457l8 457t18
+448r37 Object{59R9} 74|453b37 455m7 456m7 456r7
+449U25 Adjust<19|47p14> 449=37 74|72b25 75l8 75t14
+449r37 Object{59R9} 74|72b33 74r7 74r37
+450U25 Finalize<19|48p14> 450=37 74|388b25 419l8 419t16
+450r37 Object{59R9} 74|388b35 395r50 400m7 409r24 412r23 413m32 413r32
+452U14 Unchecked_Free[40|20] 74|413s16
+X 74 aws-response.adb
+43K12 RSM=43:46 514r7 514r18 546r13 546r24
+54r7 Result{73|59R9} 56m24 56r24 59m20 59r20 61m28 61r28 62m28 62r28 65r14
+88r7 Result{73|59R9} 90m27 90r27 91m27 91r27 92m27 92r27 93r14
+102a7 Auth_Values{53|45A12} 105r10 107r51
+119a7 Auth_Values{53|45A12} 122r16 126r43
+122i11 J{integer} 126r56
+124a13 Stale_Image{string} 128r16 129r38
+148r7 Result{73|59R9} 150m26 150r26 151m26 151r26 152m26 152r26 153m26 153r26
+. 154m26 154r26 155r14
+166r7 Result{73|59R9} 168m26 168r26 169m26 169r26 170m26 170r26 171m26 171r26
+. 172m26 172r26 173r14
+184r7 Result{73|59R9} 186m26 186r26 187m26 187r26 188m26 188r26 189m26 189r26
+. 190m26 190r26 191r14
+223a7 CL_Image{string} 226r10 229r44
+253b7 GZip_Out{boolean} 257m52 257r52 259r16
+265p16 Stream{66|36P9} 267m16 269r64 271r52
+289r7 Result{73|59R9} 291m24 291r24 292r14
+318V16 CD_Filename{string} 340s47 346s43
+324r7 Result{73|59R9} 326m26 326r26 327m26 327r26 328m26 328r26 329m26 329r26
+. 338m19 338r19 344m19 344r19 353m23 353r23 355m23 355r23 361m19 361r19 365m19
+. 365r19 372r14
+392U17 Unchecked_Free[40|20] 416s13
+395p7 Ref_Counter{73|434P9} 402r10 403r10 403r33 405r13 408r20 416m29 416r29
+498r7 Result{32|88R9} 509m18 509r18 516r14
+499a7 Buffer{23|54A9} 507m48 509r48 511r27
+500i7 Last{23|44I9} 507m56 509r61 511r20
+522a7 No_Data{23|54A9} 526r17
+523i7 Size{23|44I9} 529m7 531r10 538r49
+538a13 Result{23|54A9} 541m51 548r20
+539i13 Last{23|44I9} 541m59
+584V16 Build_Message_Body{string} 592b16 600l11 600t29 602s41
+593i10 Start{natural} 595r13 598r50 598r57
+602a7 Message_Body{string} 608r34
+603r7 Result{73|59R9} 606m26 606r26 607m26 607r26 608m26 608r26 609m26 609r26
+. 610m26 610r26 611r14
+641r7 Result{73|59R9} 643m17 643r17 644r14
+670V16 CD_Filename{string} 677b16 685l11 685t22 702s37 709s41 715s37
+687r7 Result{73|59R9} 690m24 690r24 693m27 693r27 694m27 694r27 695m27 695r27
+. 696m27 696r27 697m27 697r27 707m13 707r13 713m13 713r13 718r14
+730r7 Result{73|59R9} 732m26 732r26 733m26 733r26 734m26 734r26 735m26 735r26
+. 736r14
+744r7 Result{73|59R9} 746m24 746r24 747m24 747r24 749m10 749r10 751m10 751r10
+. 752r14
+X 75 aws-response-set.ads
+34K22*Set 74|38w19 56r7 59r10 61r10 62r10 90r7 91r7 92r7 150r7 151r7 152r7
+. 153r7 154r7 168r7 169r7 170r7 171r7 172r7 186r7 187r7 188r7 189r7 190r7
+. 260r16 291r7 326r7 327r7 328r7 329r7 337r16 343r16 353r13 355r13 360r25
+. 364r25 606r7 607r7 608r7 609r7 610r7 643r7 690r10 693r7 694r7 695r7 696r7
+. 697r7 706r10 712r10 732r7 733r7 734r7 735r7 746r7 747r7 748r7 750r7 75|205e21
+44U14*Add_Header 74|337s20 343s20 360s29 364s29 706s14 712s14 748s11 750s11
+53U14*Update_Header 74|260s20
+67U14*Status_Code 74|56s11 150s11 168s11 186s11 291s11 326s11 607s11 694s11
+. 732s11 746s11
+73U14*Content_Type 74|62s14 91s11 151s11 169s11 187s11 327s11 609s11 695s11
+91U14*Cache_Control 74|154s11 172s11 190s11 329s11 610s11 696s11 735s11
+97U14*Location 74|606s11 733s11
+104U14*Authentication 74|90s11
+125U14*Mode 74|59s14 353s17 355s17 643s11 734s11 747s11
+132U14*Filename 74|328s11 690s14
+139U14*Stream 74|693s11
+148U14*Close_Resource 74|697s11
+160U14*Data_Encoding 74|152s11 170s11 188s11
+171U14*Message_Body 74|189s11
+177U14*Message_Body 74|171s11
+184U14*Message_Body 74|61s14 92s11 153s11 608s11
+X 79 aws-status.ads
+52K13*Status 73|46w10 62r48 79|405e15
+58R9*Data 73|62r55 79|403e14
+X 80 aws-translator.ads
+38K13*Translator 74|39w10 492r14 509r26 80|180e19
+138V13*To_String{string} 74|492s25 509s37
+X 100 system.ads
+67M9*Address
+X 110 s-memory.ads
+53V13*Alloc{100|67M9} 103i<c,__gnat_malloc>22
+68U14*Free 104i<c,__gnat_free>22
+76V13*Realloc{100|67M9} 105i<c,__gnat_realloc>22
+X 121 s-stausa.ads
+208U14*Initialize 209i<c,__gnat_stack_usage_initialize>22
+273U14*Output_Results 277i<c,__gnat_stack_usage_output_results>22
+X 123 s-stalib.adb
+89U14 Break_Start 90i<c,__gnat_break_start>22
+

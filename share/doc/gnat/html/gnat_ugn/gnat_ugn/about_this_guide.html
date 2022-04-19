@@ -1,0 +1,213 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1. About This Guide &#8212; GNAT User&#39;s Guide for Native Platforms 2021 documentation</title>
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="2. Getting Started with GNAT" href="getting_started_with_gnat.html" />
+    <link rel="prev" title="GNAT User’s Guide for Native Platforms" href="../gnat_ugn.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="getting_started_with_gnat.html" title="2. Getting Started with GNAT"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../gnat_ugn.html" title="GNAT User’s Guide for Native Platforms"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../gnat_ugn.html">GNAT User&#39;s Guide for Native Platforms 2021 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">1. </span>About This Guide</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="about-this-guide">
+<span id="id1"></span><h1><span class="section-number">1. </span>About This Guide<a class="headerlink" href="#about-this-guide" title="Permalink to this headline">¶</a></h1>
+<p>This guide describes the use of GNAT,
+a compiler and software development
+toolset for the full Ada programming language.
+It documents the features of the compiler and tools, and explains
+how to use them to build Ada applications.</p>
+<p>GNAT implements Ada 95, Ada 2005, Ada 2012, and Ada 202x, and it may also be
+invoked in Ada 83 compatibility mode.
+By default, GNAT assumes Ada 2012, but you can override with a
+compiler switch (<a class="reference internal" href="building_executable_programs_with_gnat.html#compiling-different-versions-of-ada"><span class="std std-ref">Compiling Different Versions of Ada</span></a>)
+to explicitly specify the language version.
+Throughout this manual, references to ‘Ada’ without a year suffix
+apply to all Ada versions of the language, starting with Ada 95.</p>
+<div class="section" id="what-this-guide-contains">
+<h2><span class="section-number">1.1. </span>What This Guide Contains<a class="headerlink" href="#what-this-guide-contains" title="Permalink to this headline">¶</a></h2>
+<p>This guide contains the following chapters:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="getting_started_with_gnat.html#getting-started-with-gnat"><span class="std std-ref">Getting Started with GNAT</span></a> describes how to get started compiling
+and running Ada programs with the GNAT Ada programming environment.</p></li>
+<li><p><a class="reference internal" href="the_gnat_compilation_model.html#the-gnat-compilation-model"><span class="std std-ref">The GNAT Compilation Model</span></a> describes the compilation model used
+by GNAT.</p></li>
+<li><p><a class="reference internal" href="building_executable_programs_with_gnat.html#building-executable-programs-with-gnat"><span class="std std-ref">Building Executable Programs with GNAT</span></a> describes how to use the
+main GNAT tools to build executable programs, and it also gives examples of
+using the GNU make utility with GNAT.</p></li>
+<li><p><a class="reference internal" href="gnat_utility_programs.html#gnat-utility-programs"><span class="std std-ref">GNAT Utility Programs</span></a> explains the various utility programs that
+are included in the GNAT environment</p></li>
+<li><p><a class="reference internal" href="gnat_and_program_execution.html#gnat-and-program-execution"><span class="std std-ref">GNAT and Program Execution</span></a> covers a number of topics related to
+running, debugging, and tuning the performace of programs developed
+with GNAT</p></li>
+</ul>
+<p>Appendices cover several additional topics:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="platform_specific_information.html#platform-specific-information"><span class="std std-ref">Platform-Specific Information</span></a> describes the different run-time
+library implementations and also presents information on how to use
+GNAT on several specific platforms</p></li>
+<li><p><a class="reference internal" href="example_of_binder_output.html#example-of-binder-output-file"><span class="std std-ref">Example of Binder Output File</span></a> shows the source code for the binder
+output file for a sample program.</p></li>
+<li><p><a class="reference internal" href="elaboration_order_handling_in_gnat.html#elaboration-order-handling-in-gnat"><span class="std std-ref">Elaboration Order Handling in GNAT</span></a> describes how GNAT helps
+you deal with elaboration order issues.</p></li>
+<li><p><a class="reference internal" href="inline_assembler.html#inline-assembler"><span class="std std-ref">Inline Assembler</span></a> shows how to use the inline assembly facility
+in an Ada program.</p></li>
+</ul>
+</div>
+<div class="section" id="what-you-should-know-before-reading-this-guide">
+<h2><span class="section-number">1.2. </span>What You Should Know before Reading This Guide<a class="headerlink" href="#what-you-should-know-before-reading-this-guide" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="index-0"></span><p id="index-1">This guide assumes a basic familiarity with the Ada 95 language, as
+described in the International Standard ANSI/ISO/IEC-8652:1995, January
+1995.
+Reference manuals for Ada 95, Ada 2005, and Ada 2012 are included in
+the GNAT documentation package.</p>
+</div>
+<div class="section" id="related-information">
+<h2><span class="section-number">1.3. </span>Related Information<a class="headerlink" href="#related-information" title="Permalink to this headline">¶</a></h2>
+<p>For further information about Ada and related tools, please refer to the
+following documents:</p>
+<ul class="simple">
+<li><p><cite>Ada 95 Reference Manual</cite>, <cite>Ada 2005 Reference Manual</cite>, and
+<cite>Ada 2012 Reference Manual</cite>, which contain reference
+material for the several revisions of the Ada language standard.</p></li>
+<li><p><cite>GNAT Reference_Manual</cite>, which contains all reference material for the GNAT
+implementation of Ada.</p></li>
+<li><p><cite>Using GNAT Studio</cite>, which describes the GNAT Studio
+Integrated Development Environment.</p></li>
+<li><p><cite>GNAT Studio Tutorial</cite>, which introduces the
+main GNAT Studio features through examples.</p></li>
+<li><p><cite>Debugging with GDB</cite>,
+for all details on the use of the GNU source-level debugger.</p></li>
+<li><p><cite>GNU Emacs Manual</cite>,
+for full information on the extensible editor and programming
+environment Emacs.</p></li>
+</ul>
+</div>
+<div class="section" id="conventions">
+<h2><span class="section-number">1.4. </span>Conventions<a class="headerlink" href="#conventions" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="index-2"></span><p id="index-3">Following are examples of the typographical and graphic conventions used
+in this guide:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">Functions</span></code>, <code class="docutils literal notranslate"><span class="pre">utility</span> <span class="pre">program</span> <span class="pre">names</span></code>, <code class="docutils literal notranslate"><span class="pre">standard</span> <span class="pre">names</span></code>,
+and <code class="docutils literal notranslate"><span class="pre">classes</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Option</span> <span class="pre">flags</span></code></p></li>
+<li><p><code class="file docutils literal notranslate"><span class="pre">File</span> <span class="pre">names</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Variables</span></code></p></li>
+<li><p><em>Emphasis</em></p></li>
+<li><p>[optional information or parameters]</p></li>
+<li><p>Examples are described by text</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ow">and</span> <span class="n">then</span> <span class="n">shown</span> <span class="n">this</span> <span class="n">way</span><span class="o">.</span>
+</pre></div>
+</div>
+</li>
+<li><p>Commands that are entered by the user are shown as preceded by a prompt string
+comprising the <code class="docutils literal notranslate"><span class="pre">$</span></code> character followed by a space.</p></li>
+<li><p>Full file names are shown with the ‘/’ character
+as the directory separator; e.g., <code class="file docutils literal notranslate"><span class="pre">parent-dir/subdir/myfile.adb</span></code>.
+If you are using GNAT on a Windows platform, please note that
+the ‘\’ character should be used instead.</p></li>
+</ul>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../gnat_ugn.html">
+              <img class="logo" src="../_static/adacore_transparent.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="../gnat_ugn.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">1. About This Guide</a><ul>
+<li><a class="reference internal" href="#what-this-guide-contains">1.1. What This Guide Contains</a></li>
+<li><a class="reference internal" href="#what-you-should-know-before-reading-this-guide">1.2. What You Should Know before Reading This Guide</a></li>
+<li><a class="reference internal" href="#related-information">1.3. Related Information</a></li>
+<li><a class="reference internal" href="#conventions">1.4. Conventions</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../gnat_ugn.html"
+                        title="previous chapter">GNAT User’s Guide for Native Platforms</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="getting_started_with_gnat.html"
+                        title="next chapter"><span class="section-number">2. </span>Getting Started with GNAT</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/gnat_ugn/about_this_guide.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="getting_started_with_gnat.html" title="2. Getting Started with GNAT"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../gnat_ugn.html" title="GNAT User’s Guide for Native Platforms"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../gnat_ugn.html">GNAT User&#39;s Guide for Native Platforms 2021 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">1. </span>About This Guide</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2008-2021, Free Software Foundation.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,21 @@
+    <!-- XML_STREAM -->
+
+    <action name="&prefix;_xml_streams" category="">
+        <shell>
+            Project.load "&example_root;/gnat/xml_stream/xml_stream.gpr"
+        </shell>
+        <shell>
+            Editor.edit "main.adb"
+        </shell>
+        <shell>
+            Editor.edit "README.testing"
+        </shell>
+    </action>
+
+    <submenu before="About">
+        <title>&menu;</title>
+        <menu action="&prefix;_xml_streams">
+            <title>GNAT &prefix;/XML Streams</title>
+        </menu>
+    </submenu>
+

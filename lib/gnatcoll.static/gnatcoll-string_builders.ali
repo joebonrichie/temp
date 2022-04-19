@@ -1,0 +1,160 @@
+V "GNAT Lib v2021"
+A -O2
+A -gnatA
+A -gnatn
+A -gnatwa
+A -gnatwC
+A -gnatwJ
+A -mtune=generic
+A -march=x86-64
+P SS ZX
+
+RN
+RV NO_ALLOCATORS
+RV NO_EXCEPTIONS
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_LOCAL_ALLOCATORS
+RV NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_UNCHECKED_DEALLOCATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_OBSOLESCENT_FEATURES
+
+U gnatcoll.string_builders%b  gnatcoll-string_builders.adb  d3315ac1 NE OO PK IU
+W ada%s			ada.ads			ada.ali
+W ada.unchecked_deallocation%s
+W gnatcoll%s		gnatcoll.ads		gnatcoll.ali
+Z system%s		system.ads		system.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+
+U gnatcoll.string_builders%s  gnatcoll-string_builders.ads  a170f23a BN EE NE OO PK IU
+W gnatcoll%s		gnatcoll.ads		gnatcoll.ali
+W gnatcoll.os%s		gnatcoll-os.ads		gnatcoll-os.ali
+W system%s		system.ads		system.ali
+
+D ada.ads		20210520051131 76789da1 ada%s
+D a-charac.ads		20210520051128 2d3ec45b ada.characters%s
+D a-chacon.ads		20210520051128 5b23f5eb ada.characters.conversions%s
+D a-unccon.ads		20210520051130 0e9b276f ada.unchecked_conversion%s
+D a-uncdea.ads		20210520051130 c3a8ac65 ada.unchecked_deallocation%s
+D gnatcoll.ads		20210519051041 6a5da479 gnatcoll%s
+D gnatcoll-os.ads	20210519051041 399a6f15 gnatcoll.os%s
+D gnatcoll-string_builders.ads  20210519051041 506daf4b gnatcoll.string_builders%s
+D gnatcoll-string_builders.adb  20210519051041 40f459ef gnatcoll.string_builders%b
+D system.ads		20210520051135 a2da961d system%s
+D s-exctab.ads		20210520051132 54135002 system.exception_table%s
+D s-parame.ads		20210520051134 4752c4cb system.parameters%s
+D s-secsta.ads		20210520051134 9b3ab94b system.secondary_stack%s
+D s-stalib.ads		20210520051134 472fbca8 system.standard_library%s
+D s-stoele.ads		20210520051134 2dc34a04 system.storage_elements%s
+G a e
+G c Z s b [append gnatcoll__string_builders 38 14 none]
+G c Z s b [append gnatcoll__string_builders 41 14 none]
+G c Z s b [set gnatcoll__string_builders 44 14 none]
+G c Z s b [element gnatcoll__string_builders 47 13 none]
+G c Z s b [length gnatcoll__string_builders 51 13 none]
+G c Z s b [as_string gnatcoll__string_builders 56 13 none]
+G c Z s b [as_c_string gnatcoll__string_builders 60 13 none]
+G c Z s b [deallocate gnatcoll__string_builders 64 14 none]
+G c Z s b [append gnatcoll__string_builders 74 14 none]
+G c Z s b [append gnatcoll__string_builders 78 14 none]
+G c Z s b [set gnatcoll__string_builders 82 14 none]
+G c Z s b [element gnatcoll__string_builders 86 13 none]
+G c Z s b [length gnatcoll__string_builders 92 13 none]
+G c Z s b [as_string gnatcoll__string_builders 97 13 none]
+G c Z s b [as_c_string gnatcoll__string_builders 101 13 none]
+G c Z s s [string_builderIP gnatcoll__string_builders 120 9 none]
+G c Z s s [static_string_builderIP gnatcoll__string_builders 113 9 none]
+G c Z b b [free gnatcoll__string_builders 30 14 none]
+G c Z b b [allocate gnatcoll__string_builders 33 14 none]
+X 1 ada.ads
+16K9*Ada 20e8 9|24r6 30r26
+X 5 a-uncdea.ads
+20u15*Unchecked_Deallocation 9|24w10 30r30
+X 6 gnatcoll.ads
+24K9*GNATCOLL 27e13 8|25r6 27r9 29r23 132r5 9|26r14 240r5
+X 7 gnatcoll-os.ads
+26K18*OS 82e16 8|25w15 29r32
+46M9*C_String<10|67M9> 8|60r59 101r66 9|155r59 160r20 162r20 166r66 168r17
+49m4*Empty_C_String{46M9} 9|158r20
+X 8 gnatcoll-string_builders.ads
+27K18*String_Builders 6|24k9 8|107E9 132l14 132e29 9|26b23 240l14 240t29
+29K12*OS=29:32 60r56 101r63 9|155r56 158r17 160r17 162r17 166r63 168r14
+31R9*String_Builder 38r36 41r36 44r33 47r29 51r28 56r31 60r33 64r40 120c9
+. 124e14 9|33r38 39r38 73r36 108r36 137r31 155r33 175r40 187r29 214r28 228r33
+38U14*Append 38=22 38>52 9|73b14 90l8 90t14 231s7
+38r22 Self{31R9} 9|73b22 74r38 81m20 82r10 82r25 83r10 85m10 85r26 86m10
+. 88m7
+38a52 Str{string} 9|73b52 74r54 76r10 81r26 82r59 85r60
+41U14*Append 41=22 41>52 9|108b14 120l8 120t14
+41r22 Self{31R9} 9|108b22 110r10 111m20 112m10 112r27 113r10 113r25 114r10
+. 114r25 116m10 116r27 117m10 117r26 118m10 118r26
+41e52 Char{character} 9|108b52 113r43 117r44
+44U14*Set 44=19 44>49 9|228b14 232l8 232t11
+44r19 Self{31R9} 9|228b19 230m7 231m15
+44a49 Str{string} 9|228b49 231r21
+47V13*Element{character} 47>22 47>45 9|187b13 196l8 196t15
+47r22 Self{31R9} 9|187b22 189r14 191r13 192r17 194r17
+47i45 N{positive} 9|187b45 189r10 192r36 194r33
+51V13*Length{natural} 51>21 9|214b13 217l8 217t14
+51r21 Self{31R9} 9|214b21 216r14
+56V13*As_String{string} 56>24 9|137b13 144l8 144t17
+56r24 Self{31R9} 9|137b24 139r10 140r17 140r41 142r17 142r38
+60V13*As_C_String{7|46M9} 60>26 9|155b13 164l8 164t19
+60r26 Self{31R9} 9|155b26 157r10 159r13 160r30 162m30 162r30
+64U14*Deallocate 64=26 9|175b14 181l8 181t18
+64r26 Self{31R9} 9|175b26 177r10 178m16 178r16 179m10
+68R9*Static_String_Builder 68d32 74r36 78r36 82r33 87r15 92r28 97r31 101r33
+. 113c9 116e14 9|92r36 122r36 146r31 166r33 199r15 219r28 234r33
+68i32 Size_With_NUL{natural} 113r32 114r31 9|99r26 125r26
+74U14*Append 74=22 74>59 9|92b14 106l8 106t14 237s7
+74r22 Self{68R9} 9|92b22 93r38 99r21 103m7 103r7 103r17 104m7 105m7 105r17
+74a59 Str{string} 9|92b59 93r54 95r10 103r51
+78U14*Append 78=22 78>59 9|122b14 131l8 131t14
+78r22 Self{68R9} 9|122b22 123r38 125r21 128m7 129m7 129r17 130m7 130r17
+78e59 Char{character} 9|122b59 129r35
+82U14*Set 82=19 82>56 9|234b14 238l8 238t11
+82r19 Self{68R9} 9|234b19 236m7 237m15
+82a56 Str{string} 9|234b56 237r21
+86V13*Element{character} 87>8 87>38 9|198b13 208l8 208t15
+87r8 Self{68R9} 9|199b8 203r14 206r17
+87i38 N{positive} 9|199b38 203r10 206r27
+92V13*Length{natural} 92>21 9|219b13 222l8 222t14
+92r21 Self{68R9} 9|219b21 221r14
+97V13*As_String{string} 97>24 9|146b13 149l8 149t17
+97r24 Self{68R9} 9|146b24 148r14 148r29
+101V13*As_C_String{7|46M9} 101>26 9|166b13 169l8 169t19
+101r26 Self{68R9} 9|166b26 168m27 168r27
+107P9 String_Access(string) 121r19 9|31r15 53r32
+108M9*CString<10|67M9> 111r29 111r40
+110a4 Empty_String{string} 111r49
+111m4 Empty_CString{108M9}
+114a7*Str{string} 9|103m12 105m12 129m12 130m12 148r19 168m32 206r22
+115i7*Str_Last{natural} 9|93r43 103r22 104m12 105r22 123r43 128m12 129r22
+. 130r22 148r34 203r19 221r19 236m12
+118i4 String_Builder_Short_Size{natural} 123r32 9|80r21 110r30 139r26 159r29
+. 191r29
+121p7*Heap_Str{107P9} 9|41r37 42r39 51r15 51r54 55r21 58r24 59m27 64m18 82r15
+. 83r15 113r15 114r15 140r22 160r35 177r15 178m21 192r22
+122i7*Str_Last{natural} 9|46r18 57r35 58r44 60r24 61r35 62r45 74r43 82r30
+. 85r31 88m12 110r15 112m15 112r32 113r30 114r30 116m15 116r32 117r31 118r31
+. 139r15 140r46 142r43 157r15 159r18 179m15 189r19 191r18 216r19 230m12
+123a7*Stack_Str{string} 9|62r24 85m15 86m15 117m15 118m15 142r22 162m35 194r22
+X 9 gnatcoll-string_builders.adb
+28i4 Minimal_Heap_Size{natural} 41r58
+30U14 Free[5|20] 59s16 178s10
+33U14 Allocate 33=24 33>54 39b14 67l8 67t16 81s10 111s10
+33r24 Self{8|31R9} 39b24 41r32 42r34 46r13 51r10 51r49 55r16 57r30 58r19
+. 58r39 59m22 59r22 60r19 61r30 62r19 62r40 64m13
+33i54 Chars{natural} 39b54 46r29
+41i7 Str_Max{natural} 46r41 47m10 47r21 51r39 53r66
+53p13 New_Str{8|107P9} 57r16 61r16 64r30
+74i7 New_Last{natural} 80r10 82r46 83r25 85r47 86r26 88r24
+93i7 New_Last{natural} 99r10 103r38 104r24
+123i7 New_Last{natural} 125r10 128r24
+X 10 system.ads
+37K9*System 8|24w6 108r24 10|154e11
+67M9*Address 8|108r31
+

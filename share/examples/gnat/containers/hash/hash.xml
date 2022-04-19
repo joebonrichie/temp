@@ -1,0 +1,20 @@
+    <!-- Hash -->
+
+    <action name="&prefix;_hash" category="">
+	<shell>
+    	    Project.load "&example_root;/gnat/containers/hash/hash.gpr"
+	</shell>
+	<shell>
+    	    Editor.edit "test_hash.adb"
+	</shell>
+	<shell>
+    	    Editor.edit "README.testing"
+        </shell>
+    </action>
+
+    <submenu before="About">
+	<title>&menu;</title>
+	<menu action="&prefix;_hash">
+	    <title>GNAT &prefix;/Containers/Hash</title>
+	</menu>
+    </submenu>

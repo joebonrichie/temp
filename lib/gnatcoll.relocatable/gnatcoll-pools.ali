@@ -1,0 +1,296 @@
+V "GNAT Lib v2021"
+A -O2
+A -gnatA
+A -fPIC
+A -gnatn
+A -gnatwa
+A -gnatwC
+A -gnatwJ
+A -mtune=generic
+A -march=x86-64
+P SS ZX
+
+RN
+RV SIMPLE_BARRIERS
+RV PURE_BARRIERS
+RV NO_ALLOCATORS
+RV NO_DISPATCH
+RV NO_ENUMERATION_MAPS
+RV NO_EXCEPTION_HANDLERS
+RV NO_EXCEPTION_PROPAGATION
+RV NO_EXCEPTIONS
+RV NO_LOCAL_ALLOCATORS
+RV NO_PROTECTED_TYPES
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_UNCHECKED_DEALLOCATION
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_ATTRIBUTES
+RV NO_IMPLEMENTATION_PRAGMAS
+RV MAX_PROTECTED_ENTRIES=1+
+RV MAX_ENTRY_QUEUE_LENGTH=1+
+
+U gnatcoll.pools%b	gnatcoll-pools.adb	d1edb900 NE OO PK GE IU
+W ada%s			ada.ads			ada.ali
+Z ada.exceptions%s	a-except.adb		a-except.ali
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+W ada.unchecked_deallocation%s
+W gnatcoll%s		gnatcoll.ads		gnatcoll.ali
+W gnatcoll.refcount%s	gnatcoll-refcount.adb	gnatcoll-refcount.ali
+W gnatcoll.traces%s	gnatcoll-traces.adb	gnatcoll-traces.ali
+W interfaces%s		interfac.ads		interfac.ali
+Z system.tasking.protected_objects%s  s-taprob.adb  s-taprob.ali
+
+U gnatcoll.pools%s	gnatcoll-pools.ads	95072e6e BN EE NE OO PK GE
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+W gnatcoll%s		gnatcoll.ads		gnatcoll.ali
+W gnatcoll.refcount%s	gnatcoll-refcount.adb	gnatcoll-refcount.ali
+Z system%s		system.ads		system.ali
+Z system.storage_pools%s  s-stopoo.adb		s-stopoo.ali
+Z system.storage_pools.subpools%s  s-stposu.adb	s-stposu.ali
+
+D ada.ads		20210520051131 76789da1 ada%s
+D a-calend.ads		20210520051128 474d9720 ada.calendar%s
+D a-charac.ads		20210520051128 2d3ec45b ada.characters%s
+D a-chahan.ads		20210520051128 0ce1b450 ada.characters.handling%s
+D a-chlat1.ads		20210520051128 66457d31 ada.characters.latin_1%s
+D a-contai.ads		20210520051128 61e5e089 ada.containers%s
+D a-except.ads		20210520051128 946f3014 ada.exceptions%s
+D a-finali.ads		20210520051128 bf4f806b ada.finalization%s
+D a-ioexce.ads		20210520051128 e4a01f64 ada.io_exceptions%s
+D a-stream.ads		20210520051129 119b8fb3 ada.streams%s
+D a-string.ads		20210520051129 90ac6797 ada.strings%s
+D a-strmap.ads		20210520051129 5a88892a ada.strings.maps%s
+D a-sttebu.ads		20210520051129 18209c64 ada.strings.text_buffers%s
+D a-strunb.ads		20210520051129 03325227 ada.strings.unbounded%s
+D a-stuten.ads		20210520051129 808c40ad ada.strings.utf_encoding%s
+D a-tags.ads		20210520051130 9eaa38c6 ada.tags%s
+D a-textio.ads		20210520051130 aef4d56d ada.text_io%s
+D a-unccon.ads		20210520051130 0e9b276f ada.unchecked_conversion%s
+D a-uncdea.ads		20210520051130 c3a8ac65 ada.unchecked_deallocation%s
+D gnat.ads		20210520051132 b5988c27 gnat%s
+D g-os_lib.ads		20210520051131 0db74523 gnat.os_lib%s
+D g-souinf.ads		20210520051131 291df751 gnat.source_info%s
+D g-string.ads		20210520051131 c6abc540 gnat.strings%s
+D gnatcoll.ads		20210519051041 6a5da479 gnatcoll%s
+D gnatcoll-atomic.ads	20210519051041 a760a918 gnatcoll.atomic%s
+D gnatcoll-atomic.adb	20210519051041 d76879ba gnatcoll.atomic%b
+D gnatcoll-io.ads	20210519051041 40b00e79 gnatcoll.io%s
+D gnatcoll-io-native.ads  20210519051041 60c7703b gnatcoll.io.native%s
+D gnatcoll-path.ads	20210519051041 44783065 gnatcoll.path%s
+D gnatcoll-pools.ads	20210519051041 4b87284b gnatcoll.pools%s
+D gnatcoll-pools.adb	20210519051041 795a602a gnatcoll.pools%b
+D gnatcoll-refcount.ads	20210519051041 b4dda25c gnatcoll.refcount%s
+D gnatcoll-refcount.adb	20210519051041 a6de40a2 gnatcoll.refcount%b
+D gnatcoll-storage_pools.ads  20210519051041 f82e283b gnatcoll.storage_pools%s
+D gnatcoll-storage_pools-headers.ads  20210519051041 968b2c2e gnatcoll.storage_pools.headers%s
+D gnatcoll-storage_pools-headers.adb  20210519051041 6a903f89 gnatcoll.storage_pools.headers%b
+D gnatcoll-strings.ads	20210519051041 014a3fb6 gnatcoll.strings%s
+D gnatcoll-strings.ads	20210519051041 014a3fb6 gnatcoll.strings%s
+D gnatcoll-strings_impl.ads  20210519051041 660cba3c gnatcoll.strings_impl%s
+D gnatcoll-strings_impl.adb  20210519051041 4bac4314 gnatcoll.strings_impl%b
+D gnatcoll-terminal.ads	20210519051041 d1bdf60c gnatcoll.terminal%s
+D gnatcoll-traces.ads	20210519051041 79a9d707 gnatcoll.traces%s
+D gnatcoll-vfs.ads	20210519051041 1efc72f6 gnatcoll.vfs%s
+D gnatcoll-vfs_types.ads  20210519051041 14be4a8d gnatcoll.vfs_types%s
+D interfac.ads		20210520051132 edec285f interfaces%s
+D i-c.ads		20210520051132 d9beded9 interfaces.c%s
+D i-cstrin.ads		20210520051132 341d0ddf interfaces.c.strings%s
+D i-cstrea.ads		20210520051132 e53d8b8e interfaces.c_streams%s
+D system.ads		20210520051135 a2da961d system%s
+D s-atacco.ads		20210520051132 4c36d12f system.address_to_access_conversions%s
+D s-atocou.ads		20210520051132 b45c2d8d system.atomic_counters%s
+D s-atocou.adb		20210520051132 b65612c0 system.atomic_counters%b
+D s-carun8.ads		20210520051132 a903718d system.compare_array_unsigned_8%s
+D s-crtl.ads		20210520051132 0ebbdb71 system.crtl%s
+D s-exctab.ads		20210520051132 54135002 system.exception_table%s
+D s-ficobl.ads		20210520051132 078245e4 system.file_control_block%s
+D s-finmas.ads		20210520051132 1ab4dba8 system.finalization_masters%s
+D s-finroo.ads		20210520051132 4ff27390 system.finalization_root%s
+D s-imagei.ads		20210520051133 0d3f86a7 system.image_i%s
+D s-imgint.ads		20210520051133 bdb6f5ec system.img_int%s
+D s-linux.ads		20210520051127 ed0b8aee system.linux%s
+D s-memory.ads		20210520051133 597d6634 system.memory%s
+D s-multip.ads		20210520051133 38ac9f73 system.multiprocessors%s
+D s-oscons.ads		20210520095158 e3a42aec system.os_constants%s
+D s-osinte.ads		20210520051127 222ac181 system.os_interface%s
+D s-os_lib.ads		20210520051133 93b69309 system.os_lib%s
+D s-parame.ads		20210520051134 4752c4cb system.parameters%s
+D s-pooglo.ads		20210520051134 ede33ef8 system.pool_global%s
+D s-putima.ads		20210520051134 4e095881 system.put_images%s
+D s-secsta.ads		20210520051134 9b3ab94b system.secondary_stack%s
+D s-soflin.ads		20210520051134 a7318a92 system.soft_links%s
+D s-stache.ads		20210520051134 a37c21ec system.stack_checking%s
+D s-stausa.ads		20210520051134 017a0a05 system.stack_usage%s
+D s-stalib.ads		20210520051134 472fbca8 system.standard_library%s
+D s-stoele.ads		20210520051134 2dc34a04 system.storage_elements%s
+D s-stoele.adb		20210520051134 ed88f8fb system.storage_elements%b
+D s-stopoo.ads		20210520051134 e9fa2dd8 system.storage_pools%s
+D s-stposu.ads		20210520051134 e251976f system.storage_pools.subpools%s
+D s-stratt.ads		20210520051134 7bdda3fa system.stream_attributes%s
+D s-strhas.ads		20210520051134 269cd894 system.string_hash%s
+D s-strhas.adb		20210520051134 2e038444 system.string_hash%b
+D s-string.ads		20210520051134 8fe54fb7 system.strings%s
+D s-ststop.ads		20210520051134 5fbf1b38 system.strings.stream_ops%s
+D s-tasinf.ads		20210520051127 2b3f8252 system.task_info%s
+D s-taspri.ads		20210520051127 4ec891e7 system.task_primitives%s
+D s-taskin.ads		20210520051127 88fba9ad system.tasking%s
+D s-taprob.ads		20210520051127 acd6094d system.tasking.protected_objects%s
+D s-traent.ads		20210520051134 26a8d361 system.traceback_entries%s
+D s-unstyp.ads		20210520051134 2b077493 system.unsigned_types%s
+D s-wchcon.ads		20210520051135 1b7d22d2 system.wch_con%s
+D unchconv.ads		20210520051135 ca2f9e18 unchecked_conversion%s
+G a e
+G c Z s b [pools gnatcoll 86 18 none]
+X 1 ada.ads
+16K9*Ada 20e8 31|24r6 46r36 48r36 50r36
+X 4 a-chahan.ads
+67V13*To_Lower{character} 39|283i21
+68V13*To_Upper{character} 39|285i21
+X 6 a-contai.ads
+19M9*Hash_Type
+X 19 a-uncdea.ads
+20u15*Unchecked_Deallocation 31|24w10 46r40 48r40 50r40
+X 24 gnatcoll.ads
+24K9*GNATCOLL 27e13 30|49r14 86r9 173r28 189r5 31|25r6 25r39 26r6 26r39 29r14
+. 356r5
+X 30 gnatcoll-pools.ads
+52+9 Element_Type 56r57 71r39 74r45 98r53 159r35 31|251r53
+55+9 Factory_Param 56r35 82r45 120r22 146r56 31|39r27 66r25 78r44 91r25 115r44
+. 330r22 342r56
+56V18 Factory{52+9} 56>27 31|152s40
+56*27 Param{55+9}
+60E9 Resource_Set 88r27 122r22 128r14 146r13 166r27 166r43 170r16 31|43r24
+. 54r18 61r55 68r25 78r16 93r25 96r35 115r16 124r29 185r55 264r40 332r22
+. 342r13
+71U19 Free 71=25 31|199s13 223s25
+71*25 Self{52+9}
+74U19 On_Release 74=31 31|314s7
+74*31 Self{52+9}
+82U19 Free_Param 82=31 31|231s19
+82*31 Data{55+9}
+86k18*Pools 24|24k9 30|52z9 55z9 56z18 60z9 71z19 74z19 82z19 158E9 189l14
+. 189e19 31|29b23 356l14 356t19
+88*4*Default_Set{60E9} 122r38 128r30 146r29 166c4 31|264r56 332r38 342r29
+90R9*Resource<32|123R12[173]> 8|46P14 30|91r27 98p13 98r29 105r30 106p14
+. 106r51 127r18 142p13 142r34 182c9 182e54 183r27 184r6 31|54r47 124r58 251r29
+. 264r18 273r30 282r51 351r34
+91r4*No_Resource{90R9} 183c4
+98V13*Element(52+9) 98>22 31|251b13 257l8 257t15
+98r22 Self{90R9} 31|251b22 252r51
+103R9*Weak_Resource 104r34 105r53 106r26 116r31 178c9 180e14 186r34 31|273r53
+. 275r14 282r26 291r31
+104r4*Null_Weak_Resource{103R9} 186c4
+105V13*Get_Weak{103R9} 105>23 31|273b13 276l8 276t16
+105c23 Self<90R9> 31|273b23 275r36
+106U14*Get 106>19 106<41 31|282b14 285l8 285t11
+106r19 Self{103R9} 31|282b19 284r16
+106r41 Res{90R9} 31|282b41 284m7 284r7
+116V13*Was_Freed{boolean} 116>24 31|291b13 294l8 294t17
+116r24 Self{103R9} 31|291b24 293r34
+119U14*Set_Factory 120>7 121>7 122>7 31|329b14 335l8 335t19
+120*7 Param{55+9} 31|330b7 334r32
+121i7 Max_Elements{positive} 31|331b7 334r39
+122*7 Set{60E9} 31|332b7 334r53
+126U14*Get 127<7 128>7 31|263b14 267l8 267t11
+127c7 Self<90R9> 31|264b7 266m30
+128*7 Set{60E9} 31|54r13 264b34 266r24
+136U14*Free 31|300b14 303l8 303t12
+142V13*Get_Refcount{natural} 142>27 31|351b13 354l8 354t20
+142r27 Self{90R9} 31|351b27 353r37
+145V13*Get_Factory_Param(55+9) 146>7 31|341b13 345l8 345t25
+146*7 Set{60E9} 31|342b7 344r45
+158R9 Pool_Resource 161e14 162r44 31|47r7 151r51
+159*7 Element{52+9} 31|152m19 199m27 223m33 256m25 314m31
+160b7 Available{boolean} 31|153m19 161r47 166m44 193m21 220r35
+162P9 Pool_Resource_Access(158R9) 169r16 31|34r52 47r22 61r27 185r27 209r14
+168R9 Resource_Data 171e14 172r34 174r7 31|127r20 155r27 168r27 252r29 309r34
+169p7 In_Set{162P9} 31|157m19 170m19 256r18 314r24 317m36
+170*7 Set{60E9} 31|156m19 169m19 317m49
+172U14 Free 172=20 174r22 31|309b14 323l8 323t12
+172r20 Self{168R9} 31|309b20 314r19 317m31 317r31 317m44 317r44
+173K12 Pointers[32|117] 179r13 182r25 184r16 187r14 31|30r8 293r14 353r14
+179r7 Ref{32|129R12[173]} 187m7 31|275m29 284r21 293r39
+X 31 gnatcoll-pools.adb
+32p4 Me{42|344P9} 143r23 162r27 163r26 192r20 211r27 222r32 227r28 239r27
+. 254r15 320r20 321r20
+34A9 Pool_Array(30|162P9)<integer> 35r41 49r7 101r32
+35P9 Pool_Array_Access(34A9) 38r19 49r19
+37R9 Resource_Set_Data 41e14 43r50
+38p7 Elements{35P9} 99r28 101m16 135r34 136r31 151r31 157r44 161r34 166r31
+. 170r44 215r34 216r43 217r42 232m50
+39*7 Param{30|55+9} 103m16 117m32 152r64 231m46
+40i7 Available{45|52I9} 102m16 125r29 129m25 129r53 194m28 194r56
+43A9 Sets(37R9)<30|60E9> 44r35 51r7 96r29
+44P9 Sets_Access(43A9) 51r13 81r19
+46U14 Unchecked_Free[19|20] 200s13 224s25
+48U14 Unchecked_Free[19|20] 232s19
+50U14 Unchecked_Free[19|20] 236s13
+53W19 Pool 81E7 82l8 82e12 84b19 241l8 241t12 243r18
+54Y13 Get 54<33 124b13 178l11 178t14 266r19
+54c33 Element<30|90R9> 158m16 158r16 171m16 171r16
+60U17 Release 61=10 61>49 184b17 202l11 202t18 317s22
+61p10 In_Pool{30|162P9} 185b10 193r13 199r19 200m29
+61*49 Set{30|60E9} 185b49 194r23 194r51
+65U17 Set_Factory 66>10 67>10 68>10 90b17 108l11 108t22 334s19
+66*10 Descr{30|55+9} 91b10 103r29
+67i10 Max_Elements{positive} 92b10 101r49 102r41
+68*10 Set{30|60E9} 93b10 99r23 100r23
+72U17 Free 208b17 240l11 240t15 302s19
+77V16 Get_Factory_Param(30|55+9) 78>10 114b16 118l11 118t28 344s26
+78*10 Set{30|60E9} 115b10 117r27
+81p7 Elements{44P9} 95r13 96m13 99r13 100r13 117r17 125r14 129r10 129r38
+. 135r19 136r16 151r16 152r49 157r29 161r19 166r16 170r29 191r13 194r13 194r41
+. 213r13 214r24 215r19 216r28 217r27 231r31 232r35 236m29 236r29
+124*22 Set 125r24 129r20 129r48 135r29 136r26 151r26 152r59 156r29 157r39
+. 161r29 163r45 166r26 169r29 170r39
+124c44 Element<30|90R9>
+127r10 In_Pool{30|168R9} 155m16 158r29 168m16 171r29
+135i14 E{integer} 136r41 143r64 151r41 157r54 161r44 164r62 166r41 170r54
+209p10 R{30|162P9} 217m22 219r25 220r33 223r31 224m41 224r41 225r28
+214e17 Set 215r29 216r38 217r37 231r41 232r45
+216i23 E{integer} 217r52
+243w4 Global_Pool{53W19} 266r7 302r7 317r10 334r7 344r14
+252p7 Enc(30|168R9) 254r19 256r14
+319r15 E{7|53R9} 321r24
+X 32 gnatcoll-refcount.ads
+62K18*Refcount 30|49w23 173r37 31|25w15 25r48 32|404e22
+117k12*Shared_Pointers 30|173r46 32|322e23
+123R12 Ref<8|43R9> 30|182r34[173]
+124r7 Null_Ref{123R12[30|173]} 30|184r25[173]
+129R12 Weak_Ref<8|43R9> 30|179r22[173]
+130r7 Null_Weak_Ref{129R12[30|173]} 30|187r23[173]
+139U17 Set 31|158s24[30|173] 171s24[30|173]
+169R12 Reference_Type
+242V16 Get{169R12[30|173]} 31|252s46[30|173]
+284V16 Weak{129R12[30|173]} 31|275s41[30|173]
+285U17 Set 31|284s11[30|173]
+294V16 Was_Freed{boolean} 31|293s23[30|173]
+297V16 Get_Refcount{natural} 31|353s23[30|173]
+X 40 gnatcoll-strings_impl.adb
+1495V19 H[80|60]{6|19M9} 81|44b13[42|719]
+1511V19 H[80|60]{6|19M9} 81|44b13[42|719]
+X 42 gnatcoll-traces.ads
+254K18*Traces 31|26w15 26r48 42|935e20
+344P9*Trace_Handle(343R9) 31|32r18
+356V13*Create{345P12} 31|32s34
+501U14*Trace 31|321s13
+526U14*Trace 31|143s16 163s19 192s13 222s25 226s25 320s13
+562U14*Assert 31|254s7
+586U14*Increase_Indent 31|211s10
+592U14*Decrease_Indent 31|239s10
+628V13*Active{boolean} 31|162s19
+X 45 interfac.ads
+38K9*Interfaces 31|27w6 27r39 45|231e15
+52I9*Integer_32<integer> 31|40r27 102r29
+X 49 system.ads
+67M9*Address
+X 62 s-memory.ads
+53V13*Alloc{49|67M9} 103i<c,__gnat_malloc>22
+68U14*Free 104i<c,__gnat_free>22
+76V13*Realloc{49|67M9} 105i<c,__gnat_realloc>22
+X 73 s-stausa.ads
+208U14*Initialize 209i<c,__gnat_stack_usage_initialize>22
+273U14*Output_Results 277i<c,__gnat_stack_usage_output_results>22
+

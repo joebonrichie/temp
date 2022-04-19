@@ -1,0 +1,936 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GNAT Reference Manual &#8212; GNAT Reference Manual 2021 documentation</title>
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="1. About This Guide" href="gnat_rm/about_this_guide.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="gnat_rm/about_this_guide.html" title="1. About This Guide"
+             accesskey="N">next</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">GNAT Reference Manual 2021 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">GNAT Reference Manual</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="gnat-reference-manual">
+<h1>GNAT Reference Manual<a class="headerlink" href="#gnat-reference-manual" title="Permalink to this headline">¶</a></h1>
+<p><em>GNAT, The GNU Ada Development Environment</em></p>
+<p><em>GNAT Community Edition</em></p>
+<div class="line-block">
+<div class="line">Version 2021</div>
+<div class="line">Date: May 20, 2021</div>
+</div>
+<p>AdaCore</p>
+<p>Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover Texts being “GNAT Reference
+Manual”, and with no Back-Cover Texts.  A copy of the license is
+included in the section entitled <a class="reference internal" href="share/gnu_free_documentation_license.html#gnu-fdl"><span class="std std-ref">GNU Free Documentation License</span></a>.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="gnat_rm/about_this_guide.html">1. About This Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/about_this_guide.html#what-this-reference-manual-contains">1.1. What This Reference Manual Contains</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/about_this_guide.html#conventions">1.2. Conventions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/about_this_guide.html#related-information">1.3. Related Information</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html">2. Implementation Defined Pragmas</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-abort-defer">2.1. Pragma Abort_Defer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-abstract-state">2.2. Pragma Abstract_State</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-ada-83">2.3. Pragma Ada_83</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-ada-95">2.4. Pragma Ada_95</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-ada-05">2.5. Pragma Ada_05</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-ada-2005">2.6. Pragma Ada_2005</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-ada-12">2.7. Pragma Ada_12</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-ada-2012">2.8. Pragma Ada_2012</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-aggregate-individually-assign">2.9. Pragma Aggregate_Individually_Assign</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-allow-integer-address">2.10. Pragma Allow_Integer_Address</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-annotate">2.11. Pragma Annotate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-assert">2.12. Pragma Assert</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-assert-and-cut">2.13. Pragma Assert_And_Cut</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-assertion-policy">2.14. Pragma Assertion_Policy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-assume">2.15. Pragma Assume</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-assume-no-invalid-values">2.16. Pragma Assume_No_Invalid_Values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-async-readers">2.17. Pragma Async_Readers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-async-writers">2.18. Pragma Async_Writers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-attribute-definition">2.19. Pragma Attribute_Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-c-pass-by-copy">2.20. Pragma C_Pass_By_Copy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-check">2.21. Pragma Check</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-check-float-overflow">2.22. Pragma Check_Float_Overflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-check-name">2.23. Pragma Check_Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-check-policy">2.24. Pragma Check_Policy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-comment">2.25. Pragma Comment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-common-object">2.26. Pragma Common_Object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-compile-time-error">2.27. Pragma Compile_Time_Error</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-compile-time-warning">2.28. Pragma Compile_Time_Warning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-compiler-unit">2.29. Pragma Compiler_Unit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-compiler-unit-warning">2.30. Pragma Compiler_Unit_Warning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-complete-representation">2.31. Pragma Complete_Representation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-complex-representation">2.32. Pragma Complex_Representation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-component-alignment">2.33. Pragma Component_Alignment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-constant-after-elaboration">2.34. Pragma Constant_After_Elaboration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-contract-cases">2.35. Pragma Contract_Cases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-convention-identifier">2.36. Pragma Convention_Identifier</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-cpp-class">2.37. Pragma CPP_Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-cpp-constructor">2.38. Pragma CPP_Constructor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-cpp-virtual">2.39. Pragma CPP_Virtual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-cpp-vtable">2.40. Pragma CPP_Vtable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-cpu">2.41. Pragma CPU</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-deadline-floor">2.42. Pragma Deadline_Floor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-default-initial-condition">2.43. Pragma Default_Initial_Condition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-debug">2.44. Pragma Debug</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-debug-policy">2.45. Pragma Debug_Policy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-default-scalar-storage-order">2.46. Pragma Default_Scalar_Storage_Order</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-default-storage-pool">2.47. Pragma Default_Storage_Pool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-depends">2.48. Pragma Depends</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-detect-blocking">2.49. Pragma Detect_Blocking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-disable-atomic-synchronization">2.50. Pragma Disable_Atomic_Synchronization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-dispatching-domain">2.51. Pragma Dispatching_Domain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-effective-reads">2.52. Pragma Effective_Reads</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-effective-writes">2.53. Pragma Effective_Writes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-elaboration-checks">2.54. Pragma Elaboration_Checks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-eliminate">2.55. Pragma Eliminate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-enable-atomic-synchronization">2.56. Pragma Enable_Atomic_Synchronization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-export-function">2.57. Pragma Export_Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-export-object">2.58. Pragma Export_Object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-export-procedure">2.59. Pragma Export_Procedure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-export-valued-procedure">2.60. Pragma Export_Valued_Procedure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-extend-system">2.61. Pragma Extend_System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-extensions-allowed">2.62. Pragma Extensions_Allowed</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-extensions-visible">2.63. Pragma Extensions_Visible</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-external">2.64. Pragma External</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-external-name-casing">2.65. Pragma External_Name_Casing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-fast-math">2.66. Pragma Fast_Math</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-favor-top-level">2.67. Pragma Favor_Top_Level</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-finalize-storage-only">2.68. Pragma Finalize_Storage_Only</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-float-representation">2.69. Pragma Float_Representation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-ghost">2.70. Pragma Ghost</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-global">2.71. Pragma Global</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-ident">2.72. Pragma Ident</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-ignore-pragma">2.73. Pragma Ignore_Pragma</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-implementation-defined">2.74. Pragma Implementation_Defined</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-implemented">2.75. Pragma Implemented</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-implicit-packing">2.76. Pragma Implicit_Packing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-import-function">2.77. Pragma Import_Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-import-object">2.78. Pragma Import_Object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-import-procedure">2.79. Pragma Import_Procedure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-import-valued-procedure">2.80. Pragma Import_Valued_Procedure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-independent">2.81. Pragma Independent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-independent-components">2.82. Pragma Independent_Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-initial-condition">2.83. Pragma Initial_Condition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-initialize-scalars">2.84. Pragma Initialize_Scalars</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-initializes">2.85. Pragma Initializes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-inline-always">2.86. Pragma Inline_Always</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-inline-generic">2.87. Pragma Inline_Generic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-interface">2.88. Pragma Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-interface-name">2.89. Pragma Interface_Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-interrupt-handler">2.90. Pragma Interrupt_Handler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-interrupt-state">2.91. Pragma Interrupt_State</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-invariant">2.92. Pragma Invariant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-keep-names">2.93. Pragma Keep_Names</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-license">2.94. Pragma License</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-link-with">2.95. Pragma Link_With</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-linker-alias">2.96. Pragma Linker_Alias</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-linker-constructor">2.97. Pragma Linker_Constructor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-linker-destructor">2.98. Pragma Linker_Destructor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-linker-section">2.99. Pragma Linker_Section</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-lock-free">2.100. Pragma Lock_Free</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-loop-invariant">2.101. Pragma Loop_Invariant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-loop-optimize">2.102. Pragma Loop_Optimize</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-loop-variant">2.103. Pragma Loop_Variant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-machine-attribute">2.104. Pragma Machine_Attribute</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-main">2.105. Pragma Main</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-main-storage">2.106. Pragma Main_Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-max-queue-length">2.107. Pragma Max_Queue_Length</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-no-body">2.108. Pragma No_Body</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-no-caching">2.109. Pragma No_Caching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-no-component-reordering">2.110. Pragma No_Component_Reordering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-no-elaboration-code-all">2.111. Pragma No_Elaboration_Code_All</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-no-heap-finalization">2.112. Pragma No_Heap_Finalization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-no-inline">2.113. Pragma No_Inline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-no-return">2.114. Pragma No_Return</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-no-strict-aliasing">2.115. Pragma No_Strict_Aliasing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-no-tagged-streams">2.116. Pragma No_Tagged_Streams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-normalize-scalars">2.117. Pragma Normalize_Scalars</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-obsolescent">2.118. Pragma Obsolescent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-optimize-alignment">2.119. Pragma Optimize_Alignment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-ordered">2.120. Pragma Ordered</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-overflow-mode">2.121. Pragma Overflow_Mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-overriding-renamings">2.122. Pragma Overriding_Renamings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-partition-elaboration-policy">2.123. Pragma Partition_Elaboration_Policy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-part-of">2.124. Pragma Part_Of</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-passive">2.125. Pragma Passive</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-persistent-bss">2.126. Pragma Persistent_BSS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-post">2.127. Pragma Post</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-postcondition">2.128. Pragma Postcondition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-post-class">2.129. Pragma Post_Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-rename-pragma">2.130. Pragma Rename_Pragma</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-pre">2.131. Pragma Pre</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-precondition">2.132. Pragma Precondition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-predicate">2.133. Pragma Predicate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-predicate-failure">2.134. Pragma Predicate_Failure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-preelaborable-initialization">2.135. Pragma Preelaborable_Initialization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-prefix-exception-messages">2.136. Pragma Prefix_Exception_Messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-pre-class">2.137. Pragma Pre_Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-priority-specific-dispatching">2.138. Pragma Priority_Specific_Dispatching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-profile">2.139. Pragma Profile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-profile-warnings">2.140. Pragma Profile_Warnings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-propagate-exceptions">2.141. Pragma Propagate_Exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-provide-shift-operators">2.142. Pragma Provide_Shift_Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-psect-object">2.143. Pragma Psect_Object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-pure-function">2.144. Pragma Pure_Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-rational">2.145. Pragma Rational</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-ravenscar">2.146. Pragma Ravenscar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-refined-depends">2.147. Pragma Refined_Depends</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-refined-global">2.148. Pragma Refined_Global</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-refined-post">2.149. Pragma Refined_Post</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-refined-state">2.150. Pragma Refined_State</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-relative-deadline">2.151. Pragma Relative_Deadline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-remote-access-type">2.152. Pragma Remote_Access_Type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-restricted-run-time">2.153. Pragma Restricted_Run_Time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-restriction-warnings">2.154. Pragma Restriction_Warnings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-reviewable">2.155. Pragma Reviewable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-secondary-stack-size">2.156. Pragma Secondary_Stack_Size</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-share-generic">2.157. Pragma Share_Generic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-shared">2.158. Pragma Shared</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-short-circuit-and-or">2.159. Pragma Short_Circuit_And_Or</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-short-descriptors">2.160. Pragma Short_Descriptors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-simple-storage-pool-type">2.161. Pragma Simple_Storage_Pool_Type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-source-file-name">2.162. Pragma Source_File_Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-source-file-name-project">2.163. Pragma Source_File_Name_Project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-source-reference">2.164. Pragma Source_Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-spark-mode">2.165. Pragma SPARK_Mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-static-elaboration-desired">2.166. Pragma Static_Elaboration_Desired</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-stream-convert">2.167. Pragma Stream_Convert</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-style-checks">2.168. Pragma Style_Checks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-subtitle">2.169. Pragma Subtitle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-suppress">2.170. Pragma Suppress</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-suppress-all">2.171. Pragma Suppress_All</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-suppress-debug-info">2.172. Pragma Suppress_Debug_Info</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-suppress-exception-locations">2.173. Pragma Suppress_Exception_Locations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-suppress-initialization">2.174. Pragma Suppress_Initialization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-task-name">2.175. Pragma Task_Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-task-storage">2.176. Pragma Task_Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-test-case">2.177. Pragma Test_Case</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-thread-local-storage">2.178. Pragma Thread_Local_Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-time-slice">2.179. Pragma Time_Slice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-title">2.180. Pragma Title</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-type-invariant">2.181. Pragma Type_Invariant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-type-invariant-class">2.182. Pragma Type_Invariant_Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-unchecked-union">2.183. Pragma Unchecked_Union</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-unevaluated-use-of-old">2.184. Pragma Unevaluated_Use_Of_Old</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-unimplemented-unit">2.185. Pragma Unimplemented_Unit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-universal-aliasing">2.186. Pragma Universal_Aliasing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-unmodified">2.187. Pragma Unmodified</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-unreferenced">2.188. Pragma Unreferenced</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-unreferenced-objects">2.189. Pragma Unreferenced_Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-unreserve-all-interrupts">2.190. Pragma Unreserve_All_Interrupts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-unsuppress">2.191. Pragma Unsuppress</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-use-vads-size">2.192. Pragma Use_VADS_Size</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-unused">2.193. Pragma Unused</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-validity-checks">2.194. Pragma Validity_Checks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-volatile">2.195. Pragma Volatile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-volatile-full-access">2.196. Pragma Volatile_Full_Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-volatile-function">2.197. Pragma Volatile_Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-warning-as-error">2.198. Pragma Warning_As_Error</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-warnings">2.199. Pragma Warnings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-weak-external">2.200. Pragma Weak_External</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_pragmas.html#pragma-wide-character-encoding">2.201. Pragma Wide_Character_Encoding</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gnat_rm/implementation_defined_aspects.html">3. Implementation Defined Aspects</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_aspects.html#aspect-abstract-state">3.1. Aspect Abstract_State</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_aspects.html#aspect-annotate">3.2. Aspect Annotate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_aspects.html#aspect-async-readers">3.3. Aspect Async_Readers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_aspects.html#aspect-async-writers">3.4. Aspect Async_Writers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_aspects.html#aspect-constant-after-elaboration">3.5. Aspect Constant_After_Elaboration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_aspects.html#aspect-contract-cases">3.6. Aspect Contract_Cases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_aspects.html#aspect-depends">3.7. Aspect Depends</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_aspects.html#aspect-default-initial-condition">3.8. Aspect Default_Initial_Condition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_aspects.html#aspect-dimension">3.9. Aspect Dimension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_aspects.html#aspect-dimension-system">3.10. Aspect Dimension_System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_aspects.html#aspect-disable-controlled">3.11. Aspect Disable_Controlled</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_aspects.html#aspect-effective-reads">3.12. Aspect Effective_Reads</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_aspects.html#aspect-effective-writes">3.13. Aspect Effective_Writes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_aspects.html#aspect-extensions-visible">3.14. Aspect Extensions_Visible</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_aspects.html#aspect-favor-top-level">3.15. Aspect Favor_Top_Level</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_aspects.html#aspect-ghost">3.16. Aspect Ghost</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_aspects.html#aspect-global">3.17. Aspect Global</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_aspects.html#aspect-initial-condition">3.18. Aspect Initial_Condition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_aspects.html#aspect-initializes">3.19. Aspect Initializes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_aspects.html#aspect-inline-always">3.20. Aspect Inline_Always</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_aspects.html#aspect-invariant">3.21. Aspect Invariant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_aspects.html#aspect-invariant-class">3.22. Aspect Invariant’Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_aspects.html#aspect-iterable">3.23. Aspect Iterable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_aspects.html#aspect-linker-section">3.24. Aspect Linker_Section</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_aspects.html#aspect-lock-free">3.25. Aspect Lock_Free</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_aspects.html#aspect-max-queue-length">3.26. Aspect Max_Queue_Length</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_aspects.html#aspect-no-caching">3.27. Aspect No_Caching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_aspects.html#aspect-no-elaboration-code-all">3.28. Aspect No_Elaboration_Code_All</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_aspects.html#aspect-no-inline">3.29. Aspect No_Inline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_aspects.html#aspect-no-tagged-streams">3.30. Aspect No_Tagged_Streams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_aspects.html#aspect-no-task-parts">3.31. Aspect No_Task_Parts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_aspects.html#aspect-object-size">3.32. Aspect Object_Size</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_aspects.html#aspect-obsolescent">3.33. Aspect Obsolescent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_aspects.html#aspect-part-of">3.34. Aspect Part_Of</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_aspects.html#aspect-persistent-bss">3.35. Aspect Persistent_BSS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_aspects.html#aspect-predicate">3.36. Aspect Predicate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_aspects.html#aspect-pure-function">3.37. Aspect Pure_Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_aspects.html#aspect-refined-depends">3.38. Aspect Refined_Depends</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_aspects.html#aspect-refined-global">3.39. Aspect Refined_Global</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_aspects.html#aspect-refined-post">3.40. Aspect Refined_Post</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_aspects.html#aspect-refined-state">3.41. Aspect Refined_State</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_aspects.html#aspect-relaxed-initialization">3.42. Aspect Relaxed_Initialization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_aspects.html#aspect-remote-access-type">3.43. Aspect Remote_Access_Type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_aspects.html#aspect-secondary-stack-size">3.44. Aspect Secondary_Stack_Size</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_aspects.html#aspect-scalar-storage-order">3.45. Aspect Scalar_Storage_Order</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_aspects.html#aspect-shared">3.46. Aspect Shared</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_aspects.html#aspect-simple-storage-pool">3.47. Aspect Simple_Storage_Pool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_aspects.html#aspect-simple-storage-pool-type">3.48. Aspect Simple_Storage_Pool_Type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_aspects.html#aspect-spark-mode">3.49. Aspect SPARK_Mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_aspects.html#aspect-suppress-debug-info">3.50. Aspect Suppress_Debug_Info</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_aspects.html#aspect-suppress-initialization">3.51. Aspect Suppress_Initialization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_aspects.html#aspect-test-case">3.52. Aspect Test_Case</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_aspects.html#aspect-thread-local-storage">3.53. Aspect Thread_Local_Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_aspects.html#aspect-universal-aliasing">3.54. Aspect Universal_Aliasing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_aspects.html#aspect-unmodified">3.55. Aspect Unmodified</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_aspects.html#aspect-unreferenced">3.56. Aspect Unreferenced</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_aspects.html#aspect-unreferenced-objects">3.57. Aspect Unreferenced_Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_aspects.html#aspect-value-size">3.58. Aspect Value_Size</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_aspects.html#aspect-volatile-full-access">3.59. Aspect Volatile_Full_Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_aspects.html#aspect-volatile-function">3.60. Aspect Volatile_Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_aspects.html#aspect-warnings">3.61. Aspect Warnings</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gnat_rm/implementation_defined_attributes.html">4. Implementation Defined Attributes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_attributes.html#attribute-abort-signal">4.1. Attribute Abort_Signal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_attributes.html#attribute-address-size">4.2. Attribute Address_Size</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_attributes.html#attribute-asm-input">4.3. Attribute Asm_Input</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_attributes.html#attribute-asm-output">4.4. Attribute Asm_Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_attributes.html#attribute-atomic-always-lock-free">4.5. Attribute Atomic_Always_Lock_Free</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_attributes.html#attribute-bit">4.6. Attribute Bit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_attributes.html#attribute-bit-position">4.7. Attribute Bit_Position</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_attributes.html#attribute-code-address">4.8. Attribute Code_Address</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_attributes.html#attribute-compiler-version">4.9. Attribute Compiler_Version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_attributes.html#attribute-constrained">4.10. Attribute Constrained</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_attributes.html#attribute-default-bit-order">4.11. Attribute Default_Bit_Order</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_attributes.html#attribute-default-scalar-storage-order">4.12. Attribute Default_Scalar_Storage_Order</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_attributes.html#attribute-deref">4.13. Attribute Deref</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_attributes.html#attribute-descriptor-size">4.14. Attribute Descriptor_Size</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_attributes.html#attribute-elaborated">4.15. Attribute Elaborated</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_attributes.html#attribute-elab-body">4.16. Attribute Elab_Body</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_attributes.html#attribute-elab-spec">4.17. Attribute Elab_Spec</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_attributes.html#attribute-elab-subp-body">4.18. Attribute Elab_Subp_Body</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_attributes.html#attribute-emax">4.19. Attribute Emax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_attributes.html#attribute-enabled">4.20. Attribute Enabled</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_attributes.html#attribute-enum-rep">4.21. Attribute Enum_Rep</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_attributes.html#attribute-enum-val">4.22. Attribute Enum_Val</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_attributes.html#attribute-epsilon">4.23. Attribute Epsilon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_attributes.html#attribute-fast-math">4.24. Attribute Fast_Math</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_attributes.html#attribute-finalization-size">4.25. Attribute Finalization_Size</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_attributes.html#attribute-fixed-value">4.26. Attribute Fixed_Value</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_attributes.html#attribute-from-any">4.27. Attribute From_Any</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_attributes.html#attribute-has-access-values">4.28. Attribute Has_Access_Values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_attributes.html#attribute-has-discriminants">4.29. Attribute Has_Discriminants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_attributes.html#attribute-has-tagged-values">4.30. Attribute Has_Tagged_Values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_attributes.html#attribute-img">4.31. Attribute Img</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_attributes.html#attribute-initialized">4.32. Attribute Initialized</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_attributes.html#attribute-integer-value">4.33. Attribute Integer_Value</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_attributes.html#attribute-invalid-value">4.34. Attribute Invalid_Value</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_attributes.html#attribute-iterable">4.35. Attribute Iterable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_attributes.html#attribute-large">4.36. Attribute Large</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_attributes.html#attribute-library-level">4.37. Attribute Library_Level</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_attributes.html#attribute-lock-free">4.38. Attribute Lock_Free</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_attributes.html#attribute-loop-entry">4.39. Attribute Loop_Entry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_attributes.html#attribute-machine-size">4.40. Attribute Machine_Size</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_attributes.html#attribute-mantissa">4.41. Attribute Mantissa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_attributes.html#attribute-maximum-alignment">4.42. Attribute Maximum_Alignment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_attributes.html#attribute-max-integer-size">4.43. Attribute Max_Integer_Size</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_attributes.html#attribute-mechanism-code">4.44. Attribute Mechanism_Code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_attributes.html#attribute-null-parameter">4.45. Attribute Null_Parameter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_attributes.html#attribute-object-size">4.46. Attribute Object_Size</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_attributes.html#attribute-old">4.47. Attribute Old</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_attributes.html#attribute-passed-by-reference">4.48. Attribute Passed_By_Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_attributes.html#attribute-pool-address">4.49. Attribute Pool_Address</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_attributes.html#attribute-range-length">4.50. Attribute Range_Length</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_attributes.html#attribute-restriction-set">4.51. Attribute Restriction_Set</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_attributes.html#attribute-result">4.52. Attribute Result</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_attributes.html#attribute-safe-emax">4.53. Attribute Safe_Emax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_attributes.html#attribute-safe-large">4.54. Attribute Safe_Large</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_attributes.html#attribute-safe-small">4.55. Attribute Safe_Small</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_attributes.html#attribute-scalar-storage-order">4.56. Attribute Scalar_Storage_Order</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_attributes.html#attribute-simple-storage-pool">4.57. Attribute Simple_Storage_Pool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_attributes.html#attribute-small">4.58. Attribute Small</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_attributes.html#attribute-small-denominator">4.59. Attribute Small_Denominator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_attributes.html#attribute-small-numerator">4.60. Attribute Small_Numerator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_attributes.html#attribute-storage-unit">4.61. Attribute Storage_Unit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_attributes.html#attribute-stub-type">4.62. Attribute Stub_Type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_attributes.html#attribute-system-allocator-alignment">4.63. Attribute System_Allocator_Alignment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_attributes.html#attribute-target-name">4.64. Attribute Target_Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_attributes.html#attribute-to-address">4.65. Attribute To_Address</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_attributes.html#attribute-to-any">4.66. Attribute To_Any</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_attributes.html#attribute-type-class">4.67. Attribute Type_Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_attributes.html#attribute-type-key">4.68. Attribute Type_Key</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_attributes.html#attribute-typecode">4.69. Attribute TypeCode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_attributes.html#attribute-unconstrained-array">4.70. Attribute Unconstrained_Array</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_attributes.html#attribute-universal-literal-string">4.71. Attribute Universal_Literal_String</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_attributes.html#attribute-unrestricted-access">4.72. Attribute Unrestricted_Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_attributes.html#attribute-update">4.73. Attribute Update</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_attributes.html#attribute-valid-image">4.74. Attribute Valid_Image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_attributes.html#attribute-valid-scalars">4.75. Attribute Valid_Scalars</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_attributes.html#attribute-vads-size">4.76. Attribute VADS_Size</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_attributes.html#attribute-value-size">4.77. Attribute Value_Size</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_attributes.html#attribute-wchar-t-size">4.78. Attribute Wchar_T_Size</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_defined_attributes.html#attribute-word-size">4.79. Attribute Word_Size</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gnat_rm/standard_and_implementation_defined_restrictions.html">5. Standard and Implementation Defined Restrictions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/standard_and_implementation_defined_restrictions.html#partition-wide-restrictions">5.1. Partition-Wide Restrictions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/standard_and_implementation_defined_restrictions.html#immediate-reclamation">5.1.1. Immediate_Reclamation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/standard_and_implementation_defined_restrictions.html#max-asynchronous-select-nesting">5.1.2. Max_Asynchronous_Select_Nesting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/standard_and_implementation_defined_restrictions.html#max-entry-queue-length">5.1.3. Max_Entry_Queue_Length</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/standard_and_implementation_defined_restrictions.html#max-protected-entries">5.1.4. Max_Protected_Entries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/standard_and_implementation_defined_restrictions.html#max-select-alternatives">5.1.5. Max_Select_Alternatives</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/standard_and_implementation_defined_restrictions.html#max-storage-at-blocking">5.1.6. Max_Storage_At_Blocking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/standard_and_implementation_defined_restrictions.html#max-task-entries">5.1.7. Max_Task_Entries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/standard_and_implementation_defined_restrictions.html#max-tasks">5.1.8. Max_Tasks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/standard_and_implementation_defined_restrictions.html#no-abort-statements">5.1.9. No_Abort_Statements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/standard_and_implementation_defined_restrictions.html#no-access-parameter-allocators">5.1.10. No_Access_Parameter_Allocators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/standard_and_implementation_defined_restrictions.html#no-access-subprograms">5.1.11. No_Access_Subprograms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/standard_and_implementation_defined_restrictions.html#no-allocators">5.1.12. No_Allocators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/standard_and_implementation_defined_restrictions.html#no-anonymous-allocators">5.1.13. No_Anonymous_Allocators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/standard_and_implementation_defined_restrictions.html#no-asynchronous-control">5.1.14. No_Asynchronous_Control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/standard_and_implementation_defined_restrictions.html#no-calendar">5.1.15. No_Calendar</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/standard_and_implementation_defined_restrictions.html#no-coextensions">5.1.16. No_Coextensions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/standard_and_implementation_defined_restrictions.html#no-default-initialization">5.1.17. No_Default_Initialization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/standard_and_implementation_defined_restrictions.html#no-delay">5.1.18. No_Delay</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/standard_and_implementation_defined_restrictions.html#no-dependence">5.1.19. No_Dependence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/standard_and_implementation_defined_restrictions.html#no-direct-boolean-operators">5.1.20. No_Direct_Boolean_Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/standard_and_implementation_defined_restrictions.html#no-dispatch">5.1.21. No_Dispatch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/standard_and_implementation_defined_restrictions.html#no-dispatching-calls">5.1.22. No_Dispatching_Calls</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/standard_and_implementation_defined_restrictions.html#no-dynamic-attachment">5.1.23. No_Dynamic_Attachment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/standard_and_implementation_defined_restrictions.html#no-dynamic-priorities">5.1.24. No_Dynamic_Priorities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/standard_and_implementation_defined_restrictions.html#no-entry-calls-in-elaboration-code">5.1.25. No_Entry_Calls_In_Elaboration_Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/standard_and_implementation_defined_restrictions.html#no-enumeration-maps">5.1.26. No_Enumeration_Maps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/standard_and_implementation_defined_restrictions.html#no-exception-handlers">5.1.27. No_Exception_Handlers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/standard_and_implementation_defined_restrictions.html#no-exception-propagation">5.1.28. No_Exception_Propagation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/standard_and_implementation_defined_restrictions.html#no-exception-registration">5.1.29. No_Exception_Registration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/standard_and_implementation_defined_restrictions.html#no-exceptions">5.1.30. No_Exceptions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/standard_and_implementation_defined_restrictions.html#no-finalization">5.1.31. No_Finalization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/standard_and_implementation_defined_restrictions.html#no-fixed-point">5.1.32. No_Fixed_Point</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/standard_and_implementation_defined_restrictions.html#no-floating-point">5.1.33. No_Floating_Point</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/standard_and_implementation_defined_restrictions.html#no-implicit-conditionals">5.1.34. No_Implicit_Conditionals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/standard_and_implementation_defined_restrictions.html#no-implicit-dynamic-code">5.1.35. No_Implicit_Dynamic_Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/standard_and_implementation_defined_restrictions.html#no-implicit-heap-allocations">5.1.36. No_Implicit_Heap_Allocations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/standard_and_implementation_defined_restrictions.html#no-implicit-protected-object-allocations">5.1.37. No_Implicit_Protected_Object_Allocations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/standard_and_implementation_defined_restrictions.html#no-implicit-task-allocations">5.1.38. No_Implicit_Task_Allocations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/standard_and_implementation_defined_restrictions.html#no-initialize-scalars">5.1.39. No_Initialize_Scalars</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/standard_and_implementation_defined_restrictions.html#no-io">5.1.40. No_IO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/standard_and_implementation_defined_restrictions.html#no-local-allocators">5.1.41. No_Local_Allocators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/standard_and_implementation_defined_restrictions.html#no-local-protected-objects">5.1.42. No_Local_Protected_Objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/standard_and_implementation_defined_restrictions.html#no-local-timing-events">5.1.43. No_Local_Timing_Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/standard_and_implementation_defined_restrictions.html#no-long-long-integers">5.1.44. No_Long_Long_Integers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/standard_and_implementation_defined_restrictions.html#no-multiple-elaboration">5.1.45. No_Multiple_Elaboration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/standard_and_implementation_defined_restrictions.html#no-nested-finalization">5.1.46. No_Nested_Finalization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/standard_and_implementation_defined_restrictions.html#no-protected-type-allocators">5.1.47. No_Protected_Type_Allocators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/standard_and_implementation_defined_restrictions.html#no-protected-types">5.1.48. No_Protected_Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/standard_and_implementation_defined_restrictions.html#no-recursion">5.1.49. No_Recursion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/standard_and_implementation_defined_restrictions.html#no-reentrancy">5.1.50. No_Reentrancy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/standard_and_implementation_defined_restrictions.html#no-relative-delay">5.1.51. No_Relative_Delay</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/standard_and_implementation_defined_restrictions.html#no-requeue-statements">5.1.52. No_Requeue_Statements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/standard_and_implementation_defined_restrictions.html#no-secondary-stack">5.1.53. No_Secondary_Stack</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/standard_and_implementation_defined_restrictions.html#no-select-statements">5.1.54. No_Select_Statements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/standard_and_implementation_defined_restrictions.html#no-specific-termination-handlers">5.1.55. No_Specific_Termination_Handlers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/standard_and_implementation_defined_restrictions.html#no-specification-of-aspect">5.1.56. No_Specification_of_Aspect</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/standard_and_implementation_defined_restrictions.html#no-standard-allocators-after-elaboration">5.1.57. No_Standard_Allocators_After_Elaboration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/standard_and_implementation_defined_restrictions.html#no-standard-storage-pools">5.1.58. No_Standard_Storage_Pools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/standard_and_implementation_defined_restrictions.html#no-stream-optimizations">5.1.59. No_Stream_Optimizations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/standard_and_implementation_defined_restrictions.html#no-streams">5.1.60. No_Streams</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/standard_and_implementation_defined_restrictions.html#no-task-allocators">5.1.61. No_Task_Allocators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/standard_and_implementation_defined_restrictions.html#no-task-at-interrupt-priority">5.1.62. No_Task_At_Interrupt_Priority</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/standard_and_implementation_defined_restrictions.html#no-task-attributes-package">5.1.63. No_Task_Attributes_Package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/standard_and_implementation_defined_restrictions.html#no-task-hierarchy">5.1.64. No_Task_Hierarchy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/standard_and_implementation_defined_restrictions.html#no-task-termination">5.1.65. No_Task_Termination</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/standard_and_implementation_defined_restrictions.html#no-tasking">5.1.66. No_Tasking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/standard_and_implementation_defined_restrictions.html#no-terminate-alternatives">5.1.67. No_Terminate_Alternatives</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/standard_and_implementation_defined_restrictions.html#no-unchecked-access">5.1.68. No_Unchecked_Access</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/standard_and_implementation_defined_restrictions.html#no-unchecked-conversion">5.1.69. No_Unchecked_Conversion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/standard_and_implementation_defined_restrictions.html#no-unchecked-deallocation">5.1.70. No_Unchecked_Deallocation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/standard_and_implementation_defined_restrictions.html#no-use-of-entity">5.1.71. No_Use_Of_Entity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/standard_and_implementation_defined_restrictions.html#pure-barriers">5.1.72. Pure_Barriers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/standard_and_implementation_defined_restrictions.html#simple-barriers">5.1.73. Simple_Barriers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/standard_and_implementation_defined_restrictions.html#static-priorities">5.1.74. Static_Priorities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/standard_and_implementation_defined_restrictions.html#static-storage-size">5.1.75. Static_Storage_Size</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/standard_and_implementation_defined_restrictions.html#program-unit-level-restrictions">5.2. Program Unit Level Restrictions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/standard_and_implementation_defined_restrictions.html#no-elaboration-code">5.2.1. No_Elaboration_Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/standard_and_implementation_defined_restrictions.html#no-dynamic-sized-objects">5.2.2. No_Dynamic_Sized_Objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/standard_and_implementation_defined_restrictions.html#no-entry-queue">5.2.3. No_Entry_Queue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/standard_and_implementation_defined_restrictions.html#no-implementation-aspect-specifications">5.2.4. No_Implementation_Aspect_Specifications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/standard_and_implementation_defined_restrictions.html#no-implementation-attributes">5.2.5. No_Implementation_Attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/standard_and_implementation_defined_restrictions.html#no-implementation-identifiers">5.2.6. No_Implementation_Identifiers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/standard_and_implementation_defined_restrictions.html#no-implementation-pragmas">5.2.7. No_Implementation_Pragmas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/standard_and_implementation_defined_restrictions.html#no-implementation-restrictions">5.2.8. No_Implementation_Restrictions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/standard_and_implementation_defined_restrictions.html#no-implementation-units">5.2.9. No_Implementation_Units</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/standard_and_implementation_defined_restrictions.html#no-implicit-aliasing">5.2.10. No_Implicit_Aliasing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/standard_and_implementation_defined_restrictions.html#no-implicit-loops">5.2.11. No_Implicit_Loops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/standard_and_implementation_defined_restrictions.html#no-obsolescent-features">5.2.12. No_Obsolescent_Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/standard_and_implementation_defined_restrictions.html#no-wide-characters">5.2.13. No_Wide_Characters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/standard_and_implementation_defined_restrictions.html#static-dispatch-tables">5.2.14. Static_Dispatch_Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/standard_and_implementation_defined_restrictions.html#spark-05">5.2.15. SPARK_05</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gnat_rm/implementation_advice.html">6. Implementation Advice</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_advice.html#rm-1-1-3-20-error-detection">6.1. RM 1.1.3(20): Error Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_advice.html#rm-1-1-3-31-child-units">6.2. RM 1.1.3(31): Child Units</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_advice.html#rm-1-1-5-12-bounded-errors">6.3. RM 1.1.5(12): Bounded Errors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_advice.html#rm-2-8-16-pragmas">6.4. RM 2.8(16): Pragmas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_advice.html#rm-2-8-17-19-pragmas">6.5. RM 2.8(17-19): Pragmas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_advice.html#rm-3-5-2-5-alternative-character-sets">6.6. RM 3.5.2(5): Alternative Character Sets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_advice.html#rm-3-5-4-28-integer-types">6.7. RM 3.5.4(28): Integer Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_advice.html#rm-3-5-4-29-integer-types">6.8. RM 3.5.4(29): Integer Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_advice.html#rm-3-5-5-8-enumeration-values">6.9. RM 3.5.5(8): Enumeration Values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_advice.html#rm-3-5-7-17-float-types">6.10. RM 3.5.7(17): Float Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_advice.html#rm-3-6-2-11-multidimensional-arrays">6.11. RM 3.6.2(11): Multidimensional Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_advice.html#rm-9-6-30-31-duration-small">6.12. RM 9.6(30-31): Duration’Small</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_advice.html#rm-10-2-1-12-consistent-representation">6.13. RM 10.2.1(12): Consistent Representation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_advice.html#rm-11-4-1-19-exception-information">6.14. RM 11.4.1(19): Exception Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_advice.html#rm-11-5-28-suppression-of-checks">6.15. RM 11.5(28): Suppression of Checks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_advice.html#rm-13-1-21-24-representation-clauses">6.16. RM 13.1 (21-24): Representation Clauses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_advice.html#rm-13-2-6-8-packed-types">6.17. RM 13.2(6-8): Packed Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_advice.html#rm-13-3-14-19-address-clauses">6.18. RM 13.3(14-19): Address Clauses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_advice.html#rm-13-3-29-35-alignment-clauses">6.19. RM 13.3(29-35): Alignment Clauses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_advice.html#rm-13-3-42-43-size-clauses">6.20. RM 13.3(42-43): Size Clauses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_advice.html#rm-13-3-50-56-size-clauses">6.21. RM 13.3(50-56): Size Clauses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_advice.html#rm-13-3-71-73-component-size-clauses">6.22. RM 13.3(71-73): Component Size Clauses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_advice.html#rm-13-4-9-10-enumeration-representation-clauses">6.23. RM 13.4(9-10): Enumeration Representation Clauses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_advice.html#rm-13-5-1-17-22-record-representation-clauses">6.24. RM 13.5.1(17-22): Record Representation Clauses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_advice.html#rm-13-5-2-5-storage-place-attributes">6.25. RM 13.5.2(5): Storage Place Attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_advice.html#rm-13-5-3-7-8-bit-ordering">6.26. RM 13.5.3(7-8): Bit Ordering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_advice.html#rm-13-7-37-address-as-private">6.27. RM 13.7(37): Address as Private</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_advice.html#rm-13-7-1-16-address-operations">6.28. RM 13.7.1(16): Address Operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_advice.html#rm-13-9-14-17-unchecked-conversion">6.29. RM 13.9(14-17): Unchecked Conversion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_advice.html#rm-13-11-23-25-implicit-heap-usage">6.30. RM 13.11(23-25): Implicit Heap Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_advice.html#rm-13-11-2-17-unchecked-deallocation">6.31. RM 13.11.2(17): Unchecked Deallocation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_advice.html#rm-13-13-2-1-6-stream-oriented-attributes">6.32. RM 13.13.2(1.6): Stream Oriented Attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_advice.html#rm-a-1-52-names-of-predefined-numeric-types">6.33. RM A.1(52): Names of Predefined Numeric Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_advice.html#rm-a-3-2-49-ada-characters-handling">6.34. RM A.3.2(49): <code class="docutils literal notranslate"><span class="pre">Ada.Characters.Handling</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_advice.html#rm-a-4-4-106-bounded-length-string-handling">6.35. RM A.4.4(106): Bounded-Length String Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_advice.html#rm-a-5-2-46-47-random-number-generation">6.36. RM A.5.2(46-47): Random Number Generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_advice.html#rm-a-10-7-23-get-immediate">6.37. RM A.10.7(23): <code class="docutils literal notranslate"><span class="pre">Get_Immediate</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_advice.html#rm-a-18-containers">6.38. RM A.18: <code class="docutils literal notranslate"><span class="pre">Containers</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_advice.html#rm-b-1-39-41-pragma-export">6.39. RM B.1(39-41): Pragma <code class="docutils literal notranslate"><span class="pre">Export</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_advice.html#rm-b-2-12-13-package-interfaces">6.40. RM B.2(12-13): Package <code class="docutils literal notranslate"><span class="pre">Interfaces</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_advice.html#rm-b-3-63-71-interfacing-with-c">6.41. RM B.3(63-71): Interfacing with C</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_advice.html#rm-b-4-95-98-interfacing-with-cobol">6.42. RM B.4(95-98): Interfacing with COBOL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_advice.html#rm-b-5-22-26-interfacing-with-fortran">6.43. RM B.5(22-26): Interfacing with Fortran</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_advice.html#rm-c-1-3-5-access-to-machine-operations">6.44. RM C.1(3-5): Access to Machine Operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_advice.html#rm-c-1-10-16-access-to-machine-operations">6.45. RM C.1(10-16): Access to Machine Operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_advice.html#rm-c-3-28-interrupt-support">6.46. RM C.3(28): Interrupt Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_advice.html#rm-c-3-1-20-21-protected-procedure-handlers">6.47. RM C.3.1(20-21): Protected Procedure Handlers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_advice.html#rm-c-3-2-25-package-interrupts">6.48. RM C.3.2(25): Package <code class="docutils literal notranslate"><span class="pre">Interrupts</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_advice.html#rm-c-4-14-pre-elaboration-requirements">6.49. RM C.4(14): Pre-elaboration Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_advice.html#rm-c-5-8-pragma-discard-names">6.50. RM C.5(8): Pragma <code class="docutils literal notranslate"><span class="pre">Discard_Names</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_advice.html#rm-c-7-2-30-the-package-task-attributes">6.51. RM C.7.2(30): The Package Task_Attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_advice.html#rm-d-3-17-locking-policies">6.52. RM D.3(17): Locking Policies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_advice.html#rm-d-4-16-entry-queuing-policies">6.53. RM D.4(16): Entry Queuing Policies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_advice.html#rm-d-6-9-10-preemptive-abort">6.54. RM D.6(9-10): Preemptive Abort</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_advice.html#rm-d-7-21-tasking-restrictions">6.55. RM D.7(21): Tasking Restrictions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_advice.html#rm-d-8-47-49-monotonic-time">6.56. RM D.8(47-49): Monotonic Time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_advice.html#rm-e-5-28-29-partition-communication-subsystem">6.57. RM E.5(28-29): Partition Communication Subsystem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_advice.html#rm-f-7-cobol-support">6.58. RM F(7): COBOL Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_advice.html#rm-f-1-2-decimal-radix-support">6.59. RM F.1(2): Decimal Radix Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_advice.html#rm-g-numerics">6.60. RM G: Numerics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_advice.html#rm-g-1-1-56-58-complex-types">6.61. RM G.1.1(56-58): Complex Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_advice.html#rm-g-1-2-49-complex-elementary-functions">6.62. RM G.1.2(49): Complex Elementary Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_advice.html#rm-g-2-4-19-accuracy-requirements">6.63. RM G.2.4(19): Accuracy Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_advice.html#rm-g-2-6-15-complex-arithmetic-accuracy">6.64. RM G.2.6(15): Complex Arithmetic Accuracy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_advice.html#rm-h-6-15-2-pragma-partition-elaboration-policy">6.65. RM H.6(15/2): Pragma Partition_Elaboration_Policy</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gnat_rm/implementation_defined_characteristics.html">7. Implementation Defined Characteristics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gnat_rm/intrinsic_subprograms.html">8. Intrinsic Subprograms</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/intrinsic_subprograms.html#intrinsic-operators">8.1. Intrinsic Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/intrinsic_subprograms.html#compilation-iso-date">8.2. Compilation_ISO_Date</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/intrinsic_subprograms.html#compilation-date">8.3. Compilation_Date</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/intrinsic_subprograms.html#compilation-time">8.4. Compilation_Time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/intrinsic_subprograms.html#enclosing-entity">8.5. Enclosing_Entity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/intrinsic_subprograms.html#exception-information">8.6. Exception_Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/intrinsic_subprograms.html#exception-message">8.7. Exception_Message</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/intrinsic_subprograms.html#exception-name">8.8. Exception_Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/intrinsic_subprograms.html#file">8.9. File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/intrinsic_subprograms.html#line">8.10. Line</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/intrinsic_subprograms.html#shifts-and-rotates">8.11. Shifts and Rotates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/intrinsic_subprograms.html#source-location">8.12. Source_Location</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gnat_rm/representation_clauses_and_pragmas.html">9. Representation Clauses and Pragmas</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/representation_clauses_and_pragmas.html#alignment-clauses">9.1. Alignment Clauses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/representation_clauses_and_pragmas.html#size-clauses">9.2. Size Clauses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/representation_clauses_and_pragmas.html#storage-size-clauses">9.3. Storage_Size Clauses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/representation_clauses_and_pragmas.html#size-of-variant-record-objects">9.4. Size of Variant Record Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/representation_clauses_and_pragmas.html#biased-representation">9.5. Biased Representation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/representation_clauses_and_pragmas.html#value-size-and-object-size-clauses">9.6. Value_Size and Object_Size Clauses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/representation_clauses_and_pragmas.html#component-size-clauses">9.7. Component_Size Clauses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/representation_clauses_and_pragmas.html#bit-order-clauses">9.8. Bit_Order Clauses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/representation_clauses_and_pragmas.html#effect-of-bit-order-on-byte-ordering">9.9. Effect of Bit_Order on Byte Ordering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/representation_clauses_and_pragmas.html#pragma-pack-for-arrays">9.10. Pragma Pack for Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/representation_clauses_and_pragmas.html#pragma-pack-for-records">9.11. Pragma Pack for Records</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/representation_clauses_and_pragmas.html#record-representation-clauses">9.12. Record Representation Clauses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/representation_clauses_and_pragmas.html#handling-of-records-with-holes">9.13. Handling of Records with Holes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/representation_clauses_and_pragmas.html#enumeration-clauses">9.14. Enumeration Clauses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/representation_clauses_and_pragmas.html#address-clauses">9.15. Address Clauses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/representation_clauses_and_pragmas.html#use-of-address-clauses-for-memory-mapped-i-o">9.16. Use of Address Clauses for Memory-Mapped I/O</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/representation_clauses_and_pragmas.html#effect-of-convention-on-representation">9.17. Effect of Convention on Representation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/representation_clauses_and_pragmas.html#conventions-and-anonymous-access-types">9.18. Conventions and Anonymous Access Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/representation_clauses_and_pragmas.html#determining-the-representations-chosen-by-gnat">9.19. Determining the Representations chosen by GNAT</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gnat_rm/standard_library_routines.html">10. Standard Library Routines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gnat_rm/the_implementation_of_standard_i_o.html">11. The Implementation of Standard I/O</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_implementation_of_standard_i_o.html#standard-i-o-packages">11.1. Standard I/O Packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_implementation_of_standard_i_o.html#form-strings">11.2. FORM Strings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_implementation_of_standard_i_o.html#direct-io">11.3. Direct_IO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_implementation_of_standard_i_o.html#sequential-io">11.4. Sequential_IO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_implementation_of_standard_i_o.html#text-io">11.5. Text_IO</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/the_implementation_of_standard_i_o.html#stream-pointer-positioning">11.5.1. Stream Pointer Positioning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/the_implementation_of_standard_i_o.html#reading-and-writing-non-regular-files">11.5.2. Reading and Writing Non-Regular Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/the_implementation_of_standard_i_o.html#get-immediate">11.5.3. Get_Immediate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/the_implementation_of_standard_i_o.html#treating-text-io-files-as-streams">11.5.4. Treating Text_IO Files as Streams</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/the_implementation_of_standard_i_o.html#text-io-extensions">11.5.5. Text_IO Extensions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/the_implementation_of_standard_i_o.html#text-io-facilities-for-unbounded-strings">11.5.6. Text_IO Facilities for Unbounded Strings</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_implementation_of_standard_i_o.html#wide-text-io">11.6. Wide_Text_IO</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/the_implementation_of_standard_i_o.html#stream-pointer-positioning-1">11.6.1. Stream Pointer Positioning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/the_implementation_of_standard_i_o.html#reading-and-writing-non-regular-files-1">11.6.2. Reading and Writing Non-Regular Files</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_implementation_of_standard_i_o.html#wide-wide-text-io">11.7. Wide_Wide_Text_IO</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/the_implementation_of_standard_i_o.html#stream-pointer-positioning-2">11.7.1. Stream Pointer Positioning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/the_implementation_of_standard_i_o.html#reading-and-writing-non-regular-files-2">11.7.2. Reading and Writing Non-Regular Files</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_implementation_of_standard_i_o.html#stream-io">11.8. Stream_IO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_implementation_of_standard_i_o.html#text-translation">11.9. Text Translation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_implementation_of_standard_i_o.html#shared-files">11.10. Shared Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_implementation_of_standard_i_o.html#filenames-encoding">11.11. Filenames encoding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_implementation_of_standard_i_o.html#file-content-encoding">11.12. File content encoding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_implementation_of_standard_i_o.html#open-modes">11.13. Open Modes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_implementation_of_standard_i_o.html#operations-on-c-streams">11.14. Operations on C Streams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_implementation_of_standard_i_o.html#interfacing-to-c-streams">11.15. Interfacing to C Streams</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gnat_rm/the_gnat_library.html">12. The GNAT Library</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#ada-characters-latin-9-a-chlat9-ads">12.1. <code class="docutils literal notranslate"><span class="pre">Ada.Characters.Latin_9</span></code> (<code class="file docutils literal notranslate"><span class="pre">a-chlat9.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#ada-characters-wide-latin-1-a-cwila1-ads">12.2. <code class="docutils literal notranslate"><span class="pre">Ada.Characters.Wide_Latin_1</span></code> (<code class="file docutils literal notranslate"><span class="pre">a-cwila1.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#ada-characters-wide-latin-9-a-cwila1-ads">12.3. <code class="docutils literal notranslate"><span class="pre">Ada.Characters.Wide_Latin_9</span></code> (<code class="file docutils literal notranslate"><span class="pre">a-cwila1.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#ada-characters-wide-wide-latin-1-a-chzla1-ads">12.4. <code class="docutils literal notranslate"><span class="pre">Ada.Characters.Wide_Wide_Latin_1</span></code> (<code class="file docutils literal notranslate"><span class="pre">a-chzla1.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#ada-characters-wide-wide-latin-9-a-chzla9-ads">12.5. <code class="docutils literal notranslate"><span class="pre">Ada.Characters.Wide_Wide_Latin_9</span></code> (<code class="file docutils literal notranslate"><span class="pre">a-chzla9.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#ada-containers-formal-doubly-linked-lists-a-cfdlli-ads">12.6. <code class="docutils literal notranslate"><span class="pre">Ada.Containers.Formal_Doubly_Linked_Lists</span></code> (<code class="file docutils literal notranslate"><span class="pre">a-cfdlli.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#ada-containers-formal-hashed-maps-a-cfhama-ads">12.7. <code class="docutils literal notranslate"><span class="pre">Ada.Containers.Formal_Hashed_Maps</span></code> (<code class="file docutils literal notranslate"><span class="pre">a-cfhama.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#ada-containers-formal-hashed-sets-a-cfhase-ads">12.8. <code class="docutils literal notranslate"><span class="pre">Ada.Containers.Formal_Hashed_Sets</span></code> (<code class="file docutils literal notranslate"><span class="pre">a-cfhase.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#ada-containers-formal-ordered-maps-a-cforma-ads">12.9. <code class="docutils literal notranslate"><span class="pre">Ada.Containers.Formal_Ordered_Maps</span></code> (<code class="file docutils literal notranslate"><span class="pre">a-cforma.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#ada-containers-formal-ordered-sets-a-cforse-ads">12.10. <code class="docutils literal notranslate"><span class="pre">Ada.Containers.Formal_Ordered_Sets</span></code> (<code class="file docutils literal notranslate"><span class="pre">a-cforse.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#ada-containers-formal-vectors-a-cofove-ads">12.11. <code class="docutils literal notranslate"><span class="pre">Ada.Containers.Formal_Vectors</span></code> (<code class="file docutils literal notranslate"><span class="pre">a-cofove.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#ada-containers-formal-indefinite-vectors-a-cfinve-ads">12.12. <code class="docutils literal notranslate"><span class="pre">Ada.Containers.Formal_Indefinite_Vectors</span></code> (<code class="file docutils literal notranslate"><span class="pre">a-cfinve.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#ada-containers-functional-vectors-a-cofuve-ads">12.13. <code class="docutils literal notranslate"><span class="pre">Ada.Containers.Functional_Vectors</span></code> (<code class="file docutils literal notranslate"><span class="pre">a-cofuve.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#ada-containers-functional-sets-a-cofuse-ads">12.14. <code class="docutils literal notranslate"><span class="pre">Ada.Containers.Functional_Sets</span></code> (<code class="file docutils literal notranslate"><span class="pre">a-cofuse.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#ada-containers-functional-maps-a-cofuma-ads">12.15. <code class="docutils literal notranslate"><span class="pre">Ada.Containers.Functional_Maps</span></code> (<code class="file docutils literal notranslate"><span class="pre">a-cofuma.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#ada-containers-bounded-holders-a-coboho-ads">12.16. <code class="docutils literal notranslate"><span class="pre">Ada.Containers.Bounded_Holders</span></code> (<code class="file docutils literal notranslate"><span class="pre">a-coboho.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#ada-command-line-environment-a-colien-ads">12.17. <code class="docutils literal notranslate"><span class="pre">Ada.Command_Line.Environment</span></code> (<code class="file docutils literal notranslate"><span class="pre">a-colien.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#ada-command-line-remove-a-colire-ads">12.18. <code class="docutils literal notranslate"><span class="pre">Ada.Command_Line.Remove</span></code> (<code class="file docutils literal notranslate"><span class="pre">a-colire.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#ada-command-line-response-file-a-clrefi-ads">12.19. <code class="docutils literal notranslate"><span class="pre">Ada.Command_Line.Response_File</span></code> (<code class="file docutils literal notranslate"><span class="pre">a-clrefi.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#ada-direct-io-c-streams-a-diocst-ads">12.20. <code class="docutils literal notranslate"><span class="pre">Ada.Direct_IO.C_Streams</span></code> (<code class="file docutils literal notranslate"><span class="pre">a-diocst.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#ada-exceptions-is-null-occurrence-a-einuoc-ads">12.21. <code class="docutils literal notranslate"><span class="pre">Ada.Exceptions.Is_Null_Occurrence</span></code> (<code class="file docutils literal notranslate"><span class="pre">a-einuoc.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#ada-exceptions-last-chance-handler-a-elchha-ads">12.22. <code class="docutils literal notranslate"><span class="pre">Ada.Exceptions.Last_Chance_Handler</span></code> (<code class="file docutils literal notranslate"><span class="pre">a-elchha.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#ada-exceptions-traceback-a-exctra-ads">12.23. <code class="docutils literal notranslate"><span class="pre">Ada.Exceptions.Traceback</span></code> (<code class="file docutils literal notranslate"><span class="pre">a-exctra.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#ada-sequential-io-c-streams-a-siocst-ads">12.24. <code class="docutils literal notranslate"><span class="pre">Ada.Sequential_IO.C_Streams</span></code> (<code class="file docutils literal notranslate"><span class="pre">a-siocst.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#ada-streams-stream-io-c-streams-a-ssicst-ads">12.25. <code class="docutils literal notranslate"><span class="pre">Ada.Streams.Stream_IO.C_Streams</span></code> (<code class="file docutils literal notranslate"><span class="pre">a-ssicst.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#ada-strings-unbounded-text-io-a-suteio-ads">12.26. <code class="docutils literal notranslate"><span class="pre">Ada.Strings.Unbounded.Text_IO</span></code> (<code class="file docutils literal notranslate"><span class="pre">a-suteio.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#ada-strings-wide-unbounded-wide-text-io-a-swuwti-ads">12.27. <code class="docutils literal notranslate"><span class="pre">Ada.Strings.Wide_Unbounded.Wide_Text_IO</span></code> (<code class="file docutils literal notranslate"><span class="pre">a-swuwti.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#ada-strings-wide-wide-unbounded-wide-wide-text-io-a-szuzti-ads">12.28. <code class="docutils literal notranslate"><span class="pre">Ada.Strings.Wide_Wide_Unbounded.Wide_Wide_Text_IO</span></code> (<code class="file docutils literal notranslate"><span class="pre">a-szuzti.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#ada-task-initialization-a-tasini-ads">12.29. <code class="docutils literal notranslate"><span class="pre">Ada.Task_Initialization</span></code> (<code class="file docutils literal notranslate"><span class="pre">a-tasini.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#ada-text-io-c-streams-a-tiocst-ads">12.30. <code class="docutils literal notranslate"><span class="pre">Ada.Text_IO.C_Streams</span></code> (<code class="file docutils literal notranslate"><span class="pre">a-tiocst.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#ada-text-io-reset-standard-files-a-tirsfi-ads">12.31. <code class="docutils literal notranslate"><span class="pre">Ada.Text_IO.Reset_Standard_Files</span></code> (<code class="file docutils literal notranslate"><span class="pre">a-tirsfi.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#ada-wide-characters-unicode-a-wichun-ads">12.32. <code class="docutils literal notranslate"><span class="pre">Ada.Wide_Characters.Unicode</span></code> (<code class="file docutils literal notranslate"><span class="pre">a-wichun.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#ada-wide-text-io-c-streams-a-wtcstr-ads">12.33. <code class="docutils literal notranslate"><span class="pre">Ada.Wide_Text_IO.C_Streams</span></code> (<code class="file docutils literal notranslate"><span class="pre">a-wtcstr.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#ada-wide-text-io-reset-standard-files-a-wrstfi-ads">12.34. <code class="docutils literal notranslate"><span class="pre">Ada.Wide_Text_IO.Reset_Standard_Files</span></code> (<code class="file docutils literal notranslate"><span class="pre">a-wrstfi.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#ada-wide-wide-characters-unicode-a-zchuni-ads">12.35. <code class="docutils literal notranslate"><span class="pre">Ada.Wide_Wide_Characters.Unicode</span></code> (<code class="file docutils literal notranslate"><span class="pre">a-zchuni.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#ada-wide-wide-text-io-c-streams-a-ztcstr-ads">12.36. <code class="docutils literal notranslate"><span class="pre">Ada.Wide_Wide_Text_IO.C_Streams</span></code> (<code class="file docutils literal notranslate"><span class="pre">a-ztcstr.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#ada-wide-wide-text-io-reset-standard-files-a-zrstfi-ads">12.37. <code class="docutils literal notranslate"><span class="pre">Ada.Wide_Wide_Text_IO.Reset_Standard_Files</span></code> (<code class="file docutils literal notranslate"><span class="pre">a-zrstfi.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-altivec-g-altive-ads">12.38. <code class="docutils literal notranslate"><span class="pre">GNAT.Altivec</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-altive.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-altivec-conversions-g-altcon-ads">12.39. <code class="docutils literal notranslate"><span class="pre">GNAT.Altivec.Conversions</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-altcon.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-altivec-vector-operations-g-alveop-ads">12.40. <code class="docutils literal notranslate"><span class="pre">GNAT.Altivec.Vector_Operations</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-alveop.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-altivec-vector-types-g-alvety-ads">12.41. <code class="docutils literal notranslate"><span class="pre">GNAT.Altivec.Vector_Types</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-alvety.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-altivec-vector-views-g-alvevi-ads">12.42. <code class="docutils literal notranslate"><span class="pre">GNAT.Altivec.Vector_Views</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-alvevi.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-array-split-g-arrspl-ads">12.43. <code class="docutils literal notranslate"><span class="pre">GNAT.Array_Split</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-arrspl.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-awk-g-awk-ads">12.44. <code class="docutils literal notranslate"><span class="pre">GNAT.AWK</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-awk.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-bind-environment-g-binenv-ads">12.45. <code class="docutils literal notranslate"><span class="pre">GNAT.Bind_Environment</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-binenv.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-branch-prediction-g-brapre-ads">12.46. <code class="docutils literal notranslate"><span class="pre">GNAT.Branch_Prediction</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-brapre.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-bounded-buffers-g-boubuf-ads">12.47. <code class="docutils literal notranslate"><span class="pre">GNAT.Bounded_Buffers</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-boubuf.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-bounded-mailboxes-g-boumai-ads">12.48. <code class="docutils literal notranslate"><span class="pre">GNAT.Bounded_Mailboxes</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-boumai.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-bubble-sort-g-bubsor-ads">12.49. <code class="docutils literal notranslate"><span class="pre">GNAT.Bubble_Sort</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-bubsor.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-bubble-sort-a-g-busora-ads">12.50. <code class="docutils literal notranslate"><span class="pre">GNAT.Bubble_Sort_A</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-busora.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-bubble-sort-g-g-busorg-ads">12.51. <code class="docutils literal notranslate"><span class="pre">GNAT.Bubble_Sort_G</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-busorg.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-byte-order-mark-g-byorma-ads">12.52. <code class="docutils literal notranslate"><span class="pre">GNAT.Byte_Order_Mark</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-byorma.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-byte-swapping-g-bytswa-ads">12.53. <code class="docutils literal notranslate"><span class="pre">GNAT.Byte_Swapping</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-bytswa.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-calendar-g-calend-ads">12.54. <code class="docutils literal notranslate"><span class="pre">GNAT.Calendar</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-calend.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-calendar-time-io-g-catiio-ads">12.55. <code class="docutils literal notranslate"><span class="pre">GNAT.Calendar.Time_IO</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-catiio.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-crc32-g-crc32-ads">12.56. <code class="docutils literal notranslate"><span class="pre">GNAT.CRC32</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-crc32.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-case-util-g-casuti-ads">12.57. <code class="docutils literal notranslate"><span class="pre">GNAT.Case_Util</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-casuti.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-cgi-g-cgi-ads">12.58. <code class="docutils literal notranslate"><span class="pre">GNAT.CGI</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-cgi.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-cgi-cookie-g-cgicoo-ads">12.59. <code class="docutils literal notranslate"><span class="pre">GNAT.CGI.Cookie</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-cgicoo.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-cgi-debug-g-cgideb-ads">12.60. <code class="docutils literal notranslate"><span class="pre">GNAT.CGI.Debug</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-cgideb.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-command-line-g-comlin-ads">12.61. <code class="docutils literal notranslate"><span class="pre">GNAT.Command_Line</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-comlin.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-compiler-version-g-comver-ads">12.62. <code class="docutils literal notranslate"><span class="pre">GNAT.Compiler_Version</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-comver.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-ctrl-c-g-ctrl-c-ads">12.63. <code class="docutils literal notranslate"><span class="pre">GNAT.Ctrl_C</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-ctrl_c.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-current-exception-g-curexc-ads">12.64. <code class="docutils literal notranslate"><span class="pre">GNAT.Current_Exception</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-curexc.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-debug-pools-g-debpoo-ads">12.65. <code class="docutils literal notranslate"><span class="pre">GNAT.Debug_Pools</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-debpoo.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-debug-utilities-g-debuti-ads">12.66. <code class="docutils literal notranslate"><span class="pre">GNAT.Debug_Utilities</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-debuti.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-decode-string-g-decstr-ads">12.67. <code class="docutils literal notranslate"><span class="pre">GNAT.Decode_String</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-decstr.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-decode-utf8-string-g-deutst-ads">12.68. <code class="docutils literal notranslate"><span class="pre">GNAT.Decode_UTF8_String</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-deutst.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-directory-operations-g-dirope-ads">12.69. <code class="docutils literal notranslate"><span class="pre">GNAT.Directory_Operations</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-dirope.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-directory-operations-iteration-g-diopit-ads">12.70. <code class="docutils literal notranslate"><span class="pre">GNAT.Directory_Operations.Iteration</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-diopit.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-dynamic-htables-g-dynhta-ads">12.71. <code class="docutils literal notranslate"><span class="pre">GNAT.Dynamic_HTables</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-dynhta.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-dynamic-tables-g-dyntab-ads">12.72. <code class="docutils literal notranslate"><span class="pre">GNAT.Dynamic_Tables</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-dyntab.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-encode-string-g-encstr-ads">12.73. <code class="docutils literal notranslate"><span class="pre">GNAT.Encode_String</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-encstr.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-encode-utf8-string-g-enutst-ads">12.74. <code class="docutils literal notranslate"><span class="pre">GNAT.Encode_UTF8_String</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-enutst.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-exception-actions-g-excact-ads">12.75. <code class="docutils literal notranslate"><span class="pre">GNAT.Exception_Actions</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-excact.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-exception-traces-g-exctra-ads">12.76. <code class="docutils literal notranslate"><span class="pre">GNAT.Exception_Traces</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-exctra.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-exceptions-g-except-ads">12.77. <code class="docutils literal notranslate"><span class="pre">GNAT.Exceptions</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-except.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-expect-g-expect-ads">12.78. <code class="docutils literal notranslate"><span class="pre">GNAT.Expect</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-expect.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-expect-tty-g-exptty-ads">12.79. <code class="docutils literal notranslate"><span class="pre">GNAT.Expect.TTY</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-exptty.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-float-control-g-flocon-ads">12.80. <code class="docutils literal notranslate"><span class="pre">GNAT.Float_Control</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-flocon.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-formatted-string-g-forstr-ads">12.81. <code class="docutils literal notranslate"><span class="pre">GNAT.Formatted_String</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-forstr.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-heap-sort-g-heasor-ads">12.82. <code class="docutils literal notranslate"><span class="pre">GNAT.Heap_Sort</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-heasor.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-heap-sort-a-g-hesora-ads">12.83. <code class="docutils literal notranslate"><span class="pre">GNAT.Heap_Sort_A</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-hesora.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-heap-sort-g-g-hesorg-ads">12.84. <code class="docutils literal notranslate"><span class="pre">GNAT.Heap_Sort_G</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-hesorg.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-htable-g-htable-ads">12.85. <code class="docutils literal notranslate"><span class="pre">GNAT.HTable</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-htable.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-io-g-io-ads">12.86. <code class="docutils literal notranslate"><span class="pre">GNAT.IO</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-io.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-io-aux-g-io-aux-ads">12.87. <code class="docutils literal notranslate"><span class="pre">GNAT.IO_Aux</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-io_aux.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-lock-files-g-locfil-ads">12.88. <code class="docutils literal notranslate"><span class="pre">GNAT.Lock_Files</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-locfil.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-mbbs-discrete-random-g-mbdira-ads">12.89. <code class="docutils literal notranslate"><span class="pre">GNAT.MBBS_Discrete_Random</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-mbdira.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-mbbs-float-random-g-mbflra-ads">12.90. <code class="docutils literal notranslate"><span class="pre">GNAT.MBBS_Float_Random</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-mbflra.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-md5-g-md5-ads">12.91. <code class="docutils literal notranslate"><span class="pre">GNAT.MD5</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-md5.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-memory-dump-g-memdum-ads">12.92. <code class="docutils literal notranslate"><span class="pre">GNAT.Memory_Dump</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-memdum.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-most-recent-exception-g-moreex-ads">12.93. <code class="docutils literal notranslate"><span class="pre">GNAT.Most_Recent_Exception</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-moreex.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-os-lib-g-os-lib-ads">12.94. <code class="docutils literal notranslate"><span class="pre">GNAT.OS_Lib</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-os_lib.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-perfect-hash-generators-g-pehage-ads">12.95. <code class="docutils literal notranslate"><span class="pre">GNAT.Perfect_Hash_Generators</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-pehage.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-random-numbers-g-rannum-ads">12.96. <code class="docutils literal notranslate"><span class="pre">GNAT.Random_Numbers</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-rannum.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-regexp-g-regexp-ads">12.97. <code class="docutils literal notranslate"><span class="pre">GNAT.Regexp</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-regexp.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-registry-g-regist-ads">12.98. <code class="docutils literal notranslate"><span class="pre">GNAT.Registry</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-regist.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-regpat-g-regpat-ads">12.99. <code class="docutils literal notranslate"><span class="pre">GNAT.Regpat</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-regpat.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-rewrite-data-g-rewdat-ads">12.100. <code class="docutils literal notranslate"><span class="pre">GNAT.Rewrite_Data</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-rewdat.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-secondary-stack-info-g-sestin-ads">12.101. <code class="docutils literal notranslate"><span class="pre">GNAT.Secondary_Stack_Info</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-sestin.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-semaphores-g-semaph-ads">12.102. <code class="docutils literal notranslate"><span class="pre">GNAT.Semaphores</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-semaph.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-serial-communications-g-sercom-ads">12.103. <code class="docutils literal notranslate"><span class="pre">GNAT.Serial_Communications</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-sercom.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-sha1-g-sha1-ads">12.104. <code class="docutils literal notranslate"><span class="pre">GNAT.SHA1</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-sha1.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-sha224-g-sha224-ads">12.105. <code class="docutils literal notranslate"><span class="pre">GNAT.SHA224</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-sha224.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-sha256-g-sha256-ads">12.106. <code class="docutils literal notranslate"><span class="pre">GNAT.SHA256</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-sha256.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-sha384-g-sha384-ads">12.107. <code class="docutils literal notranslate"><span class="pre">GNAT.SHA384</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-sha384.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-sha512-g-sha512-ads">12.108. <code class="docutils literal notranslate"><span class="pre">GNAT.SHA512</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-sha512.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-signals-g-signal-ads">12.109. <code class="docutils literal notranslate"><span class="pre">GNAT.Signals</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-signal.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-sockets-g-socket-ads">12.110. <code class="docutils literal notranslate"><span class="pre">GNAT.Sockets</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-socket.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-source-info-g-souinf-ads">12.111. <code class="docutils literal notranslate"><span class="pre">GNAT.Source_Info</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-souinf.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-spelling-checker-g-speche-ads">12.112. <code class="docutils literal notranslate"><span class="pre">GNAT.Spelling_Checker</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-speche.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-spelling-checker-generic-g-spchge-ads">12.113. <code class="docutils literal notranslate"><span class="pre">GNAT.Spelling_Checker_Generic</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-spchge.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-spitbol-patterns-g-spipat-ads">12.114. <code class="docutils literal notranslate"><span class="pre">GNAT.Spitbol.Patterns</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-spipat.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-spitbol-g-spitbo-ads">12.115. <code class="docutils literal notranslate"><span class="pre">GNAT.Spitbol</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-spitbo.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-spitbol-table-boolean-g-sptabo-ads">12.116. <code class="docutils literal notranslate"><span class="pre">GNAT.Spitbol.Table_Boolean</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-sptabo.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-spitbol-table-integer-g-sptain-ads">12.117. <code class="docutils literal notranslate"><span class="pre">GNAT.Spitbol.Table_Integer</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-sptain.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-spitbol-table-vstring-g-sptavs-ads">12.118. <code class="docutils literal notranslate"><span class="pre">GNAT.Spitbol.Table_VString</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-sptavs.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-sse-g-sse-ads">12.119. <code class="docutils literal notranslate"><span class="pre">GNAT.SSE</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-sse.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-sse-vector-types-g-ssvety-ads">12.120. <code class="docutils literal notranslate"><span class="pre">GNAT.SSE.Vector_Types</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-ssvety.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-string-hash-g-strhas-ads">12.121. <code class="docutils literal notranslate"><span class="pre">GNAT.String_Hash</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-strhas.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-strings-g-string-ads">12.122. <code class="docutils literal notranslate"><span class="pre">GNAT.Strings</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-string.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-string-split-g-strspl-ads">12.123. <code class="docutils literal notranslate"><span class="pre">GNAT.String_Split</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-strspl.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-table-g-table-ads">12.124. <code class="docutils literal notranslate"><span class="pre">GNAT.Table</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-table.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-task-lock-g-tasloc-ads">12.125. <code class="docutils literal notranslate"><span class="pre">GNAT.Task_Lock</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-tasloc.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-time-stamp-g-timsta-ads">12.126. <code class="docutils literal notranslate"><span class="pre">GNAT.Time_Stamp</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-timsta.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-threads-g-thread-ads">12.127. <code class="docutils literal notranslate"><span class="pre">GNAT.Threads</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-thread.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-traceback-g-traceb-ads">12.128. <code class="docutils literal notranslate"><span class="pre">GNAT.Traceback</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-traceb.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-traceback-symbolic-g-trasym-ads">12.129. <code class="docutils literal notranslate"><span class="pre">GNAT.Traceback.Symbolic</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-trasym.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-utf-32-g-table-ads">12.130. <code class="docutils literal notranslate"><span class="pre">GNAT.UTF_32</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-table.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-wide-spelling-checker-g-u3spch-ads">12.131. <code class="docutils literal notranslate"><span class="pre">GNAT.Wide_Spelling_Checker</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-u3spch.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-wide-spelling-checker-g-wispch-ads">12.132. <code class="docutils literal notranslate"><span class="pre">GNAT.Wide_Spelling_Checker</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-wispch.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-wide-string-split-g-wistsp-ads">12.133. <code class="docutils literal notranslate"><span class="pre">GNAT.Wide_String_Split</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-wistsp.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-wide-wide-spelling-checker-g-zspche-ads">12.134. <code class="docutils literal notranslate"><span class="pre">GNAT.Wide_Wide_Spelling_Checker</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-zspche.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#gnat-wide-wide-string-split-g-zistsp-ads">12.135. <code class="docutils literal notranslate"><span class="pre">GNAT.Wide_Wide_String_Split</span></code> (<code class="file docutils literal notranslate"><span class="pre">g-zistsp.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#interfaces-c-extensions-i-cexten-ads">12.136. <code class="docutils literal notranslate"><span class="pre">Interfaces.C.Extensions</span></code> (<code class="file docutils literal notranslate"><span class="pre">i-cexten.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#interfaces-c-streams-i-cstrea-ads">12.137. <code class="docutils literal notranslate"><span class="pre">Interfaces.C.Streams</span></code> (<code class="file docutils literal notranslate"><span class="pre">i-cstrea.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#interfaces-packed-decimal-i-pacdec-ads">12.138. <code class="docutils literal notranslate"><span class="pre">Interfaces.Packed_Decimal</span></code> (<code class="file docutils literal notranslate"><span class="pre">i-pacdec.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#interfaces-vxworks-i-vxwork-ads">12.139. <code class="docutils literal notranslate"><span class="pre">Interfaces.VxWorks</span></code> (<code class="file docutils literal notranslate"><span class="pre">i-vxwork.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#interfaces-vxworks-int-connection-i-vxinco-ads">12.140. <code class="docutils literal notranslate"><span class="pre">Interfaces.VxWorks.Int_Connection</span></code> (<code class="file docutils literal notranslate"><span class="pre">i-vxinco.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#interfaces-vxworks-io-i-vxwoio-ads">12.141. <code class="docutils literal notranslate"><span class="pre">Interfaces.VxWorks.IO</span></code> (<code class="file docutils literal notranslate"><span class="pre">i-vxwoio.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#system-address-image-s-addima-ads">12.142. <code class="docutils literal notranslate"><span class="pre">System.Address_Image</span></code> (<code class="file docutils literal notranslate"><span class="pre">s-addima.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#system-assertions-s-assert-ads">12.143. <code class="docutils literal notranslate"><span class="pre">System.Assertions</span></code> (<code class="file docutils literal notranslate"><span class="pre">s-assert.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#system-atomic-counters-s-atocou-ads">12.144. <code class="docutils literal notranslate"><span class="pre">System.Atomic_Counters</span></code> (<code class="file docutils literal notranslate"><span class="pre">s-atocou.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#system-memory-s-memory-ads">12.145. <code class="docutils literal notranslate"><span class="pre">System.Memory</span></code> (<code class="file docutils literal notranslate"><span class="pre">s-memory.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#system-multiprocessors-s-multip-ads">12.146. <code class="docutils literal notranslate"><span class="pre">System.Multiprocessors</span></code> (<code class="file docutils literal notranslate"><span class="pre">s-multip.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#system-multiprocessors-dispatching-domains-s-mudido-ads">12.147. <code class="docutils literal notranslate"><span class="pre">System.Multiprocessors.Dispatching_Domains</span></code> (<code class="file docutils literal notranslate"><span class="pre">s-mudido.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#system-partition-interface-s-parint-ads">12.148. <code class="docutils literal notranslate"><span class="pre">System.Partition_Interface</span></code> (<code class="file docutils literal notranslate"><span class="pre">s-parint.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#system-pool-global-s-pooglo-ads">12.149. <code class="docutils literal notranslate"><span class="pre">System.Pool_Global</span></code> (<code class="file docutils literal notranslate"><span class="pre">s-pooglo.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#system-pool-local-s-pooloc-ads">12.150. <code class="docutils literal notranslate"><span class="pre">System.Pool_Local</span></code> (<code class="file docutils literal notranslate"><span class="pre">s-pooloc.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#system-restrictions-s-restri-ads">12.151. <code class="docutils literal notranslate"><span class="pre">System.Restrictions</span></code> (<code class="file docutils literal notranslate"><span class="pre">s-restri.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#system-rident-s-rident-ads">12.152. <code class="docutils literal notranslate"><span class="pre">System.Rident</span></code> (<code class="file docutils literal notranslate"><span class="pre">s-rident.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#system-strings-stream-ops-s-ststop-ads">12.153. <code class="docutils literal notranslate"><span class="pre">System.Strings.Stream_Ops</span></code> (<code class="file docutils literal notranslate"><span class="pre">s-ststop.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#system-unsigned-types-s-unstyp-ads">12.154. <code class="docutils literal notranslate"><span class="pre">System.Unsigned_Types</span></code> (<code class="file docutils literal notranslate"><span class="pre">s-unstyp.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#system-wch-cnv-s-wchcnv-ads">12.155. <code class="docutils literal notranslate"><span class="pre">System.Wch_Cnv</span></code> (<code class="file docutils literal notranslate"><span class="pre">s-wchcnv.ads</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/the_gnat_library.html#system-wch-con-s-wchcon-ads">12.156. <code class="docutils literal notranslate"><span class="pre">System.Wch_Con</span></code> (<code class="file docutils literal notranslate"><span class="pre">s-wchcon.ads</span></code>)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gnat_rm/interfacing_to_other_languages.html">13. Interfacing to Other Languages</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/interfacing_to_other_languages.html#interfacing-to-c">13.1. Interfacing to C</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/interfacing_to_other_languages.html#id3">13.2. Interfacing to C++</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/interfacing_to_other_languages.html#interfacing-to-cobol">13.3. Interfacing to COBOL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/interfacing_to_other_languages.html#interfacing-to-fortran">13.4. Interfacing to Fortran</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/interfacing_to_other_languages.html#interfacing-to-non-gnat-ada-code">13.5. Interfacing to non-GNAT Ada code</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gnat_rm/specialized_needs_annexes.html">14. Specialized Needs Annexes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gnat_rm/implementation_of_specific_ada_features.html">15. Implementation of Specific Ada Features</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_of_specific_ada_features.html#machine-code-insertions">15.1. Machine Code Insertions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_of_specific_ada_features.html#gnat-implementation-of-tasking">15.2. GNAT Implementation of Tasking</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/implementation_of_specific_ada_features.html#mapping-ada-tasks-onto-the-underlying-kernel-threads">15.2.1. Mapping Ada Tasks onto the Underlying Kernel Threads</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/implementation_of_specific_ada_features.html#ensuring-compliance-with-the-real-time-annex">15.2.2. Ensuring Compliance with the Real-Time Annex</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/implementation_of_specific_ada_features.html#support-for-locking-policies">15.2.3. Support for Locking Policies</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_of_specific_ada_features.html#gnat-implementation-of-shared-passive-packages">15.3. GNAT Implementation of Shared Passive Packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_of_specific_ada_features.html#code-generation-for-array-aggregates">15.4. Code Generation for Array Aggregates</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/implementation_of_specific_ada_features.html#static-constant-aggregates-with-static-bounds">15.4.1. Static constant aggregates with static bounds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/implementation_of_specific_ada_features.html#constant-aggregates-with-unconstrained-nominal-types">15.4.2. Constant aggregates with unconstrained nominal types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/implementation_of_specific_ada_features.html#aggregates-with-static-bounds">15.4.3. Aggregates with static bounds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/implementation_of_specific_ada_features.html#aggregates-with-nonstatic-bounds">15.4.4. Aggregates with nonstatic bounds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/implementation_of_specific_ada_features.html#aggregates-in-assignment-statements">15.4.5. Aggregates in assignment statements</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_of_specific_ada_features.html#the-size-of-discriminated-records-with-default-discriminants">15.5. The Size of Discriminated Records with Default Discriminants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_of_specific_ada_features.html#image-values-for-nonscalar-types">15.6. Image Values For Nonscalar Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/implementation_of_specific_ada_features.html#strict-conformance-to-the-ada-reference-manual">15.7. Strict Conformance to the Ada Reference Manual</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gnat_rm/implementation_of_ada_2012_features.html">16. Implementation of Ada 2012 Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gnat_rm/obsolescent_features.html">17. Obsolescent Features</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/obsolescent_features.html#pragma-no-run-time">17.1. pragma No_Run_Time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/obsolescent_features.html#pragma-ravenscar">17.2. pragma Ravenscar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/obsolescent_features.html#pragma-restricted-run-time">17.3. pragma Restricted_Run_Time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/obsolescent_features.html#pragma-task-info">17.4. pragma Task_Info</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/obsolescent_features.html#package-system-task-info-s-tasinf-ads">17.5. package System.Task_Info (<code class="file docutils literal notranslate"><span class="pre">s-tasinf.ads</span></code>)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gnat_rm/compatibility_and_porting_guide.html">18. Compatibility and Porting Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/compatibility_and_porting_guide.html#writing-portable-fixed-point-declarations">18.1. Writing Portable Fixed-Point Declarations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/compatibility_and_porting_guide.html#compatibility-with-ada-83">18.2. Compatibility with Ada 83</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/compatibility_and_porting_guide.html#legal-ada-83-programs-that-are-illegal-in-ada-95">18.2.1. Legal Ada 83 programs that are illegal in Ada 95</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/compatibility_and_porting_guide.html#more-deterministic-semantics">18.2.2. More deterministic semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/compatibility_and_porting_guide.html#changed-semantics">18.2.3. Changed semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/compatibility_and_porting_guide.html#other-language-compatibility-issues">18.2.4. Other language compatibility issues</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/compatibility_and_porting_guide.html#compatibility-between-ada-95-and-ada-2005">18.3. Compatibility between Ada 95 and Ada 2005</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/compatibility_and_porting_guide.html#implementation-dependent-characteristics">18.4. Implementation-dependent characteristics</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/compatibility_and_porting_guide.html#implementation-defined-pragmas">18.4.1. Implementation-defined pragmas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/compatibility_and_porting_guide.html#implementation-defined-attributes">18.4.2. Implementation-defined attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/compatibility_and_porting_guide.html#libraries">18.4.3. Libraries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/compatibility_and_porting_guide.html#elaboration-order">18.4.4. Elaboration order</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gnat_rm/compatibility_and_porting_guide.html#target-specific-aspects">18.4.5. Target-specific aspects</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/compatibility_and_porting_guide.html#compatibility-with-other-ada-systems">18.5. Compatibility with Other Ada Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/compatibility_and_porting_guide.html#representation-clauses">18.6. Representation Clauses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnat_rm/compatibility_and_porting_guide.html#compatibility-with-hp-ada-83">18.7. Compatibility with HP Ada 83</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="share/gnu_free_documentation_license.html">GNU Free Documentation License</a></li>
+</ul>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="#">
+              <img class="logo" src="_static/adacore_transparent.png" alt="Logo"/>
+            </a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="gnat_rm/about_this_guide.html"
+                        title="next chapter"><span class="section-number">1. </span>About This Guide</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/gnat_rm.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="gnat_rm/about_this_guide.html" title="1. About This Guide"
+             >next</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">GNAT Reference Manual 2021 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">GNAT Reference Manual</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2008-2021, Free Software Foundation.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
+    </div>
+  </body>
+</html>

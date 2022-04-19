@@ -1,0 +1,237 @@
+V "GNAT Lib v2021"
+A -O2
+A -gnatA
+A -gnat2012
+A -gnatws
+A -gnatn
+A -mtune=generic
+A -march=x86-64
+P SS ZX
+
+RN
+RV NO_ALLOCATORS
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_DISPATCH
+RV NO_DISPATCHING_CALLS
+RV NO_EXCEPTION_HANDLERS
+RV NO_EXCEPTIONS
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_LOCAL_ALLOCATORS
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_UNCHECKED_DEALLOCATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_ELABORATION_CODE
+
+U zlib.streams%b	zlib-streams.adb	3af6785c OO PK
+W ada%s			ada.ads			ada.ali
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+W ada.unchecked_deallocation%s
+W zlib%s		zlib.adb		zlib.ali
+
+U zlib.streams%s	zlib-streams.ads	f0788b19 BN EE OO PF PK
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
+Z system%s		system.ads		system.ali
+Z system.finalization_masters%s  s-finmas.adb	s-finmas.ali
+Z system.pool_global%s	s-pooglo.adb		s-pooglo.ali
+Z system.put_images%s	s-putima.adb		s-putima.ali
+Z system.soft_links%s	s-soflin.adb		s-soflin.ali
+Z system.standard_library%s  s-stalib.adb	s-stalib.ali
+W zlib%s		zlib.adb		zlib.ali
+
+D ada.ads		20210520051131 76789da1 ada%s
+D a-except.ads		20210520051128 946f3014 ada.exceptions%s
+D a-finali.ads		20210520051128 bf4f806b ada.finalization%s
+D a-stream.ads		20210520051129 119b8fb3 ada.streams%s
+D a-string.ads		20210520051129 90ac6797 ada.strings%s
+D a-sttebu.ads		20210520051129 18209c64 ada.strings.text_buffers%s
+D a-stuten.ads		20210520051129 808c40ad ada.strings.utf_encoding%s
+D a-tags.ads		20210520051130 9eaa38c6 ada.tags%s
+D a-unccon.ads		20210520051130 0e9b276f ada.unchecked_conversion%s
+D a-uncdea.ads		20210520051130 c3a8ac65 ada.unchecked_deallocation%s
+D interfac.ads		20210520051132 edec285f interfaces%s
+D i-c.ads		20210520051132 d9beded9 interfaces.c%s
+D i-cstrin.ads		20210520051132 341d0ddf interfaces.c.strings%s
+D system.ads		20210520051135 a2da961d system%s
+D s-carun8.ads		20210520051132 a903718d system.compare_array_unsigned_8%s
+D s-exctab.ads		20210520051132 54135002 system.exception_table%s
+D s-finmas.ads		20210520051132 1ab4dba8 system.finalization_masters%s
+D s-finroo.ads		20210520051132 4ff27390 system.finalization_root%s
+D s-memory.ads		20210520051133 597d6634 system.memory%s
+D s-parame.ads		20210520051134 4752c4cb system.parameters%s
+D s-pooglo.ads		20210520051134 ede33ef8 system.pool_global%s
+D s-putima.ads		20210520051134 4e095881 system.put_images%s
+D s-secsta.ads		20210520051134 9b3ab94b system.secondary_stack%s
+D s-soflin.ads		20210520051134 a7318a92 system.soft_links%s
+D s-stache.ads		20210520051134 a37c21ec system.stack_checking%s
+D s-stalib.ads		20210520051134 472fbca8 system.standard_library%s
+D s-stalib.adb		20210520051134 977290bf system.standard_library%b
+D s-stoele.ads		20210520051134 2dc34a04 system.storage_elements%s
+D s-stoele.adb		20210520051134 ed88f8fb system.storage_elements%b
+D s-stopoo.ads		20210520051134 e9fa2dd8 system.storage_pools%s
+D s-traent.ads		20210520051134 26a8d361 system.traceback_entries%s
+D s-unstyp.ads		20210520051134 2b077493 system.unsigned_types%s
+D unchconv.ads		20210520051135 ca2f9e18 unchecked_conversion%s
+D zlib.ads		20210519051430 0714e1ed zlib%s
+D zlib.adb		20210519051430 4a70479e zlib%b
+D zlib-streams.ads	20210519051430 f76c6af4 zlib.streams%s
+D zlib-streams.adb	20210519051430 0e32becd zlib.streams%b
+D zlib-thin.ads		20210519051430 ba2e4a22 zlib.thin%s
+G a e
+G c Z s b [read zlib__streams 19 25 none]
+G c Z s b [write zlib__streams 24 25 none]
+G c Z s b [flush zlib__streams 28 14 none]
+G c Z s b [read_total_in zlib__streams 36 13 none]
+G c Z s b [read_total_out zlib__streams 39 13 none]
+G c Z s b [write_total_in zlib__streams 42 13 none]
+G c Z s b [write_total_out zlib__streams 45 13 none]
+G c Z s b [create zlib__streams 48 14 none]
+G c Z s b [is_open zlib__streams 73 13 none]
+G c Z s b [close zlib__streams 75 14 none]
+G c Z s s [stream_typeDF zlib__streams 81 9 none]
+G c Z s s [stream_typeIP zlib__streams 81 9 none]
+G r i none [read zlib__streams 19 25 none] [read zlib 272 14 none]
+G r c none [read zlib__streams 19 25 none] [translate zlib 214 14 none]
+G r c none [read zlib__streams 19 25 none] [stream_end zlib 227 13 none]
+G r i none [write zlib__streams 24 25 none] [write zlib 246 14 none]
+G r c none [write zlib__streams 24 25 none] [translate zlib 214 14 none]
+G r c none [write zlib__streams 24 25 none] [stream_end zlib 227 13 none]
+G r c none [flush zlib__streams 28 14 none] [flush zlib 230 14 none]
+G r c none [read_total_in zlib__streams 36 13 none] [total_in zlib 193 13 none]
+G r c none [read_total_out zlib__streams 39 13 none] [total_out zlib 196 13 none]
+G r c none [write_total_in zlib__streams 42 13 none] [total_in zlib 193 13 none]
+G r c none [write_total_out zlib__streams 45 13 none] [total_out zlib 196 13 none]
+G r c none [create zlib__streams 48 14 none] [deflate_init zlib 137 14 none]
+G r c none [create zlib__streams 48 14 none] [inflate_init zlib 152 14 none]
+G r c none [is_open zlib__streams 73 13 none] [is_open zlib 168 13 none]
+G r c none [close zlib__streams 75 14 none] [flush zlib 230 14 none]
+G r c none [close zlib__streams 75 14 none] [close zlib 171 14 none]
+G r s filter_type [stream_typeIP zlib__streams 81 9 none] [filter_typeIP zlib 311 9 none]
+X 1 ada.ads
+16K9*Ada 20e8 37|9r6 18r39 107r10 144r10 192r10
+X 4 a-stream.ads
+36K13*Streams 87e16 37|107r14 144r14 192r14
+39H9*Root_Stream_Type 70e64 36|15r37 17r28 81r28
+42M9*Stream_Element
+44I9*Stream_Element_Offset<long_long_integer> 36|22r23 56r34 57r34 85r20
+. 86r20 91r21 37|47r34 48r34 102r16 129r23 134r21 142r21
+54A9*Stream_Element_Array(42M9)<44I9> 36|21r23 26r23 79r37 37|19r11 51r33
+. 101r16 128r23 133r21 141r21 181r23 184r34 190r34
+57x14*Read 37|144R22
+63x14*Write 37|107R22 192R22
+X 10 a-uncdea.ads
+20u15*Unchecked_Deallocation 37|9w10 18r43
+X 14 system.ads
+67M9*Address
+X 19 s-memory.ads
+53V13*Alloc{14|67M9} 103i<c,__gnat_malloc>22
+68U14*Free 104i<c,__gnat_free>22
+76V13*Realloc{14|67M9} 105i<c,__gnat_realloc>22
+X 27 s-stalib.adb
+89U14 Break_Start 90i<c,__gnat_break_start>22
+X 34 zlib.ads
+36K9*ZLib 321e9 36|11r9 101r5 37|11r14 147r29 195r30 221r5
+43I9*Compression_Level<integer> 36|53r34 37|44r34
+45I9*Flush_Mode<integer> 36|30r23 37|99r23
+55I9*Strategy_Type<integer> 36|54r34 37|45r34
+57E9*Header_Type 57e51 36|55r34 37|46r34
+57n37*Default{57E9} 36|55r59 37|46r55
+61I9*Count<long_long_long_integer> 36|36r60 39r61 42r61 45r62 37|161r60 170r61
+. 207r61 216r62
+80i4*Default_Compression{43I9} 36|53r59 37|44r55
+86i4*No_Flush{45I9} 37|200r35
+92i4*Sync_Flush{45I9} 36|30r37 37|99r37
+114i4*Finish{45I9} 37|24r25
+126i4*Default_Strategy{55I9} 36|54r59 37|45r55
+128N4*Default_Buffer_Size 36|56r59 57r59 37|47r59 48r59
+130R9*Filter_Type 319e14 36|97r16 98r16 37|54r29 62r29
+137U14*Deflate_Init 37|66s13
+144e7 Header{57E9} 37|67r41
+152U14*Inflate_Init 37|69s13
+155e7 Header{57E9} 37|69r35
+168V13*Is_Open{boolean} 37|119s14 119s46
+171U14*Close 37|26s10 30s10
+193V13*Total_In{61I9} 37|163s14 209s14
+196V13*Total_Out{61I9} 37|172s14 218s14
+230U14*Flush 37|105s10
+239U22 Write 37|196r11
+243i7 Buffer_Size{4|44I9} 37|197r11
+246u14*Write 37|195r35
+254U22 Read 37|148r11
+260a7 Buffer{4|54A9} 37|149r11
+264i7 Rest_First{4|44I9} 37|150r11
+264i19 Rest_Last{4|44I9} 37|151r11
+272u14*Read 37|147r34
+X 36 zlib-streams.ads
+11K14*Streams 34|36k9 36|79E9 101l10 101e17 37|11b19 221l10 221t17
+13E9*Stream_Mode 13e55 50r34 82r20 37|41r34
+13n25*In_Stream{13E9} 37|29r24 84r17
+13n36*Out_Stream{13E9} 37|21r24 77r17
+13n48*Duplex{13E9} 37|21r52 29r51 77r38 84r37
+15P9*Stream_Access(4|39R9) 51r34 96r16 37|42r34
+17R9*Stream_Type<4|39R9> 19P25 20r23 24P25 25r23 28p14 29r23 36p13 36r40
+. 39p13 39r41 42p13 42r41 45p13 45r42 48p14 49r34 73p13 73r34 75p14 75r37
+. 81c9 99e14 37|17r37 40r34 98r23 117r34 127r23 161r40 170r41 180r23 207r41
+. 216r42
+19U25*Read<4|57p14> 20=7 21<7 22<7 37|126b25 155l8 155t12
+20r7 Stream{17R9} 37|127b7 144r28 149r25 150m25 150r25 151m25 151r25 154m13
+. 154r13
+21a7 Item{4|54A9} 37|128b7 154m28
+22i7 Last{4|44I9} 37|129b7 154m34
+24U25*Write<4|63p14> 25=7 26>7 37|179b25 201l8 201t13
+25r7 Stream{17R9} 37|180b7 192r29 197r26 200m14 200r14
+26a7 Item{4|54A9} 37|181b7 200r29
+28U14*Flush 29=7 30>7 37|24s10 97b14 111l8 111t13
+29r7 Stream{17R9} 37|98b7 101r43 105m17 105r17 107r29
+30i7 Mode{34|45I9} 37|99b7 105r46
+36V13*Read_Total_In{34|61I9} 36>28 37|161b13 164l8 164t21
+36r28 Stream{17R9} 37|161b28 163r24
+39V13*Read_Total_Out{34|61I9} 39>29 37|170b13 173l8 173t22
+39r29 Stream{17R9} 37|170b29 172r25
+42V13*Write_Total_In{34|61I9} 42>29 37|207b13 210l8 210t22
+42r29 Stream{17R9} 37|207b29 209r24
+45V13*Write_Total_Out{34|61I9} 45>30 37|216b13 219l8 219t23
+45r30 Stream{17R9} 37|216b30 218r25
+48U14*Create 49<7 50>7 51>7 52>7 53>7 54>7 55>7 56>7 57>7 37|39b14 91l8 91t14
+49r7 Stream{17R9} 37|40b7 74m7 75m7 78m23 78r23 79m10 81m10 85m23 85r23 87m10
+. 88m10 88r31 89m10 89r31
+50e7 Mode{13E9} 37|41b7 75r22 77r10 77r31 84r10 84r30
+51p7 Back{15P9} 37|42b7 74r22
+52b7 Back_Compressed{boolean} 37|43b7 78r38 85r42
+53i7 Level{34|43I9} 37|44b7 67r24
+54i7 Strategy{34|55I9} 37|45b7 67r31
+55e7 Header{34|57E9} 37|46b7 67r51 69r45
+56i7 Read_Buffer_Size{4|44I9} 37|47b7 51r60
+57i7 Write_Buffer_Size{4|44I9} 37|48b7 79r32
+73V13*Is_Open{boolean} 73>22 37|117b13 120l8 120t15
+73r22 Stream{17R9} 37|117b22 119r23 119r55
+75U14*Close 75=21 37|17b14 33l8 33t13
+75r21 Stream{17R9} 37|17b21 21r10 21r38 24m17 26m17 26r17 29r10 29r37 30m17
+. 30r17 31m26 31r26
+79P9 Buffer_Access(4|54A9) 84r20 37|19r33
+82e7 Mode{13E9} 37|21r17 21r45 29r17 29r44 75m14
+84p7 Buffer{79P9} 37|31m33 87m17 88r38 89r38 149r32
+85i7 Rest_First{4|44I9} 37|88m17 150m32
+86i7 Rest_Last{4|44I9} 37|89m17 151m32
+91i7 Buffer_Size{4|44I9} 37|79m17 81m17 101r50 197r33
+96p7 Back{15P9} 37|74m14 107r36 144r35 192r36
+97r7 Reader{34|130R9} 37|30m24 85m30 119r30 154m20 163r31 172r32
+98r7 Writer{34|130R9} 37|26m24 78m30 105m24 119r62 200m21 209r31 218r32
+X 37 zlib-streams.adb
+18U17 Unchecked_Free[10|20] 31s10
+51A15 Buffer_Subtype{4|54A9}<4|44I9> 87r35
+53U17 Init_Filter 54=11 55>11 61b17 71l11 71t22 78s10 85s10
+54r11 Filter{34|130R9} 62b11 67m16 69m27
+55b11 Compress{boolean} 63b11 65r13
+101a7 Buffer{4|54A9} 105m32 107r46 109r27
+102i7 Last{4|44I9} 105m40 107r59 109r20
+132U17 Read 133<10 134<10 140b17 145l11 145t15 148r25
+133a10 Item{4|54A9} 141b10 144m45
+134i10 Last{4|44I9} 142b10 144m51
+147U17 Read[34|272] 35|380b14 37|154s7
+184U17 Write 184>24 190b17 193l11 193t16 196r26
+184a24 Item{4|54A9} 190b24 192r46
+195U17 Write[34|246] 35|668b14 37|200s7
+

@@ -1,0 +1,2556 @@
+V "GNAT Lib v2021"
+A -O2
+A -gnatA
+A -fPIC
+A -gnatwu
+A -gnatwa
+A -gnaty
+A -gnatQ
+A -gnatn
+A -mtune=generic
+A -march=x86-64
+P SS ZX
+
+RN
+RV NO_ALLOCATORS
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_DISPATCH
+RV NO_DISPATCHING_CALLS
+RV NO_ENUMERATION_MAPS
+RV NO_EXCEPTION_HANDLERS
+RV NO_EXCEPTION_PROPAGATION
+RV NO_EXCEPTIONS
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_LOCAL_ALLOCATORS
+RV NO_NESTED_FINALIZATION
+RV NO_RECURSION
+RV NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_UNCHECKED_ACCESS
+RV NO_UNCHECKED_DEALLOCATION
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_ATTRIBUTES
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLICIT_LOOPS
+RV NO_ELABORATION_CODE
+RV NO_OBSOLESCENT_FEATURES
+
+U schema.schema_readers%b  schema-schema_readers.adb  30d00535 OO PK
+W ada%s			ada.ads			ada.ali
+W ada.exceptions%s	a-except.adb		a-except.ali
+W ada.io_exceptions%s	a-ioexce.ads		a-ioexce.ali
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W ada.unchecked_deallocation%s
+W gnat%s		gnat.ads		gnat.ali
+W gnat.task_lock%s	g-tasloc.ads		g-tasloc.ali
+W input_sources%s	input_sources.adb	input_sources.ali
+W input_sources.file%s	input_sources-file.adb	input_sources-file.ali
+W sax%s			sax.ads			sax.ali
+W sax.encodings%s	sax-encodings.ads	sax-encodings.ali
+W sax.exceptions%s	sax-exceptions.adb	sax-exceptions.ali
+W sax.locators%s	sax-locators.adb	sax-locators.ali
+W sax.symbols%s		sax-symbols.adb		sax-symbols.ali
+W sax.utils%s		sax-utils.adb		sax-utils.ali
+W schema%s		schema.adb		schema.ali
+W schema.readers%s	schema-readers.adb	schema-readers.ali
+W schema.simple_types%s	schema-simple_types.adb	schema-simple_types.ali
+Z system%s		system.ads		system.ali
+Z system.img_int%s	s-imgint.ads		s-imgint.ali
+Z system.img_llli%s	s-imgllli.ads		s-imgllli.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+Z system.soft_links%s	s-soflin.adb		s-soflin.ali
+Z system.standard_library%s  s-stalib.adb	s-stalib.ali
+Z system.val_enum_8%s	s-vaenu8.ads		s-vaenu8.ali
+Z system.val_int%s	s-valint.ads		s-valint.ali
+W unicode%s		unicode.adb		unicode.ali
+W unicode.ces%s		unicode-ces.adb		unicode-ces.ali
+
+U schema.schema_readers%s  schema-schema_readers.ads  ad5b1bf9 EE OO PF PK
+W ada%s			ada.ads			ada.ali
+Z ada.exceptions%s	a-except.adb		a-except.ali
+Z ada.streams%s		a-stream.adb		a-stream.ali
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
+Z ada.unchecked_conversion%s
+Z ada.unchecked_deallocation%s
+W gnat%s		gnat.ads		gnat.ali
+W gnat.dynamic_htables%s  g-dynhta.adb		g-dynhta.ali
+W gnat.dynamic_tables%s
+Z gnat.heap_sort_g%s
+W input_sources%s	input_sources.adb	input_sources.ali
+W sax%s			sax.ads			sax.ali
+W sax.locators%s	sax-locators.adb	sax-locators.ali
+W sax.readers%s		sax-readers.adb		sax-readers.ali
+W sax.symbols%s		sax-symbols.adb		sax-symbols.ali
+W sax.utils%s		sax-utils.adb		sax-utils.ali
+W schema%s		schema.adb		schema.ali
+W schema.readers%s	schema-readers.adb	schema-readers.ali
+W schema.simple_types%s	schema-simple_types.adb	schema-simple_types.ali
+W schema.validators%s	schema-validators.adb	schema-validators.ali
+Z system%s		system.ads		system.ali
+Z system.finalization_masters%s  s-finmas.adb	s-finmas.ali
+Z system.pool_global%s	s-pooglo.adb		s-pooglo.ali
+Z system.put_images%s	s-putima.adb		s-putima.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+Z system.soft_links%s	s-soflin.adb		s-soflin.ali
+Z system.standard_library%s  s-stalib.adb	s-stalib.ali
+Z system.stream_attributes%s  s-stratt.adb	s-stratt.ali
+W unicode%s		unicode.adb		unicode.ali
+W unicode.ces%s		unicode-ces.adb		unicode-ces.ali
+
+D ada.ads		20210520051131 76789da1 ada%s
+D a-charac.ads		20210520051128 2d3ec45b ada.characters%s
+D a-chahan.ads		20210520051128 0ce1b450 ada.characters.handling%s
+D a-chlat1.ads		20210520051128 66457d31 ada.characters.latin_1%s
+D a-except.ads		20210520051128 946f3014 ada.exceptions%s
+D a-finali.ads		20210520051128 bf4f806b ada.finalization%s
+D a-ioexce.ads		20210520051128 e4a01f64 ada.io_exceptions%s
+D a-stream.ads		20210520051129 119b8fb3 ada.streams%s
+D a-string.ads		20210520051129 90ac6797 ada.strings%s
+D a-strmap.ads		20210520051129 5a88892a ada.strings.maps%s
+D a-sttebu.ads		20210520051129 18209c64 ada.strings.text_buffers%s
+D a-strunb.ads		20210520051129 03325227 ada.strings.unbounded%s
+D a-stuten.ads		20210520051129 808c40ad ada.strings.utf_encoding%s
+D a-tags.ads		20210520051130 9eaa38c6 ada.tags%s
+D a-textio.ads		20210520051130 aef4d56d ada.text_io%s
+D a-unccon.ads		20210520051130 0e9b276f ada.unchecked_conversion%s
+D a-uncdea.ads		20210520051130 c3a8ac65 ada.unchecked_deallocation%s
+D a-widcha.ads		20210520051130 a2b85d3d ada.wide_characters%s
+D a-wichun.ads		20210520051130 de294b78 ada.wide_characters.unicode%s
+D gnat.ads		20210520051132 b5988c27 gnat%s
+D g-dirope.ads		20210520051131 940c4438 gnat.directory_operations%s
+D g-dynhta.ads		20210520051131 b061de91 gnat.dynamic_htables%s
+D g-dynhta.adb		20210520051131 7fd61abe gnat.dynamic_htables%b
+D g-dyntab.ads		20210520051131 21cef781 gnat.dynamic_tables%s
+D g-dyntab.adb		20210520051131 8cc056dd gnat.dynamic_tables%b
+D g-hesorg.ads		20210520051131 106922da gnat.heap_sort_g%s
+D g-hesorg.adb		20210520051131 b2b1bfd0 gnat.heap_sort_g%b
+D g-regpat.ads		20210520051131 b85d88ef gnat.regpat%s
+D g-tasloc.ads		20210520051131 9c49392e gnat.task_lock%s
+D input_sources.ads	20210519052322 9ec704a2 input_sources%s
+D input_sources-file.ads  20210519052322 b313acf6 input_sources.file%s
+D input_sources-strings.ads  20210519052322 8045c77b input_sources.strings%s
+D interfac.ads		20210520051132 edec285f interfaces%s
+D i-cstrea.ads		20210520051132 e53d8b8e interfaces.c_streams%s
+D sax.ads		20210519052322 17965ec6 sax%s
+D sax-attributes.ads	20210519052322 baf0c3bb sax.attributes%s
+D sax-encodings.ads	20210519052322 22d791a3 sax.encodings%s
+D sax-exceptions.ads	20210519052322 32ef2902 sax.exceptions%s
+D sax-htable.ads	20210519052322 2df615ad sax.htable%s
+D sax-locators.ads	20210519052322 c21ab44e sax.locators%s
+D sax-models.ads	20210519052322 9f245dcd sax.models%s
+D sax-pointers.ads	20210519052322 d9877e85 sax.pointers%s
+D sax-pointers.adb	20210519052322 8f6422c0 sax.pointers%b
+D sax-readers.ads	20210519052322 41cb3ec9 sax.readers%s
+D sax-readers.adb	20210519052322 9fd6a643 sax.readers%b
+D sax-state_machines.ads  20210519052322 b43fd4c9 sax.state_machines%s
+D sax-symbols.ads	20210519052322 d3179de8 sax.symbols%s
+D sax-symbols.adb	20210519052322 d4150ebd sax.symbols%b
+D sax-utils.ads		20210519052322 214aab19 sax.utils%s
+D sax-utils.adb		20210519052322 b4529023 sax.utils%b
+D schema.ads		20210519052322 350cfe44 schema%s
+D schema.adb		20210519052322 719f4fa6 schema%b
+D schema-date_time.ads	20210519052322 27960bdd schema.date_time%s
+D schema-decimal.ads	20210519052322 7d99f7cb schema.decimal%s
+D schema-readers.ads	20210519052322 bf156a13 schema.readers%s
+D schema-schema_readers.ads  20210519052322 48a1000f schema.schema_readers%s
+D schema-schema_readers.adb  20210519052322 8d45e867 schema.schema_readers%b
+D schema-simple_types.ads  20210519052322 3ab774bb schema.simple_types%s
+D schema-validators.ads	20210519052322 43453275 schema.validators%s
+D schema-validators.adb	20210519052322 13f73a74 schema.validators%b
+D schema-validators-xsd_grammar.ads  20210519052322 2f50ee2c schema.validators.xsd_grammar%s
+D system.ads		20210520051135 a2da961d system%s
+D s-addima.ads		20210520051132 a1ec9d3a system.address_image%s
+D s-atocou.ads		20210520051132 b45c2d8d system.atomic_counters%s
+D s-crtl.ads		20210520051132 0ebbdb71 system.crtl%s
+D s-exctab.ads		20210520051132 54135002 system.exception_table%s
+D s-ficobl.ads		20210520051132 078245e4 system.file_control_block%s
+D s-finmas.ads		20210520051132 1ab4dba8 system.finalization_masters%s
+D s-finroo.ads		20210520051132 4ff27390 system.finalization_root%s
+D s-imagei.ads		20210520051133 0d3f86a7 system.image_i%s
+D s-imageu.ads		20210520051133 525c30c6 system.image_u%s
+D s-imgint.ads		20210520051133 bdb6f5ec system.img_int%s
+D s-imgllli.ads		20210520051133 5cf3dc07 system.img_llli%s
+D s-imguns.ads		20210520051133 0e4da2ac system.img_uns%s
+D s-memory.ads		20210520051133 597d6634 system.memory%s
+D s-parame.ads		20210520051134 4752c4cb system.parameters%s
+D s-pooglo.ads		20210520051134 ede33ef8 system.pool_global%s
+D s-putima.ads		20210520051134 4e095881 system.put_images%s
+D s-regpat.ads		20210520051134 825a9b7f system.regpat%s
+D s-secsta.ads		20210520051134 9b3ab94b system.secondary_stack%s
+D s-soflin.ads		20210520051134 a7318a92 system.soft_links%s
+D s-stache.ads		20210520051134 a37c21ec system.stack_checking%s
+D s-stalib.ads		20210520051134 472fbca8 system.standard_library%s
+D s-stalib.adb		20210520051134 977290bf system.standard_library%b
+D s-stoele.ads		20210520051134 2dc34a04 system.storage_elements%s
+D s-stoele.adb		20210520051134 ed88f8fb system.storage_elements%b
+D s-stopoo.ads		20210520051134 e9fa2dd8 system.storage_pools%s
+D s-stposu.ads		20210520051134 e251976f system.storage_pools.subpools%s
+D s-stratt.ads		20210520051134 7bdda3fa system.stream_attributes%s
+D s-stratt.adb		20210520051134 fc996108 system.stream_attributes%b
+D s-statxd.ads		20210520051134 b54789f6 system.stream_attributes.xdr%s
+D s-string.ads		20210520051134 8fe54fb7 system.strings%s
+D s-ststop.ads		20210520051134 5fbf1b38 system.strings.stream_ops%s
+D s-tasloc.ads		20210520051134 618a376e system.task_lock%s
+D s-tasloc.adb		20210520051134 c37db7c4 system.task_lock%b
+D s-traent.ads		20210520051134 26a8d361 system.traceback_entries%s
+D s-unstyp.ads		20210520051134 2b077493 system.unsigned_types%s
+D s-utf_32.ads		20210520051134 24cf731d system.utf_32%s
+D s-vaenu8.ads		20210520051134 b7b91426 system.val_enum_8%s
+D s-valint.ads		20210520051134 e7fcadb7 system.val_int%s
+D s-valuns.ads		20210520051134 dac7b45d system.val_uns%s
+D s-valuti.ads		20210520051134 aca0b6fe system.val_util%s
+D s-valuei.ads		20210520051134 978dd0a6 system.value_i%s
+D s-valuen.ads		20210520051134 72b74993 system.value_n%s
+D s-valuen.adb		20210520051134 82820e8f system.value_n%b
+D s-valueu.ads		20210520051134 7b8fccf5 system.value_u%s
+D s-wchcon.ads		20210520051135 1b7d22d2 system.wch_con%s
+D unchconv.ads		20210520051135 ca2f9e18 unchecked_conversion%s
+D unchdeal.ads		20210520051135 214516a4 unchecked_deallocation%s
+D unicode.ads		20210519052322 a421878d unicode%s
+D unicode.adb		20210519052322 515a4003 unicode%b
+D unicode-ccs.ads	20210519052322 184e29de unicode.ccs%s
+D unicode-ces.ads	20210519052322 68f558ab unicode.ces%s
+D unicode-ces-basic_8bit.ads  20210519052322 a56f8139 unicode.ces.basic_8bit%s
+D unicode-ces-utf32.ads	20210519052322 b5f035ac unicode.ces.utf32%s
+D unicode-ces-utf8.ads	20210519052322 dcbef85d unicode.ces.utf8%s
+D unicode-names.ads	20210519052322 fec77f75 unicode.names%s
+D unicode-names-basic_latin.ads  20210519052322 aa07d1b5 unicode.names.basic_latin%s
+G a e
+G c s s s [s schema__schema_readers 41 1 none]
+G c Z s b [set_feature schema__schema_readers 48 25 none]
+G c Z s b [get_feature schema__schema_readers 50 24 none]
+G c Z s b [parse_grammar_if_needed schema__schema_readers 62 14 none]
+G c Z s s [element_descrIP schema__schema_readers 86 9 none]
+G c Z s s [group_descrIP schema__schema_readers 106 9 none]
+G c Z s s [internal_attribute_descrIP schema__schema_readers 114 9 none]
+G c Z s s [attrgroup_descrIP schema__schema_readers 137 9 none]
+G c Z s s [type_memberIP schema__schema_readers 185 9 none]
+G c Z s s [type_member_arrayIP schema__schema_readers 194 9 none]
+G c Z s s [internal_simple_type_descrIP schema__schema_readers 202 9 none]
+G c Z s s [internal_type_descrIP schema__schema_readers 231 9 none]
+G c Z s s [table_typeIP schema__schema_readers__type_tables 126 9 307_4]
+G c Z s s [empty_table_array_ptr_to_table_ptr schema__schema_readers__type_tables 154 13 307_4]
+G c Z s s [is_empty schema__schema_readers__type_tables 185 13 307_4]
+G c Z s s [init schema__schema_readers__type_tables 188 14 307_4]
+G c Z s s [first schema__schema_readers__type_tables 194 13 307_4]
+G c Z s s [last schema__schema_readers__type_tables 198 13 307_4]
+G c Z s s [release schema__schema_readers__type_tables 203 14 307_4]
+G c Z s s [set_last schema__schema_readers__type_tables 215 14 307_4]
+G c Z s s [increment_last schema__schema_readers__type_tables 224 14 307_4]
+G c Z s s [decrement_last schema__schema_readers__type_tables 228 14 307_4]
+G c Z s s [append schema__schema_readers__type_tables 232 14 307_4]
+G c Z s s [append_all schema__schema_readers__type_tables 239 14 307_4]
+G c Z s s [set_item schema__schema_readers__type_tables 242 14 307_4]
+G c Z s s [move schema__schema_readers__type_tables 252 14 307_4]
+G c Z s s [allocate schema__schema_readers__type_tables 255 14 307_4]
+G c Z s s [table_privateIP schema__schema_readers__type_tables 282 9 307_4]
+G c Z s s [instanceIP schema__schema_readers__type_tables 161 9 307_4]
+G c Z s s [last_allocated schema__schema_readers__type_tables 45 13 307_4]
+G c Z s s [grow schema__schema_readers__type_tables 49 14 307_4]
+G c Z s s [set schema__schema_readers__element_htables 190 17 313_4]
+G c Z s s [reset schema__schema_readers__element_htables 194 17 313_4]
+G c Z s s [get schema__schema_readers__element_htables 199 16 313_4]
+G c Z s s [remove schema__schema_readers__element_htables 203 17 313_4]
+G c Z s s [get_first schema__schema_readers__element_htables 207 16 313_4]
+G c Z s s [get_first_key schema__schema_readers__element_htables 213 16 313_4]
+G c Z s s [get_next schema__schema_readers__element_htables 221 16 313_4]
+G c Z s s [get_next_key schema__schema_readers__element_htables 231 16 313_4]
+G c Z s s [set_next schema__schema_readers__element_htables 247 17 313_4]
+G c Z s s [next schema__schema_readers__element_htables 248 17 313_4]
+G c Z s s [get_key schema__schema_readers__element_htables 249 17 313_4]
+G c Z s s [element_wrapperIP schema__schema_readers__element_htables 241 12 313_4]
+G c Z s s [reset schema__schema_readers__element_htables__tab 108 17 251_7_313_4]
+G c Z s s [set schema__schema_readers__element_htables__tab 116 17 251_7_313_4]
+G c Z s s [get schema__schema_readers__element_htables__tab 119 16 251_7_313_4]
+G c Z s s [remove schema__schema_readers__element_htables__tab 123 17 251_7_313_4]
+G c Z s s [get_first schema__schema_readers__element_htables__tab 127 16 251_7_313_4]
+G c Z s s [get_next schema__schema_readers__element_htables__tab 132 16 251_7_313_4]
+G c Z s s [Ttable_typeBIP schema__schema_readers__element_htables__tab 140 7 251_7_313_4]
+G c Z s s [instance_dataIP schema__schema_readers__element_htables__tab 142 12 251_7_313_4]
+G c Z s s [get_non_null schema__schema_readers__element_htables__tab 69 16 251_7_313_4]
+G c Z s s [key_optionIP schema__schema_readers__element_htables 183 12 313_4]
+G c Z s s [free schema__schema_readers__element_htables 238 17 313_4]
+G c Z s s [set schema__schema_readers__group_htables 190 17 320_4]
+G c Z s s [reset schema__schema_readers__group_htables 194 17 320_4]
+G c Z s s [get schema__schema_readers__group_htables 199 16 320_4]
+G c Z s s [remove schema__schema_readers__group_htables 203 17 320_4]
+G c Z s s [get_first schema__schema_readers__group_htables 207 16 320_4]
+G c Z s s [get_first_key schema__schema_readers__group_htables 213 16 320_4]
+G c Z s s [get_next schema__schema_readers__group_htables 221 16 320_4]
+G c Z s s [get_next_key schema__schema_readers__group_htables 231 16 320_4]
+G c Z s s [set_next schema__schema_readers__group_htables 247 17 320_4]
+G c Z s s [next schema__schema_readers__group_htables 248 17 320_4]
+G c Z s s [get_key schema__schema_readers__group_htables 249 17 320_4]
+G c Z s s [element_wrapperIP schema__schema_readers__group_htables 241 12 320_4]
+G c Z s s [reset schema__schema_readers__group_htables__tab 108 17 251_7_320_4]
+G c Z s s [set schema__schema_readers__group_htables__tab 116 17 251_7_320_4]
+G c Z s s [get schema__schema_readers__group_htables__tab 119 16 251_7_320_4]
+G c Z s s [remove schema__schema_readers__group_htables__tab 123 17 251_7_320_4]
+G c Z s s [get_first schema__schema_readers__group_htables__tab 127 16 251_7_320_4]
+G c Z s s [get_next schema__schema_readers__group_htables__tab 132 16 251_7_320_4]
+G c Z s s [Ttable_typeBIP schema__schema_readers__group_htables__tab 140 7 251_7_320_4]
+G c Z s s [instance_dataIP schema__schema_readers__group_htables__tab 142 12 251_7_320_4]
+G c Z s s [get_non_null schema__schema_readers__group_htables__tab 69 16 251_7_320_4]
+G c Z s s [key_optionIP schema__schema_readers__group_htables 183 12 320_4]
+G c Z s s [free schema__schema_readers__group_htables 238 17 320_4]
+G c Z s s [set schema__schema_readers__attrgroup_htables 190 17 327_4]
+G c Z s s [reset schema__schema_readers__attrgroup_htables 194 17 327_4]
+G c Z s s [get schema__schema_readers__attrgroup_htables 199 16 327_4]
+G c Z s s [remove schema__schema_readers__attrgroup_htables 203 17 327_4]
+G c Z s s [get_first schema__schema_readers__attrgroup_htables 207 16 327_4]
+G c Z s s [get_first_key schema__schema_readers__attrgroup_htables 213 16 327_4]
+G c Z s s [get_next schema__schema_readers__attrgroup_htables 221 16 327_4]
+G c Z s s [get_next_key schema__schema_readers__attrgroup_htables 231 16 327_4]
+G c Z s s [set_next schema__schema_readers__attrgroup_htables 247 17 327_4]
+G c Z s s [next schema__schema_readers__attrgroup_htables 248 17 327_4]
+G c Z s s [get_key schema__schema_readers__attrgroup_htables 249 17 327_4]
+G c Z s s [element_wrapperIP schema__schema_readers__attrgroup_htables 241 12 327_4]
+G c Z s s [reset schema__schema_readers__attrgroup_htables__tab 108 17 251_7_327_4]
+G c Z s s [set schema__schema_readers__attrgroup_htables__tab 116 17 251_7_327_4]
+G c Z s s [get schema__schema_readers__attrgroup_htables__tab 119 16 251_7_327_4]
+G c Z s s [remove schema__schema_readers__attrgroup_htables__tab 123 17 251_7_327_4]
+G c Z s s [get_first schema__schema_readers__attrgroup_htables__tab 127 16 251_7_327_4]
+G c Z s s [get_next schema__schema_readers__attrgroup_htables__tab 132 16 251_7_327_4]
+G c Z s s [Ttable_typeBIP schema__schema_readers__attrgroup_htables__tab 140 7 251_7_327_4]
+G c Z s s [instance_dataIP schema__schema_readers__attrgroup_htables__tab 142 12 251_7_327_4]
+G c Z s s [get_non_null schema__schema_readers__attrgroup_htables__tab 69 16 251_7_327_4]
+G c Z s s [key_optionIP schema__schema_readers__attrgroup_htables 183 12 327_4]
+G c Z s s [free schema__schema_readers__attrgroup_htables 238 17 327_4]
+G c Z s s [set schema__schema_readers__attribute_htables 190 17 334_4]
+G c Z s s [reset schema__schema_readers__attribute_htables 194 17 334_4]
+G c Z s s [get schema__schema_readers__attribute_htables 199 16 334_4]
+G c Z s s [remove schema__schema_readers__attribute_htables 203 17 334_4]
+G c Z s s [get_first schema__schema_readers__attribute_htables 207 16 334_4]
+G c Z s s [get_first_key schema__schema_readers__attribute_htables 213 16 334_4]
+G c Z s s [get_next schema__schema_readers__attribute_htables 221 16 334_4]
+G c Z s s [get_next_key schema__schema_readers__attribute_htables 231 16 334_4]
+G c Z s s [set_next schema__schema_readers__attribute_htables 247 17 334_4]
+G c Z s s [next schema__schema_readers__attribute_htables 248 17 334_4]
+G c Z s s [get_key schema__schema_readers__attribute_htables 249 17 334_4]
+G c Z s s [element_wrapperIP schema__schema_readers__attribute_htables 241 12 334_4]
+G c Z s s [reset schema__schema_readers__attribute_htables__tab 108 17 251_7_334_4]
+G c Z s s [set schema__schema_readers__attribute_htables__tab 116 17 251_7_334_4]
+G c Z s s [get schema__schema_readers__attribute_htables__tab 119 16 251_7_334_4]
+G c Z s s [remove schema__schema_readers__attribute_htables__tab 123 17 251_7_334_4]
+G c Z s s [get_first schema__schema_readers__attribute_htables__tab 127 16 251_7_334_4]
+G c Z s s [get_next schema__schema_readers__attribute_htables__tab 132 16 251_7_334_4]
+G c Z s s [Ttable_typeBIP schema__schema_readers__attribute_htables__tab 140 7 251_7_334_4]
+G c Z s s [instance_dataIP schema__schema_readers__attribute_htables__tab 142 12 251_7_334_4]
+G c Z s s [get_non_null schema__schema_readers__attribute_htables__tab 69 16 251_7_334_4]
+G c Z s s [key_optionIP schema__schema_readers__attribute_htables 183 12 334_4]
+G c Z s s [free schema__schema_readers__attribute_htables 238 17 334_4]
+G c Z s b [start_element schema__schema_readers 378 25 none]
+G c Z s b [end_element schema__schema_readers 383 25 none]
+G c Z s b [characters schema__schema_readers 387 25 none]
+G c Z s b [parse schema__schema_readers 389 25 none]
+G c Z s s [schema_readerDA schema__schema_readers 353 9 none]
+G c Z s s [schema_readerDF schema__schema_readers 353 9 none]
+G c Z s s [schema_readerDI schema__schema_readers 353 9 none]
+G c Z s s [schema_readerIP schema__schema_readers 353 9 none]
+G c Z s s [extension_descrIP schema__schema_readers 144 9 none]
+G c Z s s [restriction_descrIP schema__schema_readers 151 9 none]
+G c Z s s [type_detailsIP schema__schema_readers 158 9 none]
+G c Z s s [attr_descrIP schema__schema_readers 126 9 none]
+G c Z s s [attr_arrayIP schema__schema_readers 134 9 none]
+G c Z s s [schema_descrIP schema__schema_readers 257 9 none]
+G c Z s s [contextIP schema__schema_readers 281 9 none]
+G c Z s s [context_arrayIP schema__schema_readers 304 9 none]
+G c Z s s [xsd_dataIP schema__schema_readers 342 9 none]
+G c Z b b [push_context schema__schema_readers 60 14 none]
+G c Z b b [unchecked_free schema__schema_readers 64 14 none]
+G c Z b b [unchecked_free schema__schema_readers 66 14 none]
+G c Z b b [free schema__schema_readers 69 14 none]
+G c Z b b [free schema__schema_readers 72 14 none]
+G c Z b b [create_nfa schema__schema_readers 75 14 none]
+G c Z b b [to_string schema__schema_readers 81 13 none]
+G c Z b b [in_redefine_context schema__schema_readers 83 13 none]
+G c Z b b [resolve_qname schema__schema_readers 87 13 none]
+G c Z b b [internal_parse schema__schema_readers 96 14 none]
+G c Z b b [insert_in_type schema__schema_readers 105 14 none]
+G c Z b b [prepare_type schema__schema_readers 112 14 none]
+G c Z b b [add_type_member schema__schema_readers 118 14 none]
+G c Z b b [compute_blocks schema__schema_readers 125 14 none]
+G c Z b b [compute_final schema__schema_readers 133 13 none]
+G c Z b b [compute_form schema__schema_readers 140 13 none]
+G c Z b b [append schema__schema_readers 146 14 none]
+G c Z b b [insert_attribute schema__schema_readers 149 14 none]
+G c Z b b [process_contents_from_atts schema__schema_readers 155 13 none]
+G c Z b b [create_element schema__schema_readers 161 14 none]
+G c Z b b [create_notation schema__schema_readers 163 14 none]
+G c Z b b [create_complex_type schema__schema_readers 165 14 none]
+G c Z b b [create_simple_type schema__schema_readers 167 14 none]
+G c Z b b [create_restriction schema__schema_readers 169 14 none]
+G c Z b b [create_all schema__schema_readers 171 14 none]
+G c Z b b [create_sequence schema__schema_readers 173 14 none]
+G c Z b b [create_attribute schema__schema_readers 175 14 none]
+G c Z b b [create_schema schema__schema_readers 177 14 none]
+G c Z b b [create_extension schema__schema_readers 179 14 none]
+G c Z b b [create_list schema__schema_readers 181 14 none]
+G c Z b b [create_union schema__schema_readers 183 14 none]
+G c Z b b [create_choice schema__schema_readers 185 14 none]
+G c Z b b [create_redefine schema__schema_readers 187 14 none]
+G c Z b b [create_include schema__schema_readers 189 14 none]
+G c Z b b [create_group schema__schema_readers 191 14 none]
+G c Z b b [create_attribute_group schema__schema_readers 193 14 none]
+G c Z b b [create_any schema__schema_readers 195 14 none]
+G c Z b b [create_import schema__schema_readers 197 14 none]
+G c Z b b [create_any_attribute schema__schema_readers 199 14 none]
+G c Z b b [finish_element schema__schema_readers 206 14 none]
+G c Z b b [finish_complex_type schema__schema_readers 207 14 none]
+G c Z b b [finish_simple_type schema__schema_readers 208 14 none]
+G c Z b b [finish_restriction schema__schema_readers 209 14 none]
+G c Z b b [finish_extension schema__schema_readers 210 14 none]
+G c Z b b [finish_attribute schema__schema_readers 211 14 none]
+G c Z b b [finish_union schema__schema_readers 212 14 none]
+G c Z b b [finish_list schema__schema_readers 213 14 none]
+G c Z b b [finish_group schema__schema_readers 214 14 none]
+G c Z b b [finish_attribute_group schema__schema_readers 215 14 none]
+G c Z b b [get_occurs schema__schema_readers 220 14 none]
+G r s location [s schema__schema_readers 41 1 none] [locationIP sax__locators 41 9 none]
+G r c none [set_feature schema__schema_readers 48 25 none] [set_feature sax__readers 82 14 none]
+G r c none [get_feature schema__schema_readers 50 24 none] [get_feature sax__readers 84 13 none]
+G r s file_input [parse_grammar_if_needed schema__schema_readers 62 14 none] [file_inputIP input_sources__file 67 9 none]
+G r s validating_reader [parse_grammar_if_needed schema__schema_readers 62 14 none] [validating_readerIP schema__readers 142 9 none]
+G r k validating_reader [parse_grammar_if_needed schema__schema_readers 62 14 none] [validating_readerDF schema__readers 142 9 none]
+G r c none [parse_grammar_if_needed schema__schema_readers 62 14 none] [to_absolute_uri schema__readers 110 13 none]
+G r c none [parse_grammar_if_needed schema__schema_readers 62 14 none] [get_xml_version sax__readers 79 13 none]
+G r c none [parse_grammar_if_needed schema__schema_readers 62 14 none] [set_xml_version sax__readers 77 14 none]
+G r c none [parse_grammar_if_needed schema__schema_readers 62 14 none] [get_grammar schema__readers 63 13 none]
+G r c none [parse_grammar_if_needed schema__schema_readers 62 14 none] [uri_was_parsed schema__validators 800 13 none]
+G r e pointer [parse_grammar_if_needed schema__schema_readers 62 14 none] [finalize schema__validators__xml_grammars 88 17 912_4]
+G r c none [parse_grammar_if_needed schema__schema_readers 62 14 none] [get sax__symbols 53 13 none]
+G r c none [parse_grammar_if_needed schema__schema_readers 62 14 none] [debug_output schema 66 14 none]
+G r c none [parse_grammar_if_needed schema__schema_readers 62 14 none] [get_xsd_version schema__validators 70 13 none]
+G r c none [parse_grammar_if_needed schema__schema_readers 62 14 none] [find_ns_from_uri sax__readers 716 14 none]
+G r c none [parse_grammar_if_needed schema__schema_readers 62 14 none] [get_feature sax__readers 84 13 none]
+G r c none [parse_grammar_if_needed schema__schema_readers 62 14 none] [get_system_id sax__utils 209 13 none]
+G r c none [parse_grammar_if_needed schema__schema_readers 62 14 none] [element_count sax__utils 214 13 none]
+G r c none [parse_grammar_if_needed schema__schema_readers 62 14 none] [validation_error schema__validators 632 14 none]
+G r c none [parse_grammar_if_needed schema__schema_readers 62 14 none] [output_seen schema 72 14 none]
+G r c none [parse_grammar_if_needed schema__schema_readers 62 14 none] [open input_sources__file 33 14 none]
+G r c none [parse_grammar_if_needed schema__schema_readers 62 14 none] [set_public_id input_sources 110 14 none]
+G r c none [parse_grammar_if_needed schema__schema_readers 62 14 none] [set_system_id input_sources__file 60 14 none]
+G r c none [parse_grammar_if_needed schema__schema_readers 62 14 none] [get_symbol_table sax__readers 701 13 none]
+G r c none [parse_grammar_if_needed schema__schema_readers 62 14 none] [set_symbol_table schema__readers 104 25 none]
+G r e pointer [parse_grammar_if_needed schema__schema_readers 62 14 none] [finalize sax__utils__symbol_table_pointers 88 17 171_4]
+G r c none [parse_grammar_if_needed schema__schema_readers 62 14 none] [set_grammar schema__readers 60 14 none]
+G r c none [parse_grammar_if_needed schema__schema_readers 62 14 none] [use_basename_in_error_messages sax__readers 92 13 none]
+G r c none [parse_grammar_if_needed schema__schema_readers 62 14 none] [use_basename_in_error_messages sax__readers 89 14 none]
+G r c none [parse_grammar_if_needed schema__schema_readers 62 14 none] [set_feature sax__readers 82 14 none]
+G r d pointer [parse_grammar_if_needed schema__schema_readers 62 14 none] [adjust schema__validators__xml_grammars 89 17 912_4]
+G r c none [parse_grammar_if_needed schema__schema_readers 62 14 none] [get_system_id input_sources 106 13 none]
+G r c none [parse_grammar_if_needed schema__schema_readers 62 14 none] [output_action schema 71 14 none]
+G r c none [parse_grammar_if_needed schema__schema_readers 62 14 none] [initialize_symbols schema__validators 628 25 none]
+G r c none [parse_grammar_if_needed schema__schema_readers 62 14 none] [find_symbol sax__readers 698 13 none]
+G r c none [parse_grammar_if_needed schema__schema_readers 62 14 none] [initialize_grammar schema__validators 757 14 none]
+G r c none [parse_grammar_if_needed schema__schema_readers 62 14 none] [set_parsed_uri schema__validators 806 14 none]
+G r c none [parse_grammar_if_needed schema__schema_readers 62 14 none] [parse schema__readers 135 25 none]
+G r c none [parse_grammar_if_needed schema__schema_readers 62 14 none] [get_nfa schema__validators 417 13 none]
+G r c none [parse_grammar_if_needed schema__schema_readers 62 14 none] [get_references schema__validators 418 13 none]
+G r c none [parse_grammar_if_needed schema__schema_readers 62 14 none] [get schema__validators__reference_htables 60 13 405_4]
+G r c none [parse_grammar_if_needed schema__schema_readers 62 14 none] [add_state schema__validators__schema_state_machines 95 13 289_4]
+G r c none [parse_grammar_if_needed schema__schema_readers 62 14 none] [to_qname schema__validators 815 13 none]
+G r c none [parse_grammar_if_needed schema__schema_readers 62 14 none] [create_type schema__validators 784 13 none]
+G r c none [parse_grammar_if_needed schema__schema_readers 62 14 none] [set_data schema__validators__schema_state_machines 109 14 289_4]
+G r s simple_type_descr [parse_grammar_if_needed schema__schema_readers 62 14 none] [simple_type_descrIP schema__simple_types 105 9 none]
+G r c none [parse_grammar_if_needed schema__schema_readers 62 14 none] [get_type_descr schema__validators 435 13 none]
+G r s global_reference [parse_grammar_if_needed schema__schema_readers 62 14 none] [global_referenceIP schema__validators 383 9 none]
+G r c none [parse_grammar_if_needed schema__schema_readers 62 14 none] [create_simple_type schema__validators 780 13 none]
+G r s location [parse_grammar_if_needed schema__schema_readers 62 14 none] [locationIP sax__locators 41 9 none]
+G r c none [parse_grammar_if_needed schema__schema_readers 62 14 none] [get_simple_type schema__validators 428 13 none]
+G r c none [parse_grammar_if_needed schema__schema_readers 62 14 none] [copy schema__simple_types 191 13 none]
+G r c none [parse_grammar_if_needed schema__schema_readers 62 14 none] [override schema__simple_types 293 14 none]
+G r c none [parse_grammar_if_needed schema__schema_readers 62 14 none] [create_global_attribute schema__validators 776 14 none]
+G r s transition_descr [parse_grammar_if_needed schema__schema_readers 62 14 none] [transition_descrIP schema__validators 194 9 none]
+G r c none [parse_grammar_if_needed schema__schema_readers 62 14 none] [get_data schema__validators__schema_state_machines 110 13 289_4]
+G r c none [parse_grammar_if_needed schema__schema_readers 62 14 none] [get_nested schema__validators__schema_state_machines 268 13 289_4]
+G r c none [parse_grammar_if_needed schema__schema_readers 62 14 none] [set_nested schema__validators__schema_state_machines 264 14 289_4]
+G r c none [parse_grammar_if_needed schema__schema_readers 62 14 none] [create_nested schema__validators__schema_state_machines 241 13 289_4]
+G r c none [parse_grammar_if_needed schema__schema_readers 62 14 none] [ur_type schema__validators 372 13 none]
+G r c none [parse_grammar_if_needed schema__schema_readers 62 14 none] [normalize_and_validate schema__validators 682 14 none]
+G r c none [parse_grammar_if_needed schema__schema_readers 62 14 none] [add_transition schema__validators__schema_state_machines 117 14 289_4]
+G r c none [parse_grammar_if_needed schema__schema_readers 62 14 none] [on_empty_nested_exit schema__validators__schema_state_machines 279 14 289_4]
+G r c none [parse_grammar_if_needed schema__schema_readers 62 14 none] [set schema__validators__reference_htables 50 14 405_4]
+G r c none [parse_grammar_if_needed schema__schema_readers 62 14 none] [add_empty_transition schema__validators__schema_state_machines 128 14 289_4]
+G r c none [parse_grammar_if_needed schema__schema_readers 62 14 none] [combine schema__validators 144 13 none]
+G r c none [parse_grammar_if_needed schema__schema_readers 62 14 none] [repeat schema__validators__schema_state_machines 136 13 289_4]
+G r s qualified_name [parse_grammar_if_needed schema__schema_readers 62 14 none] [qualified_nameIP sax__readers 326 9 none]
+G r c none [parse_grammar_if_needed schema__schema_readers 62 14 none] [add_attribute schema__validators 731 14 none]
+G r c none [parse_grammar_if_needed schema__schema_readers 62 14 none] [add_any_attribute schema__validators 726 14 none]
+G r c none [parse_grammar_if_needed schema__schema_readers 62 14 none] [add_attributes schema__validators 737 14 none]
+G r c none [parse_grammar_if_needed schema__schema_readers 62 14 none] [dump_dot_nfa schema__validators 422 13 none]
+G r c none [parse_grammar_if_needed schema__schema_readers 62 14 none] [close input_sources__file 49 14 none]
+G r c none [parse_grammar_if_needed schema__schema_readers 62 14 none] [free schema__readers 131 25 none]
+G r c none [parse_grammar_if_needed schema__schema_readers 62 14 none] [current_location sax__readers 361 13 none]
+G r c none [parse_grammar_if_needed schema__schema_readers 62 14 none] [create sax__exceptions 67 13 none]
+G r c none [parse_grammar_if_needed schema__schema_readers 62 14 none] [warning sax__readers 195 14 none]
+G r k sax_parse_exception [parse_grammar_if_needed schema__schema_readers 62 14 none] [sax_parse_exceptionDF sax__exceptions 89 9 none]
+G r s location [group_descrIP schema__schema_readers 106 9 none] [locationIP sax__locators 41 9 none]
+G r s type_descr [internal_type_descrIP schema__schema_readers 231 9 none] [type_descrIP schema__validators 299 9 none]
+G r c none [start_element schema__schema_readers 378 25 none] [get sax__symbols 53 13 none]
+G r c none [start_element schema__schema_readers 378 25 none] [current_location sax__readers 361 13 none]
+G r c none [start_element schema__schema_readers 378 25 none] [to_string sax__locators 81 13 none]
+G r c none [start_element schema__schema_readers 378 25 none] [output_seen schema 72 14 none]
+G r c none [start_element schema__schema_readers 378 25 none] [start_element sax__readers 397 14 none]
+G r c none [start_element schema__schema_readers 378 25 none] [validation_error schema__validators 632 14 none]
+G r s qualified_name [start_element schema__schema_readers 378 25 none] [qualified_nameIP sax__readers 326 9 none]
+G r c none [start_element schema__schema_readers 378 25 none] [get_length sax__readers 307 13 none]
+G r c none [start_element schema__schema_readers 378 25 none] [get_name sax__readers 335 13 none]
+G r c none [start_element schema__schema_readers 378 25 none] [get_value sax__readers 274 13 none]
+G r i none [start_element schema__schema_readers 378 25 none] [for_each_item sax__utils 164 14 none]
+G r c none [start_element schema__schema_readers 378 25 none] [is_white_space unicode 121 13 none]
+G r c none [start_element schema__schema_readers 378 25 none] [to_string schema__validators 237 13 none]
+G r c none [start_element schema__schema_readers 378 25 none] [output_action schema 71 14 none]
+G r c none [start_element schema__schema_readers 378 25 none] [parse_grammar schema__readers 85 14 none]
+G r c none [start_element schema__schema_readers 378 25 none] [parse_grammars schema__readers 116 14 none]
+G r s location [start_element schema__schema_readers 378 25 none] [locationIP sax__locators 41 9 none]
+G r c none [start_element schema__schema_readers 378 25 none] [get_nfa schema__validators 417 13 none]
+G r c none [start_element schema__schema_readers 378 25 none] [add_notation schema__validators 821 14 none]
+G r c none [start_element schema__schema_readers 378 25 none] [notation_decl sax__readers 488 14 none]
+G r c none [start_element schema__schema_readers 378 25 none] [get_location sax__readers 280 13 none]
+G r c none [start_element schema__schema_readers 378 25 none] [split_qname sax__utils 149 13 none]
+G r c none [start_element schema__schema_readers 378 25 none] [find_symbol sax__readers 698 13 none]
+G r c none [start_element schema__schema_readers 378 25 none] [get_namespace_from_prefix schema__readers 122 14 none]
+G r c none [start_element schema__schema_readers 378 25 none] [get_uri sax__utils 204 13 none]
+G r c none [start_element schema__schema_readers 378 25 none] [get_value_as_boolean sax__readers 286 13 none]
+G r c none [start_element schema__schema_readers 378 25 none] [get_index sax__readers 241 13 none]
+G r c none [start_element schema__schema_readers 378 25 none] [is_digit unicode 131 13 none]
+G r c none [start_element schema__schema_readers 378 25 none] [create sax__exceptions 67 13 none]
+G r c none [start_element schema__schema_readers 378 25 none] [warning sax__readers 195 14 none]
+G r k sax_parse_exception [start_element schema__schema_readers 378 25 none] [sax_parse_exceptionDF sax__exceptions 89 9 none]
+G r c none [start_element schema__schema_readers 378 25 none] [debug_output schema 66 14 none]
+G r s type_descr [start_element schema__schema_readers 378 25 none] [type_descrIP schema__validators 299 9 none]
+G r c none [start_element schema__schema_readers 378 25 none] [get_non_normalized_value sax__readers 284 13 none]
+G r c none [start_element schema__schema_readers 378 25 none] [add_facet schema__validators 791 14 none]
+G r c none [start_element schema__schema_readers 378 25 none] [get_xsd_version schema__validators 70 13 none]
+G r s internal_any_descr [start_element schema__schema_readers 378 25 none] [internal_any_descrIP schema__validators 717 9 none]
+G r c none [end_element schema__schema_readers 383 25 none] [end_element sax__readers 421 14 none]
+G r c none [end_element schema__schema_readers 383 25 none] [validation_error schema__validators 632 14 none]
+G r s qualified_name [end_element schema__schema_readers 383 25 none] [qualified_nameIP sax__readers 326 9 none]
+G r c none [end_element schema__schema_readers 383 25 none] [current_location sax__readers 361 13 none]
+G r c none [end_element schema__schema_readers 383 25 none] [get sax__symbols 53 13 none]
+G r c none [end_element schema__schema_readers 383 25 none] [output_action schema 71 14 none]
+G r c none [characters schema__schema_readers 387 25 none] [characters sax__readers 427 14 none]
+G r c none [parse schema__schema_readers 389 25 none] [get_grammar schema__readers 63 13 none]
+G r d pointer [parse schema__schema_readers 389 25 none] [adjust schema__validators__xml_grammars 89 17 912_4]
+G r e pointer [parse schema__schema_readers 389 25 none] [finalize schema__validators__xml_grammars 88 17 912_4]
+G r c none [parse schema__schema_readers 389 25 none] [get_system_id input_sources 106 13 none]
+G r c none [parse schema__schema_readers 389 25 none] [output_action schema 71 14 none]
+G r c none [parse schema__schema_readers 389 25 none] [initialize_symbols schema__validators 628 25 none]
+G r c none [parse schema__schema_readers 389 25 none] [find_symbol sax__readers 698 13 none]
+G r c none [parse schema__schema_readers 389 25 none] [uri_was_parsed schema__validators 800 13 none]
+G r c none [parse schema__schema_readers 389 25 none] [initialize_grammar schema__validators 757 14 none]
+G r c none [parse schema__schema_readers 389 25 none] [set_grammar schema__readers 60 14 none]
+G r c none [parse schema__schema_readers 389 25 none] [set_parsed_uri schema__validators 806 14 none]
+G r c none [parse schema__schema_readers 389 25 none] [parse schema__readers 135 25 none]
+G r c none [parse schema__schema_readers 389 25 none] [get_nfa schema__validators 417 13 none]
+G r c none [parse schema__schema_readers 389 25 none] [get_references schema__validators 418 13 none]
+G r c none [parse schema__schema_readers 389 25 none] [get schema__validators__reference_htables 60 13 405_4]
+G r c none [parse schema__schema_readers 389 25 none] [debug_output schema 66 14 none]
+G r c none [parse schema__schema_readers 389 25 none] [add_state schema__validators__schema_state_machines 95 13 289_4]
+G r c none [parse schema__schema_readers 389 25 none] [to_qname schema__validators 815 13 none]
+G r c none [parse schema__schema_readers 389 25 none] [create_type schema__validators 784 13 none]
+G r c none [parse schema__schema_readers 389 25 none] [set_data schema__validators__schema_state_machines 109 14 289_4]
+G r s simple_type_descr [parse schema__schema_readers 389 25 none] [simple_type_descrIP schema__simple_types 105 9 none]
+G r c none [parse schema__schema_readers 389 25 none] [get_type_descr schema__validators 435 13 none]
+G r c none [parse schema__schema_readers 389 25 none] [validation_error schema__validators 632 14 none]
+G r s global_reference [parse schema__schema_readers 389 25 none] [global_referenceIP schema__validators 383 9 none]
+G r c none [parse schema__schema_readers 389 25 none] [create_simple_type schema__validators 780 13 none]
+G r s location [parse schema__schema_readers 389 25 none] [locationIP sax__locators 41 9 none]
+G r c none [parse schema__schema_readers 389 25 none] [get_simple_type schema__validators 428 13 none]
+G r c none [parse schema__schema_readers 389 25 none] [copy schema__simple_types 191 13 none]
+G r c none [parse schema__schema_readers 389 25 none] [get_symbol_table sax__readers 701 13 none]
+G r c none [parse schema__schema_readers 389 25 none] [override schema__simple_types 293 14 none]
+G r e pointer [parse schema__schema_readers 389 25 none] [finalize sax__utils__symbol_table_pointers 88 17 171_4]
+G r c none [parse schema__schema_readers 389 25 none] [get sax__symbols 53 13 none]
+G r c none [parse schema__schema_readers 389 25 none] [create_global_attribute schema__validators 776 14 none]
+G r s transition_descr [parse schema__schema_readers 389 25 none] [transition_descrIP schema__validators 194 9 none]
+G r c none [parse schema__schema_readers 389 25 none] [get_data schema__validators__schema_state_machines 110 13 289_4]
+G r c none [parse schema__schema_readers 389 25 none] [get_nested schema__validators__schema_state_machines 268 13 289_4]
+G r c none [parse schema__schema_readers 389 25 none] [set_nested schema__validators__schema_state_machines 264 14 289_4]
+G r c none [parse schema__schema_readers 389 25 none] [create_nested schema__validators__schema_state_machines 241 13 289_4]
+G r c none [parse schema__schema_readers 389 25 none] [ur_type schema__validators 372 13 none]
+G r c none [parse schema__schema_readers 389 25 none] [normalize_and_validate schema__validators 682 14 none]
+G r c none [parse schema__schema_readers 389 25 none] [add_transition schema__validators__schema_state_machines 117 14 289_4]
+G r c none [parse schema__schema_readers 389 25 none] [on_empty_nested_exit schema__validators__schema_state_machines 279 14 289_4]
+G r c none [parse schema__schema_readers 389 25 none] [set schema__validators__reference_htables 50 14 405_4]
+G r c none [parse schema__schema_readers 389 25 none] [add_empty_transition schema__validators__schema_state_machines 128 14 289_4]
+G r c none [parse schema__schema_readers 389 25 none] [combine schema__validators 144 13 none]
+G r c none [parse schema__schema_readers 389 25 none] [repeat schema__validators__schema_state_machines 136 13 289_4]
+G r s qualified_name [parse schema__schema_readers 389 25 none] [qualified_nameIP sax__readers 326 9 none]
+G r c none [parse schema__schema_readers 389 25 none] [add_attribute schema__validators 731 14 none]
+G r c none [parse schema__schema_readers 389 25 none] [add_any_attribute schema__validators 726 14 none]
+G r c none [parse schema__schema_readers 389 25 none] [add_attributes schema__validators 737 14 none]
+G r c none [parse schema__schema_readers 389 25 none] [dump_dot_nfa schema__validators 422 13 none]
+G r j validating_reader [schema_readerDA schema__schema_readers 353 9 none] [validating_readerDA schema__readers 142 9 none]
+G r k validating_reader [schema_readerDF schema__schema_readers 353 9 none] [validating_readerDF schema__readers 142 9 none]
+G r s validating_reader [schema_readerIP schema__schema_readers 353 9 none] [validating_readerIP schema__readers 142 9 none]
+G r s location [extension_descrIP schema__schema_readers 144 9 none] [locationIP sax__locators 41 9 none]
+G r s location [restriction_descrIP schema__schema_readers 151 9 none] [locationIP sax__locators 41 9 none]
+G r s location [type_detailsIP schema__schema_readers 158 9 none] [locationIP sax__locators 41 9 none]
+G r s occurrences [type_detailsIP schema__schema_readers 158 9 none] [occurrencesIP schema__validators 85 9 none]
+G r s internal_any_descr [type_detailsIP schema__schema_readers 158 9 none] [internal_any_descrIP schema__validators 717 9 none]
+G r s qualified_name [attr_descrIP schema__schema_readers 126 9 none] [qualified_nameIP sax__readers 326 9 none]
+G r s qualified_name [attr_arrayIP schema__schema_readers 134 9 none] [qualified_nameIP sax__readers 326 9 none]
+G r s location [contextIP schema__schema_readers 281 9 none] [locationIP sax__locators 41 9 none]
+G r s qualified_name [contextIP schema__schema_readers 281 9 none] [qualified_nameIP sax__readers 326 9 none]
+G r s location [context_arrayIP schema__schema_readers 304 9 none] [locationIP sax__locators 41 9 none]
+G r s qualified_name [context_arrayIP schema__schema_readers 304 9 none] [qualified_nameIP sax__readers 326 9 none]
+G r s location [push_context schema__schema_readers 60 14 none] [locationIP sax__locators 41 9 none]
+G r s qualified_name [push_context schema__schema_readers 60 14 none] [qualified_nameIP sax__readers 326 9 none]
+G r s location [free schema__schema_readers 69 14 none] [locationIP sax__locators 41 9 none]
+G r c none [create_nfa schema__schema_readers 75 14 none] [get_grammar schema__readers 63 13 none]
+G r c none [create_nfa schema__schema_readers 75 14 none] [get_nfa schema__validators 417 13 none]
+G r e pointer [create_nfa schema__schema_readers 75 14 none] [finalize schema__validators__xml_grammars 88 17 912_4]
+G r c none [create_nfa schema__schema_readers 75 14 none] [get_references schema__validators 418 13 none]
+G r c none [create_nfa schema__schema_readers 75 14 none] [get schema__validators__reference_htables 60 13 405_4]
+G r c none [create_nfa schema__schema_readers 75 14 none] [debug_output schema 66 14 none]
+G r c none [create_nfa schema__schema_readers 75 14 none] [add_state schema__validators__schema_state_machines 95 13 289_4]
+G r c none [create_nfa schema__schema_readers 75 14 none] [to_qname schema__validators 815 13 none]
+G r c none [create_nfa schema__schema_readers 75 14 none] [create_type schema__validators 784 13 none]
+G r c none [create_nfa schema__schema_readers 75 14 none] [set_data schema__validators__schema_state_machines 109 14 289_4]
+G r s simple_type_descr [create_nfa schema__schema_readers 75 14 none] [simple_type_descrIP schema__simple_types 105 9 none]
+G r c none [create_nfa schema__schema_readers 75 14 none] [get_type_descr schema__validators 435 13 none]
+G r c none [create_nfa schema__schema_readers 75 14 none] [validation_error schema__validators 632 14 none]
+G r s global_reference [create_nfa schema__schema_readers 75 14 none] [global_referenceIP schema__validators 383 9 none]
+G r c none [create_nfa schema__schema_readers 75 14 none] [create_simple_type schema__validators 780 13 none]
+G r s location [create_nfa schema__schema_readers 75 14 none] [locationIP sax__locators 41 9 none]
+G r c none [create_nfa schema__schema_readers 75 14 none] [get_simple_type schema__validators 428 13 none]
+G r c none [create_nfa schema__schema_readers 75 14 none] [copy schema__simple_types 191 13 none]
+G r c none [create_nfa schema__schema_readers 75 14 none] [get_symbol_table sax__readers 701 13 none]
+G r c none [create_nfa schema__schema_readers 75 14 none] [override schema__simple_types 293 14 none]
+G r e pointer [create_nfa schema__schema_readers 75 14 none] [finalize sax__utils__symbol_table_pointers 88 17 171_4]
+G r c none [create_nfa schema__schema_readers 75 14 none] [get sax__symbols 53 13 none]
+G r c none [create_nfa schema__schema_readers 75 14 none] [create_global_attribute schema__validators 776 14 none]
+G r s transition_descr [create_nfa schema__schema_readers 75 14 none] [transition_descrIP schema__validators 194 9 none]
+G r c none [create_nfa schema__schema_readers 75 14 none] [get_data schema__validators__schema_state_machines 110 13 289_4]
+G r c none [create_nfa schema__schema_readers 75 14 none] [get_nested schema__validators__schema_state_machines 268 13 289_4]
+G r c none [create_nfa schema__schema_readers 75 14 none] [set_nested schema__validators__schema_state_machines 264 14 289_4]
+G r c none [create_nfa schema__schema_readers 75 14 none] [create_nested schema__validators__schema_state_machines 241 13 289_4]
+G r c none [create_nfa schema__schema_readers 75 14 none] [ur_type schema__validators 372 13 none]
+G r c none [create_nfa schema__schema_readers 75 14 none] [normalize_and_validate schema__validators 682 14 none]
+G r c none [create_nfa schema__schema_readers 75 14 none] [add_transition schema__validators__schema_state_machines 117 14 289_4]
+G r c none [create_nfa schema__schema_readers 75 14 none] [on_empty_nested_exit schema__validators__schema_state_machines 279 14 289_4]
+G r c none [create_nfa schema__schema_readers 75 14 none] [set schema__validators__reference_htables 50 14 405_4]
+G r c none [create_nfa schema__schema_readers 75 14 none] [add_empty_transition schema__validators__schema_state_machines 128 14 289_4]
+G r c none [create_nfa schema__schema_readers 75 14 none] [combine schema__validators 144 13 none]
+G r c none [create_nfa schema__schema_readers 75 14 none] [repeat schema__validators__schema_state_machines 136 13 289_4]
+G r s qualified_name [create_nfa schema__schema_readers 75 14 none] [qualified_nameIP sax__readers 326 9 none]
+G r c none [create_nfa schema__schema_readers 75 14 none] [add_attribute schema__validators 731 14 none]
+G r c none [create_nfa schema__schema_readers 75 14 none] [add_any_attribute schema__validators 726 14 none]
+G r c none [create_nfa schema__schema_readers 75 14 none] [add_attributes schema__validators 737 14 none]
+G r c none [create_nfa schema__schema_readers 75 14 none] [dump_dot_nfa schema__validators 422 13 none]
+G r c none [create_nfa schema__schema_readers 75 14 none] [output_action schema 71 14 none]
+G r c none [resolve_qname schema__schema_readers 87 13 none] [get sax__symbols 53 13 none]
+G r c none [resolve_qname schema__schema_readers 87 13 none] [split_qname sax__utils 149 13 none]
+G r c none [resolve_qname schema__schema_readers 87 13 none] [find_symbol sax__readers 698 13 none]
+G r c none [resolve_qname schema__schema_readers 87 13 none] [get_namespace_from_prefix schema__readers 122 14 none]
+G r c none [resolve_qname schema__schema_readers 87 13 none] [validation_error schema__validators 632 14 none]
+G r c none [resolve_qname schema__schema_readers 87 13 none] [get_uri sax__utils 204 13 none]
+G r c none [internal_parse schema__schema_readers 96 14 none] [get_grammar schema__readers 63 13 none]
+G r d pointer [internal_parse schema__schema_readers 96 14 none] [adjust schema__validators__xml_grammars 89 17 912_4]
+G r e pointer [internal_parse schema__schema_readers 96 14 none] [finalize schema__validators__xml_grammars 88 17 912_4]
+G r c none [internal_parse schema__schema_readers 96 14 none] [get_system_id input_sources 106 13 none]
+G r c none [internal_parse schema__schema_readers 96 14 none] [output_action schema 71 14 none]
+G r c none [internal_parse schema__schema_readers 96 14 none] [initialize_symbols schema__validators 628 25 none]
+G r c none [internal_parse schema__schema_readers 96 14 none] [find_symbol sax__readers 698 13 none]
+G r c none [internal_parse schema__schema_readers 96 14 none] [uri_was_parsed schema__validators 800 13 none]
+G r c none [internal_parse schema__schema_readers 96 14 none] [initialize_grammar schema__validators 757 14 none]
+G r c none [internal_parse schema__schema_readers 96 14 none] [set_grammar schema__readers 60 14 none]
+G r c none [internal_parse schema__schema_readers 96 14 none] [set_parsed_uri schema__validators 806 14 none]
+G r c none [internal_parse schema__schema_readers 96 14 none] [parse schema__readers 135 25 none]
+G r c none [internal_parse schema__schema_readers 96 14 none] [get_nfa schema__validators 417 13 none]
+G r c none [internal_parse schema__schema_readers 96 14 none] [get_references schema__validators 418 13 none]
+G r c none [internal_parse schema__schema_readers 96 14 none] [get schema__validators__reference_htables 60 13 405_4]
+G r c none [internal_parse schema__schema_readers 96 14 none] [debug_output schema 66 14 none]
+G r c none [internal_parse schema__schema_readers 96 14 none] [add_state schema__validators__schema_state_machines 95 13 289_4]
+G r c none [internal_parse schema__schema_readers 96 14 none] [to_qname schema__validators 815 13 none]
+G r c none [internal_parse schema__schema_readers 96 14 none] [create_type schema__validators 784 13 none]
+G r c none [internal_parse schema__schema_readers 96 14 none] [set_data schema__validators__schema_state_machines 109 14 289_4]
+G r s simple_type_descr [internal_parse schema__schema_readers 96 14 none] [simple_type_descrIP schema__simple_types 105 9 none]
+G r c none [internal_parse schema__schema_readers 96 14 none] [get_type_descr schema__validators 435 13 none]
+G r c none [internal_parse schema__schema_readers 96 14 none] [validation_error schema__validators 632 14 none]
+G r s global_reference [internal_parse schema__schema_readers 96 14 none] [global_referenceIP schema__validators 383 9 none]
+G r c none [internal_parse schema__schema_readers 96 14 none] [create_simple_type schema__validators 780 13 none]
+G r s location [internal_parse schema__schema_readers 96 14 none] [locationIP sax__locators 41 9 none]
+G r c none [internal_parse schema__schema_readers 96 14 none] [get_simple_type schema__validators 428 13 none]
+G r c none [internal_parse schema__schema_readers 96 14 none] [copy schema__simple_types 191 13 none]
+G r c none [internal_parse schema__schema_readers 96 14 none] [get_symbol_table sax__readers 701 13 none]
+G r c none [internal_parse schema__schema_readers 96 14 none] [override schema__simple_types 293 14 none]
+G r e pointer [internal_parse schema__schema_readers 96 14 none] [finalize sax__utils__symbol_table_pointers 88 17 171_4]
+G r c none [internal_parse schema__schema_readers 96 14 none] [get sax__symbols 53 13 none]
+G r c none [internal_parse schema__schema_readers 96 14 none] [create_global_attribute schema__validators 776 14 none]
+G r s transition_descr [internal_parse schema__schema_readers 96 14 none] [transition_descrIP schema__validators 194 9 none]
+G r c none [internal_parse schema__schema_readers 96 14 none] [get_data schema__validators__schema_state_machines 110 13 289_4]
+G r c none [internal_parse schema__schema_readers 96 14 none] [get_nested schema__validators__schema_state_machines 268 13 289_4]
+G r c none [internal_parse schema__schema_readers 96 14 none] [set_nested schema__validators__schema_state_machines 264 14 289_4]
+G r c none [internal_parse schema__schema_readers 96 14 none] [create_nested schema__validators__schema_state_machines 241 13 289_4]
+G r c none [internal_parse schema__schema_readers 96 14 none] [ur_type schema__validators 372 13 none]
+G r c none [internal_parse schema__schema_readers 96 14 none] [normalize_and_validate schema__validators 682 14 none]
+G r c none [internal_parse schema__schema_readers 96 14 none] [add_transition schema__validators__schema_state_machines 117 14 289_4]
+G r c none [internal_parse schema__schema_readers 96 14 none] [on_empty_nested_exit schema__validators__schema_state_machines 279 14 289_4]
+G r c none [internal_parse schema__schema_readers 96 14 none] [set schema__validators__reference_htables 50 14 405_4]
+G r c none [internal_parse schema__schema_readers 96 14 none] [add_empty_transition schema__validators__schema_state_machines 128 14 289_4]
+G r c none [internal_parse schema__schema_readers 96 14 none] [combine schema__validators 144 13 none]
+G r c none [internal_parse schema__schema_readers 96 14 none] [repeat schema__validators__schema_state_machines 136 13 289_4]
+G r s qualified_name [internal_parse schema__schema_readers 96 14 none] [qualified_nameIP sax__readers 326 9 none]
+G r c none [internal_parse schema__schema_readers 96 14 none] [add_attribute schema__validators 731 14 none]
+G r c none [internal_parse schema__schema_readers 96 14 none] [add_any_attribute schema__validators 726 14 none]
+G r c none [internal_parse schema__schema_readers 96 14 none] [add_attributes schema__validators 737 14 none]
+G r c none [internal_parse schema__schema_readers 96 14 none] [dump_dot_nfa schema__validators 422 13 none]
+G r c none [insert_in_type schema__schema_readers 105 14 none] [validation_error schema__validators 632 14 none]
+G r c none [insert_in_type schema__schema_readers 105 14 none] [debug_output schema 66 14 none]
+G r s type_descr [prepare_type schema__schema_readers 112 14 none] [type_descrIP schema__validators 299 9 none]
+G r s qualified_name [prepare_type schema__schema_readers 112 14 none] [qualified_nameIP sax__readers 326 9 none]
+G r c none [prepare_type schema__schema_readers 112 14 none] [current_location sax__readers 361 13 none]
+G r c none [prepare_type schema__schema_readers 112 14 none] [get_length sax__readers 307 13 none]
+G r c none [prepare_type schema__schema_readers 112 14 none] [get_name sax__readers 335 13 none]
+G r c none [prepare_type schema__schema_readers 112 14 none] [get_value_as_boolean sax__readers 286 13 none]
+G r c none [prepare_type schema__schema_readers 112 14 none] [get_value sax__readers 274 13 none]
+G r i none [prepare_type schema__schema_readers 112 14 none] [for_each_item sax__utils 164 14 none]
+G r c none [prepare_type schema__schema_readers 112 14 none] [get sax__symbols 53 13 none]
+G r c none [prepare_type schema__schema_readers 112 14 none] [is_white_space unicode 121 13 none]
+G r c none [prepare_type schema__schema_readers 112 14 none] [validation_error schema__validators 632 14 none]
+G r c none [prepare_type schema__schema_readers 112 14 none] [to_string schema__validators 237 13 none]
+G r c none [prepare_type schema__schema_readers 112 14 none] [output_action schema 71 14 none]
+G r s location [prepare_type schema__schema_readers 112 14 none] [locationIP sax__locators 41 9 none]
+G r c none [add_type_member schema__schema_readers 118 14 none] [validation_error schema__validators 632 14 none]
+G r i none [compute_blocks schema__schema_readers 125 14 none] [for_each_item sax__utils 164 14 none]
+G r c none [compute_blocks schema__schema_readers 125 14 none] [get_value sax__readers 274 13 none]
+G r c none [compute_blocks schema__schema_readers 125 14 none] [get sax__symbols 53 13 none]
+G r c none [compute_blocks schema__schema_readers 125 14 none] [is_white_space unicode 121 13 none]
+G r c none [compute_blocks schema__schema_readers 125 14 none] [validation_error schema__validators 632 14 none]
+G r c none [compute_blocks schema__schema_readers 125 14 none] [to_string schema__validators 237 13 none]
+G r c none [compute_blocks schema__schema_readers 125 14 none] [output_action schema 71 14 none]
+G r i none [compute_final schema__schema_readers 133 13 none] [for_each_item sax__utils 164 14 none]
+G r c none [compute_final schema__schema_readers 133 13 none] [get_value sax__readers 274 13 none]
+G r c none [compute_final schema__schema_readers 133 13 none] [get sax__symbols 53 13 none]
+G r c none [compute_final schema__schema_readers 133 13 none] [is_white_space unicode 121 13 none]
+G r c none [compute_final schema__schema_readers 133 13 none] [validation_error schema__validators 632 14 none]
+G r c none [compute_final schema__schema_readers 133 13 none] [output_action schema 71 14 none]
+G r c none [compute_form schema__schema_readers 140 13 none] [get_value sax__readers 274 13 none]
+G r s qualified_name [append schema__schema_readers 146 14 none] [qualified_nameIP sax__readers 326 9 none]
+G r s qualified_name [insert_attribute schema__schema_readers 149 14 none] [qualified_nameIP sax__readers 326 9 none]
+G r c none [insert_attribute schema__schema_readers 149 14 none] [validation_error schema__validators 632 14 none]
+G r c none [process_contents_from_atts schema__schema_readers 155 13 none] [get_value sax__readers 274 13 none]
+G r s qualified_name [create_element schema__schema_readers 161 14 none] [qualified_nameIP sax__readers 326 9 none]
+G r c none [create_element schema__schema_readers 161 14 none] [current_location sax__readers 361 13 none]
+G r c none [create_element schema__schema_readers 161 14 none] [get_length sax__readers 307 13 none]
+G r c none [create_element schema__schema_readers 161 14 none] [get_name sax__readers 335 13 none]
+G r c none [create_element schema__schema_readers 161 14 none] [get_value sax__readers 274 13 none]
+G r c none [create_element schema__schema_readers 161 14 none] [get_location sax__readers 280 13 none]
+G r c none [create_element schema__schema_readers 161 14 none] [get sax__symbols 53 13 none]
+G r c none [create_element schema__schema_readers 161 14 none] [split_qname sax__utils 149 13 none]
+G r c none [create_element schema__schema_readers 161 14 none] [find_symbol sax__readers 698 13 none]
+G r c none [create_element schema__schema_readers 161 14 none] [get_namespace_from_prefix schema__readers 122 14 none]
+G r c none [create_element schema__schema_readers 161 14 none] [validation_error schema__validators 632 14 none]
+G r c none [create_element schema__schema_readers 161 14 none] [get_uri sax__utils 204 13 none]
+G r c none [create_element schema__schema_readers 161 14 none] [get_value_as_boolean sax__readers 286 13 none]
+G r i none [create_element schema__schema_readers 161 14 none] [for_each_item sax__utils 164 14 none]
+G r c none [create_element schema__schema_readers 161 14 none] [is_white_space unicode 121 13 none]
+G r c none [create_element schema__schema_readers 161 14 none] [output_action schema 71 14 none]
+G r c none [create_element schema__schema_readers 161 14 none] [to_string schema__validators 237 13 none]
+G r c none [create_element schema__schema_readers 161 14 none] [get_index sax__readers 241 13 none]
+G r c none [create_element schema__schema_readers 161 14 none] [is_digit unicode 131 13 none]
+G r c none [create_element schema__schema_readers 161 14 none] [create sax__exceptions 67 13 none]
+G r c none [create_element schema__schema_readers 161 14 none] [warning sax__readers 195 14 none]
+G r k sax_parse_exception [create_element schema__schema_readers 161 14 none] [sax_parse_exceptionDF sax__exceptions 89 9 none]
+G r c none [create_element schema__schema_readers 161 14 none] [debug_output schema 66 14 none]
+G r s location [create_element schema__schema_readers 161 14 none] [locationIP sax__locators 41 9 none]
+G r s qualified_name [create_notation schema__schema_readers 163 14 none] [qualified_nameIP sax__readers 326 9 none]
+G r c none [create_notation schema__schema_readers 163 14 none] [get_length sax__readers 307 13 none]
+G r c none [create_notation schema__schema_readers 163 14 none] [get_name sax__readers 335 13 none]
+G r c none [create_notation schema__schema_readers 163 14 none] [get_value sax__readers 274 13 none]
+G r c none [create_notation schema__schema_readers 163 14 none] [get_nfa schema__validators 417 13 none]
+G r c none [create_notation schema__schema_readers 163 14 none] [add_notation schema__validators 821 14 none]
+G r c none [create_notation schema__schema_readers 163 14 none] [get sax__symbols 53 13 none]
+G r c none [create_notation schema__schema_readers 163 14 none] [notation_decl sax__readers 488 14 none]
+G r s type_descr [create_complex_type schema__schema_readers 165 14 none] [type_descrIP schema__validators 299 9 none]
+G r s qualified_name [create_complex_type schema__schema_readers 165 14 none] [qualified_nameIP sax__readers 326 9 none]
+G r c none [create_complex_type schema__schema_readers 165 14 none] [current_location sax__readers 361 13 none]
+G r c none [create_complex_type schema__schema_readers 165 14 none] [get_length sax__readers 307 13 none]
+G r c none [create_complex_type schema__schema_readers 165 14 none] [get_name sax__readers 335 13 none]
+G r c none [create_complex_type schema__schema_readers 165 14 none] [get_value_as_boolean sax__readers 286 13 none]
+G r c none [create_complex_type schema__schema_readers 165 14 none] [get_value sax__readers 274 13 none]
+G r i none [create_complex_type schema__schema_readers 165 14 none] [for_each_item sax__utils 164 14 none]
+G r c none [create_complex_type schema__schema_readers 165 14 none] [get sax__symbols 53 13 none]
+G r c none [create_complex_type schema__schema_readers 165 14 none] [is_white_space unicode 121 13 none]
+G r c none [create_complex_type schema__schema_readers 165 14 none] [validation_error schema__validators 632 14 none]
+G r c none [create_complex_type schema__schema_readers 165 14 none] [to_string schema__validators 237 13 none]
+G r c none [create_complex_type schema__schema_readers 165 14 none] [output_action schema 71 14 none]
+G r s location [create_complex_type schema__schema_readers 165 14 none] [locationIP sax__locators 41 9 none]
+G r s type_descr [create_simple_type schema__schema_readers 167 14 none] [type_descrIP schema__validators 299 9 none]
+G r s qualified_name [create_simple_type schema__schema_readers 167 14 none] [qualified_nameIP sax__readers 326 9 none]
+G r c none [create_simple_type schema__schema_readers 167 14 none] [current_location sax__readers 361 13 none]
+G r c none [create_simple_type schema__schema_readers 167 14 none] [get_length sax__readers 307 13 none]
+G r c none [create_simple_type schema__schema_readers 167 14 none] [get_name sax__readers 335 13 none]
+G r c none [create_simple_type schema__schema_readers 167 14 none] [get_value_as_boolean sax__readers 286 13 none]
+G r c none [create_simple_type schema__schema_readers 167 14 none] [get_value sax__readers 274 13 none]
+G r i none [create_simple_type schema__schema_readers 167 14 none] [for_each_item sax__utils 164 14 none]
+G r c none [create_simple_type schema__schema_readers 167 14 none] [get sax__symbols 53 13 none]
+G r c none [create_simple_type schema__schema_readers 167 14 none] [is_white_space unicode 121 13 none]
+G r c none [create_simple_type schema__schema_readers 167 14 none] [validation_error schema__validators 632 14 none]
+G r c none [create_simple_type schema__schema_readers 167 14 none] [to_string schema__validators 237 13 none]
+G r c none [create_simple_type schema__schema_readers 167 14 none] [output_action schema 71 14 none]
+G r s location [create_simple_type schema__schema_readers 167 14 none] [locationIP sax__locators 41 9 none]
+G r s location [create_restriction schema__schema_readers 169 14 none] [locationIP sax__locators 41 9 none]
+G r s qualified_name [create_restriction schema__schema_readers 169 14 none] [qualified_nameIP sax__readers 326 9 none]
+G r c none [create_restriction schema__schema_readers 169 14 none] [current_location sax__readers 361 13 none]
+G r c none [create_restriction schema__schema_readers 169 14 none] [get_length sax__readers 307 13 none]
+G r c none [create_restriction schema__schema_readers 169 14 none] [get_name sax__readers 335 13 none]
+G r c none [create_restriction schema__schema_readers 169 14 none] [get_value sax__readers 274 13 none]
+G r c none [create_restriction schema__schema_readers 169 14 none] [get_location sax__readers 280 13 none]
+G r c none [create_restriction schema__schema_readers 169 14 none] [get sax__symbols 53 13 none]
+G r c none [create_restriction schema__schema_readers 169 14 none] [split_qname sax__utils 149 13 none]
+G r c none [create_restriction schema__schema_readers 169 14 none] [find_symbol sax__readers 698 13 none]
+G r c none [create_restriction schema__schema_readers 169 14 none] [get_namespace_from_prefix schema__readers 122 14 none]
+G r c none [create_restriction schema__schema_readers 169 14 none] [validation_error schema__validators 632 14 none]
+G r c none [create_restriction schema__schema_readers 169 14 none] [get_uri sax__utils 204 13 none]
+G r c none [create_restriction schema__schema_readers 169 14 none] [debug_output schema 66 14 none]
+G r c none [create_all schema__schema_readers 171 14 none] [get_index sax__readers 241 13 none]
+G r c none [create_all schema__schema_readers 171 14 none] [get_value sax__readers 274 13 none]
+G r c none [create_all schema__schema_readers 171 14 none] [get sax__symbols 53 13 none]
+G r c none [create_all schema__schema_readers 171 14 none] [is_digit unicode 131 13 none]
+G r c none [create_all schema__schema_readers 171 14 none] [validation_error schema__validators 632 14 none]
+G r c none [create_all schema__schema_readers 171 14 none] [current_location sax__readers 361 13 none]
+G r c none [create_all schema__schema_readers 171 14 none] [create sax__exceptions 67 13 none]
+G r c none [create_all schema__schema_readers 171 14 none] [warning sax__readers 195 14 none]
+G r k sax_parse_exception [create_all schema__schema_readers 171 14 none] [sax_parse_exceptionDF sax__exceptions 89 9 none]
+G r c none [create_all schema__schema_readers 171 14 none] [debug_output schema 66 14 none]
+G r s location [create_all schema__schema_readers 171 14 none] [locationIP sax__locators 41 9 none]
+G r s qualified_name [create_all schema__schema_readers 171 14 none] [qualified_nameIP sax__readers 326 9 none]
+G r c none [create_sequence schema__schema_readers 173 14 none] [get_index sax__readers 241 13 none]
+G r c none [create_sequence schema__schema_readers 173 14 none] [get_value sax__readers 274 13 none]
+G r c none [create_sequence schema__schema_readers 173 14 none] [get sax__symbols 53 13 none]
+G r c none [create_sequence schema__schema_readers 173 14 none] [is_digit unicode 131 13 none]
+G r c none [create_sequence schema__schema_readers 173 14 none] [validation_error schema__validators 632 14 none]
+G r c none [create_sequence schema__schema_readers 173 14 none] [current_location sax__readers 361 13 none]
+G r c none [create_sequence schema__schema_readers 173 14 none] [create sax__exceptions 67 13 none]
+G r c none [create_sequence schema__schema_readers 173 14 none] [warning sax__readers 195 14 none]
+G r k sax_parse_exception [create_sequence schema__schema_readers 173 14 none] [sax_parse_exceptionDF sax__exceptions 89 9 none]
+G r c none [create_sequence schema__schema_readers 173 14 none] [debug_output schema 66 14 none]
+G r s location [create_sequence schema__schema_readers 173 14 none] [locationIP sax__locators 41 9 none]
+G r s qualified_name [create_sequence schema__schema_readers 173 14 none] [qualified_nameIP sax__readers 326 9 none]
+G r s qualified_name [create_attribute schema__schema_readers 175 14 none] [qualified_nameIP sax__readers 326 9 none]
+G r c none [create_attribute schema__schema_readers 175 14 none] [current_location sax__readers 361 13 none]
+G r c none [create_attribute schema__schema_readers 175 14 none] [get_length sax__readers 307 13 none]
+G r c none [create_attribute schema__schema_readers 175 14 none] [get_name sax__readers 335 13 none]
+G r c none [create_attribute schema__schema_readers 175 14 none] [get_value sax__readers 274 13 none]
+G r c none [create_attribute schema__schema_readers 175 14 none] [get_location sax__readers 280 13 none]
+G r c none [create_attribute schema__schema_readers 175 14 none] [get sax__symbols 53 13 none]
+G r c none [create_attribute schema__schema_readers 175 14 none] [split_qname sax__utils 149 13 none]
+G r c none [create_attribute schema__schema_readers 175 14 none] [find_symbol sax__readers 698 13 none]
+G r c none [create_attribute schema__schema_readers 175 14 none] [get_namespace_from_prefix schema__readers 122 14 none]
+G r c none [create_attribute schema__schema_readers 175 14 none] [validation_error schema__validators 632 14 none]
+G r c none [create_attribute schema__schema_readers 175 14 none] [get_uri sax__utils 204 13 none]
+G r c none [create_attribute schema__schema_readers 175 14 none] [get_xsd_version schema__validators 70 13 none]
+G r s location [create_attribute schema__schema_readers 175 14 none] [locationIP sax__locators 41 9 none]
+G r s qualified_name [create_schema schema__schema_readers 177 14 none] [qualified_nameIP sax__readers 326 9 none]
+G r c none [create_schema schema__schema_readers 177 14 none] [get_length sax__readers 307 13 none]
+G r c none [create_schema schema__schema_readers 177 14 none] [get_name sax__readers 335 13 none]
+G r c none [create_schema schema__schema_readers 177 14 none] [get_value sax__readers 274 13 none]
+G r i none [create_schema schema__schema_readers 177 14 none] [for_each_item sax__utils 164 14 none]
+G r c none [create_schema schema__schema_readers 177 14 none] [get sax__symbols 53 13 none]
+G r c none [create_schema schema__schema_readers 177 14 none] [is_white_space unicode 121 13 none]
+G r c none [create_schema schema__schema_readers 177 14 none] [validation_error schema__validators 632 14 none]
+G r c none [create_schema schema__schema_readers 177 14 none] [to_string schema__validators 237 13 none]
+G r c none [create_schema schema__schema_readers 177 14 none] [output_action schema 71 14 none]
+G r c none [create_schema schema__schema_readers 177 14 none] [parse_grammar schema__readers 85 14 none]
+G r c none [create_schema schema__schema_readers 177 14 none] [parse_grammars schema__readers 116 14 none]
+G r s location [create_schema schema__schema_readers 177 14 none] [locationIP sax__locators 41 9 none]
+G r s location [create_extension schema__schema_readers 179 14 none] [locationIP sax__locators 41 9 none]
+G r s qualified_name [create_extension schema__schema_readers 179 14 none] [qualified_nameIP sax__readers 326 9 none]
+G r c none [create_extension schema__schema_readers 179 14 none] [current_location sax__readers 361 13 none]
+G r c none [create_extension schema__schema_readers 179 14 none] [get_length sax__readers 307 13 none]
+G r c none [create_extension schema__schema_readers 179 14 none] [get_name sax__readers 335 13 none]
+G r c none [create_extension schema__schema_readers 179 14 none] [get_value sax__readers 274 13 none]
+G r c none [create_extension schema__schema_readers 179 14 none] [get_location sax__readers 280 13 none]
+G r c none [create_extension schema__schema_readers 179 14 none] [get sax__symbols 53 13 none]
+G r c none [create_extension schema__schema_readers 179 14 none] [split_qname sax__utils 149 13 none]
+G r c none [create_extension schema__schema_readers 179 14 none] [find_symbol sax__readers 698 13 none]
+G r c none [create_extension schema__schema_readers 179 14 none] [get_namespace_from_prefix schema__readers 122 14 none]
+G r c none [create_extension schema__schema_readers 179 14 none] [validation_error schema__validators 632 14 none]
+G r c none [create_extension schema__schema_readers 179 14 none] [get_uri sax__utils 204 13 none]
+G r c none [create_extension schema__schema_readers 179 14 none] [debug_output schema 66 14 none]
+G r s qualified_name [create_list schema__schema_readers 181 14 none] [qualified_nameIP sax__readers 326 9 none]
+G r c none [create_list schema__schema_readers 181 14 none] [current_location sax__readers 361 13 none]
+G r s location [create_list schema__schema_readers 181 14 none] [locationIP sax__locators 41 9 none]
+G r c none [create_list schema__schema_readers 181 14 none] [get_length sax__readers 307 13 none]
+G r c none [create_list schema__schema_readers 181 14 none] [get_name sax__readers 335 13 none]
+G r c none [create_list schema__schema_readers 181 14 none] [get_value sax__readers 274 13 none]
+G r c none [create_list schema__schema_readers 181 14 none] [get_location sax__readers 280 13 none]
+G r c none [create_list schema__schema_readers 181 14 none] [get sax__symbols 53 13 none]
+G r c none [create_list schema__schema_readers 181 14 none] [split_qname sax__utils 149 13 none]
+G r c none [create_list schema__schema_readers 181 14 none] [find_symbol sax__readers 698 13 none]
+G r c none [create_list schema__schema_readers 181 14 none] [get_namespace_from_prefix schema__readers 122 14 none]
+G r c none [create_list schema__schema_readers 181 14 none] [validation_error schema__validators 632 14 none]
+G r c none [create_list schema__schema_readers 181 14 none] [get_uri sax__utils 204 13 none]
+G r s qualified_name [create_union schema__schema_readers 183 14 none] [qualified_nameIP sax__readers 326 9 none]
+G r i none [create_union schema__schema_readers 183 14 none] [for_each_item sax__utils 164 14 none]
+G r c none [create_union schema__schema_readers 183 14 none] [current_location sax__readers 361 13 none]
+G r s location [create_union schema__schema_readers 183 14 none] [locationIP sax__locators 41 9 none]
+G r c none [create_union schema__schema_readers 183 14 none] [get_length sax__readers 307 13 none]
+G r c none [create_union schema__schema_readers 183 14 none] [get_name sax__readers 335 13 none]
+G r c none [create_union schema__schema_readers 183 14 none] [get_value sax__readers 274 13 none]
+G r c none [create_union schema__schema_readers 183 14 none] [get sax__symbols 53 13 none]
+G r c none [create_union schema__schema_readers 183 14 none] [is_white_space unicode 121 13 none]
+G r c none [create_union schema__schema_readers 183 14 none] [find_symbol sax__readers 698 13 none]
+G r c none [create_union schema__schema_readers 183 14 none] [split_qname sax__utils 149 13 none]
+G r c none [create_union schema__schema_readers 183 14 none] [get_namespace_from_prefix schema__readers 122 14 none]
+G r c none [create_union schema__schema_readers 183 14 none] [validation_error schema__validators 632 14 none]
+G r c none [create_union schema__schema_readers 183 14 none] [get_uri sax__utils 204 13 none]
+G r c none [create_choice schema__schema_readers 185 14 none] [get_index sax__readers 241 13 none]
+G r c none [create_choice schema__schema_readers 185 14 none] [get_value sax__readers 274 13 none]
+G r c none [create_choice schema__schema_readers 185 14 none] [get sax__symbols 53 13 none]
+G r c none [create_choice schema__schema_readers 185 14 none] [is_digit unicode 131 13 none]
+G r c none [create_choice schema__schema_readers 185 14 none] [validation_error schema__validators 632 14 none]
+G r c none [create_choice schema__schema_readers 185 14 none] [current_location sax__readers 361 13 none]
+G r c none [create_choice schema__schema_readers 185 14 none] [create sax__exceptions 67 13 none]
+G r c none [create_choice schema__schema_readers 185 14 none] [warning sax__readers 195 14 none]
+G r k sax_parse_exception [create_choice schema__schema_readers 185 14 none] [sax_parse_exceptionDF sax__exceptions 89 9 none]
+G r c none [create_choice schema__schema_readers 185 14 none] [debug_output schema 66 14 none]
+G r s location [create_choice schema__schema_readers 185 14 none] [locationIP sax__locators 41 9 none]
+G r s qualified_name [create_choice schema__schema_readers 185 14 none] [qualified_nameIP sax__readers 326 9 none]
+G r c none [create_redefine schema__schema_readers 187 14 none] [get_index sax__readers 241 13 none]
+G r c none [create_redefine schema__schema_readers 187 14 none] [validation_error schema__validators 632 14 none]
+G r c none [create_redefine schema__schema_readers 187 14 none] [get_value sax__readers 274 13 none]
+G r c none [create_redefine schema__schema_readers 187 14 none] [parse_grammar schema__readers 85 14 none]
+G r s location [create_redefine schema__schema_readers 187 14 none] [locationIP sax__locators 41 9 none]
+G r s qualified_name [create_redefine schema__schema_readers 187 14 none] [qualified_nameIP sax__readers 326 9 none]
+G r c none [create_include schema__schema_readers 189 14 none] [get_index sax__readers 241 13 none]
+G r c none [create_include schema__schema_readers 189 14 none] [get_value sax__readers 274 13 none]
+G r c none [create_include schema__schema_readers 189 14 none] [parse_grammar schema__readers 85 14 none]
+G r s location [create_group schema__schema_readers 191 14 none] [locationIP sax__locators 41 9 none]
+G r s qualified_name [create_group schema__schema_readers 191 14 none] [qualified_nameIP sax__readers 326 9 none]
+G r c none [create_group schema__schema_readers 191 14 none] [current_location sax__readers 361 13 none]
+G r c none [create_group schema__schema_readers 191 14 none] [get_length sax__readers 307 13 none]
+G r c none [create_group schema__schema_readers 191 14 none] [get_name sax__readers 335 13 none]
+G r c none [create_group schema__schema_readers 191 14 none] [get_value sax__readers 274 13 none]
+G r c none [create_group schema__schema_readers 191 14 none] [get_location sax__readers 280 13 none]
+G r c none [create_group schema__schema_readers 191 14 none] [get sax__symbols 53 13 none]
+G r c none [create_group schema__schema_readers 191 14 none] [split_qname sax__utils 149 13 none]
+G r c none [create_group schema__schema_readers 191 14 none] [find_symbol sax__readers 698 13 none]
+G r c none [create_group schema__schema_readers 191 14 none] [get_namespace_from_prefix schema__readers 122 14 none]
+G r c none [create_group schema__schema_readers 191 14 none] [validation_error schema__validators 632 14 none]
+G r c none [create_group schema__schema_readers 191 14 none] [get_uri sax__utils 204 13 none]
+G r c none [create_group schema__schema_readers 191 14 none] [get_index sax__readers 241 13 none]
+G r c none [create_group schema__schema_readers 191 14 none] [is_digit unicode 131 13 none]
+G r c none [create_group schema__schema_readers 191 14 none] [create sax__exceptions 67 13 none]
+G r c none [create_group schema__schema_readers 191 14 none] [warning sax__readers 195 14 none]
+G r k sax_parse_exception [create_group schema__schema_readers 191 14 none] [sax_parse_exceptionDF sax__exceptions 89 9 none]
+G r c none [create_group schema__schema_readers 191 14 none] [debug_output schema 66 14 none]
+G r s qualified_name [create_attribute_group schema__schema_readers 193 14 none] [qualified_nameIP sax__readers 326 9 none]
+G r c none [create_attribute_group schema__schema_readers 193 14 none] [get_length sax__readers 307 13 none]
+G r c none [create_attribute_group schema__schema_readers 193 14 none] [get_name sax__readers 335 13 none]
+G r c none [create_attribute_group schema__schema_readers 193 14 none] [get_value sax__readers 274 13 none]
+G r c none [create_attribute_group schema__schema_readers 193 14 none] [get_location sax__readers 280 13 none]
+G r c none [create_attribute_group schema__schema_readers 193 14 none] [get sax__symbols 53 13 none]
+G r c none [create_attribute_group schema__schema_readers 193 14 none] [split_qname sax__utils 149 13 none]
+G r c none [create_attribute_group schema__schema_readers 193 14 none] [find_symbol sax__readers 698 13 none]
+G r c none [create_attribute_group schema__schema_readers 193 14 none] [get_namespace_from_prefix schema__readers 122 14 none]
+G r c none [create_attribute_group schema__schema_readers 193 14 none] [validation_error schema__validators 632 14 none]
+G r c none [create_attribute_group schema__schema_readers 193 14 none] [get_uri sax__utils 204 13 none]
+G r s location [create_attribute_group schema__schema_readers 193 14 none] [locationIP sax__locators 41 9 none]
+G r s internal_any_descr [create_any schema__schema_readers 195 14 none] [internal_any_descrIP schema__validators 717 9 none]
+G r s qualified_name [create_any schema__schema_readers 195 14 none] [qualified_nameIP sax__readers 326 9 none]
+G r c none [create_any schema__schema_readers 195 14 none] [get_length sax__readers 307 13 none]
+G r c none [create_any schema__schema_readers 195 14 none] [get_name sax__readers 335 13 none]
+G r c none [create_any schema__schema_readers 195 14 none] [get_value sax__readers 274 13 none]
+G r c none [create_any schema__schema_readers 195 14 none] [get_index sax__readers 241 13 none]
+G r c none [create_any schema__schema_readers 195 14 none] [get sax__symbols 53 13 none]
+G r c none [create_any schema__schema_readers 195 14 none] [is_digit unicode 131 13 none]
+G r c none [create_any schema__schema_readers 195 14 none] [validation_error schema__validators 632 14 none]
+G r c none [create_any schema__schema_readers 195 14 none] [current_location sax__readers 361 13 none]
+G r c none [create_any schema__schema_readers 195 14 none] [create sax__exceptions 67 13 none]
+G r c none [create_any schema__schema_readers 195 14 none] [warning sax__readers 195 14 none]
+G r k sax_parse_exception [create_any schema__schema_readers 195 14 none] [sax_parse_exceptionDF sax__exceptions 89 9 none]
+G r c none [create_any schema__schema_readers 195 14 none] [debug_output schema 66 14 none]
+G r c none [create_import schema__schema_readers 197 14 none] [get_index sax__readers 241 13 none]
+G r c none [create_import schema__schema_readers 197 14 none] [validation_error schema__validators 632 14 none]
+G r c none [create_import schema__schema_readers 197 14 none] [get_value sax__readers 274 13 none]
+G r c none [create_import schema__schema_readers 197 14 none] [get sax__symbols 53 13 none]
+G r c none [create_import schema__schema_readers 197 14 none] [debug_output schema 66 14 none]
+G r c none [create_import schema__schema_readers 197 14 none] [parse_grammar schema__readers 85 14 none]
+G r s qualified_name [create_any_attribute schema__schema_readers 199 14 none] [qualified_nameIP sax__readers 326 9 none]
+G r c none [create_any_attribute schema__schema_readers 199 14 none] [current_location sax__readers 361 13 none]
+G r c none [create_any_attribute schema__schema_readers 199 14 none] [get_length sax__readers 307 13 none]
+G r c none [create_any_attribute schema__schema_readers 199 14 none] [get_name sax__readers 335 13 none]
+G r c none [create_any_attribute schema__schema_readers 199 14 none] [get_value sax__readers 274 13 none]
+G r c none [create_any_attribute schema__schema_readers 199 14 none] [validation_error schema__validators 632 14 none]
+G r c none [finish_simple_type schema__schema_readers 208 14 none] [validation_error schema__validators 632 14 none]
+G r s qualified_name [finish_attribute schema__schema_readers 211 14 none] [qualified_nameIP sax__readers 326 9 none]
+G r c none [finish_attribute schema__schema_readers 211 14 none] [validation_error schema__validators 632 14 none]
+G r c none [finish_union schema__schema_readers 212 14 none] [validation_error schema__validators 632 14 none]
+G r c none [finish_list schema__schema_readers 213 14 none] [validation_error schema__validators 632 14 none]
+G r c none [finish_attribute_group schema__schema_readers 215 14 none] [current_location sax__readers 361 13 none]
+G r s qualified_name [finish_attribute_group schema__schema_readers 215 14 none] [qualified_nameIP sax__readers 326 9 none]
+G r c none [finish_attribute_group schema__schema_readers 215 14 none] [validation_error schema__validators 632 14 none]
+G r c none [get_occurs schema__schema_readers 220 14 none] [get_index sax__readers 241 13 none]
+G r c none [get_occurs schema__schema_readers 220 14 none] [get_value sax__readers 274 13 none]
+G r c none [get_occurs schema__schema_readers 220 14 none] [get sax__symbols 53 13 none]
+G r c none [get_occurs schema__schema_readers 220 14 none] [is_digit unicode 131 13 none]
+G r c none [get_occurs schema__schema_readers 220 14 none] [validation_error schema__validators 632 14 none]
+G r c none [get_occurs schema__schema_readers 220 14 none] [current_location sax__readers 361 13 none]
+G r c none [get_occurs schema__schema_readers 220 14 none] [create sax__exceptions 67 13 none]
+G r c none [get_occurs schema__schema_readers 220 14 none] [warning sax__readers 195 14 none]
+G r k sax_parse_exception [get_occurs schema__schema_readers 220 14 none] [sax_parse_exceptionDF sax__exceptions 89 9 none]
+X 1 ada.ads
+16K9*Ada 20e8 57|26r6 26r29 37r6 38r6 64r36 66r36 1683r39 1836r12 4022r39
+X 5 a-except.ads
+44K13*Exceptions 289e19 57|26w10 26r33
+48P9*Exception_Id<83|84P9>
+X 7 a-ioexce.ads
+18K13*IO_Exceptions 30e22 57|38w10 1836r16
+23X4*Name_Error 57|1836r30
+X 14 a-tags.ads
+652V13 CW_Membership{boolean} 57|1806s22 1807s27
+X 17 a-uncdea.ads
+20u15*Unchecked_Deallocation 57|37w10 64r40 66r40 1683r43 4022r43
+X 20 gnat.ads
+34K9*GNAT 57e9 56|38r6 39r6 307r31 313r35 320r33 327r37 334r37 57|27r6 27r29
+. 269r35 1739r7 1746r10 1833r7 1839r10 1857r10
+X 22 g-dynhta.ads
+51K14*Dynamic_HTables 517e25 56|39w11 313r40 320r38 327r42 334r42 57|269r40
+105P12*Instance
+165I12 Header_Num 56|314r7 321r7 328r7 335r7 57|270r10
+168+12 Element 56|315r7 322r7 329r7 336r7 57|271r10
+171*7 No_Element{168+12} 56|316r7 323r7 330r7 337r7 57|272r10
+175+12 Key 56|317r7 324r7 331r7 338r7 57|273r10
+176V21 Hash{165I12} 56|318r7 325r7 332r7 339r7 57|274r10
+177V21 Equal{boolean} 56|319r7 326r7 333r7 340r7 57|275r10
+179k12*Simple_HTable 265e21 56|313r56 320r54 327r58 334r58 57|269r56
+180P12*Instance<105P12[251[56|313]]> 56|344r43[313] 345r41[320] 346r45[327]
+. 347r45[334] 57|277r28[269] 338r54[56|327] 637r39[56|313] 1097r54[56|327]
+. 1396r47[56|327]
+190U17*Set 57|698s41[56|313] 1127s25[56|327] 1621s13[269] 1651s10[56|313]
+. 2168s13[56|320] 2218s13[56|327] 2587s13[56|313] 3524s13[56|334]
+194U17*Reset<108p17> 57|715s10[56|313] 719s13[56|313] 1415s16[56|327] 1564s10[56|327]
+. 1568s13[56|327] 1670s7[269] 1674s10[269] 1692s10[56|313] 1699s10[56|320]
+. 1706s10[56|327] 1718s10[56|334]
+199V16*Get{56|86R9} 57|418s21[56|313] 566s27[269] 619s25[269] 661s46[56|313]
+. 853s22[56|320] 1110s28[56|327] 1118s28[56|327] 1446s25[269] 1467s25[269]
+207V16*Get_First{56|114R9} 57|1634s15[56|334] 1646s23[56|313] 1694s16[56|320]
+. 1701s18[56|327]
+221V16*Get_Next{56|114R9} 57|1637s18[56|334] 1653s26[56|313] 1697s19[56|320]
+. 1704s21[56|327]
+X 24 g-dyntab.ads
+53+9 Table_Component_Type 56|308r7
+54I9 Table_Index_Type 56|309r7
+56*4 Table_Low_Bound{54I9} 56|310r7
+57i4 Table_Initial{positive} 56|311r7
+58i4 Table_Increment{natural} 56|312r7
+61k14*Dynamic_Tables 293e24 56|38w11 307r36
+105I12*Table_Last_Type<integer>
+126A9*Table_Type(56|231R9)<56|76I9>
+128A12*Big_Table_Type{126A9[56|307]}<56|76I9>
+142P9*Table_Ptr(128A12[56|307])
+161R9*Instance 56|343r39[307]
+162p7*Table{142P9[56|307]} 57|459r44[56|307] 576r38[56|307] 899r41[56|307]
+. 901r42[56|307] 913r41[56|307] 984r46[56|307] 986r39[56|307] 1067r38[56|307]
+. 1181r58[56|307] 1448r58[56|307] 1469r58[56|307] 1594r30[56|307] 1596r26[56|307]
+. 1600r44[56|307] 1605r23[56|307] 1606r43[56|307] 1613r44[56|307] 1620r26[56|307]
+. 1621r38[56|307] 1663r37[56|307] 1709r29[56|307] 1712r45[56|307] 1713r35[56|307]
+. 2224r37[56|307] 2235r43[56|307] 2665r36[56|307] 2889r31[56|307] 2890r38[56|307]
+. 2903r38[56|307] 2957r31[56|307] 3022r34[56|307] 3064r31[56|307] 3065r38[56|307]
+. 3072r38[56|307] 3124r31[56|307] 3186r37[56|307] 3229r37[56|307] 3236r36[56|307]
+. 3243r37[56|307] 3245r34[56|307] 3520r37[56|307] 3534r43[56|307] 3546r41[56|307]
+. 3550r37[56|307] 3845r31[56|307] 3849r31[56|307]
+188U14*Init 57|1889s13[56|307]
+192U14*Free=192:49 57|1716s10[56|307]
+194V13*First{56|76I9} 57|1589s28[56|307] 1628s28[56|307] 1662s28[56|307]
+. 1708s31[56|307]
+198V13*Last{105I12[56|307]} 57|1589s37[56|307] 1628s37[56|307] 1662s37[56|307]
+. 1708s40[56|307] 2829s24[56|307]
+232U14*Append 57|2824s7[56|307]
+X 29 g-tasloc.ads
+46K14*Task_Lock=46:39 57|27w11 27r34 1739r12 1746r15 1833r12 1839r15 1857r15
+X 30 input_sources.ads
+41K9*Input_Sources 134e18 56|29w6 391r23 57|39r6 39r31 98r34 1868r34 1878r33
+. 1883r35 1929r23
+43H9*Input_Source 133e14 56|391r37 57|98r48 1868r48 1929r37
+46P9*Input_Source_Access(43R9)
+106V13*Get_System_Id{113|41A12} 57|1878R47 1883R49
+110U14*Set_Public_Id 57|1790s7
+X 31 input_sources-file.ads
+27K23*File 72e23 57|39w20 39r45
+29R9*File_Input<30|43R9> 71e17 57|1734r18
+33U14*Open 57|1789s7
+49U14*Close<30|121p14> 57|1820s13 1827s7 1838s10 1858s10
+60U14*Set_System_Id<30|97p14> 57|1791s7
+X 33 interfac.ads
+52I9*Integer_32<integer>
+X 35 sax.ads
+33K9*Sax 35e8 56|30r6 31r6 31r33 32r6 33r6 64r18 65r18 92r28 92r50 93r28
+. 93r50 100r28 100r53 110r24 127r13 127r38 147r24 154r24 164r16 208r16 208r41
+. 234r20 234r45 258r32 258r54 362r30 380r23 381r23 382r23 385r23 386r23 57|30r6
+. 30r29 31r6 31r29 32r6 32r29 33r6 33r29 34r6 34r29 89r21 90r21 355r17 1061r17
+. 1773r31 1803r10 1804r36 1945r21 1946r21 3737r23 3738r23 3739r23 3908r23
+. 3909r23
+X 37 sax-encodings.ads
+28K13*Encodings 160e18 57|30w10 30r33
+29r4*Encoding{113|139R9} 57|2027r22
+X 38 sax-exceptions.ads
+28K13*Exceptions 92e19 57|31w10 31r33
+65C9*Sax_Parse_Exception<65R9>
+67V13*Create{65C9} 57|1853s13 2066s16 3890s13
+67a21 Message{113|41A12} 57|1853r21 2067r19 3890r21
+68r21 Loc{40|41R9} 57|1854r21 2070r19 3892r21
+X 39 sax-htable.ads
+44R9*HTable
+50U14*Set 57|532s13[59|405]
+60V13*Get{59|383R9} 57|263s9[59|405] 420s24[59|405] 568s21[59|405] 604s18[59|405]
+. 1076s21[59|405] 1135s33[59|405] 1435s22[59|405] 1461s22[59|405]
+X 40 sax-locators.ads
+33K13*Locators 103e17 56|30w10 100r32 100r57 110r28 127r17 127r42 147r28
+. 154r28 164r20 208r20 208r45 234r24 234r49 57|32w10 32r33 355r21 1061r21
+41R9*Location 46e14 56|100r41 110r37 127r26 147r37 154r37 164r29 208r29 234r33
+. 57|91r21 122r17 318r26 330r18 355r30 560r26 597r18 1061r30 1306r27 1947r21
+. 2622r17
+47r4*No_Location{41R9} 56|100r66 127r51 208r54 234r58 57|968r39 1383r41 1385r56
+. 2271r54 2278r62 2657r15 2662r15
+81V13*To_String{string} 57|3746s34
+X 42 sax-pointers.ads
+59R12*Pointer<6|43R9>
+X 44 sax-readers.ads
+40K13*Readers 1176e16 56|31w10 31r37 382r27 57|1773r35 1803r14 1804r40 3739r27
+42R9*Sax_Reader 1172e14 57|2456r10
+77U14*Set_XML_Version 57|1740s7
+79V13*Get_XML_Version{49|35E9} 57|1740R32
+82U14*Set_Feature 57|4056s10
+84V13*Get_Feature{boolean} 57|1772R24 1804R10 4070s17
+89U14*Use_Basename_In_Error_Messages 57|1798s7
+92V13*Use_Basename_In_Error_Messages{boolean} 57|1799R18
+147a4*Schema_Validation_Feature{string} 57|1773r43 1803r22 1804r48
+195U14*Warning 57|1851R10 2065R21 3888s10
+205U14*Error
+217U14*Fatal_Error
+237R9*Sax_Attribute_List 1017e14 56|382r35 57|114r19 126r17 134r17 141r19
+. 157r17 162r52 164r52 166r52 168r52 170r52 172r52 174r52 176r52 178r52 180r52
+. 182r52 184r52 186r52 188r52 190r52 192r52 194r52 196r52 198r52 200r52 222r17
+. 1997r17 2103r17 2180r17 2298r17 2316r17 2351r17 2399r17 2429r52 2468r17
+. 2600r17 2684r17 2726r19 2742r17 2788r19 2838r18 2865r18 2967r18 3037r18
+. 3134r17 3304r14 3331r18 3358r18 3584r18 3651r17 3669r17 3710r18 3739r35
+241V13*Get_Index{integer} 57|2001s9 2003s9 2301s9 2319s9 2354s9 3795s22 3818s22
+243p7 URI{47|41P9} 57|2001r26 2003r26
+244p7 Local_Name{47|41P9} 57|2001r47 2003r47
+274V13*Get_Value{47|41P9} 57|2010s37 2117s40 2120s28 2190s40 2193s28 2306s22
+. 2340s22 2373s43 2413s43 2445s33 2447s38 2449s38 2485s28 2490s39 2493s28
+. 2498s30 2501s32 2503s30 2713s25 2730s10 2772s25 2808s28 2883s28 3004s37
+. 3053s28 3151s28 3375s49 3378s28 3394s19 3396s22 3403s40 3406s28 3410s40
+. 3413s42 3415s44 3603s34 3614s36 3621s28 3654s10 3656s13 3684s34 3817s27
+280V13*Get_Location{40|41R9} 57|2121s26 2194s26 2487s34 2494s26 2499s28 2884s19
+. 3054s26 3152s26 3379s26 3389s22 3407s26
+284V13*Get_Non_Normalized_Value{47|41P9} 57|3794s27
+286V13*Get_Value_As_Boolean{boolean} 57|2505s36 2507s33 2804s31 2814s37
+307V13*Get_Length{natural} 57|2112s21 2185s21 2409s21 2441s21 2480s21 2800s21
+. 2878s21 3000s21 3048s21 3146s21 3370s21 3593s21 3680s21
+326R9*Qualified_Name 329e14 56|87r28 88r28 90r28 94r28 107r24 108r24 116r22
+. 118r22 130r45 138r24 139r24 145r24 152r24 186r15 317r21 324r21 331r21 338r21
+. 57|91r38 273r24 317r26 329r18 378r17 380r17 559r26 596r18 1406r23 1947r38
+. 2107r17 2183r15 2401r15 2437r18 2472r17 2793r16 2871r20 2969r14 2978r26
+. 3042r15 3136r15 3360r15 3588r16 3673r17
+327p7*NS{47|41P9} 57|265m13 579m21 581m22 1977m19 1984m16 2114r18 2116m31
+. 2187r18 2189m31 2411r18 2443r18 2482r18 2489m30 2520r30 2802r18 2807m19
+. 2875m22 2880r18 2893m27 2895m15 3002r18 3050r18 3148r18 3372r18 3374m40
+. 3382m19 3384m21 3595r18 3606r21 3682r18
+328p7*Local{47|41P9} 57|264m13 579m50 581m51 1978m19 1985m16 2115r21 2117m31
+. 2118r24 2188r21 2190m31 2191r24 2412r21 2414r24 2444r21 2446r24 2448r24
+. 2483r21 2488r24 2490m30 2491r24 2495r24 2500r24 2502r24 2504r24 2506r24
+. 2508r24 2510r24 2512r24 2803r21 2805r24 2808m19 2809r24 2811r24 2813r24
+. 2876m22 2881r21 2893m57 2895m45 3003r21 3051r21 3149r21 3373r21 3375m40
+. 3376r24 3382m49 3384m51 3393r24 3402r24 3404r24 3408r24 3412r24 3414r24
+. 3596r21 3598r24 3600r24 3602r24 3607r21 3617r24 3683r21 3685r24
+330r4*No_Qualified_Name{326R9} 56|87r50 88r50 90r50 94r50 107r42 108r42 116r45
+. 118r45 138r42 139r42 145r42 152r42 186r38 190r7 57|417r25 454r31 465r46
+. 660r40 669r40 1071r27 1134r47 1246r40 1281r40 1310r44 1371r36 1373r44 1426r34
+. 1429r23 1620r55 1955r17 1974r23 2518r23 2519r25 2527r28 2532r24 2538r25
+. 2550r22 2609r22 2655r24 2660r24 3059r21 3423r36 3441r44 3447r26 3448r29
+. 3481r33 3496r49
+335V13*Get_Name{326R9} 57|2113s18 2186s18 2410s18 2442s18 2481s18 2801s18
+. 2879s18 3001s18 3049s18 3147s18 3371s18 3594s18 3681s18
+351U14*Set_Document_Locator
+361V13*Current_Location{40|41R9} 57|1854R40 2070R38 2110R28 2137R38 2226R38
+. 2237R44 2249R38 2404R26 2476R29 2560R37 2797R27 2874R28 2908R39 2925R53
+. 2932R36 2997R49 3046R26 3077R38 3093R53 3099R35 3143R43 3157R27 3314R37
+. 3341R34 3368R26 3697R32 3720R34 3746s53 3796s35 3819s35 3848s35 3892s40
+367U14*Start_Document
+372U14*End_Document
+378U14*Start_Prefix_Mapping
+391U14*End_Prefix_Mapping
+397U14*Start_Element 57|3750s7
+421U14*End_Element 57|3915s7
+427U14*Characters 57|4014s7
+439U14*Ignorable_Whitespace
+450U14*Processing_Instruction
+459U14*Skipped_Entity
+480U14*Unparsed_Entity_Decl
+488U14*Notation_Decl 57|2455R7
+490a7 Name{113|41A12} 57|2457r10
+491a7 Public_Id{113|41A12} 57|2459r10
+492a7 System_Id{113|41A12} 57|2458r10
+506V13*Resolve_Entity{30|46P9}
+547U14*Comment
+552U14*Start_Cdata
+557U14*End_Cdata
+560U14*Start_Entity
+567U14*End_Entity
+572U14*Start_DTD
+586U14*End_DTD
+596U14*Internal_Entity_Decl
+608U14*External_Entity_Decl
+616U14*Element_Decl
+628U14*Attribute_Decl
+669P9*Hook_Data_Access(668R9)
+698V13*Find_Symbol{47|41P9} 57|1883s14 1961s12 1979s20 1986s18 2975s36
+701V13*Get_Symbol_Table{49|174R12} 57|1337s43 1796s33
+716U14*Find_NS_From_URI 57|1764s13
+718p7 URI{47|41P9} 57|1766r16
+719p7 NS{49|198P9} 57|1767r16
+753V13*Get_Hooks_Data{669P9}
+756U14*Set_Hooks
+X 46 sax-state_machines.ads
+52I9*State<integer> 56|101r50[59|289] 57|280r50[59|289] 285r24[59|289] 286r27[59|289]
+. 294r24[59|289] 296r23[59|289] 365r24[59|289] 367r23[59|289] 375r22[59|289]
+. 542r50[59|289] 544r19[59|289] 730r24[59|289] 731r28[59|289] 734r18[59|289]
+. 1393r18[59|289] 1505r24[59|289] 1574r11[59|289]
+55P9*State_Data_Access(59|275R9)
+61R9*NFA
+95V13*Add_State{52I9[59|289]} 57|406R20[59|289] 513R20[59|289] 775R28[59|289]
+. 786R34[59|289] 788R29[59|289] 842R40[59|289] 1017R25[59|289] 1028R34[59|289]
+. 1519R32[59|289] 1595R22[59|289]
+100i4*No_State{52I9[59|289]} 56|102r31[59|289] 57|375r31[59|289] 396r19[59|289]
+. 397r19[59|289] 435r21[59|289] 549r19[59|289] 1509r56[59|289] 1592r15[59|289]
+. 1608r18[59|289]
+101i4*Start_State{52I9[59|289]} 57|1648r48[59|289]
+102i4*Final_State{52I9[59|289]} 57|550r43[59|289] 1547r26[59|289] 1553r48[59|289]
+. 1559r26[59|289]
+109U14*Set_Data 57|1610R17[59|289]
+110V13*Get_Data{55P9[59|289]} 57|439R20[59|289] 439R45[59|289] 474R28[59|289]
+. 495R31[59|289] 500R34[59|289]
+117U14*Add_Transition 57|511R14[59|289] 523R17[59|289] 1020R20[59|289] 1546R23[59|289]
+. 1552R26[59|289] 1558R23[59|289]
+128U14*Add_Empty_Transition 57|550R17[59|289] 776R23[59|289] 789R23[59|289]
+. 792R23[59|289] 833R32[59|289] 843R26[59|289] 1520R23[59|289]
+136V13*Repeat{52I9[59|289]} 57|1042R34[59|289] 1046R34[59|289]
+238R9*Nested_NFA
+239r4*No_Nested{238R9[59|289]} 57|520r36[59|289]
+241V13*Create_Nested{238R9[59|289]} 57|483s30[59|289]
+264U14*Set_Nested 57|440R20[59|289] 482R23[59|289] 486R23[59|289] 1018R20[59|289]
+268V13*Get_Nested{238R9[59|289]} 57|440R40[59|289] 520R17[59|289]
+279U14*On_Empty_Nested_Exit 57|521R17[59|289] 1029R20[59|289]
+354H9*Abstract_NFA_Matcher
+405R12*NFA_Matcher<354R9[59|289]>
+X 47 sax-symbols.ads
+33K13*Symbols 103e16 56|32w10 64r22 65r22 92r32 92r54 93r32 93r54 258r36
+. 258r58 362r34 381r27 386r27 57|33w10 33r33 89r25 90r25 1945r25 1946r25
+. 3738r27 3909r27
+41P9*Symbol<113|43P9> 56|64r30 65r30 92r40 93r40 258r44 362r42 381r35 386r35
+. 57|89r33 90r33 99r27 1305r27 1730r18 1731r18 1736r30 1869r27 1874r17 1945r33
+. 1946r33 1952r19 2010r27 2373r33 2432r22 2433r22 2434r22 2975r26 3738r35
+. 3909r35
+43p4*No_Symbol{41P9} 56|92r62 93r62 258r66 57|478r55 494r33 1342r34 1616r31
+. 1617r31 1954r18 2520r35 2545r26 2545r59 3422r38 3455r34 3456r44 3463r36
+. 3472r42 3626r28
+44p4*Empty_String{41P9} 57|90r43 1934r31 1946r43 1968r26 2001r33 2003r33
+. 2114r23 2187r23 2301r26 2319r26 2354r26 2386r28 2411r23 2433r32 2434r32
+. 2443r23 2482r23 2802r23 2880r23 3002r23 3050r23 3148r23 3372r23 3595r23
+. 3613r36 3682r23 3795r39 3818r39
+53V13*Get{113|43P9} 57|1343s51 1743s46 1751s47 1752s38 1753s26 1778s21 1786s45
+. 1789s13 1790s28 1791s28 1830s54 1844s48 1853s57 1957s23 2016s59 2376s43
+. 2457s23 2458s23 2459s23 2713s20 2772s20 3004s32 3410s35 3491s24 3629s23
+. 3745s34 3891s23 3897s53 3995s48
+X 49 sax-utils.ads
+33K13*Utils 262e14 56|33w10 380r27 385r27 57|34w10 34r33 3737r27 3908r27
+149V13*Split_Qname{integer} 57|1958s23
+164u14*For_Each_Item 57|2707r33 2767r33 2989r39
+174R12*Symbol_Table{42|59R12[171]}
+198P9*XML_NS 56|380r33 385r33 57|1762r18 1951r19 3737r33 3908r33
+199p4*No_XML_NS{198P9} 57|1769r22 1967r18
+204V13*Get_URI{47|41P9} 57|1984s25
+209V13*Get_System_Id{47|41P9} 57|1771s39
+214V13*Element_Count{natural} 57|1770s24
+X 51 schema.ads
+27K9*Schema 83e11 56|34r6 35r6 36r6 41r9 43r30 63r34 74r8 215r21 222r22 223r15
+. 353r30 354r32 355r9 356r30 357r9 394r5 57|35r6 35r31 36r6 36r31 41r14 1899r10
+. 4074r5
+32X4*XML_Not_Implemented 57|402r26 471r32 587r26 923r28 1818r15 2147r25 2257r26
+. 2335r20 2369r23 2635r10 2675r26 2900r26 3027r26 3192r26 3294r26 3390r32
+. 3438r23 3563r26 3868r23 3898r23
+35X4*XML_Limitation 57|2062r26
+66U14 Debug_Output 57|410s13 437s19 515s13 530s16 615s16 1193s16 1215s13
+. 1497s16 1536s19 1582s10 1598s16 1643s10 1657s10 1743s13 1751s10 1842s13
+. 2376s16 2377s16 3069s13 3238s16
+71U14 Output_Action 57|1667s10 1877s10 2716s13 2775s13 3628s13 3994s13
+72U14 Output_Seen 57|1786s10 1830s10 3745s10
+77b4 Debug{boolean} 57|409r13 436r19 514r13 529r16 614r16 1192r16 1214r13
+. 1496r16 1535r19 1581r10 1597r16 1642r10 1656r10 1666r10 1742r13 1750r10
+. 1785r10 1829r10 1841r13 1876r10 2375r16 2715r13 2774r13 3068r13 3235r16
+. 3627r13 3744r10 3993r13
+X 55 schema-readers.ads
+32K16*Readers 158e19 56|34w13 43r37 63r41 353r37 57|36w13 36r38 1899r17
+34R9*Validating_Reader<59|447R9> 156e14 56|43r45 63r49 353r45 57|1729r34
+. 1899r32 3750r22 3915r20 4014r19 4056r23 4070r30
+60U14*Set_Grammar 57|1797s7 1896s10
+63V13*Get_Grammar{59|56R9} 57|258s52 260s25 1667s49 1741R26 1873s41
+85U14*Parse_Grammar 57|2303R7 2336R7 2384R13 3611R16
+87p7 URI{47|41P9} 57|2305r10 2338r10 2386r16 3613r19
+88p7 Xsd_File{47|41P9} 57|2306r10 2340r10 2388r16 3614r19
+89b7 Do_Create_NFA{boolean} 57|2307r10 2339r10 2387r16 3615r19
+104U25*Set_Symbol_Table<44|65p14> 57|1796s7
+110V13*To_Absolute_URI{47|41P9} 57|1736R40
+116U14*Parse_Grammars 57|3620s16
+119b7 Do_Create_NFA{boolean} 57|3621r49
+122U14*Get_Namespace_From_Prefix 57|1962R10
+123r7 Handler{56|43R9} 57|1963r13
+124p7 Prefix{47|41P9} 57|1964r13
+125p7 NS{49|198P9} 57|1965r13
+131U25*Free<59|625p14> 57|1826s7 1837s10
+135U25*Parse<44|54p14> 57|1899s25
+X 56 schema-schema_readers.ads
+41K16*Schema_Readers 51|27k9 56|76E9 394l12 394e26 57|41b21 4074l12 4074t26
+43R9*Schema_Reader<55|34R9> 44|77p14 79p13 89p14 92p13 195p14 205p14 217p14
+. 351p14 361p13 367p14 372p14 378p14 391p14 439p14 450p14 459p14 480p14 488p14
+. 506p13 547p14 552p14 557p14 560p14 567p14 572p14 586p14 596p14 608p14 616p14
+. 628p14 753p13 756p14 55|60p14 63p13 85p14 104P25 110p13 122p14 131P25 56|44r44
+. 48P25 49r23 50P24 51r16 353c9 376e14 378P25 379r30 383P25 384r30 387P25
+. 388r24 389P25 390r23 57|61r24 75r42 84r17 88r28 97r34 106r24 113r26 119r24
+. 127r24 135r24 142r26 150r31 156r24 162r24 164r24 166r24 168r24 170r24 172r24
+. 174r24 176r24 178r24 180r24 182r24 184r24 186r24 188r24 190r24 192r24 194r24
+. 196r24 198r24 200r24 206r52 207r52 208r52 209r52 210r52 211r52 212r52 213r52
+. 214r52 215r55 221r24 243r17 257r42 1735r18 1806r25 1807r27 1867r34 1928r23
+. 1944r28 1996r24 2080r24 2102r24 2160r45 2179r24 2208r55 2297r24 2315r24
+. 2350r24 2398r24 2429r24 2467r24 2578r47 2599r24 2619r24 2642r51 2685r24
+. 2727r26 2743r24 2787r26 2837r25 2847r53 2864r25 2949r51 2966r25 3014r45
+. 3036r25 3116r49 3133r24 3167r44 3201r24 3303r24 3330r25 3357r25 3509r31
+. 3571r49 3583r25 3650r24 3668r24 3709r25 3736r30 3907r30 4011r24 4051r23
+. 4065r16 59|628P25 632p14 642p13
+44P9*Schema_Reader_Access(43R9) 57|3741r22 3911r26
+48U25*Set_Feature<44|82p14> 49=7 49>38 49>53 57|1801s7 4050b25 4058l8 4058t19
+49r7 Parser{43R9} 57|4051b7 4054m10 4056m42 4056r42
+49a38 Name{string} 57|4051b38 4053r10 4056r51
+49b53 Value{boolean} 57|4051b53 4054r60 4056r57
+50V24*Get_Feature{boolean}<44|84p13> 51>7 51>31 57|4064b24 4072l8 4072t19
+51r7 Parser{43R9} 57|4065b7 4068r17 4070r49
+51a31 Name{string} 57|4065b31 4067r10 4070r58
+54a4*Feature_Ignore_Unsupported_XSD_Elements{string} 57|4053r17 4067r17
+62U14*Parse_Grammar_If_Needed 63^7 64>7 65>7 66>7 57|1728b14 1860l8 1860t31
+63p7 Handler(55|34R9) 57|1729b7 1736r57 1740r49 1741r39 1756r27 1765r16 1773r18
+. 1776r19 1796r51 1797r28 1799r50 1804r23 1806r10 1807r42 1821r13 1822r13
+. 1852r13 1854r32
+64p7 URI{47|41P9} 57|1730b7 1751r52 1766r27 1778r26 1814r37
+65p7 Xsd_File{47|41P9} 57|1731b7 1736r70 1752r43 1830r59
+66b7 Do_Create_NFA{boolean} 57|1732b7 1816r60
+76I9 Internal_Type_Index<integer> 77r38 89r28 117r22 187r15 283r56 309r31
+. 57|271r24 311r18 320r30 446r32 562r30 602r21 874r35 962r30 1177r18 1404r21
+. 2872r29 3044r26
+77i4 No_Internal_Type_Index{76I9} 89r51 117r45 187r38 190r26 57|272r24 457r41
+. 567r29 620r27 894r42 983r37 1066r32 1447r28 1468r28 2924r42 2985r37 3091r55
+. 3156r43 3177r33 3184r49
+79E9 Type_Kind 81e32 158r30
+79n23 Type_Empty{79E9} 158r43 169r15 57|749r18 4030r18
+79n35 Type_Sequence{79E9} 170r15 57|647r18 752r18 3338r26 4031r18
+79n50 Type_Choice{79E9} 171r15 57|649r18 685r43 782r18 3311r29 4032r18
+79n63 Type_Element{79E9} 172r15 57|659r21 808r37 847r18 2557r29 4030r31
+80n23 Type_Any{79E9} 173r15 57|1016r18 3694r24 4030r46
+80n33 Type_Group{79E9} 174r15 57|703r21 852r18 2134r30 4034r18
+80n45 Type_Extension{79E9} 175r15 57|871r18 1419r36 3074r30 3096r27 4035r18
+80n61 Type_Restriction{79E9} 178r15 57|960r18 1422r39 2905r31 2929r28 4037r18
+81n23 Type_All{79E9} 181r15 57|651r18 686r50 797r18 1040r29 1507r68 3717r26
+. 4033r18
+83R9 Type_Details 84r43 158c9 158d23 183e14 57|2133r28 2556r25 2904r28 2928r25
+. 3073r28 3095r25 3310r21 3337r18 3693r22 3716r22 4023r10
+84P9 Type_Details_Access(83R9) 109r24 146r24 153r24 167r14 170r53 171r53
+. 181r53 248r30 286r28 287r56 288r56 289r56 294r55 296r56 57|72r34 107r24
+. 284r23 346r20 635r20 642r18 729r24 735r18 2108r17 2473r17 2870r20 3043r17
+. 3202r24 3204r39 3205r32 3206r39 3207r32 3209r17 3307r17 3334r14 3671r17
+. 3713r17 4021r34 4023r24 4024r14
+86R9 Element_Descr 103e14 104r32 172r53 285r28 315r21 57|280r24 293r24 364r24
+. 372r22 542r24 643r18 1572r22 2471r17 2583r23
+87r7*Name{44|326R9} 57|411r44 417r18 431r43 450r43 516r44 530r63 533r53 660r32
+. 661r73 675r53 690r57 691r48 699r50 1651r52 2489m21 2518r15 2521r26 2587r55
+88r7*Typ{44|326R9} 57|454r24 455r40 669r33 670r41 670r58 2484m21 2538r18
+89i7*Local_Type{76I9} 57|457r27 458r41 2650m49 2854m47
+90r7*Ref{44|326R9} 57|411r67 418r55 420r44 423r72 428r43 516r67 2492m21 2519r18
+. 2520r26 2521r38 2527r21 2532r18 2550r15
+91e7*Form{59|95E9} 57|428r53 431r54 450r54 2477m12 2509m21 2551m15
+92p7*Default{47|41P9} 57|479r60 487r41 2501m21 2545r15
+93p7*Fixed{47|41P9} 57|494r24 501m37 505r35 2503m21 2545r50
+94r7*Substitution_Group{44|326R9} 57|465r24 2496m21
+95a7*Final{59|244A9} 57|2511m21
+96a7*Block{59|233A9} 57|481r60 488r41 2478m12 2513m52
+97b7*Is_Abstract{boolean} 57|394r18 2505m21
+98b7*Nillable{boolean} 57|480r60 489r41 2507m21
+99b7*Has_Block{boolean} 57|2513m64
+100r7*Loc{40|41R9} 57|424r27 455r50 502r37 2476m12
+101i7*S{46|52I9[59|289]} 57|407m15 432r26
+104r4 No_Element_Descr{86R9} 316r21 57|419r23 663r33 1647r29
+106R9 Group_Descr 111e14 112r30 174r53 293r56 322r21 57|736r18 1686r22 2106r17
+107r7*Name{44|326R9} 57|2116m22 2168r58
+108r7*Ref{44|326R9} 57|853r70 857r62 864r48 2119m22
+109p7*Details{84P9} 57|860r25 869r31 1696m22 3257r26 3263m23 4034m55
+110r7*Loc{40|41R9} 57|858r36 865r36 2110m13
+112r4 No_Group_Descr{106R9} 323r21 57|854r24 1695r22
+114R9 Internal_Attribute_Descr 122e14 123r37 131r45 336r21 57|350r50 354r24
+. 1060r24 1368r50 1369r18 1573r14
+115r7*Descr{59|257R9} 57|1068m18 1084m21 1148r56 1163r60 1373r30 1377r30
+. 1379r30 1385r49 3367m16 3374m25 3395m28 3397m28 3399m28 3403m25 3409m25
+. 3413m25 3415m25 3422r19 3423r22 3455r19 3456r27 3463r19 3464r27 3472r27
+. 3473r27 3481r19 3496m16 3526r31
+116r7*Typ{44|326R9} 57|1071r21 1076r41 1080r53 3377m25 3381r28 3383r35 3447r19
+117i7*Local_Type{76I9} 57|1066r18 1067r50 2652m33
+118r7*Ref{44|326R9} 57|1134r40 1136r53 1142r58 1371r30 3405m25 3441r37 3448r22
+. 3496r43
+120r7*Any{59|717R9} 57|1155r43 1158r68 1375r30 2405m16 2413m25 2415m25
+123r4 No_Internal_Attribute{114R9} 337r21 57|1635r21
+125E9 Attr_Descr_Kind 125e68 126r28
+125n29 Kind_Group{125E9} 130r15 57|1109r24 2225r30 2236r36 2248r30
+125n41 Kind_Attribute{125E9} 131r15 57|1133r24 2402r35 3361r35
+125n57 Kind_Unset{125E9} 126r47 129r15 57|1107r24 2270r54 2273r38 2278r43
+. 2284r32
+126R9 Attr_Descr 126d21 133e14 134r51 300r55 57|146r62 152r24 2265r62 2278r23
+. 2402r15 3361r15 3511r24
+126e21*Kind{125E9} 128r12 57|1106r31 2225m17 2236m23 2248m17 2270m46 2273r30
+. 2278m35 2284r25
+127r7*Loc{40|41R9} 57|1116r38 1125r38 1143r41 1150r51 1153r75 1164r48 2226m17
+. 2237m23 2249m17 2271m46 2278m55 2404m11 3368m11
+130r33*Group_Ref{44|326R9} 57|1110r69 1115r50 1123r70 2227m17 2238m23 2250m17
+131r33*Attr{114R9} 57|1134r35 1136r48 1142r53 1148r51 1153m59 1155r38 1158r63
+. 1163r55 2405m11 2413m20 2415m20 2652m28 3367m11 3374m20 3377m20 3381r23
+. 3383r30 3395m23 3397m23 3399m23 3403m20 3405m20 3409m20 3413m20 3415m20
+. 3422r14 3423r17 3441r32 3447r14 3448r17 3455r14 3456r22 3463r14 3464r22
+. 3472r22 3473r22 3481r14 3496m11 3496r38 3526r26 3526r53
+134A9 Attr_Array(126R9)<integer> 135r41 57|65r7 2269r22 2274r21
+135P9 Attr_Array_Access(134A9) 140r24 244r30 57|65r19 146r36 337r29 1096r29
+. 2265r36 2266r13
+137R9 AttrGroup_Descr 141e14 142r34 290r56 329r21 57|1101r17 1685r22 2182r15
+138r7*Name{44|326R9} 57|1118r54 1127r51 2189m22 2220r31
+139r7*Ref{44|326R9} 57|2192m22 2227r45 2238r51 2250r45
+140p7*Attributes{135P9} 57|1129r37 1703m34 2222r43 2229r43 2245r43 2247m32
+. 2253m44 3555m36
+142r4 No_AttrGroup_Descr{137R9} 330r21 57|1111r30 1119r24 1702r24
+144R9 Extension_Descr 148e14 176r31 57|3041r15
+145r7*Base{44|326R9} 57|878r57 907r61 921r58 1420r57 3052m20 3059r14 3090r59
+146p7*Details{84P9} 57|928r43 3266r40 3272m37 4036m37
+147r7*Loc{40|41R9} 57|879r57 890r43 908r49 922r46 952r46 3046m11
+151R9 Restriction_Descr 155e14 179r42 57|2869r20
+152r7*Base{44|326R9} 57|967r59 991r60 1423r59 2875m13 2882m22 2893r19 2894r26
+. 2923r48
+153p7*Details{84P9} 57|997r45 2664m42 3275r44 3280m41 4038m39
+154r7*Loc{40|41R9} 57|979r45 992r48 1008r48 2874m13
+158e23*Kind{79E9} 168r12 57|646r23 658r20 685r36 686r43 748r23 808r30 1040r21
+. 1419r29 1422r32 1507r61 2134m16 2557m13 2905m16 2929m13 3074m16 3096m13
+. 3239r61 3292r44 3311m10 3338m10 3694m10 3717m10 4029r20
+159b7*In_Process{boolean} 57|746m18 860r33 902r38 986r64 1052m18 2138m16
+. 2561m13 2909m16 2933m13 3078m16 3100m13 3315m10 3342m10 3698m10 3721m10
+164r7*Loc{40|41R9} 57|678r39 694r39 2137m16 2560m13 2908m16 2932m13 3077m16
+. 3099m13 3314m10 3341m10 3697m10 3720m10
+166r7*Min_Occurs{59|85R9} 57|822r33 1043r45 1047r45 1511r48 1551r35 2135m16
+. 2558m13 2906m16 2930m13 3075m16 3097m13 3312m10 3339m10 3695m10 3718m10
+166r19*Max_Occurs{59|85R9} 57|814r30 1041r24 1048r27 2136m16 2559m13 2907m16
+. 2931m13 3076m16 3098m13 3313m10 3340m10 3696m10 3719m10
+167p7*Next{84P9} 57|712r20 778r26 794r26 836r32 2139m16 2562m13 2910m16 2934m13
+. 3079m16 3101m13 3215r23 3216r27 3219m17 3316m10 3343m10 3699m10 3722m10
+. 4027r23
+170p35*First_In_Seq{84P9} 57|648r29 756r29 3248m29 3344m10 4031m49
+171p35*First_In_Choice{84P9} 57|650r29 785r29 3251m32 3317m10 4032m49
+172r35*Element{86R9} 57|660r24 661r65 670r50 675r45 690r49 699r42 699r58
+. 816m33 849m27 2563m13 2590m30
+173r35*Any{59|717R9} 57|1018r57 1023r54 1024r54 1026r54 3700m10
+174r35*Group{106R9} 57|853r64 857r56 858r30 864r42 865r30 2140m16 4034m49
+176r13*Extension{144R9} 57|878r47 879r47 890r33 907r51 908r39 921r48 922r36
+. 928r33 952r36 1420r47 3081m16 3103m13 3266r30 3272m27 4036m27
+177b13*Simple_Content{boolean} 57|947r37 3080m16 3102m13
+179r13*Restriction{151R9} 57|967r47 979r33 991r48 992r36 997r33 1008r36 1423r47
+. 2664m30 2912m16 2936m13 3275r32 3280m29 4038m27
+180b13*Simple_Content_Restriction{boolean} 57|1003r37 2911m16 2935m13
+181p35*First_In_All{84P9} 57|652r29 800r27 805r35 3254m36 3723m10 4033m49
+185R9 Type_Member 188e14 189r30 194r58 221r22 57|121r17 1240r40 1276r40 2621r17
+186r7*Name{44|326R9} 57|1246r32 1248r35 1252r48 1281r32 1283r35 1287r48 1310r36
+. 1312r39 2609m13 2655m16 2660m16 2923m33 2985m14 3090m46 3156m20
+187i7*Local{76I9} 57|1257r52 1291r52 1316r39 2610m13 2656m16 2661m16 2924m33
+. 2985m28 3091m46 3156m34
+189r4 No_Type_Member{185R9} 216r26 219r38 57|1244r41 1280r41 1319r38 2626r24
+. 2998r52 3144r46
+194A9 Type_Member_Array(185R9)<integer> 214r32 218r31 57|120r24 2620r24
+196E9 Simple_Type_Kind 201e47 202r44
+196n30 Simple_Type_None{196E9} 211r15 227r15 57|1200r29 1223r18 2891r9 3066r12
+197n30 Simple_Type{196E9} 202r64 212r15 57|1227r18 3846r27
+198n30 Simple_Type_Restriction{196E9} 220r15 57|1302r18 1339r34 1348r27 2919r50
+. 3788r43 3812r43
+199n30 Simple_Type_Extension{196E9} 220r41 57|1302r44 1350r27 3088r45
+200n30 Simple_Type_Union{196E9} 213r15 228r60 57|1232r18 2995r41
+201n30 Simple_Type_List{196E9} 217r15 229r60 57|1269r18 3141r35
+202R9 Internal_Simple_Type_Descr 202d37 225e14 226r45 228r32 229r32 236r17
+. 298r24 57|1184r21
+202e37*Kind{196E9} 210r12 227m7 57|1200r22 1217r33 1222r24 1338r59 1347r33
+. 2890r61 2919m30 3065r61 3088m25 3788r36 3812r36 3846m13
+204b7*In_Process{boolean} 57|1206r22 1220m22 1361m22 2920m30 2996m21 3089m25
+. 3142m21 3847m13
+208r7*Loc{40|41R9} 57|1248r50 1253r40 1283r50 1288r40 1312r54 2925m30 2980r44
+. 2986r23 2997m21 3093m25 3143m21 3848m13
+214a13*Union_Items{194A9} 57|1238r34 1240r64 2659m50 2984m23 2998m21
+218a13*List_Items{194A9} 57|1274r34 1276r64 2654m49 3144m21 3155m65
+221r13*Base{185R9} 57|1310r31 1312r34 1316r34 1319r31 2608m21 2922m30 3090m25
+222a13*Facets{58|278A9} 57|1336r52 2921m30 3092m25 3792m38 3815m38
+226r4 No_Internal_Simple_Type_Descr{202R9} 237r9
+228R12 Union_Type_Descr{202R9} 299r56
+229R12 List_Type_Descr{202R9} 295r56
+231R9 Internal_Type_Descr 231d30 252e14 308r31 57|281r45 1181r17 1392r45
+. 1401r53 1402r53 2791r16
+231b30*Is_Simple{boolean} 242r12 57|1409r21 1493r18 1594r40 1709r39 2889r47
+. 2903r54 3064r47 3072r54 3229r59 3547r64
+232r7*Properties{59|299R9} 57|1194r47 1210r33 1216r55 1498r47 1537r50 1596m36
+. 1600r54 1606r53 1620r36 1621r48 2822m12 3849m53
+233i7*In_NFA{59|247I9} 57|459r66 576r60 1067r62 1187r24 1503r44 1539r57 1605m33
+. 1613r54
+234r7*Loc{40|41R9} 57|1211r21 1438r74 1453r59 1464r74 1474r58 2797m12
+236r7*Simple{202R9} 57|1199r27 1220m15 1361m15 2890r54 2957m54 3022m57 3065r54
+. 3124m54 3186m60 3845m53
+244p13*Attributes{135P9} 57|1413r43 1431r43 1456r43 1478r43 1712m55 2224m60
+. 2235m66 3520m59 3534m66 3551m64
+248p13*Details{84P9} 57|899r63 902r30 913r63 984r63 986r56 1412r24 1419r21
+. 1420r39 1422r24 1423r39 1507r23 1507r53 1511r40 1525r38 1551r27 1713m45
+. 2665r58 3236r58 3243r59 3245m56
+257R9 Schema_Descr 262e14 57|3586r16
+258p7*Target_NS{47|41P9} 57|3603m21 3626r15 3629r33 3632r36
+259a7*Block{59|233A9} 57|3601m52 3639r47
+260e7*Element_Form_Default{59|95E9} 57|3590m12 3597m21 3635r46
+261e7*Attribute_Form_Default{59|95E9} 57|3591m12 3599m21 3636r46
+264E9 Context_Type 279e44 281r24
+264n26 Context_Type_Def{264E9} 283r15 57|2221r15 2233r30 2828r24 2956r36
+. 3021r15 3123r36 3176r15 3228r15 3483r44 3518r15 3532r30 3544r56 3844r35
+. 3853r35
+265n26 Context_Element{264E9} 284r15 57|2569r27 2650r15 2854r15 3285r52 3557r15
+266n26 Context_Sequence{264E9} 287r15 57|2130r15 3247r15 3348r19 3557r33
+267n26 Context_Choice{264E9} 288r15 57|2130r34 3250r15 3321r21 3557r52
+268n26 Context_Schema{264E9} 281r40 291r15 57|2127r15 2167r15 2217r15 2554r58
+. 2586r15 2649r15 3285r15 3523r15 3642r38
+269n26 Context_Restriction{264E9} 296r15 57|2131r15 2663r15 2940r29 3274r15
+. 3528r35
+270n26 Context_Simple_Restriction{264E9} 297r15 57|2607r20 2666r15 2918r29
+. 2955r20 3179r47 3282r15 3542r42 3787r35 3811r35
+271n26 Context_Simple_Extension{264E9} 297r44 57|2228r35 3087r24 3122r20
+. 3282r44 3542r15
+272n26 Context_Extension{264E9} 294r15 57|2130r51 2228r15 3107r27 3265r15
+. 3528r15
+273n26 Context_All{264E9} 289r15 57|3253r15 3558r35 3727r25
+274n26 Context_List{264E9} 295r15 57|2653r15 3140r20 3287r15 3559r31
+275n26 Context_Union{264E9} 299r15 57|2658r15 2994r20 3286r15 3559r15
+276n26 Context_Redefine{264E9} 292r15 57|246r40 2127r32 2167r32 2217r32 2342r38
+. 2586r32 2649r32 3287r30 3523r32
+277n26 Context_Group{264E9} 293r15 57|2151r31 3256r15 3559r46
+278n26 Context_Attribute_Group{264E9} 290r15 57|2200r34 2244r15 3287r49 3483r18
+. 3554r15
+279n26 Context_Attribute{264E9} 300r15 57|2651r15 3285r32 3500r24 3558r15
+281R9 Context 281d18 302e14 303r38 304r62 57|61r51 2080r51 3513r15
+281e18*Typ{264E9} 282r12 57|246r34 2126r53 2151m22 2166r17 2200m20 2216r17
+. 2233r24 2256r62 2342m31 2554r51 2569m11 2585r17 2607r14 2648r17 2828m11
+. 2853r17 2918m14 2940m14 2955r14 2956r30 2994m11 3020r17 3087m14 3107m14
+. 3122r14 3123r30 3140m11 3175r17 3179r41 3227r16 3293r22 3321m11 3348m11
+. 3482r19 3500m11 3517r16 3532r24 3544r50 3642m31 3727m11 3787r29 3811r29
+. 3844r29 3853r29
+283i42*Type_Info{76I9} 57|2224r49 2235r55 2610r63 2650r69 2652r51 2656r29
+. 2661r29 2665r47 2829m11 2854r65 2872r56 2957r43 3022r46 3044r53 3124r43
+. 3177r21 3184r36 3186r49 3229r48 3236r47 3243r48 3245r45 3520r48 3534r55
+. 3547r53 3551r53 3845r42 3849r42
+285r13*Element{86R9} 57|2571m11 2583r44 2590r45 2650m41 2854m39
+286p13*Elem_Details{84P9} 57|2570m11 2590r17
+287p42*Seq{84P9} 57|3248r25 3349m11
+288p42*Choice{84P9} 57|3251r25 3322m11
+289p42*All_Detail{84P9} 57|3254r25 3728m11
+290r42*Attr_Group{137R9} 57|2201m20 2220r20 2220r41 2222r32 2227r34 2229r32
+. 2238r40 2245r32 2247m21 2250r34 2253m33 3555m25
+293r42*Group{106R9} 57|2152m22 2168r52 2168r68 3257r20 3263m17
+294p42*Extension{84P9} 57|3108m14 3266r20 3272r17
+295r42*List{229R12} 57|2654m44 3141m11 3155m60 3180r40 3186r74
+296p42*Restriction{84P9} 57|2664r18 2941m14 3275r20 3280r17
+298r13*Simple{202R9} 57|2608m14 2919m14 2957r68 3088m14 3124r68 3180m26 3788r29
+. 3792m31 3812r29 3815m31
+299r42*Union{228R12} 57|2659m44 2980r38 2984m17 2986r17 2995m11 3022r71
+300r41*Attribute{126R9} 57|2652m18 3501m11 3575r65
+303P9 Context_Access(281R9) 57|2161r22 2163r23 2209r22 2211r23 2213r14 2579r22
+. 2581r23 2602r22 2643r22 2645r23 2848r22 2850r23 2867r22 2950r22 2952r23
+. 2976r25 3015r22 3017r23 3039r22 3117r22 3119r23 3168r22 3170r23 3172r28
+. 3223r22 3362r22 3515r15 3572r22 3742r13
+304A9 Context_Array(281R9)<integer> 305r44 57|67r7 2085r34 2087r21
+305P9 Context_Array_Access(304A9) 372r25 57|67r22 2082r13
+307K12 Type_Tables[24|61] 343r27 57|43r8 1589r16 1628r16 1662r16 1708r19
+313K12 Element_HTables[22|179] 344r27 57|43r21 637r23 661r30 698r25
+320K12 Group_HTables[22|179] 345r27 57|43r38
+327K12 AttrGroup_HTables[22|179] 346r27 57|44r8 338r36 1097r36 1396r29
+334K12 Attribute_HTables[22|179] 347r27 57|44r46
+342R9 XSD_Data 348e14 349r39 57|1684r10 1888r34
+343r7*Types{24|161R9[307]} 57|459r38 576r32 899r35 901r36 913r35 984r40 986r33
+. 1067r32 1181m52 1448r52 1469r52 1589r50 1594r24 1596m20 1600r38 1605m17
+. 1606r37 1613r38 1620r20 1621r32 1628r50 1662r50 1663m31 1708r53 1709r23
+. 1712m39 1713m29 1716m23 1889m33 2224m31 2235m37 2665r30 2824m30 2829r45
+. 2889r25 2890r32 2903r32 2957m25 3022m28 3064r25 3065r32 3072r32 3124m25
+. 3186m31 3229r31 3236r30 3243r31 3245m28 3520m31 3534m37 3546r35 3550m31
+. 3845m25 3849m25
+344p7*Global_Elements{22|180P12[313]} 57|418r33 1646r41 1651m22 1653r43 1692m24
+. 2587m33
+345p7*Global_Groups{22|180P12[320]} 57|853r41 1694r34 1697r36 1699m24 2168m33
+346p7*Global_AttrGroups{22|180P12[327]} 57|1110r40 1701r36 1704r38 1706m24
+. 2219m31
+347p7*Global_Attributes{22|180P12[334]} 57|1634r33 1637r35 1718m24 3525m31
+349P9 XSD_Data_Access(342R9) 375r25 57|69r36 267r16 1682r36 1684r20
+354e7 Attribute_Form_Default{59|95E9} 57|3367r38 3636m15
+356e7 Element_Form_Default{59|95E9} 57|2477r29 3635m15
+360b7 Feature_Ignore_Unsupported_XSD_Elements{boolean} 57|3880r21 4054m17
+. 4068r24
+362p7 Target_NS{47|41P9} 57|1894m17 2116r48 2189r48 2305r30 2338r30 2406r52
+. 2486r42 2489r47 2807r36 2883r57 2979r49 3053r57 3151r57 3374r57 3406r57
+. 3487r27 3491r37 3632m18 3677r33
+363a7 Target_Block_Default{59|233A9} 57|2478r29 2798r30 3639m18
+368b7 In_Annotation{boolean} 57|3762m18 3877r21 3989m18
+372p7 Contexts{305P9} 57|246r21 1909m33 1914m33 2085m18 2086r45 2087r49 2088r23
+. 2088r50 2089m34 2090m18 2094r15 2126r20 2162r17 2164r17 2210r17 2212r17
+. 2231r36 2232r32 2554r18 2580r17 2582r17 2603r17 2610r30 2644r17 2646r17
+. 2849r17 2851r17 2868r17 2951r17 2953r17 2977r20 3016r17 3018r17 3040r17
+. 3118r17 3120r17 3155r27 3169r17 3171r17 3173r17 3224r17 3363r17 3513r39
+. 3530r36 3531r32 3544r24 3547r27 3551r27 3573r17 3754r18 3786r25 3810r25
+. 3843r25 3852r25
+373i7 Contexts_Last{natural} 57|245r29 2084r18 2086r21 2093m15 2093r40 2094r33
+. 2126r38 2162r35 2164r35 2210r35 2212r35 2230r30 2421r42 2554r36 2580r35
+. 2582r35 2603r35 2610r48 2644r35 2646r35 2849r35 2851r35 2868r35 2951r35
+. 2953r35 2977r38 3016r35 3018r35 3040r35 3118r35 3120r35 3155r45 3169r35
+. 3171r35 3173r35 3224r35 3363r35 3529r30 3573r35 3575r42 3786r43 3810r43
+. 3843r43 3852r43 4002m18 4002r43
+375p7 Shared{349P9} 57|267m47 853r34 1807m17 1807r55 1888m20 1889r26 1906m26
+. 1917m26 2168r26 2219r24 2224r24 2235r30 2587r26 2665r23 2824r23 2829r38
+. 2889r18 2890r25 2903r25 2957r18 3022r21 3064r18 3065r25 3072r25 3124r18
+. 3186r24 3229r24 3236r23 3243r24 3245r21 3520r24 3525r24 3534r30 3546r28
+. 3550r24 3845r18 3849r18
+378U25 Start_Element<44|397p14> 379=7 380>7 381>7 382>7 57|3735b25 3900l8
+. 3900t21
+379r7 Handler{43R9} 57|3736b7 3741m46 3741r46 3746r45 3750m41 3750r41 3754r10
+. 3755r27 3761r26 3762m10 3764r26 3767r26 3770r26 3773r26 3776r26 3779r26
+. 3782r26 3785r26 3786r17 3786r35 3791r27 3795r53 3796r27 3798r26 3799r30
+. 3800r30 3801r30 3802r30 3803r30 3804r30 3805r30 3806r30 3807r30 3808r30
+. 3810r17 3810r35 3814r27 3818r53 3819r27 3821r26 3824r26 3827r26 3830r26
+. 3833r26 3836r26 3839r26 3842r26 3843r17 3843r35 3845r10 3848r27 3849r10
+. 3851r26 3852r17 3852r35 3858r26 3861r26 3864r26 3866m13 3866r13 3871r26
+. 3874r26 3877r13 3880r13 3882r25 3883r33 3884r33 3885r33 3886r33 3889m13
+. 3892r32 3896m13 3896r13
+380p7 NS{49|198P9} 57|3737b7 3750r51
+381p7 Local_Name{47|41P9} 57|3738b7 3745r39 3750r55 3755r13 3761r13 3764r13
+. 3767r13 3770r13 3773r13 3776r13 3779r13 3782r13 3785r13 3793r27 3798r13
+. 3799r17 3800r17 3801r17 3802r17 3803r17 3804r17 3805r17 3806r17 3807r17
+. 3808r17 3816r27 3821r13 3824r13 3827r13 3830r13 3833r13 3836r13 3839r13
+. 3842r13 3851r13 3858r13 3861r13 3864r13 3871r13 3874r13 3882r12 3883r20
+. 3884r20 3885r20 3886r20 3891r28 3897r58
+382r7 Atts{44|237R9} 57|3739b7 3750r67 3759r28 3765r30 3768r29 3771r34 3774r33
+. 3777r33 3780r31 3783r35 3795r16 3795r33 3818r16 3818r33 3822r25 3825r30
+. 3828r28 3831r26 3834r27 3837r31 3840r27 3859r37 3862r25 3869r30 3872r29
+. 3875r28
+383U25 End_Element<44|421p14> 384=7 385>7 386>7 57|3906b25 4004l8 4004t19
+384r7 Handler{43R9} 57|3907b7 3911m50 3911r50 3915m39 3915r39 3918r23 3921r26
+. 3924r26 3927r26 3930r26 3933r26 3936r26 3939r26 3942r26 3945r26 3948r26
+. 3951r26 3954r26 3957r26 3958r30 3959r30 3960r30 3961r30 3962r30 3963r30
+. 3964r30 3965r30 3966r30 3967r30 3971r26 3974r26 3977r26 3980r26 3981r30
+. 3982r30 3983r30 3984r30 3988r26 3989m10 4002m10 4002r35
+385p7 NS{49|198P9} 57|3908b7 3915r49
+386p7 Local_Name{47|41P9} 57|3909b7 3915r53 3918r10 3921r13 3924r13 3927r13
+. 3930r13 3933r13 3936r13 3939r13 3942r13 3945r13 3948r13 3951r13 3954r13
+. 3957r13 3958r17 3959r17 3960r17 3961r17 3962r17 3963r17 3964r17 3965r17
+. 3966r17 3967r17 3971r13 3974r13 3977r13 3980r13 3981r17 3982r17 3983r17
+. 3984r17 3988r13 3995r53
+387U25 Characters<44|427p14> 388=7 388>39 57|4010b14 4015l8 4015t18
+388r7 Handler{43R9} 57|4011b7 4014m38 4014r38
+388a39 Ch{113|41A12} 57|4011b39 4014r48
+389U25 Parse<55|135p25> 390=7 391=7 57|1927b14 1937l8 1937t13
+390r7 Parser{43R9} 57|1928b7 1932m10
+391c7 Input<30|43R9> 57|1929b7 1933m10
+X 57 schema-schema_readers.adb
+46N4 Default_Contexts 2085r54
+50N4 Max_Max_Occurs 2057r32 2061r21
+55N4 Max_Occurs_Warn 2064r35
+60U14 Push_Context 61^7 61>45 2079b14 2095l8 2095t20 2150s7 2199s7 2342s7
+. 2567s7 2826s7 2916s10 2938s10 2992s7 3085s10 3105s10 3138s7 3319s7 3346s7
+. 3498s7 3642s7 3725s7
+61p7 Handler(56|43R9) 2080b7 2084r10 2085r10 2086r13 2086r37 2087r41 2088r15
+. 2088r42 2089r26 2090r10 2093r7 2093r32 2094r7 2094r25
+61r45 Ctx{56|281R9} 2080b45 2094r51
+64U14 Unchecked_Free[17|20] 1703s13 1712s16 2253s13 2279s10
+66U14 Unchecked_Free[17|20] 1909s10 1914s10 2089s10
+69U14 Free 69=20 1682b14 1722l8 1722t12 1906s13 1917s13
+69p20 Shared{56|349P9} 1682b20 1688r10 1692r17 1694r27 1697r29 1699r17 1701r29
+. 1704r31 1706r17 1708r46 1709r16 1712r32 1713r22 1716r16 1718r17 1720m26
+72U14 Free 72=20 1696s13 1713s16 3230s16 3258s16 3267s16 3276s16 3283s13
+. 3289s13 4021b14 4031s38 4032s38 4033s38 4034s38 4036s16 4038s16 4044l8
+. 4044t12
+72p20 Self{56|84P9} 4021b20 4026r13 4027r18 4029r15 4031r44 4032r44 4033r44
+. 4034r44 4036r22 4038r22 4041m26 4042m10
+75U14 Create_NFA 75^26 257b14 1676l8 1676t18 1902s13
+75p26 Parser(56|43R9) 257b26 258r65 260r38 264r22 265r22 267r40 400r16 423r22
+. 469r22 498r32 571r19 579r27 579r59 581r28 581r60 584r16 607r16 622r19 673r31
+. 689r31 853r27 856r22 862r22 887r25 905r31 919r28 949r28 976r25 989r28 1005r28
+. 1022r28 1079r19 1113r28 1122r28 1140r31 1147r28 1158r31 1163r31 1208r16
+. 1251r31 1286r31 1327r25 1337r61 1343r43 1385r35 1438r22 1451r22 1464r22
+. 1472r22 1667r62
+81V13 To_String{string} 81>24 230b13 236l8 236t17 2775s44
+81a24 Final{59|244A9} 230b24 232r25 233r21 234r23 235r22
+83V13 In_Redefine_Context{boolean} 84>7 242b13 251l8 251t27 2522s25
+84c7 Handler<56|43R9> 243b7 245r21 246r13
+87V13 Resolve_QName{44|326R9} 88^7 89>7 90>7 91>7 1943b13 1989l8 1989t21
+. 2119s29 2192s29 2484s28 2492s28 2497s18 2882s30 2979s12 3052s28 3150s24
+. 3377s33 3405s32
+88p7 Handler(56|43R9) 1944b7 1961r25 1963r25 1970r19 1979r33 1986r31
+89p7 QName{47|41P9} 1945b7 1954r10 1957r28
+90p7 NS_If_Empty{47|41P9} 1946b7 1977r28 2486r19
+91r7 Loc{40|41R9} 1947b7 1973r19 2121r19 2194r19 2487r19 2494r19 2499r21
+. 2980r27 3054r19 3152r19 3379r19 3407r19
+96U14 Internal_Parse 97=7 98=7 99>7 100>7 101>7 1812s10 1866b14 1921l8 1921t22
+. 1931s7
+97r7 Parser{56|43R9} 1867b7 1873r54 1881m27 1883r27 1888m13 1889r19 1892m30
+. 1894m10 1896m23 1897m26 1899m51 1899r51 1902m25 1902r25 1906m19 1906r19
+. 1909m26 1909r26 1914m26 1914r26 1917m19 1917r19
+98c7 Input<30|43R9> 1868b7 1878r62 1883r64 1899m60
+99p7 Default_Namespace{47|41P9} 1814r13 1869b7 1894r30 1934r10
+100b7 Do_Create_NFA{boolean} 1816r13 1870b7 1901r13 1935r10
+101b7 Do_Initialize_Shared{boolean} 1815r13 1871b7 1887r13 1905r13 1916r13
+. 1936r10
+105U14 Insert_In_Type 106^7 107=7 2141s13 2564s10 2913s13 2937s10 3082s13
+. 3104s10 3200b14 3296l8 3296t22 3318s7 3345s7 3701s7 3724s7
+106p7 Handler(56|43R9) 3201b7 3224r9 3224r27 3229r16 3232r19 3236r15 3243r16
+. 3245r13 3260r19 3269r19 3278r19 3291r16
+107p7 Element{56|84P9} 3202b7 3230m22 3239r53 3245r67 3248r43 3251r49 3254r50
+. 3258m22 3263r34 3267m22 3272r48 3276m22 3280r52 3283m19 3289m19 3292r36
+112U14 Prepare_Type 113^7 114>7 115>7 2605s7 2786b14 2830l8 2830t20 2840s7
+113p7 Handler(56|43R9) 2787b7 2797r19 2798r22 2803r29 2805r32 2807r28 2809r32
+. 2810r38 2811r32 2812r52 2813r32 2824r15 2827r10 2829r30
+114r7 Atts{44|237R9} 2788b7 2800r33 2801r28 2804r53 2808r39 2810r32 2812r46
+. 2814r59
+115b7 Is_Simple{boolean} 2605r36 2789b7 2791r50 2840r36
+118U14 Add_Type_Member 119^7 120=7 121>7 122>7 2618b14 2636l8 2636t23 2654s13
+. 2659s13 2982s10 3153s16
+119p7 Handler(56|43R9) 2619b7 2633r10
+120a7 List{56|194A9} 2620b7 2625r16 2626r13 2627m13
+121r7 Member{56|185R9} 2621b7 2627r25
+122r7 Loc{40|41R9} 2622b7 2634r41
+125U14 Compute_Blocks 126>7 127^7 128<7 129<7 130>7 2513s16 2683b14 2719l8
+. 2719t22 2810s16 3601s16
+126r7 Atts{44|237R9} 2684b7 2713r36
+127p7 Handler(56|43R9) 2685b7 2703r16
+128a7 Blocks{59|233A9} 2686b7 2694m13 2696m13 2698m13 2700m13 2710m7 2716r55
+129b7 Is_Set{boolean} 2687b7 2709m7
+130i7 Index{integer} 2688b7 2709r17 2712r10 2713r42
+133V13 Compute_Final{59|244A9} 134>7 135^7 136>7 2511s30 2741b13 2780l8 2780t21
+. 2812s31
+134r7 Atts{44|237R9} 2742b7 2772r36
+135p7 Handler(56|43R9) 2743b7 2763r16
+136i7 Index{integer} 2744b7 2771r10 2772r42
+140V13 Compute_Form{59|95E9} 141>7 142^7 143>7 2509s29 2725b13 2735l8 2735t20
+. 3597s45 3599s47
+141r7 Atts{44|237R9} 2726b7 2730r21
+142p7 Handler(56|43R9) 2727b7 2730r36
+143i7 Index{integer} 2728b7 2730r27
+146U14 Append 146=22 146>55 2223s13 2234s19 2246s13 2265b14 2290l8 2290t14
+. 3519s13 3533s19 3549s13 3555s13
+146p22 List{56|135P9} 2265b22 2268r10 2269m10 2273r13 2273r19 2274r38 2275r15
+. 2275r30 2276r15 2277r15 2279m26 2280m10 2283r19 2284r16 2285r16
+146r55 Attr{56|126R9} 2265b55 2269r39 2276r33 2285r28
+149U14 Insert_Attribute 150^7 151>7 152>7 2421s7 3508b14 3565l8 3565t24 3575s7
+150p7 Handler(56|43R9) 3509b7 3513r31 3520r16 3525r16 3529r22 3530r28 3531r24
+. 3534r22 3544r16 3546r20 3547r19 3550r16 3551r19 3561r16
+151i7 In_Context{natural} 3510b7 3513r49 3544r34 3547r37 3551r37
+152r7 Attribute{56|126R9} 3511b7 3521r16 3526r16 3526r43 3535r22 3552r16
+. 3555r48
+155V13 Process_Contents_From_Atts{59|104E9} 156^7 157>7 158>7 2416s18 3649b13
+. 3661l8 3661t34 3687s18
+156p7 Handler(56|43R9) 3650b7 3654r36 3656r39
+157r7 Atts{44|237R9} 3651b7 3654r21 3656r24
+158i7 Index{integer} 3652b7 3654r27 3656r30
+161U14 Create_Element 162^7 162>45 2466b14 2572l8 2572t22 3768s10
+162p7 Handler(56|43R9) 2467b7 2476r21 2477r21 2478r21 2483r29 2485r19 2486r34
+. 2488r32 2489r39 2491r32 2493r19 2495r32 2498r21 2500r32 2502r32 2504r32
+. 2506r32 2508r32 2509r49 2510r32 2511r51 2512r32 2513r38 2522r46 2525r16
+. 2529r16 2534r13 2540r16 2547r13 2554r10 2554r28 2555r22 2560r29 2564r26
+. 2568r10
+162r45 Atts{44|237R9} 2468b7 2480r33 2481r28 2485r39 2487r48 2490r50 2493r39
+. 2494r40 2498r41 2499r42 2501r43 2503r41 2505r58 2507r55 2509r43 2511r45
+. 2513r32 2555r31
+163U14 Create_Notation 164^7 164>45 2428b14 2460l8 2460t23 3765s10
+164p7 Handler(56|43R9) 2429b7 2444r29 2446r32 2448r32 2454r30 2456r28
+164r45 Atts{44|237R9} 2429b45 2441r33 2442r28 2445r44 2447r49 2449r49
+165U14 Create_Complex_Type 166^7 166>45 2836b14 2841l8 2841t27 3771s10
+166p7 Handler(56|43R9) 2837b7 2840r21
+166r45 Atts{44|237R9} 2838b7 2840r30
+167U14 Create_Simple_Type 168^7 168>45 2598b14 2612l8 2612t26 3774s10
+168p7 Handler(56|43R9) 2599b7 2603r9 2603r27 2605r21 2610r22 2610r40
+168r45 Atts{44|237R9} 2600b7 2605r30
+169U14 Create_Restriction 170^7 170>45 2863b14 2943l8 2943t26 3777s10
+170p7 Handler(56|43R9) 2864b7 2868r9 2868r27 2874r20 2875r31 2876r31 2881r29
+. 2883r19 2883r49 2889r10 2890r17 2893r33 2893r66 2895r21 2895r54 2898r16
+. 2903r17 2908r31 2913r29 2917r13 2925r45 2932r28 2937r26 2939r13
+170r45 Atts{44|237R9} 2865b7 2878r33 2879r28 2883r39 2884r33
+171U14 Create_All 172^7 172>45 3708b14 3729l8 3729t18 3822s10
+172p7 Handler(56|43R9) 3709b7 3715r19 3720r26 3724r23 3726r10
+172r45 Atts{44|237R9} 3710b7 3715r28
+173U14 Create_Sequence 174^7 174>45 3329b14 3350l8 3350t23 3825s10
+174p7 Handler(56|43R9) 3330b7 3336r19 3341r26 3345r23 3347r10
+174r45 Atts{44|237R9} 3331b7 3336r28
+175U14 Create_Attribute 176^7 176>45 3356b14 3502l8 3502t24 3837s10
+176p7 Handler(56|43R9) 3357b7 3363r9 3363r27 3367r30 3368r18 3373r29 3374r49
+. 3376r32 3378r19 3382r25 3382r58 3384r27 3384r60 3387r22 3393r32 3394r41
+. 3396r44 3402r32 3404r32 3406r19 3406r49 3408r32 3412r32 3414r32 3425r16
+. 3431r16 3436r13 3443r13 3450r16 3459r13 3467r13 3471r27 3476r13 3487r19
+. 3487r39 3489r22 3491r29 3499r10
+176r45 Atts{44|237R9} 3358b7 3370r33 3371r28 3375r60 3378r39 3379r40 3389r36
+. 3394r30 3396r33 3403r51 3406r39 3407r40 3410r51 3413r53 3415r55
+177U14 Create_Schema 178^7 178>45 3582b14 3643l8 3643t21 3759s10
+178p7 Handler(56|43R9) 3583b7 3596r29 3597r65 3598r32 3599r67 3600r32 3601r38
+. 3602r32 3606r26 3607r29 3612r19 3617r32 3621r19 3632r10 3635r7 3636r7 3639r10
+. 3642r21
+178r45 Atts{44|237R9} 3584b7 3593r33 3594r28 3597r59 3599r61 3601r32 3603r45
+. 3614r47 3621r39
+179U14 Create_Extension 180^7 180>45 3035b14 3110l8 3110t24 3780s10
+180p7 Handler(56|43R9) 3036b7 3040r9 3040r27 3046r18 3051r29 3053r19 3053r49
+. 3061r13 3064r10 3065r17 3072r17 3077r30 3082r29 3086r13 3093r45 3099r27
+. 3104r26 3106r13
+180r45 Atts{44|237R9} 3037b7 3048r33 3049r28 3053r39 3054r40
+181U14 Create_List 182^7 182>45 3132b14 3161l8 3161t19 3831s10
+182p7 Handler(56|43R9) 3133b7 3139r10 3143r35 3149r29 3151r19 3151r49 3154r19
+. 3155r19 3155r37 3157r19
+182r45 Atts{44|237R9} 3134b7 3146r33 3147r28 3151r39 3152r40
+183U14 Create_Union 184^7 184>45 2965b14 3008l8 3008t20 3834s10
+184p7 Handler(56|43R9) 2966b7 2975r49 2977r12 2977r30 2979r27 2979r41 2983r13
+. 2993r10 2997r41 3003r29
+184r45 Atts{44|237R9} 2967b7 3000r33 3001r28 3004r48
+185U14 Create_Choice 186^7 186>45 3302b14 3323l8 3323t21 3828s10
+186p7 Handler(56|43R9) 3303b7 3309r19 3314r29 3318r23 3320r10
+186r45 Atts{44|237R9} 3304b7 3309r28
+187U14 Create_Redefine 188^7 188>45 2314b14 2343l8 2343t23 3869s10
+188p7 Handler(56|43R9) 2315b7 2319r40 2333r10 2337r10 2338r22 2342r21
+188r45 Atts{44|237R9} 2316b7 2319r20 2340r33
+189U14 Create_Include 190^7 190>45 2296b14 2308l8 2308t22 3872s10
+190p7 Handler(56|43R9) 2297b7 2301r40 2304r10 2305r22
+190r45 Atts{44|237R9} 2298b7 2301r20 2306r33
+191U14 Create_Group 192^7 192>45 2101b14 2154l8 2154t20 3840s10
+192p7 Handler(56|43R9) 2102b7 2110r20 2115r29 2116r40 2118r32 2120r19 2126r12
+. 2126r30 2132r25 2137r30 2141r29 2145r16 2150r21
+192r45 Atts{44|237R9} 2103b7 2112r33 2113r28 2117r51 2120r39 2121r40 2132r34
+193U14 Create_Attribute_Group 194^7 194>45 2178b14 2202l8 2202t30 3859s10
+194p7 Handler(56|43R9) 2179b7 2188r29 2189r40 2191r32 2193r19 2200r10
+194r45 Atts{44|237R9} 2180b7 2185r33 2186r28 2190r51 2193r39 2194r40
+195U14 Create_Any 196^7 196>45 3667b14 3702l8 3702t18 3862s10
+196p7 Handler(56|43R9) 3668b7 3677r25 3678r25 3683r29 3685r32 3687r46 3692r19
+. 3697r24 3701r23
+196r45 Atts{44|237R9} 3669b7 3680r33 3681r28 3684r45 3687r55 3692r28
+197U14 Create_Import 198^7 198>45 2349b14 2391l8 2391t21 3875s10
+198p7 Handler(56|43R9) 2350b7 2354r40 2367r13 2385r16
+198r45 Atts{44|237R9} 2351b7 2354r20 2373r54
+199U14 Create_Any_Attribute 200^7 200>45 2397b14 2422l8 2422t28 3783s10
+200p7 Handler(56|43R9) 2398b7 2404r18 2405r44 2406r44 2412r29 2414r32 2416r46
+. 2421r25 2421r34
+200r45 Atts{44|237R9} 2399b7 2409r33 2410r28 2413r54 2416r55
+206U14 Finish_Element 206^35 2578b14 2592l8 2592t22 3919s10
+206p35 Handler(56|43R9) 2578b30 2580r9 2580r27 2582r9 2582r27 2587r18
+207U14 Finish_Complex_Type 207^35 2847b14 2857l8 2857t27 3925s10
+207p35 Handler(56|43R9) 2847b35 2849r9 2849r27 2851r9 2851r27
+208U14 Finish_Simple_Type 208^35 2642b14 2677l8 2677t26 3928s10
+208p35 Handler(56|43R9) 2642b34 2644r9 2644r27 2646r9 2646r27 2654r30 2659r30
+. 2665r15 2673r16
+209U14 Finish_Restriction 209^35 2949b14 2959l8 2959t26 3943s10
+209p35 Handler(56|43R9) 2949b34 2951r9 2951r27 2953r9 2953r27 2957r10
+210U14 Finish_Extension 210^35 3116b14 3126l8 3126t24 3946s10
+210p35 Handler(56|43R9) 3116b32 3118r9 3118r27 3120r9 3120r27 3124r10
+211U14 Finish_Attribute 211^35 3571b14 3576l8 3576t24 3949s10
+211p35 Handler(56|43R9) 3571b32 3573r9 3573r27 3575r25 3575r34
+212U14 Finish_Union 212^35 3014b14 3029l8 3029t20 3952s10
+212p35 Handler(56|43R9) 3014b28 3016r9 3016r27 3018r9 3018r27 3022r13 3025r16
+213U14 Finish_List 213^35 3167b14 3194l8 3194t19 3955s10
+213p35 Handler(56|43R9) 3167b27 3169r9 3169r27 3171r9 3171r27 3173r9 3173r27
+. 3186r16 3190r16
+214U14 Finish_Group 214^35 2160b14 2172l8 2172t20 3978s10
+214p35 Handler(56|43R9) 2160b28 2162r9 2162r27 2164r9 2164r27 2168r18
+215U14 Finish_Attribute_Group 215^38 2208b14 2259l8 2259t30 3972s10
+215p38 Handler(56|43R9) 2208b38 2210r9 2210r27 2212r9 2212r27 2219r16 2224r16
+. 2226r30 2230r22 2231r28 2232r24 2235r22 2237r36 2249r30 2255r16
+220U14 Get_Occurs 221^7 222>7 223<7 223<19 1995b14 2073l8 2073t18 2132s13
+. 2555s10 3309s7 3336s7 3692s7 3715s7
+221p7 Handler(56|43R9) 1996b7 2001r61 2003r61 2012r21 2030r28 2048r16 2059r16
+. 2065r13 2070r30
+222r7 Atts{44|237R9} 1997b7 2001r20 2003r20 2010r48
+223r7 Min_Occurs{59|85R9} 1998b7 2041m7 2045m10 2046r13
+223r19 Max_Occurs{59|85R9} 1998b19 2042m7 2053m10 2056r14 2057r13 2064r16
+245i11 J{integer} 246r31
+258p7 NFA{59|359P9} 406r16 439r16 439r41 440r16 440r36 474r24 482r19 483r26
+. 484r41 486r19 486r39 495r27 500r25 500r30 511r10 513r16 520r13 521r13 523r13
+. 550r13 611r54 775r24 776r19 786r30 788r25 789r19 792r19 833r28 842r36 843r22
+. 883r49 972r49 1017r21 1018r16 1018r44 1020r16 1028r30 1029r16 1042r30 1046r30
+. 1069r31 1085r34 1188r38 1265r46 1298r46 1334r42 1356r49 1452r38 1473r38
+. 1503r34 1519r28 1520r19 1546r19 1552r22 1558r19 1595r18 1606r25 1610r13
+259p7 Ref{59|412P9} 263r14 420r29 532r18 568r26 604r23 1076r26 1136r28 1435r27
+. 1461r27
+262i7 Any_Simple_Type_Index{59|247I9} 1230r40 1267r40 1300r40 1321r34
+267p7 Shared{56|349P9} 418r26 459r31 576r25 899r28 901r29 913r28 984r33 986r26
+. 1067r25 1110r33 1181r45 1448r45 1469r45 1589r43 1594r17 1596r13 1600r31
+. 1605r10 1606r30 1613r31 1620r13 1621r25 1628r43 1634r26 1637r28 1646r34
+. 1651r15 1653r36 1662r43 1663r24
+269K15 Type_HTables[22|179] 276r11 277r15
+277p7 Types{22|180P12[269]} 566r32 619r30 1446r30 1467r30 1621m18 1621r18
+. 1670m14 1670r14 1674m17 1674r17
+279U17 Process_Global_Element 280=10 280>39 541b17 552l11 552t33 1648s10
+280r10 Info{56|86R9} 542b10 547m13
+280i39 Start_At{46|52I9[59|289]} 542b39 547r19 547r29
+281U17 Process_Type 281=31 1392b17 1570l11 1570t23 1663s10
+281r31 Info{56|231R9} 1392b31 1493r13 1498r42 1503r39 1507r18 1507r48 1511r35
+. 1525r33 1537r45 1539r52 1542r42 1551r22
+282U17 Process_Details 283^10 284>10 285>10 285>17 286<10 287<10 727b17 758s19
+. 791s19 868s16 911s25 926s22 995s22 1053l11 1053t26 1523s16
+283p10 In_Type(59|299R9) 728b10 758r36 791r36 869r19 912r28 927r25 956r19
+. 957r19 996r25 1012r19 1013r19 1524r19
+284p10 Details{56|84P9} 729b10 742r13 746r10 748r15 753r51 756r21 783r51
+. 785r21 798r51 800r19 805r27 849r19 853r56 857r48 858r22 864r34 865r22 878r39
+. 879r39 890r25 907r43 908r31 921r40 922r28 928r25 947r29 952r28 967r39 979r25
+. 991r40 992r28 997r25 1003r29 1008r28 1018r49 1023r46 1024r46 1026r46 1040r13
+. 1041r16 1043r37 1047r37 1048r19 1052r10 1525r19
+285i10 Start{46|52I9[59|289]} 730b10 758r48 791r48 816r42 833r57 849r36 869r40
+. 914r28 928r52 932r36 997r54 1001r36 1526r19
+285i17 From{46|52I9[59|289]} 730b17 739r24 755r21 789r45 816r49 843r48 849r43
+. 869r47 914r35 997r61 1021r19 1043r19 1047r19 1527r19
+286i10 Nested_End{46|52I9[59|289]} 731b10 739m10 758m58 759r25 780m16 786m16
+. 792r48 842m22 843r54 849m60 869m53 928m62 932m22 997m67 1001m22 1028m16
+. 1029r45 1042m16 1043r25 1046m16 1047r25 1528r19
+287m10 Mask{59|186M9} 732b10 740m10 758m70 791m62 804m22 824m31 824r39 869m65
+. 914m44 929m25 998m25 1529r19
+292U17 Create_Element_State 293=10 294>10 294>17 295>10 296<10 296<14 297>10
+. 298>10 363b17 535l11 535t31 546s10 815s28 848s16
+293r10 Info{56|86R9} 364b10 394r13 407m10 411r39 411r62 417r13 418r50 420r39
+. 423r67 424r22 428r38 428r48 431r49 449r24 450r49 455r45 465r19 479r55 480r55
+. 481r55 487r36 488r36 489r36 494r19 501m32 501r32 502r32 505r30 516r39 516r62
+294i10 Start{46|52I9[59|289]} 365b10 371r31
+294i17 From{46|52I9[59|289]} 365b17 511r30
+295b10 Global{boolean} 366b10 528r13
+296i10 S1{46|52I9[59|289]} 367b10 396m13 406m10 407r20 412r29 437r71 439r30
+. 440r32 474r38 483r22 486r35 495r41 500r44 511r36 520r29 521r39 523r33 533r70
+. 817r31
+296i14 S2{46|52I9[59|289]} 367b14 397m13 513m10 517r29 521r43 523r37 818r31
+297e10 Trans_Kind{59|166E9} 368b10 382r18 819r31
+298i10 All_Child_Index{integer} 369b10 387r46 820r31
+309P12 Type_Descr_Access(59|299R9) 312r22 331r22 598r22 611r19 1178r22 1188r19
+. 1241r31 1277r31 1307r32 1576r23
+310U17 Create_Simple_Type 311>10 312<10 313<10 626s13 1176b17 1257s25 1291s25
+. 1315s22 1362l11 1362t29 1629s10
+311i10 J{56|76I9} 1177b10 1181r65
+312p10 Descr{309P12} 1178b10 1188m10 1190r20 1202m13 1224m16 1230r16 1266r16
+. 1267r16 1299r16 1300r16 1349r25 1351r25 1357r19
+313i10 Index{59|247I9} 1179b10 1187m10 1188r58
+316U17 Get_Type_Descr 317>10 318>10 319<10 320<10 455s19 558b17 589l11 589t25
+. 877s19 966s19
+317r10 Name{44|326R9} 559b10 566r39 568r36 571r55 579r13 581r14 878r22 967r22
+318r10 Loc{40|41R9} 560b10 571r62 586r23 879r22 968r22
+319i10 NFA_Type{59|247I9} 561b10 574m13 576m13 880r22 969r22
+320i10 Internal_Type{56|76I9} 562b10 566m10 567r13 576r45 881r22 970r22
+328U17 Lookup_Simple_Type 329>10 330>10 331<10 332<10 595b17 628l11 628t29
+. 1247s25 1282s25 1311s22
+329r10 Name{44|326R9} 596b10 604r33 607r52 616r42 619r37 623r61
+330r10 Loc{40|41R9} 597b10 607r59 623r68
+331p10 Descr{309P12} 598b10 611m10 613r13 626m43
+332i10 Index{59|247I9} 599b10 610m10 611r59 626m50
+335U17 Add_Attributes 336=10 337>10 338=10 339>10 340=10 1094b17 1128s25
+. 1170l11 1170t25 1413s16 1431s16 1456s16 1478s16
+336r10 List{59|221R9} 1095b10 1129m28 1147m36 1158m47 1163m39
+337p10 Attrs{56|135P9} 1096b10 1104r13 1105r22 1106r21 1110r59 1115r40 1116r28
+. 1123r60 1125r28 1134r25 1136r38 1142r43 1143r31 1148r41 1150r41 1153r49
+. 1153r65 1155r28 1158r53 1163r45 1164r38
+338p10 Processed_Groups{22|180P12[56|327]} 1097b10 1118r33 1127m30 1129m49
+339b10 As_Restriction{boolean} 1098b10 1130r28 1159r31 1414r32 1432r32 1457r50
+. 1479r50
+340b10 Had_Any{boolean} 1099b10 1130m44 1156m28 1414r56 1432r56 1458r32 1480r32
+345U17 Check_Unique_Particle_Attribution 346>10 634b17 721l11 721t44 753s16
+. 783s16 798s16
+346p10 Details{56|84P9} 635b10 646r15 648r21 650r21 652r21 678r31 685r28
+. 686r35 694r31
+350U17 Create_Global_Attributes 350>43 1368b17 1386l11 1386t35 1636s10
+350r43 Attr{56|114R9} 1368b43 1371r25 1373r25 1375r25 1377r25 1379r25 1382r19
+353U17 Resolve_Attribute_Type 354=10 355>10 1059b17 1088l11 1088t33 1153s25
+. 1383s10
+354r10 Attr{56|114R9} 1060b10 1066r13 1067r45 1068m13 1071r16 1076r36 1080r48
+. 1084m16
+355r10 Loc{40|41R9} 1061b10 1081r19
+372r10 Real{56|86R9} 418m13 419r16 431r38 432r21 449m16 450r38 454r19 455r35
+. 457r22 458r36 530r58 533r48
+373r10 Trans{59|194R9} 428m16 431m16 450m16 511r40
+374r10 TRef{59|383R9} 420m16 421r19 427r21
+375i10 S{46|52I9[59|289]} 427m16 432m16 435r16 437r55 439r55 440r52
+377V19 Build_Trans{59|194R9} 378>13 378>33 379b19 391l14 391t25 428s25 431s25
+. 450s25
+378r13 N{44|326R9} 380b13 384r46 386r55
+378e33 F{59|95E9} 380b33 384r49 386r58
+445i16 NFA_Type{59|247I9} 455m55 459m19 462m19 476r19 477r55 484r46
+446i16 Internal_Type{56|76I9} 455m65 458m19 459r51
+447p16 Data(59|275R9) 474m16 477r19 487r19 488r19 489r19 505r16
+544i10 S1{46|52I9[59|289]} 547m45
+544i14 S2{46|52I9[59|289]} 547m49 549r13 550r39
+564r10 TRef{59|383R9} 568m13 569r16 574r25
+601r10 TRef{59|383R9} 604m10 605r13 610r19
+602i10 Internal{56|76I9} 619m13 620r16 626r33
+637p10 Duplicates{22|180P12[56|313]} 661r51 699m28 699r28 715m17 715r17 719m20
+. 719r20
+642p10 T{56|84P9} 648m16 650m16 652m16 657r16 658r18 660r22 661r63 670r48
+. 675r43 690r47 699r40 699r56 712m13 712r18
+643r10 Elem{56|86R9} 661m22 663r25 669r28 670r36 691r43
+734i10 S{46|52I9[59|289]} 755m16 758r55 775m19 776r49 780r30 791m59 792r45
+. 818m37 833r54 914m41 928r59 1017m16 1018r32 1021r25 1029r42
+734i13 S1{46|52I9[59|289]} 759m19 776r45 788m19 789r51 791r55 817m37 849m56
+735p10 T{56|84P9} 756m16 757r22 758r45 778m19 778r24 785m16 787r22 791r45
+. 794m19 794r24 805m22 806r28 808r28 814r28 816r31 822r31 836m25 836r30
+736r10 Gr{56|106R9} 853m16 854r19 860r22 869r28
+802i22 Count{natural} 820r50 824r53 827m28 827r37
+873i19 NFA_Type{59|247I9} 880m39 883r54 956r45
+874i19 Internal_Type{56|76I9} 881m39 894r25 899r48 901r49 913r48
+875p19 Base_Descr(59|299R9) 883m19 885r22 888r35 893r22
+962i19 Internal{56|76I9} 970m39 983r25 984r53 986r46
+963i19 NFA_Type{59|247I9} 969m39 972r54 1012r45
+964p19 Base_Descr(59|299R9) 972m19 974r22 977r35 982r22
+1063r10 TRef{59|383R9} 1076m13 1077r16 1085r39
+1064i10 NFA_Type{59|247I9} 1067m13 1069r36
+1101r10 Gr{56|137R9} 1110m22 1111r25 1118r51 1127r48 1127r57 1129r34
+1102r10 TRef{59|383R9} 1135m25 1138r28 1149r41
+1105i17 A{integer} 1106r28 1110r66 1115r47 1116r35 1123r67 1125r35 1134r32
+. 1136r45 1142r50 1143r38 1148r48 1150r48 1153r56 1153r72 1155r35 1158r60
+. 1163r52 1164r45
+1181r10 Info{56|231R9} 1187r19 1194r42 1199r22 1210r28 1211r16 1216r50 1220r10
+. 1361r10
+1182r10 Simple{58|105R9} 1233m16 1236r35 1260m22 1265r51 1270m16 1294m22
+. 1298r51
+1183i10 Index_In_Simple{natural} 1236m16 1260r36 1261m22 1261r41
+1184r10 Internal{56|202R9} 1199m10 1200r13 1206r13 1217r24 1222r15 1238r25
+. 1240r55 1248r41 1253r31 1274r25 1276r55 1283r41 1288r31 1310r22 1312r25
+. 1312r45 1316r25 1319r22 1336r43 1338r50 1347r24
+1185i10 Result{58|38I9} 1190m10 1191r13 1265m16 1266r40 1298m16 1299r40 1356m19
+. 1357r43
+1238i20 U{integer} 1240r77
+1240r22 Member{56|185R9} 1244r32 1246r25 1248r28 1252r41 1257r45
+1241p22 Item{309P12} 1248m55 1248r55 1249r28 1257m59 1257r59 1260r56
+1242i22 Index{59|247I9} 1248m61 1257m65
+1274i20 U{integer} 1276r76
+1276r22 Member{56|185R9} 1280r32 1281r25 1283r28 1287r41 1291r45
+1277p22 Item{309P12} 1283m55 1283r55 1284r28 1291m59 1291r59 1294r42
+1278i22 Index{59|247I9} 1283m61 1291m65
+1304r19 Base{58|105R9} 1320m22 1333m22 1335m43 1335r43 1356r54
+1305p19 Error{47|41P9} 1340m43 1340r43 1342r25 1343r56
+1306r19 Loc{40|41R9} 1330r25 1341m45 1343r68
+1307p19 NFA_Simple{309P12} 1313m25 1313r25 1316m46 1316r46 1323r25 1324r29
+. 1334r47
+1308i19 NFA_Type{59|247I9} 1313m37 1316m58 1321m22 1349r49 1351r47
+1369r10 Attr2{56|114R9} 1382m10 1383m34 1383r34 1385r43
+1393i10 S1{46|52I9[59|289]} 1528m33 1547r22 1559r22
+1394r10 List{59|221R9} 1413m32 1413r32 1431m32 1431r32 1451m30 1451r30 1456m32
+. 1456r32 1472m30 1472r30 1478m32 1478r32 1487m19 1543r36
+1396p10 Processed_Groups{22|180P12[56|327]} 1413m55 1413r55 1415m23 1415r23
+. 1431m55 1431r55 1457m32 1457r32 1479m32 1479r32 1564m17 1564r17 1568m20
+. 1568r20
+1401U20 Recursive_Add_Attributes 1401>46 1402b20 1448s19 1469s19 1490l14
+. 1490t38 1542s16
+1401r46 Info{56|231R9} 1402b46 1409r16 1412r19 1413r38 1419r16 1420r34 1422r19
+. 1423r34 1431r38 1438r69 1453r54 1456r38 1464r69 1474r53 1478r38
+1403r13 Ty{59|383R9} 1435m16 1436r19 1452r43 1461m16 1462r19 1473r43
+1404i13 Index{56|76I9} 1446m16 1447r19 1448r65 1467m16 1468r19 1469r65
+1405b13 Had_Any{boolean} 1414m67 1414r67 1432m67 1432r67 1458m43 1458r43
+. 1477m16 1480m43 1480r43 1486r23
+1406r13 Base{44|326R9} 1420m16 1423m16 1426m16 1429r16 1435r37 1438r55 1446r37
+. 1461r37 1464r55 1467r37
+1407b13 As_Restriction{boolean} 1421m16 1424m16 1434r23
+1502p16 Descr(59|299R9) 1505r33 1509r31 1520r45 1524r33 1538r35 1543r16 1553r25
+1504m16 Mask{59|186M9} 1529m33 1549r31
+1505i16 Start{46|52I9[59|289]} 1519m19 1520r68 1526r33 1527r33
+1506b16 Is_All{boolean} 1511r19 1545r19
+1572r7 Element_Info{56|86R9} 1646m7 1647r13 1648m34 1648r34 1651r39 1651r58
+. 1653m10
+1573r7 Attr{56|114R9} 1634m7 1635r13 1636r36 1637m10
+1574i7 S{46|52I9[59|289]} 1592m10 1595m13 1596r66 1601r52 1608r13 1611r16
+1576p7 Ignored{309P12} 1578r28 1629m33 1629r33
+1577i7 Ignored_Index{59|247I9} 1578r37 1629m42
+1589i11 J<integer> 1594r37 1596r33 1600r51 1601r32 1605r30 1606r50 1613r51
+. 1620r33 1621r45 1621r65
+1628i11 J<integer> 1629r30
+1662i11 J<integer> 1663r44
+1683U17 Unchecked_Free[17|20] 1720s10
+1685r7 Attr{56|137R9} 1701m10 1702r16 1703m29 1703r29 1704m13
+1686r7 Gr{56|106R9} 1694m10 1695r16 1696m19 1696r19 1697m13
+1708i14 T<integer> 1709r36 1712r52 1713r42
+1734r7 File{31|29R9} 1789m36 1790m22 1790r22 1791m22 1791r22 1813m21 1813r21
+. 1820m20 1820r20 1827m14 1827r14 1838m17 1838r17 1858m17 1858r17
+1735r7 Schema{56|43R9} 1740m24 1740r24 1796m25 1796r25 1797m20 1797r20 1799m10
+. 1799r10 1802m10 1802r10 1807m10 1813m13 1813r13 1821r34 1822r39 1826m13
+. 1826r13 1837m16 1837r16
+1736p7 S_File_Full{47|41P9} 1741r53 1743r51 1753r31 1771r24 1786r50 1789r18
+. 1790r33 1791r33 1844r53 1853r62
+1737b7 Need_To_Initialize{boolean} 1808m10 1815r37 1816r37
+1762p13 NS{49|198P9} 1767m27 1767r27 1769r16 1770r39 1771r54
+1873r7 Grammar{59|56R9} 1885r30 1896r31
+1874p7 URI{47|41P9} 1883m7 1885r39 1897r34
+1949p7 Val{113|43P9} 1957m10 1958r36 1961r38 1961r43 1972r21 1972r26 1979r46
+. 1979r68 1986r44 1986r66
+1950i7 Separator{integer} 1958m10 1961r56 1972r39 1979r51 1986r49
+1951p7 NS{49|198P9} 1965m25 1965r25 1967r13 1984r34
+1952p7 Prefix{47|41P9} 1960m10 1964r25 1968r16
+2000i7 Min_Occurs_Index{integer} 2044r10 2045r43
+2002i7 Max_Occurs_Index{integer} 2052r10 2053r43
+2005V16 Occurs_From_Value{59|85R9} 2005>35 2009b16 2038l11 2038t28 2045s24
+. 2053s24
+2005i35 Index{integer} 2009b35 2010r54
+2010p10 Value{47|41P9} 2012r13 2016r64
+2016p16 Val{113|43P9} 2020r68 2025r26 2026r32 2027r37
+2017i16 Pos{integer} 2025m19 2026r25 2027m46 2027r46
+2018m16 C{110|114M9} 2027m51 2028r39
+2082p7 Tmp{56|305P9} 2087m10 2088r10 2090r30
+2105r7 Min_Occurs{59|85R9} 2132m40 2135r30
+2105r19 Max_Occurs{59|85R9} 2132m52 2136r30
+2106r7 Group{56|106R9} 2110m7 2116m16 2119m16 2140r30 2152r31
+2107r7 Name{44|326R9} 2113m10 2114r13 2115r16 2118r19
+2108p7 Details{56|84P9} 2133m13 2141m38 2141r38
+2112i11 J{integer} 2113r34 2117r57 2120r45 2121r46
+2161p7 Ctx{56|303P9} 2168r48 2168r64
+2163p7 Next{56|303P9} 2166r12
+2182r7 Group{56|137R9} 2189m16 2192m16 2201r34
+2183r7 Name{44|326R9} 2186m10 2187r13 2188r16 2191r19
+2185i11 J{integer} 2186r34 2190r57 2193r45 2194r46
+2209p7 Ctx{56|303P9} 2220r16 2220r37 2222r28 2227r30 2229r28 2238r36 2245r28
+. 2250r30 2253r29
+2211p7 Next{56|303P9} 2216r12 2224r44 2247r16 2256r57
+2213p7 Ctx2{56|303P9} 2232m16 2233r19 2235r50
+2214i7 Index{natural} 2230m13 2231r19 2232r42 2242m16 2242r25
+2266p7 Tmp{56|135P9} 2274m10 2275r10 2276r10 2277r10 2277r32 2280r18
+2283i14 L{integer} 2284r22 2285r22
+2300i7 Schema_Location_Index{integer} 2306r39
+2318i7 Location_Index{integer} 2340r39
+2353i7 Location_Index{integer} 2358r10 2373r60
+2373p13 Location{47|41P9} 2376r48 2388r28
+2401r7 Name{44|326R9} 2410m10 2411r13 2412r16 2414r19
+2402r7 Att{56|126R9} 2404m7 2405m7 2413m16 2415m16 2421r57
+2409i11 J{integer} 2410r34 2413r60 2416r61
+2431R12 Notation_Descr 2435e17 2438r18
+2432p10 Name{47|41P9} 2445m25 2454r57 2457r37
+2433p10 System_Id{47|41P9} 2449m25 2458r37
+2434p10 Public_Id{47|41P9} 2447m25 2459r37
+2437r7 Name{44|326R9} 2442m10 2443r13 2444r16 2446r19 2448r19
+2438r7 Notation{2431R12} 2445m16 2447m16 2449m16 2454r48 2457r28 2458r28
+. 2459r28
+2441i11 J{integer} 2442r34 2445r50 2447r55 2449r55
+2470r7 Min_Occurs{59|85R9} 2555m37 2558r29
+2470r19 Max_Occurs{59|85R9} 2555m49 2559r29
+2471r7 Info{56|86R9} 2476m7 2477m7 2478m7 2484m16 2489m16 2492m16 2496m16
+. 2501m16 2503m16 2505m16 2507m16 2509m16 2511m16 2513m47 2513r47 2513m59
+. 2513r59 2518r10 2519r13 2520r21 2521r21 2521r33 2527r16 2532r13 2538r13
+. 2545r10 2545r45 2550r10 2551m10 2563r29 2571r27
+2472r7 Name{44|326R9} 2481m10 2482r13 2483r16 2488r19 2491r19 2495r19 2500r19
+. 2502r19 2504r19 2506r19 2508r19 2510r19 2512r19
+2473p7 Details{56|84P9} 2556m10 2564m35 2564r35 2570r27
+2480i11 J{integer} 2481r34 2485r45 2487r54 2490r56 2493r45 2494r46 2498r47
+. 2499r48 2501r49 2503r47 2505r64 2507r61 2509r58 2511r60 2513r75
+2579p7 Ctx{56|303P9} 2583r40 2590r13 2590r41
+2581p7 Next{56|303P9} 2585r12
+2583r7 Info{56|86R9} 2587r50 2587r61
+2602p7 Ctx{56|303P9} 2607r10 2608r10
+2625i11 A{integer} 2626r19 2627r19
+2643p7 Ctx{56|303P9} 2650r65 2652r47 2656r25 2661r25 2665r43
+2645p7 Next{56|303P9} 2648r12 2650r36 2652r13 2654r39 2659r39 2664r13
+2690U17 On_Item 2690>26 2691b17 2705l11 2705t18 2707r48
+2690a26 Str{113|41A12} 2691b26 2693r13 2695r16 2697r16 2699r16 2703r57
+2707U17 For_Each[49|164] 50|1176b14 57|2713s10
+2746a7 Final{59|244A9} 2752m13 2754m13 2756m13 2758m13 2760m13 2769m7 2775r55
+. 2779r14
+2748U17 On_Item 2748>26 2749b17 2765l11 2765t18 2767r48
+2748a26 Str{113|41A12} 2749b26 2751r13 2753r16 2755r16 2757r16 2759r16 2763r57
+2767U17 For_Each[49|164] 50|1176b14 57|2772s10
+2791r7 Info{56|231R9} 2797m7 2822m7 2824r37
+2792b7 Is_Set{boolean} 2810m60
+2793r7 Name{44|326R9} 2801m10 2802r13 2803r16 2805r19 2809r19 2811r19 2813r19
+2794r7 Props{59|299R9} 2798m7 2804m16 2806m16 2810m47 2810r47 2812m16 2814m16
+. 2820m7 2820r7 2822r26
+2800i11 J{integer} 2801r34 2804r59 2808r45 2810r68 2812r61 2814r65
+2848p7 Ctx{56|303P9} 2854r61
+2850p7 Next{56|303P9} 2853r12 2854r34
+2867p7 Ctx{56|303P9} 2872r52
+2869r7 Restr{56|151R9} 2874m7 2875m7 2882m16 2893r13 2894r20 2912r31 2923r42
+. 2936r28
+2870p7 Details{56|84P9} 2904m13 2913m38 2913r38 2928m10 2937m35 2937r35 2941r29
+2871r7 Name{44|326R9} 2879m10 2880r13 2881r16
+2872i7 In_Type{56|76I9} 2889r38 2890r45 2903r45
+2878i11 J{integer} 2879r34 2883r45 2884r39
+2950p7 Ctx{56|303P9} 2955r10 2957r64
+2952p7 Next{56|303P9} 2956r25 2957r38
+2969r7 Name{44|326R9} 3001m10 3002r13 3003r16
+2971U17 Add_Union 2971>28 2974b17 2987l11 2987t20 2989r54
+2971a28 Str{113|41A12} 2974b28 2975r62
+2975p10 Sym{47|41P9} 2979r36
+2976p10 Ctx{56|303P9} 2980r34 2984r13 2986r13
+2978r10 Name{44|326R9} 2985r22
+2989U17 For_Each_Union[49|164] 50|1176b14 57|3004s16
+3000i11 J{integer} 3001r34 3004r54
+3015p7 Ctx{56|303P9} 3022r67
+3017p7 Next{56|303P9} 3020r12 3022r41
+3039p7 Ctx{56|303P9} 3044r49
+3041r7 Ext{56|144R9} 3046m7 3052m16 3059r10 3081r30 3090r55 3103r27
+3042r7 Name{44|326R9} 3049m10 3050r13 3051r16
+3043p7 Details{56|84P9} 3073m13 3082m38 3082r38 3095m10 3104m35 3104r35 3108r27
+3044i7 In_Type{56|76I9} 3064r38 3065r45 3072r45
+3048i11 J{integer} 3049r34 3053r45 3054r46
+3117p7 Ctx{56|303P9} 3122r10 3124r64
+3119p7 Next{56|303P9} 3123r25 3124r38
+3136r7 Name{44|326R9} 3147m10 3148r13 3149r16 3150m16 3156r28
+3146i11 J{integer} 3147r34 3151r45 3152r46
+3168p7 Ctx{56|303P9} 3180r36 3186r70
+3170p7 Next{56|303P9} 3175r12 3177r16 3184r31 3186r44
+3172p7 Next_Next{56|303P9} 3179r31 3180r16
+3204U17 Append 3204=25 3205>25 3206b17 3221l11 3221t17 3248s13 3251s13 3254s13
+3204p25 List{56|84P9} 3206b25 3211r13 3212m13 3214r20
+3205p25 Elem{56|84P9} 3207b25 3212r21 3219r25
+3209p10 Tmp{56|84P9} 3214m13 3215r19 3216m16 3216r23 3219r13
+3223p7 Ctx{56|303P9} 3227r12 3229r44 3236r43 3243r44 3245r41 3248r21 3251r21
+. 3254r21 3257r16 3263r13 3266r16 3272r13 3275r16 3280r13 3293r18
+3306r7 Min_Occurs{59|85R9} 3309m34 3312r29
+3306r19 Max_Occurs{59|85R9} 3309m46 3313r29
+3307p7 Choice{56|84P9} 3310m7 3318m32 3318r32 3322r21
+3333r7 Min_Occurs{59|85R9} 3336m34 3339r26
+3333r19 Max_Occurs{59|85R9} 3336m46 3340r26
+3334p7 Seq{56|84P9} 3337m7 3345m32 3345r32 3349r19
+3360r7 Name{44|326R9} 3371m10 3372r13 3373r16 3376r19 3393r19 3402r19 3404r19
+. 3408r19 3412r19 3414r19
+3361r7 Att{56|126R9} 3367m7 3368m7 3374m16 3377m16 3381r19 3383r26 3395m19
+. 3397m19 3399m19 3403m16 3405m16 3409m16 3413m16 3415m16 3422r10 3423r13
+. 3441r28 3447r10 3448r13 3455r10 3456r18 3463r10 3464r18 3472r18 3473r18
+. 3481r10 3496m7 3496r34 3501r24
+3362p7 Ctx{56|303P9} 3482r15
+3364b7 Has_Form{boolean} 3411m16 3429r13 3441r10
+3370i11 J{integer} 3371r34 3375r66 3378r45 3379r46 3389r42 3394r36 3396r39
+. 3403r57 3406r45 3407r46 3410r57 3413r59 3415r61
+3513r7 Ctx{56|281R9} 3517r12 3520r44 3555r21
+3514i7 Index{natural} 3529m13 3530r19 3531r42 3539m16 3539r25
+3515p7 Ctx2{56|303P9} 3531m16 3532r19 3534r50
+3572p7 Ctx{56|303P9} 3575r61
+3586r7 Info{56|257R9} 3590m7 3591m7 3597m16 3599m16 3601m47 3601r47 3603m16
+. 3626r10 3629r28 3632r31 3635r41 3636r41 3639r42
+3587b7 Is_Set{boolean} 3601m59 3638r10
+3588r7 Name{44|326R9} 3594m10 3595r13 3596r16 3598r19 3600r19 3602r19 3606r16
+. 3607r16 3617r19
+3593i11 J{integer} 3594r34 3597r74 3599r76 3601r67 3603r51 3614r53 3621r45
+3671p7 Details{56|84P9} 3693m7 3701m32 3701r32
+3672r7 Any{59|717R9} 3677m7 3678m7 3684m16 3686m16 3700r24
+3673r7 Name{44|326R9} 3681m10 3682r13 3683r16 3685r19
+3674r7 Min_Occurs{59|85R9} 3692m34 3695r24
+3674r19 Max_Occurs{59|85R9} 3692m46 3696r24
+3680i11 J{integer} 3681r34 3684r51 3687r61
+3712r7 Min_Occurs{59|85R9} 3715m34 3718r26
+3712r19 Max_Occurs{59|85R9} 3715m46 3719r26
+3713p7 Details{56|84P9} 3716m7 3724m32 3724r32 3728r25
+3741p7 H{56|44P9} 3756r31 3759r25 3765r27 3768r26 3771r31 3774r30 3777r30
+. 3780r28 3783r32 3822r22 3825r27 3828r25 3831r23 3834r24 3837r28 3840r24
+. 3859r34 3862r22 3869r27 3872r26 3875r25
+3742p7 Ctx{56|303P9} 3786m10 3787r25 3788r25 3792r27 3810m10 3811r25 3812r25
+. 3815r27 3843m10 3844r25 3845r38 3849r38 3852m10 3853r25
+3911p7 H{56|44P9} 3919r26 3925r31 3928r30 3943r30 3946r28 3949r28 3952r24
+. 3955r23 3972r34 3978r24
+3912b7 Handled{boolean} 3937m10 3969m10 3986m10 3990m10 3997m10 4001r10
+4022U17 Unchecked_Free[17|20] 4041s10
+4024p7 Next{56|84P9} 4027m10 4042r18
+X 58 schema-simple_types.ads
+36K16*Simple_Types 56|35w13 215r28 222r29 223r22 57|35w13 35r38 58|311e24
+38I9*Simple_Type_Index<integer> 57|1185r19
+39i4*No_Simple_Type_Index{38I9} 57|613r36 893r50 982r50 1191r23 1234r47 1271r40
+. 1324r57 1379r50
+44N4*Max_Types_In_Union 56|215r41
+70n7*Primitive_Union{57E9} 57|1233r35
+70n24*Primitive_List{57E9} 57|1270r40
+89A9*Simple_Type_Array(38I9)<integer>
+105R9*Simple_Type_Descr 57|1182r19 1304r27 58|186e14
+106e7*Kind{57E9} 57|1233m27 1270m27
+115a13*Union{89A9} 57|1234m27 1236r42 1260m29
+119i13*List_Item{38I9} 57|1271m27 1294m29
+188r4*Any_Simple_Type{105R9} 57|1320r34
+191V13*Copy{105R9} 57|1333s30
+278A9*All_Facets(269R9)<91E9> 56|222r42
+279a4*No_Facets{278A9} 56|223r35 57|2921r50 3092r45
+293U14*Override 57|1335s22
+294r7 Simple{105R9} 57|1335r32
+295a7 Facets{278A9} 57|1336r32
+296r7 Symbols{49|174R12} 57|1337r32
+297b7 As_Restriction{boolean} 57|1338r32
+298p7 Error{47|41P9} 57|1340r32
+299r7 Error_Loc{40|41R9} 57|1341r32
+X 59 schema-validators.ads
+39K16*Validators 56|36w13 74r15 354r39 355r16 356r37 357r16 59|918e22
+48X4*XML_Validation_Error 57|1818r37
+52n26*XSD_1_0{52E9} 57|1756r46
+52n35*XSD_1_1{52E9} 57|3471r46
+56R9*XML_Grammar<42|59R12[912]> 57|1873r26
+70V13*Get_XSD_Version{52E9} 57|1756s10 3471s10
+85R9*Occurrences 56|166r32 57|223r36 1998r36 2005r60 2009r60 2105r32 2470r32
+. 3306r32 3333r32 3674r32 3712r32 59|92e14
+85b22*Unbounded{boolean} 57|1041r35 2013m21 2020m24 2035m27 2046r24 2056r25
+90i13*Value{natural} 57|814r41 822r44 1043r56 1047r56 1048r38 1511r59 1551r46
+. 2020m44 2035m47 2057r24 2064r27
+95E9*Form_Type 56|91r28 260r32 261r32 354r50 356r48 57|143r35 378r37 380r37
+. 2728r35 3410r18 59|95e46
+95n23*Qualified{95E9} 57|2551r23 2731r17
+95n34*Unqualified{95E9} 56|91r50 260r54 261r54 355r27 357r27 57|2733r17 3590r38
+. 3591r38
+104E9*Process_Contents_Type 57|158r33 3652r33 59|104e77
+104n35*Process_Strict{104E9} 57|2407r44 3657r17
+104n51*Process_Lax{104E9} 57|486r52 3655r17
+104n64*Process_Skip{104E9} 57|3659r17
+119I9*Header_Num<33|52I9> 56|314r21 321r21 328r21 335r21 57|270r24
+120V13*Hash{119I9} 56|318r21 325r21 332r21 339r21 57|274r24
+142r4*No_Any_Descr{124R9} 57|1022r44 1487r31
+144V13*Combine{124R9} 57|1022s19
+147e7 Local_Process{104E9} 57|1023r28
+148p7 Local{47|41P9} 57|1024r28
+149b7 As_Restriction{boolean} 57|1025r28
+150p7 Target_NS{47|41P9} 57|1026r28
+166E9*Transition_Kind 57|297r23 368r23 59|171e29
+166n29*Transition_Symbol{166E9} 57|383r21 384r27 547r53 850r19
+167n29*Transition_Any{166E9} 57|1021r29
+168n29*Transition_Close{166E9} 57|523r50 1554r34 1559r48
+169n29*Transition_Symbol_From_All{166E9} 57|385r21 386r27 819r45
+170n29*Transition_Close_From_All{166E9} 57|1548r31
+186M9*Visited_All_Children 57|287r28 732r28 1504r23
+194R9*Transition_Descr 57|373r22 378r55 380r55 59|216e17
+194e27*Kind{166E9} 57|523m42 1548m23 1554m26 1559m40
+205i16*All_Child_Index{integer} 57|384m52 387m27
+208m16*Mask{186M9} 57|1549m23
+218I9*Named_Attribute_List<integer>
+219i4*Empty_Named_Attribute_List{218I9} 57|1377r43
+221R9*Attributes_List 57|336r36 1095r36 1394r18 59|224e14
+222r7*Any{124R9} 57|1487m24
+223i7*Named{218I9} 57|1149r57
+225r4*No_Attributes{221R9} 57|1394r37
+230n24*Block_Restriction{230E9} 57|2694r21
+231n24*Block_Extension{230E9} 57|2696r21
+232n24*Block_Substitution{230E9} 57|2698r21 2820r20
+233A9*Block_Status(boolean)<230E9> 56|96r28 259r32 363r30 57|128r21 2686r21
+235a4*No_Block{233A9} 56|259r54 363r46 57|1614r31 2710r17
+237V13*To_String{string} 57|2716s44
+240n24*Final_Restriction{240E9} 57|232r32 974r40 2752r20
+241n24*Final_Extension{240E9} 57|233r28 885r40 2754r20
+242n24*Final_Union{240E9} 57|234r30 1249r40 2758r20
+243n24*Final_List{240E9} 57|235r29 1284r40 2760r20
+244A9*Final_Status(boolean)<240E9> 56|95r28 57|81r33 136r33 230r32 2744r33
+. 2746r15
+247I9*Type_Index<integer> 56|233r20 57|262r40 313r22 319r30 332r22 445r32
+. 561r30 599r22 873r35 963r30 1064r21 1179r22 1242r31 1278r31 1308r32 1577r23
+248i4*No_Type_Index{247I9} 57|462r31 476r31 495r55 957r45 1013r45
+255n32*Prohibited{255E9} 57|3397r46 3473r44
+255n44*Optional{255E9} 57|3399r46 3464r45
+255n54*Required{255E9} 57|3395r46
+257R9*Attribute_Descr 56|115r22 59|268e14
+258p7*Target_NS{47|41P9} 57|3415m31 3422r25
+259r7*Name{44|326R9} 57|1373r36 3374m31 3423r28 3481r25 3526r37
+260i7*Simple_Type{58|38I9} 57|1068m24 1084m27 1379r36
+262p7*Fixed{47|41P9} 57|3403m31 3455r25 3472r33
+263p7*Default{47|41P9} 57|3413m31 3456r33 3463r25
+264e7*Use_Type{255E9} 57|3395m34 3397m34 3399m34 3464r33 3473r33
+265e7*Form{95E9} 57|3367m22 3409m31
+266b7*Is_Local{boolean} 57|3496m22
+267i7*Next{218I9} 57|1377r36
+270r4*No_Attribute_Descr{257R9} 56|115r45
+275R9*State_Data 57|447r39 477r31 1612r16 59|281e14
+276i7*Simple{247I9} 57|477m43 495r45 500r48 1613m19
+277p7*Fixed{47|41P9} 57|478m43 505m21 1617m19
+278p7*Default{47|41P9} 57|479m43 487m24 1616m19
+279a7*Block{233A9} 57|481m43 488m24 1614m19
+280b7*Nillable{boolean} 57|480m43 489m24 1615m19
+289K12*Schema_State_Machines[46|50] 56|101r28 102r9 57|42r8
+299R9*Type_Descr 56|232r20 57|283r30 309r44 728r31 875r42 964r39 1502r40
+. 2794r16 59|318e14
+300r7*Name{44|326R9} 57|888r46 977r46 1194r58 1210r44 1216r66 1498r58 1537r61
+. 1600r65 1620r47 1621r59 2806m22
+301r7*Attributes{221R9} 57|1452r51 1473r51 1543m22
+302a7*Block{233A9} 57|2798m13 2810m53 2820m13
+303a7*Final{244A9} 57|885r33 974r33 1249r33 1284r33 2812m22
+305i7*Restriction_Of{247I9} 57|957m27 1012m27 1230m22 1267m22 1300m22 1349m31
+306i7*Extension_Of{247I9} 57|956m27 1013m27 1351m31
+308i7*Simple_Content{58|38I9} 57|500r56 613r19 893r33 982r33 1069r46 1085r49
+. 1190r26 1260r61 1266m22 1294r47 1299m22 1324r40 1334r58 1357m25
+312b7*Mixed{boolean} 57|2804m22 3849m64
+313b7*Is_Abstract{boolean} 57|2814m22
+315i7*Complex_Content{46|52I9[289]} 57|484r56 1505r39 1509r37 1520r51 1538r41
+. 1553r31 1596m47
+359P9*Schema_NFA_Access(358R9) 57|258r22
+372V13*Ur_Type{46|238R9[289]} 57|486s43 1018s35
+378n28*Ref_Element{378E9} 57|420r49 533r27
+379n28*Ref_Type{378E9} 57|265r46 568r42 604r39 1076r46 1435r43 1461r43
+380n28*Ref_Attribute{378E9} 57|1136r58
+383R9*Global_Reference 57|374r22 564r17 601r21 1063r21 1102r17 1403r21 59|391e14
+383e27*Kind{378E9} 57|533m19
+384r7*Name{44|326R9} 57|533m40
+386i32*Element{46|52I9[289]} 57|427r26 533m59
+387i32*Typ{247I9} 57|265r57 574r30 610r24 1085r44 1452r46 1473r46
+389r48*Attributes{221R9} 57|1149r46
+392r4*No_Global_Reference{383R9} 57|374r42 421r26 569r23 605r20 1077r23 1138r35
+. 1436r24 1462r24
+405K12*Reference_HTables[39|42] 57|44r27
+412P9*Reference_HTable(39|44R9[405]) 57|259r22
+417V13*Get_NFA{359P9} 57|258s43 2454s21
+418V13*Get_References{412P9} 57|260s9
+422V13*Dump_Dot_NFA{string} 57|1667s35
+428V13*Get_Simple_Type{58|105R9} 57|1334s25
+435V13*Get_Type_Descr(299R9) 57|484s25 499s32 611s38 883s33 972s33 1069s15
+. 1085s18 1188s42 1452s22 1473s22 1503s18
+450r7*Error_Location{40|41R9} 57|1822m21 1822r46
+451p7*Error_Msg{47|41P9} 57|1821m21 1821r41
+456r7*Grammar{56R9} 57|1022r35 1158r38 1756r35 1797r36 2454r38 3471r35 3791r35
+. 3814r35
+460p7*Annotation{47|41P9} 57|3761r34 3988r34
+461p7*Any{47|41P9} 57|3861r34 3980r34
+462p7*Any_Attribute{47|41P9} 57|3782r34 3936r34
+463p7*Any_Namespace{47|41P9} 57|2405r52 3678r33
+464p7*Any_Simple_Type{47|41P9} 57|264r29 2876r39
+468p7*Attribute{47|41P9} 57|3836r34 3948r34
+469p7*Attribute_Group{47|41P9} 57|3858r34 3971r34
+471p7*Base{47|41P9} 57|2881r37 3051r37
+472p7*Block{47|41P9} 57|2512r40 2809r40
+473p7*Block_Default{47|41P9} 57|3600r40
+475p7*Choice{47|41P9} 57|3827r34 3939r34
+476p7*Complex_Content{47|41P9} 57|3851r34 3984r38
+479p7*Complex_Type{47|41P9} 57|3770r34 3924r34
+482p7*Default{47|41P9} 57|2500r40 3412r40
+486p7*Element{47|41P9} 57|3767r34 3918r31
+487p7*Enumeration{47|41P9} 57|3801r38 3960r38
+489p7*Extension{47|41P9} 57|3779r34 3945r34
+492p7*Field{47|41P9} 57|3886r41
+493p7*Final{47|41P9} 57|2510r40 2811r40
+495p7*Fixed{47|41P9} 57|2502r40 3402r40
+496p7*Form{47|41P9} 57|2508r40 3408r40
+498p7*Fraction_Digits{47|41P9} 57|3804r38 3963r38
+499p7*Group{47|41P9} 57|3839r34 3977r34
+503p7*IDREF{47|41P9} 57|579r66 2893r74 3382r66
+504p7*IDREFS{47|41P9} 57|581r67 2895r62 3384r68
+506p7*Import{47|41P9} 57|3874r34 3982r38
+507p7*Include{47|41P9} 57|3871r34 3981r38
+508p7*Item_Type{47|41P9} 57|3149r37
+509p7*Key{47|41P9} 57|3883r41
+511p7*Keyref{47|41P9} 57|3882r33
+513p7*Lax{47|41P9} 57|3654r44
+514p7*Length{47|41P9} 57|3800r38
+515p7*List{47|41P9} 57|3830r34 3954r34
+520p7*MaxExclusive{47|41P9} 57|3806r38 3965r38
+521p7*MaxInclusive{47|41P9} 57|3805r38 3964r38
+522p7*MaxOccurs{47|41P9} 57|2003r69
+524p7*Maxlength{47|41P9} 57|3798r34 3957r34
+525p7*Member_Types{47|41P9} 57|3003r37
+526p7*MinExclusive{47|41P9} 57|3808r38 3967r38
+527p7*MinInclusive{47|41P9} 57|3807r38 3966r38
+528p7*MinOccurs{47|41P9} 57|2001r69
+530p7*Minlength{47|41P9} 57|3799r38 3959r38
+531p7*Mixed{47|41P9} 57|2803r37
+534p7*Name{47|41P9} 57|2115r37 2188r37 2444r37 2488r40 2805r40 3373r37
+537p7*Namespace{47|41P9} 57|2412r37 3683r37
+539p7*Namespace_Target{47|41P9} 57|3414r40 3602r40
+542p7*Nillable{47|41P9} 57|2506r40
+543p7*No_Namespace_Schema_Location{47|41P9} 57|3607r37
+545p7*Notation{47|41P9} 57|3764r34
+552p7*Pattern{47|41P9} 57|3785r34 3958r38
+555p7*Process_Contents{47|41P9} 57|2414r40 3685r40
+556p7*Prohibited{47|41P9} 57|3396r52
+557p7*Public{47|41P9} 57|2446r40
+559p7*Qualified{47|41P9} 57|2730r44
+562p7*Redefine{47|41P9} 57|3864r34 3974r34
+564p7*Ref{47|41P9} 57|2118r40 2191r40 2491r40 3404r40
+566p7*Required{47|41P9} 57|3394r49
+567p7*Restriction{47|41P9} 57|3776r34 3942r34
+570p7*S_Abstract{47|41P9} 57|2504r40 2813r40
+571p7*S_All{47|41P9} 57|3821r34 3930r34
+572p7*S_Attribute_Form_Default{47|41P9} 57|3598r40
+574p7*S_Element_Form_Default{47|41P9} 57|3596r37
+576p7*S_Schema{47|41P9} 57|3755r35 3921r34
+578p7*S_Use{47|41P9} 57|3393r40
+579p7*Schema_Location{47|41P9} 57|2301r48 2319r48 2354r48 3617r40
+581p7*Selector{47|41P9} 57|3884r41
+582p7*Sequence{47|41P9} 57|3824r34 3933r34
+583p7*Simple_Content{47|41P9} 57|3842r34 3983r38
+589p7*Simple_Type{47|41P9} 57|3773r34 3927r34
+591p7*Strict{47|41P9} 57|3656r47
+592p7*Substitution_Group{47|41P9} 57|2495r40
+593p7*System{47|41P9} 57|2448r40
+600p7*Total_Digits{47|41P9} 57|3803r38 3962r38
+601p7*Typ{47|41P9} 57|2483r37 3376r40
+605p7*Unbounded{47|41P9} 57|2012r29
+606p7*Union{47|41P9} 57|3833r34 3951r34
+607p7*Unique{47|41P9} 57|3885r41
+610p7*Value{47|41P9} 57|3795r61 3818r61
+612p7*Whitespace{47|41P9} 57|3802r38 3961r38
+614p7*XML_Instance_URI{47|41P9} 57|3487r47 3606r34
+615p7*XML_Schema_URI{47|41P9} 57|265r29 579r34 581r35 2875r39 2893r41 2895r29
+. 3382r33 3384r35
+628U25*Initialize_Symbols<44|695p14> 57|1881s7
+632U14*Validation_Error 57|399s13 422s19 468s19 570s16 583s13 606s13 621s16
+. 672s28 688s28 855s19 861s19 886s22 904s28 918s25 948s25 975s22 988s25 1004s25
+. 1078s16 1112s25 1121s25 1139s28 1207s13 1250s28 1285s28 1326s22 1343s25
+. 1437s19 1463s19 1775R16 1969R16 2029R25 2047R13 2058R13 2144R13 2254R13
+. 2332R7 2366R10 2524R13 2528R13 2533R10 2539R13 2546R10 2632R7 2672R13 2702R13
+. 2762R13 2897R13 3024R13 3060R10 3189R13 3231R16 3259R16 3268R16 3277R16
+. 3290R13 3386R19 3424R13 3430R13 3435R10 3442R10 3449R13 3458R10 3466R10
+. 3475R10 3488R19 3560R13 3756R13 3865s10 3895s10
+635r7 Loc{40|41R9} 57|586r16
+636p7 Except{5|48P9} 57|402r16 471r22 587r16 2062r16 2147r15 2257r16 2335r10
+. 2369r13 2675r16 2900r16 3027r16 3192r16 3294r16 3390r22 3438r13 3563r16
+. 3868r13 3898r13
+642V13*Get_Error_Message{113|41A12}
+682U14*Normalize_And_Validate 57|497s19
+683p7 Parser(447R9) 57|498r22
+684i7 Simple{58|38I9} 57|499r22
+685p7 Fixed{47|41P9} 57|501r22
+686r7 Loc{40|41R9} 57|502r22
+717R9*Internal_Any_Descr 56|120r22 173r53 57|3672r17 59|721e14
+718p7*Target_NS{47|41P9} 57|1026r58 2406m24 3677m11
+719e7*Process_Contents{104E9} 57|1018r61 1023r58 2407m24 2415m29 3686m20
+720p7*Namespaces{47|41P9} 57|1024r58 2405m24 2413m29 3678m11 3684m20
+722r4*No_Internal_Any_Descr{717R9} 56|120r45 57|1155r50 1375r36
+726U14*Add_Any_Attribute 57|1157s28
+731U14*Add_Attribute 57|1146s25 1162s28
+734r7 Attribute{257R9} 57|1148r28
+735i7 Ref{218I9} 57|1149r28
+736r7 Loc{40|41R9} 57|1150r28 1164r31
+737U14*Add_Attributes 57|1450s19 1471s19
+741b7 As_Restriction{boolean} 57|1453r22 1474r22
+742r7 Loc{40|41R9} 57|1453r47 1474r46
+757U14*Initialize_Grammar 57|1892s10
+776U14*Create_Global_Attribute 57|1385s10
+780V13*Create_Simple_Type{58|38I9} 57|1265s26 1298s26 1356s29
+784V13*Create_Type{247I9} 57|1606s12
+791U14*Add_Facet 57|3790s10 3813s10
+792r7 Grammar{56R9} 57|3791r13 3814r13
+793a7 Facets{58|278A9} 57|3792r13 3815r13
+794p7 Facet_Name{47|41P9} 57|3793r13 3816r13
+795p7 Value{47|41P9} 57|3794r13 3817r13
+796r7 Loc{40|41R9} 57|3796r13 3819r13
+800V13*URI_Was_Parsed{boolean} 57|1741s10 1885s14
+806U14*Set_Parsed_URI 57|1897s10
+815V13*To_QName{113|41A12} 57|411s29 411s52 423s57 516s29 516s52 530s48 571s45
+. 607s42 616s32 623s51 675s33 690s37 691s33 857s38 864s24 888s25 907s33 921s30
+. 977s25 991s30 1080s38 1115s30 1123s50 1142s33 1194s32 1210s18 1216s40 1252s31
+. 1287s31 1438s45 1464s45 1498s32 1537s35 1600s21
+821U14*Add_Notation 57|2454s7
+X 62 system.ads
+67M9*Address
+X 75 s-memory.ads
+53V13*Alloc{62|67M9} 103i<c,__gnat_malloc>22
+68U14*Free 104i<c,__gnat_free>22
+76V13*Realloc{62|67M9} 105i<c,__gnat_realloc>22
+X 83 s-stalib.ads
+84P9*Exception_Data_Ptr(83R9)
+X 84 s-stalib.adb
+89U14 Break_Start 90i<c,__gnat_break_start>22
+X 94 s-tasloc.ads
+49U14*Lock 57|1739s22
+54U14*Unlock 57|1746s25 1833s22 1839s25 1857s25
+X 110 unicode.ads
+111K9*Unicode 56|37r6 388r44 57|28w6 28r29 29r6 29r29 4011r44 110|157e12
+114M9*Unicode_Char 57|2018r22
+131V13*Is_Digit{boolean} 57|2028s29
+X 113 unicode-ces.ads
+35K17*CES 56|37w14 388r52 57|29w14 29r37 4011r52 113|171e16
+41A12*Byte_Sequence{string}<integer> 56|388r56 57|2690r32 2691r32 2748r32
+. 2749r32 2971r34 2974r34 4011r56
+43P9*Cst_Byte_Sequence_Access(41A12) 57|1949r19 2016r31
+111P9*Read_Function
+141p7*Read{111P9} 57|2027r31
+

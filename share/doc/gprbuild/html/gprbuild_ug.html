@@ -1,0 +1,232 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GPRbuild and GPR Companion Tools User’s Guide &#8212; GPR Tools User&#39;s Guide 2021 documentation</title>
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="1. Introduction" href="gprbuild_ug/introduction.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="gprbuild_ug/introduction.html" title="1. Introduction"
+             accesskey="N">next</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">GPR Tools User&#39;s Guide 2021 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">GPRbuild and GPR Companion Tools User’s Guide</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="gprbuild-and-gpr-companion-tools-user-s-guide">
+<h1>GPRbuild and GPR Companion Tools User’s Guide<a class="headerlink" href="#gprbuild-and-gpr-companion-tools-user-s-guide" title="Permalink to this headline">¶</a></h1>
+<div class="line-block">
+<div class="line">Version 2021</div>
+<div class="line">Date: May 20, 2021</div>
+</div>
+<p>AdaCore</p>
+<p>Permission is granted to copy, distribute and/or modify this document under the
+terms of the GNU Free Documentation License, Version 1.3 or any later version
+published by the Free Software Foundation; with no Invariant Sections, no
+Front-Cover Texts, and no Back-Cover Texts. A copy of the license is included
+in the section entitled <a class="reference internal" href="share/gnu_free_documentation_license.html#gnu-fdl"><span class="std std-ref">GNU Free Documentation License</span></a>.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="gprbuild_ug/introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gprbuild_ug/gnat_project_manager.html">2. GNAT Project Manager</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="gprbuild_ug/gnat_project_manager.html#introduction">2.1. Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gprbuild_ug/gnat_project_manager.html#building-with-projects">2.2. Building with Projects</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gprbuild_ug/gnat_project_manager.html#source-files-and-directories">2.2.1. Source Files and Directories</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gprbuild_ug/gnat_project_manager.html#duplicate-sources-in-projects">2.2.2. Duplicate Sources in Projects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gprbuild_ug/gnat_project_manager.html#object-and-exec-directory">2.2.3. Object and Exec Directory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gprbuild_ug/gnat_project_manager.html#main-subprograms">2.2.4. Main Subprograms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gprbuild_ug/gnat_project_manager.html#tools-options-in-project-files">2.2.5. Tools Options in Project Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gprbuild_ug/gnat_project_manager.html#compiling-with-project-files">2.2.6. Compiling with Project Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gprbuild_ug/gnat_project_manager.html#executable-file-names">2.2.7. Executable File Names</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gprbuild_ug/gnat_project_manager.html#using-variables-to-avoid-duplication">2.2.8. Using Variables to Avoid Duplication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gprbuild_ug/gnat_project_manager.html#naming-schemes">2.2.9. Naming Schemes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="gprbuild_ug/gnat_project_manager.html#organizing-projects-into-subsystems">2.3. Organizing Projects into Subsystems</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gprbuild_ug/gnat_project_manager.html#importing-projects">2.3.1. Importing Projects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gprbuild_ug/gnat_project_manager.html#cyclic-project-dependencies">2.3.2. Cyclic Project Dependencies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gprbuild_ug/gnat_project_manager.html#sharing-between-projects">2.3.3. Sharing between Projects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gprbuild_ug/gnat_project_manager.html#global-attributes">2.3.4. Global Attributes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="gprbuild_ug/gnat_project_manager.html#scenarios-in-projects">2.4. Scenarios in Projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gprbuild_ug/gnat_project_manager.html#library-projects">2.5. Library Projects</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gprbuild_ug/gnat_project_manager.html#building-libraries">2.5.1. Building Libraries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gprbuild_ug/gnat_project_manager.html#using-library-projects">2.5.2. Using Library Projects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gprbuild_ug/gnat_project_manager.html#stand-alone-library-projects">2.5.3. Stand-alone Library Projects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gprbuild_ug/gnat_project_manager.html#installing-a-library-with-project-files">2.5.4. Installing a Library with Project Files</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="gprbuild_ug/gnat_project_manager.html#project-extension">2.6. Project Extension</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gprbuild_ug/gnat_project_manager.html#importing-and-project-extension">2.6.1. Importing and Project Extension</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="gprbuild_ug/gnat_project_manager.html#child-projects">2.7. Child Projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gprbuild_ug/gnat_project_manager.html#aggregate-projects">2.8. Aggregate Projects</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gprbuild_ug/gnat_project_manager.html#building-all-main-programs-from-a-single-project-closure">2.8.1. Building all main programs from a single project closure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gprbuild_ug/gnat_project_manager.html#building-a-set-of-projects-with-a-single-command">2.8.2. Building a set of projects with a single command</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gprbuild_ug/gnat_project_manager.html#defining-a-build-environment">2.8.3. Defining a build environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gprbuild_ug/gnat_project_manager.html#improving-builder-performance">2.8.4. Improving builder performance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gprbuild_ug/gnat_project_manager.html#syntax-of-aggregate-projects">2.8.5. Syntax of aggregate projects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gprbuild_ug/gnat_project_manager.html#package-builder-in-aggregate-projects">2.8.6. package Builder in aggregate projects</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="gprbuild_ug/gnat_project_manager.html#aggregate-library-projects">2.9. Aggregate Library Projects</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gprbuild_ug/gnat_project_manager.html#building-aggregate-library-projects">2.9.1. Building aggregate library projects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gprbuild_ug/gnat_project_manager.html#syntax-of-aggregate-library-projects">2.9.2. Syntax of aggregate library projects</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="gprbuild_ug/gnat_project_manager.html#project-file-reference">2.10. Project File Reference</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gprbuild_ug/gnat_project_manager.html#project-declaration">2.10.1. Project Declaration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gprbuild_ug/gnat_project_manager.html#qualified-projects">2.10.2. Qualified Projects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gprbuild_ug/gnat_project_manager.html#declarations">2.10.3. Declarations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gprbuild_ug/gnat_project_manager.html#packages">2.10.4. Packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gprbuild_ug/gnat_project_manager.html#expressions">2.10.5. Expressions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gprbuild_ug/gnat_project_manager.html#built-in-functions">2.10.6. Built-in Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gprbuild_ug/gnat_project_manager.html#typed-string-declaration">2.10.7. Typed String Declaration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gprbuild_ug/gnat_project_manager.html#variables">2.10.8. Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gprbuild_ug/gnat_project_manager.html#case-constructions">2.10.9. Case Constructions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gprbuild_ug/gnat_project_manager.html#attributes">2.10.10. Attributes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="gprbuild_ug/gnat_project_manager.html#glossary">2.11. Glossary</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gprbuild_ug/building_with_gprbuild.html">3. Building with GPRbuild</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="gprbuild_ug/building_with_gprbuild.html#introduction">3.1. Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gprbuild_ug/building_with_gprbuild.html#command-line">3.2. Command Line</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gprbuild_ug/building_with_gprbuild.html#switches">3.3. Switches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gprbuild_ug/building_with_gprbuild.html#initialization">3.4. Initialization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gprbuild_ug/building_with_gprbuild.html#compilation-of-one-or-several-sources">3.5. Compilation of one or several sources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gprbuild_ug/building_with_gprbuild.html#compilation-phase">3.6. Compilation Phase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gprbuild_ug/building_with_gprbuild.html#post-compilation-phase">3.7. Post-Compilation Phase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gprbuild_ug/building_with_gprbuild.html#linking-phase">3.8. Linking Phase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gprbuild_ug/building_with_gprbuild.html#distributed-compilation">3.9. Distributed compilation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gprbuild_ug/building_with_gprbuild.html#introduction-to-distributed-compilation">3.9.1. Introduction to distributed compilation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gprbuild_ug/building_with_gprbuild.html#setup-build-environments">3.9.2. Setup build environments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gprbuild_ug/building_with_gprbuild.html#gprslave">3.9.3. GPRslave</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gprbuild_ug/companion_tools.html">4. GPRbuild Companion Tools</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="gprbuild_ug/companion_tools.html#configuring-with-gprconfig">4.1. Configuring with GPRconfig</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gprbuild_ug/companion_tools.html#configuration">4.1.1. Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gprbuild_ug/companion_tools.html#using-gprconfig">4.1.2. Using GPRconfig</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gprbuild_ug/companion_tools.html#the-gprconfig-knowledge-base">4.1.3. The GPRconfig knowledge base</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="gprbuild_ug/companion_tools.html#configuration-file-reference">4.2. Configuration File Reference</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gprbuild_ug/companion_tools.html#project-level-configuration-attributes">4.2.1. Project Level Configuration Attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gprbuild_ug/companion_tools.html#package-naming">4.2.2. Package Naming</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gprbuild_ug/companion_tools.html#package-builder">4.2.3. Package Builder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gprbuild_ug/companion_tools.html#package-compiler">4.2.4. Package Compiler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gprbuild_ug/companion_tools.html#package-binder">4.2.5. Package Binder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gprbuild_ug/companion_tools.html#package-linker">4.2.6. Package Linker</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="gprbuild_ug/companion_tools.html#cleaning-up-with-gprclean">4.3. Cleaning up with GPRclean</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gprbuild_ug/companion_tools.html#switches-for-gprclean">4.3.1. Switches for GPRclean</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="gprbuild_ug/companion_tools.html#installing-with-gprinstall">4.4. Installing with GPRinstall</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gprbuild_ug/companion_tools.html#switches-for-gprinstall">4.4.1. Switches for GPRinstall</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="gprbuild_ug/companion_tools.html#specifying-a-naming-scheme-with-gprname">4.5. Specifying a Naming Scheme with GPRname</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gprbuild_ug/companion_tools.html#running-gprname">4.5.1. Running <cite>gprname</cite></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gprbuild_ug/companion_tools.html#switches-for-gprname">4.5.2. Switches for GPRname</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gprbuild_ug/companion_tools.html#example-of-gprname-usage">4.5.3. Example of <cite>gprname</cite> Usage</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="gprbuild_ug/companion_tools.html#the-library-browser-gprls">4.6. The Library Browser GPRls</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gprbuild_ug/companion_tools.html#running-gprls">4.6.1. Running <cite>gprls</cite></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gprbuild_ug/companion_tools.html#switches-for-gprls">4.6.2. Switches for GPRls</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gprbuild_ug/companion_tools.html#examples-of-gprls-usage">4.6.3. Examples of <cite>gprls</cite> Usage</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="share/gnu_free_documentation_license.html">GNU Free Documentation License</a></li>
+</ul>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Next topic</h4>
+  <p class="topless"><a href="gprbuild_ug/introduction.html"
+                        title="next chapter"><span class="section-number">1. </span>Introduction</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/gprbuild_ug.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="gprbuild_ug/introduction.html" title="1. Introduction"
+             >next</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">GPR Tools User&#39;s Guide 2021 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">GPRbuild and GPR Companion Tools User’s Guide</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2008-2021, Free Software Foundation.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
+    </div>
+  </body>
+</html>

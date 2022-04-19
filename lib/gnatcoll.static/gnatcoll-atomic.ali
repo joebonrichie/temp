@@ -1,0 +1,153 @@
+V "GNAT Lib v2021"
+A -O2
+A -gnatA
+A -gnatn
+A -gnatwa
+A -gnatwC
+A -gnatwJ
+A -mtune=generic
+A -march=x86-64
+P ZX
+
+RN
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_DEFAULT_INITIALIZATION
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U gnatcoll.atomic%b	gnatcoll-atomic.adb	9de4f8fd NE OO PK IU
+W gnatcoll%s		gnatcoll.ads		gnatcoll.ali
+W interfaces%s		interfac.ads		interfac.ali
+
+U gnatcoll.atomic%s	gnatcoll-atomic.ads	796120ec BN EE NE OO PK IU
+W gnatcoll%s		gnatcoll.ads		gnatcoll.ali
+W system%s		system.ads		system.ali
+W system.atomic_counters%s  s-atocou.adb	s-atocou.ali
+
+D gnatcoll.ads		20210519051041 6a5da479 gnatcoll%s
+D gnatcoll-atomic.ads	20210519051041 a760a918 gnatcoll.atomic%s
+D gnatcoll-atomic.adb	20210519051041 d76879ba gnatcoll.atomic%b
+D interfac.ads		20210520051132 edec285f interfaces%s
+D system.ads		20210520051135 a2da961d system%s
+D s-atocou.ads		20210520051132 b45c2d8d system.atomic_counters%s
+D s-atocou.adb		20210520051132 b65612c0 system.atomic_counters%b
+G a e
+G c Z s b [is_lock_free gnatcoll__atomic 39 13 none]
+G c Z s b [sync_add_and_fetch gnatcoll__atomic 43 13 none]
+G c Z s b [sync_sub_and_fetch gnatcoll__atomic 52 13 none]
+G c Z s b [sync_add_and_fetch gnatcoll__atomic 58 14 none]
+G c Z s b [sync_sub_and_fetch gnatcoll__atomic 61 14 none]
+G c Z s b [increment gnatcoll__atomic 66 14 none]
+G c Z s b [decrement gnatcoll__atomic 68 14 none]
+G c Z s b [decrement gnatcoll__atomic 70 13 none]
+G c Z s b [unsafe_decrement gnatcoll__atomic 84 13 none]
+G c Z s b [unsafe_increment gnatcoll__atomic 86 14 none]
+G c Z s s [Ogt gnatcoll__atomic 95 13 none]
+G c Z s b [sync_bool_compare_and_swap_counter gnatcoll__atomic 117 13 none]
+G c Z s b [sync_val_compare_and_swap_counter gnatcoll__atomic 121 13 none]
+G c Z b b [intrinsic_sync_bool_compare_and_swap gnatcoll__atomic 28 13 none]
+G c Z b b [intrinsic_sync_val_compare_and_swap gnatcoll__atomic 35 13 none]
+G c Z b b [intrinsic_sync_add_and_fetch gnatcoll__atomic 42 13 none]
+G c Z b b [intrinsic_sync_sub_and_fetch gnatcoll__atomic 48 13 none]
+X 1 gnatcoll.ads
+24K9*GNATCOLL 27e13 2|32r9 130r5 3|26r14 183r5
+X 2 gnatcoll-atomic.ads
+32K18*Atomic 1|24k9 2|130l14 130e20 3|26b23 183l14 183t20
+34M12*Atomic_Counter{6|75M9} 36r25 44r22 45r15 45r38 53r22 54r15 54r38 59r20
+. 59r44 62r20 62r44 67r31 69r31 71r31 79r22 79r45 81r22 81r45 84r46 86r47
+. 95r32 102r22 118r24 119r17 120r17 122r24 123r17 124r17 124r40 3|29r23 30r16
+. 31r16 36r23 37r16 38r16 38r39 43r22 44r15 44r38 49r22 50r15 50r38 65r22
+. 66r15 66r38 72r20 72r44 74r15 84r22 85r15 85r38 91r20 91r44 93r15 102r48
+. 111r48 116r47 125r47 127r16 134r46 136r16 164r24 165r17 166r17 176r24 177r17
+. 178r17 178r40
+36m4*Minus_One{34M12}
+39V13*Is_Lock_Free{boolean} 3|58b13
+43V13*Sync_Add_And_Fetch{34M12} 44^7 45>7 3|64b13 69l8 69t26
+44p7 Ptr(34M12) 3|65b7 68r44
+45m7 Value{34M12} 3|66b7 68r49
+52V13*Sync_Sub_And_Fetch{34M12} 53^7 54>7 3|83b13 88l8 88t26
+53p7 Ptr(34M12) 3|84b7 87r44
+54m7 Value{34M12} 3|85b7 87r49
+58U14*Sync_Add_And_Fetch 59^7 59>36 3|71b14 77l8 77t26
+59p7 Ptr(34M12) 3|72b7 76r46
+59m36 Value{34M12} 3|72b36 76r51
+61U14*Sync_Sub_And_Fetch 62^7 62>36 3|90b14 96l8 96t26
+62p7 Ptr(34M12) 3|91b7 95r46
+62m36 Value{34M12} 3|91b36 95r51
+66U14*Increment 67=8 3|102b14 105l8 105t17
+67m8 Value{34M12} 3|102b25 104m41
+68U14*Decrement 69=8 3|111b14 114l8 114t17
+69m8 Value{34M12} 3|111b25 113m41
+70V13*Decrement{boolean} 71=8 3|116b13 119l8 119t17
+71m8 Value{34M12} 3|116b24 118m48 118r48
+78y14*"+"{34M12} 79>8 79>14
+79m8 Left{34M12}
+79m14 Right{34M12}
+80y14*"-"{34M12} 81>8 81>14
+81m8 Left{34M12}
+81m14 Right{34M12}
+84V13*Unsafe_Decrement{boolean} 84=31 3|134b13 138l8 138t24
+84m31 Value{34M12} 3|134b31 136m7 136r37 137r14
+86U14*Unsafe_Increment 86=32 3|125b14 128l8 128t24
+86m32 Value{34M12} 3|125b32 127m7 127r37
+95V14*">"{boolean} 95>18 95>24
+95m18 Left{34M12} 96r39
+95m24 Right{34M12} 96r45
+101V14*"="=103:38{boolean} 3|137r20
+102m8 Left{6|75M9}
+102m14 Right{6|75M9}
+107+12 Element_Type 108r37
+108P12 Element_Access(107+12) 110r24 111r17 112r17 3|145r24 146r17 147r17
+. 150r26 151r28
+109v13*Sync_Bool_Compare_And_Swap 110^8 111>8 112>8 3|144b13 157l8 157t34
+110p8 Ptr(108P12) 3|145b8 156r51
+111*8 Oldval{108P12} 3|146b8 156r56
+112*8 Newval{108P12} 3|147b8 156r64
+117V13*Sync_Bool_Compare_And_Swap_Counter{boolean} 118^8 119>8 120>8 3|163b13
+. 169l8 169t42
+118p8 Ptr(34M12) 3|164b8 168r52
+119m8 Oldval{34M12} 3|165b8 168r57
+120m8 Newval{34M12} 3|166b8 168r65
+121V13*Sync_Val_Compare_And_Swap_Counter{34M12} 122^8 123>8 124>8 3|175b13
+. 181l8 181t41
+122p8 Ptr(34M12) 3|176b8 180r51
+123m8 Oldval{34M12} 3|177b8 180r56
+124m8 Newval{34M12} 3|178b8 180r64
+X 3 gnatcoll-atomic.adb
+28V13 Intrinsic_Sync_Bool_Compare_And_Swap{boolean} 29^7 30>7 31>7 32b30
+. 168s14
+29p7 Ptr(2|34M12)
+30m7 Oldval{2|34M12}
+31m7 Newval{2|34M12}
+35V13 Intrinsic_Sync_Val_Compare_And_Swap{2|34M12} 36^7 37>7 38>7 39b30 180s14
+36p7 Ptr(2|34M12)
+37m7 Oldval{2|34M12}
+38m7 Newval{2|34M12}
+42V13 Intrinsic_Sync_Add_And_Fetch{2|34M12} 43^7 44>7 45b30 68s14 76s16
+43p7 Ptr(2|34M12)
+44m7 Value{2|34M12}
+48V13 Intrinsic_Sync_Sub_And_Fetch{2|34M12} 49^7 50>7 51b30 87s14 95s16
+49p7 Ptr(2|34M12)
+50m7 Value{2|34M12}
+74m7 Dummy{2|34M12} 76m7
+93m7 Dummy{2|34M12} 95m7
+149V16*Intrinsic_Sync_Bool_And_Swap_Access{4|46I9} 150^11 151>11 151>19 153b22
+. 156s14
+150p11 Ptr(2|108P12)
+151*11 Oldval{2|108P12}
+151*19 Newval{2|108P12}
+X 4 interfac.ads
+38K9*Interfaces 3|24w6 24r25 151r51 4|231e15
+46I9*Integer_8<short_short_integer> 3|151r62
+X 5 system.ads
+37K9*System 2|30r6 34r30 37r7 96r11 103r15 3|104r7 113r7 118r14 5|154e11
+X 6 s-atocou.ads
+40K16*Atomic_Counters 2|30w13 34r37 37r14 96r18 103r22 3|104r14 113r14 118r21
+. 6|107e27
+75M9*Atomic_Unsigned 2|34r53
+80U14*Increment 3|104s30
+84V13*Decrement{boolean} 3|118s37
+87U14*Decrement 3|113s30
+97y14*"-"{75M9} 2|37r31
+

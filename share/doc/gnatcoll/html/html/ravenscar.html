@@ -1,0 +1,142 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>12. Ravenscar: patterns for multitasking &#8212; GNATColl 2021 documentation</title>
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="13. Storage Pools: controlling memory management" href="storage_pools.html" />
+    <link rel="prev" title="11. Email: Processing email messages" href="email.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="storage_pools.html" title="13. Storage Pools: controlling memory management"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="email.html" title="11. Email: Processing email messages"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">GNATColl 2021 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">12. </span><strong>Ravenscar</strong>: patterns for multitasking</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="ravenscar-patterns-for-multitasking">
+<h1><span class="section-number">12. </span><strong>Ravenscar</strong>: patterns for multitasking<a class="headerlink" href="#ravenscar-patterns-for-multitasking" title="Permalink to this headline">¶</a></h1>
+<p id="index-0">GNATColl provides a set of patterns for concurrent programming using
+Ravenscar-compliant semantics only. The core goal of the GNATCOLL.Ravenscar
+(sub) packages is to ease the development of high-integrity multitasking
+applications by factorizing common behavior into instantiable,
+Ravenscar-compliant, generic packages. Instances of such generic packages
+guarantee predictable timing behavior and thus permit the application of most
+common timing analysis techniques.</p>
+<div class="section" id="tasks">
+<h2><span class="section-number">12.1. </span>Tasks<a class="headerlink" href="#tasks" title="Permalink to this headline">¶</a></h2>
+<p>The <cite>GNATCOLL.Ravenscar.Simple_Cyclic_Task</cite> generic package lets
+instantiate a cyclic tasks executing the same operation at regular time
+intervals; on the other side, the
+<cite>GNATCOLL.Ravenscar.Simple_Sporadic_Task</cite> task lets instantiate sporadic
+tasks enforcing a minimum inter-release time.</p>
+</div>
+<div class="section" id="servers">
+<h2><span class="section-number">12.2. </span>Servers<a class="headerlink" href="#servers" title="Permalink to this headline">¶</a></h2>
+<p>Servers present a more sophisticated run-time semantics than tasks: for
+example, they can fulfill different kind of requests (see multiple queues
+servers).  <cite>Gnat.Ravenscar.Sporadic_Server_With_Callback</cite> and
+<cite>Gnat.Ravenscar.Timed_Out_Sporadic_Server</cite> are particularly interesting. The
+former shows how synchronous inter-task communication can be faked in Ravenscar
+(the only form of communication permitted by the profile is through shared
+resources): the server receives a request to fulfill, computes the result and
+returns it by invoking a call-back. The latter enforces both a minimum and a
+maximum inter-release time: the server automatically releases itself and
+invokes an appropriate handler if a request is not posted within a given period
+of time.</p>
+</div>
+<div class="section" id="timers">
+<h2><span class="section-number">12.3. </span>Timers<a class="headerlink" href="#timers" title="Permalink to this headline">¶</a></h2>
+<p><cite>Gnat.Ravenscar.Timers.One_Shot_Timer</cite> is the Ravenscar implementation of
+time-triggered event through Ada 2005 Timing Events.</p>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/adacore_transparent.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">12. <strong>Ravenscar</strong>: patterns for multitasking</a><ul>
+<li><a class="reference internal" href="#tasks">12.1. Tasks</a></li>
+<li><a class="reference internal" href="#servers">12.2. Servers</a></li>
+<li><a class="reference internal" href="#timers">12.3. Timers</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="email.html"
+                        title="previous chapter"><span class="section-number">11. </span><strong>Email</strong>: Processing email messages</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="storage_pools.html"
+                        title="next chapter"><span class="section-number">13. </span><strong>Storage Pools</strong>: controlling memory management</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="storage_pools.html" title="13. Storage Pools: controlling memory management"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="email.html" title="11. Email: Processing email messages"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">GNATColl 2021 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">12. </span><strong>Ravenscar</strong>: patterns for multitasking</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2007-2021, AdaCore.
+    </div>
+  </body>
+</html>

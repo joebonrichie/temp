@@ -1,0 +1,312 @@
+V "GNAT Lib v2021"
+A -O2
+A -gnatA
+A -gnatwu
+A -gnatwa
+A -gnaty
+A -gnatQ
+A -gnatn
+A -mtune=generic
+A -march=x86-64
+P SS ZX
+
+RN
+RV NO_EXCEPTIONS
+RV NO_RECURSION
+RV NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_UNCHECKED_DEALLOCATION
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U dom.core.elements%b	dom-core-elements.adb	18cb740a NE OO PK IU
+Z ada.exceptions%s	a-except.adb		a-except.ali
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+W dom%s			dom.ads			dom.ali
+W dom.core%s		dom-core.adb		dom-core.ali
+W dom.core.attrs%s	dom-core-attrs.adb	dom-core-attrs.ali
+W dom.core.documents%s	dom-core-documents.adb	dom-core-documents.ali
+W sax%s			sax.ads			sax.ali
+W sax.symbols%s		sax-symbols.adb		sax-symbols.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+
+U dom.core.elements%s	dom-core-elements.ads	92281457 EE NE OO PK IU
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+W dom%s			dom.ads			dom.ali
+W dom.core%s		dom-core.adb		dom-core.ali
+W dom.core.nodes%s	dom-core-nodes.adb	dom-core-nodes.ali
+
+D ada.ads		20210520051131 76789da1 ada%s
+D a-except.ads		20210520051128 946f3014 ada.exceptions%s
+D a-finali.ads		20210520051128 bf4f806b ada.finalization%s
+D a-stream.ads		20210520051129 119b8fb3 ada.streams%s
+D a-string.ads		20210520051129 90ac6797 ada.strings%s
+D a-sttebu.ads		20210520051129 18209c64 ada.strings.text_buffers%s
+D a-stuten.ads		20210520051129 808c40ad ada.strings.utf_encoding%s
+D a-tags.ads		20210520051130 9eaa38c6 ada.tags%s
+D a-unccon.ads		20210520051130 0e9b276f ada.unchecked_conversion%s
+D a-uncdea.ads		20210520051130 c3a8ac65 ada.unchecked_deallocation%s
+D dom.ads		20210519052322 2bd88f63 dom%s
+D dom-core.ads		20210519052322 3a4cc7f1 dom.core%s
+D dom-core-attrs.ads	20210519052322 73a71d1a dom.core.attrs%s
+D dom-core-documents.ads  20210519052322 a040c510 dom.core.documents%s
+D dom-core-elements.ads	20210519052322 aeb5e62f dom.core.elements%s
+D dom-core-elements.adb	20210519052322 b68ed7c7 dom.core.elements%b
+D dom-core-nodes.ads	20210519052322 06d13589 dom.core.nodes%s
+D interfac.ads		20210520051132 edec285f interfaces%s
+D sax.ads		20210519052322 17965ec6 sax%s
+D sax-encodings.ads	20210519052322 22d791a3 sax.encodings%s
+D sax-htable.ads	20210519052322 2df615ad sax.htable%s
+D sax-pointers.ads	20210519052322 d9877e85 sax.pointers%s
+D sax-symbols.ads	20210519052322 d3179de8 sax.symbols%s
+D sax-utils.ads		20210519052322 214aab19 sax.utils%s
+D system.ads		20210520051135 a2da961d system%s
+D s-exctab.ads		20210520051132 54135002 system.exception_table%s
+D s-finmas.ads		20210520051132 1ab4dba8 system.finalization_masters%s
+D s-finroo.ads		20210520051132 4ff27390 system.finalization_root%s
+D s-parame.ads		20210520051134 4752c4cb system.parameters%s
+D s-pooglo.ads		20210520051134 ede33ef8 system.pool_global%s
+D s-putima.ads		20210520051134 4e095881 system.put_images%s
+D s-secsta.ads		20210520051134 9b3ab94b system.secondary_stack%s
+D s-soflin.ads		20210520051134 a7318a92 system.soft_links%s
+D s-stache.ads		20210520051134 a37c21ec system.stack_checking%s
+D s-stalib.ads		20210520051134 472fbca8 system.standard_library%s
+D s-stoele.ads		20210520051134 2dc34a04 system.storage_elements%s
+D s-stoele.adb		20210520051134 ed88f8fb system.storage_elements%b
+D s-stopoo.ads		20210520051134 e9fa2dd8 system.storage_pools%s
+D s-stratt.ads		20210520051134 7bdda3fa system.stream_attributes%s
+D s-traent.ads		20210520051134 26a8d361 system.traceback_entries%s
+D s-unstyp.ads		20210520051134 2b077493 system.unsigned_types%s
+D unchconv.ads		20210520051135 ca2f9e18 unchecked_conversion%s
+D unchdeal.ads		20210520051135 214516a4 unchecked_deallocation%s
+D unicode.ads		20210519052322 a421878d unicode%s
+D unicode-ccs.ads	20210519052322 184e29de unicode.ccs%s
+D unicode-ces.ads	20210519052322 68f558ab unicode.ces%s
+D unicode-ces-utf32.ads	20210519052322 b5f035ac unicode.ces.utf32%s
+D unicode-ces-utf8.ads	20210519052322 dcbef85d unicode.ces.utf8%s
+D unicode-encodings.ads	20210519052322 d94939b2 unicode.encodings%s
+G a e
+G c Z s b [get_attribute dom__core__elements 36 13 none]
+G c Z s b [get_attribute_ns dom__core__elements 42 13 none]
+G c Z s b [set_attribute dom__core__elements 47 14 none]
+G c Z s b [set_attribute_ns dom__core__elements 57 14 none]
+G c Z s b [remove_attribute dom__core__elements 64 14 none]
+G c Z s b [remove_attribute_ns dom__core__elements 69 14 none]
+G c Z s b [set_id_attribute dom__core__elements 73 14 none]
+G c Z s b [set_id_attribute_ns dom__core__elements 86 14 none]
+G c Z s b [get_attribute_node dom__core__elements 99 13 none]
+G c Z s b [get_attribute_node_ns dom__core__elements 102 13 none]
+G c Z s b [set_attribute_node dom__core__elements 107 13 none]
+G c Z s b [set_attribute_node_ns dom__core__elements 111 13 none]
+G c Z s b [remove_attribute_node dom__core__elements 115 13 none]
+G c Z s b [remove_attribute_node_ns dom__core__elements 120 13 none]
+G c Z s b [set_id_attribute_node dom__core__elements 124 14 none]
+G c Z s b [get_elements_by_tag_name dom__core__elements 139 13 none]
+G c Z s b [get_elements_by_tag_name_ns dom__core__elements 147 13 none]
+G r c none [get_attribute dom__core__elements 36 13 none] [get_named_item dom__core__nodes 190 13 none]
+G r c none [get_attribute dom__core__elements 36 13 none] [node_value dom__core__nodes 41 13 none]
+G r c none [get_attribute_ns dom__core__elements 42 13 none] [get_named_item_ns dom__core__nodes 224 13 none]
+G r c none [get_attribute_ns dom__core__elements 42 13 none] [node_value dom__core__nodes 41 13 none]
+G r c none [set_attribute dom__core__elements 47 14 none] [owner_document dom__core__nodes 82 13 none]
+G r c none [set_attribute dom__core__elements 47 14 none] [create_attribute dom__core__documents 87 13 none]
+G r c none [set_attribute dom__core__elements 47 14 none] [set_node_value dom__core__nodes 48 14 none]
+G r c none [set_attribute dom__core__elements 47 14 none] [set_named_item_ns dom__core__nodes 236 14 none]
+G r c none [set_attribute_ns dom__core__elements 57 14 none] [owner_document dom__core__nodes 82 13 none]
+G r c none [set_attribute_ns dom__core__elements 57 14 none] [create_attribute_ns dom__core__documents 94 13 none]
+G r c none [set_attribute_ns dom__core__elements 57 14 none] [set_node_value dom__core__nodes 48 14 none]
+G r c none [set_attribute_ns dom__core__elements 57 14 none] [set_named_item_ns dom__core__nodes 236 14 none]
+G r c none [remove_attribute dom__core__elements 64 14 none] [remove_named_item dom__core__nodes 209 14 none]
+G r c none [remove_attribute_ns dom__core__elements 69 14 none] [remove_named_item_ns dom__core__nodes 246 14 none]
+G r c none [set_id_attribute dom__core__elements 73 14 none] [get_named_item dom__core__nodes 190 13 none]
+G r c none [set_id_attribute dom__core__elements 73 14 none] [owner_document dom__core__nodes 82 13 none]
+G r c none [set_id_attribute dom__core__elements 73 14 none] [document_add_id dom__core 371 14 none]
+G r c none [set_id_attribute dom__core__elements 73 14 none] [document_remove_id dom__core 377 14 none]
+G r c none [set_id_attribute_ns dom__core__elements 86 14 none] [get_named_item_ns dom__core__nodes 224 13 none]
+G r c none [set_id_attribute_ns dom__core__elements 86 14 none] [owner_document dom__core__nodes 82 13 none]
+G r c none [set_id_attribute_ns dom__core__elements 86 14 none] [document_add_id dom__core 371 14 none]
+G r c none [set_id_attribute_ns dom__core__elements 86 14 none] [document_remove_id dom__core 377 14 none]
+G r c none [get_attribute_node dom__core__elements 99 13 none] [get_named_item dom__core__nodes 190 13 none]
+G r c none [get_attribute_node_ns dom__core__elements 102 13 none] [get_named_item_ns dom__core__nodes 224 13 none]
+G r c none [set_attribute_node dom__core__elements 107 13 none] [owner_element dom__core__attrs 44 13 none]
+G r c none [set_attribute_node dom__core__elements 107 13 none] [set_named_item dom__core__nodes 200 14 none]
+G r c none [set_attribute_node_ns dom__core__elements 111 13 none] [owner_element dom__core__attrs 44 13 none]
+G r c none [set_attribute_node_ns dom__core__elements 111 13 none] [set_named_item_ns dom__core__nodes 236 14 none]
+G r c none [remove_attribute_node dom__core__elements 115 13 none] [remove_named_item dom__core__nodes 214 14 none]
+G r c none [set_id_attribute_node dom__core__elements 124 14 none] [owner_element dom__core__attrs 44 13 none]
+G r c none [set_id_attribute_node dom__core__elements 124 14 none] [owner_document dom__core__nodes 82 13 none]
+G r c none [set_id_attribute_node dom__core__elements 124 14 none] [document_add_id dom__core 371 14 none]
+G r c none [set_id_attribute_node dom__core__elements 124 14 none] [document_remove_id dom__core 377 14 none]
+G r s node_list [get_elements_by_tag_name dom__core__elements 139 13 none] [node_listIP dom__core 217 9 none]
+G r c none [get_elements_by_tag_name dom__core__elements 139 13 none] [child_nodes dom__core__nodes 52 13 none]
+G r c none [get_elements_by_tag_name dom__core__elements 139 13 none] [node_name dom__core__nodes 34 13 none]
+G r c none [get_elements_by_tag_name dom__core__elements 139 13 none] [append dom__core 364 14 none]
+G r s node_list [get_elements_by_tag_name_ns dom__core__elements 147 13 none] [node_listIP dom__core 217 9 none]
+G r c none [get_elements_by_tag_name_ns dom__core__elements 147 13 none] [child_nodes dom__core__nodes 52 13 none]
+G r c none [get_elements_by_tag_name_ns dom__core__elements 147 13 none] [local_name dom__core__nodes 99 13 none]
+G r c none [get_elements_by_tag_name_ns dom__core__elements 147 13 none] [Oeq sax__symbols 64 13 none]
+G r c none [get_elements_by_tag_name_ns dom__core__elements 147 13 none] [namespace_uri dom__core__nodes 85 13 none]
+G r c none [get_elements_by_tag_name_ns dom__core__elements 147 13 none] [append dom__core 364 14 none]
+X 11 dom.ads
+37K9*DOM 39e8 15|24r6 24r28 26r9 29r15 156r5 16|24r6 24r30 25r6 25r30 28r14
+. 240r30 243r31 332r5
+X 12 dom-core.ads
+38K13*Core 11|37k9 12|382e13 15|24r10 24r32 26r13 29r19 156r9 16|24r10 24r34
+. 25r10 25r34 28r18 240r34 243r35 332r9
+48A12*DOM_String{46|41A12}<integer> 15|28r50 36r51 37r14 43r39 43r64 44r14
+. 48r30 48r50 59r23 60r24 61r15 64r55 70r39 70r64 75r15 88r23 89r23 99r56
+. 103r39 103r64 139r62 149r23 150r20 16|34r51 35r14 51r39 51r64 52r14 69r30
+. 69r50 84r23 85r24 86r15 99r55 109r39 109r64 118r56 129r39 129r64 188r62
+. 224r23 225r20 265r15 290r23 291r23
+63n7*Element_Node{62E9} 16|201r27 238r27
+78e22 Node_Type{62E9} 16|201r15 238r15
+79P9*Node(78R9) 16|191r45 198r45 228r45 235r45
+82P12*Element{79P9} 15|28r34 36r35 43r14 48r14 58r14 64r39 70r14 74r15 87r23
+. 99r40 103r14 107r40 111r43 115r43 120r46 125r14 139r46 148r14 16|34r35
+. 51r14 69r14 83r14 99r39 109r14 118r40 129r14 139r40 153r43 168r43 181r46
+. 188r46 223r14 264r15 289r23 316r14
+83P12*Attr{79P9} 15|99r75 104r14 107r60 107r73 111r63 112r14 115r63 116r14
+. 120r66 121r14 125r33 16|37r22 54r22 71r24 88r24 119r14 130r14 139r60 139r73
+. 153r63 154r14 168r63 169r14 181r66 182r14 268r26 294r26 316r33
+95R9*Node_List 221e14 15|140r14 151r14 16|189r14 191r65 198r65 199r23 212r11
+. 226r14 228r65 235r65 236r23 253r11
+98R9*Named_Node_Map<95R9>
+179X4*Not_Found_Err 16|271r16 298r16 319r16
+186X4*Inuse_Attribute_Err 16|142r16 157r16
+211A9 Node_Array(79P9)<integer>
+212P9 Node_Array_Access(211A9)
+218p7*Items{212P9} 16|208r39 249r39
+219i7*Last{integer} 16|207r26 248r26
+306r13*Attributes{98R9} 16|37r51 55r15 75m31 92m31 101m31 111m34 121r35 132r38
+. 144m28 159m31 172m31
+310p13*Attr_Value{23|41P9} 16|278r50 280r68 305r52 307r68 326r52 328r68
+312p13*Owner_Element{79P9} 16|145m16 160m16 173m16
+316b13*Is_Id{boolean} 16|274m15 301m15 322m15
+364U14 Append 16|204s13 245s13
+371U14 Document_Add_Id 16|277s10 304s10 325s10
+373p7 Id{23|41P9} 16|278r36 305r36 326r36
+374p7 Elem{82P12} 16|278r62 305r64 326r64
+377U14 Document_Remove_Id 16|280s10 307s10 328s10
+379p7 Id{23|41P9} 16|280r53 307r53 328r53
+X 13 dom-core-attrs.ads
+26K18*Attrs 53e19 16|24w15 24r39
+39U14*Set_Value=40:30 16|74s7 91s7
+44V13*Owner_Element{12|82P12} 16|141s10 156s10 171s22 318s10
+X 14 dom-core-documents.ads
+24K18*Documents 168e23 16|25w15 25r39
+87V13*Create_Attribute{12|83P12} 16|71s32
+94V13*Create_Attribute_NS{12|83P12} 16|88s32
+X 15 dom-core-elements.ads
+26K18*Elements 12|38k13 15|156l14 156e22 16|28b23 332l14 332t22
+28V13*Get_Tag_Name=29:30{12|48A12}
+28p27 Elem{12|79P9}
+36V13*Get_Attribute{12|48A12} 36>28 36>44 16|34b13 44l8 44t21
+36p28 Elem{12|82P12} 16|34b28 37r46
+36a44 Name{12|48A12} 16|34b44 37r63
+42V13*Get_Attribute_NS{12|48A12} 43>7 43>23 43>51 16|50b13 62l8 62t24
+43p7 Elem{12|82P12} 16|51b7 55r10
+43a23 Namespace_URI{12|48A12} 16|51b23 55r27
+43a51 Local_Name{12|48A12} 16|51b51 55r42
+47U14*Set_Attribute 48>7 48>23 48>42 16|68b14 76l8 76t21
+48p7 Elem{12|82P12} 16|69b7 72r26 75r26
+48a23 Name{12|48A12} 16|69b23 72r33
+48a42 Value{12|48A12} 16|69b42 74r23
+57U14*Set_Attribute_NS 58>7 59>7 60>7 61>7 16|82b14 93l8 93t24
+58p7 Elem{12|82P12} 16|83b7 89r26 92r26
+59a7 Namespace_URI{12|48A12} 16|84b7 89r33
+60a7 Qualified_Name{12|48A12} 16|85b7 89r48
+61a7 Value{12|48A12} 16|86b7 91r23
+64U14*Remove_Attribute 64>32 64>48 16|99b14 102l8 102t24
+64p32 Elem{12|82P12} 16|99b32 101r26
+64a48 Name{12|48A12} 16|99b48 101r43
+69U14*Remove_Attribute_NS 70>7 70>23 70>51 16|108b14 112l8 112t27
+70p7 Elem{12|82P12} 16|109b7 111r29
+70a23 Namespace_URI{12|48A12} 16|109b23 111r46
+70a51 Local_Name{12|48A12} 16|109b51 111r61
+73U14*Set_Id_Attribute 74>7 75>7 76>7 16|263b14 282l8 282t24
+74p7 Elem{12|82P12} 16|264b7 268r54 278r29 278r70 280r46
+75a7 Name{12|48A12} 16|265b7 268r60
+76b7 Is_Id{boolean} 16|266b7 274r24 276r10
+86U14*Set_Id_Attribute_NS 87>7 88>7 89>7 90>7 16|288b14 309l8 309t27
+87p7 Elem{12|82P12} 16|289b7 295r10 305r29 305r72 307r46
+88a7 Namespace_URI{12|48A12} 16|290b7 295r16
+89a7 Local_Name{12|48A12} 16|291b7 295r31
+90b7 Is_Id{boolean} 16|292b7 301r24 303r10
+99V13*Get_Attribute_Node{12|83P12} 99>33 99>49 16|118b13 122l8 122t26 268s34
+99p33 Elem{12|82P12} 16|118b33 121r30
+99a49 Name{12|48A12} 16|118b49 121r47
+102V13*Get_Attribute_Node_NS{12|83P12} 103>7 103>23 103>51 16|128b13 133l8
+. 133t29 294s34
+103p7 Elem{12|82P12} 16|129b7 132r33
+103a23 Namespace_URI{12|48A12} 16|129b23 132r50
+103a51 Local_Name{12|48A12} 16|129b51 132r65
+107V13*Set_Attribute_Node{12|83P12} 107>33 107>49 16|139b13 147l8 147t26
+107p33 Elem{12|82P12} 16|139b33 144r23 145r33
+107p49 New_Attr{12|83P12} 16|139b49 141r25 144r40 145r7 146r14
+111V13*Set_Attribute_Node_NS{12|83P12} 111>36 111>52 16|153b13 162l8 162t29
+111p36 Elem{12|82P12} 16|153b36 159r26 160r33
+111p52 New_Attr{12|83P12} 16|153b52 156r25 159r43 160r7 161r14
+115V13*Remove_Attribute_Node{12|83P12} 115>36 115>52 16|168b13 175l8 175t29
+. 182r27
+115p36 Elem{12|82P12} 16|168b36 171r49 172r26
+115p52 Old_Attr{12|83P12} 16|168b52 171r37 172r43 173r7 174r14
+120V13*Remove_Attribute_Node_NS{12|83P12} 120>39 120>55 16|181b13
+120p39 Elem{12|82P12} 16|181b39
+120p55 Old_Attr{12|83P12} 16|181b55
+124U14*Set_Id_Attribute_Node 125>7 125>23 125>39 16|315b14 330l8 330t29
+125p7 Elem{12|82P12} 16|316b7 318r37 326r29 326r72 328r46
+125p23 Id_Attr{12|83P12} 16|316b23 318r25 322r7 326r44 328r60
+125b39 Is_Id{boolean} 16|316b39 322r24 324r10
+139V13*Get_Elements_By_Tag_Name{12|95R9} 139>39 139>55 16|188b13 216l8 216t32
+139p39 Elem{12|82P12} 16|188b39 214r31
+139a55 Name{12|48A12} 16|188b55 202r22 202r57
+147V13*Get_Elements_By_Tag_Name_NS{12|95R9} 148>7 149>7 150>7 16|222b13 257l8
+. 257t35
+148p7 Elem{12|82P12} 16|223b7 255r31
+149a7 Namespace_URI{12|48A12} 16|224b7 239r22 240r65
+150a7 Local_Name{12|48A12} 16|225b7 242r15 243r64
+X 16 dom-core-elements.adb
+37p7 Att{12|83P12} 39r10 40r29
+54p7 Att{12|83P12} 57r10 58r29
+71p7 Att{12|83P12} 74r18 75r43
+88p7 Att{12|83P12} 91r18 92r43
+191U17 Get_Elements_From_Node 191>41 191=51 198b17 208s13 210l11 210t33 214s7
+191p41 N{12|79P9} 198b41 199r49 201r13 202r52 204r27
+191r51 List{12|95R9} 198b51 204m21 208m50
+199r10 L{12|95R9} 207r24 208r37
+207i14 J{integer} 208r46
+212r7 L{12|95R9} 214m37 214r37 215r14
+228U17 Get_Elements_From_Node 228>41 228=51 235b17 249s13 251l11 251t33 255s7
+228p41 N{12|79P9} 235b41 236r49 238r13 240r60 243r58 245r27
+228r51 List{12|95R9} 235b51 245m21 249m50
+236r10 L{12|95R9} 248r24 249r37
+248i14 J{integer} 249r46
+253r7 L{12|95R9} 255m37 255r37 256r14
+268p7 Id_Attr{12|83P12} 270r10 274r7 278r42 280r60
+294p7 Id_Attr{12|83P12} 297r10 301r7 305r44 307r60
+X 17 dom-core-nodes.ads
+28K18*Nodes 15|24w15 24r37 29r24 16|240r39 243r40 17|332e19
+34V13*Node_Name{12|48A12} 15|29r30 16|202s41
+41V13*Node_Value{12|48A12} 16|40s17 58s17
+52V13*Child_Nodes{12|95R9} 16|199s36 236s36
+82V13*Owner_Document{12|79P9} 16|72s10 89s10 278s13 280s30 305s13 307s30
+. 326s13 328s30
+85V13*Namespace_URI{12|48A12} 16|240s45
+99V13*Local_Name{23|41P9} 16|243s46
+190V13*Get_Named_Item{12|79P9} 16|37s30 121s14
+200U14*Set_Named_Item 16|144s7
+209U14*Remove_Named_Item 16|101s7
+214U14*Remove_Named_Item 16|172s7
+224V13*Get_Named_Item_NS{12|79P9} 16|54s30 132s14
+236U14*Set_Named_Item_NS 16|75s7 92s7 159s7
+246U14*Remove_Named_Item_NS 16|111s7
+X 19 sax.ads
+33K9*Sax 16|26r6 26r30 19|35e8
+X 23 sax-symbols.ads
+33K13*Symbols 16|26w10 26r34 23|103e16
+41P9*Symbol<46|43P9> 16|243r23
+64V14*"="{boolean} 16|243s62
+X 46 unicode-ces.ads
+41A12*Byte_Sequence{string}<integer>
+43P9*Cst_Byte_Sequence_Access(41A12)
+

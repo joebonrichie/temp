@@ -1,0 +1,87 @@
+V "GNAT Lib v2021"
+A -O2
+A -gnatA
+A -gnatn
+A -gnatwa
+A -gnatwC
+A -gnatwJ
+A -mtune=generic
+A -march=x86-64
+P SS ZX
+
+RN
+RV NO_IMPLICIT_HEAP_ALLOCATIONS
+RV NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLICIT_LOOPS
+RV NO_ELABORATION_CODE
+RV NO_OBSOLESCENT_FEATURES
+
+U gnatcoll.os%s		gnatcoll-os.ads		aa3ea89a EE OO PK IU
+W ada%s			ada.ads			ada.ali
+W ada.characters%s	a-charac.ads		a-charac.ali
+W ada.characters.conversions%s  a-chacon.adb	a-chacon.ali
+W gnatcoll%s		gnatcoll.ads		gnatcoll.ali
+W system%s		system.ads		system.ali
+Z system.exception_table%s  s-exctab.adb	s-exctab.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+Z system.standard_library%s  s-stalib.adb	s-stalib.ali
+
+D ada.ads		20210520051131 76789da1 ada%s
+D a-charac.ads		20210520051128 2d3ec45b ada.characters%s
+D a-chacon.ads		20210520051128 5b23f5eb ada.characters.conversions%s
+D a-except.ads		20210520051128 946f3014 ada.exceptions%s
+D a-unccon.ads		20210520051130 0e9b276f ada.unchecked_conversion%s
+D gnatcoll.ads		20210519051041 6a5da479 gnatcoll%s
+D gnatcoll-os.ads	20210519051041 399a6f15 gnatcoll.os%s
+D system.ads		20210520051135 a2da961d system%s
+D s-exctab.ads		20210520051132 54135002 system.exception_table%s
+D s-exctab.adb		20210520051132 c756f391 system.exception_table%b
+D s-parame.ads		20210520051134 4752c4cb system.parameters%s
+D s-secsta.ads		20210520051134 9b3ab94b system.secondary_stack%s
+D s-soflin.ads		20210520051134 a7318a92 system.soft_links%s
+D s-stache.ads		20210520051134 a37c21ec system.stack_checking%s
+D s-stalib.ads		20210520051134 472fbca8 system.standard_library%s
+D s-stoele.ads		20210520051134 2dc34a04 system.storage_elements%s
+D s-traent.ads		20210520051134 26a8d361 system.traceback_entries%s
+G a e
+X 1 ada.ads
+16K9*Ada 20e8 7|24r6 73r7
+X 2 a-charac.ads
+16K13*Characters 18e19 7|24r10 73r11
+X 3 a-chacon.ads
+36K24*Conversions 86e31 7|24w21 73r22
+48V13*To_Wide_String{wide_string} 7|73s34
+X 6 gnatcoll.ads
+24K9*GNATCOLL 27e13 7|26r9 82r5
+X 7 gnatcoll-os.ads
+26K18*OS 6|24k9 7|67E4 82l14 82e16
+30X4*OS_Error
+33E9*OS_Type 33e42
+33n21*Windows{33E9}
+33n30*Unix{33E9}
+33n36*MacOS{33E9}
+36E9*Filename_Casing_Policy 41e8
+37n7*Lower_Case{36E9}
+38n7*Upper_Case{36E9}
+39n7*Preserving{36E9}
+40n7*Sensitive{36E9}
+46M9*C_String<8|67M9> 48r30 49r30 67r31 67r43 69r30 69r42
+48m4*Null_C_String{46M9} 67c4
+49m4*Empty_C_String{46M9} 69c4
+52M9*C_WString<8|67M9> 54r31 55r31 71r31 71r44 74r31 75r7
+54m4*Null_C_WString{52M9} 71c4
+55m4*Empty_C_WString{52M9} 74c4
+58M9*C_String_Array<8|67M9> 59r35 77r35 78r7
+59m4*Null_C_String_Array{58M9} 77c4
+62M9*C_WString_Array<8|67M9> 63r36 80r36 81r7
+63m4*Null_C_WString_Array{62M9} 80c4
+68a4 Empty_String{string} 69r52
+72a4 Empty_WString{wide_string} 75r18
+X 8 system.ads
+37K9*System 7|23w6 46r25 52r26 58r31 62r32 67r53 71r55 78r23 81r24 8|154e11
+67M9*Address 7|46r32 52r33 58r38 62r39
+69m4*Null_Address{67M9} 7|67r60 71r62 78r30 81r31
+

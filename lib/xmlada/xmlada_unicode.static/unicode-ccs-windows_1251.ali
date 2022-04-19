@@ -1,0 +1,360 @@
+V "GNAT Lib v2021"
+A -O2
+A -gnatA
+A -gnatwu
+A -gnatwa
+A -gnaty
+A -gnatQ
+A -gnatn
+A -mtune=generic
+A -march=x86-64
+P ZX
+
+RN
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U unicode.ccs.windows_1251%b  unicode-ccs-windows_1251.adb  4b4b6a37 NE OO PK
+W ada%s			ada.ads			ada.ali
+W ada.exceptions%s	a-except.adb		a-except.ali
+Z system.img_uns%s	s-imguns.ads		s-imguns.ali
+Z system.unsigned_types%s  s-unstyp.ads		s-unstyp.ali
+W unicode%s		unicode.adb		unicode.ali
+W unicode.ccs%s		unicode-ccs.adb		unicode-ccs.ali
+W unicode.names%s	unicode-names.ads	unicode-names.ali
+W unicode.names.basic_latin%s  unicode-names-basic_latin.ads  unicode-names-basic_latin.ali
+W unicode.names.currency_symbols%s  unicode-names-currency_symbols.ads  unicode-names-currency_symbols.ali
+W unicode.names.cyrillic%s  unicode-names-cyrillic.ads  unicode-names-cyrillic.ali
+W unicode.names.general_punctuation%s  unicode-names-general_punctuation.ads  unicode-names-general_punctuation.ali
+W unicode.names.latin_1_supplement%s  unicode-names-latin_1_supplement.ads  unicode-names-latin_1_supplement.ali
+W unicode.names.letterlike_symbols%s  unicode-names-letterlike_symbols.ads  unicode-names-letterlike_symbols.ali
+
+U unicode.ccs.windows_1251%s  unicode-ccs-windows_1251.ads  ba76c289 EE NE OO PK
+W unicode.ccs%s		unicode-ccs.adb		unicode-ccs.ali
+
+D ada.ads		20210520051131 76789da1 ada%s
+D a-except.ads		20210520051128 946f3014 ada.exceptions%s
+D a-unccon.ads		20210520051130 0e9b276f ada.unchecked_conversion%s
+D system.ads		20210520051135 a2da961d system%s
+D s-exctab.ads		20210520051132 54135002 system.exception_table%s
+D s-imageu.ads		20210520051133 525c30c6 system.image_u%s
+D s-imageu.adb		20210520051133 2d0619dc system.image_u%b
+D s-imguns.ads		20210520051133 0e4da2ac system.img_uns%s
+D s-parame.ads		20210520051134 4752c4cb system.parameters%s
+D s-stalib.ads		20210520051134 472fbca8 system.standard_library%s
+D s-traent.ads		20210520051134 26a8d361 system.traceback_entries%s
+D s-unstyp.ads		20210520051134 2b077493 system.unsigned_types%s
+D unicode.ads		20210519052322 a421878d unicode%s
+D unicode-ccs.ads	20210519052322 184e29de unicode.ccs%s
+D unicode-ccs-windows_1251.ads  20210519052322 a238eb57 unicode.ccs.windows_1251%s
+D unicode-ccs-windows_1251.adb  20210519052322 db0fb6e8 unicode.ccs.windows_1251%b
+D unicode-names.ads	20210519052322 fec77f75 unicode.names%s
+D unicode-names-basic_latin.ads  20210519052322 aa07d1b5 unicode.names.basic_latin%s
+D unicode-names-currency_symbols.ads  20210519052322 09f1d640 unicode.names.currency_symbols%s
+D unicode-names-cyrillic.ads  20210519052322 080cdfec unicode.names.cyrillic%s
+D unicode-names-general_punctuation.ads  20210519052322 b5be47bf unicode.names.general_punctuation%s
+D unicode-names-latin_1_supplement.ads  20210519052322 862938c4 unicode.names.latin_1_supplement%s
+D unicode-names-letterlike_symbols.ads  20210519052322 3e7ea0fe unicode.names.letterlike_symbols%s
+G a e
+G c Z s b [to_unicode unicode__ccs__windows_1251 30 13 none]
+G c Z s b [to_windows_1251 unicode__ccs__windows_1251 31 13 none]
+X 1 ada.ads
+16K9*Ada 20e8 16|24r6 24r44
+X 2 a-except.ads
+44K13*Exceptions 289e19 16|24w10 24r48
+80U14*Raise_Exception 16|302s10 582s16
+X 13 unicode.ads
+111K9*Unicode 157e12 15|26r9 37r5 16|25r6 25r44 26r6 26r44 27r6 27r44 28r6
+. 28r44 29r6 30r5 31r6 32r5 34r14 85r20 370r18 590r5
+114M9*Unicode_Char 15|30r37 30r58 31r37 31r58 16|36r25 38r37 38r63 299r32
+. 299r53 304r23 318r37 318r58 584r29
+X 14 unicode-ccs.ads
+31K17*CCS 13|111k9 14|72e16 15|26r17 37r13 16|34r22 590r13
+44P9*Conversion_Function(13|114M9)
+47R9*Character_Set 50e14 15|33r42
+48p7*To_Unicode{44P9} 15|34m7
+49p7*To_CS{44P9} 15|35m7
+63X4*Invalid_Code 16|303r13 583r19
+X 15 unicode-ccs-windows_1251.ads
+26K21*Windows_1251 14|31k17 15|37l17 37e29 16|34b26 590l17 590t29
+28a4*Name1{string}
+30V13*To_Unicode{13|114M9} 30>30 34r21 16|299b13 312l8 312t18
+30m30 Char{13|114M9} 16|299b25 301r10 304r43 306r13 307r17 310r33
+31V13*To_Windows_1251{13|114M9} 31>30 35r21 16|318b13 588l8 588t23
+31m30 Char{13|114M9} 16|318b30 320r10 321r17 323r15 584r49
+33r4*Windows_1251_Character_Set{14|47R9}
+X 16 unicode-ccs-windows_1251.adb
+36m4 Undefined{13|114M9} 190r20 475r18
+38a4 To_Unicode_Arr(13|114M9) 301r17 306r20 310r17 320r17
+X 17 unicode-names.ads
+6K17*Names 16|25r14 25r52 26r14 26r52 27r14 27r52 28r14 28r52 29r14 30r13
+. 31r14 32r13 85r28 370r26 17|8e18
+X 18 unicode-names-basic_latin.ads
+4K23*Basic_Latin 16|26w20 26r58 85r34 370r32 18|210e30
+11m4*Start_Of_Heading{13|114M9} 16|39r20 324r18
+14m4*Start_Of_Text{13|114M9} 16|40r20 325r18
+17m4*End_Of_Text{13|114M9} 16|41r20 326r18
+19m4*End_Of_Transmission{13|114M9} 16|42r20 327r18
+22m4*Enquiry{13|114M9} 16|43r20 328r18
+24m4*Acknowledge{13|114M9} 16|44r20 329r18
+26m4*Alert{13|114M9} 16|45r20 330r18
+28m4*Backspace{13|114M9} 16|46r20 331r18
+31m4*Horizontal_Tabulation=32:28{13|114M9} 16|47r20 332r18
+37m4*Line_Feed{13|114M9} 16|48r20 333r18
+44m4*Vertical_Tabulation=45:28{13|114M9} 16|49r20 334r18
+48m4*Form_Feed{13|114M9} 16|50r20 335r18
+50m4*Carriage_Return{13|114M9} 16|51r20 336r18
+53m4*Shift_Out{13|114M9} 16|52r20 337r18
+56m4*Shift_In{13|114M9} 16|53r20 338r18
+59m4*Data_Link_Escape{13|114M9} 16|54r20 339r18
+62m4*Device_Control_One{13|114M9} 16|55r20 340r18
+65m4*Device_Control_Two{13|114M9} 16|56r20 341r18
+68m4*Device_Control_Three{13|114M9} 16|57r20 342r18
+71m4*Device_Control_Four{13|114M9} 16|58r20 343r18
+74m4*Negative_Acknowledge{13|114M9} 16|59r20 344r18
+77m4*Synchronous_Idle{13|114M9} 16|60r20 345r18
+80m4*End_Of_Transmission_Block{13|114M9} 16|61r20 346r18
+83m4*Cancel{13|114M9} 16|62r20 347r18
+85m4*End_Of_Medium{13|114M9} 16|63r20 348r18
+88m4*Substitute{13|114M9} 16|64r20 349r18
+90m4*Escape{13|114M9} 16|65r20 350r18
+93m4*File_Separator=94:28{13|114M9} 16|66r20 351r18
+98m4*Group_Separator=99:28{13|114M9} 16|67r20 352r18
+103m4*Record_Separator=104:28{13|114M9} 16|68r20 353r18
+108m4*Unit_Separator=109:28{13|114M9} 16|69r20 354r18
+112m4*Space{13|114M9} 16|70r20 355r18
+114m4*Exclamation_Mark{13|114M9} 16|71r20 356r18
+115m4*Quotation_Mark{13|114M9} 16|72r20 357r18
+116m4*Number_Sign{13|114M9} 16|73r20 358r18
+117m4*Dollar_Sign{13|114M9} 16|74r20 359r18
+118m4*Percent_Sign{13|114M9} 16|75r20 360r18
+119m4*Ampersand{13|114M9} 16|76r20 361r18
+120m4*Apostrophe{13|114M9} 16|77r20 362r18
+121m4*Left_Parenthesis{13|114M9} 16|78r20 363r18
+122m4*Right_Parenthesis{13|114M9} 16|79r20 364r18
+123m4*Asterisk{13|114M9} 16|80r20 365r18
+124m4*Plus_Sign{13|114M9} 16|81r20 366r18
+125m4*Comma{13|114M9} 16|82r20 367r18
+126m4*Hyphen_Minus{13|114M9} 16|83r20 368r18
+127m4*Full_Stop{13|114M9} 16|84r20 369r18
+128m4*Solidus{13|114M9} 16|85r46 370r44
+129m4*Digit_Zero{13|114M9} 16|86r20 371r18
+130m4*Digit_One{13|114M9} 16|87r20 372r18
+131m4*Digit_Two{13|114M9} 16|88r20 373r18
+132m4*Digit_Three{13|114M9} 16|89r20 374r18
+133m4*Digit_Four{13|114M9} 16|90r20 375r18
+134m4*Digit_Five{13|114M9} 16|91r20 376r18
+135m4*Digit_Six{13|114M9} 16|92r20 377r18
+136m4*Digit_Seven{13|114M9} 16|93r20 378r18
+137m4*Digit_Eight{13|114M9} 16|94r20 379r18
+138m4*Digit_Nine{13|114M9} 16|95r20 380r18
+139m4*Colon{13|114M9} 16|96r20 381r18
+140m4*Semicolon{13|114M9} 16|97r20 382r18
+141m4*Less_Than_Sign{13|114M9} 16|98r20 383r18
+142m4*Equals_Sign{13|114M9} 16|99r20 384r18
+143m4*Greater_Than_Sign{13|114M9} 16|100r20 385r18
+144m4*Question_Mark{13|114M9} 16|101r20 386r18
+145m4*Commercial_At{13|114M9} 16|102r20 387r18
+146m4*Latin_Capital_Letter_A{13|114M9} 16|103r20 388r18
+147m4*Latin_Capital_Letter_B{13|114M9} 16|104r20 389r18
+148m4*Latin_Capital_Letter_C{13|114M9} 16|105r20 390r18
+149m4*Latin_Capital_Letter_D{13|114M9} 16|106r20 391r18
+150m4*Latin_Capital_Letter_E{13|114M9} 16|107r20 392r18
+151m4*Latin_Capital_Letter_F{13|114M9} 16|108r20 393r18
+152m4*Latin_Capital_Letter_G{13|114M9} 16|109r20 394r18
+153m4*Latin_Capital_Letter_H{13|114M9} 16|110r20 395r18
+154m4*Latin_Capital_Letter_I{13|114M9} 16|111r20 396r18
+155m4*Latin_Capital_Letter_J{13|114M9} 16|112r20 397r18
+156m4*Latin_Capital_Letter_K{13|114M9} 16|113r20 398r18
+157m4*Latin_Capital_Letter_L{13|114M9} 16|114r20 399r18
+158m4*Latin_Capital_Letter_M{13|114M9} 16|115r20 400r18
+159m4*Latin_Capital_Letter_N{13|114M9} 16|116r20 401r18
+160m4*Latin_Capital_Letter_O{13|114M9} 16|117r20 402r18
+161m4*Latin_Capital_Letter_P{13|114M9} 16|118r20 403r18
+162m4*Latin_Capital_Letter_Q{13|114M9} 16|119r20 404r18
+163m4*Latin_Capital_Letter_R{13|114M9} 16|120r20 405r18
+164m4*Latin_Capital_Letter_S{13|114M9} 16|121r20 406r18
+165m4*Latin_Capital_Letter_T{13|114M9} 16|122r20 407r18
+166m4*Latin_Capital_Letter_U{13|114M9} 16|123r20 408r18
+167m4*Latin_Capital_Letter_V{13|114M9} 16|124r20 409r18
+168m4*Latin_Capital_Letter_W{13|114M9} 16|125r20 410r18
+169m4*Latin_Capital_Letter_X{13|114M9} 16|126r20 411r18
+170m4*Latin_Capital_Letter_Y{13|114M9} 16|127r20 412r18
+171m4*Latin_Capital_Letter_Z{13|114M9} 16|128r20 413r18
+172m4*Left_Square_Bracket{13|114M9} 16|129r20 414r18
+173m4*Reverse_Solidus{13|114M9} 16|130r20 415r18
+174m4*Right_Square_Bracket{13|114M9} 16|131r20 416r18
+175m4*Circumflex_Accent{13|114M9} 16|132r20 417r18
+176m4*Low_Line{13|114M9} 16|133r20 418r18
+177m4*Grave_Accent{13|114M9} 16|134r20 419r18
+178m4*Latin_Small_Letter_A{13|114M9} 16|135r20 420r18
+179m4*Latin_Small_Letter_B{13|114M9} 16|136r20 421r18
+180m4*Latin_Small_Letter_C{13|114M9} 16|137r20 422r18
+181m4*Latin_Small_Letter_D{13|114M9} 16|138r20 423r18
+182m4*Latin_Small_Letter_E{13|114M9} 16|139r20 424r18
+183m4*Latin_Small_Letter_F{13|114M9} 16|140r20 425r18
+184m4*Latin_Small_Letter_G{13|114M9} 16|141r20 426r18
+185m4*Latin_Small_Letter_H{13|114M9} 16|142r20 427r18
+186m4*Latin_Small_Letter_I{13|114M9} 16|143r20 428r18
+187m4*Latin_Small_Letter_J{13|114M9} 16|144r20 429r18
+188m4*Latin_Small_Letter_K{13|114M9} 16|145r20 430r18
+189m4*Latin_Small_Letter_L{13|114M9} 16|146r20 431r18
+190m4*Latin_Small_Letter_M{13|114M9} 16|147r20 432r18
+191m4*Latin_Small_Letter_N{13|114M9} 16|148r20 433r18
+192m4*Latin_Small_Letter_O{13|114M9} 16|149r20 434r18
+193m4*Latin_Small_Letter_P{13|114M9} 16|150r20 435r18
+194m4*Latin_Small_Letter_Q{13|114M9} 16|151r20 436r18
+195m4*Latin_Small_Letter_R{13|114M9} 16|152r20 437r18
+196m4*Latin_Small_Letter_S{13|114M9} 16|153r20 438r18
+197m4*Latin_Small_Letter_T{13|114M9} 16|154r20 439r18
+198m4*Latin_Small_Letter_U{13|114M9} 16|155r20 440r18
+199m4*Latin_Small_Letter_V{13|114M9} 16|156r20 441r18
+200m4*Latin_Small_Letter_W{13|114M9} 16|157r20 442r18
+201m4*Latin_Small_Letter_X{13|114M9} 16|158r20 443r18
+202m4*Latin_Small_Letter_Y{13|114M9} 16|159r20 444r18
+203m4*Latin_Small_Letter_Z{13|114M9} 16|160r20 445r18
+204m4*Left_Curly_Bracket{13|114M9} 16|161r20 446r18
+205m4*Vertical_Line{13|114M9} 16|162r20 447r18
+206m4*Right_Curly_Bracket{13|114M9} 16|163r20 448r18
+207m4*Tilde{13|114M9} 16|164r20 449r18
+208m4*Delete{13|114M9} 16|165r20 450r18
+X 19 unicode-names-currency_symbols.ads
+4K23*Currency_Symbols 16|28w20 28r58 19|39e35
+20m4*Euro_Sign{13|114M9} 16|174r20 459r18
+X 20 unicode-names-cyrillic.ads
+4K23*Cyrillic 16|25w20 25r58 20|318e27
+9m4*Cyrillic_Capital_Letter_Io{13|114M9} 16|206r20 491r18
+10m4*Cyrillic_Capital_Letter_Dje{13|114M9} 16|166r20 451r18
+11m4*Cyrillic_Capital_Letter_Gje{13|114M9} 16|167r20 452r18
+12m4*Cyrillic_Capital_Letter_Ukrainian_Ie{13|114M9} 16|208r20 493r18
+13m4*Cyrillic_Capital_Letter_Dze{13|114M9} 16|227r20 514r18
+14m4*Cyrillic_Capital_Letter_Byelorussian_Ukrainian_I{13|114M9} 16|216r20
+. 501r18
+16m4*Cyrillic_Capital_Letter_Yi{13|114M9} 16|213r20 498r18
+17m4*Cyrillic_Capital_Letter_Je{13|114M9} 16|201r20 486r18
+18m4*Cyrillic_Capital_Letter_Lje{13|114M9} 16|176r20 461r18
+19m4*Cyrillic_Capital_Letter_Nje{13|114M9} 16|178r20 463r18
+20m4*Cyrillic_Capital_Letter_Tshe{13|114M9} 16|180r20 465r18
+21m4*Cyrillic_Capital_Letter_Kje{13|114M9} 16|179r20 464r18
+23m4*Cyrillic_Capital_Letter_Short_U{13|114M9} 16|199r20 484r18
+24m4*Cyrillic_Capital_Letter_Dzhe{13|114M9} 16|181r20 466r18
+25m4*Cyrillic_Capital_Letter_A{13|114M9} 16|230r20 517r18
+26m4*Cyrillic_Capital_Letter_Be{13|114M9} 16|231r20 518r18
+27m4*Cyrillic_Capital_Letter_Ve{13|114M9} 16|232r20 519r18
+28m4*Cyrillic_Capital_Letter_Ghe{13|114M9} 16|233r20 520r18
+29m4*Cyrillic_Capital_Letter_De{13|114M9} 16|234r20 521r18
+30m4*Cyrillic_Capital_Letter_Ie{13|114M9} 16|235r20 522r18
+31m4*Cyrillic_Capital_Letter_Zhe{13|114M9} 16|236r20 523r18
+32m4*Cyrillic_Capital_Letter_Ze{13|114M9} 16|237r20 524r18
+33m4*Cyrillic_Capital_Letter_I{13|114M9} 16|238r20 525r18
+34m4*Cyrillic_Capital_Letter_Short_I{13|114M9} 16|239r20 526r18
+35m4*Cyrillic_Capital_Letter_Ka{13|114M9} 16|240r20 527r18
+36m4*Cyrillic_Capital_Letter_El{13|114M9} 16|241r20 528r18
+37m4*Cyrillic_Capital_Letter_Em{13|114M9} 16|242r20 529r18
+38m4*Cyrillic_Capital_Letter_En{13|114M9} 16|243r20 530r18
+39m4*Cyrillic_Capital_Letter_O{13|114M9} 16|244r20 531r18
+40m4*Cyrillic_Capital_Letter_Pe{13|114M9} 16|245r20 532r18
+41m4*Cyrillic_Capital_Letter_Er{13|114M9} 16|246r20 533r18
+42m4*Cyrillic_Capital_Letter_Es{13|114M9} 16|247r20 534r18
+43m4*Cyrillic_Capital_Letter_Te{13|114M9} 16|248r20 535r18
+44m4*Cyrillic_Capital_Letter_U{13|114M9} 16|249r20 536r18
+45m4*Cyrillic_Capital_Letter_Ef{13|114M9} 16|250r20 537r18
+46m4*Cyrillic_Capital_Letter_Ha{13|114M9} 16|251r20 538r18
+47m4*Cyrillic_Capital_Letter_Tse{13|114M9} 16|252r20 539r18
+48m4*Cyrillic_Capital_Letter_Che{13|114M9} 16|253r20 540r18
+49m4*Cyrillic_Capital_Letter_Sha{13|114M9} 16|254r20 541r18
+50m4*Cyrillic_Capital_Letter_Shcha{13|114M9} 16|255r20 542r18
+51m4*Cyrillic_Capital_Letter_Hard_Sign{13|114M9} 16|256r20 543r18
+52m4*Cyrillic_Capital_Letter_Yeru{13|114M9} 16|257r20 544r18
+53m4*Cyrillic_Capital_Letter_Soft_Sign{13|114M9} 16|258r20 545r18
+54m4*Cyrillic_Capital_Letter_E{13|114M9} 16|259r20 546r18
+55m4*Cyrillic_Capital_Letter_Yu{13|114M9} 16|260r20 547r18
+56m4*Cyrillic_Capital_Letter_Ya{13|114M9} 16|261r20 548r18
+57m4*Cyrillic_Small_Letter_A{13|114M9} 16|262r20 549r18
+58m4*Cyrillic_Small_Letter_Be{13|114M9} 16|263r20 550r18
+59m4*Cyrillic_Small_Letter_Ve{13|114M9} 16|264r20 551r18
+60m4*Cyrillic_Small_Letter_Ghe{13|114M9} 16|265r20 552r18
+61m4*Cyrillic_Small_Letter_De{13|114M9} 16|266r20 553r18
+62m4*Cyrillic_Small_Letter_Ie{13|114M9} 16|267r20 554r18
+63m4*Cyrillic_Small_Letter_Zhe{13|114M9} 16|268r20 555r18
+64m4*Cyrillic_Small_Letter_Ze{13|114M9} 16|269r20 556r18
+65m4*Cyrillic_Small_Letter_I{13|114M9} 16|270r20 557r18
+66m4*Cyrillic_Small_Letter_Short_I{13|114M9} 16|271r20 558r18
+67m4*Cyrillic_Small_Letter_Ka{13|114M9} 16|272r20 559r18
+68m4*Cyrillic_Small_Letter_El{13|114M9} 16|273r20 560r18
+69m4*Cyrillic_Small_Letter_Em{13|114M9} 16|274r20 561r18
+70m4*Cyrillic_Small_Letter_En{13|114M9} 16|275r20 562r18
+71m4*Cyrillic_Small_Letter_O{13|114M9} 16|276r20 563r18
+72m4*Cyrillic_Small_Letter_Pe{13|114M9} 16|277r20 564r18
+73m4*Cyrillic_Small_Letter_Er{13|114M9} 16|278r20 565r18
+74m4*Cyrillic_Small_Letter_Es{13|114M9} 16|279r20 566r18
+75m4*Cyrillic_Small_Letter_Te{13|114M9} 16|280r20 567r18
+76m4*Cyrillic_Small_Letter_U{13|114M9} 16|281r20 568r18
+77m4*Cyrillic_Small_Letter_Ef{13|114M9} 16|282r20 569r18
+78m4*Cyrillic_Small_Letter_Ha{13|114M9} 16|283r20 570r18
+79m4*Cyrillic_Small_Letter_Tse{13|114M9} 16|284r20 571r18
+80m4*Cyrillic_Small_Letter_Che{13|114M9} 16|285r20 572r18
+81m4*Cyrillic_Small_Letter_Sha{13|114M9} 16|286r20 573r18
+82m4*Cyrillic_Small_Letter_Shcha{13|114M9} 16|287r20 574r18
+83m4*Cyrillic_Small_Letter_Hard_Sign{13|114M9} 16|288r20 575r18
+84m4*Cyrillic_Small_Letter_Yeru{13|114M9} 16|289r20 576r18
+85m4*Cyrillic_Small_Letter_Soft_Sign{13|114M9} 16|290r20 577r18
+86m4*Cyrillic_Small_Letter_E{13|114M9} 16|291r20 578r18
+87m4*Cyrillic_Small_Letter_Yu{13|114M9} 16|292r20 579r18
+88m4*Cyrillic_Small_Letter_Ya{13|114M9} 16|293r20 580r18
+90m4*Cyrillic_Small_Letter_Io{13|114M9} 16|222r20 509r18
+91m4*Cyrillic_Small_Letter_Dje{13|114M9} 16|182r20 467r18
+92m4*Cyrillic_Small_Letter_Gje{13|114M9} 16|169r20 454r18
+93m4*Cyrillic_Small_Letter_Ukrainian_Ie{13|114M9} 16|224r20 511r18
+94m4*Cyrillic_Small_Letter_Dze{13|114M9} 16|228r20 515r18
+95m4*Cyrillic_Small_Letter_Byelorussian_Ukrainian_I{13|114M9} 16|217r20 503r18
+97m4*Cyrillic_Small_Letter_Yi{13|114M9} 16|229r20 516r18
+98m4*Cyrillic_Small_Letter_Je{13|114M9} 16|226r20 513r18
+99m4*Cyrillic_Small_Letter_Lje{13|114M9} 16|192r20 477r18
+100m4*Cyrillic_Small_Letter_Nje{13|114M9} 16|194r20 479r18
+101m4*Cyrillic_Small_Letter_Tshe{13|114M9} 16|196r20 481r18
+102m4*Cyrillic_Small_Letter_Kje{13|114M9} 16|195r20 480r18
+104m4*Cyrillic_Small_Letter_Short_U{13|114M9} 16|200r20 485r18
+105m4*Cyrillic_Small_Letter_Dzhe{13|114M9} 16|197r20 482r18
+162m4*Cyrillic_Capital_Letter_Ghe_With_Upturn{13|114M9} 16|203r20 488r18
+163m4*Cyrillic_Small_Letter_Ghe_With_Upturn{13|114M9} 16|218r20 505r18
+X 21 unicode-names-general_punctuation.ads
+4K23*General_Punctuation 16|29w20 30r19 21|154e38
+37m4*En_Dash{13|114M9} 16|188r20 473r18
+38m4*Em_Dash{13|114M9} 16|189r20 474r18
+42m4*Left_Single_Quotation_Mark{13|114M9} 16|183r20 468r18
+43m4*Right_Single_Quotation_Mark{13|114M9} 16|184r20 469r18
+44m4*Single_Low_9_Quotation_Mark{13|114M9} 16|168r20 453r18
+46m4*Left_Double_Quotation_Mark{13|114M9} 16|185r20 470r18
+47m4*Right_Double_Quotation_Mark{13|114M9} 16|186r20 471r18
+48m4*Double_Low_9_Quotation_Mark{13|114M9} 16|170r20 455r18
+50m4*Dagger{13|114M9} 16|172r20 457r18
+51m4*Double_Dagger{13|114M9} 16|173r20 458r18
+52m4*Bullet{13|114M9} 16|187r20 472r18
+56m4*Horizontal_Ellipsis{13|114M9} 16|171r20 456r18
+78m4*Per_Mille_Sign{13|114M9} 16|175r20 460r18
+87m4*Single_Left_Pointing_Angle_Quotation_Mark{13|114M9} 16|177r20 462r18
+89m4*Single_Right_Pointing_Angle_Quotation_Mark{13|114M9} 16|193r20 478r18
+X 22 unicode-names-latin_1_supplement.ads
+4K23*Latin_1_Supplement 16|27w20 27r58 22|227e37
+126m4*No_Break_Space{13|114M9} 16|198r20 483r18
+132m4*Currency_Sign{13|114M9} 16|202r20 487r18
+134m4*Broken_Bar{13|114M9} 16|204r20 489r18
+135m4*Section_Sign{13|114M9} 16|205r20 490r18
+137m4*Copyright_Sign{13|114M9} 16|207r20 492r18
+139m4*Left_Pointing_Double_Angle_Quotation_Mark{13|114M9} 16|209r20 494r18
+141m4*Not_Sign{13|114M9} 16|210r20 495r18
+142m4*Soft_Hyphen{13|114M9} 16|211r20 496r18
+144m4*Registered_Sign{13|114M9} 16|212r20 497r18
+146m4*Degree_Sign{13|114M9} 16|214r20 499r18
+147m4*Plus_Minus_Sign{13|114M9} 16|215r20 500r18
+151m4*Micro_Sign{13|114M9} 16|219r20 506r18
+152m4*Pilcrow_Sign{13|114M9} 16|220r20 507r18
+153m4*Middle_Dot{13|114M9} 16|221r20 508r18
+157m4*Right_Pointing_Double_Angle_Quotation_Mark{13|114M9} 16|225r20 512r18
+X 23 unicode-names-letterlike_symbols.ads
+4K23*Letterlike_Symbols 16|31w20 32r19 23|90e37
+30m4*Numero_Sign{13|114M9} 16|223r20 510r18
+44m4*Trade_Mark_Sign{13|114M9} 16|191r20 476r18
+

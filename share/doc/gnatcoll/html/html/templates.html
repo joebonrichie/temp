@@ -1,0 +1,147 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>10. Templates: generating text &#8212; GNATColl 2021 documentation</title>
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="11. Email: Processing email messages" href="email.html" />
+    <link rel="prev" title="9. Paragraph filling: formatting text" href="filling.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="email.html" title="11. Email: Processing email messages"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="filling.html" title="9. Paragraph filling: formatting text"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">GNATColl 2021 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">10. </span><strong>Templates</strong>: generating text</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="templates-generating-text">
+<h1><span class="section-number">10. </span><strong>Templates</strong>: generating text<a class="headerlink" href="#templates-generating-text" title="Permalink to this headline">¶</a></h1>
+<p id="index-0">This module provides convenient subprograms for replacing specific
+substrings with other values. It is typically used to replace substrings
+like “%{version}” in a longer string with the actual version, at run time.</p>
+<p>This module is not the same as the templates parser provided in the context
+of AWS, the Ada web server, where external files are parsed and processed
+to generate other files. The latter provides advanced features like filters,
+loops,…</p>
+<p>The substrings to be replaced always start with a specific delimiter, which
+is set to <cite>%</cite> by default, but can be overridden in your code. The name
+of the substring to be replaced is then the identifier following that
+delimiter, with the following rules:</p>
+<ul class="simple">
+<li><p>If the character following the delimiter is the delimiter itself,
+then the final string will contain a single instance of that delimiter, and
+no further substitution is done for that delimiter. An example of this is
+<cite>“%%”</cite>.</p></li>
+<li><p>If the character immediately after the delimiter is a curly brace
+(<cite>{</cite>), then the name of the identifier is the text until the next
+closing curly brace. It can then contain any character expect a closing
+curly brace. An example of this is <cite>“%{long name}”</cite></p></li>
+<li><p>If the first character after the delimiter is a digit, then the
+name of the identifier is the number after the delimiter. An example of
+this is <cite>“%12”</cite>. As a special case, if the first non-digit
+character is the symbol <cite>-</cite>, it is added as part of the name of the
+identifier, as in <cite>“%1-“</cite>. One use for this feature is to indicate
+you want to replace it with all the positional parameters %1%2%3%4. For
+instance, if you are writing the command line to spawn an external tool,
+to which the user can pass any number of parameter, you could specify that
+command line as <cite>“tool -o %1 %2-“</cite> to indicate that all parameters
+should be concatenated on the command line.</p></li>
+<li><p>If the first character after the delimiter is a letter, the identifier
+follows the same rules as for Ada identifiers, and can contain any letter,
+digit, or underscore character. An example of this is <cite>“%ab_12”</cite>. For
+readability, it is recommended to use the curly brace notation when the
+name is complex, but that is not mandatory.</p></li>
+<li><p>Otherwise the name of the identifier is the single character
+following the delimiter</p></li>
+</ul>
+<p>For each substring matching the rules above, the <cite>Substitute</cite> subprogram
+will look for possible replacement text in the following order:</p>
+<ul class="simple">
+<li><p>If the <cite>Substrings</cite> parameter contains an entry for that name,
+the corresponding value is used.</p></li>
+<li><p>Otherwise, if a <cite>callback</cite> was specified, it is called with the
+name of the identifier, and should return the appropriate substitution (or
+raise an exception if no such substitution makes sense).</p></li>
+<li><p>A default value provided in the substring itself</p></li>
+<li><p>When no replacement string was found, the substring is kept unmodified</p></li>
+</ul>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/adacore_transparent.png" alt="Logo"/>
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="filling.html"
+                        title="previous chapter"><span class="section-number">9. </span><strong>Paragraph filling</strong>: formatting text</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="email.html"
+                        title="next chapter"><span class="section-number">11. </span><strong>Email</strong>: Processing email messages</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="email.html" title="11. Email: Processing email messages"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="filling.html" title="9. Paragraph filling: formatting text"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">GNATColl 2021 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">10. </span><strong>Templates</strong>: generating text</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2007-2021, AdaCore.
+    </div>
+  </body>
+</html>

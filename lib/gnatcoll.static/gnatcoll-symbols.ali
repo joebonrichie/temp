@@ -1,0 +1,448 @@
+V "GNAT Lib v2021"
+A -O2
+A -gnatA
+A -gnatn
+A -gnatwa
+A -gnatwC
+A -gnatwJ
+A -mtune=generic
+A -march=x86-64
+P SS ZX
+
+RN
+RV NO_ALLOCATORS
+RV NO_DISPATCH
+RV NO_DISPATCHING_CALLS
+RV NO_EXCEPTION_HANDLERS
+RV NO_EXCEPTION_PROPAGATION
+RV NO_EXCEPTIONS
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_LOCAL_ALLOCATORS
+RV NO_LONG_LONG_INTEGERS
+RV NO_NESTED_FINALIZATION
+RV NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_UNCHECKED_ACCESS
+RV NO_UNCHECKED_CONVERSION
+RV NO_UNCHECKED_DEALLOCATION
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_ATTRIBUTES
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLICIT_ALIASING
+RV NO_ELABORATION_CODE
+
+U gnatcoll.symbols%b	gnatcoll-symbols.adb	7372c861 OO PK IU
+W ada%s			ada.ads			ada.ali
+W ada.containers%s	a-contai.ads		a-contai.ali
+Z ada.exceptions%s	a-except.adb		a-except.ali
+W ada.strings%s		a-string.ads		a-string.ali
+W ada.strings.hash%s	a-strhas.adb		a-strhas.ali
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W ada.unchecked_conversion%s
+W ada.unchecked_deallocation%s
+W gnat%s		gnat.ads		gnat.ali
+W gnat.io%s		g-io.adb		g-io.ali
+W gnat.strings%s	g-string.ads		g-string.ali
+W gnatcoll%s		gnatcoll.ads		gnatcoll.ali
+W system%s		system.ads		system.ali
+W system.address_image%s  s-addima.adb		s-addima.ali
+Z system.img_int%s	s-imgint.ads		s-imgint.ali
+Z system.img_lli%s	s-imglli.ads		s-imglli.ali
+Z system.img_uns%s	s-imguns.ads		s-imguns.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+Z system.soft_links%s	s-soflin.adb		s-soflin.ali
+Z system.standard_library%s  s-stalib.adb	s-stalib.ali
+Z system.storage_elements%s  s-stoele.adb	s-stoele.ali
+Z system.storage_pools%s  s-stopoo.adb		s-stopoo.ali
+Z system.storage_pools.subpools%s  s-stposu.adb	s-stposu.ali
+Z system.unsigned_types%s  s-unstyp.ads		s-unstyp.ali
+
+U gnatcoll.symbols%s	gnatcoll-symbols.ads	68f2e1d4 BN EE OO PF PK IU
+W ada%s			ada.ads			ada.ali
+W ada.containers%s	a-contai.ads		a-contai.ali
+Z ada.containers.hash_tables%s  a-cohata.ads	a-cohata.ali
+Z ada.containers.hash_tables.generic_keys%s
+Z ada.containers.hash_tables.generic_operations%s
+W ada.containers.hashed_sets%s
+Z ada.containers.helpers%s  a-conhel.adb	a-conhel.ali
+Z ada.containers.prime_numbers%s  a-coprnu.adb	a-coprnu.ali
+Z ada.exceptions%s	a-except.adb		a-except.ali
+Z ada.finalization%s	a-finali.ads		a-finali.ali
+Z ada.iterator_interfaces%s
+Z ada.streams%s		a-stream.adb		a-stream.ali
+W ada.strings%s		a-string.ads		a-string.ali
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
+Z ada.unchecked_deallocation%s
+W gnatcoll%s		gnatcoll.ads		gnatcoll.ali
+W gnatcoll.utils%s	gnatcoll-utils.adb	gnatcoll-utils.ali
+Z system%s		system.ads		system.ali
+Z system.finalization_masters%s  s-finmas.adb	s-finmas.ali
+Z system.pool_global%s	s-pooglo.adb		s-pooglo.ali
+Z system.put_images%s	s-putima.adb		s-putima.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+Z system.soft_links%s	s-soflin.adb		s-soflin.ali
+Z system.standard_library%s  s-stalib.adb	s-stalib.ali
+Z system.storage_elements%s  s-stoele.adb	s-stoele.ali
+Z system.storage_pools%s  s-stopoo.adb		s-stopoo.ali
+Z system.storage_pools.subpools%s  s-stposu.adb	s-stposu.ali
+Z system.stream_attributes%s  s-stratt.adb	s-stratt.ali
+
+D ada.ads		20210520051131 76789da1 ada%s
+D a-calend.ads		20210520051128 474d9720 ada.calendar%s
+D a-calfor.ads		20210520051128 0f4707d1 ada.calendar.formatting%s
+D a-catizo.ads		20210520051128 eaa56756 ada.calendar.time_zones%s
+D a-charac.ads		20210520051128 2d3ec45b ada.characters%s
+D a-chahan.ads		20210520051128 0ce1b450 ada.characters.handling%s
+D a-chlat1.ads		20210520051128 66457d31 ada.characters.latin_1%s
+D a-contai.ads		20210520051128 61e5e089 ada.containers%s
+D a-cohata.ads		20210520051128 bc432d0e ada.containers.hash_tables%s
+D a-chtgke.ads		20210520051128 20177f7b ada.containers.hash_tables.generic_keys%s
+D a-chtgke.adb		20210520051128 fdf2dddc ada.containers.hash_tables.generic_keys%b
+D a-chtgop.ads		20210520051128 11c5978a ada.containers.hash_tables.generic_operations%s
+D a-chtgop.adb		20210520051128 c3ccdc4f ada.containers.hash_tables.generic_operations%b
+D a-cohase.ads		20210520051128 99ffee14 ada.containers.hashed_sets%s
+D a-cohase.adb		20210520051128 05519028 ada.containers.hashed_sets%b
+D a-conhel.ads		20210520051128 20298884 ada.containers.helpers%s
+D a-conhel.adb		20210520051128 fe7a6827 ada.containers.helpers%b
+D a-coprnu.ads		20210520051128 0cdf1864 ada.containers.prime_numbers%s
+D a-except.ads		20210520051128 946f3014 ada.exceptions%s
+D a-finali.ads		20210520051128 bf4f806b ada.finalization%s
+D a-ioexce.ads		20210520051128 e4a01f64 ada.io_exceptions%s
+D a-iteint.ads		20210520051128 49a8bee2 ada.iterator_interfaces%s
+D a-stream.ads		20210520051129 119b8fb3 ada.streams%s
+D a-string.ads		20210520051129 90ac6797 ada.strings%s
+D a-strhas.ads		20210520051129 c71c2a52 ada.strings.hash%s
+D a-strmap.ads		20210520051129 5a88892a ada.strings.maps%s
+D a-sttebu.ads		20210520051129 18209c64 ada.strings.text_buffers%s
+D a-strunb.ads		20210520051129 03325227 ada.strings.unbounded%s
+D a-stuten.ads		20210520051129 808c40ad ada.strings.utf_encoding%s
+D a-tags.ads		20210520051130 9eaa38c6 ada.tags%s
+D a-unccon.ads		20210520051130 0e9b276f ada.unchecked_conversion%s
+D a-uncdea.ads		20210520051130 c3a8ac65 ada.unchecked_deallocation%s
+D gnat.ads		20210520051132 b5988c27 gnat%s
+D g-calend.ads		20210520051131 cad86fa7 gnat.calendar%s
+D g-expect.ads		20210520051131 e4246c0f gnat.expect%s
+D g-io.ads		20210520051131 9f0d3ab2 gnat.io%s
+D g-os_lib.ads		20210520051131 0db74523 gnat.os_lib%s
+D g-regpat.ads		20210520051131 b85d88ef gnat.regpat%s
+D g-string.ads		20210520051131 c6abc540 gnat.strings%s
+D gnatcoll.ads		20210519051041 6a5da479 gnatcoll%s
+D gnatcoll-symbols.ads	20210519051041 c9c62a05 gnatcoll.symbols%s
+D gnatcoll-symbols.adb	20210519051041 2934c17d gnatcoll.symbols%b
+D gnatcoll-utils.ads	20210519051041 529681bc gnatcoll.utils%s
+D interfac.ads		20210520051132 edec285f interfaces%s
+D i-c.ads		20210520051132 d9beded9 interfaces.c%s
+D system.ads		20210520051135 a2da961d system%s
+D s-addima.ads		20210520051132 a1ec9d3a system.address_image%s
+D s-atocou.ads		20210520051132 b45c2d8d system.atomic_counters%s
+D s-atocou.adb		20210520051132 b65612c0 system.atomic_counters%b
+D s-exctab.ads		20210520051132 54135002 system.exception_table%s
+D s-finmas.ads		20210520051132 1ab4dba8 system.finalization_masters%s
+D s-finroo.ads		20210520051132 4ff27390 system.finalization_root%s
+D s-imagei.ads		20210520051133 0d3f86a7 system.image_i%s
+D s-imageu.ads		20210520051133 525c30c6 system.image_u%s
+D s-imageu.adb		20210520051133 2d0619dc system.image_u%b
+D s-imgint.ads		20210520051133 bdb6f5ec system.img_int%s
+D s-imglli.ads		20210520051133 3723d9ff system.img_lli%s
+D s-imguns.ads		20210520051133 0e4da2ac system.img_uns%s
+D s-memory.ads		20210520051133 597d6634 system.memory%s
+D s-os_lib.ads		20210520051133 93b69309 system.os_lib%s
+D s-parame.ads		20210520051134 4752c4cb system.parameters%s
+D s-pooglo.ads		20210520051134 ede33ef8 system.pool_global%s
+D s-putima.ads		20210520051134 4e095881 system.put_images%s
+D s-regpat.ads		20210520051134 825a9b7f system.regpat%s
+D s-secsta.ads		20210520051134 9b3ab94b system.secondary_stack%s
+D s-soflin.ads		20210520051134 a7318a92 system.soft_links%s
+D s-stache.ads		20210520051134 a37c21ec system.stack_checking%s
+D s-stalib.ads		20210520051134 472fbca8 system.standard_library%s
+D s-stalib.adb		20210520051134 977290bf system.standard_library%b
+D s-stoele.ads		20210520051134 2dc34a04 system.storage_elements%s
+D s-stoele.adb		20210520051134 ed88f8fb system.storage_elements%b
+D s-stopoo.ads		20210520051134 e9fa2dd8 system.storage_pools%s
+D s-stposu.ads		20210520051134 e251976f system.storage_pools.subpools%s
+D s-stratt.ads		20210520051134 7bdda3fa system.stream_attributes%s
+D s-stratt.adb		20210520051134 fc996108 system.stream_attributes%b
+D s-statxd.ads		20210520051134 b54789f6 system.stream_attributes.xdr%s
+D s-string.ads		20210520051134 8fe54fb7 system.strings%s
+D s-traent.ads		20210520051134 26a8d361 system.traceback_entries%s
+D s-unstyp.ads		20210520051134 2b077493 system.unsigned_types%s
+D unchconv.ads		20210520051135 ca2f9e18 unchecked_conversion%s
+G a e
+G c Z s b [allocate gnatcoll__symbols 46 13 none]
+G c Z s b [find gnatcoll__symbols 49 13 none]
+G c Z s b [get gnatcoll__symbols 56 13 none]
+G c Z s b [free gnatcoll__symbols 65 14 none]
+G c Z s b [free gnatcoll__symbols 66 14 none]
+G c Z s b [hash gnatcoll__symbols 69 13 none]
+G c Z s b [debug_print gnatcoll__symbols 73 13 none]
+G c Z s b [display_stats gnatcoll__symbols 76 14 none]
+G c Z s b [hash gnatcoll__symbols 90 13 none]
+G c Z s b [key_equal gnatcoll__symbols 91 13 none]
+G c Z s s [has_element gnatcoll__symbols__string_htable 80 13 94_4]
+G c Z s s [empty gnatcoll__symbols__string_htable 86 13 94_4]
+G c Z s s [Oeq gnatcoll__symbols__string_htable 88 13 94_4]
+G c Z s s [equivalent_sets gnatcoll__symbols__string_htable 101 13 94_4]
+G c Z s s [to_set gnatcoll__symbols__string_htable 106 13 94_4]
+G c Z s s [capacity gnatcoll__symbols__string_htable 110 13 94_4]
+G c Z s s [reserve_capacity gnatcoll__symbols__string_htable 114 14 94_4]
+G c Z s s [length gnatcoll__symbols__string_htable 125 13 94_4]
+G c Z s s [is_empty gnatcoll__symbols__string_htable 128 13 94_4]
+G c Z s s [clear gnatcoll__symbols__string_htable 131 14 94_4]
+G c Z s s [element gnatcoll__symbols__string_htable 134 13 94_4]
+G c Z s s [replace_element gnatcoll__symbols__string_htable 137 14 94_4]
+G c Z s s [query_element gnatcoll__symbols__string_htable 152 14 94_4]
+G c Z s s [constant_reference gnatcoll__symbols__string_htable 162 13 94_4]
+G c Z s s [assign gnatcoll__symbols__string_htable 167 14 94_4]
+G c Z s s [copy gnatcoll__symbols__string_htable 169 13 94_4]
+G c Z s s [move gnatcoll__symbols__string_htable 171 14 94_4]
+G c Z s s [insert gnatcoll__symbols__string_htable 175 14 94_4]
+G c Z s s [insert gnatcoll__symbols__string_htable 193 14 94_4]
+G c Z s s [include gnatcoll__symbols__string_htable 202 14 94_4]
+G c Z s s [replace gnatcoll__symbols__string_htable 211 14 94_4]
+G c Z s s [exclude gnatcoll__symbols__string_htable 219 14 94_4]
+G c Z s s [delete gnatcoll__symbols__string_htable 228 14 94_4]
+G c Z s s [delete gnatcoll__symbols__string_htable 236 14 94_4]
+G c Z s s [union gnatcoll__symbols__string_htable 242 14 94_4]
+G c Z s s [union gnatcoll__symbols__string_htable 247 13 94_4]
+G c Z s s [intersection gnatcoll__symbols__string_htable 253 14 94_4]
+G c Z s s [intersection gnatcoll__symbols__string_htable 258 13 94_4]
+G c Z s s [difference gnatcoll__symbols__string_htable 265 14 94_4]
+G c Z s s [difference gnatcoll__symbols__string_htable 270 13 94_4]
+G c Z s s [symmetric_difference gnatcoll__symbols__string_htable 277 14 94_4]
+G c Z s s [symmetric_difference gnatcoll__symbols__string_htable 284 13 94_4]
+G c Z s s [overlap gnatcoll__symbols__string_htable 295 13 94_4]
+G c Z s s [is_subset gnatcoll__symbols__string_htable 302 13 94_4]
+G c Z s s [first gnatcoll__symbols__string_htable 310 13 94_4]
+G c Z s s [next gnatcoll__symbols__string_htable 314 13 94_4]
+G c Z s s [next gnatcoll__symbols__string_htable 322 14 94_4]
+G c Z s s [find gnatcoll__symbols__string_htable 325 13 94_4]
+G c Z s s [contains gnatcoll__symbols__string_htable 334 13 94_4]
+G c Z s s [equivalent_elements gnatcoll__symbols__string_htable 337 13 94_4]
+G c Z s s [equivalent_elements gnatcoll__symbols__string_htable 341 13 94_4]
+G c Z s s [equivalent_elements gnatcoll__symbols__string_htable 347 13 94_4]
+G c Z s s [iterate gnatcoll__symbols__string_htable 353 14 94_4]
+G c Z s s [iterate gnatcoll__symbols__string_htable 358 13 94_4]
+G c Z s s [node_typeIP gnatcoll__symbols__string_htable 500 9 94_4]
+G c Z s s [adjust gnatcoll__symbols__string_htable__ht_types__implementation 90 28 58_7_505_4_94_4]
+G c Z s s [finalize gnatcoll__symbols__string_htable__ht_types__implementation 93 28 58_7_505_4_94_4]
+G c Z s s [zero_counts gnatcoll__symbols__string_htable__ht_types__implementation 96 17 58_7_505_4_94_4]
+G c Z s s [busy gnatcoll__symbols__string_htable__ht_types__implementation 100 17 58_7_505_4_94_4]
+G c Z s s [unbusy gnatcoll__symbols__string_htable__ht_types__implementation 104 17 58_7_505_4_94_4]
+G c Z s s [lock gnatcoll__symbols__string_htable__ht_types__implementation 108 17 58_7_505_4_94_4]
+G c Z s s [unlock gnatcoll__symbols__string_htable__ht_types__implementation 112 17 58_7_505_4_94_4]
+G c Z s s [tc_check gnatcoll__symbols__string_htable__ht_types__implementation 116 17 58_7_505_4_94_4]
+G c Z s s [te_check gnatcoll__symbols__string_htable__ht_types__implementation 120 17 58_7_505_4_94_4]
+G c Z s s [initialize gnatcoll__symbols__string_htable__ht_types__implementation 139 28 58_7_505_4_94_4]
+G c Z s s [finalize gnatcoll__symbols__string_htable__ht_types__implementation 140 28 58_7_505_4_94_4]
+G c Z s s [initialize gnatcoll__symbols__string_htable__ht_types__implementation 145 28 58_7_505_4_94_4]
+G c Z s s [finalize gnatcoll__symbols__string_htable__ht_types__implementation 146 28 58_7_505_4_94_4]
+G c Z s s [reference_control_typeDA gnatcoll__symbols__string_htable__ht_types__implementation 84 12 58_7_505_4_94_4]
+G c Z s s [reference_control_typeDF gnatcoll__symbols__string_htable__ht_types__implementation 84 12 58_7_505_4_94_4]
+G c Z s s [reference_control_typeIP gnatcoll__symbols__string_htable__ht_types__implementation 84 12 58_7_505_4_94_4]
+G c Z s s [with_busyDF gnatcoll__symbols__string_htable__ht_types__implementation 136 12 58_7_505_4_94_4]
+G c Z s s [with_busyIP gnatcoll__symbols__string_htable__ht_types__implementation 136 12 58_7_505_4_94_4]
+G c Z s s [with_lockDF gnatcoll__symbols__string_htable__ht_types__implementation 142 12 58_7_505_4_94_4]
+G c Z s s [with_lockIP gnatcoll__symbols__string_htable__ht_types__implementation 142 12 58_7_505_4_94_4]
+G c Z s s [buckets_typeIP gnatcoll__symbols__string_htable__ht_types 46 12 505_4_94_4]
+G c Z s s [hash_table_typeDA gnatcoll__symbols__string_htable__ht_types 52 12 505_4_94_4]
+G c Z s s [hash_table_typeDF gnatcoll__symbols__string_htable__ht_types 52 12 505_4_94_4]
+G c Z s s [hash_table_typeIP gnatcoll__symbols__string_htable__ht_types 52 12 505_4_94_4]
+G c Z s s [put_image gnatcoll__symbols__string_htable 512 14 94_4]
+G c Z s s [adjust gnatcoll__symbols__string_htable 515 25 94_4]
+G c Z s s [finalize gnatcoll__symbols__string_htable 517 25 94_4]
+G c Z s s [write gnatcoll__symbols__string_htable 523 14 94_4]
+G c Z s s [read gnatcoll__symbols__string_htable 529 14 94_4]
+G c Z s s [write gnatcoll__symbols__string_htable 558 14 94_4]
+G c Z s s [read gnatcoll__symbols__string_htable 564 14 94_4]
+G c Z s s [read gnatcoll__symbols__string_htable 583 14 94_4]
+G c Z s s [write gnatcoll__symbols__string_htable 589 14 94_4]
+G c Z s s [pseudo_reference gnatcoll__symbols__string_htable 600 13 94_4]
+G c Z s s [get_element_access gnatcoll__symbols__string_htable 610 13 94_4]
+G c Z s s [setDA gnatcoll__symbols__string_htable 508 9 94_4]
+G c Z s s [setDF gnatcoll__symbols__string_htable 508 9 94_4]
+G c Z s s [setIP gnatcoll__symbols__string_htable 508 9 94_4]
+G c Z s s [cursorIP gnatcoll__symbols__string_htable 538 9 94_4]
+G c Z s s [constant_reference_typeDI gnatcoll__symbols__string_htable 573 9 94_4]
+G c Z s s [constant_reference_typeDA gnatcoll__symbols__string_htable 573 9 94_4]
+G c Z s s [constant_reference_typeDF gnatcoll__symbols__string_htable 573 9 94_4]
+G c Z s s [constant_reference_typeIP gnatcoll__symbols__string_htable 573 9 94_4]
+G c Z s s [first gnatcoll__symbols__string_htable 626 24 94_4]
+G c Z s s [next gnatcoll__symbols__string_htable 628 24 94_4]
+G c Z s s [finalize gnatcoll__symbols__string_htable 631 25 94_4]
+G c Z s s [iteratorDF gnatcoll__symbols__string_htable 619 9 94_4]
+G c Z s s [iteratorIP gnatcoll__symbols__string_htable 619 9 94_4]
+G c Z s s [assign gnatcoll__symbols__string_htable 57 14 94_4]
+G c Z s s [copy_node gnatcoll__symbols__string_htable 60 13 94_4]
+G c Z s s [equivalent_keys gnatcoll__symbols__string_htable 63 13 94_4]
+G c Z s s [find_equal_key gnatcoll__symbols__string_htable 68 13 94_4]
+G c Z s s [find_equivalent_key gnatcoll__symbols__string_htable 72 13 94_4]
+G c Z s s [free gnatcoll__symbols__string_htable 76 14 94_4]
+G c Z s s [hash_node gnatcoll__symbols__string_htable 78 13 94_4]
+G c Z s s [insert gnatcoll__symbols__string_htable 81 14 94_4]
+G c Z s s [is_in gnatcoll__symbols__string_htable 87 13 94_4]
+G c Z s s [next gnatcoll__symbols__string_htable 92 13 94_4]
+G c Z s s [read_node gnatcoll__symbols__string_htable 95 13 94_4]
+G c Z s s [set_next gnatcoll__symbols__string_htable 99 14 94_4]
+G c Z s s [vet gnatcoll__symbols__string_htable 102 13 94_4]
+G c Z s s [write_node gnatcoll__symbols__string_htable 104 14 94_4]
+G c Z s s [free_hash_table gnatcoll__symbols__string_htable__ht_ops 57 14 113_4_94_4]
+G c Z s s [index gnatcoll__symbols__string_htable__ht_ops 61 13 113_4_94_4]
+G c Z s s [index gnatcoll__symbols__string_htable__ht_ops 67 13 113_4_94_4]
+G c Z s s [checked_index gnatcoll__symbols__string_htable__ht_ops 74 13 113_4_94_4]
+G c Z s s [checked_index gnatcoll__symbols__string_htable__ht_ops 81 13 113_4_94_4]
+G c Z s s [adjust gnatcoll__symbols__string_htable__ht_ops 86 14 113_4_94_4]
+G c Z s s [finalize gnatcoll__symbols__string_htable__ht_ops 92 14 113_4_94_4]
+G c Z s s [clear gnatcoll__symbols__string_htable__ht_ops 108 14 113_4_94_4]
+G c Z s s [move gnatcoll__symbols__string_htable__ht_ops 114 14 113_4_94_4]
+G c Z s s [capacity gnatcoll__symbols__string_htable__ht_ops 120 13 113_4_94_4]
+G c Z s s [reserve_capacity gnatcoll__symbols__string_htable__ht_ops 123 14 113_4_94_4]
+G c Z s s [delete_node_at_index gnatcoll__symbols__string_htable__ht_ops 132 14 113_4_94_4]
+G c Z s s [delete_node_sans_free gnatcoll__symbols__string_htable__ht_ops 141 14 113_4_94_4]
+G c Z s s [first gnatcoll__symbols__string_htable__ht_ops 146 13 113_4_94_4]
+G c Z s s [first gnatcoll__symbols__string_htable__ht_ops 148 13 113_4_94_4]
+G c Z s s [next gnatcoll__symbols__string_htable__ht_ops 155 13 113_4_94_4]
+G c Z s s [next gnatcoll__symbols__string_htable__ht_ops 158 13 113_4_94_4]
+G c Z s s [new_buckets gnatcoll__symbols__string_htable__ht_ops 205 13 113_4_94_4]
+G c Z s s [free_buckets gnatcoll__symbols__string_htable__ht_ops 209 14 113_4_94_4]
+G c Z s s [index gnatcoll__symbols__string_htable__element_keys 56 13 121_4_94_4]
+G c Z s s [checked_index gnatcoll__symbols__string_htable__element_keys 62 13 121_4_94_4]
+G c Z s s [checked_equivalent_keys gnatcoll__symbols__string_htable__element_keys 69 13 121_4_94_4]
+G c Z s s [delete_key_sans_free gnatcoll__symbols__string_htable__element_keys 76 14 121_4_94_4]
+G c Z s s [find gnatcoll__symbols__string_htable__element_keys 84 13 121_4_94_4]
+G c Z s s [is_equalR gnatcoll__symbols__string_htable__is_equalGP5025 129 13 94_4]
+G c Z s s [is_equal gnatcoll__symbols__string_htable 129 13 94_4]
+G c Z s s [is_equivalentR gnatcoll__symbols__string_htable__is_equivalentGP5099 132 13 94_4]
+G c Z s s [is_equivalent gnatcoll__symbols__string_htable 132 13 94_4]
+G c Z s s [read_nodesR gnatcoll__symbols__string_htable__read_nodesGP5184 135 14 94_4]
+G c Z s s [read_nodes gnatcoll__symbols__string_htable 135 14 94_4]
+G c Z s s [replace_elementR gnatcoll__symbols__string_htable__replace_elementGP5255 138 14 94_4]
+G c Z s s [replace_element gnatcoll__symbols__string_htable 138 14 94_4]
+G c Z s s [write_nodesR gnatcoll__symbols__string_htable__write_nodesGP5356 141 14 94_4]
+G c Z s s [write_nodes gnatcoll__symbols__string_htable 141 14 94_4]
+G c Z s s [symbol_table_recordDA gnatcoll__symbols 100 9 none]
+G c Z s s [symbol_table_recordDF gnatcoll__symbols 100 9 none]
+G c Z s s [symbol_table_recordDI gnatcoll__symbols 100 9 none]
+G c Z s s [symbol_table_recordIP gnatcoll__symbols 100 9 none]
+X 1 ada.ads
+16K9*Ada 20e8 41|31r6 69r38 90r51 94r33 42|24r6 24r38 25r6 26r6 27r6 63r14
+. 175r31 178r39 201r39
+X 8 a-contai.ads
+16K13*Containers 28e19 41|31r10 69r42 90r55 94r37 42|24w10 24r42
+19M9*Hash_Type 41|69r53 90r66 42|61r51 113r15 113r28 114r15 126r24 214r38
+22I9*Count_Type<integer>
+X 14 a-cohase.ads
+43+9 Element_Type 41|95r7
+45V18 Hash{8|19M9} 41|96r7
+47V18 Equivalent_Elements{boolean} 41|97r7
+50V19 "="{boolean} 41|98r8
+52k24*Hashed_Sets 633e31 41|31w21 94r48
+59R9*Set<20|43R9> 41|101r31[94]
+69R9*Cursor 42|83r30[41|94] 110r29[41|94] 182r27[41|94]
+80V13*Has_Element{boolean} 42|92s17[41|94] 119s13[41|94] 186s13[41|94]
+110V13*Capacity{8|22I9} 42|142s58[41|94]
+114U14*Reserve_Capacity 42|226s14[41|94]
+125V13*Length{8|22I9} 42|141s29[41|94] 145s53[41|94]
+131U14*Clear 42|193s18[41|94]
+134V13*Element{43|46P9} 42|101s25[41|94] 120s17[41|94] 187s17[41|94]
+202U14*Include 42|95s24[41|94]
+310V13*First{69R9[41|94]} 42|110s49[41|94] 182s48[41|94]
+322U14*Next 42|136s10[41|94] 188s10[41|94]
+325V13*Find{69R9[41|94]} 42|90s31[41|94]
+X 16 a-conhel.ads
+84R12 Reference_Control_Type<20|43R9>
+X 22 a-iteint.ads
+24h9 Forward_Iterator
+X 24 a-string.ads
+16K13*Strings 35e16 42|25r10 63r18
+X 25 a-strhas.ads
+20V22*Hash{8|19M9} 42|25w18 63s26
+X 31 a-unccon.ads
+20v14*Unchecked_Conversion 42|26w10 175r35
+X 32 a-uncdea.ads
+20u15*Unchecked_Deallocation 42|27w10 178r43 201r43
+X 33 gnat.ads
+34K9*GNAT 57e9 42|28r6 28r38 29r6 176r29 179r18 181r13
+X 36 g-io.ads
+41K14*IO 91e12 42|28w11 28r43
+72U14*Put_Line 42|127s16 135s10 139s7 140s7 142s7 143s7 144s7 146s7 147s7
+X 39 g-string.ads
+38K14*Strings=38:37 42|29w11 176r34 179r23 181r18
+X 40 gnatcoll.ads
+24K9*GNATCOLL 27e13 41|32r6 32r38 34r9 108r5 42|32r14 230r5
+X 41 gnatcoll-symbols.ads
+34K18*Symbols 40|24k9 41|83E9 108l14 108e21 42|32b23 230l14 230t21
+36R9*Symbol_Table_Record 37r43 49p13 50r22 65p14 65r35 76p14 76r43 100c9
+. 106e14 42|80r22 109r43 174r35 202r10 224r47
+37P9*Symbol_Table_Access(36R9) 46r29 66r35 42|200r35 202r37 223r29 224r20
+42P9*Symbol<43|46P9> 43r28 44r28 51r30 57r14 69r23 73r30 83c9 87r28 88r28
+. 42|47r30 81r30 96r20 101r17 156r13 214r23
+43p4*No_Symbol{42P9} 87c4 42|49r14 159r16
+44p4*Empty_String{42P9} 88c4 42|87r17 161r39
+46V13*Allocate{37P9} 42|223b13 228l8 228t16
+49V13*Find{42P9} 50^7 51>7 42|79b13 103l8 103t12
+50p7 Table(36R9) 42|80b7 89r10 89r33 90r20 93r13 93r33 95r13 98r13 98r33
+51a7 Str{string} 42|81b7 86r10 90r37 93r52 94r32 98r52
+56V13*Get{43|46P9} 57>8 57>22 59r26 42|155b13 168l8 168t11
+57p8 Sym{42P9} 42|156b7 159r10 166r36
+57b22 Empty_If_Null{boolean} 42|156b21 160r13
+65U14*Free 65=20 42|174b14 194l8 194t12 205R10
+65r20 Table{36R9} 42|174b20 182r37 193m7 193r7
+66U14*Free 66=20 42|200b14 208l8 208t12
+66p20 Table{37P9} 42|200b20 204r10 205r16 206m26
+69V13*Hash{8|19M9} 69>19 42|214b13 217l8 217t12
+69p19 S{42P9} 42|214b19 216r39
+73V13*Debug_Print{string} 73>26 42|47b13 55l8 55t19
+73p26 S{42P9} 42|47b26 49r10 52r53 53r21
+76U14*Display_Stats 76^29 42|109b14 149l8 149t21
+76p29 Self(36R9) 42|109b29 110r39 139r43 141r19 142r48 145r43 146r44 148r19
+85a4 Cst_Empty_String{string} 88r38
+90V13 Hash{8|19M9} 90>19 96r30 42|61b13 64l8 64t12 122s15 135s20 216s14
+90p19 Str{43|46P9} 42|61b19 63r32
+91V13 Key_Equal{boolean} 91>24 91>30 92r25 97r30 42|70b13 73l8 73t17
+91p24 Key1{43|46P9} 42|70b24 72r14
+91p30 Key2{43|46P9} 42|70b30 72r25
+94K12 String_Htable[14|52] 101r17 42|34r8 83r16 110r15 182r13
+101r7*Hash{14|59R9[94]} 42|90r26 95m19 110r44 141r24 142r53 145r48 182r43
+. 193m13 226m9
+103i7*Calls_To_Find{natural} 42|89m16 89r39 139r48
+104i7*Total_Size{long_long_integer} 42|93m19 93r39 146r49
+105i7*Size_Saved{long_long_integer} 42|98m19 98r39 148r24
+X 42 gnatcoll-symbols.adb
+36N4 Table_Size 226r32
+83r7 Result{14|69R9[41|94]} 90m10 92r30 101r34
+84p7 Tmp{43|46P9} 94m13 95r33 96r28
+110r7 C{14|69R9[41|94]} 119r26 120r26 136m16 136r16
+111p7 Tmp{43|46P9} 120m10 122r21 135r26 135r46
+112i7 Count{natural} 124m13 124r22 127r56 131m13
+113m7 Last{8|19M9} 123r17 126r16 127r37 130m13
+114m7 H{8|19M9} 122m10 123r13 130r21
+116i7 Bucket_Count{natural} 132m13 132r29 143r45 145r63
+175V16 Convert[31|20]{77|45P9} 189s15
+178U17 Unchecked_Free[32|20] 190s10
+181p7 S{77|45P9} 189m10 190m26 190r26
+182r7 C{14|69R9[41|94]} 186r26 187r26 188m16 188r16
+183p7 Tmp{43|46P9} 187m10 189r24
+201U17 Unchecked_Free[32|20] 206s10
+224p7 T{41|37P9} 226r7 227r14
+X 43 gnatcoll-utils.ads
+36K18*Utils 41|32w15 32r47 43|323e19
+46P9*Cst_String_Access(string) 41|58r14 83r23 90r25 91r37 95r30 42|61r25
+. 70r37 84r16 111r15 156r61 161r20 166r17 176r10 183r13 216r20
+X 46 system.ads
+37K9*System 42|30r6 52r31 46|154e11
+67M9*Address
+X 47 s-addima.ads
+39V17*Address_Image{string} 42|30w13 52s38
+X 59 s-memory.ads
+53V13*Alloc{46|67M9} 103i<c,__gnat_malloc>22
+68U14*Free 104i<c,__gnat_free>22
+76V13*Realloc{46|67M9} 105i<c,__gnat_realloc>22
+X 69 s-stalib.adb
+89U14 Break_Start 90i<c,__gnat_break_start>22
+X 77 s-string.ads
+45P9*String_Access(string) 42|176r42 179r31 181r26
+

@@ -1,0 +1,1020 @@
+V "GNAT Lib v2021"
+A -O2
+A -gnatA
+A -gnatn
+A -gnatwa
+A -gnatwC
+A -gnatwJ
+A -mtune=generic
+A -march=x86-64
+P SS ZX
+
+RN
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_EXCEPTION_HANDLERS
+RV NO_EXCEPTIONS
+RV NO_LOCAL_ALLOCATORS
+RV NO_NESTED_FINALIZATION
+RV NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_UNCHECKED_ACCESS
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ATTRIBUTES
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLICIT_LOOPS
+RV NO_ELABORATION_CODE
+RV NO_OBSOLESCENT_FEATURES
+
+U gnatcoll.os.process%b	gnatcoll-os-process.adb	8b716300 NE OO PK IU
+W ada%s			ada.ads			ada.ali
+W ada.characters%s	a-charac.ads		a-charac.ali
+W ada.characters.handling%s  a-chahan.adb	a-chahan.ali
+Z ada.exceptions%s	a-except.adb		a-except.ali
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W gnat%s		gnat.ads		gnat.ali
+W gnat.task_lock%s	g-tasloc.ads		g-tasloc.ali
+W gnatcoll%s		gnatcoll.ads		gnatcoll.ali
+W gnatcoll.os%s		gnatcoll-os.ads		gnatcoll-os.ali
+W gnatcoll.os.libc%s	gnatcoll-os-libc.ads	gnatcoll-os-libc.ali
+W gnatcoll.os.libc.spawn%s  gnatcoll-os-libc-spawn.ads  gnatcoll-os-libc-spawn.ali
+W gnatcoll.string_builders%s  gnatcoll-string_builders.adb  gnatcoll-string_builders.ali
+W interfaces%s		interfac.ads		interfac.ali
+W interfaces.c%s	i-c.adb			i-c.ali
+W system%s		system.ads		system.ali
+Z system.img_int%s	s-imgint.ads		s-imgint.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+Z system.soft_links%s	s-soflin.adb		s-soflin.ali
+Z system.standard_library%s  s-stalib.adb	s-stalib.ali
+
+U gnatcoll.os.process%s	gnatcoll-os-process.ads	cf3449ee EE OO PF PK IU
+W ada%s			ada.ads			ada.ali
+W ada.containers%s	a-contai.ads		a-contai.ali
+Z ada.containers.generic_array_sort%s
+Z ada.containers.hash_tables%s  a-cohata.ads	a-cohata.ali
+Z ada.containers.hash_tables.generic_keys%s
+Z ada.containers.hash_tables.generic_operations%s
+Z ada.containers.helpers%s  a-conhel.adb	a-conhel.ali
+W ada.containers.indefinite_hashed_maps%s
+W ada.containers.indefinite_vectors%s
+Z ada.containers.prime_numbers%s  a-coprnu.adb	a-coprnu.ali
+Z ada.exceptions%s	a-except.adb		a-except.ali
+Z ada.finalization%s	a-finali.ads		a-finali.ali
+Z ada.iterator_interfaces%s
+Z ada.streams%s		a-stream.adb		a-stream.ali
+W ada.strings%s		a-string.ads		a-string.ali
+W ada.strings.hash%s	a-strhas.adb		a-strhas.ali
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+W ada.strings.unbounded%s  a-strunb.adb		a-strunb.ali
+W ada.strings.utf_encoding%s  a-stuten.adb	a-stuten.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
+Z ada.unchecked_deallocation%s
+W gnatcoll%s		gnatcoll.ads		gnatcoll.ali
+W gnatcoll.os%s		gnatcoll-os.ads		gnatcoll-os.ali
+W gnatcoll.os.fs%s	gnatcoll-os-fs.adb	gnatcoll-os-fs.ali
+W gnatcoll.os.process_types%s  gnatcoll-os-process_types__unix.adb  gnatcoll-os-process_types__unix.ali
+Z system%s		system.ads		system.ali
+Z system.finalization_masters%s  s-finmas.adb	s-finmas.ali
+Z system.put_images%s	s-putima.adb		s-putima.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+Z system.soft_links%s	s-soflin.adb		s-soflin.ali
+Z system.standard_library%s  s-stalib.adb	s-stalib.ali
+Z system.storage_elements%s  s-stoele.adb	s-stoele.ali
+Z system.storage_pools%s  s-stopoo.adb		s-stopoo.ali
+Z system.storage_pools.subpools%s  s-stposu.adb	s-stposu.ali
+Z system.stream_attributes%s  s-stratt.adb	s-stratt.ali
+Z system.strings.stream_ops%s  s-ststop.adb	s-ststop.ali
+
+D ada.ads		20210520051131 76789da1 ada%s
+D a-charac.ads		20210520051128 2d3ec45b ada.characters%s
+D a-chacon.ads		20210520051128 5b23f5eb ada.characters.conversions%s
+D a-chahan.ads		20210520051128 0ce1b450 ada.characters.handling%s
+D a-chlat1.ads		20210520051128 66457d31 ada.characters.latin_1%s
+D a-contai.ads		20210520051128 61e5e089 ada.containers%s
+D a-cgarso.ads		20210520051128 9129bfa8 ada.containers.generic_array_sort%s
+D a-cohata.ads		20210520051128 bc432d0e ada.containers.hash_tables%s
+D a-chtgke.ads		20210520051128 20177f7b ada.containers.hash_tables.generic_keys%s
+D a-chtgke.adb		20210520051128 fdf2dddc ada.containers.hash_tables.generic_keys%b
+D a-chtgop.ads		20210520051128 11c5978a ada.containers.hash_tables.generic_operations%s
+D a-chtgop.adb		20210520051128 c3ccdc4f ada.containers.hash_tables.generic_operations%b
+D a-conhel.ads		20210520051128 20298884 ada.containers.helpers%s
+D a-conhel.adb		20210520051128 fe7a6827 ada.containers.helpers%b
+D a-cihama.ads		20210520051128 76287ea1 ada.containers.indefinite_hashed_maps%s
+D a-cihama.adb		20210520051128 e0ec62b4 ada.containers.indefinite_hashed_maps%b
+D a-coinve.ads		20210520051128 0843f47c ada.containers.indefinite_vectors%s
+D a-coinve.adb		20210520051128 7bf2f325 ada.containers.indefinite_vectors%b
+D a-coprnu.ads		20210520051128 0cdf1864 ada.containers.prime_numbers%s
+D a-except.ads		20210520051128 946f3014 ada.exceptions%s
+D a-finali.ads		20210520051128 bf4f806b ada.finalization%s
+D a-ioexce.ads		20210520051128 e4a01f64 ada.io_exceptions%s
+D a-iteint.ads		20210520051128 49a8bee2 ada.iterator_interfaces%s
+D a-stream.ads		20210520051129 119b8fb3 ada.streams%s
+D a-string.ads		20210520051129 90ac6797 ada.strings%s
+D a-strhas.ads		20210520051129 c71c2a52 ada.strings.hash%s
+D a-strmap.ads		20210520051129 5a88892a ada.strings.maps%s
+D a-strsea.ads		20210520051129 b9bc90ba ada.strings.search%s
+D a-sttebu.ads		20210520051129 18209c64 ada.strings.text_buffers%s
+D a-strunb.ads		20210520051129 03325227 ada.strings.unbounded%s
+D a-strunb.adb		20210520051129 3b950306 ada.strings.unbounded%b
+D a-stuten.ads		20210520051129 808c40ad ada.strings.utf_encoding%s
+D a-tags.ads		20210520051130 9eaa38c6 ada.tags%s
+D a-unccon.ads		20210520051130 0e9b276f ada.unchecked_conversion%s
+D a-uncdea.ads		20210520051130 c3a8ac65 ada.unchecked_deallocation%s
+D gnat.ads		20210520051132 b5988c27 gnat%s
+D g-string.ads		20210520051131 c6abc540 gnat.strings%s
+D g-tasloc.ads		20210520051131 9c49392e gnat.task_lock%s
+D gnatcoll.ads		20210519051041 6a5da479 gnatcoll%s
+D gnatcoll-os.ads	20210519051041 399a6f15 gnatcoll.os%s
+D gnatcoll-os-fs.ads	20210519051041 d02b2d60 gnatcoll.os.fs%s
+D gnatcoll-os-libc.ads	20210519051041 7c7adcbd gnatcoll.os.libc%s
+D gnatcoll-os-libc-spawn.ads  20210519051041 afc0c961 gnatcoll.os.libc.spawn%s
+D gnatcoll-os-libc_constants__linux.ads  20210519051041 5c752caa gnatcoll.os.libc_constants%s
+D gnatcoll-os-process.ads  20210519051041 9c18ac0a gnatcoll.os.process%s
+D gnatcoll-os-process.adb  20210519051041 f5b3367b gnatcoll.os.process%b
+D gnatcoll-os-process-internal_spawn__unix.adb  20210519051041 b7357987 gnatcoll.os.process.internal_spawn
+D gnatcoll-os-process-wait__unix.adb  20210519051041 c5470d88 gnatcoll.os.process.wait
+D gnatcoll-os-process_types__unix.ads  20210519051041 10f87203 gnatcoll.os.process_types%s
+D gnatcoll-string_builders.ads  20210519051041 506daf4b gnatcoll.string_builders%s
+D gnatcoll-string_builders.adb  20210519051041 40f459ef gnatcoll.string_builders%b
+D gnatcoll-string_list_builders.ads  20210519051041 4074aecc gnatcoll.string_list_builders%s
+D interfac.ads		20210520051132 edec285f interfaces%s
+D i-c.ads		20210520051132 d9beded9 interfaces.c%s
+D system.ads		20210520051135 a2da961d system%s
+D s-atocou.ads		20210520051132 b45c2d8d system.atomic_counters%s
+D s-atocou.adb		20210520051132 b65612c0 system.atomic_counters%b
+D s-carun8.ads		20210520051132 a903718d system.compare_array_unsigned_8%s
+D s-exctab.ads		20210520051132 54135002 system.exception_table%s
+D s-finmas.ads		20210520051132 1ab4dba8 system.finalization_masters%s
+D s-finroo.ads		20210520051132 4ff27390 system.finalization_root%s
+D s-imagei.ads		20210520051133 0d3f86a7 system.image_i%s
+D s-imgint.ads		20210520051133 bdb6f5ec system.img_int%s
+D s-memory.ads		20210520051133 597d6634 system.memory%s
+D s-parame.ads		20210520051134 4752c4cb system.parameters%s
+D s-putima.ads		20210520051134 4e095881 system.put_images%s
+D s-secsta.ads		20210520051134 9b3ab94b system.secondary_stack%s
+D s-soflin.ads		20210520051134 a7318a92 system.soft_links%s
+D s-stache.ads		20210520051134 a37c21ec system.stack_checking%s
+D s-stalib.ads		20210520051134 472fbca8 system.standard_library%s
+D s-stalib.adb		20210520051134 977290bf system.standard_library%b
+D s-stoele.ads		20210520051134 2dc34a04 system.storage_elements%s
+D s-stoele.adb		20210520051134 ed88f8fb system.storage_elements%b
+D s-stopoo.ads		20210520051134 e9fa2dd8 system.storage_pools%s
+D s-stposu.ads		20210520051134 e251976f system.storage_pools.subpools%s
+D s-stratt.ads		20210520051134 7bdda3fa system.stream_attributes%s
+D s-stratt.adb		20210520051134 fc996108 system.stream_attributes%b
+D s-statxd.ads		20210520051134 b54789f6 system.stream_attributes.xdr%s
+D s-string.ads		20210520051134 8fe54fb7 system.strings%s
+D s-ststop.ads		20210520051134 5fbf1b38 system.strings.stream_ops%s
+D s-tasloc.ads		20210520051134 618a376e system.task_lock%s
+D s-tasloc.adb		20210520051134 c37db7c4 system.task_lock%b
+D s-traent.ads		20210520051134 26a8d361 system.traceback_entries%s
+D s-unstyp.ads		20210520051134 2b077493 system.unsigned_types%s
+D unchconv.ads		20210520051135 ca2f9e18 unchecked_conversion%s
+G a e
+G c Z s b [equivalent_variables gnatcoll__os__process 64 13 none]
+G c Z s s [empty gnatcoll__os__process__env_dicts 73 13 69_4]
+G c Z s s [has_element gnatcoll__os__process__env_dicts 79 13 69_4]
+G c Z s s [Oeq gnatcoll__os__process__env_dicts 85 24 69_4]
+G c Z s s [capacity gnatcoll__os__process__env_dicts 96 13 69_4]
+G c Z s s [reserve_capacity gnatcoll__os__process__env_dicts 100 14 69_4]
+G c Z s s [length gnatcoll__os__process__env_dicts 110 13 69_4]
+G c Z s s [is_empty gnatcoll__os__process__env_dicts 113 13 69_4]
+G c Z s s [clear gnatcoll__os__process__env_dicts 116 14 69_4]
+G c Z s s [key gnatcoll__os__process__env_dicts 119 13 69_4]
+G c Z s s [element gnatcoll__os__process__env_dicts 122 13 69_4]
+G c Z s s [replace_element gnatcoll__os__process__env_dicts 125 14 69_4]
+G c Z s s [query_element gnatcoll__os__process__env_dicts 131 14 69_4]
+G c Z s s [update_element gnatcoll__os__process__env_dicts 138 14 69_4]
+G c Z s s [constant_reference gnatcoll__os__process__env_dicts 155 13 69_4]
+G c Z s s [reference gnatcoll__os__process__env_dicts 160 13 69_4]
+G c Z s s [constant_reference gnatcoll__os__process__env_dicts 165 13 69_4]
+G c Z s s [reference gnatcoll__os__process__env_dicts 170 13 69_4]
+G c Z s s [assign gnatcoll__os__process__env_dicts 175 14 69_4]
+G c Z s s [copy gnatcoll__os__process__env_dicts 177 13 69_4]
+G c Z s s [move gnatcoll__os__process__env_dicts 179 14 69_4]
+G c Z s s [insert gnatcoll__os__process__env_dicts 183 14 69_4]
+G c Z s s [insert gnatcoll__os__process__env_dicts 201 14 69_4]
+G c Z s s [include gnatcoll__os__process__env_dicts 212 14 69_4]
+G c Z s s [replace gnatcoll__os__process__env_dicts 223 14 69_4]
+G c Z s s [exclude gnatcoll__os__process__env_dicts 234 14 69_4]
+G c Z s s [delete gnatcoll__os__process__env_dicts 243 14 69_4]
+G c Z s s [delete gnatcoll__os__process__env_dicts 251 14 69_4]
+G c Z s s [first gnatcoll__os__process__env_dicts 257 13 69_4]
+G c Z s s [next gnatcoll__os__process__env_dicts 261 13 69_4]
+G c Z s s [next gnatcoll__os__process__env_dicts 269 14 69_4]
+G c Z s s [find gnatcoll__os__process__env_dicts 272 13 69_4]
+G c Z s s [contains gnatcoll__os__process__env_dicts 278 13 69_4]
+G c Z s s [element gnatcoll__os__process__env_dicts 281 13 69_4]
+G c Z s s [equivalent_keys gnatcoll__os__process__env_dicts 284 13 69_4]
+G c Z s s [equivalent_keys gnatcoll__os__process__env_dicts 288 13 69_4]
+G c Z s s [equivalent_keys gnatcoll__os__process__env_dicts 292 13 69_4]
+G c Z s s [iterate gnatcoll__os__process__env_dicts 296 14 69_4]
+G c Z s s [iterate gnatcoll__os__process__env_dicts 301 13 69_4]
+G c Z s s [node_typeIP gnatcoll__os__process__env_dicts 325 9 69_4]
+G c Z s s [adjust gnatcoll__os__process__env_dicts__ht_types__implementation 90 28 58_7_331_4_69_4]
+G c Z s s [finalize gnatcoll__os__process__env_dicts__ht_types__implementation 93 28 58_7_331_4_69_4]
+G c Z s s [zero_counts gnatcoll__os__process__env_dicts__ht_types__implementation 96 17 58_7_331_4_69_4]
+G c Z s s [busy gnatcoll__os__process__env_dicts__ht_types__implementation 100 17 58_7_331_4_69_4]
+G c Z s s [unbusy gnatcoll__os__process__env_dicts__ht_types__implementation 104 17 58_7_331_4_69_4]
+G c Z s s [lock gnatcoll__os__process__env_dicts__ht_types__implementation 108 17 58_7_331_4_69_4]
+G c Z s s [unlock gnatcoll__os__process__env_dicts__ht_types__implementation 112 17 58_7_331_4_69_4]
+G c Z s s [tc_check gnatcoll__os__process__env_dicts__ht_types__implementation 116 17 58_7_331_4_69_4]
+G c Z s s [te_check gnatcoll__os__process__env_dicts__ht_types__implementation 120 17 58_7_331_4_69_4]
+G c Z s s [initialize gnatcoll__os__process__env_dicts__ht_types__implementation 139 28 58_7_331_4_69_4]
+G c Z s s [finalize gnatcoll__os__process__env_dicts__ht_types__implementation 140 28 58_7_331_4_69_4]
+G c Z s s [initialize gnatcoll__os__process__env_dicts__ht_types__implementation 145 28 58_7_331_4_69_4]
+G c Z s s [finalize gnatcoll__os__process__env_dicts__ht_types__implementation 146 28 58_7_331_4_69_4]
+G c Z s s [reference_control_typeDA gnatcoll__os__process__env_dicts__ht_types__implementation 84 12 58_7_331_4_69_4]
+G c Z s s [reference_control_typeDF gnatcoll__os__process__env_dicts__ht_types__implementation 84 12 58_7_331_4_69_4]
+G c Z s s [reference_control_typeIP gnatcoll__os__process__env_dicts__ht_types__implementation 84 12 58_7_331_4_69_4]
+G c Z s s [with_busyDF gnatcoll__os__process__env_dicts__ht_types__implementation 136 12 58_7_331_4_69_4]
+G c Z s s [with_busyIP gnatcoll__os__process__env_dicts__ht_types__implementation 136 12 58_7_331_4_69_4]
+G c Z s s [with_lockDF gnatcoll__os__process__env_dicts__ht_types__implementation 142 12 58_7_331_4_69_4]
+G c Z s s [with_lockIP gnatcoll__os__process__env_dicts__ht_types__implementation 142 12 58_7_331_4_69_4]
+G c Z s s [buckets_typeIP gnatcoll__os__process__env_dicts__ht_types 46 12 331_4_69_4]
+G c Z s s [hash_table_typeDA gnatcoll__os__process__env_dicts__ht_types 52 12 331_4_69_4]
+G c Z s s [hash_table_typeDF gnatcoll__os__process__env_dicts__ht_types 52 12 331_4_69_4]
+G c Z s s [hash_table_typeIP gnatcoll__os__process__env_dicts__ht_types 52 12 331_4_69_4]
+G c Z s s [put_image gnatcoll__os__process__env_dicts 338 14 69_4]
+G c Z s s [adjust gnatcoll__os__process__env_dicts 341 25 69_4]
+G c Z s s [finalize gnatcoll__os__process__env_dicts 343 25 69_4]
+G c Z s s [write gnatcoll__os__process__env_dicts 349 14 69_4]
+G c Z s s [read gnatcoll__os__process__env_dicts 355 14 69_4]
+G c Z s s [write gnatcoll__os__process__env_dicts 384 14 69_4]
+G c Z s s [read gnatcoll__os__process__env_dicts 390 14 69_4]
+G c Z s s [write gnatcoll__os__process__env_dicts 409 14 69_4]
+G c Z s s [read gnatcoll__os__process__env_dicts 415 14 69_4]
+G c Z s s [write gnatcoll__os__process__env_dicts 431 14 69_4]
+G c Z s s [read gnatcoll__os__process__env_dicts 437 14 69_4]
+G c Z s s [pseudo_reference gnatcoll__os__process__env_dicts 448 13 69_4]
+G c Z s s [get_element_access gnatcoll__os__process__env_dicts 455 13 69_4]
+G c Z s s [mapDA gnatcoll__os__process__env_dicts 334 9 69_4]
+G c Z s s [mapDF gnatcoll__os__process__env_dicts 334 9 69_4]
+G c Z s s [mapIP gnatcoll__os__process__env_dicts 334 9 69_4]
+G c Z s s [cursorIP gnatcoll__os__process__env_dicts 364 9 69_4]
+G c Z s s [constant_reference_typeDI gnatcoll__os__process__env_dicts 399 9 69_4]
+G c Z s s [constant_reference_typeDA gnatcoll__os__process__env_dicts 399 9 69_4]
+G c Z s s [constant_reference_typeDF gnatcoll__os__process__env_dicts 399 9 69_4]
+G c Z s s [constant_reference_typeIP gnatcoll__os__process__env_dicts 399 9 69_4]
+G c Z s s [reference_typeDI gnatcoll__os__process__env_dicts 421 9 69_4]
+G c Z s s [reference_typeDA gnatcoll__os__process__env_dicts 421 9 69_4]
+G c Z s s [reference_typeDF gnatcoll__os__process__env_dicts 421 9 69_4]
+G c Z s s [reference_typeIP gnatcoll__os__process__env_dicts 421 9 69_4]
+G c Z s s [finalize gnatcoll__os__process__env_dicts 471 25 69_4]
+G c Z s s [first gnatcoll__os__process__env_dicts 473 24 69_4]
+G c Z s s [next gnatcoll__os__process__env_dicts 475 24 69_4]
+G c Z s s [iteratorDF gnatcoll__os__process__env_dicts 464 9 69_4]
+G c Z s s [iteratorIP gnatcoll__os__process__env_dicts 464 9 69_4]
+G c Z s s [free_key gnatcoll__os__process__env_dicts 51 14 69_4]
+G c Z s s [free_element gnatcoll__os__process__env_dicts 54 14 69_4]
+G c Z s s [copy_node gnatcoll__os__process__env_dicts 61 13 69_4]
+G c Z s s [equivalent_key_node gnatcoll__os__process__env_dicts 64 13 69_4]
+G c Z s s [find_equal_key gnatcoll__os__process__env_dicts 69 13 69_4]
+G c Z s s [free gnatcoll__os__process__env_dicts 73 14 69_4]
+G c Z s s [hash_node gnatcoll__os__process__env_dicts 76 13 69_4]
+G c Z s s [next gnatcoll__os__process__env_dicts 79 13 69_4]
+G c Z s s [read_node gnatcoll__os__process__env_dicts 82 13 69_4]
+G c Z s s [set_next gnatcoll__os__process__env_dicts 85 14 69_4]
+G c Z s s [vet gnatcoll__os__process__env_dicts 88 13 69_4]
+G c Z s s [write_node gnatcoll__os__process__env_dicts 90 14 69_4]
+G c Z s s [free_hash_table gnatcoll__os__process__env_dicts__ht_ops 57 14 98_4_69_4]
+G c Z s s [index gnatcoll__os__process__env_dicts__ht_ops 61 13 98_4_69_4]
+G c Z s s [index gnatcoll__os__process__env_dicts__ht_ops 67 13 98_4_69_4]
+G c Z s s [checked_index gnatcoll__os__process__env_dicts__ht_ops 74 13 98_4_69_4]
+G c Z s s [checked_index gnatcoll__os__process__env_dicts__ht_ops 81 13 98_4_69_4]
+G c Z s s [adjust gnatcoll__os__process__env_dicts__ht_ops 86 14 98_4_69_4]
+G c Z s s [finalize gnatcoll__os__process__env_dicts__ht_ops 92 14 98_4_69_4]
+G c Z s s [clear gnatcoll__os__process__env_dicts__ht_ops 108 14 98_4_69_4]
+G c Z s s [move gnatcoll__os__process__env_dicts__ht_ops 114 14 98_4_69_4]
+G c Z s s [capacity gnatcoll__os__process__env_dicts__ht_ops 120 13 98_4_69_4]
+G c Z s s [reserve_capacity gnatcoll__os__process__env_dicts__ht_ops 123 14 98_4_69_4]
+G c Z s s [delete_node_at_index gnatcoll__os__process__env_dicts__ht_ops 132 14 98_4_69_4]
+G c Z s s [delete_node_sans_free gnatcoll__os__process__env_dicts__ht_ops 141 14 98_4_69_4]
+G c Z s s [first gnatcoll__os__process__env_dicts__ht_ops 146 13 98_4_69_4]
+G c Z s s [first gnatcoll__os__process__env_dicts__ht_ops 148 13 98_4_69_4]
+G c Z s s [next gnatcoll__os__process__env_dicts__ht_ops 155 13 98_4_69_4]
+G c Z s s [next gnatcoll__os__process__env_dicts__ht_ops 158 13 98_4_69_4]
+G c Z s s [new_buckets gnatcoll__os__process__env_dicts__ht_ops 205 13 98_4_69_4]
+G c Z s s [free_buckets gnatcoll__os__process__env_dicts__ht_ops 209 14 98_4_69_4]
+G c Z s s [index gnatcoll__os__process__env_dicts__key_ops 56 13 106_4_69_4]
+G c Z s s [checked_index gnatcoll__os__process__env_dicts__key_ops 62 13 106_4_69_4]
+G c Z s s [checked_equivalent_keys gnatcoll__os__process__env_dicts__key_ops 69 13 106_4_69_4]
+G c Z s s [delete_key_sans_free gnatcoll__os__process__env_dicts__key_ops 76 14 106_4_69_4]
+G c Z s s [find gnatcoll__os__process__env_dicts__key_ops 84 13 106_4_69_4]
+G c Z s s [is_equalR gnatcoll__os__process__env_dicts__is_equalGP4718 118 13 69_4]
+G c Z s s [is_equal gnatcoll__os__process__env_dicts 118 13 69_4]
+G c Z s s [read_nodesR gnatcoll__os__process__env_dicts__read_nodesGP27064 1005 14 69_4]
+G c Z s s [read_nodes gnatcoll__os__process__env_dicts 1005 14 69_4]
+G c Z s s [write_nodesR gnatcoll__os__process__env_dicts__write_nodesGP36107 1365 14 69_4]
+G c Z s s [write_nodes gnatcoll__os__process__env_dicts 1365 14 69_4]
+G c Z s s [empty gnatcoll__os__process__arg_lists 80 13 80_4]
+G c Z s s [has_element gnatcoll__os__process__arg_lists 82 13 80_4]
+G c Z s s [Oeq gnatcoll__os__process__arg_lists 87 24 80_4]
+G c Z s s [new_vector gnatcoll__os__process__arg_lists 89 13 80_4]
+G c Z s s [to_vector gnatcoll__os__process__arg_lists 92 13 80_4]
+G c Z s s [to_vector gnatcoll__os__process__arg_lists 94 13 80_4]
+G c Z s s [Oconcat gnatcoll__os__process__arg_lists 98 13 80_4]
+G c Z s s [Oconcat gnatcoll__os__process__arg_lists 100 13 80_4]
+G c Z s s [Oconcat gnatcoll__os__process__arg_lists 102 13 80_4]
+G c Z s s [Oconcat gnatcoll__os__process__arg_lists 104 13 80_4]
+G c Z s s [capacity gnatcoll__os__process__arg_lists 106 13 80_4]
+G c Z s s [reserve_capacity gnatcoll__os__process__arg_lists 108 14 80_4]
+G c Z s s [length gnatcoll__os__process__arg_lists 112 13 80_4]
+G c Z s s [set_length gnatcoll__os__process__arg_lists 114 14 80_4]
+G c Z s s [is_empty gnatcoll__os__process__arg_lists 118 13 80_4]
+G c Z s s [clear gnatcoll__os__process__arg_lists 120 14 80_4]
+G c Z s s [constant_reference gnatcoll__os__process__arg_lists 131 13 80_4]
+G c Z s s [reference gnatcoll__os__process__arg_lists 136 13 80_4]
+G c Z s s [constant_reference gnatcoll__os__process__arg_lists 141 13 80_4]
+G c Z s s [reference gnatcoll__os__process__arg_lists 146 13 80_4]
+G c Z s s [to_cursor gnatcoll__os__process__arg_lists 151 13 80_4]
+G c Z s s [to_index gnatcoll__os__process__arg_lists 155 13 80_4]
+G c Z s s [element gnatcoll__os__process__arg_lists 157 13 80_4]
+G c Z s s [element gnatcoll__os__process__arg_lists 161 13 80_4]
+G c Z s s [replace_element gnatcoll__os__process__arg_lists 163 14 80_4]
+G c Z s s [replace_element gnatcoll__os__process__arg_lists 168 14 80_4]
+G c Z s s [query_element gnatcoll__os__process__arg_lists 173 14 80_4]
+G c Z s s [query_element gnatcoll__os__process__arg_lists 178 14 80_4]
+G c Z s s [update_element gnatcoll__os__process__arg_lists 182 14 80_4]
+G c Z s s [update_element gnatcoll__os__process__arg_lists 187 14 80_4]
+G c Z s s [assign gnatcoll__os__process__arg_lists 192 14 80_4]
+G c Z s s [copy gnatcoll__os__process__arg_lists 194 13 80_4]
+G c Z s s [move gnatcoll__os__process__arg_lists 196 14 80_4]
+G c Z s s [insert_vector gnatcoll__os__process__arg_lists 198 14 80_4]
+G c Z s s [insert_vector gnatcoll__os__process__arg_lists 209 14 80_4]
+G c Z s s [insert_vector gnatcoll__os__process__arg_lists 220 14 80_4]
+G c Z s s [insert gnatcoll__os__process__arg_lists 233 14 80_4]
+G c Z s s [insert gnatcoll__os__process__arg_lists 239 14 80_4]
+G c Z s s [insert gnatcoll__os__process__arg_lists 245 14 80_4]
+G c Z s s [prepend_vector gnatcoll__os__process__arg_lists 252 14 80_4]
+G c Z s s [prepend gnatcoll__os__process__arg_lists 261 14 80_4]
+G c Z s s [append_vector gnatcoll__os__process__arg_lists 266 14 80_4]
+G c Z s s [append gnatcoll__os__process__arg_lists 275 14 80_4]
+G c Z s s [append gnatcoll__os__process__arg_lists 280 14 80_4]
+G c Z s s [insert_space gnatcoll__os__process__arg_lists 283 14 80_4]
+G c Z s s [insert_space gnatcoll__os__process__arg_lists 288 14 80_4]
+G c Z s s [delete gnatcoll__os__process__arg_lists 294 14 80_4]
+G c Z s s [delete gnatcoll__os__process__arg_lists 299 14 80_4]
+G c Z s s [delete_first gnatcoll__os__process__arg_lists 304 14 80_4]
+G c Z s s [delete_last gnatcoll__os__process__arg_lists 308 14 80_4]
+G c Z s s [reverse_elements gnatcoll__os__process__arg_lists 312 14 80_4]
+G c Z s s [swap gnatcoll__os__process__arg_lists 314 14 80_4]
+G c Z s s [swap gnatcoll__os__process__arg_lists 316 14 80_4]
+G c Z s s [first_index gnatcoll__os__process__arg_lists 318 13 80_4]
+G c Z s s [first gnatcoll__os__process__arg_lists 320 13 80_4]
+G c Z s s [first_element gnatcoll__os__process__arg_lists 322 13 80_4]
+G c Z s s [last_index gnatcoll__os__process__arg_lists 324 13 80_4]
+G c Z s s [last gnatcoll__os__process__arg_lists 326 13 80_4]
+G c Z s s [last_element gnatcoll__os__process__arg_lists 328 13 80_4]
+G c Z s s [next gnatcoll__os__process__arg_lists 330 13 80_4]
+G c Z s s [next gnatcoll__os__process__arg_lists 332 14 80_4]
+G c Z s s [previous gnatcoll__os__process__arg_lists 334 13 80_4]
+G c Z s s [previous gnatcoll__os__process__arg_lists 336 14 80_4]
+G c Z s s [find_index gnatcoll__os__process__arg_lists 338 13 80_4]
+G c Z s s [find gnatcoll__os__process__arg_lists 343 13 80_4]
+G c Z s s [reverse_find_index gnatcoll__os__process__arg_lists 348 13 80_4]
+G c Z s s [reverse_find gnatcoll__os__process__arg_lists 353 13 80_4]
+G c Z s s [contains gnatcoll__os__process__arg_lists 358 13 80_4]
+G c Z s s [iterate gnatcoll__os__process__arg_lists 362 14 80_4]
+G c Z s s [iterate gnatcoll__os__process__arg_lists 366 13 80_4]
+G c Z s s [iterate gnatcoll__os__process__arg_lists 369 13 80_4]
+G c Z s s [reverse_iterate gnatcoll__os__process__arg_lists 374 14 80_4]
+G c Z s s [adjust gnatcoll__os__process__arg_lists__implementation 90 28 407_4_80_4]
+G c Z s s [finalize gnatcoll__os__process__arg_lists__implementation 93 28 407_4_80_4]
+G c Z s s [zero_counts gnatcoll__os__process__arg_lists__implementation 96 17 407_4_80_4]
+G c Z s s [busy gnatcoll__os__process__arg_lists__implementation 100 17 407_4_80_4]
+G c Z s s [unbusy gnatcoll__os__process__arg_lists__implementation 104 17 407_4_80_4]
+G c Z s s [lock gnatcoll__os__process__arg_lists__implementation 108 17 407_4_80_4]
+G c Z s s [unlock gnatcoll__os__process__arg_lists__implementation 112 17 407_4_80_4]
+G c Z s s [tc_check gnatcoll__os__process__arg_lists__implementation 116 17 407_4_80_4]
+G c Z s s [te_check gnatcoll__os__process__arg_lists__implementation 120 17 407_4_80_4]
+G c Z s s [initialize gnatcoll__os__process__arg_lists__implementation 139 28 407_4_80_4]
+G c Z s s [finalize gnatcoll__os__process__arg_lists__implementation 140 28 407_4_80_4]
+G c Z s s [initialize gnatcoll__os__process__arg_lists__implementation 145 28 407_4_80_4]
+G c Z s s [finalize gnatcoll__os__process__arg_lists__implementation 146 28 407_4_80_4]
+G c Z s s [reference_control_typeDA gnatcoll__os__process__arg_lists__implementation 84 12 407_4_80_4]
+G c Z s s [reference_control_typeDF gnatcoll__os__process__arg_lists__implementation 84 12 407_4_80_4]
+G c Z s s [reference_control_typeIP gnatcoll__os__process__arg_lists__implementation 84 12 407_4_80_4]
+G c Z s s [with_busyDF gnatcoll__os__process__arg_lists__implementation 136 12 407_4_80_4]
+G c Z s s [with_busyIP gnatcoll__os__process__arg_lists__implementation 136 12 407_4_80_4]
+G c Z s s [with_lockDF gnatcoll__os__process__arg_lists__implementation 142 12 407_4_80_4]
+G c Z s s [with_lockIP gnatcoll__os__process__arg_lists__implementation 142 12 407_4_80_4]
+G c Z s s [put_image gnatcoll__os__process__arg_lists 430 14 80_4]
+G c Z s s [adjust gnatcoll__os__process__arg_lists 433 25 80_4]
+G c Z s s [finalize gnatcoll__os__process__arg_lists 434 25 80_4]
+G c Z s s [write gnatcoll__os__process__arg_lists 436 14 80_4]
+G c Z s s [read gnatcoll__os__process__arg_lists 442 14 80_4]
+G c Z s s [read gnatcoll__os__process__arg_lists 456 14 80_4]
+G c Z s s [write gnatcoll__os__process__arg_lists 462 14 80_4]
+G c Z s s [write gnatcoll__os__process__arg_lists 481 14 80_4]
+G c Z s s [read gnatcoll__os__process__arg_lists 487 14 80_4]
+G c Z s s [write gnatcoll__os__process__arg_lists 503 14 80_4]
+G c Z s s [read gnatcoll__os__process__arg_lists 509 14 80_4]
+G c Z s s [pseudo_reference gnatcoll__os__process__arg_lists 520 13 80_4]
+G c Z s s [get_element_access gnatcoll__os__process__arg_lists 527 13 80_4]
+G c Z s s [cursorIP gnatcoll__os__process__arg_lists 451 9 80_4]
+G c Z s s [vectorDA gnatcoll__os__process__arg_lists 424 9 80_4]
+G c Z s s [vectorDF gnatcoll__os__process__arg_lists 424 9 80_4]
+G c Z s s [vectorIP gnatcoll__os__process__arg_lists 424 9 80_4]
+G c Z s s [constant_reference_typeDI gnatcoll__os__process__arg_lists 471 9 80_4]
+G c Z s s [constant_reference_typeDA gnatcoll__os__process__arg_lists 471 9 80_4]
+G c Z s s [constant_reference_typeDF gnatcoll__os__process__arg_lists 471 9 80_4]
+G c Z s s [constant_reference_typeIP gnatcoll__os__process__arg_lists 471 9 80_4]
+G c Z s s [reference_typeDI gnatcoll__os__process__arg_lists 493 9 80_4]
+G c Z s s [reference_typeDA gnatcoll__os__process__arg_lists 493 9 80_4]
+G c Z s s [reference_typeDF gnatcoll__os__process__arg_lists 493 9 80_4]
+G c Z s s [reference_typeIP gnatcoll__os__process__arg_lists 493 9 80_4]
+G c Z s s [finalize gnatcoll__os__process__arg_lists 543 25 80_4]
+G c Z s s [first gnatcoll__os__process__arg_lists 545 24 80_4]
+G c Z s s [last gnatcoll__os__process__arg_lists 546 24 80_4]
+G c Z s s [next gnatcoll__os__process__arg_lists 548 24 80_4]
+G c Z s s [previous gnatcoll__os__process__arg_lists 552 24 80_4]
+G c Z s s [elements_arrayIP gnatcoll__os__process__arg_lists 412 9 80_4]
+G c Z s s [elements_typeIP gnatcoll__os__process__arg_lists 415 9 80_4]
+G c Z s s [iteratorDF gnatcoll__os__process__arg_lists 535 9 80_4]
+G c Z s s [iteratorIP gnatcoll__os__process__arg_lists 535 9 80_4]
+G c Z s s [free gnatcoll__os__process__arg_lists 44 14 80_4]
+G c Z s s [free gnatcoll__os__process__arg_lists 47 14 80_4]
+G c Z s s [append_slow_path gnatcoll__os__process__arg_lists 50 14 80_4]
+G c Z s b [start gnatcoll__os__process 100 13 none]
+G c Z s b [start gnatcoll__os__process 109 13 none]
+G c Z s b [wait gnatcoll__os__process 143 13 none]
+G c Z s b [run gnatcoll__os__process 146 13 none]
+G c Z s b [run gnatcoll__os__process 156 13 none]
+G c Z s b [run gnatcoll__os__process 169 13 none]
+G c Z s b [run gnatcoll__os__process 180 13 none]
+G c Z s b [start gnatcoll__os__process 206 13 none]
+G c Z s b [run gnatcoll__os__process 218 13 none]
+G c Z s b [run gnatcoll__os__process 230 13 none]
+G c Z b b [internal_spawn gnatcoll__os__process 29 13 none]
+G c Z b b [list_to_arguments gnatcoll__os__process 41 14 none]
+G c Z b b [dict_to_environment gnatcoll__os__process 47 14 none]
+G c Z b b [run gnatcoll__os__process 122 13 none]
+G r s string_list_builder [start gnatcoll__os__process 100 13 none] [string_list_builderIP gnatcoll__string_list_builders 88 9 none]
+G r s environ [start gnatcoll__os__process 100 13 none] [environIP gnatcoll__os__process_types 98 9 none]
+G r c none [start gnatcoll__os__process 100 13 none] [inherit gnatcoll__os__process_types 44 14 none]
+G r c none [start gnatcoll__os__process 100 13 none] [set_close_on_exec gnatcoll__os__fs 73 14 none]
+G r c none [start gnatcoll__os__process 100 13 none] [init gnatcoll__os__libc__spawn 48 13 none]
+G r s static_string_builder [start gnatcoll__os__process 100 13 none] [static_string_builderIP gnatcoll__string_builders 113 9 none]
+G r c none [start gnatcoll__os__process 100 13 none] [add_dup2 gnatcoll__os__libc__spawn 60 13 none]
+G r c none [start gnatcoll__os__process 100 13 none] [add_close gnatcoll__os__libc__spawn 70 13 none]
+G r c none [start gnatcoll__os__process 100 13 none] [append gnatcoll__string_builders 74 14 none]
+G r c none [start gnatcoll__os__process 100 13 none] [as_c_string gnatcoll__string_builders 101 13 none]
+G r c none [start gnatcoll__os__process 100 13 none] [getcwd gnatcoll__os__libc 159 13 none]
+G r c none [start gnatcoll__os__process 100 13 none] [chdir gnatcoll__os__libc 153 13 none]
+G r c none [start gnatcoll__os__process 100 13 none] [program gnatcoll__os__process_types 81 13 none]
+G r c none [start gnatcoll__os__process 100 13 none] [as_c gnatcoll__os__process_types 84 13 none]
+G r c none [start gnatcoll__os__process 100 13 none] [as_c gnatcoll__os__process_types 59 13 none]
+G r c none [start gnatcoll__os__process 100 13 none] [posix_spawn gnatcoll__os__libc__spawn 79 13 none]
+G r c none [start gnatcoll__os__process 100 13 none] [setpriority gnatcoll__os__libc 165 13 none]
+G r c none [start gnatcoll__os__process 100 13 none] [deallocate gnatcoll__os__process_types 87 14 none]
+G r c none [start gnatcoll__os__process 100 13 none] [deallocate gnatcoll__os__process_types 63 14 none]
+G r s string_list_builder [start gnatcoll__os__process 109 13 none] [string_list_builderIP gnatcoll__string_list_builders 88 9 none]
+G r s environ [start gnatcoll__os__process 109 13 none] [environIP gnatcoll__os__process_types 98 9 none]
+G r c none [start gnatcoll__os__process 109 13 none] [set_close_on_exec gnatcoll__os__fs 73 14 none]
+G r c none [start gnatcoll__os__process 109 13 none] [init gnatcoll__os__libc__spawn 48 13 none]
+G r s static_string_builder [start gnatcoll__os__process 109 13 none] [static_string_builderIP gnatcoll__string_builders 113 9 none]
+G r c none [start gnatcoll__os__process 109 13 none] [add_dup2 gnatcoll__os__libc__spawn 60 13 none]
+G r c none [start gnatcoll__os__process 109 13 none] [add_close gnatcoll__os__libc__spawn 70 13 none]
+G r c none [start gnatcoll__os__process 109 13 none] [append gnatcoll__string_builders 74 14 none]
+G r c none [start gnatcoll__os__process 109 13 none] [as_c_string gnatcoll__string_builders 101 13 none]
+G r c none [start gnatcoll__os__process 109 13 none] [getcwd gnatcoll__os__libc 159 13 none]
+G r c none [start gnatcoll__os__process 109 13 none] [chdir gnatcoll__os__libc 153 13 none]
+G r c none [start gnatcoll__os__process 109 13 none] [program gnatcoll__os__process_types 81 13 none]
+G r c none [start gnatcoll__os__process 109 13 none] [as_c gnatcoll__os__process_types 84 13 none]
+G r c none [start gnatcoll__os__process 109 13 none] [as_c gnatcoll__os__process_types 59 13 none]
+G r c none [start gnatcoll__os__process 109 13 none] [posix_spawn gnatcoll__os__libc__spawn 79 13 none]
+G r c none [start gnatcoll__os__process 109 13 none] [setpriority gnatcoll__os__libc 165 13 none]
+G r c none [start gnatcoll__os__process 109 13 none] [deallocate gnatcoll__os__process_types 87 14 none]
+G r c none [start gnatcoll__os__process 109 13 none] [deallocate gnatcoll__os__process_types 63 14 none]
+G r c none [wait gnatcoll__os__process 143 13 none] [waitpid gnatcoll__os__libc 173 13 none]
+G r s string_list_builder [run gnatcoll__os__process 146 13 none] [string_list_builderIP gnatcoll__string_list_builders 88 9 none]
+G r s environ [run gnatcoll__os__process 146 13 none] [environIP gnatcoll__os__process_types 98 9 none]
+G r c none [run gnatcoll__os__process 146 13 none] [set_close_on_exec gnatcoll__os__fs 73 14 none]
+G r c none [run gnatcoll__os__process 146 13 none] [init gnatcoll__os__libc__spawn 48 13 none]
+G r s static_string_builder [run gnatcoll__os__process 146 13 none] [static_string_builderIP gnatcoll__string_builders 113 9 none]
+G r c none [run gnatcoll__os__process 146 13 none] [add_dup2 gnatcoll__os__libc__spawn 60 13 none]
+G r c none [run gnatcoll__os__process 146 13 none] [add_close gnatcoll__os__libc__spawn 70 13 none]
+G r c none [run gnatcoll__os__process 146 13 none] [append gnatcoll__string_builders 74 14 none]
+G r c none [run gnatcoll__os__process 146 13 none] [as_c_string gnatcoll__string_builders 101 13 none]
+G r c none [run gnatcoll__os__process 146 13 none] [getcwd gnatcoll__os__libc 159 13 none]
+G r c none [run gnatcoll__os__process 146 13 none] [chdir gnatcoll__os__libc 153 13 none]
+G r c none [run gnatcoll__os__process 146 13 none] [program gnatcoll__os__process_types 81 13 none]
+G r c none [run gnatcoll__os__process 146 13 none] [as_c gnatcoll__os__process_types 84 13 none]
+G r c none [run gnatcoll__os__process 146 13 none] [as_c gnatcoll__os__process_types 59 13 none]
+G r c none [run gnatcoll__os__process 146 13 none] [posix_spawn gnatcoll__os__libc__spawn 79 13 none]
+G r c none [run gnatcoll__os__process 146 13 none] [setpriority gnatcoll__os__libc 165 13 none]
+G r c none [run gnatcoll__os__process 146 13 none] [waitpid gnatcoll__os__libc 173 13 none]
+G r c none [run gnatcoll__os__process 146 13 none] [deallocate gnatcoll__os__process_types 87 14 none]
+G r c none [run gnatcoll__os__process 146 13 none] [deallocate gnatcoll__os__process_types 63 14 none]
+G r s string_list_builder [run gnatcoll__os__process 156 13 none] [string_list_builderIP gnatcoll__string_list_builders 88 9 none]
+G r s environ [run gnatcoll__os__process 156 13 none] [environIP gnatcoll__os__process_types 98 9 none]
+G r c none [run gnatcoll__os__process 156 13 none] [inherit gnatcoll__os__process_types 44 14 none]
+G r c none [run gnatcoll__os__process 156 13 none] [set_close_on_exec gnatcoll__os__fs 73 14 none]
+G r c none [run gnatcoll__os__process 156 13 none] [init gnatcoll__os__libc__spawn 48 13 none]
+G r s static_string_builder [run gnatcoll__os__process 156 13 none] [static_string_builderIP gnatcoll__string_builders 113 9 none]
+G r c none [run gnatcoll__os__process 156 13 none] [add_dup2 gnatcoll__os__libc__spawn 60 13 none]
+G r c none [run gnatcoll__os__process 156 13 none] [add_close gnatcoll__os__libc__spawn 70 13 none]
+G r c none [run gnatcoll__os__process 156 13 none] [append gnatcoll__string_builders 74 14 none]
+G r c none [run gnatcoll__os__process 156 13 none] [as_c_string gnatcoll__string_builders 101 13 none]
+G r c none [run gnatcoll__os__process 156 13 none] [getcwd gnatcoll__os__libc 159 13 none]
+G r c none [run gnatcoll__os__process 156 13 none] [chdir gnatcoll__os__libc 153 13 none]
+G r c none [run gnatcoll__os__process 156 13 none] [program gnatcoll__os__process_types 81 13 none]
+G r c none [run gnatcoll__os__process 156 13 none] [as_c gnatcoll__os__process_types 84 13 none]
+G r c none [run gnatcoll__os__process 156 13 none] [as_c gnatcoll__os__process_types 59 13 none]
+G r c none [run gnatcoll__os__process 156 13 none] [posix_spawn gnatcoll__os__libc__spawn 79 13 none]
+G r c none [run gnatcoll__os__process 156 13 none] [setpriority gnatcoll__os__libc 165 13 none]
+G r c none [run gnatcoll__os__process 156 13 none] [waitpid gnatcoll__os__libc 173 13 none]
+G r c none [run gnatcoll__os__process 156 13 none] [deallocate gnatcoll__os__process_types 87 14 none]
+G r c none [run gnatcoll__os__process 156 13 none] [deallocate gnatcoll__os__process_types 63 14 none]
+G r s string_list_builder [run gnatcoll__os__process 169 13 none] [string_list_builderIP gnatcoll__string_list_builders 88 9 none]
+G r s environ [run gnatcoll__os__process 169 13 none] [environIP gnatcoll__os__process_types 98 9 none]
+G r c none [run gnatcoll__os__process 169 13 none] [inherit gnatcoll__os__process_types 44 14 none]
+G r c none [run gnatcoll__os__process 169 13 none] [open_pipe gnatcoll__os__fs 66 14 none]
+G r c none [run gnatcoll__os__process 169 13 none] [set_close_on_exec gnatcoll__os__fs 73 14 none]
+G r c none [run gnatcoll__os__process 169 13 none] [init gnatcoll__os__libc__spawn 48 13 none]
+G r s static_string_builder [run gnatcoll__os__process 169 13 none] [static_string_builderIP gnatcoll__string_builders 113 9 none]
+G r c none [run gnatcoll__os__process 169 13 none] [add_dup2 gnatcoll__os__libc__spawn 60 13 none]
+G r c none [run gnatcoll__os__process 169 13 none] [add_close gnatcoll__os__libc__spawn 70 13 none]
+G r c none [run gnatcoll__os__process 169 13 none] [append gnatcoll__string_builders 74 14 none]
+G r c none [run gnatcoll__os__process 169 13 none] [as_c_string gnatcoll__string_builders 101 13 none]
+G r c none [run gnatcoll__os__process 169 13 none] [getcwd gnatcoll__os__libc 159 13 none]
+G r c none [run gnatcoll__os__process 169 13 none] [chdir gnatcoll__os__libc 153 13 none]
+G r c none [run gnatcoll__os__process 169 13 none] [program gnatcoll__os__process_types 81 13 none]
+G r c none [run gnatcoll__os__process 169 13 none] [as_c gnatcoll__os__process_types 84 13 none]
+G r c none [run gnatcoll__os__process 169 13 none] [as_c gnatcoll__os__process_types 59 13 none]
+G r c none [run gnatcoll__os__process 169 13 none] [posix_spawn gnatcoll__os__libc__spawn 79 13 none]
+G r c none [run gnatcoll__os__process 169 13 none] [setpriority gnatcoll__os__libc 165 13 none]
+G r c none [run gnatcoll__os__process 169 13 none] [close gnatcoll__os__fs 79 14 none]
+G r c none [run gnatcoll__os__process 169 13 none] [read gnatcoll__os__fs 85 13 none]
+G r c none [run gnatcoll__os__process 169 13 none] [waitpid gnatcoll__os__libc 173 13 none]
+G r c none [run gnatcoll__os__process 169 13 none] [deallocate gnatcoll__os__process_types 87 14 none]
+G r s string_list_builder [run gnatcoll__os__process 180 13 none] [string_list_builderIP gnatcoll__string_list_builders 88 9 none]
+G r s environ [run gnatcoll__os__process 180 13 none] [environIP gnatcoll__os__process_types 98 9 none]
+G r c none [run gnatcoll__os__process 180 13 none] [open_pipe gnatcoll__os__fs 66 14 none]
+G r c none [run gnatcoll__os__process 180 13 none] [set_close_on_exec gnatcoll__os__fs 73 14 none]
+G r c none [run gnatcoll__os__process 180 13 none] [init gnatcoll__os__libc__spawn 48 13 none]
+G r s static_string_builder [run gnatcoll__os__process 180 13 none] [static_string_builderIP gnatcoll__string_builders 113 9 none]
+G r c none [run gnatcoll__os__process 180 13 none] [add_dup2 gnatcoll__os__libc__spawn 60 13 none]
+G r c none [run gnatcoll__os__process 180 13 none] [add_close gnatcoll__os__libc__spawn 70 13 none]
+G r c none [run gnatcoll__os__process 180 13 none] [append gnatcoll__string_builders 74 14 none]
+G r c none [run gnatcoll__os__process 180 13 none] [as_c_string gnatcoll__string_builders 101 13 none]
+G r c none [run gnatcoll__os__process 180 13 none] [getcwd gnatcoll__os__libc 159 13 none]
+G r c none [run gnatcoll__os__process 180 13 none] [chdir gnatcoll__os__libc 153 13 none]
+G r c none [run gnatcoll__os__process 180 13 none] [program gnatcoll__os__process_types 81 13 none]
+G r c none [run gnatcoll__os__process 180 13 none] [as_c gnatcoll__os__process_types 84 13 none]
+G r c none [run gnatcoll__os__process 180 13 none] [as_c gnatcoll__os__process_types 59 13 none]
+G r c none [run gnatcoll__os__process 180 13 none] [posix_spawn gnatcoll__os__libc__spawn 79 13 none]
+G r c none [run gnatcoll__os__process 180 13 none] [setpriority gnatcoll__os__libc 165 13 none]
+G r c none [run gnatcoll__os__process 180 13 none] [close gnatcoll__os__fs 79 14 none]
+G r c none [run gnatcoll__os__process 180 13 none] [read gnatcoll__os__fs 85 13 none]
+G r c none [run gnatcoll__os__process 180 13 none] [waitpid gnatcoll__os__libc 173 13 none]
+G r c none [run gnatcoll__os__process 180 13 none] [deallocate gnatcoll__os__process_types 87 14 none]
+G r c none [run gnatcoll__os__process 180 13 none] [deallocate gnatcoll__os__process_types 63 14 none]
+G r c none [start gnatcoll__os__process 206 13 none] [set_close_on_exec gnatcoll__os__fs 73 14 none]
+G r c none [start gnatcoll__os__process 206 13 none] [init gnatcoll__os__libc__spawn 48 13 none]
+G r s static_string_builder [start gnatcoll__os__process 206 13 none] [static_string_builderIP gnatcoll__string_builders 113 9 none]
+G r c none [start gnatcoll__os__process 206 13 none] [add_dup2 gnatcoll__os__libc__spawn 60 13 none]
+G r c none [start gnatcoll__os__process 206 13 none] [add_close gnatcoll__os__libc__spawn 70 13 none]
+G r c none [start gnatcoll__os__process 206 13 none] [append gnatcoll__string_builders 74 14 none]
+G r c none [start gnatcoll__os__process 206 13 none] [as_c_string gnatcoll__string_builders 101 13 none]
+G r c none [start gnatcoll__os__process 206 13 none] [getcwd gnatcoll__os__libc 159 13 none]
+G r c none [start gnatcoll__os__process 206 13 none] [chdir gnatcoll__os__libc 153 13 none]
+G r c none [start gnatcoll__os__process 206 13 none] [program gnatcoll__os__process_types 81 13 none]
+G r c none [start gnatcoll__os__process 206 13 none] [as_c gnatcoll__os__process_types 84 13 none]
+G r c none [start gnatcoll__os__process 206 13 none] [as_c gnatcoll__os__process_types 59 13 none]
+G r c none [start gnatcoll__os__process 206 13 none] [posix_spawn gnatcoll__os__libc__spawn 79 13 none]
+G r c none [start gnatcoll__os__process 206 13 none] [setpriority gnatcoll__os__libc 165 13 none]
+G r c none [run gnatcoll__os__process 218 13 none] [set_close_on_exec gnatcoll__os__fs 73 14 none]
+G r c none [run gnatcoll__os__process 218 13 none] [init gnatcoll__os__libc__spawn 48 13 none]
+G r s static_string_builder [run gnatcoll__os__process 218 13 none] [static_string_builderIP gnatcoll__string_builders 113 9 none]
+G r c none [run gnatcoll__os__process 218 13 none] [add_dup2 gnatcoll__os__libc__spawn 60 13 none]
+G r c none [run gnatcoll__os__process 218 13 none] [add_close gnatcoll__os__libc__spawn 70 13 none]
+G r c none [run gnatcoll__os__process 218 13 none] [append gnatcoll__string_builders 74 14 none]
+G r c none [run gnatcoll__os__process 218 13 none] [as_c_string gnatcoll__string_builders 101 13 none]
+G r c none [run gnatcoll__os__process 218 13 none] [getcwd gnatcoll__os__libc 159 13 none]
+G r c none [run gnatcoll__os__process 218 13 none] [chdir gnatcoll__os__libc 153 13 none]
+G r c none [run gnatcoll__os__process 218 13 none] [program gnatcoll__os__process_types 81 13 none]
+G r c none [run gnatcoll__os__process 218 13 none] [as_c gnatcoll__os__process_types 84 13 none]
+G r c none [run gnatcoll__os__process 218 13 none] [as_c gnatcoll__os__process_types 59 13 none]
+G r c none [run gnatcoll__os__process 218 13 none] [posix_spawn gnatcoll__os__libc__spawn 79 13 none]
+G r c none [run gnatcoll__os__process 218 13 none] [setpriority gnatcoll__os__libc 165 13 none]
+G r c none [run gnatcoll__os__process 218 13 none] [waitpid gnatcoll__os__libc 173 13 none]
+G r c none [run gnatcoll__os__process 230 13 none] [open_pipe gnatcoll__os__fs 66 14 none]
+G r c none [run gnatcoll__os__process 230 13 none] [set_close_on_exec gnatcoll__os__fs 73 14 none]
+G r c none [run gnatcoll__os__process 230 13 none] [init gnatcoll__os__libc__spawn 48 13 none]
+G r s static_string_builder [run gnatcoll__os__process 230 13 none] [static_string_builderIP gnatcoll__string_builders 113 9 none]
+G r c none [run gnatcoll__os__process 230 13 none] [add_dup2 gnatcoll__os__libc__spawn 60 13 none]
+G r c none [run gnatcoll__os__process 230 13 none] [add_close gnatcoll__os__libc__spawn 70 13 none]
+G r c none [run gnatcoll__os__process 230 13 none] [append gnatcoll__string_builders 74 14 none]
+G r c none [run gnatcoll__os__process 230 13 none] [as_c_string gnatcoll__string_builders 101 13 none]
+G r c none [run gnatcoll__os__process 230 13 none] [getcwd gnatcoll__os__libc 159 13 none]
+G r c none [run gnatcoll__os__process 230 13 none] [chdir gnatcoll__os__libc 153 13 none]
+G r c none [run gnatcoll__os__process 230 13 none] [program gnatcoll__os__process_types 81 13 none]
+G r c none [run gnatcoll__os__process 230 13 none] [as_c gnatcoll__os__process_types 84 13 none]
+G r c none [run gnatcoll__os__process 230 13 none] [as_c gnatcoll__os__process_types 59 13 none]
+G r c none [run gnatcoll__os__process 230 13 none] [posix_spawn gnatcoll__os__libc__spawn 79 13 none]
+G r c none [run gnatcoll__os__process 230 13 none] [setpriority gnatcoll__os__libc 165 13 none]
+G r c none [run gnatcoll__os__process 230 13 none] [close gnatcoll__os__fs 79 14 none]
+G r c none [run gnatcoll__os__process 230 13 none] [read gnatcoll__os__fs 85 13 none]
+G r c none [run gnatcoll__os__process 230 13 none] [waitpid gnatcoll__os__libc 173 13 none]
+G r c none [internal_spawn gnatcoll__os__process 29 13 none] [init gnatcoll__os__libc__spawn 48 13 none]
+G r s static_string_builder [internal_spawn gnatcoll__os__process 29 13 none] [static_string_builderIP gnatcoll__string_builders 113 9 none]
+G r c none [internal_spawn gnatcoll__os__process 29 13 none] [add_dup2 gnatcoll__os__libc__spawn 60 13 none]
+G r c none [internal_spawn gnatcoll__os__process 29 13 none] [add_close gnatcoll__os__libc__spawn 70 13 none]
+G r c none [internal_spawn gnatcoll__os__process 29 13 none] [append gnatcoll__string_builders 74 14 none]
+G r c none [internal_spawn gnatcoll__os__process 29 13 none] [as_c_string gnatcoll__string_builders 101 13 none]
+G r c none [internal_spawn gnatcoll__os__process 29 13 none] [getcwd gnatcoll__os__libc 159 13 none]
+G r c none [internal_spawn gnatcoll__os__process 29 13 none] [chdir gnatcoll__os__libc 153 13 none]
+G r c none [internal_spawn gnatcoll__os__process 29 13 none] [program gnatcoll__os__process_types 81 13 none]
+G r c none [internal_spawn gnatcoll__os__process 29 13 none] [as_c gnatcoll__os__process_types 84 13 none]
+G r c none [internal_spawn gnatcoll__os__process 29 13 none] [as_c gnatcoll__os__process_types 59 13 none]
+G r c none [internal_spawn gnatcoll__os__process 29 13 none] [posix_spawn gnatcoll__os__libc__spawn 79 13 none]
+G r c none [internal_spawn gnatcoll__os__process 29 13 none] [setpriority gnatcoll__os__libc 165 13 none]
+G r s environ [run gnatcoll__os__process 122 13 none] [environIP gnatcoll__os__process_types 98 9 none]
+G r c none [run gnatcoll__os__process 122 13 none] [inherit gnatcoll__os__process_types 44 14 none]
+G r c none [run gnatcoll__os__process 122 13 none] [open_pipe gnatcoll__os__fs 66 14 none]
+G r c none [run gnatcoll__os__process 122 13 none] [set_close_on_exec gnatcoll__os__fs 73 14 none]
+G r c none [run gnatcoll__os__process 122 13 none] [init gnatcoll__os__libc__spawn 48 13 none]
+G r s static_string_builder [run gnatcoll__os__process 122 13 none] [static_string_builderIP gnatcoll__string_builders 113 9 none]
+G r c none [run gnatcoll__os__process 122 13 none] [add_dup2 gnatcoll__os__libc__spawn 60 13 none]
+G r c none [run gnatcoll__os__process 122 13 none] [add_close gnatcoll__os__libc__spawn 70 13 none]
+G r c none [run gnatcoll__os__process 122 13 none] [append gnatcoll__string_builders 74 14 none]
+G r c none [run gnatcoll__os__process 122 13 none] [as_c_string gnatcoll__string_builders 101 13 none]
+G r c none [run gnatcoll__os__process 122 13 none] [getcwd gnatcoll__os__libc 159 13 none]
+G r c none [run gnatcoll__os__process 122 13 none] [chdir gnatcoll__os__libc 153 13 none]
+G r c none [run gnatcoll__os__process 122 13 none] [program gnatcoll__os__process_types 81 13 none]
+G r c none [run gnatcoll__os__process 122 13 none] [as_c gnatcoll__os__process_types 84 13 none]
+G r c none [run gnatcoll__os__process 122 13 none] [as_c gnatcoll__os__process_types 59 13 none]
+G r c none [run gnatcoll__os__process 122 13 none] [posix_spawn gnatcoll__os__libc__spawn 79 13 none]
+G r c none [run gnatcoll__os__process 122 13 none] [setpriority gnatcoll__os__libc 165 13 none]
+G r c none [run gnatcoll__os__process 122 13 none] [close gnatcoll__os__fs 79 14 none]
+G r c none [run gnatcoll__os__process 122 13 none] [read gnatcoll__os__fs 85 13 none]
+G r c none [run gnatcoll__os__process 122 13 none] [waitpid gnatcoll__os__libc 173 13 none]
+X 1 ada.ads
+16K9*Ada 20e8 45|26r6 27r6 28r6 29r6 30r6 31r6 38r34 70r11 73r30 81r11 178r14
+. 190r14 240r14 46|24r6 81r17 82r13 131r14 157r14 160r20 185r14 189r20 217r14
+. 220r11
+X 2 a-charac.ads
+16K13*Characters 18e19 46|24r10 81r21 82r17
+X 4 a-chahan.ads
+36K24*Handling 160e28 46|24w21 81r32 82r28
+71V13*To_Lower{string} 46|81s41 82s37
+X 6 a-contai.ads
+16K13*Containers 28e19 45|27r10 28r10 70r15 81r15
+19M9*Hash_Type
+X 15 a-cihama.ads
+45V18 Hash{6|19M9} 45|73r11
+46V18 Equivalent_Keys{boolean} 45|74r11
+49k24*Indefinite_Hashed_Maps 479e42 45|27w21 70r26
+56R9*Map<21|43R9> 45|97r42[69]
+66R9*Cursor 46|61r48[45|69] 62r48[45|69]
+119V13*Key{string} 46|64s43[45|69]
+122V13*Element{string} 46|64s59[45|69]
+296U14*Iterate 46|67s7[45|69]
+X 17 a-coinve.ads
+47k24*Indefinite_Vectors 556e38 45|28w21 81r26
+60R9*Vector<21|43R9> 45|89r39[80]
+73R9*Cursor 46|108r49[45|80] 110r49[45|80]
+161V13*Element{string} 46|112s42[45|80]
+362U14*Iterate 46|115s7[45|80]
+X 23 a-iteint.ads
+24h9 Forward_Iterator
+32h9 Reversible_Iterator<24R9[17|84]>
+X 25 a-string.ads
+16K13*Strings 35e16 45|26w10 29r10 30r10 31r10 38r38 73r34 178r18 190r18
+. 240r18 46|131r18 157r18 160r24 185r18 189r24 217r18 220r15
+X 26 a-strhas.ads
+20V22*Hash{6|19M9} 45|29w18 73r42
+X 30 a-strunb.ads
+83K21*Unbounded 765e26 45|30w18 178r26 190r26 240r26 46|131r26 157r26 160r32
+. 185r26 189r32 217r26 220r23
+88R9*Unbounded_String<21|43R9> 744e15 45|178r36 190r36 240r36 46|131r36 157r36
+. 160r42 185r36 189r42 217r36 223r31
+93V13*Length{natural} 46|276s32 278s35
+136U14*Append 46|263s13
+144U14*Append 46|255s19
+192V13*Element{character} 46|279s21 287s21
+217V13*Unbounded_Slice{88R9} 46|294s20
+219i7 Low{positive} 46|294r45
+220i7 High{natural} 46|294r59
+X 32 a-stuten.ads
+42K21*UTF_Encoding 144e29 45|31w18 38r46
+59A12*UTF_8_String{string}<integer> 45|65r27 71r16 72r16 83r16 102r24 112r24
+. 149r24 158r24 209r23 221r23 233r32 46|31r23 75r27 92r23 124r32 307r24 330r24
+. 353r23 375r24 398r24 421r23 47|37r23
+X 36 gnat.ads
+34K9*GNAT 57e9 46|25r6 430r7 447r7
+X 38 g-tasloc.ads
+46K14*Task_Lock=46:39 46|25w11 430r12 447r12
+X 39 gnatcoll.ads
+24K9*GNATCOLL 27e13 45|32r6 33r6 35r9 37r34 39r34 244r5 46|27r14 457r5 47|24r6
+. 24r36 25r6 25r36 26r6 26r36 34r11 49r19 48|24r6 24r28 26r11
+X 40 gnatcoll-os.ads
+26K18*OS 39|24k9 40|82e16 45|32r15 33r15 35r18 37r43 39r43 244r14 46|27r23
+. 222r31 224r31 354r18 354r43 355r18 355r43 356r18 356r43 422r18 422r43 423r18
+. 423r43 424r18 424r43 457r14 47|24r15 24r45 25r15 25r45 34r20 49r28 48|24r15
+. 24r37 26r20
+30X4*OS_Error 47|88r16 93r16 107r13 119r16
+46M9*C_String<55|67M9>
+58M9*C_String_Array<55|67M9>
+X 41 gnatcoll-os-fs.ads
+29K21*FS 125e19 45|32w18 39r46 46|222r34 224r34 354r21 354r46 355r21 355r46
+. 356r21 356r46 422r21 422r46 423r21 423r46 424r21 424r46
+33I9*File_Descriptor<integer> 45|103r22 104r22 105r22 113r22 114r22 115r22
+. 150r22 151r22 152r22 159r22 160r22 161r22 172r30 173r30 184r30 185r30 210r21
+. 211r21 212r21 222r21 223r21 224r21 234r30 235r30 46|33r21 34r21 35r21 94r21
+. 95r21 96r21 125r30 126r30 151r30 152r30 179r30 180r30 211r30 212r30 219r19
+. 222r37 224r37 308r22 309r22 310r22 331r22 332r22 333r22 354r24 355r24 356r24
+. 376r22 377r22 378r22 399r22 400r22 401r22 422r24 423r24 424r24 47|39r21
+. 40r21 41r21 45r16
+36i4*Standin{33I9} 45|103r44 113r44 150r44 159r44 172r52 184r52 210r43 222r43
+. 234r52 46|125r52 151r52 179r52 211r52 308r44 331r44 354r49 376r44 399r44
+. 422r49 47|58r19 59r41
+37i4*Standout{33I9} 45|104r44 114r44 151r44 160r44 211r43 223r43 46|309r44
+. 332r44 355r49 377r44 400r44 423r49 47|62r20 63r42
+38i4*Standerr{33I9} 45|105r44 115r44 152r44 161r44 173r52 185r52 212r43 224r43
+. 235r52 46|126r52 152r52 180r52 212r52 310r44 333r44 356r49 378r44 401r44
+. 424r49 47|66r20 67r42
+45i4*To_Stdout{33I9} 46|232r22
+66U14*Open_Pipe 46|230s10
+73U14*Set_Close_On_Exec 46|432s10 433s10 434s10 443s10 444s10 445s10
+79U14*Close 46|242s10
+85V13*Read{integer} 46|248s21 261s21
+X 42 gnatcoll-os-libc.ads
+27K21*Libc 180e21 47|24w18 24r48 25r18 25r48 49r31 48|24w18 24r40
+33M9*Uint_32 48|29r17 33r15
+35I12*Sint_32{integer}
+40I12*Libc_Status{35I12} 47|54r19
+42i4*Error{40I12} 47|92r21 118r21
+92I12*Priority{integer} 47|49r36
+93i4*Idle_Priority{92I12} 47|74r42
+94i4*Below_Normal_Priority{92I12} 47|75r42
+95i4*Normal_Priority{92I12} 47|76r42
+96i4*Above_Normal_Priority{92I12} 47|77r42
+97i4*High_Priority{92I12} 47|78r42
+102i4*Inherit_Priority{92I12} 47|73r42 112r21
+105I12*Priority_Target{integer}
+106i4*Process_Priority{105I12} 47|113r32
+153V13*Chdir{40I12} 47|91s19 117s19
+159V13*Getcwd{55|67M9} 47|86s10
+165V13*Setpriority{40I12} 47|113s19
+173V13*Waitpid{integer} 48|35s16
+X 43 gnatcoll-os-libc-spawn.ads
+29K26*Spawn 92e27 47|25w23 25r53
+33M9*File_Actions<55|67M9> 47|50r28
+39M9*Spawn_Attributes<55|67M9> 47|103r8
+45I9*Process_Id<integer> 47|48r19
+48V13*Init{33M9} 47|50s44
+60V13*Add_Dup2{integer} 47|59s17 63s17 67s17
+70V13*Add_Close{integer} 47|60s17 64s17 68s17
+79V13*Posix_Spawn{integer} 47|99s20
+X 45 gnatcoll-os-process.ads
+35K21*Process 40|26k18 45|244l17 244e24 46|27b26 457l17 457t24 47|34r23 48|26r23
+37K12*Process_Types=37:46 45r31 207r18 208r18 219r18 220r18 231r27 232r27
+. 46|30r18 32r18 43r22 49r22 59r22 64r10 78r10 91r18 93r18 106r22 112r10
+. 123r27 133r13 135r7 159r20 171r7 187r20 188r20 202r7 203r7 208r27 209r27
+. 314r20 315r20 318r7 322r7 323r7 337r20 338r20 345r7 346r7 351r18 352r18
+. 382r20 383r20 391r7 392r7 405r20 406r20 410r7 413r7 414r7 419r18 420r18
+. 47|36r18 38r18 101r8 104r8 105r8
+38K12*UTF8=38:46 65r22 71r11 72r11 83r11 102r19 112r19 149r19 158r19 209r18
+. 221r18 233r27 46|31r18 75r22 92r18 124r27 307r19 330r19 353r18 375r19 398r19
+. 421r18 47|37r18
+39K12*FS=39:46 103r19 103r41 104r19 104r41 105r19 105r41 113r19 113r41 114r19
+. 114r41 115r19 115r41 150r19 150r41 151r19 151r41 152r19 152r41 159r19 159r41
+. 160r19 160r41 161r19 161r41 172r27 172r49 173r27 173r49 184r27 184r49 185r27
+. 185r49 210r18 210r40 211r18 211r40 212r18 212r40 222r18 222r40 223r18 223r40
+. 224r18 224r40 234r27 234r49 235r27 235r49 46|33r18 34r18 35r18 94r18 95r18
+. 96r18 125r27 125r49 126r27 126r49 151r27 151r49 152r27 152r49 179r27 179r49
+. 180r27 180r49 211r27 211r49 212r27 212r49 219r16 230r7 232r19 242r7 248r18
+. 261r18 308r19 308r41 309r19 309r41 310r19 310r41 331r19 331r41 332r19 332r41
+. 333r19 333r41 376r19 376r41 377r19 377r41 378r19 378r41 399r19 399r41 400r19
+. 400r41 401r19 401r41 432r7 433r7 434r7 443r7 444r7 445r7 47|39r18 40r18
+. 41r18 45r13 58r16 59r38 62r17 63r39 66r17 67r39
+45I9*Process_Handle<49|32I9> 107r14 117r14 143r23 214r14 46|37r14 98r14 226r31
+. 360r16 380r14 384r20 403r14 407r20 426r14 428r17 455r23 47|43r13 123r11
+. 48|27r20
+50E9*Priority_Class 56e12 106r19 116r19 153r19 162r19 174r27 186r27 213r18
+. 225r18 236r27 46|36r18 97r18 127r27 153r27 181r27 213r27 311r19 334r19
+. 357r18 379r19 402r19 425r18 47|42r18
+51n7*INHERIT{50E9} 106r41 116r41 153r41 162r41 174r49 186r49 213r40 225r40
+. 236r49 46|127r49 153r49 181r49 213r49 311r41 334r41 357r43 379r41 402r41
+. 425r43 47|73r12
+52n7*IDLE{50E9} 47|74r12
+53n7*BELOW_NORMAL{50E9} 47|75r12
+54n7*NORMAL{50E9} 47|76r12
+55n7*ABOVE_NORMAL{50E9} 47|77r12
+56n7*HIGH{50E9} 47|78r12
+64V13*Equivalent_Variables{boolean} 65>8 65>14 74r30 46|74b13 84l8 84t28
+65a8 Left{32|59A12} 46|75b8 79r17 81r51 82r47
+65a14 Right{32|59A12} 46|75b14 79r24
+69K12*Env_Dicts[15|49] 75r8 97r32 46|61r38 62r38
+80K12*Arg_Lists[17|47] 84r8 89r29 46|108r39 110r39
+89R12*Argument_List{17|60R9[80]} 101r19 110r19 147r19 157r19 170r27 181r27
+. 46|42r15 105r15 149r27 176r27 306r19 328r19 373r19 397r19
+97R12*Environment_Dict{15|56R9[69]} 111r19 148r19 182r27 46|48r15 58r15 177r27
+. 329r19 374r19
+100V13*Start{45I9} 101>8 102>8 103>8 104>8 105>8 106>8 46|396b13 416l8 416t13
+101r8 Args{89R12} 46|397b8 409r26
+102a8 Cwd{32|59A12} 46|398b8 412r34
+103i8 Stdin{41|33I9} 46|399b8 412r39
+104i8 Stdout{41|33I9} 46|400b8 412r46
+105i8 Stderr{41|33I9} 46|401b8 412r54
+106e8 Priority{50E9} 46|402b8 412r62
+109V13*Start{45I9} 110>8 111>8 112>8 113>8 114>8 115>8 116>8 46|372b13 394l8
+. 394t13
+110r8 Args{89R12} 46|373b8 387r26
+111r8 Env{97R12} 46|374b8 388r28
+112a8 Cwd{32|59A12} 46|375b8 389r47
+113i8 Stdin{41|33I9} 46|376b8 389r52
+114i8 Stdout{41|33I9} 46|377b8 389r59
+115i8 Stderr{41|33I9} 46|378b8 389r67
+116e8 Priority{50E9} 46|379b8 390r24
+143V13*Wait{integer} 143>19 46|270s17 364s17 455b13 48|27b10 40l5 40t9
+143i19 H{45I9} 46|455b19 48|27b16 31r44
+146V13*Run{integer} 147>8 148>8 149>8 150>8 151>8 152>8 153>8 46|327b13 348l8
+. 348t11
+147r8 Args{89R12} 46|328b8 341r26
+148r8 Env{97R12} 46|329b8 342r28
+149a8 Cwd{32|59A12} 46|330b8 343r45
+150i8 Stdin{41|33I9} 46|331b8 343r50
+151i8 Stdout{41|33I9} 46|332b8 343r57
+152i8 Stderr{41|33I9} 46|333b8 343r65
+153e8 Priority{50E9} 46|334b8 344r22
+156V13*Run{integer} 157>8 158>8 159>8 160>8 161>8 162>8 46|305b13 325l8 325t11
+157r8 Args{89R12} 46|306b8 319r26
+158a8 Cwd{32|59A12} 46|307b8 321r34
+159i8 Stdin{41|33I9} 46|308b8 321r39
+160i8 Stdout{41|33I9} 46|309b8 321r46
+161i8 Stderr{41|33I9} 46|310b8 321r54
+162e8 Priority{50E9} 46|311b8 321r62
+169V13*Run{30|88R9} 170>7 171>7 172>7 173>7 174>7 175>7 176>7 177<7 46|148b13
+. 173l8 173t11
+170r7 Args{89R12} 46|149b7 162r26
+171a7 Cwd{string} 46|150b7 164r30
+172i7 Stdin{41|33I9} 46|151b7 165r31
+173i7 Stderr{41|33I9} 46|152b7 166r32
+174e7 Priority{50E9} 46|153b7 167r34
+175b7 Universal_Newline{boolean} 46|154b7 168r43
+176b7 Strip{boolean} 46|155b7 169r31
+177i7 Status{integer} 46|156b7 170m32 170r32
+180V13*Run{30|88R9} 181>7 182>7 183>7 184>7 185>7 186>7 187>7 188>7 189<7
+. 46|175b13 205l8 205t11
+181r7 Args{89R12} 46|176b7 191r26
+182r7 Env{97R12} 46|177b7 192r28
+183a7 Cwd{string} 46|178b7 195r30
+184i7 Stdin{41|33I9} 46|179b7 196r31
+185i7 Stderr{41|33I9} 46|180b7 197r32
+186e7 Priority{50E9} 46|181b7 198r34
+187b7 Universal_Newline{boolean} 46|182b7 199r43
+188b7 Strip{boolean} 46|183b7 200r31
+189i7 Status{integer} 46|184b7 201m32 201r32
+206V13*Start{45I9} 207>7 208>7 209>7 210>7 211>7 212>7 213>7 46|237s14 363s14
+. 389s17 411s17 418b13 449l8 449t13
+207r7 Args{49|70R9} 46|419b7 437r10
+208r7 Env{49|39R9} 46|420b7 439r10
+209a7 Cwd{32|59A12} 46|421b7 438r10
+210i7 Stdin{41|33I9} 46|422b7 432r29 440r10 443r29
+211i7 Stdout{41|33I9} 46|423b7 433r29 440r17 444r29
+212i7 Stderr{41|33I9} 46|424b7 434r29 440r25 445r29
+213e7 Priority{50E9} 46|425b7 441r10
+218V13*Run{integer} 219>7 220>7 221>7 222>7 223>7 224>7 225>7 46|320s17 343s17
+. 350b13 366l8 366t11
+219r7 Args{49|70R9} 46|351b7 363r21
+220r7 Env{49|39R9} 46|352b7 363r27
+221a7 Cwd{32|59A12} 46|353b7 363r32
+222i7 Stdin{41|33I9} 46|354b7 363r37
+223i7 Stdout{41|33I9} 46|355b7 363r44
+224i7 Stderr{41|33I9} 46|356b7 363r52
+225e7 Priority{50E9} 46|357b7 363r60
+230V13*Run{30|88R9} 231>7 232>7 233>7 234>7 235>7 236>7 237>7 238>7 239<7
+. 46|136s14 193s17 207b13 299l8 299t11
+231r7 Args{49|70R9} 46|137r11 193r22 208b7 238r10
+232r7 Env{49|39R9} 46|138r11 194r22 209b7 238r16
+233a7 Cwd{32|59A12} 46|139r11 195r22 210b7 238r21
+234i7 Stdin{41|33I9} 46|140r11 196r22 211b7 238r26
+235i7 Stderr{41|33I9} 46|141r11 197r22 212b7 224r56 232r10
+236e7 Priority{50E9} 46|142r11 198r22 213b7 238r61
+237b7 Universal_Newline{boolean} 46|143r11 199r22 214b7 246r10
+238b7 Strip{boolean} 46|144r11 200r22 215b7 272r10
+239i7 Status{integer} 46|145r11 201r22 216b7 270m7
+X 46 gnatcoll-os-process.adb
+29V13 Internal_Spawn{45|45I9} 30>7 31>7 32>7 33>7 34>7 35>7 36>7 90b13 436s17
+. 47|35b10 125l5 125t19
+30r7 Args{49|70R9} 91b7 47|36b7 101r31 104r28
+31a7 Cwd{32|59A12} 92b7 47|37b7 51r42 84r7 85r22 116r7
+32r7 Env{49|39R9} 93b7 47|38b7 105r28
+33i7 Stdin{41|33I9} 94b7 47|39b7 58r7 59r31 60r32
+34i7 Stdout{41|33I9} 95b7 47|40b7 62r7 63r31 64r32
+35i7 Stderr{41|33I9} 96b7 47|41b7 66r7 67r31 68r32
+36e7 Priority{45|50E9} 97b7 47|42b7 72r9
+41U14 List_To_Arguments 42>8 43=8 104b14 116l8 116t25 162s7 191s7 319s7 341s7
+. 387s7 409s7
+42r8 From{45|89R12} 105b8 115r16
+43r8 To{49|70R9} 106b8 112m38
+47U14 Dict_To_Environment 48>8 49=8 57b14 68l8 68t27 192s7 342s7 388s7
+48r8 From{45|97R12} 58b8 67r16
+49r8 To{49|39R9} 59b8 64m38
+61U17 Fill_Env 61>27 62b17 65l11 65t19 67r22
+61r27 Position{15|66R9[45|69]} 62b27 64r48 64r68
+108U17 Fill_Args 108>28 110b17 113l11 113t20 115r22
+108r28 Position{17|73R9[45|80]} 110b28 112r51
+122V13 Run{30|88R9} 122b13 123>7 124>7 125>7 126>7 127>7 128>7 129>7 130<7
+. 146l8 146t11 163s17
+123r7 Args{49|70R9} 137r32 163r22
+124a7 Cwd{32|59A12} 139r32 164r22
+125i7 Stdin{41|33I9} 140r32 165r22
+126i7 Stderr{41|33I9} 141r32 166r22
+127e7 Priority{45|50E9} 142r32 167r22
+128b7 Universal_Newline{boolean} 143r32 168r22
+129b7 Strip{boolean} 144r32 169r22
+130i7 Status{integer} 145m32 145r32 170r22
+133r7 Env{49|39R9} 135m30 135r30 138r32
+159r7 Final_Args{49|70R9} 162m32 162r32 163r30 171m33 171r33
+160r7 Result{30|88R9} 163m7 172r14
+187r7 Final_Args{49|70R9} 191m32 191r32 193r30 202m33 202r33
+188r7 Final_Env{49|39R9} 192m33 192r33 194r30 203m33 203r33
+189r7 Result{30|88R9} 193m7 204r14
+222i7 Pipe_Read{41|33I9} 230m21 248r27 261r27
+222i18 Pipe_Write{41|33I9} 230m32 233r28 238r33 242r17
+223r7 Output{30|88R9} 255m27 255r27 263m21 263r21 276r40 278r43 279r30 287r30
+. 294r37 297r17
+224i7 Real_Stderr_Fd{41|33I9} 233m10 238r45
+225a7 Buffer{string} 248m38 248r38 252r24 253r33 255r35 261m38 261r38 263r29
+226i7 Pid{45|45I9} 237m7 270r23
+227i7 N{integer} 248m13 249r23 251r31 261m13 262r23 263r42
+251i17 Index{integer} 252r32 253r41 255r43
+275i13 First{integer} 289m22 289r31 294r52
+276i13 Last{integer} 281m22 281r30 286r27 294r67
+278i17 J{integer} 279r38
+286i17 J{integer} 287r38
+314r7 Final_Args{49|70R9} 319m32 319r32 321r11 322m33 322r33
+315r7 Final_Env{49|39R9} 318m30 318r30 321r23 323m33 323r33
+316i7 Result{integer} 320m7 324r14
+337r7 Final_Args{49|70R9} 341m32 341r32 343r22 345m33 345r33
+338r7 Final_Env{49|39R9} 342m33 342r33 343r34 346m33 346r33
+339i7 Result{integer} 343m7 347r14
+360i7 Pid{45|45I9} 363m7 364r23
+361i7 Result{integer} 364m7 365r14
+382r7 Final_Args{49|70R9} 387m32 387r32 389r24 391m33 391r33
+383r7 Final_Env{49|39R9} 388m33 388r33 389r36 392m33 392r33
+384i7 Result{45|45I9} 389m7 393r14
+405r7 Final_Args{49|70R9} 409m32 409r32 412r11 413m33 413r33
+406r7 Final_Env{49|39R9} 410m30 410r30 412r23 414m33 414r33
+407i7 Result{45|45I9} 411m7 415r14
+428i7 Result{45|45I9} 436m7 448r14
+X 47 gnatcoll-os-process-internal_spawn__unix.adb
+48i4 Pid{43|45I9} 100m8 100r8 113r59 123r27
+49i4 Posix_Prio{42|92I12} 73m28 74m28 75m28 76m28 77m28 78m28 112r7 113r65
+50m4 FA{43|33M9} 59r27 60r28 63r27 64r28 67r27 68r28 102r8
+51r4 C_Cwd{50|68R9} 85m15 85r15 91r39
+52r4 Old_Cwd{50|68R9} 86r31 117r39
+53i4 Status{integer} 59m7 60m7 63m7 64m7 67m7 68m7
+54i4 C_Status{42|40I12} 91m7 92r10 113m7 117m7 118r10
+55i4 Spawn_Status{integer} 99m4 106r7 108r46
+X 48 gnatcoll-os-process-wait__unix.adb
+31i4 Unix_Pid{integer} 35r25 36r19
+32i4 Finished{integer} 35m4 36r7
+33m4 Status{42|33M9} 35m35 35r35 36r32 39r21
+X 49 gnatcoll-os-process_types__unix.ads
+27K21*Process_Types 45|33w18 37r46 49|103e30
+32I9*Process_Handle<integer> 45|45r45
+39R9*Environ 45|208r32 220r32 232r41 46|32r32 49r36 59r36 93r32 133r27 188r34
+. 209r41 315r34 338r34 352r32 383r34 406r34 420r32 47|38r32 49|101e14
+42b4*Case_Sensitive_Env_Var_Names{boolean} 46|78r24
+44U14*Inherit 46|135s21 318s21 410s21
+53U14*Set_Variable 46|64s24
+59V13*As_C{40|58M9} 47|105s22
+63U14*Deallocate 46|203s21 323s21 346s21 392s21 414s21
+70R9*Arguments<52|37R9> 45|207r32 219r32 231r41 46|30r32 43r36 91r32 106r36
+. 123r41 159r34 187r34 208r41 314r34 337r34 351r32 382r34 405r34 419r32 47|36r32
+73U14*Add_Argument 46|112s24
+81V13*Program{40|46M9} 47|101s22
+84V13*As_C{40|58M9} 47|104s22
+87U14*Deallocate<52|66p14> 46|171s21 202s21 322s21 345s21 391s21 413s21
+X 50 gnatcoll-string_builders.ads
+27K18*String_Builders 47|26w15 26r45 50|132e29
+68R9*Static_String_Builder 47|51r19 52r27 50|116e14
+74U14*Append 47|85s7
+101V13*As_C_String{40|46M9} 47|86s18 91s26 117s26
+X 53 interfac.ads
+38K9*Interfaces 47|27r6 47r13 53|231e15
+X 54 i-c.ads
+18K20*C 47|27w17 47r24 54|237e17
+62M9*size_t 47|47r26
+X 55 system.ads
+37K9*System 47|28w6 46r13 86r53 103r26 55|154e11
+67M9*Address 47|46r20
+69m4*Null_Address{67M9} 47|86r60 103r33
+81V14*"="{boolean} 47|86r51
+X 64 s-memory.ads
+53V13*Alloc{55|67M9} 103i<c,__gnat_malloc>22
+68U14*Free 104i<c,__gnat_free>22
+76V13*Realloc{55|67M9} 105i<c,__gnat_realloc>22
+X 71 s-stalib.adb
+89U14 Break_Start 90i<c,__gnat_break_start>22
+X 81 s-tasloc.ads
+49U14*Lock 46|430s22
+54U14*Unlock 46|447s22
+

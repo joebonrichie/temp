@@ -1,0 +1,189 @@
+V "GNAT Lib v2021"
+A -O2
+A -gnatA
+A -fPIC
+A -gnatwu
+A -gnatwa
+A -gnaty
+A -gnatQ
+A -gnatn
+A -mtune=generic
+A -march=x86-64
+P ZX
+
+RN
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U unicode.ccs.iso_8859_4%b  unicode-ccs-iso_8859_4.adb  480189f0 NE OO PK
+W ada%s			ada.ads			ada.ali
+W ada.exceptions%s	a-except.adb		a-except.ali
+Z system.img_uns%s	s-imguns.ads		s-imguns.ali
+Z system.unsigned_types%s  s-unstyp.ads		s-unstyp.ali
+W unicode%s		unicode.adb		unicode.ali
+W unicode.ccs%s		unicode-ccs.adb		unicode-ccs.ali
+W unicode.names%s	unicode-names.ads	unicode-names.ali
+W unicode.names.latin_1_supplement%s  unicode-names-latin_1_supplement.ads  unicode-names-latin_1_supplement.ali
+W unicode.names.latin_extended_a%s  unicode-names-latin_extended_a.ads  unicode-names-latin_extended_a.ali
+W unicode.names.spacing_modifier_letters%s  unicode-names-spacing_modifier_letters.ads  unicode-names-spacing_modifier_letters.ali
+
+U unicode.ccs.iso_8859_4%s  unicode-ccs-iso_8859_4.ads  ad57c2bd EE NE OO PK
+W unicode.ccs%s		unicode-ccs.adb		unicode-ccs.ali
+
+D ada.ads		20210520051131 76789da1 ada%s
+D a-except.ads		20210520051128 946f3014 ada.exceptions%s
+D a-unccon.ads		20210520051130 0e9b276f ada.unchecked_conversion%s
+D system.ads		20210520051135 a2da961d system%s
+D s-exctab.ads		20210520051132 54135002 system.exception_table%s
+D s-imageu.ads		20210520051133 525c30c6 system.image_u%s
+D s-imageu.adb		20210520051133 2d0619dc system.image_u%b
+D s-imguns.ads		20210520051133 0e4da2ac system.img_uns%s
+D s-parame.ads		20210520051134 4752c4cb system.parameters%s
+D s-stalib.ads		20210520051134 472fbca8 system.standard_library%s
+D s-traent.ads		20210520051134 26a8d361 system.traceback_entries%s
+D s-unstyp.ads		20210520051134 2b077493 system.unsigned_types%s
+D unicode.ads		20210519052322 a421878d unicode%s
+D unicode-ccs.ads	20210519052322 184e29de unicode.ccs%s
+D unicode-ccs-iso_8859_4.ads  20210519052322 b519eb63 unicode.ccs.iso_8859_4%s
+D unicode-ccs-iso_8859_4.adb  20210519052322 7aad35a4 unicode.ccs.iso_8859_4%b
+D unicode-names.ads	20210519052322 fec77f75 unicode.names%s
+D unicode-names-latin_1_supplement.ads  20210519052322 862938c4 unicode.names.latin_1_supplement%s
+D unicode-names-latin_extended_a.ads  20210519052322 a2394e0d unicode.names.latin_extended_a%s
+D unicode-names-spacing_modifier_letters.ads  20210519052322 37ca11ea unicode.names.spacing_modifier_letters%s
+G a e
+G c Z s b [to_unicode unicode__ccs__iso_8859_4 33 13 none]
+G c Z s b [to_iso_8859_4 unicode__ccs__iso_8859_4 34 13 none]
+G c Z b b [Tconversion_arrBIP unicode__ccs__iso_8859_4 32 4 none]
+X 1 ada.ads
+16K9*Ada 20e8 16|28r6 28r42
+X 2 a-except.ads
+44K13*Exceptions 289e19 16|28w10 28r46
+80U14*Raise_Exception 16|139s10 213s16
+X 13 unicode.ads
+111K9*Unicode 157e12 15|29r9 39r5 16|24r6 24r42 25r6 25r44 26r6 27r5 30r14
+. 222r5
+114M9*Unicode_Char 15|33r35 33r56 34r35 34r56 16|32r34 33r9 136r32 136r53
+. 141r23 156r35 156r56 215r29
+X 14 unicode-ccs.ads
+31K17*CCS 13|111k9 14|72e16 15|29r17 39r13 16|30r22 222r13
+44P9*Conversion_Function(13|114M9)
+47R9*Character_Set 50e14 15|36r40
+48p7*To_Unicode{44P9} 15|37m7
+49p7*To_CS{44P9} 15|38m7
+63X4*Invalid_Code 16|140r13 214r19
+X 15 unicode-ccs-iso_8859_4.ads
+29K21*Iso_8859_4 14|31k17 15|39l17 39e27 16|30b26 222l17 222t27
+31a4*Name1{string}
+33V13*To_Unicode{13|114M9} 33>28 37r21 16|136b13 150l8 150t18
+33m28 Char{13|114M9} 16|136b25 138r10 141r43 144r13 145r17 148r33
+34V13*To_Iso_8859_4{13|114M9} 34>28 38r21 16|156b13 221l8 221t21
+34m28 Char{13|114M9} 16|156b28 158r12 212r16 215r49 218r23
+36r4*Iso_8859_4_Character_Set{14|47R9}
+X 16 unicode-ccs-iso_8859_4.adb
+32A9 Conversion_Arr(13|114M9)<13|114M9> 35r30
+35a4 To_Unicode_Arr{32A9} 138r17 144r20 148r17
+X 17 unicode-names.ads
+6K17*Names 16|24r14 24r50 25r14 25r52 26r14 27r13 17|8e18
+X 18 unicode-names-latin_1_supplement.ads
+4K23*Latin_1_Supplement 16|25w20 25r58 18|227e37
+132m4*Currency_Sign{13|114M9} 16|39r19 162r15
+135m4*Section_Sign{13|114M9} 16|42r19
+136m4*Diaeresis{13|114M9} 16|43r19
+142m4*Soft_Hyphen{13|114M9} 16|48r19
+145m4*Macron{13|114M9} 16|50r19
+146m4*Degree_Sign{13|114M9} 16|51r19
+150m4*Acute_Accent{13|114M9} 16|55r19
+154m4*Cedilla{13|114M9} 16|59r19
+164m4*Latin_Capital_Letter_A_With_Acute{13|114M9} 16|68r19
+165m4*Latin_Capital_Letter_A_With_Circumflex{13|114M9} 16|69r19
+166m4*Latin_Capital_Letter_A_With_Tilde{13|114M9} 16|70r19
+167m4*Latin_Capital_Letter_A_With_Diaeresis{13|114M9} 16|71r19
+168m4*Latin_Capital_Letter_A_With_Ring_Above{13|114M9} 16|72r19
+169m4*Latin_Capital_Letter_Ae{13|114M9} 16|73r19
+172m4*Latin_Capital_Letter_E_With_Acute{13|114M9} 16|76r19
+174m4*Latin_Capital_Letter_E_With_Diaeresis{13|114M9} 16|78r19
+176m4*Latin_Capital_Letter_I_With_Acute{13|114M9} 16|80r19
+177m4*Latin_Capital_Letter_I_With_Circumflex{13|114M9} 16|81r19
+183m4*Latin_Capital_Letter_O_With_Circumflex{13|114M9} 16|87r19
+184m4*Latin_Capital_Letter_O_With_Tilde{13|114M9} 16|88r19
+185m4*Latin_Capital_Letter_O_With_Diaeresis{13|114M9} 16|89r19
+186m4*Multiplication_Sign{13|114M9} 16|90r19
+187m4*Latin_Capital_Letter_O_With_Stroke{13|114M9} 16|91r19
+189m4*Latin_Capital_Letter_U_With_Acute{13|114M9} 16|93r19
+190m4*Latin_Capital_Letter_U_With_Circumflex{13|114M9} 16|94r19
+191m4*Latin_Capital_Letter_U_With_Diaeresis{13|114M9} 16|95r19
+192m4*Latin_Capital_Letter_Y_With_Acute{13|114M9} 16|96r19 194r15
+194m4*Latin_Small_Letter_Sharp_S{13|114M9} 16|98r19
+196m4*Latin_Small_Letter_A_With_Acute{13|114M9} 16|100r19
+197m4*Latin_Small_Letter_A_With_Circumflex{13|114M9} 16|101r19
+198m4*Latin_Small_Letter_A_With_Tilde{13|114M9} 16|102r19
+199m4*Latin_Small_Letter_A_With_Diaeresis{13|114M9} 16|103r19
+200m4*Latin_Small_Letter_A_With_Ring_Above{13|114M9} 16|104r19
+201m4*Latin_Small_Letter_Ae{13|114M9} 16|105r19
+204m4*Latin_Small_Letter_E_With_Acute{13|114M9} 16|108r19
+206m4*Latin_Small_Letter_E_With_Diaeresis{13|114M9} 16|110r19
+208m4*Latin_Small_Letter_I_With_Acute{13|114M9} 16|112r19
+209m4*Latin_Small_Letter_I_With_Circumflex{13|114M9} 16|113r19
+215m4*Latin_Small_Letter_O_With_Circumflex{13|114M9} 16|119r19
+216m4*Latin_Small_Letter_O_With_Tilde{13|114M9} 16|120r19
+217m4*Latin_Small_Letter_O_With_Diaeresis{13|114M9} 16|121r19
+218m4*Division_Sign{13|114M9} 16|122r19
+219m4*Latin_Small_Letter_O_With_Stroke{13|114M9} 16|123r19
+221m4*Latin_Small_Letter_U_With_Acute{13|114M9} 16|125r19
+222m4*Latin_Small_Letter_U_With_Circumflex{13|114M9} 16|126r19
+223m4*Latin_Small_Letter_U_With_Diaeresis{13|114M9} 16|127r19
+X 19 unicode-names-latin_extended_a.ads
+4K23*Latin_Extended_A 16|24w20 24r56 19|139e35
+8m4*Latin_Capital_Letter_A_With_Macron{13|114M9} 16|67r19 183r15
+9m4*Latin_Small_Letter_A_With_Macron{13|114M9} 16|99r19 196r15
+12m4*Latin_Capital_Letter_A_With_Ogonek{13|114M9} 16|36r19 159r15
+13m4*Latin_Small_Letter_A_With_Ogonek{13|114M9} 16|52r19 170r15
+20m4*Latin_Capital_Letter_C_With_Caron{13|114M9} 16|75r19 185r15
+21m4*Latin_Small_Letter_C_With_Caron{13|114M9} 16|107r19 198r15
+24m4*Latin_Capital_Letter_D_With_Stroke{13|114M9} 16|83r19 189r15
+25m4*Latin_Small_Letter_D_With_Stroke{13|114M9} 16|115r19 202r15
+26m4*Latin_Capital_Letter_E_With_Macron{13|114M9} 16|45r19 166r15
+27m4*Latin_Small_Letter_E_With_Macron{13|114M9} 16|61r19 177r15
+30m4*Latin_Capital_Letter_E_With_Dot_Above{13|114M9} 16|79r19 187r15
+31m4*Latin_Small_Letter_E_With_Dot_Above{13|114M9} 16|111r19 200r15
+32m4*Latin_Capital_Letter_E_With_Ogonek{13|114M9} 16|77r19 186r15
+33m4*Latin_Small_Letter_E_With_Ogonek{13|114M9} 16|109r19 199r15
+42m4*Latin_Capital_Letter_G_With_Cedilla{13|114M9} 16|46r19 167r15
+43m4*Latin_Small_Letter_G_With_Cedilla{13|114M9} 16|62r19 178r15
+48m4*Latin_Capital_Letter_I_With_Tilde{13|114M9} 16|40r19 163r15
+49m4*Latin_Small_Letter_I_With_Tilde{13|114M9} 16|56r19 173r15
+50m4*Latin_Capital_Letter_I_With_Macron{13|114M9} 16|82r19 188r15
+51m4*Latin_Small_Letter_I_With_Macron{13|114M9} 16|114r19 201r15
+54m4*Latin_Capital_Letter_I_With_Ogonek{13|114M9} 16|74r19 184r15
+55m4*Latin_Small_Letter_I_With_Ogonek{13|114M9} 16|106r19 197r15
+62m4*Latin_Capital_Letter_K_With_Cedilla{13|114M9} 16|86r19 192r15
+63m4*Latin_Small_Letter_K_With_Cedilla{13|114M9} 16|118r19 205r15
+64m4*Latin_Small_Letter_Kra{13|114M9} 16|37r19 160r15
+67m4*Latin_Capital_Letter_L_With_Cedilla{13|114M9} 16|41r19 164r15
+68m4*Latin_Small_Letter_L_With_Cedilla{13|114M9} 16|57r19 174r15
+77m4*Latin_Capital_Letter_N_With_Cedilla{13|114M9} 16|84r19 190r15
+78m4*Latin_Small_Letter_N_With_Cedilla{13|114M9} 16|116r19 203r15
+83m4*Latin_Capital_Letter_Eng{13|114M9} 16|64r19 180r15
+84m4*Latin_Small_Letter_Eng{13|114M9} 16|66r19 182r15
+85m4*Latin_Capital_Letter_O_With_Macron{13|114M9} 16|85r19 191r15
+86m4*Latin_Small_Letter_O_With_Macron{13|114M9} 16|117r19 204r15
+96m4*Latin_Capital_Letter_R_With_Cedilla{13|114M9} 16|38r19 161r15
+97m4*Latin_Small_Letter_R_With_Cedilla{13|114M9} 16|54r19 172r15
+106m4*Latin_Capital_Letter_S_With_Caron{13|114M9} 16|44r19 165r15
+107m4*Latin_Small_Letter_S_With_Caron{13|114M9} 16|60r19 176r15
+112m4*Latin_Capital_Letter_T_With_Stroke{13|114M9} 16|47r19 168r15
+113m4*Latin_Small_Letter_T_With_Stroke{13|114M9} 16|63r19 179r15
+115m4*Latin_Small_Letter_U_With_Tilde{13|114M9} 16|128r19 207r15
+116m4*Latin_Capital_Letter_U_With_Macron{13|114M9} 16|97r19 195r15
+117m4*Latin_Small_Letter_U_With_Macron{13|114M9} 16|129r19 208r15
+125m4*Latin_Capital_Letter_U_With_Ogonek{13|114M9} 16|92r19 193r15
+126m4*Latin_Small_Letter_U_With_Ogonek{13|114M9} 16|124r19 206r15
+136m4*Latin_Capital_Letter_Z_With_Caron{13|114M9} 16|49r19 169r15
+137m4*Latin_Small_Letter_Z_With_Caron{13|114M9} 16|65r19 181r15
+X 20 unicode-names-spacing_modifier_letters.ads
+4K23*Spacing_Modifier_Letters 16|26w20 27r19 20|94e43
+33m4*Caron{13|114M9} 16|58r19 175r15
+51m4*Dot_Above{13|114M9} 16|130r19 209r15
+53m4*Ogonek{13|114M9} 16|53r19 171r15
+

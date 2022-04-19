@@ -1,0 +1,140 @@
+		       G N A T   E X A M P L E S
+		       =========================
+
+
+In this directory, some of the most interesting options of gnat will be
+introduced.
+
+Include directories
+-------------------
+
+As with many compilers, it is possible to tell gnat to look in many different
+directories for Ada specs or bodies: the '-I<directory>' switch can be used
+to find the sources in a different directory, and the '-D<directory>' switch
+indicates where to put the compiled files. '-I-' has a particular meaning,
+which is to overlook the current directory while searching for .o and .ali
+files.
+
+In this directory, we got the 'include' subdir which contains all the
+Ada specs, the 'src' subdir which contains all the Ada bodies, and the
+obj directory which will contain the products of the compilation
+process, that is the *.o and *.ali files. To enforce this organization,
+we just have to run the following command:
+ 
+  $ gnatmake -Iinclude -Isrc -o ./demo1 -D obj demo2
+
+Debugging information
+---------------------
+
+The -g option includes debugging information in the generated executable. This
+option is mandatory if you want to debug an application at the source level,
+which is the case most of the time.
+
+Compile demo2 with and without the -g switch and have a look at the impact on
+a debugging session with GVD or GPS.
+
+  $ gnatmake -f -g -Iinclude -Isrc -D obj -o demo2_debug demo2
+  $ gnatmake -f -Iinclude -Isrc -D obj -o demo2_nodebug demo2
+  $ gvd demo2_debug
+
+You will see the demo2.adb source file opened in the source window, and on the
+left blue points will be displayed, corresponding to breakable lines.
+
+   $ gvd demo2_nodebug
+
+Now, demo2.adb won't be opened in the source window as there is no debugging
+symbol associated to it. You won't see the file either in the source file tree
+on the left for the same reason.
+
+Keep this situation in mind if you encounter a similar situation when trying
+to debug your application. Always check that you have compiled all your files
+with -g.
+
+For more information on GVD and GPS, please have a look at their respective
+documentations.
+
+Optimizations
+-------------
+
+The -O option of gnat handles the optimization behaviour of the compiler.
+
+* -O0: no optimization (the default)
+* -O1: medium level optimization
+* -O2: full optimization
+* -O3: full optimization, and also attempt automatic inlining of small
+       subprograms within a unit 
+
+Try to compile the example called demo2 with the various optimization options
+and compare the size of the executables. In order to do that, you can use the
+'-o' switch which indicates the name of the executable:
+
+  $ gnatmake -O0 -f -Iinclude -Isrc -D obj -o demo2.0 demo2
+  $ gnatmake -O1 -f -Iinclude -Isrc -D obj -o demo2.1 demo2
+  $ gnatmake -O2 -f -Iinclude -Isrc -D obj -o demo2.2 demo2
+  $ gnatmake -O3 -f -Iinclude -Isrc -D obj -o demo2.3 demo2
+
+As you can see, the higher the optimization level (below 3 however), the
+smaller the executable.
+
+Style checking
+--------------
+
+Gnat has built-in several flags to check the style of a program at compile
+time. It is possible to enforce your own coding rule as well as using the
+default Gnat coding style, or even doing nothing.
+
+The switch that enforces style check is '-gnaty'. For instance:
+
+* -gnaty4 specifies that the indentation is 4 characters wide.
+* -gnatyt checks token casing
+* -gnatym check that the line length is not longer than 79 characters.
+
+It is possible to combine all these options in a single flag: -gnat4tm.
+The '-gnaty' switch enforces all the possible rules. It is the switch used
+for the internal sources of gnat.
+
+Try to compile demo2 with the token casing checks enforces:
+
+  $ gnatmake -f -Iinclude -Isrc -D obj -gnatyt demo2
+  gcc -c -gnatyt demo2.adb
+  demo2.adb:60:49: (style) space required
+  gcc -c -gnatyt gen_list.adb
+  gen_list.adb:3:21: (style) space not allowed
+  gen_list.adb:8:21: (style) space not allowed
+  gen_list.adb:13:21: (style) space not allowed
+  gen_list.adb:18:21: (style) space not allowed
+  gen_list.adb:33:21: (style) space not allowed
+  gen_list.ads:17:21: (style) space not allowed
+  gen_list.ads:18:21: (style) space not allowed
+  gen_list.ads:19:21: (style) space not allowed
+  gen_list.ads:20:21: (style) space not allowed
+  gen_list.ads:21:21: (style) space not allowed
+  gcc -c -gnatyt instr.adb
+  instr.ads:73:59: (style) space required
+  gcc -c -gnatyt instr-child.adb
+  gnatbind -x demo2.ali
+  gnatlink demo2.al
+
+Now you can correct the style error at line 60, column 49 in demo2.adb, and
+check that the warning message has disappeared.
+  
+Exception handling
+------------------
+
+the program named "stb" illustrates how simple it is to store the stack
+traceback information: you just have to use the switch '-E' of gnatbind,
+and the traceback information is stored in the exception occurrence itself,
+which can be used later on the get some usefull information:
+
+  $ gnatmake -I- -Iinclude -Isrc -D obj stb -bargs -E
+  $ ./stb
+  Execution terminated by unhandled exception
+  Exception name: CONSTRAINT_ERROR
+  Message: stb.adb:5 explicit raise
+  Call stack traceback locations:
+  0x804c127 0x80494a7 0x804937b 0x8049393 0x80493a4 0x804934b
+
+Later, you can use the addr2line utility to get the symbolic stackframe
+when the exception was raised. See the Gnat User's Guide for more information.
+
+

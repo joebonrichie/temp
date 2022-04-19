@@ -1,0 +1,208 @@
+V "GNAT Lib v2021"
+A -O2
+A -gnatA
+A -fPIC
+A -gnatn
+A -gnatwa
+A -gnatwC
+A -gnatwJ
+A -mtune=generic
+A -march=x86-64
+P SS ZX
+
+RN
+RV NO_ALLOCATORS
+RV NO_EXCEPTIONS
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_LOCAL_ALLOCATORS
+RV NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_UNCHECKED_DEALLOCATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U gnatcoll.wstring_list_builders%b  gnatcoll-wstring_list_builders.adb  2a482ba9 NE OO PK IU
+W ada%s			ada.ads			ada.ali
+W ada.strings%s		a-string.ads		a-string.ali
+W ada.strings.utf_encoding%s  a-stuten.adb	a-stuten.ali
+W ada.strings.utf_encoding.wide_strings%s  a-suewst.adb  a-suewst.ali
+W ada.unchecked_deallocation%s
+W gnatcoll%s		gnatcoll.ads		gnatcoll.ali
+W system%s		system.ads		system.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+W system.storage_elements%s  s-stoele.adb	s-stoele.ali
+
+U gnatcoll.wstring_list_builders%s  gnatcoll-wstring_list_builders.ads  d135b16e BN EE NE OO PK IU
+W ada%s			ada.ads			ada.ali
+W ada.strings%s		a-string.ads		a-string.ali
+W ada.strings.utf_encoding%s  a-stuten.adb	a-stuten.ali
+W gnatcoll%s		gnatcoll.ads		gnatcoll.ali
+W gnatcoll.os%s		gnatcoll-os.ads		gnatcoll-os.ali
+W system%s		system.ads		system.ali
+
+D ada.ads		20210520051131 76789da1 ada%s
+D a-charac.ads		20210520051128 2d3ec45b ada.characters%s
+D a-chacon.ads		20210520051128 5b23f5eb ada.characters.conversions%s
+D a-string.ads		20210520051129 90ac6797 ada.strings%s
+D a-stuten.ads		20210520051129 808c40ad ada.strings.utf_encoding%s
+D a-suewst.ads		20210520051130 90b69721 ada.strings.utf_encoding.wide_strings%s
+D a-unccon.ads		20210520051130 0e9b276f ada.unchecked_conversion%s
+D a-uncdea.ads		20210520051130 c3a8ac65 ada.unchecked_deallocation%s
+D gnatcoll.ads		20210519051041 6a5da479 gnatcoll%s
+D gnatcoll-os.ads	20210519051041 399a6f15 gnatcoll.os%s
+D gnatcoll-wstring_list_builders.ads  20210519051041 a0a4acb2 gnatcoll.wstring_list_builders%s
+D gnatcoll-wstring_list_builders.adb  20210519051041 f431f65b gnatcoll.wstring_list_builders%b
+D interfac.ads		20210520051132 edec285f interfaces%s
+D system.ads		20210520051135 a2da961d system%s
+D s-exctab.ads		20210520051132 54135002 system.exception_table%s
+D s-parame.ads		20210520051134 4752c4cb system.parameters%s
+D s-secsta.ads		20210520051134 9b3ab94b system.secondary_stack%s
+D s-stalib.ads		20210520051134 472fbca8 system.standard_library%s
+D s-stoele.ads		20210520051134 2dc34a04 system.storage_elements%s
+D s-stoele.adb		20210520051134 ed88f8fb system.storage_elements%b
+D unchconv.ads		20210520051135 ca2f9e18 unchecked_conversion%s
+G a e
+G c Z s b [append gnatcoll__wstring_list_builders 43 14 none]
+G c Z s b [append gnatcoll__wstring_list_builders 47 14 none]
+G c Z s b [append gnatcoll__wstring_list_builders 51 14 none]
+G c Z s b [delete gnatcoll__wstring_list_builders 54 14 none]
+G c Z s b [length gnatcoll__wstring_list_builders 57 13 none]
+G c Z s b [element gnatcoll__wstring_list_builders 61 13 none]
+G c Z s b [element gnatcoll__wstring_list_builders 66 13 none]
+G c Z s b [deallocate gnatcoll__wstring_list_builders 71 14 none]
+G c Z s b [as_c_wstring_array gnatcoll__wstring_list_builders 74 13 none]
+G c Z s b [as_c_wstring gnatcoll__wstring_list_builders 79 13 none]
+G c Z s s [wstring_list_builderIP gnatcoll__wstring_list_builders 90 9 none]
+G c Z s s [element_addrsIP gnatcoll__wstring_list_builders 87 9 none]
+G c Z b b [free gnatcoll__wstring_list_builders 34 14 none]
+G c Z b b [free gnatcoll__wstring_list_builders 37 14 none]
+G c Z b b [allocate gnatcoll__wstring_list_builders 40 14 none]
+G c Z b b [s_first gnatcoll__wstring_list_builders 44 13 none]
+G c Z b b [s_last gnatcoll__wstring_list_builders 56 13 none]
+G c Z b b [s_len gnatcoll__wstring_list_builders 73 13 none]
+X 1 ada.ads
+16K9*Ada 20e8 11|30r6 36r25 12|24r6 25r6 30r24 34r26 37r26
+X 4 a-string.ads
+16K13*Strings 35e16 11|30r10 36r29 12|25r10 30r28
+X 5 a-stuten.ads
+42K21*UTF_Encoding 144e29 11|30w18 36r37 12|25r18 30r36
+59A12*UTF_8_String{string}<integer> 11|44r34 12|163r56
+X 6 a-suewst.ads
+20K34*Wide_Strings 67e42 12|25w31 30r49
+59V13*Decode{wide_string} 12|165s43
+X 8 a-uncdea.ads
+20u15*Unchecked_Deallocation 12|24w10 34r30 37r30
+X 9 gnatcoll.ads
+24K9*GNATCOLL 27e13 11|29r6 33r9 35r23 97r5 12|28r14 349r5
+X 10 gnatcoll-os.ads
+26K18*OS 82e16 11|29w15 35r32
+52M9*C_WString<14|67M9> 11|67r65 79r66 12|219r66 223r20 329r17 333r20
+54m4*Null_C_WString{52M9} 12|225r20
+62M9*C_WString_Array<14|67M9> 11|75r47 12|235r17 239r20
+63m4*Null_C_WString_Array{62M9} 12|241r20
+X 11 gnatcoll-wstring_list_builders.ads
+33K18*WString_List_Builders 9|24k9 11|85E9 97l14 97e35 12|28b23 349l14 349t35
+35K12*OS=35:32 67r62 75r44 79r63 12|219r63 223r17 225r17 235r14 239r17 241r17
+. 329r14 333r17
+36K12*UTF8=36:37 44r29 12|163r51
+38R9*WString_List_Builder 43r36 47r37 48r30 51r36 54r36 57r28 62r16 67r15
+. 71r40 75r15 79r34 90c9 95e14 12|40r42 45r15 49r15 57r15 61r15 74r15 78r15
+. 88r42 163r22 170r36 202r23 203r16 219r34 234r15 249r40 268r36 314r16 327r16
+. 343r28
+43U14*Append 43=22 44>22 12|162b14 168l8 168t14
+43r22 Self{38R9} 12|163b8 167m15
+44a22 Item{5|59A12} 12|163b44 165r51
+47U14*Append 47=22 48>22 12|201b14 213l8 213t14
+47r22 Self{38R9} 12|202b8 207m17 211m18
+48r22 Other{38R9} 12|203b8 207r31 207r39 210r31 211r33
+51U14*Append 51=22 51>58 12|167s7 170b14 199l8 199t14 211s10
+51r22 Self{38R9} 12|170b22 177m17 180m7 180r26 181r7 181r19 181r39 181r49
+. 185r7 185r19 188r7 188r17 188r38 189r7 189r17 193r7 193r17 194r7 194r17
+. 197m7 197r24
+51a58 Item{wide_string} 12|170b58 173r43 188r54 188r70
+54U14*Delete 54=22 54>58 12|268b14 307l8 307t14
+54r22 Self{38R9} 12|268b22 272r18 274r53 275r53 276r46 278r13 278r32 279r31
+. 279r45 280r16 280r35 281r34 281r48 283m13 283r30 285r36 286r16 287r19 290r13
+. 290r23 291r13 291r23 293m13 293r32 294r13 294r25 297r21 299m10 299r36 300r10
+. 300r20 301r10 301r20 302m10 302r29 303r10 303r22
+54i58 Index{positive} 12|268b58 272r10 274r65 275r65 276r52 278r38 280r41
+. 285r22 297r13 299r42
+57V13*Length{natural} 57>21 12|207s23 210s23 279s37 281s40 343b13 347l8 347t14
+57r21 Self{38R9} 12|343b21 346r14
+61V13*Element{wide_string} 62>8 62>38 12|211s24 313b13 324l8 324t15
+62r8 Self{38R9} 12|314b8 319r19 320r17 320r36 320r60
+62i38 Index{positive} 12|315b8 319r10 320r42 320r66
+66V13*Element{10|52M9} 67>8 67>37 12|326b13 337l8 337t15
+67r8 Self{38R9} 12|327b8 332r19 333r31
+67i37 Index{positive} 12|328b8 332r10 333r43
+71U14*Deallocate 71=26 12|249b14 262l8 262t18
+71r26 Self{38R9} 12|249b26 252r10 253m16 253r16 256r10 257m16 257r16 260m7
+. 261m7
+74V13*As_C_WString_Array{10|62M9} 75>8 12|233b13 243l8 243t26
+75r8 Self{38R9} 12|234b8 238r10 239r37
+79V13*As_C_WString{10|52M9} 79>27 12|219b13 227l8 227t20
+79r27 Self{38R9} 12|219b27 222r10 223r31
+85P9 WString_Access(wide_string) 93r20 12|35r20 120r32
+87A9 Element_Addrs(14|67M9)<integer> 88r40 12|38r7 140r20
+88P9 Element_Addrs_Access(87A9) 91r20 12|38r22 139r32
+91p7*Addrs{88P9} 12|53r29 69r20 96r19 96r49 135r15 135r51 144r25 147r21 148m27
+. 153m18 181r12 185r12 238r15 239r42 256r15 257m21 274r58 275r58 286r21 287r24
+. 294r18 303r15 333r36
+92i7*Addrs_Last{natural} 12|65r23 107r18 142r36 152r27 180m12 180r31 181r24
+. 185r24 260m12 272r23 285r41 293m18 293r37 294r30 297r26 302m15 302r34 303r27
+. 319r24 332r24 346r19
+93p7*Str{85P9} 12|53r50 69r45 98r19 98r49 100r19 101r16 118r15 118r49 123r21
+. 125r53 126m27 130m18 143r40 181r44 188r12 189r12 193r12 194r12 222r15 223r36
+. 252r15 253m21 278r18 280r21 290r18 291r18 300r15 301r15 320r22
+94i7*Str_Last{natural} 12|66r22 113r18 125r35 125r68 128r27 129r27 181r54
+. 188r22 188r43 189r22 193r22 194r22 197m12 197r29 207r45 261m12 283m18 283r35
+. 290r28 291r28 299m15 300r25 301r25
+X 12 gnatcoll-wstring_list_builders.adb
+30K12 UTF=30:49 165r39
+32e4 WNUL{wide_character} 128r44 129r44 189r51 193r55 194r55 290r45 291r45
+. 300r42 301r42
+34U14 Free[8|20] 126s16 253s10
+37U14 Free[8|20] 148s16 257s10
+40U14 Allocate 40=24 41>24 42>24 88b14 156l8 156t16 177s7 207s7
+40r24 Self{11|38R9} 88b24 96r14 96r44 98r14 98r44 100r14 101r11 107r13 113r13
+. 118r10 118r44 123r16 125r30 125r48 125r63 126m22 126r22 128r22 129r22 130m13
+. 135r10 135r46 142r31 143r35 144r20 147r16 148m22 148r22 152r22 153m13
+41i24 Elements{natural} 89b24 107r31
+42i24 Chars{natural} 90b24 113r29
+44V13 S_First{integer} 45>8 45>37 48b13 54l8 54t15 81s37 278s23 280s26 299s27
+. 320s27
+45r8 Self{11|38R9} 49b8 53r24 53r45
+45i37 Index{positive} 49b37 53r36
+56V13 S_Last{integer} 57>8 57>37 60b13 71l8 71t14 81s14 279s23 281s26 320s52
+57r8 Self{11|38R9} 61b8 65r18 66r17 69r15 69r40
+57i37 Index{positive} 61b37 65r10 69r27
+73V13 S_Len{integer} 74>8 74>37 77b13 82l8 82t13 276s39
+74r8 Self{11|38R9} 78b8 81r22 81r46
+74i37 Index{positive} 78b37 81r28 81r52
+95i7 Idx_Max{natural} 107r46 108m10 108r21 135r36 140r40
+97i7 Str_Max{natural} 113r41 114m10 114r21 118r34 121r38
+99m7 Offset{14|67M9} 144r41
+102b7 Str_Reallocated{boolean} 131m13 136r10
+120p13 New_Str{11|85P9} 125r16 128r13 129r13 130r25
+139p13 New_Idx{11|88P9} 143r16 152r13 153r27
+142i17 Index{integer} 143r25 144r32
+165a7 WItem{wide_string} 167r21
+173i7 C_Item_Length{integer} 177r26 189r33 193r33 194r33 197r40
+210i11 Idx{integer} 211r40
+274m13 Start_Addr{14|67M9} 287r52
+275m13 End_Addr{14|67M9} 287r41
+276i13 Len{integer} 279r54 283r46
+285i17 J{integer} 286r28 287r31
+X 14 system.ads
+37K9*System 11|31w6 87r54 12|26r6 51r11 63r11 92r16 93r11 99r25 100r35 152r46
+. 185r43 270r11 274r35 275r35 294r49 303r46 14|154e11
+67M9*Address 11|87r61 12|92r23 99r32 274r42 275r42
+69m4*Null_Address{67M9} 12|100r42 152r53 185r50 294r56 303r53
+X 19 s-stoele.ads
+42K16*Storage_Elements 12|26w13 51r18 63r18 93r18 270r18 19|116e28
+54I9*Storage_Offset<long_integer>
+75V14*"+"{14|67M9} 12|143s56
+85V14*"-"{14|67M9} 12|275s76 287s38
+90V14*"-"{54I9} 12|53s43 69s38 144s39 287s50
+

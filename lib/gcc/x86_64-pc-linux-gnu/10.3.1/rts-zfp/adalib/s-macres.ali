@@ -1,0 +1,40 @@
+V "GNAT Lib v2021"
+A -nostdinc
+A -O2
+A -gnatA
+A --RTS=/it/sbx/a2c2/x86_64-linux/recompilablerts_bootstrap-c/pkg/lib/gcc/x86_64-pc-linux-gnu/10.3.1/rts-zfp/
+A -gnatg
+A -fno-delete-null-pointer-checks
+A -gnatp
+A -gnatn2
+A -fcallgraph-info=su,da
+A -ffunction-sections
+A -fdata-sections
+A -fno-inline
+A -mtune=generic
+A -march=x86-64
+P ZX
+
+RN
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U system.machine_reset%b  s-macres.adb		356de740 NE OL PK
+W system%s		system.ads		system.ali
+
+U system.machine_reset%s  s-macres.ads		a25c4930 NE OL PK
+W system%s		system.ads		system.ali
+
+D system.ads		20210520110340 410ea14a system%s
+D s-macres.ads		20210520110340 e352e87a system.machine_reset%s
+D s-macres.adb		20210520110340 d63f0f3a system.machine_reset%b
+G a e
+G c Z s b [stop system__machine_reset 39 14 none]
+X 1 system.ads
+60K9*System 172e11 2|36r9 42r5 3|32r14 45r5
+X 2 s-macres.ads
+36K16*Machine_Reset 1|60k9 2|42l12 42e25 3|32b21 45l12 45t25
+39U14*Stop 40r22 3|41b14 44l8 44t12
+X 3 s-macres.adb
+33U14 Os_Exit 33>23 34b<c,exit>22 35r22 43s7
+33i23 Status{integer}
+

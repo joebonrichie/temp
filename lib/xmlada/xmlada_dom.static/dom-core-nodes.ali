@@ -1,0 +1,839 @@
+V "GNAT Lib v2021"
+A -O2
+A -gnatA
+A -gnatwu
+A -gnatwa
+A -gnaty
+A -gnatQ
+A -gnatn
+A -mtune=generic
+A -march=x86-64
+P SS ZX
+
+RN
+RV NO_ALLOCATORS
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_DISPATCH
+RV NO_EXCEPTION_HANDLERS
+RV NO_EXCEPTIONS
+RV NO_IO
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_LOCAL_ALLOCATORS
+RV NO_NESTED_FINALIZATION
+RV NO_RECURSION
+RV NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_STREAMS
+RV NO_UNCHECKED_DEALLOCATION
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLICIT_LOOPS
+RV NO_OBSOLESCENT_FEATURES
+
+U dom.core.nodes%b	dom-core-nodes.adb	5853eea9 NE OO PK IU
+W ada%s			ada.ads			ada.ali
+Z ada.exceptions%s	a-except.adb		a-except.ali
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+W ada.text_io.text_streams%s  a-titest.adb	a-titest.ali
+W dom.core%s		dom-core.adb		dom-core.ali
+W sax%s			sax.ads			sax.ali
+W sax.encodings%s	sax-encodings.ads	sax-encodings.ali
+W sax.symbols%s		sax-symbols.adb		sax-symbols.ali
+W sax.utils%s		sax-utils.adb		sax-utils.ali
+Z system%s		system.ads		system.ali
+Z system.compare_array_unsigned_8%s  s-carun8.adb  s-carun8.ali
+Z system.img_uns%s	s-imguns.ads		s-imguns.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+Z system.soft_links%s	s-soflin.adb		s-soflin.ali
+Z system.standard_library%s  s-stalib.adb	s-stalib.ali
+Z system.storage_elements%s  s-stoele.adb	s-stoele.ali
+Z system.storage_pools%s  s-stopoo.adb		s-stopoo.ali
+Z system.storage_pools.subpools%s  s-stposu.adb	s-stposu.ali
+Z system.stream_attributes%s  s-stratt.adb	s-stratt.ali
+Z system.strings.stream_ops%s  s-ststop.adb	s-ststop.ali
+Z system.unsigned_types%s  s-unstyp.ads		s-unstyp.ali
+W unicode%s		unicode.adb		unicode.ali
+W unicode.ces%s		unicode-ces.adb		unicode-ces.ali
+W unicode.encodings%s	unicode-encodings.adb	unicode-encodings.ali
+W unicode.names%s	unicode-names.ads	unicode-names.ali
+W unicode.names.basic_latin%s  unicode-names-basic_latin.ads  unicode-names-basic_latin.ali
+
+U dom.core.nodes%s	dom-core-nodes.ads	d698d5da EE NE OO PK IU
+W ada%s			ada.ads			ada.ali
+W ada.streams%s		a-stream.adb		a-stream.ali
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+W dom.core%s		dom-core.adb		dom-core.ali
+W sax%s			sax.ads			sax.ali
+W sax.encodings%s	sax-encodings.ads	sax-encodings.ali
+W unicode%s		unicode.adb		unicode.ali
+W unicode.encodings%s	unicode-encodings.adb	unicode-encodings.ali
+
+D ada.ads		20210520051131 76789da1 ada%s
+D a-except.ads		20210520051128 946f3014 ada.exceptions%s
+D a-finali.ads		20210520051128 bf4f806b ada.finalization%s
+D a-ioexce.ads		20210520051128 e4a01f64 ada.io_exceptions%s
+D a-stream.ads		20210520051129 119b8fb3 ada.streams%s
+D a-string.ads		20210520051129 90ac6797 ada.strings%s
+D a-sttebu.ads		20210520051129 18209c64 ada.strings.text_buffers%s
+D a-stuten.ads		20210520051129 808c40ad ada.strings.utf_encoding%s
+D a-tags.ads		20210520051130 9eaa38c6 ada.tags%s
+D a-textio.ads		20210520051130 aef4d56d ada.text_io%s
+D a-titest.ads		20210520051130 f6e9e057 ada.text_io.text_streams%s
+D a-unccon.ads		20210520051130 0e9b276f ada.unchecked_conversion%s
+D a-uncdea.ads		20210520051130 c3a8ac65 ada.unchecked_deallocation%s
+D dom.ads		20210519052322 2bd88f63 dom%s
+D dom-core.ads		20210519052322 3a4cc7f1 dom.core%s
+D dom-core.adb		20210519052322 3d1522ed dom.core%b
+D dom-core-nodes.ads	20210519052322 06d13589 dom.core.nodes%s
+D dom-core-nodes.adb	20210519052322 698f7e69 dom.core.nodes%b
+D gnat.ads		20210520051132 b5988c27 gnat%s
+D g-tasloc.ads		20210520051131 9c49392e gnat.task_lock%s
+D interfac.ads		20210520051132 edec285f interfaces%s
+D i-cstrea.ads		20210520051132 e53d8b8e interfaces.c_streams%s
+D sax.ads		20210519052322 17965ec6 sax%s
+D sax-encodings.ads	20210519052322 22d791a3 sax.encodings%s
+D sax-htable.ads	20210519052322 2df615ad sax.htable%s
+D sax-pointers.ads	20210519052322 d9877e85 sax.pointers%s
+D sax-symbols.ads	20210519052322 d3179de8 sax.symbols%s
+D sax-symbols.adb	20210519052322 d4150ebd sax.symbols%b
+D sax-utils.ads		20210519052322 214aab19 sax.utils%s
+D system.ads		20210520051135 a2da961d system%s
+D s-addima.ads		20210520051132 a1ec9d3a system.address_image%s
+D s-carun8.ads		20210520051132 a903718d system.compare_array_unsigned_8%s
+D s-crtl.ads		20210520051132 0ebbdb71 system.crtl%s
+D s-exctab.ads		20210520051132 54135002 system.exception_table%s
+D s-ficobl.ads		20210520051132 078245e4 system.file_control_block%s
+D s-finmas.ads		20210520051132 1ab4dba8 system.finalization_masters%s
+D s-finroo.ads		20210520051132 4ff27390 system.finalization_root%s
+D s-imageu.ads		20210520051133 525c30c6 system.image_u%s
+D s-imageu.adb		20210520051133 2d0619dc system.image_u%b
+D s-imguns.ads		20210520051133 0e4da2ac system.img_uns%s
+D s-memory.ads		20210520051133 597d6634 system.memory%s
+D s-parame.ads		20210520051134 4752c4cb system.parameters%s
+D s-pooglo.ads		20210520051134 ede33ef8 system.pool_global%s
+D s-putima.ads		20210520051134 4e095881 system.put_images%s
+D s-secsta.ads		20210520051134 9b3ab94b system.secondary_stack%s
+D s-soflin.ads		20210520051134 a7318a92 system.soft_links%s
+D s-stache.ads		20210520051134 a37c21ec system.stack_checking%s
+D s-stalib.ads		20210520051134 472fbca8 system.standard_library%s
+D s-stalib.adb		20210520051134 977290bf system.standard_library%b
+D s-stoele.ads		20210520051134 2dc34a04 system.storage_elements%s
+D s-stoele.adb		20210520051134 ed88f8fb system.storage_elements%b
+D s-stopoo.ads		20210520051134 e9fa2dd8 system.storage_pools%s
+D s-stposu.ads		20210520051134 e251976f system.storage_pools.subpools%s
+D s-stratt.ads		20210520051134 7bdda3fa system.stream_attributes%s
+D s-stratt.adb		20210520051134 fc996108 system.stream_attributes%b
+D s-statxd.ads		20210520051134 b54789f6 system.stream_attributes.xdr%s
+D s-string.ads		20210520051134 8fe54fb7 system.strings%s
+D s-ststop.ads		20210520051134 5fbf1b38 system.strings.stream_ops%s
+D s-tasloc.ads		20210520051134 618a376e system.task_lock%s
+D s-traent.ads		20210520051134 26a8d361 system.traceback_entries%s
+D s-unstyp.ads		20210520051134 2b077493 system.unsigned_types%s
+D s-wchcon.ads		20210520051135 1b7d22d2 system.wch_con%s
+D unchconv.ads		20210520051135 ca2f9e18 unchecked_conversion%s
+D unchdeal.ads		20210520051135 214516a4 unchecked_deallocation%s
+D unicode.ads		20210519052322 a421878d unicode%s
+D unicode-ccs.ads	20210519052322 184e29de unicode.ccs%s
+D unicode-ces.ads	20210519052322 68f558ab unicode.ces%s
+D unicode-ces-utf32.ads	20210519052322 b5f035ac unicode.ces.utf32%s
+D unicode-ces-utf8.ads	20210519052322 dcbef85d unicode.ces.utf8%s
+D unicode-encodings.ads	20210519052322 d94939b2 unicode.encodings%s
+D unicode-names.ads	20210519052322 fec77f75 unicode.names%s
+D unicode-names-basic_latin.ads  20210519052322 aa07d1b5 unicode.names.basic_latin%s
+G a e
+G c Z s b [node_name dom__core__nodes 34 13 none]
+G c Z s b [node_value dom__core__nodes 41 13 none]
+G c Z s b [node_type dom__core__nodes 45 13 none]
+G c Z s b [set_node_value dom__core__nodes 48 14 none]
+G c Z s b [child_nodes dom__core__nodes 52 13 none]
+G c Z s b [first_child dom__core__nodes 58 13 none]
+G c Z s b [last_child dom__core__nodes 61 13 none]
+G c Z s b [parent_node dom__core__nodes 64 13 none]
+G c Z s b [previous_sibling dom__core__nodes 68 13 none]
+G c Z s b [next_sibling dom__core__nodes 74 13 none]
+G c Z s b [attributes dom__core__nodes 78 13 none]
+G c Z s b [owner_document dom__core__nodes 82 13 none]
+G c Z s b [namespace_uri dom__core__nodes 85 13 none]
+G c Z s b [prefix dom__core__nodes 90 13 none]
+G c Z s b [set_prefix dom__core__nodes 93 14 none]
+G c Z s b [local_name dom__core__nodes 98 13 none]
+G c Z s b [local_name dom__core__nodes 99 13 none]
+G c Z s b [insert_before dom__core__nodes 104 13 none]
+G c Z s b [replace_child dom__core__nodes 119 13 none]
+G c Z s b [remove_child dom__core__nodes 134 13 none]
+G c Z s b [append_child dom__core__nodes 143 13 none]
+G c Z s b [has_child_nodes dom__core__nodes 154 13 none]
+G c Z s b [clone_node dom__core__nodes 157 13 none]
+G c Z s b [normalize dom__core__nodes 163 14 none]
+G c Z s b [supports dom__core__nodes 167 13 none]
+G c Z s b [item dom__core__nodes 178 13 none]
+G c Z s b [length dom__core__nodes 183 13 none]
+G c Z s b [get_named_item dom__core__nodes 190 13 none]
+G c Z s b [get_named_item dom__core__nodes 192 13 none]
+G c Z s b [set_named_item dom__core__nodes 198 14 none]
+G c Z s b [set_named_item dom__core__nodes 200 14 none]
+G c Z s b [remove_named_item dom__core__nodes 207 14 none]
+G c Z s b [remove_named_item dom__core__nodes 209 14 none]
+G c Z s b [remove_named_item dom__core__nodes 214 14 none]
+G c Z s b [item dom__core__nodes 217 13 none]
+G c Z s b [length dom__core__nodes 221 13 none]
+G c Z s b [get_named_item_ns dom__core__nodes 224 13 none]
+G c Z s b [get_named_item_ns dom__core__nodes 228 13 none]
+G c Z s b [set_named_item_ns dom__core__nodes 234 14 none]
+G c Z s b [set_named_item_ns dom__core__nodes 236 14 none]
+G c Z s b [remove_named_item_ns dom__core__nodes 241 14 none]
+G c Z s b [remove_named_item_ns dom__core__nodes 246 14 none]
+G c Z s b [write dom__core__nodes 256 14 none]
+G c Z s b [print dom__core__nodes 305 14 none]
+G c Z s b [dump dom__core__nodes 322 14 none]
+G c Z s b [free dom__core__nodes 326 14 none]
+G c Z b b [print_string dom__core__nodes 36 14 none]
+G c Z b b [put dom__core__nodes 46 14 none]
+G c Z b b [print_name dom__core__nodes 52 14 none]
+G c Z b b [free dom__core__nodes 60 14 none]
+G c Z b b [child_is_valid dom__core__nodes 63 13 none]
+G c Z b b [sort dom__core__nodes 66 14 none]
+G c Z b b [namespace_uri dom__core__nodes 70 13 none]
+G r c none [node_name dom__core__nodes 34 13 none] [qualified_name dom__core 270 13 none]
+G r c none [node_name dom__core__nodes 34 13 none] [get sax__symbols 53 13 none]
+G r c none [node_value dom__core__nodes 41 13 none] [get sax__symbols 53 13 none]
+G r c none [set_node_value dom__core__nodes 48 14 none] [find sax__utils 182 13 none]
+G r c none [set_node_value dom__core__nodes 48 14 none] [free unicode__ces 46 14 none]
+G r s node_list [previous_sibling dom__core__nodes 68 13 none] [node_listIP dom__core 217 9 none]
+G r s node_list [next_sibling dom__core__nodes 74 13 none] [node_listIP dom__core 217 9 none]
+G r c none [namespace_uri dom__core__nodes 85 13 none] [get sax__symbols 53 13 none]
+G r c none [prefix dom__core__nodes 90 13 none] [get sax__symbols 53 13 none]
+G r c none [set_prefix dom__core__nodes 93 14 none] [find sax__utils 182 13 none]
+G r c none [local_name dom__core__nodes 98 13 none] [get sax__symbols 53 13 none]
+G r c none [insert_before dom__core__nodes 104 13 none] [remove dom__core 367 14 none]
+G r c none [insert_before dom__core__nodes 104 13 none] [append dom__core 364 14 none]
+G r s node_array [insert_before dom__core__nodes 104 13 none] [node_arrayIP dom__core 211 9 none]
+G r c none [insert_before dom__core__nodes 104 13 none] [free dom__core 214 14 none]
+G r c none [remove_child dom__core__nodes 134 13 none] [remove dom__core 367 14 none]
+G r c none [append_child dom__core__nodes 143 13 none] [remove dom__core 367 14 none]
+G r c none [append_child dom__core__nodes 143 13 none] [append dom__core 364 14 none]
+G r s node_array [append_child dom__core__nodes 143 13 none] [node_arrayIP dom__core 211 9 none]
+G r c none [append_child dom__core__nodes 143 13 none] [free dom__core 214 14 none]
+G r s node_record [clone_node dom__core__nodes 157 13 none] [node_recordIP dom__core 293 9 none]
+G r l node_record [clone_node dom__core__nodes 157 13 none] [node_recordDI dom__core 293 9 none]
+G r s node_array [clone_node dom__core__nodes 157 13 none] [node_arrayIP dom__core 211 9 none]
+G r c none [normalize dom__core__nodes 163 14 none] [document_remove_id dom__core 377 14 none]
+G r c none [normalize dom__core__nodes 163 14 none] [free dom__core 214 14 none]
+G r c none [normalize dom__core__nodes 163 14 none] [free unicode__ces 46 14 none]
+G r c none [normalize dom__core__nodes 163 14 none] [reset dom__core__nodes_htable 47 14 244_4]
+G r k node_record [normalize dom__core__nodes 163 14 none] [node_recordDF dom__core 293 9 none]
+G r c none [get_named_item dom__core__nodes 190 13 none] [qualified_name dom__core 270 13 none]
+G r c none [get_named_item dom__core__nodes 190 13 none] [get sax__symbols 53 13 none]
+G r c none [set_named_item dom__core__nodes 198 14 none] [qualified_name dom__core 270 13 none]
+G r c none [set_named_item dom__core__nodes 198 14 none] [get sax__symbols 53 13 none]
+G r c none [set_named_item dom__core__nodes 198 14 none] [append dom__core 364 14 none]
+G r c none [set_named_item dom__core__nodes 200 14 none] [qualified_name dom__core 270 13 none]
+G r c none [set_named_item dom__core__nodes 200 14 none] [get sax__symbols 53 13 none]
+G r c none [set_named_item dom__core__nodes 200 14 none] [append dom__core 364 14 none]
+G r c none [remove_named_item dom__core__nodes 207 14 none] [qualified_name dom__core 270 13 none]
+G r c none [remove_named_item dom__core__nodes 207 14 none] [get sax__symbols 53 13 none]
+G r c none [remove_named_item dom__core__nodes 209 14 none] [qualified_name dom__core 270 13 none]
+G r c none [remove_named_item dom__core__nodes 209 14 none] [get sax__symbols 53 13 none]
+G r c none [get_named_item_ns dom__core__nodes 224 13 none] [Oeq sax__symbols 64 13 none]
+G r c none [set_named_item_ns dom__core__nodes 234 14 none] [get sax__symbols 53 13 none]
+G r c none [set_named_item_ns dom__core__nodes 234 14 none] [Oeq sax__symbols 64 13 none]
+G r c none [set_named_item_ns dom__core__nodes 234 14 none] [append dom__core 364 14 none]
+G r c none [set_named_item_ns dom__core__nodes 236 14 none] [get sax__symbols 53 13 none]
+G r c none [set_named_item_ns dom__core__nodes 236 14 none] [Oeq sax__symbols 64 13 none]
+G r c none [set_named_item_ns dom__core__nodes 236 14 none] [append dom__core 364 14 none]
+G r c none [remove_named_item_ns dom__core__nodes 241 14 none] [Oeq sax__symbols 64 13 none]
+G r c none [remove_named_item_ns dom__core__nodes 246 14 none] [Oeq sax__symbols 64 13 none]
+G r c none [write dom__core__nodes 256 14 none] [get sax__symbols 53 13 none]
+G r c none [write dom__core__nodes 256 14 none] [qualified_name dom__core 270 13 none]
+G r c none [write dom__core__nodes 256 14 none] [write_bom unicode__ces 92 13 none]
+G r c none [print dom__core__nodes 305 14 none] [get sax__symbols 53 13 none]
+G r c none [print dom__core__nodes 305 14 none] [qualified_name dom__core 270 13 none]
+G r c none [print dom__core__nodes 305 14 none] [write_bom unicode__ces 92 13 none]
+G r c none [dump dom__core__nodes 322 14 none] [get_by_name unicode__encodings 43 13 none]
+G r c none [dump dom__core__nodes 322 14 none] [get sax__symbols 53 13 none]
+G r c none [dump dom__core__nodes 322 14 none] [qualified_name dom__core 270 13 none]
+G r c none [free dom__core__nodes 326 14 none] [document_remove_id dom__core 377 14 none]
+G r c none [free dom__core__nodes 326 14 none] [free dom__core 214 14 none]
+G r c none [free dom__core__nodes 326 14 none] [free unicode__ces 46 14 none]
+G r c none [free dom__core__nodes 326 14 none] [reset dom__core__nodes_htable 47 14 244_4]
+G r k node_record [free dom__core__nodes 326 14 none] [node_recordDF dom__core 293 9 none]
+G r c none [print_name dom__core__nodes 52 14 none] [get sax__symbols 53 13 none]
+G r c none [print_name dom__core__nodes 52 14 none] [qualified_name dom__core 270 13 none]
+G r c none [free dom__core__nodes 60 14 none] [document_remove_id dom__core 377 14 none]
+G r c none [free dom__core__nodes 60 14 none] [free unicode__ces 46 14 none]
+G r c none [free dom__core__nodes 60 14 none] [reset dom__core__nodes_htable 47 14 244_4]
+G r k node_record [free dom__core__nodes 60 14 none] [node_recordDF dom__core 293 9 none]
+G r c none [free dom__core__nodes 60 14 none] [free dom__core 214 14 none]
+G r c none [sort dom__core__nodes 66 14 none] [qualified_name dom__core 270 13 none]
+G r c none [sort dom__core__nodes 66 14 none] [get sax__symbols 53 13 none]
+X 1 ada.ads
+16K9*Ada 20e8 17|24r6 257r38 18|24r6 24r37 25r6 37r29 47r25 53r29 1049r38
+. 1051r39 1155r29 1204r25 1227r29 1248r38 1515r31 1539r25 1540r9
+X 5 a-stream.ads
+36K13*Streams 87e16 17|24w10 257r42 18|37r33 47r29 53r33 1155r33 1204r29
+. 1227r33 1248r42
+39H9*Root_Stream_Type 70e64 17|257r50 18|37r41 47r37 53r41 1155r41 1204r37
+. 1227r41 1248r50
+X 10 a-textio.ads
+58K13*Text_IO 725e16 18|24w10 24r41 25r10 1515r35 1539r29 1540r13
+65P9*File_Type
+180V13*Current_Output{65P9} 18|1515s64 1540s42
+506U14*Put_Line 18|437s10
+X 11 a-titest.ads
+17K21*Text_Streams 23e29 18|25w18 1515r43 1539r37 1540r21
+19P9*Stream_Access(5|39R9) 18|1539r50
+21V13*Stream{19P9} 18|1515s56 1540s34
+X 13 a-uncdea.ads
+20u15*Unchecked_Deallocation 18|1049r42 1051r43
+X 14 dom.ads
+37K9*DOM 39e8 17|28r9 332r5 18|34r14 937r21 940r22 958r13 959r21 1002r21
+. 1005r22 1634r5
+X 15 dom-core.ads
+38K13*Core 14|37k9 15|382e13 17|28r13 332r9 18|34r18 937r25 940r26 958r17
+. 959r25 1002r25 1005r26 1634r9
+48A12*DOM_String{67|41A12}<integer> 17|34r41 41r42 48r48 85r45 90r38 93r45
+. 98r42 169r17 170r17 191r36 208r43 210r43 226r23 227r23 243r23 244r23 248r23
+. 249r23 18|38r22 48r18 110r41 161r42 193r48 204r27 208r28 215r30 378r45
+. 410r38 433r45 455r42 680r34 685r35 700r34 707r19 715r39 719r39 742r40 778r17
+. 779r17 815r36 883r43 901r43 933r23 934r23 997r23 998r23 1022r23 1023r23
+. 1156r22 1205r18
+53P12*DOM_String_Access{67|42P9} 18|732r15
+62E9*Node_Types 74e21 17|45r41 18|320r41
+63n7*Element_Node{62E9} 18|88r53 90r38 102r41 113r15 229r15 347r15 390r15
+. 413r15 443r15 458r15 471r15 533r18 547r18 595r15 666r15 757r15 1059r15
+. 1341r18 1560r18
+64n7*Attribute_Node{62E9} 18|80r15 116r15 164r15 196r15 277r31 302r31 331r24
+. 396r15 419r15 445r15 459r15 472r15 672r15 1076r15 1385r18 1575r18
+65n7*Cdata_Section_Node{62E9} 18|84r27 94r41 123r15 172r15 206r15 683r15
+. 1082r15 1611r18
+66n7*Entity_Reference_Node{62E9} 18|82r41 88r15 95r41 126r15 233r15 688r15
+. 1085r15 1616r18
+67n7*Entity_Node{62E9} 18|88r39 130r15 691r15 1088r15 1621r18
+68n7*Processing_Instruction_Node{62E9} 18|84r48 91r41 99r38 134r15 176r15
+. 210r15 694r15 1091r15 1393r18 1584r18
+69n7*Text_Node{62E9} 18|81r38 84r15 93r41 119r15 168r15 202r15 678r15 736r40
+. 737r52 1079r15 1367r66 1453r18 1606r18
+70n7*Comment_Node{62E9} 18|85r14 92r41 100r41 138r15 180r15 213r15 698r15
+. 1094r15 1424r18 1589r18
+71n7*Document_Node{62E9} 18|97r15 141r15 230r15 366r36 535r18 548r18 596r15
+. 702r15 758r15 1097r15 1436r18 1592r18
+72n7*Document_Type_Node{62E9} 18|85r29 101r41 144r15 231r15 537r18 549r18
+. 597r15 705r15 759r15 1105r15 1450r18 1600r18
+73n7*Document_Fragment_Node{62E9} 18|89r14 148r15 232r15 539r18 550r18 598r15
+. 710r15 760r15 1109r15 1447r18 1596r18
+74n7*Notation_Node{62E9} 18|85r50 151r15 713r15 1112r15 1450r39 1603r18
+78R9*Node_Record 362e14 18|661r20 1050r10
+78e22 Node_Type{62E9} 18|79r19 81r26 82r29 90r26 91r29 92r29 93r29 94r29
+. 95r29 99r26 100r29 101r29 102r29 112r14 163r14 195r14 228r14 277r19 302r19
+. 322r16 331r12 346r14 366r23 389r14 412r14 442r14 457r14 470r14 532r17 546r17
+. 594r14 661r35 665r14 736r28 737r40 756r14 1058r14 1340r17 1367r53 1559r17
+79P9*Node(78R9) 17|34r28 41r29 45r28 48r34 52r30 58r30 58r43 61r29 61r42
+. 64r30 64r43 68r35 68r48 74r31 74r44 78r29 82r33 82r46 85r32 90r25 93r30
+. 98r29 99r29 105r19 106r19 107r19 107r40 120r19 121r19 122r19 122r32 135r19
+. 136r19 136r32 144r19 145r19 145r32 154r34 157r29 157r58 163r29 168r11 178r61
+. 191r55 193r63 199r42 199r63 200r65 208r69 214r66 218r53 227r42 231r50 235r42
+. 235r63 237r42 245r27 258r31 306r30 322r24 326r31 18|54r22 63r38 63r52 70r32
+. 77r38 77r52 110r28 161r29 193r34 226r30 244r30 244r43 258r29 258r42 272r35
+. 272r48 297r31 297r44 320r28 329r30 329r43 344r29 359r33 359r46 360r11 378r32
+. 387r32 410r25 433r30 455r29 468r29 482r19 483r19 484r19 484r40 508r13 564r19
+. 565r19 566r19 566r32 592r31 592r49 592r62 610r19 611r19 611r32 620r34 629r29
+. 629r58 630r15 729r29 777r11 792r61 815r55 830r63 847r42 847r63 857r65 858r18
+. 867r66 883r69 903r16 913r53 934r42 955r38 972r42 972r63 984r42 986r18 999r27
+. 1025r17 1048r31 1050r23 1228r22 1249r31 1259r38 1334r38 1504r30 1529r24
+. 1530r27 1557r27
+83P12*Attr{79P9} 18|1065r22
+88P12*Text{81P12} 18|1265r40 1305r40
+90P12*Document{79P9} 18|434r22
+95R9*Node_List 221e14 17|52r43 178r26 183r28 18|60r34 226r43 245r23 259r23
+. 273r14 298r14 486r46 489r46 568r23 633r24 634r40 643r24 644r40 646r14 670r28
+. 730r15 792r26 805r28 850r15 915r20 976r15 1034r34 1073r19 1262r41 1323r41
+. 1533r30 1546r30
+98R9*Named_Node_Map<95R9> 17|78r42 191r13 193r13 199r20 200r43 208r20 210r20
+. 214r46 218r13 221r27 225r23 229r23 235r20 237r20 242r30 247r30 18|66r33
+. 344r42 669r33 815r13 830r13 847r20 857r43 867r46 883r20 901r20 913r13 922r27
+. 932r23 953r23 972r20 984r20 996r30 1021r30 1124r33
+164X4*Hierarchy_Request_Err 18|542r22 551r34
+167X4*Wrong_Document_Err 18|514r16 574r16
+179X4*Not_Found_Err 18|526r16
+211A9 Node_Array(79P9)<integer> 18|495r37 649r32 1125r13
+212P9 Node_Array_Access(211A9) 18|490r16
+214U14 Free[13|20] 18|497s19 1041s7
+218p7*Items{212P9} 18|247r15 250r22 261r15 264r22 285r18 286r25 309r18 310r25
+. 490r42 493r21 494r24 495m24 496r24 499r21 500r23 501r25 578r18 579r18 649m19
+. 649r49 651r24 652r18 652r48 653r18 654r18 736r18 737r26 739r25 741r24 742r18
+. 743r18 744r18 745r20 746r24 748r18 749r20 767r26 795r22 818r28 819r24 833r32
+. 834r37 836r24 870r17 871r17 871r50 886r28 887r28 888r17 888r50 937r55 940r53
+. 942r24 958r47 959r52 961r24 1002r55 1005r53 1007r28 1008r17 1008r50 1038r24
+. 1041m18 1063r29 1064r40 1065r41 1068r38 1133r35 1137r31 1139r35 1146r14
+. 1326r35 1351r49 1367r43 1368r67 1549r24 1569r38
+219i7*Last{integer} 18|264r34 284r26 308r26 492r29 494r42 495r59 496r41 499r38
+. 501r42 502m21 502r34 577r26 649r69 650m19 650r33 651r41 735r22 748r39 749r41
+. 750m18 750r31 766r23 794r24 807r19 817r25 832r25 869r25 871r33 871r70 872m17
+. 872r29 885r25 888r33 888r70 889m17 889r29 924r18 936r25 957r25 1001r25
+. 1008r33 1008r70 1009m17 1009r29 1037r29 1064r68 1125r34 1129r25 1145r25
+. 1325r29 1349r43 1548r29 1568r43
+223r4 Null_List{95R9} 18|235r20 236r32 646r27 648r21 1354r62
+228r4 Null_Node_Map{98R9} 18|351r20
+244K12 Nodes_Htable[25|42] 18|1052r10 1100r16
+252P9 Nodes_Htable_Access(25|44R9[244]) 18|1052r31
+261p7*Prefix{27|41P9} 18|414r23 417r35 420r28 423r40 444m20 446m25
+262p7*Local_Name{27|41P9} 18|458r52 459r57 471r47 472r52
+263p7*Namespace{27|41P9} 18|391r23 394r30 397r28 400r35
+270V13 Qualified_Name{48A12} 18|114s20 117s20
+294b7*Parent_Is_Owner{boolean} 18|276r19 301r19 332r19 362r12 519r32 555m17
+. 581m23 654m28 663m13
+301p7*Parent{79P9} 18|275r12 282r30 300r12 307r30 336r19 363r19 368r20 518r20
+. 521r41 525r47 554m17 580m23 653m28 662m13
+304r13*Name{260R9} 18|114r38 391r18 394r25 414r18 417r30 444m15 458r47 471r42
+. 667m19 667r29
+305r13*Children{95R9} 18|229r40 534m26 547m51 595m41 668m19 668r45 757m33
+. 1074m21 1354r51 1366r35 1367r34 1368r58 1375r38 1573r24
+306r13*Attributes{98R9} 18|348r22 669m19 670r41 1063r18 1064r29 1064r57 1065r30
+. 1068r27 1073m32 1347m24 1349r32 1351r38 1566m24 1568r32 1569r27
+309r13*Attr_Name{260R9} 18|117r38 397r18 400r25 420r18 423r30 446m15 459r47
+. 472r42 673m19 673r34
+310p13*Attr_Value{27|41P9} 18|165r30 166r27 199m15 674m19 674r35 1068r50
+316b13*Is_Id{boolean} 18|676m19 676r30 1065r54
+317b13*Specified{boolean} 18|200m15 675m19 675r34
+322p13*Text{53P12} 18|169r30 170r22 203m21 204m15 679r18 680m22 680r48 739r35
+. 741r38 742m28 743r28 744r28 745r34 1080m21
+325p13*Cdata{53P12} 18|173r30 174r22 207m21 208m15 684r18 685m22 685r49 1083m21
+328p13*Entity_Reference_Name{27|41P9} 18|127r30 128r27 689m19 689r46
+331p13*Entity_Name{27|41P9} 18|131r30 132r27 692m19 692r36
+335p13*Target{27|41P9} 18|135r30 136r27 695m19 695r32 1399r28 1585r63
+336p13*Pi_Data{27|41P9} 18|177r30 178r27 211m15 696m19 696r32 1401r21 1406r70
+. 1420r26 1587r57
+339p13*Comment{53P12} 18|181r30 182r22 214m21 215m15 699r30 700m19 700r48
+. 1095m21
+342r13*Symbols{29|174R12} 18|199r54 211r51 444r40 446r45 1103m15
+346r13*Doc_Children{95R9} 18|230r41 536m26 548m52 596m42 703m19 703r49 758m34
+. 1098m21 1445r35 1594r24
+349p13*Ids{252P9} 18|1099r18 1100r38 1101m34
+352p13*Document_Type_Name{53P12} 18|145r30 146r22 706m19 707r33 1106m21
+353r13*Doc_Type_Children{95R9} 18|231r46 538m26 549m57 708m19 708r54 759m39
+. 1107m21
+356r13*Doc_Frag_Children{95R9} 18|232r50 540m26 550m61 599m23 711m19 711r54
+. 760m43 1110m21 1448r35 1598r24
+359p13*Public_ID{53P12} 18|152r30 153r22 714r18 715m22 715r53 1113m21
+360p13*System_ID{53P12} 18|718r18 719m22 719r53 1114m21
+364U14 Append 18|534s16 536s16 538s16 540s16 850s7 976s7
+367U14 Remove 18|595s31 596s32 599s13
+377U14 Document_Remove_Id 18|1066s22
+X 17 dom-core-nodes.ads
+28K18*Nodes 15|38k13 17|332l14 332e19 18|34b23 937r30 940r31 958r22 959r30
+. 1002r30 1005r31 1634l14 1634t19
+34V13*Node_Name{15|48A12} 34>24 18|110b13 155l8 155t17 818s13 849s31 886s13
+. 1137s16 1137s45 1239s32
+34p24 N{15|79P9} 18|110b24 112r12 114r36 117r36 127r28 128r25 131r28 132r25
+. 135r28 136r25 145r28 146r20 152r28 153r20
+41V13*Node_Value{15|48A12} 41>25 18|161b13 187l8 187t18 1306s44 1390s38 1431s32
+. 1456s30 1460s56 1491s38 1581s27 1590s61 1608s38 1613s38 1618s38 1623s38
+41p25 N{15|79P9} 18|161b25 163r12 165r28 166r25 169r28 170r20 173r28 174r20
+. 177r28 178r25 181r28 182r20
+45V13*Node_Type{15|62E9} 45>24 18|320b13 323l8 323t17
+45p24 N{15|79P9} 18|320b24 322r14
+48U14*Set_Node_Value 48>30 48>40 18|193b14 220l8 220t22
+48p30 N{15|79P9} 18|193b30 195r12 199r13 199r51 200r13 203r19 204r13 207r19
+. 208r13 211r13 211r48 214r19 215r13
+48a40 Value{15|48A12} 18|193b40 199r63 204r39 208r40 211r60 215r42
+52V13*Child_Nodes{15|95R9} 52>26 18|226b13 238l8 238t19 245s36 259s36 282s15
+. 307s15 568s36 730s28
+52p26 N{15|79P9} 18|226b26 228r12 229r38 230r39 231r44 232r48
+58V13*First_Child{15|79P9} 58>26 18|244b13 252l8 252t19 622s14
+58p26 N{15|79P9} 18|244b26 245r49
+61V13*Last_Child{15|79P9} 61>25 18|258b13 266l8 266t18
+61p25 N{15|79P9} 18|258b25 259r49
+64V13*Parent_Node{15|79P9} 64>26 18|329b13 338l8 338t19
+64p26 N{15|79P9} 18|329b26 331r10 332r17 336r17
+68V13*Previous_Sibling{15|79P9} 68>31 18|272b13 291l8 291t24
+68p31 N{15|79P9} 18|272b31 275r10 276r17 277r17 282r28 285r30
+74V13*Next_Sibling{15|79P9} 74>27 18|297b13 314l8 314t20
+74p27 N{15|79P9} 18|297b27 300r10 301r17 302r17 307r28 309r30
+78V13*Attributes{15|98R9} 78>25 18|344b13 353l8 353t18
+78p25 N{15|79P9} 18|344b25 346r12 348r20
+82V13*Owner_Document{15|79P9} 82>29 18|199s35 211s32 359b13 372l8 372t22
+. 434s34 513s10 513s32 573s10 573s32 662s23 1067s25
+82p29 N{15|79P9} 18|359b29 360r19 362r10 363r17
+85V13*Namespace_URI{15|48A12} 85>28 18|378b13 381l8 381t21 975s15 1236s13
+85p28 N{15|79P9} 18|378b28 380r34
+90V13*Prefix{15|48A12} 90>21 18|410b13 427l8 427t14
+90p21 N{15|79P9} 18|410b21 412r12 414r16 417r28 420r16 423r28
+93U14*Set_Prefix 93>26 93>36 18|433b14 449l8 449t18
+93p26 N{15|79P9} 18|433b26 434r50 442r12 444r13 446r13
+93a36 Prefix{15|48A12} 18|433b36 444r49 446r54
+98V13*Local_Name{15|48A12} 98>25 18|455b13 462l8 462t18 975s36 1236s50
+98p25 N{15|79P9} 18|455b25 457r12 458r45 459r45
+99V13*Local_Name{27|41P9} 99>25 18|468b13 475l8 475t18 834s21 940s37 959s36
+. 1005s37
+99p25 N{15|79P9} 18|468b25 470r12 471r40 472r40
+104V13*Insert_Before{15|79P9} 105>7 106>7 107>7 18|481b13 557l8 557t21 613s14
+105p7 N{15|79P9} 18|482b7 511r38 513r26 525r57 532r15 534r24 536r24 538r24
+. 540r24 546r15 547r49 548r50 549r55 550r59 554r27
+106p7 New_Child{15|79P9} 18|483b7 500r44 511r41 513r48 518r10 519r22 521r31
+. 521r49 534r36 536r40 538r45 540r45 554r7 555r7 556r14
+107p7 Ref_Child{15|79P9} 18|484b7 493r33 525r10 525r37 531r10
+119V13*Replace_Child{15|79P9} 120>7 121>7 122>7 18|563b13 586l8 586t21
+120p7 N{15|79P9} 18|564b7 568r49 570r38 573r26 580r33
+121p7 New_Child{15|79P9} 18|565b7 570r41 573r48 579r31 580r13 581r13
+122p7 Old_Child{15|79P9} 18|566b7 578r30 582r20
+134V13*Remove_Child{15|79P9} 135>7 136>7 18|521s17 592b13 603l8 603t20
+135p7 N{15|79P9} 18|592b27 594r12 595r39 596r40 599r21
+136p7 Old_Child{15|79P9} 18|592b37 595r51 596r56 599r42 602r14
+143V13*Append_Child{15|79P9} 144>7 145>7 18|609b13 614l8 614t20
+144p7 N{15|79P9} 18|610b7 613r29
+145p7 New_Child{15|79P9} 18|611b7 613r32
+154V13*Has_Child_Nodes{boolean} 154>30 18|620b13 623l8 623t23
+154p30 N{15|79P9} 18|620b30 622r27
+157V13*Clone_Node{15|79P9} 157>25 157>35 18|629b13 652s31 723l8 723t18
+157p25 N{15|79P9} 18|629b25 661r33 662r39 665r12 667r27 668r43 670r39 673r32
+. 674r33 675r32 676r28 679r16 680r46 684r16 685r47 689r44 692r34 695r30 696r30
+. 699r28 700r46 703r47 707r31 708r52 711r52 714r16 715r51 718r16 719r51
+157b35 Deep{boolean} 18|629b35 668r56 703r63 708r73 711r73
+163U14*Normalize 163>25 18|729b14 767s10 770l8 770t17
+163p25 N{15|79P9} 18|729b25 730r41 756r12 757r31 758r32 759r37 760r41
+167V13*Supports{boolean} 168>7 169>7 170>7 18|776b13 786l8 786t16
+168p7 N{15|79P9} 18|777b7 781r29
+169a7 Feature{15|48A12} 18|778b7 782r29
+170a7 Version{15|48A12} 18|779b7 783r29
+178V13*Item{15|79P9} 178>19 178>37 18|792b13 799l8 799t12 915s14
+178r19 List{15|95R9} 18|792b19 794r19 795r17
+178i37 Index{natural} 18|792b37 794r10 795r29
+183V13*Length{natural} 183>21 18|805b13 808l8 808t14 1366s25
+183r21 List{15|95R9} 18|805b21 807r14
+190V13*Get_Named_Item{15|79P9} 191>7 191>29 18|814b13 823l8 823t22
+191r7 Map{15|98R9} 18|815b7 817r21 818r24 819r20
+191a29 Name{15|48A12} 18|815b29 818r41
+192V13*Get_Named_Item{15|79P9} 193>7 193>29 18|829b13 840l8 840t22
+193r7 Map{15|98R9} 18|830b7 832r21 833r28 834r33 836r20
+193p29 Name{27|41P9} 18|830b29 834r50
+198U14*Set_Named_Item 199=7 199>36 199<48 18|846b14 851l8 851t22 860s7
+199r7 Map{15|98R9} 18|847b7 849m26 850m26 850r26
+199p36 Arg{15|79P9} 18|847b36 849r42 850r32
+199p48 Replaces{15|79P9} 18|847b48 849m48
+200U14*Set_Named_Item 200=30 200>59 18|857b14 861l8 861t22
+200r30 Map{15|98R9} 18|857b30 860m23
+200p59 Arg{15|79P9} 18|857b59 860r28
+207U14*Remove_Named_Item 208=7 208>36 208<55 18|849s7 882b14 894l8 894t25
+. 905s7
+208r7 Map{15|98R9} 18|883b7 885r21 886r24 887r24 888r13 888r29 888r46 888r66
+. 889m13 889r25
+208a36 Name{15|48A12} 18|883b36 886r41
+208p55 Removed{15|79P9} 18|883b55 887m13 893m7
+209U14*Remove_Named_Item 210=7 210>36 18|900b14 906l8 906t25
+210r7 Map{15|98R9} 18|901b7 905m26
+210a36 Name{15|48A12} 18|901b36 905r31
+214U14*Remove_Named_Item 214=33 214>62 18|867b14 876l8 876t25
+214r33 Map{15|98R9} 18|867b33 869r21 870r13 871r13 871r29 871r46 871r66 872m13
+. 872r25
+214p62 N{15|79P9} 18|867b62 870r29
+217V13*Item{15|79P9} 218>7 218>29 18|912b13 916l8 916t12
+218r7 Map{15|98R9} 18|913b7 915r31
+218i29 Index{natural} 18|913b29 915r37
+221V13*Length{natural} 221>21 18|922b13 925l8 925t14
+221r21 Map{15|98R9} 18|922b21 924r14
+224V13*Get_Named_Item_NS{15|79P9} 225>7 226>7 227>7 18|931b13 946l8 946t25
+225r7 Map{15|98R9} 18|932b7 936r21 937r51 940r49 942r20
+226a7 Namespace_URI{15|48A12} 18|933b7 938r12
+227a7 Local_Name{15|48A12} 18|934b7 940r67
+228V13*Get_Named_Item_NS{15|79P9} 229>7 230>7 231>7 18|952b13 965l8 965t25
+229r7 Map{15|98R9} 18|953b7 957r21 958r43 959r48 961r20
+230p7 Namespace_URI{27|41P9} 18|954b7 958r60
+231p7 Local_Name{27|41P9} 18|955b7 959r65
+234U14*Set_Named_Item_NS 235=7 235>36 235<48 18|971b14 977l8 977t25 988s7
+235r7 Map{15|98R9} 18|972b7 975m10 976m26 976r26
+235p36 Arg{15|79P9} 18|972b36 975r30 975r48 976r32
+235p48 Replaces{15|79P9} 18|972b48 975m54
+236U14*Set_Named_Item_NS 237=7 237>36 18|983b14 989l8 989t25
+237r7 Map{15|98R9} 18|984b7 988m26
+237p36 Arg{15|79P9} 18|984b36 988r31
+241U14*Remove_Named_Item_NS 242=7 243>7 244>7 245<7 18|974s7 995b14 1014l8
+. 1014t28 1027s7
+242r7 Map{15|98R9} 18|996b7 1001r21 1002r51 1005r49 1007r24 1008r13 1008r29
+. 1008r46 1008r66 1009m13 1009r25
+243a7 Namespace_URI{15|48A12} 18|997b7 1003r12
+244a7 Local_Name{15|48A12} 18|998b7 1005r67
+245p7 Removed{15|79P9} 18|999b7 1007m13 1013m7
+246U14*Remove_Named_Item_NS 247=7 248>7 249>7 18|1020b14 1028l8 1028t28
+247r7 Map{15|98R9} 18|1021b7 1027m29
+248a7 Namespace_URI{15|48A12} 18|1022b7 1027r34
+249a7 Local_Name{15|48A12} 18|1023b7 1027r49
+256U14*Write 257^7 258>7 259>7 260>7 261>7 262>7 263>7 264>7 266>7 18|1247b14
+. 1497l8 1497t13 1514s7
+257p7 Stream(5|39R9) 18|1248b7 1284r27 1296r27 1343r21 1344r28 1350r24 1356r22
+. 1358r24 1379r24 1380r31 1381r24 1387r28 1388r21 1390r30 1391r21 1396r19
+. 1402r24 1413r30 1419r19 1430r24 1431r24 1432r24 1439r22 1441r22 1443r33
+. 1456r22 1485r25 1491r30 1515r10
+258p7 N{15|79P9} 18|1249b7 1496r24 1516r10
+259b7 Print_Comments{boolean} 18|1250b7 1425r19 1517r10
+260b7 Print_XML_Declaration{boolean} 18|1251b7 1437r19 1518r10
+261b7 With_URI{boolean} 18|1252b7 1344r39 1380r42 1387r39 1519r10
+262b7 Pretty_Print{boolean} 18|1253b7 1283r13 1295r13 1365r22 1426r22 1454r23
+263a7 EOL_Sequence{string} 18|1254b7 1344r49 1380r52 1387r49 1390r54 1443r56
+. 1456r46 1486r25 1491r54 1520r10
+264r7 Encoding{70|37R9} 18|1255b7 1343r49 1344r63 1350r48 1356r70 1358r55
+. 1379r69 1380r66 1381r55 1387r63 1389r69 1390r68 1391r54 1399r41 1402r48
+. 1413r54 1421r44 1430r40 1431r48 1432r39 1439r41 1442r24 1442r52 1443r70
+. 1456r60 1486r39 1491r68 1521r10
+266b7 Collapse_Empty_Nodes{boolean} 18|1257b7 1354r19 1522r10
+305U14*Print 306>7 307>7 308>7 309>7 310>7 311>7 313>7 18|1503b14 1523l8
+. 1523t13
+306p7 N{15|79P9} 18|1504b7 1516r31
+307b7 Print_Comments{boolean} 18|1505b7 1517r31
+308b7 Print_XML_PI{boolean} 18|1506b7 1518r35
+309b7 With_URI{boolean} 18|1507b7 1519r31
+310a7 EOL_Sequence{string} 18|1508b7 1520r31
+311r7 Encoding{70|37R9} 18|1509b7 1521r31
+313b7 Collapse_Empty_Nodes{boolean} 18|1511b7 1522r34
+322U14*Dump 322>20 322>30 18|1529b14 1632l8 1632t12
+322p20 N{15|79P9} 18|1529b20 1629r10 1630r16
+322b30 With_URI{boolean} 18|1529b30 1563r30 1577r39
+326U14*Free 326=20 326>37 18|746s13 1038s13 1048b14 1118l8 1118t12
+326p20 N{15|79P9} 18|1048b20 1054r10 1058r12 1063r16 1064r27 1064r55 1065r28
+. 1067r41 1068r25 1073r30 1074r19 1080r19 1083r19 1095r19 1098r19 1099r16
+. 1100r36 1101r32 1103r13 1106r19 1107r19 1110r19 1113r19 1114r19 1117m22
+326b37 Deep{boolean} 18|1038r35 1048b37 1074r31 1098r35 1107r40 1110r40
+X 18 dom-core-nodes.adb
+36U14 Print_String 37^7 38>7 39>7 40>7 1154b14 1197l8 1197t20 1234s10 1239s10
+. 1390s16 1443s19 1455s19 1484s22 1491s16 1580s16 1608s16 1613s16 1618s16
+. 1623s16
+37p7 Stream(5|39R9) 1155b7 1169r30 1171r30 1173r30 1175r30 1178r30 1180r21
+. 1182r30 1188r22 1194r30
+38a7 Str{15|48A12} 1156b7 1160r22 1165r18 1166r39
+39a7 EOL_Sequence{string} 1157b7 1180r29
+40r7 Encoding{70|37R9} 1158b7 1180r43 1192m16 1192r16 1193m19 1193r19
+46U14 Put 47^7 48>7 49>7 1180s16 1203b14 1220l8 1220t11 1343s16 1350s19 1355s19
+. 1358s19 1379s19 1381s19 1388s16 1391s16 1395s16 1402s19 1413s25 1418s16
+. 1430s19 1431s19 1432s19 1440s19
+47p7 Stream(5|39R9) 1204b7 1218r24
+48a7 Str{15|48A12} 1205b7 1208r22 1213r18 1214r39
+49r7 Encoding{70|37R9} 1206b7 1216m10 1216r10 1217m13 1217r13
+52U14 Print_Name 53^7 54>7 55>7 56>7 57>7 1226b14 1241l8 1241t18 1344s16
+. 1380s19 1387s16 1562s16 1577s16
+53p7 Stream(5|39R9) 1227b7 1235r13 1239r24
+54p7 N{15|79P9} 1228b7 1236r28 1236r62 1239r43
+55b7 With_URI{boolean} 1229b7 1233r10
+56a7 EOL_Sequence{string} 1230b7 1237r13 1239r47
+57r7 Encoding{70|37R9} 1231b7 1237r27 1239r61
+60U14 Free 60=20 60>45 1034b14 1042l8 1042t12 1073s13 1074s13 1098s13 1107s13
+. 1110s13
+60r20 List{15|95R9} 1034b20 1037r24 1038r19 1041m13 1041r13
+60b45 Deep{boolean} 1034b45 1036r10 1073r45
+63V13 Child_Is_Valid{boolean} 63>29 63>44 77b13 104l8 104t22 511s22 570s22
+63p29 Parent{15|79P9} 77b29 79r12
+63p44 Child{15|79P9} 77b44 81r20 82r23 90r20 91r23 92r23 93r23 94r23 95r23
+. 99r20 100r23 101r23 102r23
+66U14 Sort 66=20 1124b14 1148l8 1148t12 1347s16 1566s16
+66r20 Map{15|98R9} 1124b20 1125r30 1129r21 1133r31 1137r27 1139r31 1145r21
+. 1146r10
+70V13 Namespace_URI{27|41P9} 70>28 380s19 387b13 404l8 404t21 833s13 937s36
+. 958s28 1002s36
+70p28 N{15|79P9} 387b28 389r12 391r16 394r23 397r16 400r23
+245r7 List{15|95R9} 247r10 250r17
+259r7 List{15|95R9} 261r10 264r17 264r29
+273r7 List{15|95R9} 282m7 284r21 285r13 286r20
+284i11 J{integer} 285r25 286r32
+298r7 List{15|95R9} 307m7 308r21 309r13 310r20
+308i11 J{integer} 309r25 310r32
+360p7 P{15|79P9} 365r16 366r21 368m13 368r18 370r17
+434p7 Doc{15|90P12} 436r10 444r36 446r41
+486U17 Insert_Before 486=32 489b17 506l11 506t24 547s34 548s35 549s40 550s44
+486r32 List{15|95R9} 489b32 490r37 492r24 493r16 494r19 494r37 495m19 495r54
+. 496r19 496r36 499r16 499r33 500r18 501r20 501r37 502m16 502r29
+490p10 Old{15|212P9} 496r50 497m25 497r25
+492i14 J{integer} 493r28 500r35 501r32
+508p7 Tmp{15|79P9} 509r28 521m10
+568r7 List{15|95R9} 577r21 578r13 579r13
+577i11 J{integer} 578r25 579r25
+630p7 Clone{15|79P9} 653r38 661m7 662r7 663r7 667r13 668r13 669r13 673r13
+. 674r13 675r13 676r13 680r16 685r16 689r13 692r13 695r13 696r13 700r13 703r13
+. 706r13 708r13 711r13 715r16 719r16 722r14
+632V16 Clone_List{15|95R9} 633>11 634>11 642b16 658l11 658t21 668s31 670s16
+. 703s35 708s40 711s40
+633r11 List{15|95R9} 643b11 648r13 649r44 649r64 650r28 652r43
+634b11 Deep{boolean} 644b11 648r40 652r59
+646r10 L{15|95R9} 649m13 651r22 651r39 652r16 653r16 654r16 657r17
+651i17 J{integer} 652r25 652r55 653r25 654r25
+730r7 List{15|95R9} 735r17 736r13 737r21 739r20 741r19 742r13 743r13 744r13
+. 745r15 746r19 748r13 748r34 749r15 749r36 750m13 750r26 757r45 758r50 759r60
+. 760r64 766r18 767r21
+731i7 J{natural} 735r13 736r25 737r33 739r32 741r31 742r25 743r25 744r25
+. 745r27 746r31 748r25 749r27 752m13 752r18 765m7 766r13 767r33 768m10 768r15
+732p7 Old{15|53P12} 739m13 740r19 743r46 747m19 747r19
+733i7 L1{integer} 740m13 742r57 743r39 744r34 744r44
+733i11 L2{integer} 741m13 742r62 744r49
+817i11 J{integer} 818r35 819r31
+832i11 J{integer} 833r39 834r44 836r31
+858p7 Replaces{15|79P9} 860m33 860r33
+869i11 J{integer} 870r24 871r24 871r57
+885i11 J{integer} 886r35 887r35 888r24 888r57
+903p7 Remove{15|79P9} 905m37 905r37
+936i11 J{integer} 937r62 940r60 942r31
+957i11 J{integer} 958r54 959r59 961r31
+986p7 Replaces{15|79P9} 988m36 988r36
+1001i11 J{integer} 1002r62 1005r60 1007r35 1008r24 1008r57
+1025p7 Removed{15|79P9} 1027m61 1027r61
+1037i14 J{integer} 1038r31
+1049U17 Internal_Free[13|20] 1117s7
+1051U17 Unchecked_Free[13|20] 1101s16
+1064i20 Att{integer} 1065r48 1068r45
+1125a7 Arr{15|211A9} 1132r16 1133m16 1137r56 1138m16 1138r34 1138r47 1138r61
+. 1139m16 1146r27
+1126i7 Index{natural} 1130m10 1132r21 1133r21 1137r61 1138r21 1138r52 1139r21
+. 1142m13 1142r22
+1129i11 J{integer} 1133r42 1137r38 1139r42
+1145i11 J{integer} 1146r21 1146r32
+1160i7 J{natural} 1165r13 1166m44 1166r44
+1161m7 C{65|114M9} 1166m47 1167r15 1185r64 1193r49
+1162a7 Buffer{67|41A12} 1191r25 1193m53 1193r53 1194r38 1194r46
+1163i7 Index{natural} 1191m16 1193m61 1193r61 1194r62
+1185a19 Img{string} 1188r37 1188r42 1188r59
+1208i7 J{natural} 1213r13 1214m44 1214r44
+1209m7 C{65|114M9} 1214m47 1217r43
+1210a7 Buffer{67|41A12} 1215r19 1217m47 1217r47 1218r32 1218r40
+1211i7 Index{natural} 1215m10 1217m55 1217r55 1218r56
+1259U17 Recursive_Print 1259>34 1326s13 1334b17 1351s19 1493l11 1493t26 1496s7
+1259p34 N{15|79P9} 1334b34 1336r13 1340r15 1344r36 1347r22 1349r30 1351r36
+. 1354r49 1366r33 1367r32 1368r56 1375r36 1380r39 1387r36 1390r50 1399r26
+. 1401r19 1406r68 1420r24 1431r44 1445r33 1448r33 1456r42 1458r42 1460r68
+. 1491r50
+1262U17 Recursive_Print 1262>34 1323b17 1328l11 1328t26 1375s19 1445s16 1448s16
+1262r34 List{15|95R9} 1323b34 1325r24 1326r30
+1265V16 Has_Non_Whitespace{boolean} 1265>36 1305b16 1317l11 1317t29 1368s36
+. 1458s22
+1265p36 N{15|88P12} 1305b36 1306r56
+1268U17 Newline 1281b17 1287l11 1287t18 1370s25 1383s16 1422s16 1427s22 1433s19
+1271U17 Indent_Line 1293b17 1299l11 1299t22 1342s16 1378s19 1394s16 1428s22
+1274i7 Indent{natural} 1296r41 1374m19 1374r29 1376m19 1376r29
+1275b7 At_Bol{boolean} 1285m13 1295r30 1297m13 1386m16
+1306a10 Val{67|41A12} 1308r19 1309r16 1310r24 1311r24
+1308i14 V{integer} 1309r21 1310r29 1311r29
+1325i14 J{integer} 1326r42
+1349i20 J{integer} 1351r56
+1406p22 P{67|43P9} 1408r41 1410r51
+1407m22 C{65|114M9} 1410m65 1412r25
+1408i22 Index{natural} 1410m58 1410r58
+1460a22 Val{67|41A12} 1461r41 1462r41 1464r31 1465r28 1466r36 1467r36 1474r52
+. 1475r28 1476r36 1477r36 1485r33
+1461i22 First{integer} 1469m28 1474r39 1485r38
+1462i22 Last{integer} 1479m28 1485r47
+1464i26 V{integer} 1465r33 1466r41 1467r41 1469r37
+1474i26 V{integer} 1475r33 1476r41 1477r41 1479r36
+1530U17 Dump 1530>23 1530>33 1549s13 1557b17 1569s19 1626l11 1626t15 1630s10
+1530p23 N{15|79P9} 1557b23 1559r15 1563r27 1566r22 1568r30 1569r25 1573r22
+. 1577r36 1581r39 1585r61 1587r55 1590r73 1594r22 1598r22 1608r50 1613r50
+. 1618r50 1623r50
+1530a33 Prefix{string} 1557b33 1561r38 1570r25 1570r35 1573r34 1576r38 1585r38
+. 1587r27 1590r38 1593r38 1594r48 1597r38 1598r53 1601r38 1604r38 1607r38
+. 1612r38 1617r38 1622r38 1630r19
+1533U17 Dump 1533>23 1533>41 1546b17 1551l11 1551t15 1573s16 1594s16 1598s16
+1533r23 List{15|95R9} 1546b23 1548r24 1549r19
+1533a41 Prefix{string} 1546b41 1549r35 1594r38 1598r43
+1536r7 Encoding{70|37R9} 1563r65 1577r63 1581r57 1608r68 1613r68 1618r68
+. 1623r68
+1537a7 EOL_Sequence{67|41A12} 1563r40 1577r49 1581r43 1608r54 1613r54 1618r54
+. 1623r54
+1539p7 Stream{11|19P9} 1561r30 1563r19 1576r30 1577r28 1578r33 1581r19 1582r33
+. 1585r30 1587r19 1590r30 1593r30 1597r30 1601r30 1604r30 1607r30 1608r30
+. 1609r33 1612r30 1613r30 1614r33 1617r30 1618r30 1619r33 1622r30 1623r30
+. 1624r33
+1548i14 J{integer} 1549r31
+1568i20 J{integer} 1569r45
+X 23 sax.ads
+33K9*Sax 17|25r6 99r42 193r36 230r23 231r23 310r41 18|29r6 29r37 30r6 30r37
+. 31r6 31r37 468r42 830r36 1166r10 1214r10 1410r22 1508r41 1537r48 23|35e8
+X 24 sax-encodings.ads
+28K13*Encodings 17|25w10 310r45 18|29w10 29r41 1166r14 1214r14 1410r26 1508r45
+. 1537r52 24|160e18
+29r4*Encoding{67|139R9} 18|1166r24 1214r24 1410r36
+60a4*Amp_DOM_Sequence{67|41A12} 18|1169r38
+65a4*Cr_Sequence{67|41A12} 18|1182r38
+75a4*Gt_DOM_Sequence{67|41A12} 18|1173r38
+80a4*Lf_Sequence{67|41A12} 17|310r55 18|1508r55 1537r62
+82a4*Lt_DOM_Sequence{67|41A12} 18|1171r38
+92a4*Quot_DOM_Sequence{67|41A12} 18|1175r38
+96a4*Tab_Sequence{67|41A12} 18|1178r38
+109a4*Question_Mark_Sequence{67|41A12} 18|1398r21 1420r41
+111a4*Colon_Sequence{67|41A12} 18|1236r33
+116a4*Space_Sequence{67|41A12} 18|1350r32 1402r32 1413r38
+118a4*Less_Than_Sequence{67|41A12} 18|1343r29 1379r32 1397r19
+119a4*Greater_Than_Sequence{67|41A12} 18|1356r47 1358r32 1381r32 1421r21
+120a4*Equals_Sign_Sequence{67|41A12} 18|1389r21
+121a4*Quotation_Mark_Sequence{67|41A12} 18|1389r44 1391r29
+122a4*Slash_Sequence{67|41A12} 18|1356r30 1379r53
+X 25 sax-htable.ads
+44R9*HTable 18|1052r23[15|244]
+47U14*Reset 18|1100s29[15|244]
+X 26 sax-pointers.ads
+59R12*Pointer<3|43R9>
+X 27 sax-symbols.ads
+33K13*Symbols 17|99r46 193r40 230r27 231r27 18|30w10 30r41 468r46 830r40
+. 27|103e16
+41P9*Symbol<67|43P9> 17|99r54 193r48 230r35 231r35 18|70r45 387r45 468r54
+. 830r48 937r13 940r14 954r23 955r23 1002r13 1005r14
+43p4*No_Symbol{41P9} 18|127r55 131r45 135r40 165r44 177r41 391r35 397r40
+. 414r32 420r37
+44p4*Empty_String{41P9} 18|392r23 398r23 402r40 473r40 833r45 1401r31
+53V13*Get{67|43P9} 18|128s20 132s20 136s20 166s20 178s20 380s14 417s23 423s23
+. 458s40 459s40 1399s21 1406s63 1420s19 1585s56 1587s50
+64V14*"="{boolean} 18|937s67 940s65 1002s67 1005s65
+X 29 sax-utils.ads
+33K13*Utils 18|31w10 31r41 29|262e14
+174R12*Symbol_Table{26|59R12[171]}
+176r4*No_Symbol_Table{174R12} 18|1103r26
+182V13*Find{27|41P9} 18|199s29 211s26 444s30 446s35
+X 30 system.ads
+67M9*Address
+X 41 s-memory.ads
+53V13*Alloc{30|67M9} 103i<c,__gnat_malloc>22
+68U14*Free 104i<c,__gnat_free>22
+76V13*Realloc{30|67M9} 105i<c,__gnat_realloc>22
+X 49 s-stalib.adb
+89U14 Break_Start 90i<c,__gnat_break_start>22
+X 65 unicode.ads
+111K9*Unicode 17|26r6 264r31 265r33 311r30 312r32 18|26w6 26r37 27r6 27r37
+. 28r6 28r37 32r6 32r37 40r22 57r22 1158r22 1161r11 1209r11 1231r22 1255r31
+. 1256r9 1509r30 1510r9 65|157e12
+114M9*Unicode_Char 18|1161r19 1185r44 1209r19 1407r26
+X 66 unicode-ccs.ads
+44P9*Conversion_Function(65|114M9)
+49p7*To_CS{44P9} 18|1193r42 1217r36
+X 67 unicode-ces.ads
+35K17*CES 18|27w14 27r45 67|171e16
+41A12*Byte_Sequence{string}<integer> 18|1162r16 1210r16 1306r27 1460r39 1537r31
+42P9*Byte_Sequence_Access(41A12)
+43P9*Cst_Byte_Sequence_Access(41A12) 18|1406r35
+46U14*Free[64|20] 18|203s13 207s13 214s13 747s13 1080s13 1083s13 1095s13
+. 1106s13 1113s13 1114s13
+92V13*Write_Bom{string} 18|1439s30
+111P9*Read_Function
+127P9*Encode_Function
+140e7*BOM{62E9} 18|1439r66
+141p7*Read{111P9} 18|1166r33 1214r33 1410r45
+143p7*Encode{127P9} 18|1192r41 1216r35
+X 70 unicode-encodings.ads
+33K17*Encodings 17|26w14 264r39 265r41 311r38 312r40 18|32w14 32r45 40r30
+. 57r30 1158r30 1231r30 1255r39 1256r17 1509r38 1510r17 70|54e22
+35P9*Cst_String_Access(string)
+37R9*Unicode_Encoding 17|264r49 311r48 18|40r40 49r18 57r40 1158r40 1206r18
+. 1231r40 1255r49 1509r48 1536r27 70|41e14
+38p7*Name{35P9} 18|1442r33
+39r7*Character_Set{66|47R9} 18|1193m28 1217m22
+40r7*Encoding_Scheme{67|139R9} 18|1192m25 1216m19 1439r50
+43V13*Get_By_Name{37R9} 17|265s51 312s50 18|1256s27 1510s27 1536s47
+X 71 unicode-names.ads
+6K17*Names 18|28r14 28r45 71|8e18
+X 72 unicode-names-basic_latin.ads
+4K23*Basic_Latin 18|28w20 28r51 72|210e30
+31m4*Horizontal_Tabulation=32:28{65|114M9} 18|1177r18
+37m4*Line_Feed{65|114M9} 18|1179r18
+50m4*Carriage_Return{65|114M9} 18|1181r18
+112m4*Space{65|114M9} 18|1412r30
+115m4*Quotation_Mark{65|114M9} 18|1174r18
+119m4*Ampersand{65|114M9} 18|1168r18
+141m4*Less_Than_Sign{65|114M9} 18|1170r18
+143m4*Greater_Than_Sign{65|114M9} 18|1172r18
+

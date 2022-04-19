@@ -1,0 +1,468 @@
+<?xml version="1.0" ?>
+<!DOCTYPE gnat_examples [
+
+  <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+  <!--                                                                  -->
+  <!-- These file allows easy access of the gnat examples through GPS.  -->
+  <!-- By default, the examples are used from the GNAT installation.    -->
+  <!-- If you don't have the permissions to write in this directory,    -->
+  <!-- you can nevertheless access the examples through GPS. Follow the -->
+  <!-- instructions below:                                              -->
+  <!--                                                                  -->
+  <!-- 1) Copy the examples in the GNAT installation directory to some  -->
+  <!--    other location you are allowed to use. The examples are loc-  -->
+  <!--    ated in $GNAT_ROOT/examples/gnat;                             -->
+  <!--                                                                  -->
+  <!-- 2) Copy the present file to the .gps/plug-ins;                   -->
+  <!--                                                                  -->
+  <!-- 3) Edit the entites below to match your configuration:           -->
+  <!--    'example_root' is the location of the examples of want to use -->
+  <!--    'tag' is the tag that appear in the GPS Help menu.            -->
+  <!--    'prefix' is prefixed to each action name to avoid naming      -->
+  <!--    conflicts. Just change its value to anything else.            -->
+  <!--                                                                  -->
+  <!--                                                                  -->
+  <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+  <!ENTITY example_root "/home/ninya/opt/GNAT/2021/share/examples">
+
+  <!-- ENTITY tag "Local GNAT Examples" -->
+  <!ENTITY tag "Shared GNAT Examples">
+
+  <!-- ENTITY prefix "gnat_shared" -->
+  <!ENTITY prefix "Native">
+
+  <!ENTITY menu "/Help/GNAT/Examples">
+
+  ]>
+
+<gnat_examples>
+    <!-- FULL_PROJECT -->
+
+    <action name="&prefix;_full_project" category="">
+        <shell>
+            Project.load "&example_root;/gnat/full_project/full1.gpr"
+        </shell>
+        <shell>
+            Editor.edit "tef.adb"
+        </shell>
+        <shell>
+            Editor.edit "text_io_example.adb"
+        </shell>
+        <shell>
+            Editor.edit "tgef.adb"
+        </shell>
+        <shell>
+            Editor.edit "README.testing"
+        </shell>
+    </action>
+
+    <submenu before="About">
+        <title>&menu;</title>
+        <menu action="&prefix;_full_project">
+            <title>GNAT &prefix;/More Complex Project</title>
+        </menu>
+    </submenu>
+
+    <!-- OPTIONS -->
+
+    <action name="&prefix;_options" category="">
+        <shell>
+            Editor.edit "&example_root;/gnat/options/src/demo2.adb"
+        </shell>
+        <shell>
+            Editor.edit "&example_root;/gnat/options/README.testing"
+        </shell>
+    </action>
+
+    <submenu before="About">
+        <title>&menu;</title>
+        <menu action="&prefix;_options">
+            <title>GNAT &prefix;/Various Options</title>
+        </menu>
+    </submenu>
+    <!-- CPP_MAIN -->
+
+    <action name="&prefix;_cpp_main" category="">
+        <shell>
+            Project.load "&example_root;/gnat/other_languages/cpp_main/cpp_main.gpr"
+        </shell>
+        <shell>
+            Editor.edit "cpp_main.cc"
+        </shell>
+    </action>
+
+    <submenu before="About">
+        <title>&menu;</title>
+        <menu action="&prefix;_cpp_main">
+            <title>GNAT &prefix;/Multiple Languages/C++ Main</title>
+        </menu>
+    </submenu>
+
+    <!-- CPP_PRAGMAS -->
+
+    <action name="&prefix;_cpp_pragmas" category="">
+        <shell>
+            Project.load "&example_root;/gnat/other_languages/cpp_pragmas/cpp_pragmas.gpr"
+        </shell>
+        <shell>
+            Editor.edit "ex6_main.adb"
+        </shell>
+    </action>
+
+    <submenu before="About">
+        <title>&menu;</title>
+        <menu action="&prefix;_cpp_pragmas">
+            <title>GNAT &prefix;/Multiple Languages/Use of C++ pragmas</title>
+        </menu>
+    </submenu>
+
+    <!-- IMPORT_FROM_C -->
+
+    <action name="&prefix;_import_from_c" category="">
+        <shell>
+            Project.load "&example_root;/gnat/other_languages/import_from_c/import_from_c.gpr"
+        </shell>
+        <shell>
+            Editor.edit "use_of_import.adb"
+        </shell>
+    </action>
+
+    <submenu before="About">
+        <title>&menu;</title>
+        <menu action="&prefix;_import_from_c">
+            <title>GNAT &prefix;/Multiple Languages/Import Functions From C</title>
+        </menu>
+    </submenu>
+
+    <!-- PLUGINS -->
+
+    <action name="&prefix;_plugins" category="">
+        <shell>
+            Project.load "&example_root;/gnat/plugins/main.gpr"
+        </shell>
+        <shell>
+            Editor.edit "demo.adb"
+        </shell>
+        <shell>
+            Editor.edit "README.testing"
+        </shell>
+    </action>
+
+    <submenu before="About">
+        <title>&menu;</title>
+        <menu action="&prefix;_plugins">
+            <title>GNAT &prefix;/Ada Plug-ins</title>
+        </menu>
+    </submenu>
+
+    <!-- STREAM_IO -->
+
+    <action name="&prefix;_stream_io" category="">
+        <shell>
+            Project.load "&example_root;/gnat/stream_io/stream_io_demo.gpr"
+        </shell>
+        <shell>
+            Editor.edit "stream_io_demo.adb"
+        </shell>
+        <shell>
+            Editor.edit "README.testing"
+        </shell>
+    </action>
+
+    <submenu before="About">
+        <title>&menu;</title>
+        <menu action="&prefix;_stream_io">
+            <title>GNAT &prefix;/Ada Stream_IO</title>
+        </menu>
+    </submenu>
+
+    <!-- SIMPLE_PROJECT -->
+
+    <action name="&prefix;_simple_project" category="">
+        <shell>
+            Project.load "&example_root;/gnat/simple_project/simple.gpr"
+        </shell>
+        <shell>
+            Editor.edit "diners.adb"
+        </shell>
+        <shell>
+            Editor.edit "README.testing"
+        </shell>
+    </action>
+
+    <submenu before="About">
+        <title>&menu;</title>
+        <menu action="&prefix;_simple_project">
+            <title>GNAT &prefix;/Simple Project</title>
+        </menu>
+    </submenu>
+
+    <!-- STARTER -->
+
+    <action name="&prefix;_starter" category="">
+        <shell>
+            Editor.edit "&example_root;/gnat/starter/demo1.adb"
+        </shell>
+        <shell>
+            Editor.edit "&example_root;/gnat/starter/README.testing"
+        </shell>
+    </action>
+
+    <submenu before="About">
+        <title>&menu;</title>
+        <menu action="&prefix;_starter">
+            <title>GNAT &prefix;/Starter</title>
+        </menu>
+    </submenu>
+
+    <!-- XML_STREAM -->
+
+    <action name="&prefix;_xml_streams" category="">
+        <shell>
+            Project.load "&example_root;/gnat/xml_stream/xml_stream.gpr"
+        </shell>
+        <shell>
+            Editor.edit "main.adb"
+        </shell>
+        <shell>
+            Editor.edit "README.testing"
+        </shell>
+    </action>
+
+    <submenu before="About">
+        <title>&menu;</title>
+        <menu action="&prefix;_xml_streams">
+            <title>GNAT &prefix;/XML Streams</title>
+        </menu>
+    </submenu>
+
+    <!-- ANAGRAM -->
+
+    <action name="&prefix;_anagram" category="">
+	<shell>
+    	    Project.load "&example_root;/gnat/containers/anagram/anagram.gpr"
+	</shell>
+	<shell>
+    	    Editor.edit "anagram.adb"
+	</shell>
+	<shell>
+    	    Editor.edit "anagram2.adb"
+	</shell>
+	<shell>
+    	    Editor.edit "README.testing"
+        </shell>
+    </action>
+
+    <submenu before="About">
+	<title>&menu;</title>
+	<menu action="&prefix;_anagram">
+	    <title>GNAT &prefix;/Containers/Anagram</title>
+	</menu>
+    </submenu>
+    <!-- GENEALOGY -->
+
+    <action name="&prefix;_genealogy" category="">
+	<shell>
+    	    Project.load "&example_root;/gnat/containers/genealogy/genealogy.gpr"
+	</shell>
+	<shell>
+    	    Editor.edit "genealogy.adb"
+	</shell>
+	<shell>
+    	    Editor.edit "README.testing"
+        </shell>
+    </action>
+
+    <submenu before="About">
+	<title>&menu;</title>
+	<menu action="&prefix;_genealogy">
+	    <title>GNAT &prefix;/Containers/Genealogy</title>
+	</menu>
+    </submenu>
+    <!-- Hash -->
+
+    <action name="&prefix;_hash" category="">
+	<shell>
+    	    Project.load "&example_root;/gnat/containers/hash/hash.gpr"
+	</shell>
+	<shell>
+    	    Editor.edit "test_hash.adb"
+	</shell>
+	<shell>
+    	    Editor.edit "README.testing"
+        </shell>
+    </action>
+
+    <submenu before="About">
+	<title>&menu;</title>
+	<menu action="&prefix;_hash">
+	    <title>GNAT &prefix;/Containers/Hash</title>
+	</menu>
+    </submenu>
+    <!-- Hash -->
+
+    <action name="&prefix;_library" category="">
+	<shell>
+    	    Project.load "&example_root;/gnat/containers/library/library.gpr"
+	</shell>
+	<shell>
+    	    Editor.edit "test_hash.adb"
+	</shell>
+	<shell>
+    	    Editor.edit "README.testing"
+        </shell>
+    </action>
+
+    <submenu before="About">
+	<title>&menu;</title>
+	<menu action="&prefix;_library">
+	    <title>GNAT &prefix;/Containers/Library</title>
+	</menu>
+    </submenu>
+    <!-- SHAPES -->
+
+    <action name="&prefix;_shapes" category="">
+	<shell>
+    	    Project.load "&example_root;/gnat/containers/shapes/shapes.gpr"
+	</shell>
+	<shell>
+    	    Editor.edit "shapes.adb"
+	</shell>
+	<shell>
+    	    Editor.edit "README.testing"
+        </shell>
+    </action>
+
+    <submenu before="About">
+	<title>&menu;</title>
+	<menu action="&prefix;_shapes">
+	    <title>GNAT &prefix;/Containers/Shapes</title>
+	</menu>
+    </submenu>
+    <!-- SPELLCHECK -->
+
+    <action name="&prefix;_spellcheck" category="">
+	<shell>
+    	    Project.load "&example_root;/gnat/containers/spellcheck/spellcheck.gpr"
+	</shell>
+	<shell>
+    	    Editor.edit "spellcheck.adb"
+	</shell>
+	<shell>
+    	    Editor.edit "README.testing"
+        </shell>
+    </action>
+
+    <submenu before="About">
+	<title>&menu;</title>
+	<menu action="&prefix;_spellcheck">
+	    <title>GNAT &prefix;/Containers/Spellcheck</title>
+	</menu>
+    </submenu>
+    <!-- WORDCOUNT -->
+
+    <action name="&prefix;_wordcount" category="">
+	<shell>
+    	    Project.load "&example_root;/gnat/containers/wordcount/wordcount.gpr"
+	</shell>
+	<shell>
+    	    Editor.edit "wordcount.adb"
+	</shell>
+	<shell>
+    	    Editor.edit "README.testing"
+        </shell>
+    </action>
+
+    <submenu before="About">
+	<title>&menu;</title>
+	<menu action="&prefix;_wordcount">
+	    <title>GNAT &prefix;/Containers/Wordcount</title>
+	</menu>
+    </submenu>
+    <!-- WORDFREQ -->
+
+    <action name="&prefix;_wordfreq" category="">
+	<shell>
+    	    Project.load "&example_root;/gnat/containers/wordfreq/wordfreq.gpr"
+	</shell>
+	<shell>
+    	    Editor.edit "wordfreq.adb"
+	</shell>
+	<shell>
+    	    Editor.edit "README.testing"
+        </shell>
+    </action>
+
+    <submenu before="About">
+	<title>&menu;</title>
+	<menu action="&prefix;_wordfreq">
+	    <title>GNAT &prefix;/Containers/Wordfreq</title>
+	</menu>
+    </submenu>
+    <!-- OO_INTERFACES -->
+
+    <action name="&prefix;_oo_interfaces" category="">
+        <shell>
+            Project.load "&example_root;/gnat/oo_interfaces/oo_interfaces.gpr"
+        </shell>
+        <shell>
+            Editor.edit "main.adb"
+        </shell>
+        <shell>
+            Editor.edit "README.testing"
+        </shell>
+    </action>
+
+    <submenu before="About">
+        <title>&menu;</title>
+        <menu action="&prefix;_oo_interfaces">
+            <title>GNAT &prefix;/Another Interface Example</title>
+        </menu>
+    </submenu>
+
+    <!-- OO_AIRLINE -->
+
+    <action name="&prefix;_oo_airline" category="">
+        <shell>
+            Project.load "&example_root;/gnat/oo_airline/oo_airline.gpr"
+        </shell>
+        <shell>
+            Editor.edit "broker.adb"
+        </shell>
+        <shell>
+            Editor.edit "README.testing"
+        </shell>
+    </action>
+
+    <submenu before="About">
+        <title>&menu;</title>
+        <menu action="&prefix;_oo_airline">
+            <title>GNAT &prefix;/Simple Interface</title>
+        </menu>
+    </submenu>
+
+    <!-- ALTIVEC -->
+
+    <action name="&prefix;_altivec" category="">
+        <shell>
+            Project.load "&example_root;/gnat/altivec/altivec_soft.gpr"
+        </shell>
+        <shell>
+            Editor.edit "altivec.adb"
+        </shell>
+        <shell>
+            Editor.edit "README.testing"
+        </shell>
+    </action>
+
+    <submenu before="About">
+        <title>&menu;</title>
+        <menu action="&prefix;_altivec">
+            <title>GNAT &prefix;/AltiVec</title>
+        </menu>
+    </submenu>
+
+
+</gnat_examples>
+

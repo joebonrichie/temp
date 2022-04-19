@@ -1,0 +1,217 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>18. Refcount: Reference counting &#8212; GNATColl 2021 documentation</title>
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="19. Config: Parsing configuration files" href="config.html" />
+    <link rel="prev" title="17. Projects: manipulating gpr files" href="projects.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="config.html" title="19. Config: Parsing configuration files"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="projects.html" title="17. Projects: manipulating gpr files"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">GNATColl 2021 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">18. </span><strong>Refcount</strong>: Reference counting</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="refcount-reference-counting">
+<h1><span class="section-number">18. </span><strong>Refcount</strong>: Reference counting<a class="headerlink" href="#refcount-reference-counting" title="Permalink to this headline">¶</a></h1>
+<p>Memory management is often a difficulty in defining an API. Should we let
+the user be responsible for freeing the types when they are no longer needed,
+or can we do it automatically on his behalf ?</p>
+<p>The latter approach is somewhat more costly in terms of efficiency (since
+we need extra house keeping to know when the type is no longer needed), but
+provides an easier to use API.</p>
+<p>Typically, such an approach is implemented using reference counting: all
+references to an object increment a counter. When a reference disappears,
+the counter is decremented, and when it finally reaches 0, the object is
+destroyed.</p>
+<p id="index-0">This approach is made convenient in Ada using controlled types. However,
+there are a number of issues to take care of to get things exactly right.
+In particular, the Ada Reference Manual specifies that <cite>Finalize</cite>
+should be idempotent: it could be called several times for a given object,
+in particular when exceptions occur.</p>
+<p>An additional difficulty is task-safety: incrementing and decrementing the
+counter should be task safe, since the controlled object might be referenced
+from several task (the fact that other methods on the object are task safe
+or not is given by the user application, and cannot be ensures through the
+reference counting mecanism).</p>
+<p>To make things easier, GNATColl provides the package
+<cite>GNATCOLL.Refcount</cite>. This package contains a generic child package.</p>
+<p>To use it, you need to create a new tagged type that extends
+<cite>GNATCOLL.Refcount.Refcounted</cite>, so that it has a counter. Here is an
+example:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kn">with</span> <span class="nn">GNATCOLL.Refcount</span><span class="p">;</span>  <span class="kn">use</span> <span class="nn">GNATCOLL.Refcount</span><span class="p">;</span>
+
+<span class="kd">package</span> <span class="nc">My_Pkg</span> <span class="kr">is</span>
+   <span class="kd">type</span> <span class="kt">My_Type</span> <span class="kr">is</span> <span class="kr">new</span> <span class="n">Refcounted</span> <span class="kr">with</span> <span class="kr">record</span>
+      <span class="n">Field1</span> <span class="p">:</span> <span class="p">...;</span>   <span class="c1">--  Anything</span>
+   <span class="kr">end record</span><span class="p">;</span>
+
+   <span class="kd">package</span> <span class="nc">My_Type_Ptr</span> <span class="kr">is new</span> <span class="nc">Smart_Pointers</span> <span class="p">(</span>My_Type<span class="p">);</span>
+<span class="kr">end</span> <span class="nf">My_Pkg</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The code above makes a <cite>Ref</cite> available. This is similar in semantics
+to an access type, although it really is a controlled type. Every time you
+assign the <cite>Ref</cite>, the counter is incremented. When the <cite>Ref</cite> goes
+out of scope, the counter is decremented, and the object is potentially
+freed.</p>
+<p>Here an example of use of the package:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kr">declare</span>
+   <span class="n">R</span>   <span class="p">:</span> <span class="n">Ref</span><span class="p">;</span>
+   <span class="n">Tmp</span> <span class="p">:</span> <span class="n">My_Type</span> <span class="p">:=</span> <span class="p">...;</span>
+<span class="kr">begin</span>
+   <span class="n">Set</span> <span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">Tmp</span><span class="p">);</span>           <span class="c1">--  Increment counter</span>
+   <span class="n">Get</span> <span class="p">(</span><span class="n">R</span><span class="p">).</span><span class="n">Field1</span> <span class="p">:=</span> <span class="p">...;</span>  <span class="c1">--  Access referenced object</span>
+<span class="kr">end</span><span class="p">;</span>
+
+<span class="c1">--  R out of scope, so decrement counter, and free Tmp</span>
+</pre></div>
+</div>
+<p>Although reference counting solves most of the issues with memory management,
+it can get tricky: when there is a cycle between two reference counted objects
+(one includes a reference to the other, and the other a reference to the
+first), their counter can never become 0, and thus they are never freed.</p>
+<p>There are, however, common design patterns where this can severly interfer:
+imagine you want to have a <cite>Map</cite>, associating a name with a reference
+counted object. Typically, the map would be a cache of some sort. While the
+object exists, it should be referenced in the map. So we would like the Map
+to store a reference to the object. But that means the object will then
+never be freed while the map exists either, and memory usage will only
+increase.</p>
+<p id="index-1">The solution to this issue is to use <cite>weak references</cite>. These hold
+a pointer to an object, but do not increase its counter. As a result,
+the object can eventually be freed. At that point, the internal data in
+the weak reference is reset to <cite>null</cite>, although the weak reference
+object itself is still valid.</p>
+<p>Here is an example:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kn">with</span> <span class="nn">GNATCOLL.Refcount.Weakref</span><span class="p">;</span>
+<span class="kn">use</span> <span class="nn">GNATCOLL.Refcount.Weakref</span><span class="p">;</span>
+
+<span class="kd">type</span> <span class="kt">My_Type</span> <span class="kr">is</span> <span class="kr">new</span> <span class="n">Weak_Refcounted</span> <span class="kr">with</span><span class="p">...;</span>
+
+<span class="kd">package</span> <span class="nc">Pointers</span> <span class="kr">is new</span> <span class="nc">Weakref_Pointers</span> <span class="p">(</span>My_Type<span class="p">);</span>
+</pre></div>
+</div>
+<p>The above code can be used instead of the code in the first example, and
+provides the same capability (smart pointers, reference counted types,…).
+However, the type <cite>My_Type</cite> is slightly bigger, but can be used to
+create weak references:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="n">WR</span> <span class="p">:</span> <span class="n">Weak_Ref</span><span class="p">;</span>
+
+<span class="kr">declare</span>
+   <span class="n">R</span>   <span class="p">:</span> <span class="n">Ref</span><span class="p">;</span>
+   <span class="n">Tmp</span> <span class="p">:</span> <span class="n">My_Type</span> <span class="p">:=</span> <span class="p">...;</span>
+<span class="kr">begin</span>
+   <span class="n">Set</span> <span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">Tmp</span><span class="p">);</span>           <span class="c1">--  Increment counter</span>
+   <span class="n">WR</span> <span class="p">:=</span> <span class="n">Get_Weak_Ref</span> <span class="p">(</span><span class="n">R</span><span class="p">);</span> <span class="c1">--  Get a weak reference</span>
+
+   <span class="n">Get</span> <span class="p">(</span><span class="n">R</span><span class="p">).</span><span class="n">Field1</span> <span class="p">:=</span> <span class="p">...;</span>  <span class="c1">--  Access referenced object</span>
+   <span class="n">Get</span> <span class="p">(</span><span class="n">Get</span> <span class="p">(</span><span class="n">WR</span><span class="p">)).</span><span class="n">Field1</span> <span class="p">:=</span> <span class="p">...;</span>  <span class="c1">--  Access through weak ref</span>
+<span class="kr">end</span><span class="p">;</span>
+
+<span class="c1">--  R out of scope, so decrement counter, and free Tmp</span>
+
+<span class="kr">if</span> <span class="n">Get</span> <span class="p">(</span><span class="n">WR</span><span class="p">)</span> <span class="o">/=</span> <span class="n">Null_Ref</span> <span class="kr">then</span>  <span class="c1">--  access to WR still valid</span>
+    <span class="c1">--  Always true, since Tmp was freed</span>
+<span class="kr">end</span> <span class="kr">if</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The example above is very simplified. Imagine, however, that you store
+<cite>WR</cite> in a map. Even when <cite>R</cite> is deallocated, the contents of the
+map remains accessible without a <cite>Storage_Error</cite> (although using
+<cite>Get</cite> will return <cite>Null_Ref</cite>, as above).</p>
+<p>For task-safety issues, <cite>Get</cite> on a weak-reference returns a smart
+pointer. Therefore, this ensures that the object is never freed while that
+smart pointer object lives. As a result, we recommend the following construct in
+your code:</p>
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kr">declare</span>
+  <span class="no">R</span> <span class="p">:</span> <span class="kr">constant</span> <span class="n">Ref</span> <span class="p">:=</span> <span class="n">Get</span> <span class="p">(</span><span class="n">WR</span><span class="p">);</span>
+<span class="kr">begin</span>
+  <span class="kr">if</span> <span class="n">R</span> <span class="o">/=</span> <span class="n">Null_Ref</span> <span class="kr">then</span>
+     <span class="c1">--  Get (R) never becomes null while in this block</span>
+  <span class="kr">end</span> <span class="kr">if</span><span class="p">;</span>
+<span class="kr">end</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/adacore_transparent.png" alt="Logo"/>
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="projects.html"
+                        title="previous chapter"><span class="section-number">17. </span><strong>Projects</strong>: manipulating gpr files</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="config.html"
+                        title="next chapter"><span class="section-number">19. </span><strong>Config</strong>: Parsing configuration files</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="config.html" title="19. Config: Parsing configuration files"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="projects.html" title="17. Projects: manipulating gpr files"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">GNATColl 2021 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">18. </span><strong>Refcount</strong>: Reference counting</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2007-2021, AdaCore.
+    </div>
+  </body>
+</html>

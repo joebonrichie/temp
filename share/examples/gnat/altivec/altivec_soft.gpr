@@ -1,0 +1,11 @@
+project Altivec_Soft is
+
+  for Source_Dirs use (".");
+  for Object_Dir use "obj/";
+  for Main use ("altivec");
+
+  package Compiler is
+     for Default_Switches ("Ada") use ("-gnatwa", "-gnaty");
+  end Compiler;
+
+end Altivec_Soft;

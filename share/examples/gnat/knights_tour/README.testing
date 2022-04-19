@@ -1,0 +1,68 @@
+		       G N A T   E X A M P L E S
+		       =========================
+
+
+In order to compile the examples, make sure that the 'gprbuild' command is
+in your path. 
+
+Invocation
+----------
+
+In order to build the executable provided in this example, you need to use 
+the "knights_tour.gpr" project file.  On the command-line, do the following: 
+
+  $ gprbuild -P knights_tour
+
+Alternatively, in GPS, click on "Build", then "Make" and select 
+"knights_tour".  The executable "knights_tour" will be built.  You can also 
+simply press the F4 key.  
+
+By default, the program builds an MS Windows console application.  However, 
+by changing the scenario variable "Output" to "ANSI", a console supporting 
+ANSI escape sequences can be accommodated.  Other consoles could also be 
+accommodated by creating a concrete instance of the abstract Console.Device 
+type and a corresponding version of the body for function Selected_Console.  
+
+The "knights_tour" executable is an interactive program.  See below for 
+information on running the program.  
+
+Features illustrated
+---------------
+
+* The Knight's Tour is a classic example illustrating recursive backtracking 
+  algorithms.  The program will attempt to use the legal knight piece moves to 
+  visit all the positions on a given chess board, exactly once, starting at the 
+  initial move specified.  A recursive backtracking algorithm is used for this 
+  purpose.  Specifically, if a given order of visitation gets to a "dead end", 
+  in which no other legal knight's moves are possible before all positions have 
+  been visited, the program will "back up" one level and try a different order.  
+  If that order fails, the program will continue to backtrack until either it 
+  finds a successful order or gets all the way back to the initial move and has 
+  no other moves possible.  Only the first successful order found is displayed; 
+  other orders may also be possible for a given board and starting position.  
+
+  When run, the user is first prompted for the length of the side of a square 
+  chess board.  The side size is entirely up to the user, as long as it is 
+  greater than zero.  A 31-by-31 board can be displayed properly, for example.  
+  However, the ability to display the board in the window is a practical 
+  limitation.  On MS Windows, changing the properties of the window, 
+  specifically the "Screen Buffer Size" width and height, can enable quite 
+  large boards to be displayed.  
+
+  The user is next prompted for the initial move, specified by entering the
+  row and column values separated by a space. For example, to start at move
+  (Row => 2, Column => 1), the user would enter the following (without
+  quotes): "2 1".
+
+  The current order in which each position is visited is displayed as the
+  program proceeds. If backtracking is required, the current move number is
+  erased from candidate positions and replaced by numbers representing the new
+  attempted visitation order. Backtracking can thus be observed during
+  execution (depending on the amount of backtracking required).  The board
+  will be completely erased and "No Solution" will be displayed if no
+  solution is possible for the given size and starting position.
+
+  A useful example requiring extensive backtracking is a board with a side
+  size of 5 (for a 5-by-5 chess board), starting at position (2,1). No
+  solution is possible in this configuration so you can see the program
+  attempting a large number of traversal orders.

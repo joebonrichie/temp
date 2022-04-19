@@ -1,0 +1,96 @@
+		       G N A T   E X A M P L E S
+                       =========================
+
+This directory contains various examples that demonstrate how to use GNAT.
+Each subdirectory contains a set of small examples illustrating a particular
+point of our technology, as well as a short text file called README.testing
+indicating how to compile and run the corresponding examples.
+
+In any README file, the '$' sign denotes the system prompt.
+
+Important notice: if you are on a multiuser machine and get the present example
+directory from a shared gnat installation, you may not be able to compile
+directly in this directory.
+In this situation, you will need to copy this directory
+to another directory where you have the write permission. For instance,
+on many Unix systems, you will do:
+  $ cp -r <prefix>/examples <another directory>
+
+You can compile and run all the examples by simply running:
+  $ make
+
+If you are on a Windows system and use the Cygwin environment, in order to
+use the Makefiles from the cygwin shell you need to type:
+  $ make CYGWIN=true
+
+If you are using a cross compiler you need to type:
+  $ make TARGET=<target name>
+
+where target is the prefix of your GNAT commands. For instance, if you are
+using a cross compiler for PowerPC with VxWorks you need to type:
+  $ make TARGET=powerpc-wrs-vxworks
+
+You can also compile and run the examples located in a given directory by
+typing:
+  $ make <directory>
+
+in this directory, or by doing:
+  $ cd <directory>
+  $ make
+
+You can also type
+  $ make clean
+
+anywhere to remove the files produced at compilation time.
+
+You may want to have a look at Makefile.inc which defines all of the variables
+allowing some configurability in the runs. For instance, if you do not want to
+run the diners example because it takes a long time, you can use the RUN_DINERS
+variable:
+  $ make RUN_DINERS=false
+
+or if you have g++ installed and like to run the c++ interfacing example:
+  $ make CPLUSPLUS=true
+
+Here's a list of the various subdirectories:
+
+starter:
+
+    This directory contains your very first Ada program, the traditional
+    "Hello world" program. You will learn how to invoke GNAT, and how to
+    find a basic error.
+
+options:
+
+    This directory shows some useful GNAT options, such as optimization
+    level, syntax checking, binder control ...
+
+simple_project:
+
+    This directory is an introduction to the GNAT project feature, which
+    allows you to specify in a separate file many compilation options.
+
+full_project:
+
+    This directory is a follow-up to the previous one. It demonstrates
+    how to use some advanced features of the project files, such as the
+    external variables.
+
+other_languages:
+
+    This directory demonstrates how to call subprograms written in languages
+    different from Ada, in particular C and C++. You will need to have
+    a working C++ compiler in order to run these examples.
+
+udp_sockets:
+
+    This directory contains a simple client sending a string as an UDP
+    datagram, and a server receiving and displaying such datagrams using
+    a non-blocking socket using GNAT.Sockets.
+
+hash_file:
+
+    This directory provides an example implementation for a generic
+    command line tool computing a hash function over a file.
+
+	     Thank you for using GNAT, and happy training !
